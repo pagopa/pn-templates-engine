@@ -1,7 +1,8 @@
 package it.pagopa.pn.template.legalfacts;
 
+import static it.pagopa.pn.template.exceptions.TemplateExceptionCodes.ERROR_TEMPLATES_CLIENT_DOCUMENTCOMPOSITIONFAILED;
+
 import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
-import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -25,28 +26,24 @@ public class DocumentComposition {
 
   private final Configuration freemarkerConfig;
 
-  public String executeTextTemplate(String templateName, Map<String, Object> mapTemplateModel) {
-    log.info("Execute templateName={} START", templateName);
-    StringWriter stringWriter = new StringWriter();
-    try {
-      freemarkerConfig.setTemplateLoader(new StringTemplateLoader());
-      Template template = new Template("templateName", new StringReader(templateName),
-          freemarkerConfig);
+  public String executeTextTemplate(String content, Map<String, Object> mapTemplateModel) {
+    log.info("Execute Text content={} START", content);
+    try (StringWriter stringWriter = new StringWriter()) {
+      var template = new Template(content, new StringReader(content), freemarkerConfig);
       template.process(mapTemplateModel, stringWriter);
+      log.info("Execute Text content END");
+      return stringWriter.getBuffer().toString();
     } catch (IOException | TemplateException exc) {
-      //TODO ERROR_CODE_DELIVERYPUSH_DOCUMENTCOMPOSITIONFAILED
-      throw new PnInternalException("Processing template " + templateName,
-          "TODO ERROR_CODE_DELIVERYPUSH_DOCUMENTCOMPOSITIONFAILED", exc);
+      throw new PnInternalException("Processing template",
+          ERROR_TEMPLATES_CLIENT_DOCUMENTCOMPOSITIONFAILED, exc);
     }
-    log.info("Execute templateName={} END", templateName);
-    return stringWriter.getBuffer().toString();
   }
 
-  public byte[] executePdfTemplate(String templateName, Map<String, Object> mapTemplateModel) {
-    String html = executeTextTemplate(templateName, mapTemplateModel);
+  public byte[] executePdfTemplate(String content, Map<String, Object> mapTemplateModel) {
+    String html = executeTextTemplate(content, mapTemplateModel);
     // TODO baseUris
     String baseUri = "";
-    log.info("Pdf conversion start for templateName={} with baseUri={}", templateName, baseUri);
+    log.info("Pdf conversion start for templateName={} with baseUri={}", content, baseUri);
     byte[] pdf = html2Pdf(baseUri, html);
     log.info("Pdf conversion done");
     return pdf;
