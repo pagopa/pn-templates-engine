@@ -41,15 +41,13 @@ public class DocumentComposition {
 
   public byte[] executePdfTemplate(String content, Map<String, Object> mapTemplateModel) {
     String html = executeTextTemplate(content, mapTemplateModel);
-    // TODO baseUris
-    String baseUri = "";
-    log.info("Pdf conversion start for templateName={} with baseUri={}", content, baseUri);
-    byte[] pdf = html2Pdf(baseUri, html);
+    log.info("Pdf conversion start for templateName={} ", content);
+    byte[] pdf = html2Pdf(html);
     log.info("Pdf conversion done");
     return pdf;
   }
 
-  private byte[] html2Pdf(String baseUri, String html) {
+  private byte[] html2Pdf(String html) {
     try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
       Document jsoupDoc = Jsoup.parse(html);
       W3CDom w3cDom = new W3CDom();
@@ -57,7 +55,7 @@ public class DocumentComposition {
       PdfRendererBuilder builder = new PdfRendererBuilder();
       builder.usePdfUaAccessbility(true);
       builder.usePdfAConformance(PdfRendererBuilder.PdfAConformance.PDFA_3_A);
-      builder.withW3cDocument(w3cDoc, baseUri);
+      builder.withW3cDocument(w3cDoc, null);
       builder.toStream(baos);
       builder.run();
       return baos.toByteArray();
