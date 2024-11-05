@@ -1,4 +1,4 @@
-package it.pagopa.pn.template;
+package it.pagopa.pn.templates.engine;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

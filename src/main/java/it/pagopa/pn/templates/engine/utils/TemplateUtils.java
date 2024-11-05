@@ -1,4 +1,4 @@
-package it.pagopa.pn.template.utils;
+package it.pagopa.pn.templates.engine.utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

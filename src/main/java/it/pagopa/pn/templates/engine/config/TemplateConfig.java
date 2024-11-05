@@ -1,4 +1,4 @@
-package it.pagopa.pn.template.config;
+package it.pagopa.pn.templates.engine.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class TemplateConfig {
 
   private String path;
+  private String fontPath;
 
 
 }

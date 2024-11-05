@@ -1,9 +1,9 @@
-package it.pagopa.pn.template.dao;
+package it.pagopa.pn.templates.engine.dao;
 
-import static it.pagopa.pn.template.exceptions.TemplateExceptionCodes.ERROR_TEMPLATES_CLIENT_DOCUMENTCOMPOSITIONFAILED;
+import static it.pagopa.pn.templates.engine.exceptions.TemplateExceptionCodes.ERROR_TEMPLATES_CLIENT_DOCUMENTCOMPOSITIONFAILED;
 
 import it.pagopa.pn.commons.exceptions.PnInternalException;
-import it.pagopa.pn.template.config.TemplateConfig;
+import it.pagopa.pn.templates.engine.config.TemplateConfig;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -17,13 +17,10 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class FileDao {
 
-  private final TemplateConfig templateConfig;
-
   public String getFile(String file) {
     try {
-      var fileAndPath = templateConfig.getPath() + file;
-      log.info("Read fileAndPath={} ", fileAndPath);
-      Path path = Paths.get(fileAndPath);
+      log.info("Read fileAndPath={} ", file);
+      Path path = Paths.get(file);
       return Files.readString(path);
     } catch (IOException e) {
       throw new PnInternalException("File not found",

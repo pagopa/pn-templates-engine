@@ -1,0 +1,14 @@
+logging:
+  config:
+    classpath:
+      logback-base.xml
+  level:
+    root: INFO
+
+spring:
+  application:
+    name: PN-TEMPLATES-ENGINE
+
+pn:
+  env:
+    runtime: PROD

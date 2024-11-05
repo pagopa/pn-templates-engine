@@ -1,4 +1,4 @@
-package it.pagopa.pn.template.exceptions;
+package it.pagopa.pn.templates.engine.exceptions;
 
 import it.pagopa.pn.commons.exceptions.PnExceptionsCodes;
 
