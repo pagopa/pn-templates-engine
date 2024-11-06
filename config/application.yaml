@@ -1,0 +1,8 @@
+logging:
+  config: classpath:logback-local.xml
+
+# Runtime mode
+pn:
+  env:
+    runtime: DEVELOPMENT
+#pn.env.runtime=PROD
