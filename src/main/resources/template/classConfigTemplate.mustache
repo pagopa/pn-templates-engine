@@ -1,0 +1,30 @@
+package {{packageName}};
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ApiTemplateMetadataConfig {
+    private static final Map<String, Map<String, String>> apiMetadata = new HashMap<>();
+
+static {
+    {{#paths}}
+        {{#get}}
+            Map<String, String> {{operationId}}Metadata = new HashMap<>();
+            {{#vendorExtensions.x-metadata}}
+                {{#each}}
+                    {{operationId}}Metadata.put("{{@key}}", "{{this}}");
+                {{/each}}
+            {{/vendorExtensions.x-metadata}}
+            apiMetadata.put("{{operationId}}", {{operationId}}Metadata);
+        {{/get}}
+    {{/paths}}
+}
+
+    public static Map<String, String> getMetadata(String apiName) {
+        return apiMetadata.get(apiName);
+        }
+
+    public static Map<String, Map<String, String>> getAllMetadata() {
+        return apiMetadata;
+    }
+}

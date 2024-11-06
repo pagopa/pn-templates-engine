@@ -60,6 +60,31 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.openapitools</groupId>
+			<artifactId>jackson-databind-nullable</artifactId>
+			<version>0.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>2.2.15</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-yaml</artifactId>
+			<version>2.15.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -126,6 +151,33 @@
 								<modelPackage>${project.groupId}.template.rest.v1.dto</modelPackage>
 								<apiPackage>${project.groupId}.template.rest.v1.api</apiPackage>
 								<configPackage>${project.groupId}.template.rest.v1.config</configPackage>
+							</configOptions>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generate-api-metadata</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${project.basedir}/docs/openapi/pn-config-template.yaml</inputSpec>
+							<generatorName>spring</generatorName>
+							<templateDirectory>${project.basedir}/src/main/resources/</templateDirectory>
+							<library>spring-boot</library>
+							<additionalProperties>
+								<modelPackage>${project.groupId}.template.config</modelPackage>
+								<packageName>${project.groupId}.template.config</packageName>
+								<useVendorExtensions>true</useVendorExtensions>
+							</additionalProperties>
+							<configOptions>
+								<supportingFiles>
+									<supportingFile>
+										<templateFile>classConfigTemplate.mustache</templateFile>
+										<destinationFilename>ApiTemplateMetadataConfig.java</destinationFilename>
+										<folder>${project.build.outputDirectory}/it/pagopa/pn/template/config</folder>
+									</supportingFile>
+								</supportingFiles>
 							</configOptions>
 						</configuration>
 					</execution>
