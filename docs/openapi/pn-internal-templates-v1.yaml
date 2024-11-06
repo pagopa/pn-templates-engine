@@ -1,19 +1,26 @@
-openapi: 3.0.1
+openapi: 3.0.3
 info:
-  title: PN Template BE Microservice
-  description: Documentation APIs v1.0
-  termsOfService: https://termofservice.it
-  x-api-id: api-internal-template
-  x-summary: 'Piattaforma Notifiche: API template'
-  version: '1.0.0'
+  title: API Templates Engine
+  description: |
+    # Interface definition for Templates Engine
+  version: 1.0.0
   contact:
-    email: pn@pagopa.it
-  license:
-    name: Licenza di PN
-    url: 'https://da-definire/'
+    name: API Support
+    url: http://www.pagopa.com/support
+    email: support@pagopa.com
+  termsOfService: termsOfService
+  x-api-id: ppr-chnnl
+  x-summary: summary
 servers:
   - url: https://api.pn.pagopa.it
     description: Generated server url
+
+tags:
+  - name: PdfTemplate
+    description: Servizi per la generazione delle mail, pdf e sms.
+  - name: HealthCheck
+    description: Metodo heartbeat
+
 paths:
   /status:
     get:
@@ -27,35 +34,17 @@ paths:
           description: Ok
         '500':
           description: Internal Server Error
-  /template/api/httpheaders:
-    get:
-      summary: Build a map of all the Http Header for the request
-      operationId: getHttpHeadersMap
-      tags:
-        - TemplateSample
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                additionalProperties:
-                  type: array
-                  items:
-                    type: string
-        '500':
-          description: InternalServerError
+
   /templates-engine-private/v1/templates/notification-received-legal-fact:
     put:
-      summary: Generazione del template1
-      description: Genera un documento PDF basato sul template1.
+      summary: Generazione del pdf legato al template NotificationReceivedLegalFact
+      description: Genera un documento PDF basato sul template notificationReceivedLegalFact.
       operationId: notificationReceivedLegalFact
       tags:
-        - NotificationReceivedLegalFact
+        - PdfTemplate
       parameters:
         - in: header
-          name: language
+          name: X-Language
           description: Lingua del documento
           required: true
           schema:
@@ -67,7 +56,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/NotificationInt"
+              $ref: '#/components/schemas/NotificationReceiverLegalFact'
+
       responses:
         '200':
           description: Ok
@@ -87,56 +77,37 @@ paths:
               schema:
                 type: string
                 format: binary
-
+        "404":
+          description: Indica che la richiesta con requestId non è stata trovata
+          content:
+            application/problem+json:
+              schema:
+                $ref: 'remote-refs.yaml#/components/schemas/Problem'
 components:
   schemas:
-    NotificationInt:
+    NotificationReceiverLegalFact:
+      type: object
+      properties:
+        sendDate:
+          type: string
+        notification:
+          $ref: '#/components/schemas/Notification'
+        digest:
+          type: string
+        subject:
+          type: string
+        recipient:
+          $ref: '#/components/schemas/Recipient'
+
+    Notification:
       type: object
       properties:
         iun:
           type: string
-        paProtocolNumber:
-          type: string
-        subject:
-          type: string
-        sentAt:
-          type: string
-          format: date-time
-        paFee:
-          type: integer
-        vat:
-          type: integer
-        group:
-          type: string
-        version:
-          type: string
-        additionalLanguages:
-          type: array
-          items:
-            type: string
-        amount:
-          type: integer
-        paymentExpirationDate:
-          type: string
-          format: date-time
         sender:
-          $ref: '#/components/schemas/NotificationSenderInt'
-        recipients:
-          type: array
-          items:
-            $ref: '#/components/schemas/NotificationRecipientInt'
-        documents:
-          type: array
-          items:
-            $ref: '#/components/schemas/NotificationDocumentInt'
-        physicalCommunicationType:
-          $ref: '#/components/schemas/ServiceLevelTypeInt'
-        notificationFeePolicy:
-          $ref: '#/components/schemas/NotificationFeePolicy'
-        pagoPaIntMode:
-          $ref: '#/components/schemas/PagoPaIntMode'
+          $ref: '#/components/schemas/NotificationSender'
 
-    NotificationSenderInt:
+    NotificationSender:
       type: object
       properties:
         paId:
@@ -146,150 +117,18 @@ components:
         paTaxId:
           type: string
 
-    PagoPaIntMode:
-      type: string
-      enum:
-        - NONE
-        - SYNC
-        - ASYNC
-
-    ServiceLevelTypeInt:
-      type: string
-      enum:
-        - AR_REGISTERED_LETTER
-        - REGISTERED_LETTER_890
-
-    NotificationFeePolicy:
-      type: string
-      enum:
-        - FLAT_RATE
-        - DELIVERY_MODE
-
-    NotificationDocumentInt:
+    Recipient:
       type: object
       properties:
-        contentType:
-          type: string
-        digests:
-          $ref: '#/components/schemas/NotificationDocumentIntDigests'
-        ref:
-          $ref: '#/components/schemas/NotificationDocumentIntRef'
-
-    NotificationDocumentIntDigests:
-      type: object
-      properties:
-        sha256:
-          type: string
-
-    NotificationDocumentIntRef:
-      type: object
-      properties:
-        key:
-          type: string
-        versionToken:
-          type: string
-
-    NotificationRecipientInt:
-      type: object
-      properties:
-        taxId:
-          type: string
-        internalId:
-          type: string
         denomination:
           type: string
+        taxId:
+          type: string
         digitalDomicile:
-          $ref: '#/components/schemas/LegalDigitalAddressInt'
-        physicalAddress:
-          $ref: '#/components/schemas/PhysicalAddressInt'
-        payments:
-          type: array
-          items:
-            $ref: '#/components/schemas/NotificationPaymentInfoInt'
-        recipientType:
-          $ref: '#/components/schemas/RecipientTypeInt'
+          $ref: '#/components/schemas/DigitalDomicile'
 
-    RecipientTypeInt:
-      type: string
-      enum:
-        - PF
-        - PG
-
-    NotificationPaymentInfoInt:
-      type: object
-      properties:
-        pagoPA:
-          $ref: '#/components/schemas/PagoPaInt'
-        f24:
-          $ref: '#/components/schemas/F24Int'
-
-    F24Int:
-      type: object
-      properties:
-        title:
-          type: string
-        applyCost:
-          type: boolean
-        metadataAttachment:
-          $ref: '#/components/schemas/NotificationDocumentInt'
-
-    PagoPaInt:
-      type: object
-      properties:
-        noticeCode:
-          type: string
-        creditorTaxId:
-          type: string
-        applyCost:
-          type: boolean
-        attachment:
-          $ref: '#/components/schemas/NotificationDocumentInt'
-
-    PhysicalAddressInt:
-      type: object
-      properties:
-        fullname:
-          type: string
-        at:
-          type: string
-        address:
-          type: string
-        addressDetails:
-          type: string
-        zip:
-          type: string
-        municipality:
-          type: string
-        municipalityDetails:
-          type: string
-        province:
-          type: string
-        foreignState:
-          type: string
-
-    LegalDigitalAddressInt:
-      allOf:
-        - $ref: '#/components/schemas/DigitalAddressInt'
-        - type: object
-          properties:
-            type:
-              $ref: '#/components/schemas/LegalDigitalAddressType'
-
-    LegalDigitalAddressType:
-      type: string
-      enum:
-        - PEC
-        - SERCQ
-
-    DigitalAddressInt:
+    DigitalDomicile:
       type: object
       properties:
         address:
           type: string
-
-    ANALOG_TYPE:
-      type: string
-      enum:
-        - REGISTERED_LETTER_890
-        - SIMPLE_REGISTERED_LETTER
-        - AR_REGISTERED_LETTER
