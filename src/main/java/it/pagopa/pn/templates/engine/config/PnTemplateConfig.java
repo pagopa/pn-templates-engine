@@ -1,10 +1,11 @@
 package it.pagopa.pn.templates.engine.config;
 
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-import java.util.List;
+
 import java.util.Map;
 
 
@@ -12,13 +13,14 @@ import java.util.Map;
 @Configuration
 @ConfigurationProperties(prefix = "templates")
 public class PnTemplateConfig {
-  @Value("${resources.templates.path}")
-  private String templatePath;
-  private List<Template> templates;
 
-  @Data
-  private static class Template {
-    private String name;
-    private Map<String, String> input;
-  }
+    private String templatePath;
+
+    private Map<String, Template> templates;
+
+    @Setter
+    @Getter
+    public static class Template {
+        private Map<String, String> input;
+    }
 }

@@ -1,7 +1,5 @@
-logging:
-  config: classpath:logback-base.xml
-  level:
-    root: INFO
+logging.config: classpath:logback-base.xml
+logging.level.root: INFO
 
 spring:
   application:
@@ -10,3 +8,93 @@ spring:
 pn:
   env:
     runtime: PROD
+
+templates:
+  templatePath: "templates"
+  templates:
+    notification-received-legal-fact:
+      input:
+        it: "NotificationReceivedLegalFact.html"
+        de: "NotificationReceivedLegalFact_de.html"
+        sl: "NotificationReceivedLegalFact_sl.html"
+        fr: "NotificationReceivedLegalFact_fr.html"
+    pecDeliveryWorkflowLegalFact:
+      input:
+        it: "PecDeliveryWorkflowLegalFact.html"
+        de: "PecDeliveryWorkflowLegalFact_de.html"
+        sl: "PecDeliveryWorkflowLegalFact_sl.html"
+        fr: "PecDeliveryWorkflowLegalFact_fr.html"
+    notificationViewedLegalFact:
+      input:
+        it: "NotificationViewedLegalFact.html"
+        de: "NotificationViewedLegalFact_de.html"
+        sl: "NotificationViewedLegalFact_sl.html"
+        fr: "NotificationViewedLegalFact_fr.html"
+    pdfFileCompliance:
+      input:
+        it: "PdfFileCompliance.html"
+    pdfLegalFact:
+      input:
+        it: "PdfLegalFact.html"
+        de: "PdfLegalFact_de.html"
+        sl: "PdfLegalFact_sl.html"
+        fr: "PdfLegalFact_fr.html"
+    notificationCancelledLegalFact:
+      input:
+        it: "NotificationCancelledLegalFact.html"
+        de: "NotificationCancelledLegalFact_de.html"
+        sl: "NotificationCancelledLegalFact_sl.html"
+        fr: "NotificationCancelledLegalFact_fr.html"
+      notificationAAR:
+        input:
+          it: "NotificationAAR.html"
+          de: "NotificationAAR_de.html"
+          sl: "NotificationAAR_sl.html"
+          fr: "NotificationAAR_fr.html"
+      notificationAAR_RADDalt:
+        input:
+          it: "NotificationAAR_RADDalt.html"
+          de: "NotificationAAR_RADDalt_de.html"
+          sl: "NotificationAAR_RADDalt_sl.html"
+          fr: "NotificationAAR_RADDalt_fr.html"
+      analogDeliveryWorkflowFailureLegalFact:
+        input:
+          it: "AnalogDeliveryWorkflowFailureLegalFact.html"
+          de: "AnalogDeliveryWorkflowFailureLegalFact_de.html"
+          sl: "AnalogDeliveryWorkflowFailureLegalFact_sl.html"
+          fr: "AnalogDeliveryWorkflowFailureLegalFact_fr.html"
+      notificationAARForEMAIL:
+        input:
+          it: "NotificationAARForEMAIL.html"
+          de: "NotificationAARForEMAIL_de.html"
+          sl: "NotificationAARForEMAIL_sl.html"
+          fr: "NotificationAARForEMAIL_fr.html"
+      notificationAARForPEC:
+        input:
+          it: "NotificationAARForPEC.html"
+          de: "NotificationAARForPEC_de.html"
+          sl: "NotificationAARForPEC_sl.html"
+          fr: "NotificationAARForPEC_fr.html"
+      notificationAARForSMS:
+        input:
+          it: "NotificationAARForSMS.txt"
+          sub: "NotificationAARSubject.txt"
+      emailbody:
+        input:
+          it: "emailbody.html"
+          sub: "emailsubject.txt"
+      pecbody:
+        input:
+          it: "pecbody.html"
+          sub: "pecsubject.txt"
+      pecbodyconfirm:
+        input:
+          it: "pecbodyconfirm.html"
+          sub: "pecsubjectconfirm.txt"
+      pecbodyreject:
+        input:
+          it: "pecbodyreject.html"
+          sub: "pecsubjectreject.txt"
+      smsbody:
+        input:
+          it: "smsbody.txt"
