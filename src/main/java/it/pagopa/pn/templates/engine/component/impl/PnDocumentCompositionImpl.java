@@ -1,15 +1,13 @@
 package it.pagopa.pn.templates.engine.component.impl;
 
-import static it.pagopa.pn.templates.engine.exceptions.TemplateExceptionCodes.ERROR_TEMPLATES_CLIENT_DOCUMENTCOMPOSITIONFAILED;
 
 import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import it.pagopa.pn.commons.exceptions.PnInternalException;
-import it.pagopa.pn.templates.engine.config.TemplateConfig;
-import it.pagopa.pn.templates.engine.dao.FileDao;
-import it.pagopa.pn.templates.engine.component.DocumentComposition;
+import it.pagopa.pn.templates.engine.config.PnTemplateConfig;
+import it.pagopa.pn.templates.engine.component.PnDocumentComposition;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
@@ -18,6 +16,9 @@ import java.net.URI;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
+
+import it.pagopa.pn.templates.engine.exceptions.ExceptionTypeEnum;
+import it.pagopa.pn.templates.engine.exceptions.PnGenericException;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.helper.W3CDom;
@@ -27,31 +28,28 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class DocumentCompositionImpl implements DocumentComposition {
+public class PnDocumentCompositionImpl implements PnDocumentComposition {
 
   private final Configuration freemarkerConfig;
-  private final FileDao fileDao;
-  private final TemplateConfig templateConfig;
+  private final PnTemplateConfig pnTemplateConfig;
 
-  public DocumentCompositionImpl(Configuration freemarkerConfig, FileDao fileDao,
-      TemplateConfig templateConfig) {
+  public PnDocumentCompositionImpl(Configuration freemarkerConfig, PnTemplateConfig pnTemplateConfig) {
     this.freemarkerConfig = freemarkerConfig;
-    this.fileDao = fileDao;
-    this.templateConfig = templateConfig;
+    this.pnTemplateConfig = pnTemplateConfig;
   }
 
   public String executeTextTemplate(String templateName, Map<String, Object> mapTemplateModel) {
-    var content = this.fileDao.getFile(templateConfig.getPath() + templateName);
-    log.info("Execute Text content={} START", content);
-    try (StringWriter stringWriter = new StringWriter()) {
-      var template = new Template(content, new StringReader(content), freemarkerConfig);
-      template.process(mapTemplateModel, stringWriter);
-      log.info("Execute Text content END");
-      return stringWriter.getBuffer().toString();
-    } catch (IOException | TemplateException exc) {
-      throw new PnInternalException("Processing template",
-          ERROR_TEMPLATES_CLIENT_DOCUMENTCOMPOSITIONFAILED, exc);
-    }
+//    var content = this.fileDao.getFile(pnTemplateConfig.getPath() + templateName);
+//    log.info("Execute Text content={} START", content);
+//    try (StringWriter stringWriter = new StringWriter()) {
+//      var template = new Template(content, new StringReader(content), freemarkerConfig);
+//      template.process(mapTemplateModel, stringWriter);
+//      log.info("Execute Text content END");
+//      return stringWriter.getBuffer().toString();
+//    } catch (IOException | TemplateException exc) {
+//      throw new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION_FAILED, exc.getMessage());
+//    }
+    return null;
   }
 
   public byte[] executePdfTemplate(String templateName, Map<String, Object> mapTemplateModel) {
@@ -70,9 +68,9 @@ public class DocumentCompositionImpl implements DocumentComposition {
       PdfRendererBuilder builder = new PdfRendererBuilder();
       builder.usePdfUaAccessbility(true);
       builder.usePdfAConformance(PdfRendererBuilder.PdfAConformance.PDFA_3_A);
-      Path basePath = Paths.get(templateConfig.getFontPath());
-      URI baseUri = basePath.toUri();
-      builder.withW3cDocument(w3cDoc, baseUri.toString());
+//      Path basePath = Paths.get(pnTemplateConfig.getFontPath());
+//      URI baseUri = basePath.toUri();
+//      builder.withW3cDocument(w3cDoc, baseUri.toString());
       builder.toStream(baos);
       builder.run();
       return baos.toByteArray();

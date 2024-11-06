@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
-public class TemplateUtils {
+public class PnTemplateUtils {
 
   public static Map<String, Object> dtoToMap(Object object) {
     ObjectMapper mapper = new ObjectMapper();
