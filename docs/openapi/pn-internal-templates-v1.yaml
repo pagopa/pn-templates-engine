@@ -54,10 +54,10 @@ paths:
       tags:
         - NotificationReceivedLegalFact
       parameters:
-        - in: query
+        - in: header
           name: language
           description: Lingua del documento
-          required: false
+          required: true
           schema:
             type: string
             default: "it"
