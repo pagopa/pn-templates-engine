@@ -127,9 +127,9 @@
 								<reactive>true</reactive>
 								<skipDefaultInterface>false</skipDefaultInterface>
 								<useTags>true</useTags>
-								<basePackage>${project.groupId}.template.rest.v1</basePackage>
-								<modelPackage>${project.groupId}.template.rest.v1.dto</modelPackage>
-								<apiPackage>${project.groupId}.template.rest.v1.api</apiPackage>
+								<basePackage>${project.groupId}.templates.engine.rest.v1</basePackage>
+								<modelPackage>${project.groupId}.templates.engine.rest.v1.dto</modelPackage>
+								<apiPackage>${project.groupId}.templates.engine.rest.v1.api</apiPackage>
 							</configOptions>
 						</configuration>
 					</execution>
