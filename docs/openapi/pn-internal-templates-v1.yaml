@@ -49,6 +49,11 @@ paths:
           required: true
           schema:
             type: string
+            enum:
+              - it
+              - de
+              - sl
+              - fr
             default: "it"
       requestBody:
         description: Parametri necessari per generare il documento
@@ -98,6 +103,11 @@ paths:
           required: true
           schema:
             type: string
+            enum:
+              - it
+              - de
+              - sl
+              - fr
             default: "it"
       requestBody:
         description: Parametri necessari per generare il documento
