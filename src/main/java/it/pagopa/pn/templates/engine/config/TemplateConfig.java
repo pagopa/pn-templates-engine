@@ -12,7 +12,7 @@ import java.util.Map;
 @Data
 @Configuration
 @ConfigurationProperties(prefix = "templates")
-public class PnTemplateConfig {
+public class TemplateConfig {
 
     private String templatePath;
 

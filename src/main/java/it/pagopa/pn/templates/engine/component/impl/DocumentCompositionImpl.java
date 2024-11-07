@@ -3,22 +3,13 @@ package it.pagopa.pn.templates.engine.component.impl;
 
 import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
 import it.pagopa.pn.commons.exceptions.PnInternalException;
-import it.pagopa.pn.templates.engine.config.PnTemplateConfig;
-import it.pagopa.pn.templates.engine.component.PnDocumentComposition;
+import it.pagopa.pn.templates.engine.config.TemplateConfig;
+import it.pagopa.pn.templates.engine.component.DocumentComposition;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.net.URI;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Map;
 
-import it.pagopa.pn.templates.engine.exceptions.ExceptionTypeEnum;
-import it.pagopa.pn.templates.engine.exceptions.PnGenericException;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.helper.W3CDom;
@@ -28,14 +19,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class PnDocumentCompositionImpl implements PnDocumentComposition {
+public class DocumentCompositionImpl implements DocumentComposition {
 
   private final Configuration freemarkerConfig;
-  private final PnTemplateConfig pnTemplateConfig;
+  private final TemplateConfig templateConfig;
 
-  public PnDocumentCompositionImpl(Configuration freemarkerConfig, PnTemplateConfig pnTemplateConfig) {
+  public DocumentCompositionImpl(Configuration freemarkerConfig, TemplateConfig templateConfig) {
     this.freemarkerConfig = freemarkerConfig;
-    this.pnTemplateConfig = pnTemplateConfig;
+    this.templateConfig = templateConfig;
   }
 
   public String executeTextTemplate(String templateName, Map<String, Object> mapTemplateModel) {

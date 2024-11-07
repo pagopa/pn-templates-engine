@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-public class PnTemplateApplication {
+public class TemplatesEngineApplication {
 
 
     public static void main(String[] args) {
-        SpringApplication.run(PnTemplateApplication.class, args);
+        SpringApplication.run(TemplatesEngineApplication.class, args);
     }
 
 
