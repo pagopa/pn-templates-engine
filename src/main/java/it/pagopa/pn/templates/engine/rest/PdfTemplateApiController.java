@@ -1,10 +1,7 @@
 package it.pagopa.pn.templates.engine.rest;
 
 import it.pagopa.pn.templates.engine.generated.openapi.server.v1.api.PdfTemplateApi;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationReceiverLegalFact;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationViewedLegalFact;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.PdfLegalFact;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.PecDeliveryWorkflowLegalFact;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
@@ -44,6 +41,13 @@ public class PdfTemplateApiController implements PdfTemplateApi {
     public Mono<ResponseEntity<Resource>> pdfLegalFact(String xLanguage,
                                                        Mono<PdfLegalFact> pdfLegalFact,
                                                        final ServerWebExchange exchange) {
+        return Mono.empty();
+    }
+
+    @Override
+    public Mono<ResponseEntity<Resource>> notificationCancelledLegalFact(String xLanguage,
+                                                                         Mono<NotificationCancelledLegalFact> notificationCancelledLegalFact,
+                                                                         final ServerWebExchange exchange) {
         return Mono.empty();
     }
 }
