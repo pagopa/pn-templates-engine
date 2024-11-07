@@ -516,8 +516,82 @@ paths:
               schema:
                 $ref: 'remote-refs.yaml#/components/schemas/Problem'
 
+  /templates-engine-private/v1/templates/notificationAARForPEC:
+    put:
+      summary: Generazione del pdf legato al template NotificationAARForPEC
+      description: Genera un documento PDF basato sul template NotificationAARForPEC.
+      operationId: notificationAARForPEC
+      tags:
+        - PdfTemplate
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            type: string
+            enum:
+              - it
+              - de
+              - sl
+              - fr
+            default: "it"
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationAARForPEC'
+
+      responses:
+        '200':
+          description: Ok
+          headers:
+            Content-Type:
+              description: Tipo di contenuto del documento
+              schema:
+                type: string
+                example: application/pdf
+            Content-Disposition:
+              description: Disposizione del contenuto per il download come allegato
+              schema:
+                type: string
+                example: attachment; filename="document.pdf"
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        "404":
+          description: Indica che la richiesta con requestId non è stata trovata
+          content:
+            application/problem+json:
+              schema:
+                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+
 components:
   schemas:
+    NotificationAARForPEC:
+      type: object
+      properties:
+        notification:
+          $ref: '#/components/schemas/Notification'
+        logoBase64:
+          type: string
+        perfezionamentoURL:
+          type: string
+        quickAccessLink:
+          type: string
+        PNFaqSendURL:
+          type: string
+        piattaformaNotificheURL:
+          type: string
+        recipientType:
+          type: string
+        recipient:
+          $ref: '#/components/schemas/Recipient'
+
     NotificationAARForEMAIL:
       type: object
       properties:
