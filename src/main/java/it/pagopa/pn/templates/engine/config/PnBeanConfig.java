@@ -5,15 +5,22 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
+import it.pagopa.pn.templates.engine.exceptions.*;
+
 
 @Data
 @Configuration
 public class PnBeanConfig {
 
     @Bean
-    public FreeMarkerConfigurationFactoryBean freemarkerConfig(@Value("${templates.templatePath}") String templatePath) {
-        FreeMarkerConfigurationFactoryBean factoryBean = new FreeMarkerConfigurationFactoryBean();
-        factoryBean.setTemplateLoaderPath("classpath:" + templatePath);
-        return factoryBean;
+    public freemarker.template.Configuration freemarkerConfig(@Value("${templates.templatePath}") String templatePath) {
+        try {
+            FreeMarkerConfigurationFactoryBean factoryBean = new FreeMarkerConfigurationFactoryBean();
+            factoryBean.setTemplateLoaderPath("classpath:" + templatePath);
+            factoryBean.afterPropertiesSet();
+            return factoryBean.getObject();
+        } catch (Exception exception) {
+            throw new PnGenericException(ExceptionTypeEnum.ERROR_FREEMARKER_BEAN_CONFIGURATION, exception.getMessage());
+        }
     }
 }
