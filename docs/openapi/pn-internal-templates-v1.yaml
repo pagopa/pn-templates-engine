@@ -462,8 +462,76 @@ paths:
               schema:
                 $ref: 'remote-refs.yaml#/components/schemas/Problem'
 
+  /templates-engine-private/v1/templates/notificationAARForEMAIL:
+    put:
+      summary: Generazione del pdf legato al template NotificationAARForEMAIL
+      description: Genera un documento PDF basato sul template NotificationAARForEMAIL.
+      operationId: notificationAARForEMAIL
+      tags:
+        - PdfTemplate
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            type: string
+            enum:
+              - it
+              - de
+              - sl
+              - fr
+            default: "it"
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationAARForEMAIL'
+
+      responses:
+        '200':
+          description: Ok
+          headers:
+            Content-Type:
+              description: Tipo di contenuto del documento
+              schema:
+                type: string
+                example: application/pdf
+            Content-Disposition:
+              description: Disposizione del contenuto per il download come allegato
+              schema:
+                type: string
+                example: attachment; filename="document.pdf"
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        "404":
+          description: Indica che la richiesta con requestId non è stata trovata
+          content:
+            application/problem+json:
+              schema:
+                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+
 components:
   schemas:
+    NotificationAARForEMAIL:
+      type: object
+      properties:
+        perfezionamentoURL:
+          type: string
+        quickAccessLink:
+          type: string
+        piattaformaNotificheURL:
+          type: string
+        sendLogoLink:
+          type: string
+        notification:
+          $ref: '#/components/schemas/Notification'
+
     AnalogDeliveryWorkflowFailureLegalFact:
       type: object
       properties:
