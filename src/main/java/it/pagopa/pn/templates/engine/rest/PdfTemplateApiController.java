@@ -19,7 +19,6 @@ public class PdfTemplateApiController implements PdfTemplateApi {
     public Mono<ResponseEntity<Resource>> notificationReceivedLegalFact(String xLanguage,
                                                                         Mono<NotificationReceiverLegalFact> notificationReceiverLegalFact,
                                                                         final ServerWebExchange exchange) {
-
         return Mono.empty();
     }
 
@@ -48,6 +47,13 @@ public class PdfTemplateApiController implements PdfTemplateApi {
     public Mono<ResponseEntity<Resource>> notificationCancelledLegalFact(String xLanguage,
                                                                          Mono<NotificationCancelledLegalFact> notificationCancelledLegalFact,
                                                                          final ServerWebExchange exchange) {
+        return Mono.empty();
+    }
+
+    @Override
+    public Mono<ResponseEntity<Resource>> notificationAAR(String xLanguage,
+                                                          Mono<NotificationAAR> notificationAAR,
+                                                          final ServerWebExchange exchange) {
         return Mono.empty();
     }
 }
