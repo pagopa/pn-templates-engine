@@ -678,8 +678,70 @@ paths:
               schema:
                 $ref: 'remote-refs.yaml#/components/schemas/Problem'
 
+  /templates-engine-private/v1/templates/pecbody:
+    put:
+      summary: Generazione del pdf legato al template Pecbody
+      description: Genera un documento PDF basato sul template Pecbody.
+      operationId: pecbody
+      tags:
+        - PdfTemplate
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            type: string
+            enum:
+              - it
+              - de
+              - sl
+              - fr
+            default: "it"
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pecbody'
+
+      responses:
+        '200':
+          description: Ok
+          headers:
+            Content-Type:
+              description: Tipo di contenuto del documento
+              schema:
+                type: string
+                example: application/pdf
+            Content-Disposition:
+              description: Disposizione del contenuto per il download come allegato
+              schema:
+                type: string
+                example: attachment; filename="document.pdf"
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        "404":
+          description: Indica che la richiesta con requestId non è stata trovata
+          content:
+            application/problem+json:
+              schema:
+                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+
 components:
   schemas:
+    Pecbody:
+      type: object
+      properties:
+        verificationCode:
+          type: string
+        logoBase64:
+          type: string
+
     Emailbody:
      type: object
      properties:

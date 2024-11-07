@@ -93,9 +93,16 @@ public class PdfTemplateApiController implements PdfTemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<org.springframework.core.io.Resource>> emailbody(String xLanguage,
-                                                                                Mono<Emailbody> request,
-                                                                                final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<Resource>> emailbody(String xLanguage,
+                                                    Mono<Emailbody> request,
+                                                    final ServerWebExchange exchange) {
+        return Mono.empty();
+    }
+
+    @Override
+    public Mono<ResponseEntity<Resource>> pecbody(String xLanguage,
+                                                  Mono<Pecbody> request,
+                                                  final ServerWebExchange exchange) {
         return Mono.empty();
     }
 }
