@@ -1,7 +1,7 @@
 package it.pagopa.pn.templates.engine.service;
 
 import it.pagopa.pn.templates.engine.component.PnDocumentComposition;
-import it.pagopa.pn.templates.engine.utils.PnTemplateUtils;
+import it.pagopa.pn.templates.engine.mapper.PnTemplateMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,13 +16,13 @@ public class PnTemplateService {
 
   public byte[] executePdfTemplate(String templateName, Object model) {
     log.info("Execute Pdf templateName={} START", templateName);
-    var map = PnTemplateUtils.dtoToMap(model);
+    var map = PnTemplateMapper.dtoToMap(model);
     return pnDocumentComposition.executePdfTemplate(templateName, map);
   }
 
   public String executeTextTemplate(String templateName, Object model) {
     log.info("Execute Text templateName={} START", templateName);
-    var map = PnTemplateUtils.dtoToMap(model);
+    var map = PnTemplateMapper.dtoToMap(model);
     return pnDocumentComposition.executeTextTemplate(templateName, map);
   }
 
