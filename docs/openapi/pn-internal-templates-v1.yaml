@@ -835,9 +835,9 @@ paths:
 
   /templates-engine-private/v1/templates/smsbody:
     put:
-      summary: Generazione del pdf legato al template Pecbodyreject
+      summary: Genera un documento PDF OTP di conferma SMS
       description: Genera un documento PDF OTP di conferma SMS.
-      operationId: pecbodyreject
+      operationId: smsbody
       tags:
         - PdfTemplate
       parameters:

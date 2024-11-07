@@ -118,4 +118,9 @@ public class PdfTemplateApiController implements PdfTemplateApi {
         return Mono.empty();
     }
 
+    @Override
+    public Mono<ResponseEntity<Resource>> smsbody(String xLanguage, final ServerWebExchange exchange) {
+        return Mono.empty();
+    }
+
 }
