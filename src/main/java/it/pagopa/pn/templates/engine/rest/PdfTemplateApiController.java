@@ -105,4 +105,11 @@ public class PdfTemplateApiController implements PdfTemplateApi {
                                                   final ServerWebExchange exchange) {
         return Mono.empty();
     }
+
+    @Override
+    public Mono<ResponseEntity<Resource>> pecbodyconfirm(String xLanguage,
+                                                         Mono<Pecbody> request,
+                                                         final ServerWebExchange exchange) {
+        return Mono.empty();
+    }
 }
