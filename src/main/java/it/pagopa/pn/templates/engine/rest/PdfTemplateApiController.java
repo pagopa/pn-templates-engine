@@ -17,50 +17,57 @@ public class PdfTemplateApiController implements PdfTemplateApi {
 
     @Override
     public Mono<ResponseEntity<Resource>> notificationReceivedLegalFact(String xLanguage,
-                                                                        Mono<NotificationReceiverLegalFact> notificationReceiverLegalFact,
+                                                                        Mono<NotificationReceiverLegalFact> request,
                                                                         final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
     public Mono<ResponseEntity<Resource>> pecDeliveryWorkflowLegalFact(String xLanguage,
-                                                                       Mono<PecDeliveryWorkflowLegalFact> pecDeliveryWorkflowLegalFact,
+                                                                       Mono<PecDeliveryWorkflowLegalFact> request,
                                                                        final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
     public Mono<ResponseEntity<Resource>> notificationViewedLegalFact(String xLanguage,
-                                                                      Mono<NotificationViewedLegalFact> notificationViewedLegalFact,
+                                                                      Mono<NotificationViewedLegalFact> request,
                                                                       final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
     public Mono<ResponseEntity<Resource>> pdfLegalFact(String xLanguage,
-                                                       Mono<PdfLegalFact> pdfLegalFact,
+                                                       Mono<PdfLegalFact> request,
                                                        final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
     public Mono<ResponseEntity<Resource>> notificationCancelledLegalFact(String xLanguage,
-                                                                         Mono<NotificationCancelledLegalFact> notificationCancelledLegalFact,
+                                                                         Mono<NotificationCancelledLegalFact> request,
                                                                          final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
     public Mono<ResponseEntity<Resource>> notificationAAR(String xLanguage,
-                                                          Mono<NotificationAAR> notificationAAR,
+                                                          Mono<NotificationAAR> request,
                                                           final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
     public Mono<ResponseEntity<Resource>> notificationAARRADDalt(String xLanguage,
-                                                                 Mono<NotificationAARRADDalt> notificationAARRADDalt,
+                                                                 Mono<NotificationAARRADDalt> request,
                                                                  final ServerWebExchange exchange) {
+        return Mono.empty();
+    }
+
+    @Override
+    public Mono<ResponseEntity<Resource>> analogDeliveryWorkflowFailureLegalFact(String xLanguage,
+                                                                                 Mono<AnalogDeliveryWorkflowFailureLegalFact> request,
+                                                                                 final ServerWebExchange exchange) {
         return Mono.empty();
     }
 }
