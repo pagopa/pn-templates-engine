@@ -51,14 +51,14 @@ public class PdfTemplateApiController implements PdfTemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> notificationAAR(LanguageEnum xLanguage,
+    public Mono<ResponseEntity<String>> notificationAAR(LanguageEnum xLanguage,
                                                           Mono<NotificationAAR> request,
                                                           final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> notificationAARRADDalt(LanguageEnum xLanguage,
+    public Mono<ResponseEntity<String>> notificationAARRADDalt(LanguageEnum xLanguage,
                                                                  Mono<NotificationAARRADDalt> request,
                                                                  final ServerWebExchange exchange) {
         return Mono.empty();
@@ -72,42 +72,42 @@ public class PdfTemplateApiController implements PdfTemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> notificationAARForEMAIL(LanguageEnum xLanguage,
+    public Mono<ResponseEntity<String>> notificationAARForEMAIL(LanguageEnum xLanguage,
                                                                   Mono<NotificationAARForEMAIL> request,
                                                                   final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> notificationAARForPEC(LanguageEnum xLanguage,
+    public Mono<ResponseEntity<String>> notificationAARForPEC(LanguageEnum xLanguage,
                                                                 Mono<NotificationAARForPEC> request,
                                                                 final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> emailbody(LanguageEnum xLanguage,
+    public Mono<ResponseEntity<String>> emailbody(LanguageEnum xLanguage,
                                                     Mono<Emailbody> request,
                                                     final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> pecbody(LanguageEnum xLanguage,
+    public Mono<ResponseEntity<String>> pecbody(LanguageEnum xLanguage,
                                                   Mono<Pecbody> request,
                                                   final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> pecbodyconfirm(LanguageEnum xLanguage,
+    public Mono<ResponseEntity<String>> pecbodyconfirm(LanguageEnum xLanguage,
                                                          Mono<Pecbody> request,
                                                          final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> pecbodyreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<String>> pecbodyreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
