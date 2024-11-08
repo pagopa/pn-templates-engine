@@ -1,6 +1,6 @@
 package it.pagopa.pn.templates.engine.rest;
 
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.api.PdfTemplateApi;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.api.TemplateApi;
 import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 @Slf4j
 @RestController
 @AllArgsConstructor
-public class PdfTemplateApiController implements PdfTemplateApi {
+public class PdfTemplateApiController implements TemplateApi {
 
     @Override
     public Mono<ResponseEntity<Resource>> notificationReceivedLegalFact(LanguageEnum xLanguage,

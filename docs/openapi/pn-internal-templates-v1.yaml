@@ -247,7 +247,7 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
@@ -277,7 +277,7 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
@@ -307,7 +307,7 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
@@ -337,7 +337,7 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
@@ -367,7 +367,7 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
@@ -397,7 +397,7 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
@@ -427,7 +427,7 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
@@ -450,7 +450,7 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
@@ -507,7 +507,7 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
@@ -541,7 +541,7 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
@@ -564,7 +564,7 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
@@ -587,7 +587,7 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
@@ -610,7 +610,7 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
@@ -633,7 +633,7 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
