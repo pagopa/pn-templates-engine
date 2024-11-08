@@ -9,7 +9,7 @@ components:
         - DE
         - SL
         - FR
-      default: it
+      default: IT
     ErrorResponse:
       type: object
       properties:
