@@ -223,6 +223,8 @@ components:
     Recipient:
       type: object
       properties:
+        recipientType:
+          type: string
         denomination:
           type: string
         taxId:
