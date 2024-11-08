@@ -16,110 +16,98 @@ import reactor.core.publisher.Mono;
 public class PdfTemplateApiController implements PdfTemplateApi {
 
     @Override
-    public Mono<ResponseEntity<Resource>> notificationReceivedLegalFact(String xLanguage,
+    public Mono<ResponseEntity<Resource>> notificationReceivedLegalFact(LanguageEnum xLanguage,
                                                                         Mono<NotificationReceiverLegalFact> request,
                                                                         final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> pecDeliveryWorkflowLegalFact(String xLanguage,
+    public Mono<ResponseEntity<Resource>> pecDeliveryWorkflowLegalFact(LanguageEnum xLanguage,
                                                                        Mono<PecDeliveryWorkflowLegalFact> request,
                                                                        final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> notificationViewedLegalFact(String xLanguage,
+    public Mono<ResponseEntity<Resource>> notificationViewedLegalFact(LanguageEnum xLanguage,
                                                                       Mono<NotificationViewedLegalFact> request,
                                                                       final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> pdfLegalFact(String xLanguage,
+    public Mono<ResponseEntity<Resource>> pdfLegalFact(LanguageEnum xLanguage,
                                                        Mono<PdfLegalFact> request,
                                                        final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> notificationCancelledLegalFact(String xLanguage,
+    public Mono<ResponseEntity<Resource>> notificationCancelledLegalFact(LanguageEnum xLanguage,
                                                                          Mono<NotificationCancelledLegalFact> request,
                                                                          final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> notificationAAR(String xLanguage,
+    public Mono<ResponseEntity<Resource>> notificationAAR(LanguageEnum xLanguage,
                                                           Mono<NotificationAAR> request,
                                                           final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> notificationAARRADDalt(String xLanguage,
+    public Mono<ResponseEntity<Resource>> notificationAARRADDalt(LanguageEnum xLanguage,
                                                                  Mono<NotificationAARRADDalt> request,
                                                                  final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> analogDeliveryWorkflowFailureLegalFact(String xLanguage,
+    public Mono<ResponseEntity<Resource>> analogDeliveryWorkflowFailureLegalFact(LanguageEnum xLanguage,
                                                                                  Mono<AnalogDeliveryWorkflowFailureLegalFact> request,
                                                                                  final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> notificationAARForEMAIL(String xLanguage,
+    public Mono<ResponseEntity<Resource>> notificationAARForEMAIL(LanguageEnum xLanguage,
                                                                   Mono<NotificationAARForEMAIL> request,
                                                                   final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> notificationAARForPEC(String xLanguage,
+    public Mono<ResponseEntity<Resource>> notificationAARForPEC(LanguageEnum xLanguage,
                                                                 Mono<NotificationAARForPEC> request,
                                                                 final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> notificationAARForSMS(String xLanguage,
-                                                                Mono<Notification> request,
-                                                                final ServerWebExchange exchange) {
-        return Mono.empty();
-    }
-
-    @Override
-    public Mono<ResponseEntity<Resource>> emailbody(String xLanguage,
+    public Mono<ResponseEntity<Resource>> emailbody(LanguageEnum xLanguage,
                                                     Mono<Emailbody> request,
                                                     final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> pecbody(String xLanguage,
+    public Mono<ResponseEntity<Resource>> pecbody(LanguageEnum xLanguage,
                                                   Mono<Pecbody> request,
                                                   final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> pecbodyconfirm(String xLanguage,
+    public Mono<ResponseEntity<Resource>> pecbodyconfirm(LanguageEnum xLanguage,
                                                          Mono<Pecbody> request,
                                                          final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> pecbodyreject(String xLanguage, final ServerWebExchange exchange) {
-        return Mono.empty();
-    }
-
-    @Override
-    public Mono<ResponseEntity<Resource>> smsbody(String xLanguage, final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<Resource>> pecbodyreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return Mono.empty();
     }
 

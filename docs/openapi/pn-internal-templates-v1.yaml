@@ -48,13 +48,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
@@ -88,6 +82,12 @@ paths:
             application/problem+json:
               schema:
                 $ref: 'remote-refs.yaml#/components/schemas/Problem'
+        '400':
+          description: Richiesta non valida - Lingua non supportata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
   /templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact:
     put:
@@ -102,13 +102,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
@@ -142,6 +136,12 @@ paths:
             application/problem+json:
               schema:
                 $ref: 'remote-refs.yaml#/components/schemas/Problem'
+        '400':
+          description: Richiesta non valida - Lingua non supportata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
   /templates-engine-private/v1/templates/notification-viewed-legal-fact:
     put:
@@ -156,8 +156,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
@@ -191,6 +190,12 @@ paths:
             application/problem+json:
               schema:
                 $ref: 'remote-refs.yaml#/components/schemas/Problem'
+        '400':
+          description: Richiesta non valida - Lingua non supportata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
   /templates-engine-private/v1/templates/pdf-legal-fact:
     put:
@@ -205,13 +210,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
@@ -245,6 +244,12 @@ paths:
             application/problem+json:
               schema:
                 $ref: 'remote-refs.yaml#/components/schemas/Problem'
+        '400':
+          description: Richiesta non valida - Lingua non supportata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
   /templates-engine-private/v1/templates/notification-cancelled-legal-fact:
     put:
@@ -259,13 +264,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
@@ -299,6 +298,12 @@ paths:
             application/problem+json:
               schema:
                 $ref: 'remote-refs.yaml#/components/schemas/Problem'
+        '400':
+          description: Richiesta non valida - Lingua non supportata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
   /templates-engine-private/v1/templates/notification-aar:
     put:
@@ -313,13 +318,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
@@ -353,6 +352,12 @@ paths:
             application/problem+json:
               schema:
                 $ref: 'remote-refs.yaml#/components/schemas/Problem'
+        '400':
+          description: Richiesta non valida - Lingua non supportata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
   /templates-engine-private/v1/templates/notificationAAR_RADDalt:
     put:
@@ -367,13 +372,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
@@ -407,6 +406,12 @@ paths:
             application/problem+json:
               schema:
                 $ref: 'remote-refs.yaml#/components/schemas/Problem'
+        '400':
+          description: Richiesta non valida - Lingua non supportata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
   /templates-engine-private/v1/templates/analogDeliveryWorkflowFailureLegalFact:
     put:
@@ -421,13 +426,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
@@ -461,6 +460,12 @@ paths:
             application/problem+json:
               schema:
                 $ref: 'remote-refs.yaml#/components/schemas/Problem'
+        '400':
+          description: Richiesta non valida - Lingua non supportata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
   /templates-engine-private/v1/templates/notificationAARForEMAIL:
     put:
@@ -475,13 +480,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
@@ -515,6 +514,12 @@ paths:
             application/problem+json:
               schema:
                 $ref: 'remote-refs.yaml#/components/schemas/Problem'
+        '400':
+          description: Richiesta non valida - Lingua non supportata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
   /templates-engine-private/v1/templates/notificationAARForPEC:
     put:
@@ -529,13 +534,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
@@ -569,6 +568,12 @@ paths:
             application/problem+json:
               schema:
                 $ref: 'remote-refs.yaml#/components/schemas/Problem'
+        '400':
+          description: Richiesta non valida - Lingua non supportata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
   /templates-engine-private/v1/templates/notificationAARForSMS:
     put:
@@ -583,13 +588,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
@@ -637,13 +636,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
@@ -691,13 +684,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
@@ -745,13 +732,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
@@ -799,13 +780,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
 
       responses:
         '200':
@@ -846,13 +821,7 @@ paths:
           description: Lingua del documento
           required: true
           schema:
-            type: string
-            enum:
-              - it
-              - de
-              - sl
-              - fr
-            default: "it"
+            $ref: '#/components/schemas/LanguageEnum'
 
       responses:
         '200':
@@ -882,6 +851,24 @@ paths:
 
 components:
   schemas:
+    LanguageEnum:
+      type: string
+      enum:
+        - IT
+        - DE
+        - SL
+        - FR
+      default: it
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 400
+        message:
+          type: string
+          example: "Lingua non supportata. Usa uno dei seguenti valori: IT, DE, SL, FR."
+
     Pecbody:
       type: object
       properties:
