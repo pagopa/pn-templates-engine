@@ -1,13 +1,11 @@
-logging.config: classpath:logback-base.xml
-logging.level.root: INFO
+logging:
+  config: classpath:logback-local.xml
 
-spring:
-  application:
-    name: PN-TEMPLATES-ENGINE
-
+# Runtime mode
 pn:
   env:
-    runtime: PROD
+    runtime: DEVELOPMENT
+#pn.env.runtime=PROD
 
 resources:
   templates:

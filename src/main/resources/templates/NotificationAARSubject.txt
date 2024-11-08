@@ -1,0 +1,1 @@
+SEND - Nuova notifica da ${notification.sender.paDenomination}
