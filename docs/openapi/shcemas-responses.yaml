@@ -5,6 +5,18 @@ components:
   ###                          STRUTTURE RESPONSE CODE                                     ###
   ############################################################################################
   responses:
+    FailResponseBadRequest:
+      description: Richiesta non valida
+      content:
+        application/json:
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+    FailResponseInternalServerError:
+      description: Internal Server Error
+      content:
+        application/problem+json:
+          schema:
+            $ref: 'remote-refs.yaml#/components/schemas/Problem'
     SuccessResponsePDF:
       description: Ok
       headers:

@@ -16,7 +16,7 @@ servers:
     description: Generated server url
 
 tags:
-  - name: PdfTemplate
+  - name: Template
     description: Servizi per la generazione delle mail, pdf e sms.
   - name: HealthCheck
     description: Metodo heartbeat
@@ -45,7 +45,7 @@ paths:
       description: Genera un documento PDF basato sul template notificationReceivedLegalFact.
       operationId: notificationReceivedLegalFact
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -63,25 +63,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponsePDF'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact:
     put:
@@ -89,7 +75,7 @@ paths:
       description: Genera un documento PDF basato sul template pecDeliveryWorkflowLegalFact.
       operationId: pecDeliveryWorkflowLegalFact
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -107,25 +93,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponsePDF'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notification-viewed-legal-fact:
     put:
@@ -133,7 +105,7 @@ paths:
       description: Genera un documento PDF basato sul template notificationViewedLegalFact.
       operationId: notificationViewedLegalFact
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -151,25 +123,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponsePDF'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pdf-legal-fact:
     put:
@@ -177,7 +135,7 @@ paths:
       description: Genera un documento PDF basato sul template PdfLegalFact.
       operationId: pdfLegalFact
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -195,25 +153,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponsePDF'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notification-cancelled-legal-fact:
     put:
@@ -221,7 +165,7 @@ paths:
       description: Genera un documento PDF basato sul template notificationCancelledLegalFact.
       operationId: notificationCancelledLegalFact
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -239,25 +183,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponsePDF'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/analogDeliveryWorkflowFailureLegalFact:
     put:
@@ -265,7 +195,7 @@ paths:
       description: Genera un documento PDF basato sul template AnalogDeliveryWorkflowFailureLegalFact.
       operationId: analogDeliveryWorkflowFailureLegalFact
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -283,25 +213,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponsePDF'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   ############################################################################################
   ###                         SuccessResponseHTML      EMAIL                               ###
@@ -313,7 +229,7 @@ paths:
       description: Genera un documento PDF basato sul template NotificationAAR.
       operationId: notificationAAR
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -331,25 +247,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseHTML'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notificationAAR_RADDalt:
     put:
@@ -357,7 +259,7 @@ paths:
       description: Genera un documento PDF basato sul template NotificationAAR_RADDalt.
       operationId: notificationAAR_RADDalt
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -375,25 +277,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseHTML'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notificationAARForEMAIL:
     put:
@@ -401,7 +289,7 @@ paths:
       description: Genera un documento PDF basato sul template NotificationAARForEMAIL.
       operationId: notificationAARForEMAIL
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -419,25 +307,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseHTML'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notificationAARForPEC:
     put:
@@ -445,7 +319,7 @@ paths:
       description: Genera un documento PDF basato sul template NotificationAARForPEC.
       operationId: notificationAARForPEC
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -463,25 +337,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseHTML'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/emailbody:
     put:
@@ -489,7 +349,7 @@ paths:
       description: Genera un documento PDF basato sul template emailbody.
       operationId: emailbody
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -507,25 +367,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseHTML'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pecbody:
     put:
@@ -533,7 +379,7 @@ paths:
       description: Genera un documento PDF basato sul template Pecbody.
       operationId: pecbody
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -551,25 +397,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseHTML'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pecbodyconfirm:
     put:
@@ -577,7 +409,7 @@ paths:
       description: Genera un documento PDF basato sul template Pecbodyconfirm.
       operationId: pecbodyconfirm
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -595,25 +427,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseHTML'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pecbodyreject:
     put:
@@ -621,7 +439,7 @@ paths:
       description: Genera un documento PDF basato sul template Pecbodyreject.
       operationId: pecbodyreject
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -632,25 +450,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseHTML'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   ############################################################################################
   ###                         SuccessResponseText   SMS                                    ###
@@ -662,7 +466,7 @@ paths:
       description: Genera un documento PDF basato sul template NotificationAARForSMS.
       operationId: notificationAARForSMS
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -680,25 +484,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseText'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/smsbody:
     put:
@@ -706,7 +496,7 @@ paths:
       description: Genera un documento PDF OTP di conferma SMS.
       operationId: smsbody
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -717,25 +507,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseText'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   ############################################################################################
   ###                         SuccessResponseText  Subjects                                ###
@@ -747,7 +523,7 @@ paths:
       description: Genera un documento txt basato sul template NotificationAARSubject.
       operationId: notificationAARSubject
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -765,25 +541,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseText'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/emailsubject:
     put:
@@ -791,7 +553,7 @@ paths:
       description: Genera un documento txt basato sul template emailsubject.
       operationId: emailsubject
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -802,25 +564,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseText'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pecsubject:
     put:
@@ -828,7 +576,7 @@ paths:
       description: Genera un documento TXT basato sul template pecsubject.
       operationId: pecsubject
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -839,25 +587,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseText'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pecsubjectconfirm:
     put:
@@ -865,7 +599,7 @@ paths:
       description: Genera un documento TXT basato sul template pecsubjectconfirm.
       operationId: pecsubjectconfirm
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -876,25 +610,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseText'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pecsubjectreject:
     put:
@@ -902,7 +622,7 @@ paths:
       description: Genera un documento TXT basato sul template pecsubjectreject.
       operationId: pecsubjectreject
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
@@ -913,22 +633,8 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-errors.yaml#/components/responses/SuccessResponseText'
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
