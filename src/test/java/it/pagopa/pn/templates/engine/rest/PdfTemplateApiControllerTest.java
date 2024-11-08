@@ -37,7 +37,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationViewedLegalFact_OK() {
+        //ARRANGE
         NotificationViewedLegalFact request = new NotificationViewedLegalFact();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(NOTIFICATION_VIEWED_LEGAL_FACT)
                 .accept(MediaType.APPLICATION_JSON)
@@ -51,7 +54,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationViewedLegalFact_Language_Not_Exist() {
+        //ARRANGE
         NotificationViewedLegalFact request = new NotificationViewedLegalFact();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(NOTIFICATION_VIEWED_LEGAL_FACT)
                 .accept(MediaType.ALL)
@@ -64,9 +70,12 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationReceivedLegalFact_OK() {
+        //ARRANGE
         NotificationReceiverLegalFact request = new NotificationReceiverLegalFact();
         request.setDigest("10");
         request.setSubject("SUBJECT_TEST");
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(NOTIFICATION_RECEIVED_LEGAL_FACT)
                 .accept(MediaType.APPLICATION_JSON)
@@ -80,9 +89,12 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationReceivedLegalFact_Language_Not_Exist() {
+        //ARRANGE
         NotificationReceiverLegalFact request = new NotificationReceiverLegalFact();
         request.setDigest("10");
         request.setSubject("SUBJECT_TEST");
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(NOTIFICATION_RECEIVED_LEGAL_FACT)
                 .accept(MediaType.ALL)
@@ -95,8 +107,11 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pecDeliveryWorkflowLegalFact_OK() {
+        //ARRANGE
         PecDeliveryWorkflowLegalFact request = new PecDeliveryWorkflowLegalFact();
         request.setIun("IUN_TEST");
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(PEC_DELIVERY_WORKFLOW_LEGAL_FACT)
                 .accept(MediaType.ALL)
@@ -109,8 +124,11 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pecDeliveryWorkflowLegalFact_Language_Not_Exist() {
+        //ARRANGE
         PecDeliveryWorkflowLegalFact request = new PecDeliveryWorkflowLegalFact();
         request.setIun("IUN_TEST");
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(PEC_DELIVERY_WORKFLOW_LEGAL_FACT)
                 .accept(MediaType.ALL)
@@ -123,7 +141,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pdfLegalFact_Language_Not_Exist() {
+        //ARRANGE
         PdfLegalFact request = new PdfLegalFact();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(PDF_LEGAL_FACT)
                 .accept(MediaType.ALL)
@@ -136,7 +157,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pdfLegalFact_OK() {
+        //ARRANGE
         PdfLegalFact request = new PdfLegalFact();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(PDF_LEGAL_FACT)
                 .accept(MediaType.ALL)
@@ -149,7 +173,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationCancelledLegalFact_OK() {
+        //ARRANGE
         NotificationCancelledLegalFact request = new NotificationCancelledLegalFact();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(NOTIFICATION_CANCELLED_LEGAL_FACT)
                 .accept(MediaType.ALL)
@@ -162,7 +189,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationCancelledLegalFact_Language_Not_Exist() {
+        //ARRANGE
         NotificationCancelledLegalFact request = new NotificationCancelledLegalFact();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(NOTIFICATION_CANCELLED_LEGAL_FACT)
                 .accept(MediaType.ALL)
@@ -175,7 +205,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationAAR_OK() {
+        //ARRANGE
         NotificationAAR request = new NotificationAAR();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(TEMPLATES_NOTIFICATION_AAR)
                 .accept(MediaType.ALL)
@@ -188,7 +221,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationAAR_Language_Not_Exist() {
+        //ARRANGE
         NotificationAAR request = new NotificationAAR();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(TEMPLATES_NOTIFICATION_AAR)
                 .accept(MediaType.ALL)
@@ -201,7 +237,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationAARRADDalt_OK() {
+        //ARRANGE
         NotificationAARRADDalt request = new NotificationAARRADDalt();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(NOTIFICATION_AAR_RADDALT)
                 .accept(MediaType.ALL)
@@ -214,7 +253,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationAARRADDalt_Language_Not_Exist() {
+        //ARRANGE
         NotificationAARRADDalt request = new NotificationAARRADDalt();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(NOTIFICATION_AAR_RADDALT)
                 .accept(MediaType.ALL)
@@ -227,7 +269,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void analogDeliveryWorkflowFailureLegalFact_OK() {
+        //ARRANGE
         AnalogDeliveryWorkflowFailureLegalFact request = new AnalogDeliveryWorkflowFailureLegalFact();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT)
                 .accept(MediaType.ALL)
@@ -240,7 +285,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void analogDeliveryWorkflowFailureLegalFact_Language_Not_Exist() {
+        //ARRANGE
         AnalogDeliveryWorkflowFailureLegalFact request = new AnalogDeliveryWorkflowFailureLegalFact();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT)
                 .accept(MediaType.ALL)
@@ -253,7 +301,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationAARForEMAIL_OK() {
+        //ARRANGE
         NotificationAARForEMAIL request = new NotificationAARForEMAIL();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(NOTIFICATION_AARFOR_EMAIL)
                 .accept(MediaType.ALL)
@@ -266,7 +317,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationAARForEMAIL_Language_Not_Exist() {
+        //ARRANGE
         NotificationAARForEMAIL request = new NotificationAARForEMAIL();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(NOTIFICATION_AARFOR_EMAIL)
                 .accept(MediaType.ALL)
@@ -279,7 +333,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationAARForPEC_OK() {
+        //ARRANGE
         NotificationAARForPEC request = new NotificationAARForPEC();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(NOTIFICATION_AARFOR_PEC)
                 .accept(MediaType.ALL)
@@ -292,7 +349,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationAARForPEC_Language_Not_Exist() {
+        //ARRANGE
         NotificationAARForPEC request = new NotificationAARForPEC();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(NOTIFICATION_AARFOR_PEC)
                 .accept(MediaType.ALL)
@@ -305,7 +365,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void emailbody_Language_Not_Exist() {
+        //ARRANGE
         Emailbody request = new Emailbody();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(EMAILBODY)
                 .accept(MediaType.ALL)
@@ -318,7 +381,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void emailbody_OK() {
+        //ARRANGE
         Emailbody request = new Emailbody();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(EMAILBODY)
                 .accept(MediaType.ALL)
@@ -331,7 +397,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pecbody_OK() {
+        //ARRANGE
         Pecbody request = new Pecbody();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(PECBODY)
                 .accept(MediaType.ALL)
@@ -344,7 +413,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pecbody_Language_Not_Exist() {
+        //ARRANGE
         Pecbody request = new Pecbody();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(PECBODY)
                 .accept(MediaType.ALL)
@@ -357,7 +429,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pecbodyconfirm_OK() {
+        //ARRANGE
         Pecbody request = new Pecbody();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(PECBODYCONFIRM)
                 .accept(MediaType.ALL)
@@ -370,7 +445,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pecbodyconfirm_Language_Not_Exist() {
+        //ARRANGE
         Pecbody request = new Pecbody();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(PECBODYCONFIRM)
                 .accept(MediaType.ALL)
@@ -383,6 +461,7 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pecbodyreject_OK() {
+        //ARRANGE AND  //ACT AND ASSERT
         webTestClient.put()
                 .uri(PECBODYREJECT)
                 .accept(MediaType.ALL)
@@ -394,6 +473,7 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pecbodyreject_Language_Not_Exist() {
+        //ARRANGE AND  //ACT AND ASSERT
         webTestClient.put()
                 .uri(PECBODYREJECT)
                 .accept(MediaType.ALL)
@@ -405,7 +485,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationAARSubject_OK() {
+        //ARRANGE
         NotificationAAR request = new NotificationAAR();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(NOTIFICATION_AARSUBJECT)
                 .accept(MediaType.ALL)
@@ -418,7 +501,10 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void notificationAARSubject_Language_Not_Exist() {
+        //ARRANGE
         NotificationAAR request = new NotificationAAR();
+
+        //ACT AND ASSERT
         webTestClient.put()
                 .uri(NOTIFICATION_AARSUBJECT)
                 .accept(MediaType.ALL)
@@ -431,6 +517,7 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void emailsubject_OK() {
+        //ARRANGE - ACT AND ASSERT
         webTestClient.put()
                 .uri(EMAILSUBJECT)
                 .accept(MediaType.ALL)
@@ -442,6 +529,7 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void emailsubject_Language_Not_Exist() {
+        //ARRANGE - ACT AND ASSERT
         webTestClient.put()
                 .uri(EMAILSUBJECT)
                 .accept(MediaType.ALL)
@@ -453,6 +541,7 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pecsubject_OK() {
+        //ARRANGE - ACT AND ASSERT
         webTestClient.put()
                 .uri(PECSUBJECT)
                 .accept(MediaType.ALL)
@@ -464,6 +553,7 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pecsubject_Language_Not_Exist() {
+        //ARRANGE - ACT AND ASSERT
         webTestClient.put()
                 .uri(PECSUBJECT)
                 .accept(MediaType.ALL)
@@ -475,6 +565,7 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pecsubjectconfirm_OK() {
+        //ARRANGE - ACT AND ASSERT
         webTestClient.put()
                 .uri(PECSUBJECTCONFIRM)
                 .accept(MediaType.ALL)
@@ -486,6 +577,7 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pecsubjectconfirm_Language_Not_Exist() {
+        //ARRANGE - ACT AND ASSERT
         webTestClient.put()
                 .uri(PECSUBJECTCONFIRM)
                 .accept(MediaType.ALL)
@@ -498,6 +590,7 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pecsubjectreject_OK() {
+        //ARRANGE - ACT AND ASSERT
         webTestClient.put()
                 .uri(PECSUBJECTREJECT)
                 .accept(MediaType.ALL)
@@ -509,6 +602,7 @@ class PdfTemplateApiControllerTest {
 
     @Test
     void pecsubjectreject_Language_Not_Exist() {
+        //ARRANGE - ACT AND ASSERT
         webTestClient.put()
                 .uri(PECSUBJECTREJECT)
                 .accept(MediaType.ALL)
