@@ -26,6 +26,11 @@ class PdfTemplateApiControllerTest {
     public static final String PECBODYCONFIRM = "/templates-engine-private/v1/templates/pecbodyconfirm";
     public static final String PECBODYREJECT = "/templates-engine-private/v1/templates/pecbodyreject";
     public static final String NOTIFICATION_VIEWED_LEGAL_FACT = "/templates-engine-private/v1/templates/notification-viewed-legal-fact";
+    public static final String NOTIFICATION_AARSUBJECT = "/templates-engine-private/v1/templates/NotificationAARSubject";
+    public static final String EMAILSUBJECT = "/templates-engine-private/v1/templates/emailsubject";
+    public static final String PECSUBJECT = "/templates-engine-private/v1/templates/pecsubject";
+    public static final String PECSUBJECTCONFIRM = "/templates-engine-private/v1/templates/pecsubjectconfirm";
+    public static final String PECSUBJECTREJECT = "/templates-engine-private/v1/templates/pecsubjectreject";
 
     @Autowired
     WebTestClient webTestClient;
@@ -391,6 +396,121 @@ class PdfTemplateApiControllerTest {
     void pecbodyreject_Language_Not_Exist() {
         webTestClient.put()
                 .uri(PECBODYREJECT)
+                .accept(MediaType.ALL)
+                .header("X-Language", "UR")
+                .exchange()
+                .expectStatus()
+                .isEqualTo(400);
+    }
+
+    @Test
+    void notificationAARSubject_OK() {
+        NotificationAAR request = new NotificationAAR();
+        webTestClient.put()
+                .uri(NOTIFICATION_AARSUBJECT)
+                .accept(MediaType.ALL)
+                .header("X-Language", "IT")
+                .body(Mono.just(request), NotificationAAR.class)
+                .exchange()
+                .expectStatus()
+                .isOk();
+    }
+
+    @Test
+    void notificationAARSubject_Language_Not_Exist() {
+        NotificationAAR request = new NotificationAAR();
+        webTestClient.put()
+                .uri(NOTIFICATION_AARSUBJECT)
+                .accept(MediaType.ALL)
+                .header("X-Language", "UR")
+                .body(Mono.just(request), NotificationAAR.class)
+                .exchange()
+                .expectStatus()
+                .isEqualTo(400);
+    }
+
+    @Test
+    void emailsubject_OK() {
+        webTestClient.put()
+                .uri(EMAILSUBJECT)
+                .accept(MediaType.ALL)
+                .header("X-Language", "IT")
+                .exchange()
+                .expectStatus()
+                .isOk();
+    }
+
+    @Test
+    void emailsubject_Language_Not_Exist() {
+        webTestClient.put()
+                .uri(EMAILSUBJECT)
+                .accept(MediaType.ALL)
+                .header("X-Language", "UR")
+                .exchange()
+                .expectStatus()
+                .isEqualTo(400);
+    }
+
+    @Test
+    void pecsubject_OK() {
+        webTestClient.put()
+                .uri(PECSUBJECT)
+                .accept(MediaType.ALL)
+                .header("X-Language", "IT")
+                .exchange()
+                .expectStatus()
+                .isOk();
+    }
+
+    @Test
+    void pecsubject_Language_Not_Exist() {
+        webTestClient.put()
+                .uri(PECSUBJECT)
+                .accept(MediaType.ALL)
+                .header("X-Language", "UR")
+                .exchange()
+                .expectStatus()
+                .isEqualTo(400);
+    }
+
+    @Test
+    void pecsubjectconfirm_OK() {
+        webTestClient.put()
+                .uri(PECSUBJECTCONFIRM)
+                .accept(MediaType.ALL)
+                .header("X-Language", "IT")
+                .exchange()
+                .expectStatus()
+                .isOk();
+    }
+
+    @Test
+    void pecsubjectconfirm_Language_Not_Exist() {
+        webTestClient.put()
+                .uri(PECSUBJECTCONFIRM)
+                .accept(MediaType.ALL)
+                .header("X-Language", "UR")
+                .exchange()
+                .expectStatus()
+                .isEqualTo(400);
+    }
+
+
+    @Test
+    void pecsubjectreject_OK() {
+        webTestClient.put()
+                .uri(PECSUBJECTREJECT)
+                .accept(MediaType.ALL)
+                .header("X-Language", "IT")
+                .exchange()
+                .expectStatus()
+                .isOk();
+    }
+
+    @Test
+    void pecsubjectreject_Language_Not_Exist() {
+        webTestClient.put()
+                .uri(PECSUBJECTREJECT)
                 .accept(MediaType.ALL)
                 .header("X-Language", "UR")
                 .exchange()
