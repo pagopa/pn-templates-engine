@@ -1,19 +1,26 @@
-openapi: 3.0.1
+openapi: 3.0.3
 info:
-  title: PN Template BE Microservice
-  description: Documentation APIs v1.0
-  termsOfService: https://termofservice.it
-  x-api-id: api-internal-template
-  x-summary: 'Piattaforma Notifiche: API template'
-  version: '1.0.0'
+  title: API Templates Engine
+  description: |
+    # Interface definition for Templates Engine
+  version: 1.0.0
   contact:
-    email: pn@pagopa.it
-  license:
-    name: Licenza di PN
-    url: 'https://da-definire/'
+    name: API Support
+    url: http://www.pagopa.com/support
+    email: support@pagopa.com
+  termsOfService: termsOfService
+  x-api-id: ppr-chnnl
+  x-summary: summary
 servers:
   - url: https://api.pn.pagopa.it
     description: Generated server url
+
+tags:
+  - name: Template
+    description: Servizi per la generazione delle mail, pdf e sms.
+  - name: HealthCheck
+    description: Metodo heartbeat
+
 paths:
   /status:
     get:
@@ -27,30 +34,607 @@ paths:
           description: Ok
         '500':
           description: Internal Server Error
-  /template/api/httpheaders:
-    get:
-      summary: Build a map of all the Http Header for the request
-      operationId: getHttpHeadersMap
+
+  ############################################################################################
+  ###                          SuccessResponsePDF                                          ###
+  ############################################################################################
+
+  /templates-engine-private/v1/templates/notification-received-legal-fact:
+    put:
+      summary: Generazione del pdf legato al template NotificationReceivedLegalFact
+      description: Genera un documento PDF basato sul template notificationReceivedLegalFact.
+      operationId: notificationReceivedLegalFact
       tags:
-        - TemplateSample
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationReceiverLegalFact'
+
       responses:
         '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                  type: object
-                  additionalProperties:
-                    type: array
-                    items:
-                      type: string
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-            description: InternalServerError
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-#  securitySchemes:                                      # ONLY EXTERNAL
-#    bearerAuth:                                         # ONLY EXTERNAL
-#      type: http                                        # ONLY EXTERNAL
-#      scheme: bearer                                    # ONLY EXTERNAL
-#      bearerFormat: JWT                                 # ONLY EXTERNAL
-#security:                                               # ONLY EXTERNAL
-# - bearerAuth: []                                       # ONLY EXTERNAL
+  /templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact:
+    put:
+      summary: Generazione del pdf legato al template PecDeliveryWorkflowLegalFact
+      description: Genera un documento PDF basato sul template pecDeliveryWorkflowLegalFact.
+      operationId: pecDeliveryWorkflowLegalFact
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/PecDeliveryWorkflowLegalFact'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/notification-viewed-legal-fact:
+    put:
+      summary: Generazione del pdf legato al template NotificationViewedLegalFact
+      description: Genera un documento PDF basato sul template notificationViewedLegalFact.
+      operationId: notificationViewedLegalFact
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationViewedLegalFact'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/pdf-legal-fact:
+    put:
+      summary: Generazione del pdf legato al template PdfLegalFact
+      description: Genera un documento PDF basato sul template PdfLegalFact.
+      operationId: pdfLegalFact
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/PdfLegalFact'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/notification-cancelled-legal-fact:
+    put:
+      summary: Generazione del pdf legato al template NotificationCancelledLegalFact
+      description: Genera un documento PDF basato sul template notificationCancelledLegalFact.
+      operationId: notificationCancelledLegalFact
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationCancelledLegalFact'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/analogDeliveryWorkflowFailureLegalFact:
+    put:
+      summary: Generazione del pdf legato al template AnalogDeliveryWorkflowFailureLegalFact
+      description: Genera un documento PDF basato sul template AnalogDeliveryWorkflowFailureLegalFact.
+      operationId: analogDeliveryWorkflowFailureLegalFact
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/AnalogDeliveryWorkflowFailureLegalFact'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  ############################################################################################
+  ###                         SuccessResponseHTML      EMAIL                               ###
+  ############################################################################################
+
+  /templates-engine-private/v1/templates/notification-aar:
+    put:
+      summary: Generazione del pdf legato al template NotificationAAR
+      description: Genera un documento PDF basato sul template NotificationAAR.
+      operationId: notificationAAR
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAAR'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/notificationAAR_RADDalt:
+    put:
+      summary: Generazione del pdf legato al template NotificationAAR_RADDalt
+      description: Genera un documento PDF basato sul template NotificationAAR_RADDalt.
+      operationId: notificationAAR_RADDalt
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAAR_RADDalt'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/notificationAARForEMAIL:
+    put:
+      summary: Generazione del pdf legato al template NotificationAARForEMAIL
+      description: Genera un documento PDF basato sul template NotificationAARForEMAIL.
+      operationId: notificationAARForEMAIL
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAARForEMAIL'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/notificationAARForPEC:
+    put:
+      summary: Generazione del pdf legato al template NotificationAARForPEC
+      description: Genera un documento PDF basato sul template NotificationAARForPEC.
+      operationId: notificationAARForPEC
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAARForPEC'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/emailbody:
+    put:
+      summary: Generazione del pdf legato al template Emailbody
+      description: Genera un documento PDF basato sul template emailbody.
+      operationId: emailbody
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/Emailbody'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/pecbody:
+    put:
+      summary: Generazione del pdf legato al template Pecbody
+      description: Genera un documento PDF basato sul template Pecbody.
+      operationId: pecbody
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/Pecbody'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/pecbodyconfirm:
+    put:
+      summary: Generazione del pdf legato al template Pecbodyconfirm
+      description: Genera un documento PDF basato sul template Pecbodyconfirm.
+      operationId: pecbodyconfirm
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/Pecbody'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/pecbodyreject:
+    put:
+      summary: Generazione del pdf legato al template Pecbodyreject
+      description: Genera un documento PDF basato sul template Pecbodyreject.
+      operationId: pecbodyreject
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  ############################################################################################
+  ###                         SuccessResponseText   SMS                                    ###
+  ############################################################################################
+
+  /templates-engine-private/v1/templates/notificationAARForSMS:
+    put:
+      summary: Generazione del pdf legato al template NotificationAARForSMS
+      description: Genera un documento PDF basato sul template NotificationAARForSMS.
+      operationId: notificationAARForSMS
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/Notification'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/smsbody:
+    put:
+      summary: Genera un documento PDF OTP di conferma SMS
+      description: Genera un documento PDF OTP di conferma SMS.
+      operationId: smsbody
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  ############################################################################################
+  ###                         SuccessResponseText  Subjects                                ###
+  ############################################################################################
+
+  /templates-engine-private/v1/templates/NotificationAARSubject:
+    put:
+      summary: Generazione del TXT legato al template NotificationAARSubject
+      description: Genera un documento txt basato sul template NotificationAARSubject.
+      operationId: notificationAARSubject
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAAR'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/emailsubject:
+    put:
+      summary: Generazione del txt legato al template emailsubject
+      description: Genera un documento txt basato sul template emailsubject.
+      operationId: emailsubject
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/pecsubject:
+    put:
+      summary: Generazione del file legato al template pecsubject
+      description: Genera un documento TXT basato sul template pecsubject.
+      operationId: pecsubject
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/pecsubjectconfirm:
+    put:
+      summary: Generazione del file legato al template pecsubjectconfirm
+      description: Genera un documento TXT basato sul template pecsubjectconfirm.
+      operationId: pecsubjectconfirm
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/pecsubjectreject:
+    put:
+      summary: Generazione del file legato al template pecsubjectreject
+      description: Genera un documento TXT basato sul template pecsubjectreject.
+      operationId: pecsubjectreject
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
