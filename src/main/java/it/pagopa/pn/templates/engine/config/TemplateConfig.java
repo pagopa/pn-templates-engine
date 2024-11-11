@@ -5,17 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-
 import java.util.Map;
 
 
 @Data
 @Configuration
-@ConfigurationProperties(prefix = "templates")
+@ConfigurationProperties
 public class TemplateConfig {
-
-    private String templatePath;
-
+    private String templatesPath;
     private Map<String, Template> templates;
 
     @Setter
