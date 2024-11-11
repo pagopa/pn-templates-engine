@@ -48,17 +48,16 @@ components:
           schema:
             type: string
     SuccessResponseText:
-      responses:
-        '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: text/plain
-          content:
-            text/plain:
-              schema:
-                type: string
+      description: Ok
+      headers:
+        Content-Type:
+          description: Tipo di contenuto del documento
+          schema:
+            type: string
+            example: text/plain
+      content:
+        text/plain:
+          schema:
+            type: string
+
 

@@ -112,29 +112,29 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<Void>> notificationAARSubject(LanguageEnum xLanguage,
+    public Mono<ResponseEntity<String>> notificationAARSubject(LanguageEnum xLanguage,
                                                              Mono<NotificationAAR> notificationAAR,
                                                              final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Void>> emailsubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<String>> emailsubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Void>> pecsubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<String>> pecsubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Void>> pecsubjectconfirm(LanguageEnum xLanguage, final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<String>> pecsubjectconfirm(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<Void>> pecsubjectreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<String>> pecsubjectreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
