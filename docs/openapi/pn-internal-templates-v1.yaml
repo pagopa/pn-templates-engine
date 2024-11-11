@@ -16,7 +16,7 @@ servers:
     description: Generated server url
 
 tags:
-  - name: PdfTemplate
+  - name: Template
     description: Servizi per la generazione delle mail, pdf e sms.
   - name: HealthCheck
     description: Metodo heartbeat
@@ -35,59 +35,39 @@ paths:
         '500':
           description: Internal Server Error
 
+  ############################################################################################
+  ###                          SuccessResponsePDF                                          ###
+  ############################################################################################
+
   /templates-engine-private/v1/templates/notification-received-legal-fact:
     put:
       summary: Generazione del pdf legato al template NotificationReceivedLegalFact
       description: Genera un documento PDF basato sul template notificationReceivedLegalFact.
       operationId: notificationReceivedLegalFact
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
           description: Lingua del documento
           required: true
           schema:
-            $ref: '#/components/schemas/LanguageEnum'
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/NotificationReceiverLegalFact'
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationReceiverLegalFact'
 
       responses:
         '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact:
     put:
@@ -95,53 +75,29 @@ paths:
       description: Genera un documento PDF basato sul template pecDeliveryWorkflowLegalFact.
       operationId: pecDeliveryWorkflowLegalFact
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
           description: Lingua del documento
           required: true
           schema:
-            $ref: '#/components/schemas/LanguageEnum'
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PecDeliveryWorkflowLegalFact'
+              $ref: 'schemas-params.yaml#/components/schemas/PecDeliveryWorkflowLegalFact'
 
       responses:
         '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notification-viewed-legal-fact:
     put:
@@ -149,53 +105,29 @@ paths:
       description: Genera un documento PDF basato sul template notificationViewedLegalFact.
       operationId: notificationViewedLegalFact
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
           description: Lingua del documento
           required: true
           schema:
-            $ref: '#/components/schemas/LanguageEnum'
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/NotificationViewedLegalFact'
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationViewedLegalFact'
 
       responses:
         '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pdf-legal-fact:
     put:
@@ -203,53 +135,29 @@ paths:
       description: Genera un documento PDF basato sul template PdfLegalFact.
       operationId: pdfLegalFact
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
           description: Lingua del documento
           required: true
           schema:
-            $ref: '#/components/schemas/LanguageEnum'
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PdfLegalFact'
+              $ref: 'schemas-params.yaml#/components/schemas/PdfLegalFact'
 
       responses:
         '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notification-cancelled-legal-fact:
     put:
@@ -257,161 +165,29 @@ paths:
       description: Genera un documento PDF basato sul template notificationCancelledLegalFact.
       operationId: notificationCancelledLegalFact
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
           description: Lingua del documento
           required: true
           schema:
-            $ref: '#/components/schemas/LanguageEnum'
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/NotificationCancelledLegalFact'
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationCancelledLegalFact'
 
       responses:
         '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-
-  /templates-engine-private/v1/templates/notification-aar:
-    put:
-      summary: Generazione del pdf legato al template NotificationAAR
-      description: Genera un documento PDF basato sul template NotificationAAR.
-      operationId: notificationAAR
-      tags:
-        - PdfTemplate
-      parameters:
-        - in: header
-          name: X-Language
-          description: Lingua del documento
-          required: true
-          schema:
-            $ref: '#/components/schemas/LanguageEnum'
-      requestBody:
-        description: Parametri necessari per generare il documento
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/NotificationAAR'
-
-      responses:
-        '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
-        '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-
-  /templates-engine-private/v1/templates/notificationAAR_RADDalt:
-    put:
-      summary: Generazione del pdf legato al template NotificationAAR_RADDalt
-      description: Genera un documento PDF basato sul template NotificationAAR_RADDalt.
-      operationId: notificationAAR_RADDalt
-      tags:
-        - PdfTemplate
-      parameters:
-        - in: header
-          name: X-Language
-          description: Lingua del documento
-          required: true
-          schema:
-            $ref: '#/components/schemas/LanguageEnum'
-      requestBody:
-        description: Parametri necessari per generare il documento
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/NotificationAAR_RADDalt'
-
-      responses:
-        '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
-        '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/analogDeliveryWorkflowFailureLegalFact:
     put:
@@ -419,53 +195,93 @@ paths:
       description: Genera un documento PDF basato sul template AnalogDeliveryWorkflowFailureLegalFact.
       operationId: analogDeliveryWorkflowFailureLegalFact
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
           description: Lingua del documento
           required: true
           schema:
-            $ref: '#/components/schemas/LanguageEnum'
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AnalogDeliveryWorkflowFailureLegalFact'
+              $ref: 'schemas-params.yaml#/components/schemas/AnalogDeliveryWorkflowFailureLegalFact'
 
       responses:
         '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  ############################################################################################
+  ###                         SuccessResponseHTML      EMAIL                               ###
+  ############################################################################################
+
+  /templates-engine-private/v1/templates/notification-aar:
+    put:
+      summary: Generazione del pdf legato al template NotificationAAR
+      description: Genera un documento PDF basato sul template NotificationAAR.
+      operationId: notificationAAR
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAAR'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/notificationAAR_RADDalt:
+    put:
+      summary: Generazione del pdf legato al template NotificationAAR_RADDalt
+      description: Genera un documento PDF basato sul template NotificationAAR_RADDalt.
+      operationId: notificationAAR_RADDalt
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAAR_RADDalt'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notificationAARForEMAIL:
     put:
@@ -473,53 +289,29 @@ paths:
       description: Genera un documento PDF basato sul template NotificationAARForEMAIL.
       operationId: notificationAARForEMAIL
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
           description: Lingua del documento
           required: true
           schema:
-            $ref: '#/components/schemas/LanguageEnum'
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/NotificationAARForEMAIL'
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAARForEMAIL'
 
       responses:
         '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notificationAARForPEC:
     put:
@@ -527,101 +319,29 @@ paths:
       description: Genera un documento PDF basato sul template NotificationAARForPEC.
       operationId: notificationAARForPEC
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
           description: Lingua del documento
           required: true
           schema:
-            $ref: '#/components/schemas/LanguageEnum'
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/NotificationAARForPEC'
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAARForPEC'
 
       responses:
         '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
-          description: Richiesta non valida - Lingua non supportata
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-
-  /templates-engine-private/v1/templates/notificationAARForSMS:
-    put:
-      summary: Generazione del pdf legato al template NotificationAARForSMS
-      description: Genera un documento PDF basato sul template NotificationAARForSMS.
-      operationId: notificationAARForSMS
-      tags:
-        - PdfTemplate
-      parameters:
-        - in: header
-          name: X-Language
-          description: Lingua del documento
-          required: true
-          schema:
-            $ref: '#/components/schemas/LanguageEnum'
-      requestBody:
-        description: Parametri necessari per generare il documento
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Notification'
-
-      responses:
-        '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/emailbody:
     put:
@@ -629,47 +349,29 @@ paths:
       description: Genera un documento PDF basato sul template emailbody.
       operationId: emailbody
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
           description: Lingua del documento
           required: true
           schema:
-            $ref: '#/components/schemas/LanguageEnum'
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Emailbody'
+              $ref: 'schemas-params.yaml#/components/schemas/Emailbody'
 
       responses:
         '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pecbody:
     put:
@@ -677,47 +379,29 @@ paths:
       description: Genera un documento PDF basato sul template Pecbody.
       operationId: pecbody
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
           description: Lingua del documento
           required: true
           schema:
-            $ref: '#/components/schemas/LanguageEnum'
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Pecbody'
+              $ref: 'schemas-params.yaml#/components/schemas/Pecbody'
 
       responses:
         '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pecbodyconfirm:
     put:
@@ -725,47 +409,29 @@ paths:
       description: Genera un documento PDF basato sul template Pecbodyconfirm.
       operationId: pecbodyconfirm
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
           description: Lingua del documento
           required: true
           schema:
-            $ref: '#/components/schemas/LanguageEnum'
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
       requestBody:
         description: Parametri necessari per generare il documento
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Pecbody'
+              $ref: 'schemas-params.yaml#/components/schemas/Pecbody'
 
       responses:
         '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pecbodyreject:
     put:
@@ -773,40 +439,56 @@ paths:
       description: Genera un documento PDF basato sul template Pecbodyreject.
       operationId: pecbodyreject
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
           description: Lingua del documento
           required: true
           schema:
-            $ref: '#/components/schemas/LanguageEnum'
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
 
       responses:
         '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  ############################################################################################
+  ###                         SuccessResponseText   SMS                                    ###
+  ############################################################################################
+
+  /templates-engine-private/v1/templates/notificationAARForSMS:
+    put:
+      summary: Generazione del pdf legato al template NotificationAARForSMS
+      description: Genera un documento PDF basato sul template NotificationAARForSMS.
+      operationId: notificationAARForSMS
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/Notification'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/smsbody:
     put:
@@ -814,275 +496,145 @@ paths:
       description: Genera un documento PDF OTP di conferma SMS.
       operationId: smsbody
       tags:
-        - PdfTemplate
+        - Template
       parameters:
         - in: header
           name: X-Language
           description: Lingua del documento
           required: true
           schema:
-            $ref: '#/components/schemas/LanguageEnum'
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
 
       responses:
         '200':
-          description: Ok
-          headers:
-            Content-Type:
-              description: Tipo di contenuto del documento
-              schema:
-                type: string
-                example: application/pdf
-            Content-Disposition:
-              description: Disposizione del contenuto per il download come allegato
-              schema:
-                type: string
-                example: attachment; filename="document.pdf"
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "404":
-          description: Indica che la richiesta con requestId non è stata trovata
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'remote-refs.yaml#/components/schemas/Problem'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-components:
-  schemas:
-    LanguageEnum:
-      type: string
-      enum:
-        - IT
-        - DE
-        - SL
-        - FR
-      default: it
-    ErrorResponse:
-      type: object
-      properties:
-        status:
-          type: integer
-          example: 400
-        message:
-          type: string
-          example: "Lingua non supportata. Usa uno dei seguenti valori: IT, DE, SL, FR."
+  ############################################################################################
+  ###                         SuccessResponseText  Subjects                                ###
+  ############################################################################################
 
-    Pecbody:
-      type: object
-      properties:
-        verificationCode:
-          type: string
-        logoBase64:
-          type: string
+  /templates-engine-private/v1/templates/NotificationAARSubject:
+    put:
+      summary: Generazione del TXT legato al template NotificationAARSubject
+      description: Genera un documento txt basato sul template NotificationAARSubject.
+      operationId: notificationAARSubject
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAAR'
 
-    Emailbody:
-     type: object
-     properties:
-       verificationCode:
-         type: string
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-    NotificationAARForPEC:
-      type: object
-      properties:
-        notification:
-          $ref: '#/components/schemas/Notification'
-        logoBase64:
-          type: string
-        perfezionamentoURL:
-          type: string
-        quickAccessLink:
-          type: string
-        PNFaqSendURL:
-          type: string
-        piattaformaNotificheURL:
-          type: string
-        recipientType:
-          type: string
-        recipient:
-          $ref: '#/components/schemas/Recipient'
+  /templates-engine-private/v1/templates/emailsubject:
+    put:
+      summary: Generazione del txt legato al template emailsubject
+      description: Genera un documento txt basato sul template emailsubject.
+      operationId: emailsubject
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
 
-    NotificationAARForEMAIL:
-      type: object
-      properties:
-        perfezionamentoURL:
-          type: string
-        quickAccessLink:
-          type: string
-        piattaformaNotificheURL:
-          type: string
-        sendLogoLink:
-          type: string
-        notification:
-          $ref: '#/components/schemas/Notification'
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-    AnalogDeliveryWorkflowFailureLegalFact:
-      type: object
-      properties:
-        iun:
-          type: string
-        endWorkflowDate:
-          type: string
-        endWorkflowTime:
-          type: string
-        recipient:
-          $ref: '#/components/schemas/Recipient'
+  /templates-engine-private/v1/templates/pecsubject:
+    put:
+      summary: Generazione del file legato al template pecsubject
+      description: Genera un documento TXT basato sul template pecsubject.
+      operationId: pecsubject
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
 
-    NotificationAAR_RADDalt:
-      type: object
-      properties:
-        sendURL:
-          type: string
-        sendURLLAbel:
-          type: string
-        raddPhoneNumber:
-          type: string
-        perfezionamentoURL:
-          type: string
-        perfezionamentoURLLabel:
-          type: string
-        recipient:
-          $ref: '#/components/schemas/Recipient'
-        piattaformaNotificheURL:
-          type: string
-        piattaformaNotificheURLLabel:
-          type: string
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-    NotificationAAR:
-      type: object
-      properties:
-        notification:
-          $ref: '#/components/schemas/Notification'
-        qrCodeQuickAccessLink:
-          type: string
-        recipient:
-          $ref: '#/components/schemas/Recipient'
-        piattaformaNotificheURL:
-          type: string
-        piattaformaNotificheURLLabel:
-          type: string
-        perfezionamentoURL:
-          type: string
-        perfezionamentoURLLabel:
-          type: string
-        sendURL:
-          type: string
-        sendURLLAbel:
-          type: string
+  /templates-engine-private/v1/templates/pecsubjectconfirm:
+    put:
+      summary: Generazione del file legato al template pecsubjectconfirm
+      description: Genera un documento TXT basato sul template pecsubjectconfirm.
+      operationId: pecsubjectconfirm
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
 
-    NotificationCancelledLegalFact:
-      type: object
-      properties:
-        notificationCancelledDate:
-          type: string
-        notification:
-          $ref: '#/components/schemas/Notification'
-        recipient:
-          $ref: '#/components/schemas/Recipient'
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-    PdfLegalFact:
-      type: object
-      properties:
-        startDate:
-          type: string
-        timeReferenceStartDate:
-          type: string
-        endDate:
-          type: string
-        timeReferenceEndDate:
-          type: string
+  /templates-engine-private/v1/templates/pecsubjectreject:
+    put:
+      summary: Generazione del file legato al template pecsubjectreject
+      description: Genera un documento TXT basato sul template pecsubjectreject.
+      operationId: pecsubjectreject
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: X-Language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
 
-    NotificationViewedLegalFact:
-      type: object
-      properties:
-        iun:
-          type: string
-        when:
-          type: string
-        recipient:
-          $ref: '#/components/schemas/Recipient'
-        delegate:
-          $ref: '#/components/schemas/Delegate'
-
-    Delegate:
-      type: object
-      properties:
-        denomination:
-          type: string
-        taxId:
-          type: string
-
-    PecDeliveryWorkflowLegalFact:
-      type: object
-      properties:
-        iun:
-          type: string
-        endWorkflowDate:
-          type: string
-        delivery:
-          $ref: '#/components/schemas/Delivery'
-
-    Delivery:
-      type: object
-      properties:
-        denomination:
-          type: string
-        taxId:
-          type: string
-        address:
-          type: string
-
-    NotificationReceiverLegalFact:
-      type: object
-      properties:
-        sendDate:
-          type: string
-        notification:
-          $ref: '#/components/schemas/Notification'
-        digest:
-          type: string
-        subject:
-          type: string
-        recipient:
-          $ref: '#/components/schemas/Recipient'
-        addressWriter:
-          type: string
-
-    Notification:
-      type: object
-      properties:
-        iun:
-          type: string
-        subject:
-          type: string
-        sender:
-          $ref: '#/components/schemas/NotificationSender'
-
-    NotificationSender:
-      type: object
-      properties:
-        paId:
-          type: string
-        paDenomination:
-          type: string
-        paTaxId:
-          type: string
-
-    Recipient:
-      type: object
-      properties:
-        denomination:
-          type: string
-        taxId:
-          type: string
-        physicalAddress:
-          type: string
-        digitalDomicile:
-          $ref: '#/components/schemas/DigitalDomicile'
-
-    DigitalDomicile:
-      type: object
-      properties:
-        address:
-          type: string
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'

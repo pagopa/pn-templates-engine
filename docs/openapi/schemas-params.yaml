@@ -1,0 +1,241 @@
+info:
+  version: v1.0
+components:
+  schemas:
+    LanguageEnum:
+      type: string
+      enum:
+        - IT
+        - DE
+        - SL
+        - FR
+      default: IT
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 400
+        message:
+          type: string
+          example: "Lingua non supportata. Usa uno dei seguenti valori: IT, DE, SL, FR."
+
+    Pecbody:
+      type: object
+      properties:
+        verificationCode:
+          type: string
+        logoBase64:
+          type: string
+
+    Emailbody:
+      type: object
+      properties:
+        verificationCode:
+          type: string
+
+    NotificationAARForPEC:
+      type: object
+      properties:
+        notification:
+          $ref: '#/components/schemas/Notification'
+        logoBase64:
+          type: string
+        perfezionamentoURL:
+          type: string
+        quickAccessLink:
+          type: string
+        PNFaqSendURL:
+          type: string
+        piattaformaNotificheURL:
+          type: string
+        recipientType:
+          type: string
+        recipient:
+          $ref: '#/components/schemas/Recipient'
+
+    NotificationAARForEMAIL:
+      type: object
+      properties:
+        perfezionamentoURL:
+          type: string
+        quickAccessLink:
+          type: string
+        piattaformaNotificheURL:
+          type: string
+        sendLogoLink:
+          type: string
+        notification:
+          $ref: '#/components/schemas/Notification'
+
+    AnalogDeliveryWorkflowFailureLegalFact:
+      type: object
+      properties:
+        iun:
+          type: string
+        endWorkflowDate:
+          type: string
+        endWorkflowTime:
+          type: string
+        recipient:
+          $ref: '#/components/schemas/Recipient'
+
+    NotificationAAR_RADDalt:
+      type: object
+      properties:
+        sendURL:
+          type: string
+        sendURLLAbel:
+          type: string
+        raddPhoneNumber:
+          type: string
+        perfezionamentoURL:
+          type: string
+        perfezionamentoURLLabel:
+          type: string
+        recipient:
+          $ref: '#/components/schemas/Recipient'
+        piattaformaNotificheURL:
+          type: string
+        piattaformaNotificheURLLabel:
+          type: string
+
+    NotificationAAR:
+      type: object
+      properties:
+        notification:
+          $ref: '#/components/schemas/Notification'
+        qrCodeQuickAccessLink:
+          type: string
+        recipient:
+          $ref: '#/components/schemas/Recipient'
+        piattaformaNotificheURL:
+          type: string
+        piattaformaNotificheURLLabel:
+          type: string
+        perfezionamentoURL:
+          type: string
+        perfezionamentoURLLabel:
+          type: string
+        sendURL:
+          type: string
+        sendURLLAbel:
+          type: string
+
+    NotificationCancelledLegalFact:
+      type: object
+      properties:
+        notificationCancelledDate:
+          type: string
+        notification:
+          $ref: '#/components/schemas/Notification'
+        recipient:
+          $ref: '#/components/schemas/Recipient'
+
+    PdfLegalFact:
+      type: object
+      properties:
+        startDate:
+          type: string
+        timeReferenceStartDate:
+          type: string
+        endDate:
+          type: string
+        timeReferenceEndDate:
+          type: string
+
+    NotificationViewedLegalFact:
+      type: object
+      properties:
+        iun:
+          type: string
+        when:
+          type: string
+        recipient:
+          $ref: '#/components/schemas/Recipient'
+        delegate:
+          $ref: '#/components/schemas/Delegate'
+
+    Delegate:
+      type: object
+      properties:
+        denomination:
+          type: string
+        taxId:
+          type: string
+
+    PecDeliveryWorkflowLegalFact:
+      type: object
+      properties:
+        iun:
+          type: string
+        endWorkflowDate:
+          type: string
+        delivery:
+          $ref: '#/components/schemas/Delivery'
+
+    Delivery:
+      type: object
+      properties:
+        denomination:
+          type: string
+        taxId:
+          type: string
+        address:
+          type: string
+
+    NotificationReceiverLegalFact:
+      type: object
+      properties:
+        sendDate:
+          type: string
+        notification:
+          $ref: '#/components/schemas/Notification'
+        digest:
+          type: string
+        subject:
+          type: string
+        recipient:
+          $ref: '#/components/schemas/Recipient'
+        addressWriter:
+          type: string
+
+    Notification:
+      type: object
+      properties:
+        iun:
+          type: string
+        subject:
+          type: string
+        sender:
+          $ref: '#/components/schemas/NotificationSender'
+
+    NotificationSender:
+      type: object
+      properties:
+        paId:
+          type: string
+        paDenomination:
+          type: string
+        paTaxId:
+          type: string
+
+    Recipient:
+      type: object
+      properties:
+        recipientType:
+          type: string
+        denomination:
+          type: string
+        taxId:
+          type: string
+        physicalAddress:
+          type: string
+        digitalDomicile:
+          $ref: '#/components/schemas/DigitalDomicile'
+
+    DigitalDomicile:
+      type: object
+      properties:
+        address:
+          type: string
