@@ -71,9 +71,7 @@ public class TemplateApiController implements TemplateApi {
         String templateName = "notificationAAR";
         return TemplateMapper.getMapByDto(request)
                 .flatMap(mappedTemplate -> templateService.genNotificationAAR(templateName, xLanguage.getValue(), Mono.just(mappedTemplate)))
-                .map(htmlText -> {
-                    return ResponseEntity.accepted().body(htmlText);
-                });
+                .map(htmlText -> ResponseEntity.accepted().body(htmlText));
     }
 
     @Override
