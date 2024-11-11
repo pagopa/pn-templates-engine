@@ -45,16 +45,16 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> pdfLegalFact(LanguageEnum xLanguage,
-                                                       Mono<PdfLegalFact> request,
-                                                       final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<Resource>> legalFactMalfunction(LanguageEnum xLanguage,
+                                                               Mono<LegalFactMalfunction> request,
+                                                               final ServerWebExchange exchange) {
         return Mono.empty();
     }
 
     @Override
-    public Mono<ResponseEntity<org.springframework.core.io.Resource>> notificationCancelledLegalFact(LanguageEnum xLanguage,
-                                                                                                     Mono<NotificationCancelledLegalFact> request,
-                                                                                                     final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<Resource>> notificationCancelledLegalFact(LanguageEnum xLanguage,
+                                                                         Mono<NotificationCancelledLegalFact> request,
+                                                                         final ServerWebExchange exchange) {
         String templateName = "notificationCancelledLegalFact";
         return TemplateMapper.getMapByDto(request)
                 .flatMap(mappedTemplate -> templateService.executePdfTemplate(templateName, xLanguage.getValue(), Mono.just(mappedTemplate)))
@@ -66,8 +66,8 @@ public class TemplateApiController implements TemplateApi {
 
     @Override
     public Mono<ResponseEntity<String>> notificationAAR(LanguageEnum xLanguage,
-                                                                                      Mono<NotificationAAR> request,
-                                                                                      final ServerWebExchange exchange) {
+                                                        Mono<NotificationAAR> request,
+                                                        final ServerWebExchange exchange) {
         String templateName = "notificationAAR";
         return TemplateMapper.getMapByDto(request)
                 .flatMap(mappedTemplate -> templateService.genNotificationAAR(templateName, xLanguage.getValue(), Mono.just(mappedTemplate)))
@@ -130,8 +130,8 @@ public class TemplateApiController implements TemplateApi {
 
     @Override
     public Mono<ResponseEntity<String>> notificationAARSubject(LanguageEnum xLanguage,
-                                                             Mono<NotificationAAR> notificationAAR,
-                                                             final ServerWebExchange exchange) {
+                                                               Mono<NotificationAAR> notificationAAR,
+                                                               final ServerWebExchange exchange) {
         return Mono.empty();
     }
 

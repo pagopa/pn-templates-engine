@@ -129,11 +129,11 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/pdf-legal-fact:
+  /templates-engine-private/v1/templates/legal-fact-mal-function:
     put:
-      summary: Generazione del pdf legato al template PdfLegalFact
-      description: Genera un documento PDF basato sul template PdfLegalFact.
-      operationId: pdfLegalFact
+      summary: Generazione del pdf legato al template LegalFactMalfunction
+      description: Genera un documento PDF basato sul template LegalFactMalfunction.
+      operationId: legalFactMalfunction
       tags:
         - Template
       parameters:
@@ -149,7 +149,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/PdfLegalFact'
+              $ref: 'schemas-params.yaml#/components/schemas/LegalFactMalfunction'
 
       responses:
         '200':

@@ -201,18 +201,6 @@ Parameters:
     Default: '-'
     Description: Cron for which you send the metric to CloudWatch
 
-  TemplatesEngineBucketArn:
-    Type: String
-    Description: PN TEMPLATES ENGINE bucket ARN.
-
-  TemplatesEngineBucketName:
-    Type: String
-    Description: PN TEMPLATES ENGINE bucket name.
-
-  TemplatesEngineBucketRegion:
-    Type: String
-    Description: PN TEMPLATES ENGINE bucket region.
-
 Resources:
   # PN-Templates-Engine microservice
   TemplatesEngineMicroservice:
@@ -225,9 +213,8 @@ Resources:
         MemoryAmount: 2GB
         ContainerImageURI: !Sub '${ContainerImageUri}'
         ContainerEnvEntry1: !Sub 'AWS_REGIONCODE=${AWS::Region}'
-        ContainerEnvEntry2: !Sub 'CORS_ALLOWED_DOMAINS=${CorsAllowedDomains}'
-        ContainerEnvEntry3: !Sub 'PN_CRON_ANALYZER=${PnCronAnalyzer}'
-        ContainerEnvEntry4: !Sub 'WIRE_TAP_LOG=${WireTapLogActivation}'
+        ContainerEnvEntry2: !Sub 'PN_CRON_ANALYZER=${PnCronAnalyzer}'
+        ContainerEnvEntry3: !Sub 'WIRE_TAP_LOG=${WireTapLogActivation}'
         MappedPaths: '/templates-engine/*'
         ECSClusterName: !Ref ECSClusterName
         Subnets: !Ref VpcEgressSubnetsIds

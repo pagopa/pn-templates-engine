@@ -35,7 +35,7 @@ templates:
       IT: "PdfFileCompliance.html"
   pdfLegalFact:
     input:
-      IT: "PdfLegalFact.html"
+      IT: "LegalFactMalfunction.html"
       DE: "PdfLegalFact_de.html"
       SL: "PdfLegalFact_sl.html"
       FR: "PdfLegalFact_fr.html"
