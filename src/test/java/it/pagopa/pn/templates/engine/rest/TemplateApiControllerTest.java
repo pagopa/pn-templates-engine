@@ -142,14 +142,14 @@ class TemplateApiControllerTest {
     @Test
     void pdfLegalFact_Language_Not_Exist() {
         //ARRANGE
-        PdfLegalFact request = new PdfLegalFact();
+        LegalFactMalfunction request = new LegalFactMalfunction();
 
         //ACT AND ASSERT
         webTestClient.put()
                 .uri(PDF_LEGAL_FACT)
                 .accept(MediaType.ALL)
                 .header("X-Language", "MD")
-                .body(Mono.just(request), PdfLegalFact.class)
+                .body(Mono.just(request), LegalFactMalfunction.class)
                 .exchange()
                 .expectStatus()
                 .isEqualTo(400);
@@ -158,14 +158,14 @@ class TemplateApiControllerTest {
     @Test
     void pdfLegalFact_OK() {
         //ARRANGE
-        PdfLegalFact request = new PdfLegalFact();
+        LegalFactMalfunction request = new LegalFactMalfunction();
 
         //ACT AND ASSERT
         webTestClient.put()
                 .uri(PDF_LEGAL_FACT)
                 .accept(MediaType.ALL)
                 .header("X-Language", "SL")
-                .body(Mono.just(request), PdfLegalFact.class)
+                .body(Mono.just(request), LegalFactMalfunction.class)
                 .exchange()
                 .expectStatus()
                 .isOk();
