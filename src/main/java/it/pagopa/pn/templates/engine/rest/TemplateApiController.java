@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 @Slf4j
 @RestController
 @AllArgsConstructor
-public class PdfTemplateApiController implements TemplateApi {
+public class TemplateApiController implements TemplateApi {
 
     @Override
     public Mono<ResponseEntity<Resource>> notificationReceivedLegalFact(LanguageEnum xLanguage,
