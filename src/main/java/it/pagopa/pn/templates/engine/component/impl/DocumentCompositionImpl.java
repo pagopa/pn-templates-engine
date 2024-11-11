@@ -1,26 +1,30 @@
 package it.pagopa.pn.templates.engine.component.impl;
 
-
+import static it.pagopa.pn.templates.engine.utils.TemplateUtils.getFormattedPath;
 import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 import freemarker.template.Configuration;
-import it.pagopa.pn.commons.exceptions.PnInternalException;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import it.pagopa.pn.templates.engine.config.TemplateConfig;
 import it.pagopa.pn.templates.engine.component.DocumentComposition;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.Map;
-
+import it.pagopa.pn.templates.engine.exceptions.*;
+import it.pagopa.pn.templates.engine.exceptions.PnGenericException;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.helper.W3CDom;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
 
 @Component
 @Slf4j
 public class DocumentCompositionImpl implements DocumentComposition {
-
   private final Configuration freemarkerConfig;
   private final TemplateConfig templateConfig;
 
@@ -29,52 +33,59 @@ public class DocumentCompositionImpl implements DocumentComposition {
     this.templateConfig = templateConfig;
   }
 
-  public String executeTextTemplate(String templateName, Map<String, Object> mapTemplateModel) {
-//    var content = this.fileDao.getFile(pnTemplateConfig.getPath() + templateName);
-//    log.info("Execute Text content={} START", content);
-//    try (StringWriter stringWriter = new StringWriter()) {
-//      var template = new Template(content, new StringReader(content), freemarkerConfig);
-//      template.process(mapTemplateModel, stringWriter);
-//      log.info("Execute Text content END");
-//      return stringWriter.getBuffer().toString();
-//    } catch (IOException | TemplateException exc) {
-//      throw new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION_FAILED, exc.getMessage());
-//    }
-    return null;
+
+  @Override
+  public Mono<String> executeTextTemplate(String templateName, Mono<Map<String, Object>> mapTemplateModel) {
+    return mapTemplateModel
+            .doOnNext(this::printMappedTemplate)
+            .flatMap(templateModel -> Mono.fromCallable(() -> processTemplate(templateName, templateModel))
+                    .subscribeOn(Schedulers.boundedElastic()))
+            .doOnNext(value -> log.info("Conversion on Text success - END"))
+            .onErrorResume(exception -> Mono.error(new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION, exception.getMessage())));
   }
 
-  public byte[] executePdfTemplate(String templateName, Map<String, Object> mapTemplateModel) {
-    String html = executeTextTemplate(templateName, mapTemplateModel);
-    log.info("Pdf conversion start for templateName={} ", html);
-    byte[] pdf = html2Pdf(html);
-    log.info("Pdf conversion done");
-    return pdf;
+  @Override
+  public Mono<byte[]> executePdfTemplate(String templateName, Mono<Map<String, Object>> mapTemplateModel) {
+    Mono<String> htmlMono = executeTextTemplate(templateName, mapTemplateModel);
+    return html2Pdf(htmlMono)
+            .doOnNext(value -> log.info("Pdf conversion success - END"));
   }
 
-  private byte[] html2Pdf(String html) {
+  private String processTemplate(String templateName, Object templateModel) throws TemplateException, IOException {
+    log.info("Conversion on Text - START");
+    StringWriter stringWriter = new StringWriter();
+    Template template = freemarkerConfig.getTemplate(templateName);
+    template.process(templateModel, stringWriter);
+    return stringWriter.getBuffer().toString();
+  }
+
+  private Mono<byte[]> html2Pdf(Mono<String> htmlMono) {
+    return htmlMono
+            .doOnNext(value -> log.info("Pdf conversion - START"))
+            .flatMap(html -> Mono.fromCallable(() -> generatePdf(html)))
+            .subscribeOn(Schedulers.boundedElastic())
+            .doOnNext(value -> log.info("Generating Pdf - END"))
+            .onErrorResume(exception -> Mono.error(new PnGenericException(ExceptionTypeEnum.ERROR_PDF_DOCUMENT_GENERATION, exception.getMessage())));
+  }
+
+  private byte[] generatePdf(String html) throws IOException {
+    log.info("Generating Pdf  - START");
     try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+      String baseUri = getFormattedPath(templateConfig.getTemplatesPath());
       Document jsoupDoc = Jsoup.parse(html);
       W3CDom w3cDom = new W3CDom();
       org.w3c.dom.Document w3cDoc = w3cDom.fromJsoup(jsoupDoc);
       PdfRendererBuilder builder = new PdfRendererBuilder();
       builder.usePdfUaAccessbility(true);
       builder.usePdfAConformance(PdfRendererBuilder.PdfAConformance.PDFA_3_A);
-//      Path basePath = Paths.get(pnTemplateConfig.getFontPath());
-//      URI baseUri = basePath.toUri();
-//      builder.withW3cDocument(w3cDoc, baseUri.toString());
+      builder.withW3cDocument(w3cDoc, baseUri);
       builder.toStream(baos);
       builder.run();
       return baos.toByteArray();
-    } catch (IOException ex) {
-      throw new PnInternalException("", "");
     }
   }
 
-  private Byte[] toByteArray(byte[] array) {
-    Byte[] bytes = new Byte[array.length];
-    for (int i = 0; i < array.length; i++) {
-      bytes[i] = array[i];
-    }
-    return bytes;
+  private void printMappedTemplate(Map<String, Object> mappedTemplate) {
+    log.info("Template mapped={}", mappedTemplate);
   }
 }
