@@ -44,21 +44,7 @@ Resources:
         LogGroupRetention: !Ref LogRetention
         LogsKinesisSourceStreamArn: !Ref LogsKinesisSourceStreamArn
 
-  TemplatesEngineBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: !Sub ${ProjectName}-templates-engine-data-${AWS::Region}-${AWS::AccountId}
-      VersioningConfiguration:
-        Status: Enabled
-
 Outputs:
   # Log group exports
   EcsLogGroup:
     Value: !GetAtt PnTemplatesEngineLogGroup.Outputs.LogGroupName
-  # Bucket exports
-  TemplatesEngineBucketArn:
-    Value: !GetAtt TemplatesEngineBucket.Arn
-  TemplatesEngineBucketName:
-    Value: !Ref TemplatesEngineBucket
-  TemplatesEngineBucketRegion:
-    Value: !Ref AWS::Region
