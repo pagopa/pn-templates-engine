@@ -35,12 +35,12 @@ templates:
   pdfFileCompliance:
     input:
       IT: "PdfFileCompliance.html"
-  pdfLegalFact:
+  legalFactMalfunction:
     input:
-      IT: "PdfLegalFact.html"
-      DE: "PdfLegalFact_de.html"
-      SL: "PdfLegalFact_sl.html"
-      FR: "PdfLegalFact_fr.html"
+      IT: "LegalFactMalfunction.html"
+      DE: "LegalFactMalfunction_de.html"
+      SL: "LegalFactMalfunction_sl.html"
+      FR: "LegalFactMalfunction_fr.html"
   notificationCancelledLegalFact:
     input:
       IT: "NotificationCancelledLegalFact.html"

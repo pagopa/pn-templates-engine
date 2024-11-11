@@ -132,7 +132,7 @@ components:
         recipient:
           $ref: '#/components/schemas/Recipient'
 
-    PdfLegalFact:
+    LegalFactMalfunction:
       type: object
       properties:
         startDate:
