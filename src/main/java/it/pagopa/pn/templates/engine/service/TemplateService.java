@@ -3,7 +3,6 @@ package it.pagopa.pn.templates.engine.service;
 import it.pagopa.pn.templates.engine.component.DocumentComposition;
 import it.pagopa.pn.templates.engine.config.TemplateConfig;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
@@ -30,13 +29,13 @@ public class TemplateService {
     public Mono<String> executeTextTemplate(String templateName, String language, Map<String, Object> mapTemplateModel) {
         log.info("Execute Text for templateName={},  language={} - START", templateName, language);
         String templateFileName = getFileName(templateName, language);
-        return documentComposition.executeTextTemplate(templateFileName, mapTemplateModel);
+        return Mono.just(documentComposition.executeTextTemplate(templateFileName, mapTemplateModel));
     }
 
     public Mono<byte[]> executePdfTemplate(String templateName, String language, Map<String, Object> mapTemplateModel) {
         log.info("Execute Pdf for templateName={},  language={} - START", templateName, language);
         String templateFileName = getFileName(templateName, language);
-        return documentComposition.executePdfTemplate(templateFileName, mapTemplateModel);
+        return Mono.just(documentComposition.executePdfTemplate(templateFileName, mapTemplateModel));
     }
 
     private String getFileName(String templateName, String language) {

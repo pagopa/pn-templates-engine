@@ -6,6 +6,6 @@ import java.util.Map;
 
 
 public interface DocumentComposition {
-    Mono<String> executeTextTemplate(String templateFileName, Map<String, Object> mapTemplateModel);
-    Mono<byte[]> executePdfTemplate(String templateFileName, Map<String, Object> mapTemplateModel);
+    String executeTextTemplate(String templateFileName, Map<String, Object> mapTemplateModel);
+    byte[] executePdfTemplate(String templateFileName, Map<String, Object> mapTemplateModel);
 }

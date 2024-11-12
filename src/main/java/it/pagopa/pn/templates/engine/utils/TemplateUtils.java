@@ -21,7 +21,7 @@ public class TemplateUtils {
         try {
             String absolutePath = new ClassPathResource(relativePath).getFile().getAbsolutePath();
             String uriPath = Paths.get(absolutePath).toUri().toString();
-            return uriPath.replaceFirst("file:///", "");
+            return uriPath.replaceFirst("file:///", "file:");
         } catch (Exception exception) {
             throw new PnGenericException(ERROR_FILE_READING, exception.getMessage());
         }

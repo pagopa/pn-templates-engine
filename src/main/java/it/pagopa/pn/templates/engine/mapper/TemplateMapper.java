@@ -2,10 +2,7 @@ package it.pagopa.pn.templates.engine.mapper;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import it.pagopa.pn.templates.engine.exceptions.ExceptionTypeEnum;
-import it.pagopa.pn.templates.engine.exceptions.PnGenericException;
 import lombok.extern.slf4j.Slf4j;
-import reactor.core.publisher.Mono;
 
 import java.util.Map;
 
@@ -17,14 +14,8 @@ public class TemplateMapper {
     private TemplateMapper() {
     }
 
-    public static <T> Mono<Map<String, Object>> getMapByDto(T dto) {
-        return Mono.fromCallable(() -> {
-            ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.convertValue(dto, new TypeReference<Map<String, Object>>() {
-            });
-        }).onErrorResume(exception -> {
-            log.error("Error converting DTO to Map: {}", exception.getMessage(), exception);
-            return Mono.error(new PnGenericException(ExceptionTypeEnum.ERROR_OBJECT_MAPPING, exception.getMessage()));
+    public static <T> Map<String, Object> getMapByDto(T dto) {
+        return new ObjectMapper().convertValue(dto, new TypeReference<Map<String, Object>>() {
         });
     }
 }

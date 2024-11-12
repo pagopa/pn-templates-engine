@@ -48,7 +48,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -78,7 +78,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -108,7 +108,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -129,7 +129,7 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/legal-fact-mal-function:
+  /templates-engine-private/v1/templates/legal-fact-malfunction:
     put:
       summary: Generazione del pdf legato al template LegalFactMalfunction
       description: Genera un documento PDF basato sul template LegalFactMalfunction.
@@ -138,7 +138,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -168,7 +168,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -198,7 +198,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -232,7 +232,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -262,7 +262,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -292,7 +292,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -322,7 +322,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -352,7 +352,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -382,7 +382,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -412,7 +412,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -442,7 +442,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -469,7 +469,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -499,7 +499,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -526,7 +526,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -556,7 +556,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -579,7 +579,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -602,7 +602,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
@@ -625,7 +625,7 @@ paths:
         - Template
       parameters:
         - in: header
-          name: X-Language
+          name: x-language
           description: Lingua del documento
           required: true
           schema:
