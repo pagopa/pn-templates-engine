@@ -20,7 +20,13 @@ public enum TemplatesEnum {
     PEC_BODY("pecbody"),
     PEC_BODY_CONFIRM("pecbodyconfirm"),
     PEC_BODY_REJECT("pecbodyreject"),
-    SMS_BODY("smsbody");
+    SMS_BODY("smsbody"),
+
+    NOTIFICATION_AAR_SUBJECT("notificationAARSubject"),
+    EMAIL_SUBJECT("emailsubject"),
+    PEC_SUBJECT("pecsubject"),
+    PEC_SUBJECT_CONFIRM("pecsubjectconfirm"),
+    PEC_SUBJECT_REJECT("pecsubjectreject");
 
     private final String template;
 

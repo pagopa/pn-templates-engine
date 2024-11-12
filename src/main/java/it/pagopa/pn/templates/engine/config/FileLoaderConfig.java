@@ -14,7 +14,7 @@ import java.util.Base64;
 @Configuration
 public class FileLoaderConfig {
 
-    @Bean
+    @Bean(name = "base64FileContent")
     public String base64FileContent(@Value("${templatesPath}") String templatesPath,
                                     @Value("${templatesImagesPath}") String templatesImagesPath,
                                     @Value("${templatesLogo}") String templatesLogo) {

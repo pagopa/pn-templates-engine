@@ -9,7 +9,7 @@ pn:
   env:
     runtime: PROD
 
-templatesPath: "templates"
+templatesPath: "templates-assets"
 templatesImagesPath: "images"
 templatesLogo: "aar-logo-short-small.png"
 
@@ -80,23 +80,33 @@ templates:
   notificationAARForSMS:
     input:
       IT: "NotificationAARForSMS.txt"
-      SUB: "NotificationAARSubject.txt"
   emailbody:
     input:
       IT: "emailbody.html"
-      SUB: "emailsubject.txt"
   pecbody:
     input:
       IT: "pecbody.html"
-      SUB: "pecsubject.txt"
   pecbodyconfirm:
     input:
       IT: "pecbodyconfirm.html"
-      SUB: "pecsubjectconfirm.txt"
   pecbodyreject:
     input:
       IT: "pecbodyreject.html"
-      SUB: "pecsubjectreject.txt"
   smsbody:
     input:
       IT: "smsbody.txt"
+  notificationAARSubject:
+    input:
+      IT: "NotificationAARSubject.txt"
+  emailsubject:
+    input:
+      IT: "emailsubject.txt"
+  pecsubject:
+    input:
+      IT: "pecsubject.txt"
+  pecsubjectconfirm:
+    input:
+      IT: "pecsubjectconfirm.txt"
+  pecsubjectreject:
+    input:
+      IT: "pecsubjectreject.txt"
