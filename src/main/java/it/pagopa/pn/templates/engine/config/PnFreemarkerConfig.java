@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 public class PnFreemarkerConfig {
 
     private final freemarker.template.Configuration configuration;
-    private final TemplateConfig templateConfig;
 
     @Bean("freemarkerConfig")
     public freemarker.template.Configuration freemarkerConfig(@Value("${templatesPath}") String templatePath) {
