@@ -4,6 +4,7 @@ import it.pagopa.pn.templates.engine.generated.openapi.server.v1.api.TemplateApi
 import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.*;
 import it.pagopa.pn.templates.engine.mapper.TemplateMapper;
 import it.pagopa.pn.templates.engine.service.TemplateService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -15,13 +16,10 @@ import reactor.core.publisher.Mono;
 
 @Slf4j
 @RestController
+@AllArgsConstructor
 public class TemplateApiController implements TemplateApi {
+
     private final TemplateService templateService;
-
-    public TemplateApiController(TemplateService templateService) {
-        this.templateService = templateService;
-    }
-
 
     @Override
     public Mono<ResponseEntity<Resource>> notificationReceivedLegalFact(LanguageEnum xLanguage,

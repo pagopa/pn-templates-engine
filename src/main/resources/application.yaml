@@ -14,7 +14,7 @@ templatesImagesPath: "images"
 templatesLogo: "aar-logo-short-small.png"
 
 templates:
-  notification-received-legal-fact:
+  notificationReceivedLegalFact:
     input:
       IT: "NotificationReceivedLegalFact.html"
       DE: "NotificationReceivedLegalFact_de.html"
