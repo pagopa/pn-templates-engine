@@ -76,7 +76,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
             PdfRendererBuilder builder = new PdfRendererBuilder();
             builder.usePdfUaAccessbility(true);
             builder.usePdfAConformance(PdfRendererBuilder.PdfAConformance.PDFA_3_A);
-            builder.withW3cDocument(w3cDoc, baseUri + "/fonts");
+            builder.withW3cDocument(w3cDoc, baseUri);
             builder.toStream(baos);
             builder.run();
             return baos.toByteArray();
