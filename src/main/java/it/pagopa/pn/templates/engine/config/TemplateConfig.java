@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+
 import java.util.Map;
 
 
@@ -12,7 +13,10 @@ import java.util.Map;
 @Configuration
 @ConfigurationProperties
 public class TemplateConfig {
+
     private String templatesPath;
+    private String templatesImagesPath;
+    private String templatesLogo;
     private Map<String, Template> templates;
 
     @Setter

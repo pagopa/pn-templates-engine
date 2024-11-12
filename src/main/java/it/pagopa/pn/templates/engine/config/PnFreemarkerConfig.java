@@ -1,5 +1,6 @@
 package it.pagopa.pn.templates.engine.config;
 
+import freemarker.cache.ClassTemplateLoader;
 import it.pagopa.pn.templates.engine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templates.engine.exceptions.PnGenericException;
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ public class PnFreemarkerConfig {
     @Bean("freemarkerConfig")
     public freemarker.template.Configuration freemarkerConfig(@Value("${templatesPath}") String templatePath) {
         try {
-            configuration.setClassLoaderForTemplateLoading(getClass().getClassLoader(), "/".concat(templatePath));
+            configuration.setTemplateLoader(new ClassTemplateLoader(this.getClass().getClassLoader(), "/".concat(templatePath)));
             configuration.setDefaultEncoding("UTF-8");
             configuration.setLogTemplateExceptions(false);
             configuration.setWrapUncheckedExceptions(true);

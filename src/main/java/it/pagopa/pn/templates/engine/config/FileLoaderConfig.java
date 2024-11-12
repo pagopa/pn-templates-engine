@@ -2,6 +2,7 @@ package it.pagopa.pn.templates.engine.config;
 
 import static it.pagopa.pn.templates.engine.exceptions.ExceptionTypeEnum.ERROR_FILE_READING;
 import it.pagopa.pn.templates.engine.exceptions.PnGenericException;
+import it.pagopa.pn.templates.engine.utils.TemplateUtils;
 import org.apache.pdfbox.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

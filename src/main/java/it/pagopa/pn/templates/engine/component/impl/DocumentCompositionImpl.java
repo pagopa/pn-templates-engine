@@ -34,12 +34,12 @@ public class DocumentCompositionImpl implements DocumentComposition {
     private final TemplateConfig templateConfig;
 
     @Override
-    public Mono<String> executeTextTemplate(String templateName, Mono<Map<String, Object>> mapTemplateModel) {
+    public Mono<String> executeTextTemplate(String templateName, Map<String, Object> mapTemplateModel) {
         return Mono.fromCallable(() -> processTemplate(templateName, mapTemplateModel));
     }
 
     @Override
-    public Mono<byte[]> executePdfTemplate(String templateName, Mono<Map<String, Object>> mapTemplateModel) {
+    public Mono<byte[]> executePdfTemplate(String templateName, Map<String, Object> mapTemplateModel) {
         Mono<String> htmlMono = executeTextTemplate(templateName, mapTemplateModel);
         return html2Pdf(htmlMono)
                 .doOnNext(value -> log.info("Pdf conversion success - END"));
@@ -76,7 +76,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
             PdfRendererBuilder builder = new PdfRendererBuilder();
             builder.usePdfUaAccessbility(true);
             builder.usePdfAConformance(PdfRendererBuilder.PdfAConformance.PDFA_3_A);
-            builder.withW3cDocument(w3cDoc, baseUri);
+            builder.withW3cDocument(w3cDoc, baseUri + "/fonts");
             builder.toStream(baos);
             builder.run();
             return baos.toByteArray();

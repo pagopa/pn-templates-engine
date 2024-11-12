@@ -18,6 +18,7 @@ public class TemplateService {
     private final TemplateConfig templateConfig;
     private final String base64FileContent;
 
+
     public TemplateService(DocumentComposition documentComposition,
                            TemplateConfig templateConfig,
                            @Qualifier("base64FileContent") String base64FileContent) {
@@ -26,13 +27,13 @@ public class TemplateService {
         this.base64FileContent = base64FileContent;
     }
 
-    public Mono<String> executeTextTemplate(String templateName, String language, Mono<Map<String, Object>> mapTemplateModel) {
+    public Mono<String> executeTextTemplate(String templateName, String language, Map<String, Object> mapTemplateModel) {
         log.info("Execute Text for templateName={},  language={} - START", templateName, language);
         String templateFileName = getFileName(templateName, language);
         return documentComposition.executeTextTemplate(templateFileName, mapTemplateModel);
     }
 
-    public Mono<byte[]> executePdfTemplate(String templateName, String language, Mono<Map<String, Object>> mapTemplateModel) {
+    public Mono<byte[]> executePdfTemplate(String templateName, String language, Map<String, Object> mapTemplateModel) {
         log.info("Execute Pdf for templateName={},  language={} - START", templateName, language);
         String templateFileName = getFileName(templateName, language);
         return documentComposition.executePdfTemplate(templateFileName, mapTemplateModel);
