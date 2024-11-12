@@ -23,18 +23,6 @@ public class TemplateApiController implements TemplateApi {
 
     private final TemplateService templateService;
 
-    private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(String templateName, LanguageEnum xLanguage, Mono<T> request) {
-        return request
-                .flatMap(dto -> templateService.executePdfTemplate(templateName, xLanguage.getValue(), getMapByDto(dto))
-                        .map(resultBytes -> ResponseEntity.accepted().body(new ByteArrayResource(resultBytes))));
-    }
-
-    private <T> Mono<ResponseEntity<String>> processTextTemplate(String templateName, LanguageEnum xLanguage, Mono<T> request) {
-        return request
-                .flatMap(dto -> templateService.executeTextTemplate(templateName, xLanguage.getValue(), getMapByDto(dto))
-                        .map(result -> ResponseEntity.accepted().body(result)));
-    }
-
     @Override
     public Mono<ResponseEntity<Resource>> notificationReceivedLegalFact(LanguageEnum xLanguage,
                                                                         Mono<NotificationReceiverLegalFact> request,
@@ -157,4 +145,17 @@ public class TemplateApiController implements TemplateApi {
     public Mono<ResponseEntity<String>> pecsubjectreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return Mono.empty();
     }
+
+    private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(String templateName, LanguageEnum xLanguage, Mono<T> request) {
+        return request
+                .flatMap(dto -> templateService.executePdfTemplate(templateName, xLanguage.getValue(), getMapByDto(dto))
+                        .map(resultBytes -> ResponseEntity.accepted().body(new ByteArrayResource(resultBytes))));
+    }
+
+    private <T> Mono<ResponseEntity<String>> processTextTemplate(String templateName, LanguageEnum xLanguage, Mono<T> request) {
+        return request
+                .flatMap(dto -> templateService.executeTextTemplate(templateName, xLanguage.getValue(), getMapByDto(dto))
+                        .map(result -> ResponseEntity.accepted().body(result)));
+    }
+
 }
