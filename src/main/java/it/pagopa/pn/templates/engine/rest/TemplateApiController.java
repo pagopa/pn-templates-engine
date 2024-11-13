@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import java.util.HashMap;
-
-
 @Slf4j
 @RestController
 @AllArgsConstructor
@@ -116,7 +113,7 @@ public class TemplateApiController implements TemplateApi {
 
     @Override
     public Mono<ResponseEntity<String>> pecbodyreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.PEC_BODY_REJECT.getTemplate(), xLanguage);
+        return processTextTemplate(TemplatesEnum.PEC_BODY_REJECT.getTemplate(), xLanguage);
     }
 
     @Override
@@ -128,22 +125,22 @@ public class TemplateApiController implements TemplateApi {
 
     @Override
     public Mono<ResponseEntity<String>> emailsubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return Mono.empty();
+        return processTextTemplate(TemplatesEnum.EMAIL_SUBJECT.getTemplate(), xLanguage);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecsubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return Mono.empty();
+        return processTextTemplate(TemplatesEnum.PEC_SUBJECT.getTemplate(), xLanguage);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecsubjectconfirm(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return Mono.empty();
+        return processTextTemplate(TemplatesEnum.PEC_SUBJECT_CONFIRM.getTemplate(), xLanguage);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecsubjectreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return Mono.empty();
+        return processTextTemplate(TemplatesEnum.PEC_SUBJECT_REJECT.getTemplate(), xLanguage);
     }
 
     private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(String templateName, LanguageEnum xLanguage, Mono<T> request) {
@@ -158,8 +155,8 @@ public class TemplateApiController implements TemplateApi {
                         .map(result -> ResponseEntity.accepted().body(result)));
     }
 
-    private <T> Mono<ResponseEntity<String>> processPdfTemplate(String templateName, LanguageEnum xLanguage) {
-        return templateService.executeTextTemplate(templateName, xLanguage.getValue(), Mono.just(new HashMap<String, Object>()))
+    private Mono<ResponseEntity<String>> processTextTemplate(String templateName, LanguageEnum xLanguage) {
+        return templateService.executeTextTemplate(templateName, xLanguage.getValue())
                 .map(result -> ResponseEntity.accepted().body(result));
     }
 }

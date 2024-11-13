@@ -35,4 +35,9 @@ public class TemplateService {
         TemplateConfig.Template template = templateConfig.getTemplates().get(templateName);
         return template.getInput().get(language);
     }
+
+    public Mono<String> executeTextTemplate(String templateName, String language) {
+        TemplateConfig.Template template = templateConfig.getTemplatesAsString().get(templateName);
+        return Mono.just(template.getInput().get(language));
+    }
 }
