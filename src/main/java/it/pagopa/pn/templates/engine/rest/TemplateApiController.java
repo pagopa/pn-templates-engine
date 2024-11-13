@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.util.HashMap;
+
 
 @Slf4j
 @RestController
@@ -114,7 +116,7 @@ public class TemplateApiController implements TemplateApi {
 
     @Override
     public Mono<ResponseEntity<String>> pecbodyreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return Mono.empty();
+        return processPdfTemplate(TemplatesEnum.PEC_BODY_REJECT.getTemplate(), xLanguage);
     }
 
     @Override
@@ -146,7 +148,7 @@ public class TemplateApiController implements TemplateApi {
 
     private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(String templateName, LanguageEnum xLanguage, Mono<T> request) {
         return request
-                .flatMap(dto -> templateService.executePdfTemplate(templateName, xLanguage.getValue(), dto )
+                .flatMap(dto -> templateService.executePdfTemplate(templateName, xLanguage.getValue(), dto)
                         .map(resultBytes -> ResponseEntity.accepted().body(new ByteArrayResource(resultBytes))));
     }
 
@@ -156,4 +158,8 @@ public class TemplateApiController implements TemplateApi {
                         .map(result -> ResponseEntity.accepted().body(result)));
     }
 
+    private <T> Mono<ResponseEntity<String>> processPdfTemplate(String templateName, LanguageEnum xLanguage) {
+        return templateService.executeTextTemplate(templateName, xLanguage.getValue(), Mono.just(new HashMap<String, Object>()))
+                .map(result -> ResponseEntity.accepted().body(result));
+    }
 }

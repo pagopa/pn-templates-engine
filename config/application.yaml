@@ -73,9 +73,11 @@ templates:
       SL: "NotificationAARForPEC_sl.html"
       FR: "NotificationAARForPEC_fr.html"
   notificationAARForSMS:
-    loadAsString: true
     input:
       IT: "NotificationAARForSMS.txt"
+  notificationAARSubject:
+    input:
+      IT: "NotificationAARSubject.txt"
   emailbody:
     input:
       IT: "emailbody.html"
@@ -91,18 +93,19 @@ templates:
   smsbody:
     input:
       IT: "smsbody.txt"
-  notificationAARSubject:
-    input:
-      IT: "NotificationAARSubject.txt"
   emailsubject:
+    loadAsString: true
     input:
       IT: "emailsubject.txt"
   pecsubject:
+    loadAsString: true
     input:
       IT: "pecsubject.txt"
   pecsubjectconfirm:
+    loadAsString: true
     input:
       IT: "pecsubjectconfirm.txt"
   pecsubjectreject:
+    loadAsString: true
     input:
       IT: "pecsubjectreject.txt"

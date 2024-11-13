@@ -9,6 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -20,12 +21,14 @@ public class TemplateConfig {
     private String templatesPath;
     private String templatesImagesPath;
     private String templatesLogo;
+    private Map<String, Template> templatesAsString = new HashMap<>();
     private Map<String, Template> templates;
 
     @Setter
     @Getter
     public static class Template {
-        private Map<String, String> input;
+        private boolean loadAsString = false;
+        private Map<String, String> input = new HashMap<>();
     }
 
     @PostConstruct
