@@ -10,7 +10,8 @@ public enum ExceptionTypeEnum {
     ERROR_PDF_DOCUMENT_GENERATION( "ERROR_PDF_DOCUMENT_GENERATION", "Errore durante la generazione del pdf."),
     ERROR_OBJECT_MAPPING( "ERROR_OBJECT_MAPPING", "Errore durante la mappatura di un oggetto."),
     ERROR_FILE_READING( "ERROR_IMAGE_READING", "Errore durante la lettura del file."),
-    ERROR_TEMPLATE_LOADING("ERROR_LOAD_TEMPLATE", "Errore durante la lettura dei template.");
+    ERROR_TEMPLATE_LOADING("ERROR_LOAD_TEMPLATE", "Errore durante la lettura dei template."),
+    TEMPLATE_NOT_FOUND("ERROR_LOAD_TEMPLATE", "Template non trovato per: ");
 
     private final String title;
     private final String message;
