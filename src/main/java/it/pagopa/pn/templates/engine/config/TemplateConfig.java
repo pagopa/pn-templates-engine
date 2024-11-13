@@ -34,7 +34,7 @@ public class TemplateConfig {
             String templateName = templateEnum.getTemplate();
             if (!templates.containsKey(templateName)) {
                 throw new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND,
-                        ExceptionTypeEnum.TEMPLATE_NOT_FOUND.getMessage() + templateEnum);
+                        ExceptionTypeEnum.TEMPLATE_NOT_FOUND.getMessage() + templateName);
             }
         }
     }
