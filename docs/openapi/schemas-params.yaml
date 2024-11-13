@@ -171,6 +171,8 @@ components:
           type: string
         endWorkflowDate:
           type: string
+        endWorkflowStatus:
+          type: string
         delivery:
           $ref: '#/components/schemas/Delivery'
 
@@ -199,6 +201,10 @@ components:
           $ref: '#/components/schemas/Recipient'
         addressWriter:
           type: string
+        digests:
+          type: array
+          items:
+            type: string
 
     Notification:
       type: object
@@ -209,6 +215,10 @@ components:
           type: string
         sender:
           $ref: '#/components/schemas/NotificationSender'
+        recipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
 
     NotificationSender:
       type: object

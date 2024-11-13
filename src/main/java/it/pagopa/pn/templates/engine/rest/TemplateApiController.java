@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import static it.pagopa.pn.templates.engine.mapper.TemplateMapper.getMapByDto;
-
 
 @Slf4j
 @RestController
@@ -148,13 +146,13 @@ public class TemplateApiController implements TemplateApi {
 
     private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(String templateName, LanguageEnum xLanguage, Mono<T> request) {
         return request
-                .flatMap(dto -> templateService.executePdfTemplate(templateName, xLanguage.getValue(), getMapByDto(dto))
+                .flatMap(dto -> templateService.executePdfTemplate(templateName, xLanguage.getValue(), dto )
                         .map(resultBytes -> ResponseEntity.accepted().body(new ByteArrayResource(resultBytes))));
     }
 
     private <T> Mono<ResponseEntity<String>> processTextTemplate(String templateName, LanguageEnum xLanguage, Mono<T> request) {
         return request
-                .flatMap(dto -> templateService.executeTextTemplate(templateName, xLanguage.getValue(), getMapByDto(dto))
+                .flatMap(dto -> templateService.executeTextTemplate(templateName, xLanguage.getValue(), dto)
                         .map(result -> ResponseEntity.accepted().body(result)));
     }
 

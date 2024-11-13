@@ -19,7 +19,6 @@ import org.springframework.stereotype.Component;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.Map;
 
 import static it.pagopa.pn.templates.engine.utils.TemplateUtils.getFormattedPath;
 
@@ -32,12 +31,12 @@ public class DocumentCompositionImpl implements DocumentComposition {
     private final TemplateConfig templateConfig;
 
     @Override
-    public String executeTextTemplate(String templateName, Map<String, Object> mapTemplateModel) {
+    public String executeTextTemplate(String templateName, Object mapTemplateModel) {
         return processTemplate(templateName, mapTemplateModel);
     }
 
     @Override
-    public byte[] executePdfTemplate(String templateName, Map<String, Object> mapTemplateModel) {
+    public byte[] executePdfTemplate(String templateName, Object mapTemplateModel) {
         String htmlMono = executeTextTemplate(templateName, mapTemplateModel);
         return generatePdf(htmlMono);
     }

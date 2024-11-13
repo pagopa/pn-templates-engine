@@ -7,12 +7,12 @@ pn:
     runtime: DEVELOPMENT
 #pn.env.runtime=PROD
 
-templatesPath: "templates"
+templatesPath: "templates-assets"
 templatesImagesPath: "images"
 templatesLogo: "aar-logo-short-small.png"
 
 templates:
-  notification-received-legal-fact:
+  notificationReceivedLegalFact:
     input:
       IT: "NotificationReceivedLegalFact.html"
       DE: "NotificationReceivedLegalFact_de.html"
@@ -30,15 +30,12 @@ templates:
       DE: "NotificationViewedLegalFact_de.html"
       SL: "NotificationViewedLegalFact_sl.html"
       FR: "NotificationViewedLegalFact_fr.html"
-  pdfFileCompliance:
-    input:
-      IT: "PdfFileCompliance.html"
-  pdfLegalFact:
+  legalFactMalfunction:
     input:
       IT: "LegalFactMalfunction.html"
-      DE: "PdfLegalFact_de.html"
-      SL: "PdfLegalFact_sl.html"
-      FR: "PdfLegalFact_fr.html"
+      DE: "LegalFactMalfunction_de.html"
+      SL: "LegalFactMalfunction_sl.html"
+      FR: "LegalFactMalfunction_fr.html"
   notificationCancelledLegalFact:
     input:
       IT: "NotificationCancelledLegalFact.html"
@@ -76,25 +73,36 @@ templates:
       SL: "NotificationAARForPEC_sl.html"
       FR: "NotificationAARForPEC_fr.html"
   notificationAARForSMS:
+    loadAsString: true
     input:
       IT: "NotificationAARForSMS.txt"
-      SUB: "NotificationAARSubject.txt"
   emailbody:
     input:
       IT: "emailbody.html"
-      SUB: "emailsubject.txt"
   pecbody:
     input:
       IT: "pecbody.html"
-      SUB: "pecsubject.txt"
   pecbodyconfirm:
     input:
       IT: "pecbodyconfirm.html"
-      SUB: "pecsubjectconfirm.txt"
   pecbodyreject:
     input:
       IT: "pecbodyreject.html"
-      SUB: "pecsubjectreject.txt"
   smsbody:
     input:
       IT: "smsbody.txt"
+  notificationAARSubject:
+    input:
+      IT: "NotificationAARSubject.txt"
+  emailsubject:
+    input:
+      IT: "emailsubject.txt"
+  pecsubject:
+    input:
+      IT: "pecsubject.txt"
+  pecsubjectconfirm:
+    input:
+      IT: "pecsubjectconfirm.txt"
+  pecsubjectreject:
+    input:
+      IT: "pecsubjectreject.txt"

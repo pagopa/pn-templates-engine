@@ -32,9 +32,6 @@ templates:
       DE: "NotificationViewedLegalFact_de.html"
       SL: "NotificationViewedLegalFact_sl.html"
       FR: "NotificationViewedLegalFact_fr.html"
-  pdfFileCompliance:
-    input:
-      IT: "PdfFileCompliance.html"
   legalFactMalfunction:
     input:
       IT: "LegalFactMalfunction.html"
@@ -78,6 +75,7 @@ templates:
       SL: "NotificationAARForPEC_sl.html"
       FR: "NotificationAARForPEC_fr.html"
   notificationAARForSMS:
+    loadAsString: true
     input:
       IT: "NotificationAARForSMS.txt"
   emailbody:
