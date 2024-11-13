@@ -7,7 +7,6 @@ public enum TemplatesEnum {
     NOTIFICATION_RECEIVED_LEGAL_FACT("notificationReceivedLegalFact"),
     PEC_DELIVERY_WORKFLOW_LEGAL_FACT("pecDeliveryWorkflowLegalFact"),
     NOTIFICATION_VIEWED_LEGAL_FACT("notificationViewedLegalFact"),
-    PDF_FILE_COMPLIANCE("pdfFileCompliance"),
     LEGAL_FACT_MALFUNCTION("legalFactMalfunction"),
     NOTIFICATION_CANCELLED_LEGAL_FACT("notificationCancelledLegalFact"),
     NOTIFICATION_AAR("notificationAAR"),
