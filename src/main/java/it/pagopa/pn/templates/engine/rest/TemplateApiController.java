@@ -91,6 +91,13 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
+    public Mono<ResponseEntity<String>> _notificationAARForSMS(LanguageEnum xLanguage,
+        Mono<NotificationAARForSMS> request,
+        final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_SMS.getTemplate(), xLanguage, request);
+    }
+
+    @Override
     public Mono<ResponseEntity<String>> emailbody(LanguageEnum xLanguage,
                                                   Mono<Emailbody> request,
                                                   final ServerWebExchange exchange) {
@@ -118,7 +125,7 @@ public class TemplateApiController implements TemplateApi {
 
     @Override
     public Mono<ResponseEntity<String>> notificationAARSubject(LanguageEnum xLanguage,
-                                                               Mono<NotificationAAR> request,
+                                                               Mono<NotificationAARSubject> request,
                                                                final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_SUBJECT.getTemplate(), xLanguage, request);
     }
@@ -141,6 +148,11 @@ public class TemplateApiController implements TemplateApi {
     @Override
     public Mono<ResponseEntity<String>> pecsubjectreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.PEC_SUBJECT_REJECT.getTemplate(), xLanguage);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> smsbody(LanguageEnum xLanguage, final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.SMS_BODY.getTemplate(), xLanguage);
     }
 
     private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(String templateName, LanguageEnum xLanguage, Mono<T> request) {

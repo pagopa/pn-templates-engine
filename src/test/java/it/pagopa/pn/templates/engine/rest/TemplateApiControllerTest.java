@@ -1,6 +1,18 @@
 package it.pagopa.pn.templates.engine.rest;
 
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.*;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.AnalogDeliveryWorkflowFailureLegalFact;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.Emailbody;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.LegalFactMalfunction;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationAAR;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationAARForEMAIL;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationAARForPEC;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationAARRADDalt;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationCancelledLegalFact;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationReceiverLegalFact;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationViewedLegalFact;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.PecDeliveryWorkflowLegalFact;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.Pecbody;
+import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
@@ -72,7 +84,7 @@ class TemplateApiControllerTest {
     void notificationReceivedLegalFact_OK() {
         //ARRANGE
         NotificationReceiverLegalFact request = new NotificationReceiverLegalFact();
-        request.setDigest("10");
+        request.setDigests(Arrays.asList("digest"));
         request.setSubject("SUBJECT_TEST");
 
         //ACT AND ASSERT
@@ -91,7 +103,7 @@ class TemplateApiControllerTest {
     void notificationReceivedLegalFact_Language_Not_Exist() {
         //ARRANGE
         NotificationReceiverLegalFact request = new NotificationReceiverLegalFact();
-        request.setDigest("10");
+        request.setDigests(Arrays.asList("digest"));
         request.setSubject("SUBJECT_TEST");
 
         //ACT AND ASSERT

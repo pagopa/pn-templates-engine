@@ -150,7 +150,6 @@ paths:
           application/json:
             schema:
               $ref: 'schemas-params.yaml#/components/schemas/LegalFactMalfunction'
-
       responses:
         '200':
           $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
@@ -189,7 +188,7 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/analogDeliveryWorkflowFailureLegalFact:
+  /templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact:
     put:
       summary: Generazione del pdf legato al template AnalogDeliveryWorkflowFailureLegalFact
       description: Genera un documento PDF basato sul template AnalogDeliveryWorkflowFailureLegalFact.
@@ -253,7 +252,7 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/notificationAAR_RADDalt:
+  /templates-engine-private/v1/templates/notification-aar-radd-alt:
     put:
       summary: Generazione del pdf legato al template NotificationAAR_RADDalt
       description: Genera un documento PDF basato sul template NotificationAAR_RADDalt.
@@ -283,7 +282,7 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/notificationAARForEMAIL:
+  /templates-engine-private/v1/templates/notification-aar-for-email:
     put:
       summary: Generazione del pdf legato al template NotificationAARForEMAIL
       description: Genera un documento PDF basato sul template NotificationAARForEMAIL.
@@ -313,7 +312,7 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/notificationAARForPEC:
+  /templates-engine-private/v1/templates/notification-aar-for-pec:
     put:
       summary: Generazione del pdf legato al template NotificationAARForPEC
       description: Genera un documento PDF basato sul template NotificationAARForPEC.
@@ -460,7 +459,7 @@ paths:
   ###                         SuccessResponseText   SMS                                    ###
   ############################################################################################
 
-  /templates-engine-private/v1/templates/notificationAARForSMS:
+  /templates-engine-private/v1/templates/notification-aar-for-sms:
     put:
       summary: Generazione del pdf legato al template NotificationAARForSMS
       description: Genera un documento PDF basato sul template NotificationAARForSMS.
@@ -480,7 +479,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/Notification'
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAARForSMS'
 
       responses:
         '200':
@@ -537,7 +536,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/NotificationAAR'
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAARSubject'
 
       responses:
         '200':

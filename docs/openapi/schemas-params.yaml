@@ -34,6 +34,18 @@ components:
         verificationCode:
           type: string
 
+    NotificationAARForSMS:
+      type: object
+      properties:
+        notification:
+          $ref: '#/components/schemas/Notification'
+
+    NotificationAARSubject:
+      type: object
+      properties:
+        notification:
+          $ref: '#/components/schemas/Notification'
+
     NotificationAARForPEC:
       type: object
       properties:
@@ -45,7 +57,7 @@ components:
           type: string
         quickAccessLink:
           type: string
-        PNFaqSendURL:
+        pnFaqSendURL:
           type: string
         piattaformaNotificheURL:
           type: string
@@ -60,6 +72,8 @@ components:
         perfezionamentoURL:
           type: string
         quickAccessLink:
+          type: string
+        pnFaqSendURL:
           type: string
         piattaformaNotificheURL:
           type: string
@@ -83,6 +97,8 @@ components:
     NotificationAAR_RADDalt:
       type: object
       properties:
+        notification:
+          $ref: '#/components/schemas/Notification'
         sendURL:
           type: string
         sendURLLAbel:
@@ -98,6 +114,8 @@ components:
         piattaformaNotificheURL:
           type: string
         piattaformaNotificheURLLabel:
+          type: string
+        qrCodeQuickAccessLink:
           type: string
 
     NotificationAAR:
@@ -173,8 +191,10 @@ components:
           type: string
         endWorkflowStatus:
           type: string
-        delivery:
-          $ref: '#/components/schemas/Delivery'
+        deliveries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Delivery'
 
     Delivery:
       type: object
@@ -185,6 +205,14 @@ components:
           type: string
         address:
           type: string
+        type:
+          type: string
+        addressSource:
+          type: string
+        responseDate:
+          type: string
+        ok:
+          type: boolean
 
     NotificationReceiverLegalFact:
       type: object
@@ -193,13 +221,9 @@ components:
           type: string
         notification:
           $ref: '#/components/schemas/Notification'
-        digest:
-          type: string
         subject:
           type: string
-        recipient:
-          $ref: '#/components/schemas/Recipient'
-        addressWriter:
+        physicalAddressAndDenomination:
           type: string
         digests:
           type: array

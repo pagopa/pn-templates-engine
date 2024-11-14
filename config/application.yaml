@@ -88,6 +88,7 @@ templates:
     input:
       IT: "pecbodyconfirm.html"
   pecbodyreject:
+    loadAsString: true
     input:
       IT: "pecbodyreject.html"
   smsbody:
