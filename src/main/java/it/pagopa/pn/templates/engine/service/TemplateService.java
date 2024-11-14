@@ -38,6 +38,7 @@ public class TemplateService {
     }
 
     public Mono<String> executeTextTemplate(String templateName, LanguageEnum language) {
+        log.info("Execute templateAsString for templateName={},  language={} - START", templateName, language);
         TemplateConfig.Template template = templateConfig.getTemplatesAsString().get(templateName);
         return Mono.just(template.getInput().get(language.getValue()));
     }
