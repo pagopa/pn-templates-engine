@@ -91,9 +91,9 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<String>> _notificationAARForSMS(LanguageEnum xLanguage,
-        Mono<NotificationAARForSMS> request,
-        final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<String>> notificationAARForSMS(LanguageEnum xLanguage,
+                                                              Mono<NotificationAARForSMS> request,
+                                                              final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_SMS.getTemplate(), xLanguage, request);
     }
 

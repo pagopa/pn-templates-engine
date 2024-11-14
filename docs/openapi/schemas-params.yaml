@@ -57,7 +57,7 @@ components:
           type: string
         quickAccessLink:
           type: string
-        pnFaqSendURL:
+        PNFaqSendURL:
           type: string
         piattaformaNotificheURL:
           type: string
@@ -73,7 +73,7 @@ components:
           type: string
         quickAccessLink:
           type: string
-        pnFaqSendURL:
+        PNFaqSendURL:
           type: string
         piattaformaNotificheURL:
           type: string

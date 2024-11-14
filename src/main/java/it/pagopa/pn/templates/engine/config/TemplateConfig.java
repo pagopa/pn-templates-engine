@@ -14,7 +14,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * Configurazione per la gestione dei template dell'applicazione.
+ * Definisce le proprietà di configurazione dei percorsi e dei template e
+ * include metodi di verifica e inizializzazione per caricare i template.
+ */
 @Data
 @Configuration
 @ConfigurationProperties
@@ -33,6 +37,12 @@ public class TemplateConfig {
         private Map<String, String> input = new HashMap<>();
     }
 
+    /**
+     * Verifica all'avvio che tutti i template definiti nella configurazione
+     * esistano nella `TemplatesEnum`. Solleva un'eccezione se un template non è presente.
+     *
+     * @throws PnGenericException se un template definito in configurazione non è trovato in `TemplatesEnum`.
+     */
     @PostConstruct
     public void verifyTemplates() {
         for (String templateName : templates.keySet()) {
@@ -45,6 +55,10 @@ public class TemplateConfig {
         }
     }
 
+    /**
+     * Inizializza i template da caricare come stringhe. Per ogni template definito con
+     * `loadAsString = true`, carica il contenuto del file specificato e lo aggiunge a `templatesAsString`.
+     */
     @PostConstruct
     public void initializeTemplatesAsString() {
         templates.forEach((templateKey, template) -> {
