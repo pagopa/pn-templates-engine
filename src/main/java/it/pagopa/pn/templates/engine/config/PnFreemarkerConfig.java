@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.HashMap;
-
 @Configuration
 @AllArgsConstructor
 public class PnFreemarkerConfig {
@@ -31,16 +29,7 @@ public class PnFreemarkerConfig {
             StringTemplateLoader stringLoader = new StringTemplateLoader();
             templateConfig.getTemplates().forEach((templateKey, template) -> {
                 var input = template.getInput();
-                if (template.isLoadAsString()) {
-                    var inputAsString = new HashMap<String, String>();
-                    input.forEach((inputKey, templateName) -> {
-                        String templateContent = TemplateUtils.loadTemplateContent(templatePath + "/" + templateName);
-                        inputAsString.put(inputKey, templateContent);
-                    });
-                    TemplateConfig.Template templatesAsString = new TemplateConfig.Template();
-                    templatesAsString.setInput(inputAsString);
-                    templateConfig.getTemplatesAsString().put(templateKey, templatesAsString);
-                } else {
+                if (!template.isLoadAsString()) {
                     input.forEach((inputKey, templateName) -> {
                         String templateContent = TemplateUtils.loadTemplateContent(templatePath + "/" + templateName);
                         stringLoader.putTemplate(templateName, templateContent);
