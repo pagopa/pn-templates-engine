@@ -311,9 +311,7 @@ class TemplateApiControllerTest {
                 .expectStatus()
                 .isAccepted()
                 .expectBody(String.class)
-                .value(resource -> {
-                    Assertions.assertEquals(expectedResult, resource);
-                });
+                .value(resource -> Assertions.assertEquals(expectedResult, resource));
     }
 
     @Test
@@ -359,9 +357,7 @@ class TemplateApiControllerTest {
                 .expectStatus()
                 .isAccepted()
                 .expectBody(String.class)
-                .value(resource -> {
-                    Assertions.assertEquals(expectedResult, resource);
-                });
+                .value(resource -> Assertions.assertEquals(expectedResult, resource));
     }
 
     @Test
@@ -456,9 +452,7 @@ class TemplateApiControllerTest {
                 .expectStatus()
                 .isAccepted()
                 .expectBody(String.class)
-                .value(resource -> {
-                    Assertions.assertEquals(expectedResult, resource);
-                });
+                .value(resource -> Assertions.assertEquals(expectedResult, resource));
     }
 
     @Test
@@ -504,9 +498,7 @@ class TemplateApiControllerTest {
                 .expectStatus()
                 .isAccepted()
                 .expectBody(String.class)
-                .value(resource -> {
-                    Assertions.assertEquals(expectedResult, resource);
-                });
+                .value(resource -> Assertions.assertEquals(expectedResult, resource));
     }
 
     @Test
@@ -574,9 +566,7 @@ class TemplateApiControllerTest {
                 .expectStatus()
                 .isAccepted()
                 .expectBody(String.class)
-                .value(resource -> {
-                    Assertions.assertEquals(expectedResult, resource);
-                });
+                .value(resource -> Assertions.assertEquals(expectedResult, resource));
     }
 
     @Test
@@ -600,9 +590,7 @@ class TemplateApiControllerTest {
                 .expectStatus()
                 .isAccepted()
                 .expectBody(String.class)
-                .value(resource -> {
-                    Assertions.assertEquals(expectedResult, resource);
-                });
+                .value(resource -> Assertions.assertEquals(expectedResult, resource));
     }
 
     @Test
@@ -645,9 +633,7 @@ class TemplateApiControllerTest {
                 .expectStatus()
                 .isAccepted()
                 .expectBody(String.class)
-                .value(resource -> {
-                    Assertions.assertEquals(expectedResult, resource);
-                });
+                .value(resource -> Assertions.assertEquals(expectedResult, resource));
     }
 
     @Test
@@ -688,9 +674,7 @@ class TemplateApiControllerTest {
                 .expectStatus()
                 .isAccepted()
                 .expectBody(String.class)
-                .value(resource -> {
-                    Assertions.assertEquals(expectedResult, resource);
-                });
+                .value(resource -> Assertions.assertEquals(expectedResult, resource));
     }
 
     @Test
@@ -808,9 +792,7 @@ class TemplateApiControllerTest {
                 .expectStatus()
                 .isAccepted()
                 .expectBody(String.class)
-                .value(resource -> {
-                    Assertions.assertEquals(expectedResult, resource);
-                });
+                .value(resource -> Assertions.assertEquals(expectedResult, resource));
     }
 
     @Test
@@ -847,9 +829,7 @@ class TemplateApiControllerTest {
                 .expectStatus()
                 .isAccepted()
                 .expectBody(String.class)
-                .value(resource -> {
-                    Assertions.assertEquals(expectedResult, resource);
-                });
+                .value(resource -> Assertions.assertEquals(expectedResult, resource));
     }
 
     @Test
@@ -887,9 +867,7 @@ class TemplateApiControllerTest {
                 .expectStatus()
                 .isAccepted()
                 .expectBody(String.class)
-                .value(resource -> {
-                    Assertions.assertEquals(expectedResult, resource);
-                });
+                .value(resource -> Assertions.assertEquals(expectedResult, resource));
     }
 
     @Test
