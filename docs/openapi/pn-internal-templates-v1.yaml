@@ -517,11 +517,11 @@ paths:
   ###                         SuccessResponseText  Subjects                                ###
   ############################################################################################
 
-  /templates-engine-private/v1/templates/NotificationAARSubject:
+  /templates-engine-private/v1/templates/notification-aar-subject:
     put:
       summary: Generazione del TXT legato al template NotificationAARSubject
       description: Genera un documento txt basato sul template NotificationAARSubject.
-      operationId: notificationAARSubject
+      operationId: notification-aar-subject
       tags:
         - Template
       parameters:
