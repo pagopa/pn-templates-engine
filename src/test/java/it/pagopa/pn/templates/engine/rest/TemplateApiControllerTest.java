@@ -48,7 +48,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         NotificationViewedLegalFact request = new NotificationViewedLegalFact();
         byte[] pdfData = new byte[]{1, 2, 3};
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT.getTemplate(), "IT", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT.getTemplate(), LanguageEnum.IT, request))
                 .thenReturn(Mono.just(pdfData));
 
         //ACT
@@ -79,7 +79,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         LegalFactMalfunction request = new LegalFactMalfunction();
         byte[] pdfData = new byte[]{1, 2, 3};
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.LEGAL_FACT_MALFUNCTION.getTemplate(), "IT", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.LEGAL_FACT_MALFUNCTION.getTemplate(), LanguageEnum.IT, request))
                 .thenReturn(Mono.just(pdfData));
         //ACT
         webTestClient.put()
@@ -109,7 +109,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         NotificationViewedLegalFact request = new NotificationViewedLegalFact();
         byte[] pdfData = new byte[]{1, 2, 3};
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT.getTemplate(), "IT", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT.getTemplate(), LanguageEnum.IT, request))
                 .thenReturn(Mono.just(pdfData));
 
         //ACT
@@ -134,7 +134,7 @@ class TemplateApiControllerTest {
         request.setSubject("SUBJECT_TEST");
 
         byte[] pdfData = new byte[]{1, 2, 3};
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT.getTemplate(), "IT", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT.getTemplate(), LanguageEnum.IT, request))
                 .thenReturn(Mono.just(pdfData));
 
         //ACT
@@ -168,7 +168,7 @@ class TemplateApiControllerTest {
         request.setSubject("SUBJECT_TEST");
 
         byte[] pdfData = new byte[]{1, 2, 3};
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT.getTemplate(), "IT", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT.getTemplate(), LanguageEnum.IT, request))
                 .thenReturn(Mono.just(pdfData));
 
         //ACT
@@ -191,7 +191,7 @@ class TemplateApiControllerTest {
         PecDeliveryWorkflowLegalFact request = new PecDeliveryWorkflowLegalFact();
         request.setIun("IUN_TEST");
         byte[] pdfData = new byte[]{1, 2, 3};
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT.getTemplate(), "DE", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT.getTemplate(), LanguageEnum.DE, request))
                 .thenReturn(Mono.just(pdfData));
 
         //ACT
@@ -221,7 +221,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         PecDeliveryWorkflowLegalFact request = new PecDeliveryWorkflowLegalFact();
         request.setIun("IUN_TEST");
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT.getTemplate(), "DE", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT.getTemplate(), LanguageEnum.DE, request))
                 .thenReturn(Mono.empty());
 
         //ACT
@@ -243,7 +243,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         NotificationCancelledLegalFact request = new NotificationCancelledLegalFact();
         byte[] pdfData = new byte[]{1, 2, 3};
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT.getTemplate(), "FR", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT.getTemplate(), LanguageEnum.FR, request))
                 .thenReturn(Mono.just(pdfData));
 
         //ACT
@@ -273,7 +273,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         NotificationCancelledLegalFact request = new NotificationCancelledLegalFact();
         byte[] pdfData = new byte[]{1, 2, 3};
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT.getTemplate(), "GR", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT.getTemplate(), LanguageEnum.DE, request))
                 .thenReturn(Mono.just(pdfData));
 
         //ACT
@@ -295,7 +295,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         String expectedResult = "notificationAAR_OK";
         NotificationAAR request = new NotificationAAR();
-        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.NOTIFICATION_AAR.getTemplate(), "DE", request))
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.NOTIFICATION_AAR.getTemplate(), LanguageEnum.DE, request))
                 .thenReturn(Mono.just(expectedResult));
 
         //ACT
@@ -319,7 +319,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         NotificationAAR request = new NotificationAAR();
         byte[] pdfData = new byte[]{1, 2, 3};
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT.getTemplate(), "BT", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT.getTemplate(), LanguageEnum.DE, request))
                 .thenReturn(Mono.just(pdfData));
 
         //ACT
@@ -341,7 +341,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         String expectedResult = "notificationAARRADDalt_OK";
         NotificationAARRADDalt request = new NotificationAARRADDalt();
-        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT.getTemplate(), "DE", request))
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT.getTemplate(), LanguageEnum.DE, request))
                 .thenReturn(Mono.just(expectedResult));
 
         //ACT
@@ -365,7 +365,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         String expectedResult = "notificationAARRADDalt_Language_Not_Exist";
         NotificationAARRADDalt request = new NotificationAARRADDalt();
-        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT.getTemplate(), "DA", request))
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT.getTemplate(), LanguageEnum.DE, request))
                 .thenReturn(Mono.just(expectedResult));
 
         //ACT
@@ -384,7 +384,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         AnalogDeliveryWorkflowFailureLegalFact request = new AnalogDeliveryWorkflowFailureLegalFact();
         byte[] pdfData = new byte[]{1, 2, 3};
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT.getTemplate(), "SL", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT.getTemplate(), LanguageEnum.SL, request))
                 .thenReturn(Mono.just(pdfData));
 
         //ACT
@@ -414,7 +414,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         AnalogDeliveryWorkflowFailureLegalFact request = new AnalogDeliveryWorkflowFailureLegalFact();
         byte[] pdfData = new byte[]{1, 2, 3};
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT.getTemplate(), "SB", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT.getTemplate(), LanguageEnum.SL, request))
                 .thenReturn(Mono.just(pdfData));
 
         //ACT
@@ -436,7 +436,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         String expectedResult = "notificationAARForEMAIL_OK";
         NotificationAARForEMAIL request = new NotificationAARForEMAIL();
-        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL.getTemplate(), "FR", request))
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL.getTemplate(), LanguageEnum.FR, request))
                 .thenReturn(Mono.just(expectedResult));
 
         //ACT
@@ -460,7 +460,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         NotificationAARForEMAIL request = new NotificationAARForEMAIL();
         byte[] pdfData = new byte[]{1, 2, 3};
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL.getTemplate(), "sT", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL.getTemplate(), LanguageEnum.SL, request))
                 .thenReturn(Mono.just(pdfData));
 
         //ACT
@@ -482,7 +482,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         String expectedResult = "notificationAARForPEC_OK";
         NotificationAARForPEC request = new NotificationAARForPEC();
-        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_PEC.getTemplate(), "SL", request))
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_PEC.getTemplate(), LanguageEnum.SL, request))
                 .thenReturn(Mono.just(expectedResult));
 
         //ACT
@@ -506,7 +506,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         NotificationAARForPEC request = new NotificationAARForPEC();
         byte[] pdfData = new byte[]{1, 2, 3};
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT.getTemplate(), "SB", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT.getTemplate(), LanguageEnum.FR, request))
                 .thenReturn(Mono.just(pdfData));
 
         //ACT
@@ -528,7 +528,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         Emailbody request = new Emailbody();
         byte[] pdfData = new byte[]{1, 2, 3};
-        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT.getTemplate(), "SB", request))
+        Mockito.when(templateService.executePdfTemplate(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT.getTemplate(), LanguageEnum.FR, request))
                 .thenReturn(Mono.just(pdfData));
 
         //ACT
@@ -550,7 +550,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         Emailbody request = new Emailbody();
         String expectedResult = "pecbody_OK";
-        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.EMAIL_BODY.getTemplate(), "IT", request))
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.EMAIL_BODY.getTemplate(), LanguageEnum.IT, request))
                 .thenReturn(Mono.just(expectedResult));
 
         //ACT
@@ -574,7 +574,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         Pecbody request = new Pecbody();
         String expectedResult = "pecbody_OK";
-        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.PEC_BODY.getTemplate(), "IT", request))
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.PEC_BODY.getTemplate(), LanguageEnum.IT, request))
                 .thenReturn(Mono.just(expectedResult));
 
         //ACT
@@ -617,7 +617,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         String expectedResult = "pecbodyconfirm_OK";
         Pecbody request = new Pecbody();
-        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.PEC_BODY_CONFIRM.getTemplate(), "IT", request))
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.PEC_BODY_CONFIRM.getTemplate(), LanguageEnum.IT, request))
                 .thenReturn(Mono.just(expectedResult));
 
         //ACT
@@ -659,7 +659,7 @@ class TemplateApiControllerTest {
     void pecbodyreject_OK() {
         //ARRANGE
         String expectedResult = "pecbodyreject_OK";
-        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.PEC_BODY_REJECT.getTemplate(), "IT"))
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.PEC_BODY_REJECT.getTemplate(), LanguageEnum.IT))
                 .thenReturn(Mono.just(expectedResult));
 
         // ACT
@@ -697,7 +697,7 @@ class TemplateApiControllerTest {
         //ARRANGE
         NotificationAAR request = new NotificationAAR();
         String expectedResult = "notificationAARSubject_OK";
-        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.NOTIFICATION_AAR_SUBJECT.getTemplate(), "IT", request))
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.NOTIFICATION_AAR_SUBJECT.getTemplate(), LanguageEnum.IT, request))
                 .thenReturn(Mono.just(expectedResult));
 
         //ACT
@@ -740,7 +740,7 @@ class TemplateApiControllerTest {
     void emailsubject_OK() {
         //ARRANGE
         String expectedResult = "emailsubject_OK";
-        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.EMAIL_SUBJECT.getTemplate(), "IT"))
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.EMAIL_SUBJECT.getTemplate(), LanguageEnum.IT))
                 .thenReturn(Mono.just(expectedResult));
 
         // ACT
@@ -777,7 +777,7 @@ class TemplateApiControllerTest {
     void pecsubject_OK() {
         //ARRANGE
         String expectedResult = "pecsubject_OK";
-        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.PEC_SUBJECT.getTemplate(), "IT"))
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.PEC_SUBJECT.getTemplate(), LanguageEnum.IT))
                 .thenReturn(Mono.just(expectedResult));
 
         // ACT
@@ -814,7 +814,7 @@ class TemplateApiControllerTest {
     void pecsubjectconfirm_OK() {
         //ARRANGE
         String expectedResult = "pecsubject_OK";
-        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.PEC_SUBJECT_CONFIRM.getTemplate(), "IT"))
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.PEC_SUBJECT_CONFIRM.getTemplate(), LanguageEnum.IT))
                 .thenReturn(Mono.just(expectedResult));
 
         // ACT
@@ -852,7 +852,7 @@ class TemplateApiControllerTest {
     void pecsubjectreject_OK() {
         //ARRANGE
         String expectedResult = "pecsubjectreject_OK";
-        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.PEC_SUBJECT_REJECT.getTemplate(), "IT"))
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.PEC_SUBJECT_REJECT.getTemplate(), LanguageEnum.IT))
                 .thenReturn(Mono.just(expectedResult));
 
         // ACT

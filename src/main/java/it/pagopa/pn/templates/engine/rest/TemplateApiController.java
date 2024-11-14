@@ -145,18 +145,18 @@ public class TemplateApiController implements TemplateApi {
 
     private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(String templateName, LanguageEnum xLanguage, Mono<T> request) {
         return request
-                .flatMap(dto -> templateService.executePdfTemplate(templateName, xLanguage.getValue(), dto)
+                .flatMap(dto -> templateService.executePdfTemplate(templateName, xLanguage, dto)
                         .map(resultBytes -> ResponseEntity.accepted().body(new ByteArrayResource(resultBytes))));
     }
 
     private <T> Mono<ResponseEntity<String>> processTextTemplate(String templateName, LanguageEnum xLanguage, Mono<T> request) {
         return request
-                .flatMap(dto -> templateService.executeTextTemplate(templateName, xLanguage.getValue(), dto)
+                .flatMap(dto -> templateService.executeTextTemplate(templateName, xLanguage, dto)
                         .map(result -> ResponseEntity.accepted().body(result)));
     }
 
     private Mono<ResponseEntity<String>> processTextTemplate(String templateName, LanguageEnum xLanguage) {
-        return templateService.executeTextTemplate(templateName, xLanguage.getValue())
+        return templateService.executeTextTemplate(templateName, xLanguage)
                 .map(result -> ResponseEntity.accepted().body(result));
     }
 }
