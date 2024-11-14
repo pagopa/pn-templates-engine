@@ -14,14 +14,6 @@ Parameters:
     Type: String
     Description: ARN of alarm topic
 
-  WebApiDnsName:
-    Type: String
-    Description: 'The DNS name used for WEB rest API.'
-
-  CorsAllowedDomains:
-    Type: String
-    Description: 'Comma separated list of domains allowed to make cross origin request'
-
   ContainerImageUri:
     Type: String
     Description: 'Exact container image URI with full repository and image digest'
@@ -45,10 +37,6 @@ Parameters:
   VpcId:
     Type: String
     Description: 'VpcId where the microservice is going to be deployed'
-
-  VpcEgressSubnetsIds:
-    Type: String
-    Description: subnets where to install PN-CORE
 
   EcsDefaultSecurityGroup:
     Type: String
@@ -174,19 +162,6 @@ Parameters:
     Type: String
     Default: 'FATAL'
 
-  WebWafLimit:
-    Default: 6000
-    Type: Number
-    Description: web waf limit
-
-  EnhancedWebSecurityEnabled:
-    Type: String
-    Default: false
-    Description: Enable additional WAF Web rules
-    AllowedValues:
-      - true
-      - false
-
   # Logging parameters
   WireTapLogActivation:
     Type: String
@@ -211,33 +186,31 @@ Resources:
         MicroServiceUniqueName: !Sub '${ProjectName}-templates-engine'
         CpuValue: 512
         MemoryAmount: 2GB
+        HealthCheckTimeout: !Ref HealthCheckTimeout
+        HealthCheckInterval: !Ref HealthCheckInterval
+        HealthyThresholdCount: !Ref HealthyThresholdCount
+        UnhealthyThresholdCount: !Ref UnhealthyThresholdCount
+        HealthCheckPath: !Ref HealthCheckPath
+        AutoscalingThreshold: !Ref AutoscalingThreshold
+        AutoscalingCheckPeriod: !Ref AutoscalingCheckPeriod
+        MinTasksNumber: !Ref MinTasksNumber
+        MaxTasksNumber: !Ref MaxTasksNumber
+        AutoscalingDataPointN: !Ref AutoscalingDataPointN
+        AutoscalingDataPointM: !Ref AutoscalingDataPointM
+        AutoscalingStrategy: REST-API
+        AlarmSNSTopicArn: !Ref AlarmSNSTopicArn
         ContainerImageURI: !Sub '${ContainerImageUri}'
         ContainerEnvEntry1: !Sub 'AWS_REGIONCODE=${AWS::Region}'
         ContainerEnvEntry2: !Sub 'PN_CRON_ANALYZER=${PnCronAnalyzer}'
         ContainerEnvEntry3: !Sub 'WIRE_TAP_LOG=${WireTapLogActivation}'
         MappedPaths: '/templates-engine/*'
         ECSClusterName: !Ref ECSClusterName
-        Subnets: !Ref VpcEgressSubnetsIds
-#        Subnets: !Ref SubnetsIds
+        Subnets: !Ref SubnetsIds
         VpcId: !Ref VpcId
         EcsDefaultSecurityGroup: !Ref EcsDefaultSecurityGroup
         LoadBalancerListenerArn: !Ref ApplicationLoadBalancerListenerArn
         LoadbalancerRulePriority: !Ref MicroserviceNumber
-        TaskRoleManagedPolicyArn: !Ref PnTemplatesEnginesMicroserviceTaskManagedPolicy
+        # TaskRoleManagedPolicyArn: !Ref PnTemplatesEnginesMicroserviceTaskManagedPolicy
         EcsLogGroup: !Ref EcsLogGroup
         LogAlarmStrategyV1: !Ref LogAlarmStrategy
         WireTapLogActivation: !Ref WireTapLogActivation
-
-  PnTemplatesEnginesMicroserviceTaskManagedPolicy:
-    Type: AWS::IAM::ManagedPolicy
-    Properties:
-      PolicyDocument:
-        Version: 2012-10-17
-        Statement:
-          # Allow to write logs
-          - Effect: Allow
-            Action:
-              - logs:CreateLogStream
-              - logs:PutLogEvents
-            Resource:
-              - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/ecs/${ECSClusterName}/pn-templates-engine:*'
