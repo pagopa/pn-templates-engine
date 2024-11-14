@@ -1,8 +1,22 @@
 package it.pagopa.pn.templates.engine.rest;
 
 import it.pagopa.pn.templates.engine.config.TemplatesEnum;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.*;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.AnalogDeliveryWorkflowFailureLegalFact;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.Emailbody;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.LanguageEnum;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.LegalFactMalfunction;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationAAR;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationAARForEMAIL;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationAARForPEC;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationAARRADDalt;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationAARSubject;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationCancelledLegalFact;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationReceiverLegalFact;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationViewedLegalFact;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.PecDeliveryWorkflowLegalFact;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.Pecbody;
 import it.pagopa.pn.templates.engine.service.TemplateService;
+import java.util.Arrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -22,10 +36,10 @@ class TemplateApiControllerTest {
     public static final String PEC_DELIVERY_WORKFLOW_LEGAL_FACT = "/templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact";
     public static final String NOTIFICATION_CANCELLED_LEGAL_FACT = "/templates-engine-private/v1/templates/notification-cancelled-legal-fact";
     public static final String TEMPLATES_NOTIFICATION_AAR = "/templates-engine-private/v1/templates/notification-aar";
-    public static final String NOTIFICATION_AAR_RADDALT = "/templates-engine-private/v1/templates/notificationAAR_RADDalt";
-    public static final String ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT = "/templates-engine-private/v1/templates/analogDeliveryWorkflowFailureLegalFact";
-    public static final String NOTIFICATION_AARFOR_EMAIL = "/templates-engine-private/v1/templates/notificationAARForEMAIL";
-    public static final String NOTIFICATION_AARFOR_PEC = "/templates-engine-private/v1/templates/notificationAARForPEC";
+    public static final String NOTIFICATION_AAR_RADDALT = "/templates-engine-private/v1/templates/notification-aar-radd-alt";
+    public static final String ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT = "/templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact";
+    public static final String NOTIFICATION_AARFOR_EMAIL = "/templates-engine-private/v1/templates/notification-aar-for-email";
+    public static final String NOTIFICATION_AARFOR_PEC = "/templates-engine-private/v1/templates/notification-aar-for-pec";
     public static final String EMAILBODY = "/templates-engine-private/v1/templates/emailbody";
     public static final String PECBODY = "/templates-engine-private/v1/templates/pecbody";
     public static final String PECBODYCONFIRM = "/templates-engine-private/v1/templates/pecbodyconfirm";
@@ -130,7 +144,7 @@ class TemplateApiControllerTest {
     void notificationReceivedLegalFact_OK() {
         //ARRANGE
         NotificationReceiverLegalFact request = new NotificationReceiverLegalFact();
-        request.setDigest("10");
+        request.setDigests(Arrays.asList("10"));
         request.setSubject("SUBJECT_TEST");
 
         byte[] pdfData = new byte[]{1, 2, 3};
@@ -164,7 +178,7 @@ class TemplateApiControllerTest {
     void notificationReceivedLegalFact_Language_Not_Exist() {
         //ARRANGE
         NotificationReceiverLegalFact request = new NotificationReceiverLegalFact();
-        request.setDigest("10");
+        request.setDigests(Arrays.asList("10"));
         request.setSubject("SUBJECT_TEST");
 
         byte[] pdfData = new byte[]{1, 2, 3};
@@ -695,7 +709,7 @@ class TemplateApiControllerTest {
     @Test
     void notificationAARSubject_OK() {
         //ARRANGE
-        NotificationAAR request = new NotificationAAR();
+        NotificationAARSubject request = new NotificationAARSubject();
         String expectedResult = "notificationAARSubject_OK";
         Mockito.when(templateService.executeTextTemplate(TemplatesEnum.NOTIFICATION_AAR_SUBJECT.getTemplate(), LanguageEnum.IT, request))
                 .thenReturn(Mono.just(expectedResult));
@@ -706,7 +720,7 @@ class TemplateApiControllerTest {
                 .accept(MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.ACCEPT, "application/json")
                 .header("x-language", "IT")
-                .body(Mono.just(request), NotificationAAR.class)
+                .body(Mono.just(request), NotificationAARSubject.class)
                 .exchange()
 
                 //ASSERT
