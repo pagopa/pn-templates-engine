@@ -521,7 +521,7 @@ paths:
     put:
       summary: Generazione del TXT legato al template NotificationAARSubject
       description: Genera un documento txt basato sul template NotificationAARSubject.
-      operationId: notification-aar-subject
+      operationId: notificationAARSubject
       tags:
         - Template
       parameters:
