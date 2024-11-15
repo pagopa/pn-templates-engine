@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-@WebFluxTest(TemplateApiControllerTest.class)
+@WebFluxTest(TemplateApiController.class)
 public class TemplateApiControllerTest {
 
     public static final String EXPECTED_RESULT = "executeTxtTemplateTest";
