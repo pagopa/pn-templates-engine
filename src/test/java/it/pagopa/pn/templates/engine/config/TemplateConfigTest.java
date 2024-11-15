@@ -28,7 +28,7 @@ class TemplateConfigTest {
         TemplateConfig.Template template = new TemplateConfig.Template();
         template.setLoadAsString(true);
         Map<String, String> input = new HashMap<>();
-        input.put(LANGUAGE, "NotificationReceivedLegalFact.html");
+        input.put(LANGUAGE, "email_test.html");
         template.setInput(input);
         templates.put(EXISTING_TEMPLATE, template);
         templateConfig.setTemplates(templates);
@@ -37,20 +37,20 @@ class TemplateConfigTest {
 
     @Test
     void verifyTemplates_ShouldThrowException_WhenTemplateNotFoundInEnum() {
-        // Aggiungi un template non esistente in TemplatesEnum
+        // Arrange
         templateConfig.getTemplates().put("nonExistentTemplate", new TemplateConfig.Template());
 
-        // Verifica che l'eccezione venga lanciata
+        // Act - Assert
         PnGenericException exception = assertThrows(PnGenericException.class, () -> templateConfig.verifyTemplates());
         assertEquals(ExceptionTypeEnum.TEMPLATE_NOT_FOUND, exception.getExceptionType());
     }
 
     @Test
     void initializeTemplatesAsString_ShouldLoadTemplateContent_WhenLoadAsStringIsTrue() {
-        // Inizializza i template come stringa
+        // Arrange
         templateConfig.initializeTemplatesAsString();
 
-        // Verifica che il template esista in templatesAsString e che il contenuto sia caricato
+        // Act - Assert
         TemplateConfig.Template template = templateConfig.getTemplatesAsString().get(EXISTING_TEMPLATE);
         assertTrue(template.getInput().containsKey(LANGUAGE));
         assertNotNull(template.getInput().get(LANGUAGE));

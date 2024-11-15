@@ -5,13 +5,4 @@ templatesPath: "templates-assets"
 templates:
   notificationReceivedLegalFact:
     input:
-      IT: "NotificationReceivedLegalFact.html"
-      DE: "NotificationReceivedLegalFact_de.html"
-      SL: "NotificationReceivedLegalFact_sl.html"
-      FR: "NotificationReceivedLegalFact_fr.html"
-  pecDeliveryWorkflowLegalFact:
-    input:
-      IT: "PecDeliveryWorkflowLegalFact.html"
-      DE: "PecDeliveryWorkflowLegalFact_de.html"
-      SL: "PecDeliveryWorkflowLegalFact_sl.html"
-      FR: "PecDeliveryWorkflowLegalFact_fr.html"
+      IT: "email_test.html"
