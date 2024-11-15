@@ -17,6 +17,8 @@ import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.PecDelivery
 import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.Pecbody;
 import it.pagopa.pn.templates.engine.service.TemplateService;
 import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -178,7 +180,7 @@ class TemplateApiControllerTest {
     void notificationReceivedLegalFact_Language_Not_Exist() {
         //ARRANGE
         NotificationReceiverLegalFact request = new NotificationReceiverLegalFact();
-        request.setDigests(Arrays.asList("10"));
+        request.setDigests(List.of("10"));
         request.setSubject("SUBJECT_TEST");
 
         byte[] pdfData = new byte[]{1, 2, 3};

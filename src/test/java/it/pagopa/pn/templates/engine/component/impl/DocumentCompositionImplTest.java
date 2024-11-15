@@ -25,6 +25,7 @@ class DocumentCompositionImplTest {
 
     private static final String TEMPLATE_NAME = "email_test.html";
     private static final String TEMPLATE_CONTENT_OUTPUT = "Generated Text from Template";
+    public static final String TEMPLATES_ASSETS = "templates-assets";
 
     @MockBean
     Configuration freemarkerConfig;
@@ -45,7 +46,7 @@ class DocumentCompositionImplTest {
     @Test
     void executePdfTemplate() throws IOException {
         //ARRANGE
-        Mockito.when(templateConfig.getTemplatesPath()).thenReturn("templates-assets");
+        Mockito.when(templateConfig.getTemplatesPath()).thenReturn(TEMPLATES_ASSETS);
         Mockito.when(freemarkerConfig.getTemplate(TEMPLATE_NAME)).thenReturn(template);
         Object mapTemplateModel = new Object();
 

@@ -8,8 +8,6 @@ pn:
 #pn.env.runtime=PROD
 
 templatesPath: "templates-assets"
-templatesImagesPath: "images"
-templatesLogo: "aar-logo-short-small.png"
 
 templates:
   notificationReceivedLegalFact:

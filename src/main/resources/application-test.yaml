@@ -1,17 +1,7 @@
 logging.config: classpath:logback-base.xml
-logging.level.root: INFO
-
-spring:
-  application:
-    name: PN-TEMPLATES-ENGINE
-
-pn:
-  env:
-    runtime: PROD
+logging.level.root: debug
 
 templatesPath: "templates-assets"
-templatesImagesPath: "images"
-templatesLogo: "aar-logo-short-small.png"
 
 templates:
   notificationReceivedLegalFact:
