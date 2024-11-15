@@ -139,10 +139,10 @@
 								<reactive>true</reactive>
 								<skipDefaultInterface>false</skipDefaultInterface>
 								<useTags>true</useTags>
-								<basePackage>${project.groupId}.templates.engine.generated.openapi.server.v1</basePackage>
-								<modelPackage>${project.groupId}.templates.engine.generated.openapi.server.v1.dto</modelPackage>
-								<apiPackage>${project.groupId}.templates.engine.generated.openapi.server.v1.api</apiPackage>
-								<configPackage>${project.groupId}.templates.engine.generated.openapi.server.v1.config</configPackage>
+								<basePackage>${project.groupId}.templatesengine.generated.openapi.server.v1</basePackage>
+								<modelPackage>${project.groupId}.templatesengine.generated.openapi.server.v1.dto</modelPackage>
+								<apiPackage>${project.groupId}.templatesengine.generated.openapi.server.v1.api</apiPackage>
+								<configPackage>${project.groupId}.templatesengine.generated.openapi.server.v1.config</configPackage>
 							</configOptions>
 						</configuration>
 					</execution>
