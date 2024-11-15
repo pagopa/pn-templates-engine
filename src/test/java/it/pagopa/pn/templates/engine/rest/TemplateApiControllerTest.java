@@ -1,20 +1,7 @@
 package it.pagopa.pn.templates.engine.rest;
 
 import it.pagopa.pn.templates.engine.config.TemplatesEnum;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.AnalogDeliveryWorkflowFailureLegalFact;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.Emailbody;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.LanguageEnum;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.LegalFactMalfunction;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationAAR;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationAARForEMAIL;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationAARForPEC;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationAARRADDalt;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationAARSubject;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationCancelledLegalFact;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationReceiverLegalFact;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.NotificationViewedLegalFact;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.PecDeliveryWorkflowLegalFact;
-import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.Pecbody;
+import it.pagopa.pn.templates.engine.generated.openapi.server.v1.dto.*;
 import it.pagopa.pn.templates.engine.service.TemplateService;
 import java.util.Arrays;
 import java.util.List;
@@ -53,6 +40,8 @@ class TemplateApiControllerTest {
     public static final String PECSUBJECTCONFIRM = "/templates-engine-private/v1/templates/pecsubjectconfirm";
     public static final String PECSUBJECTREJECT = "/templates-engine-private/v1/templates/pecsubjectreject";
     public static final String LEGAL_FACT_MALFUNCTION = "/templates-engine-private/v1/templates/legal-fact-malfunction";
+    public static final String NOTIFICATION_AAR_FOR_SMS = "/templates-engine-private/v1/templates/notification-aar-for-sms";
+    public static final String SMSBODY = "/templates-engine-private/v1/templates/smsbody";
 
     @Autowired
     WebTestClient webTestClient;
@@ -899,6 +888,55 @@ class TemplateApiControllerTest {
 
                 .expectStatus()
                 .isEqualTo(400);
+    }
+
+    @Test
+    void notificationAARForSMS_OK() {
+        //ARRANGE
+        NotificationAARForSMS request = new NotificationAARForSMS();
+        String expectedResult = "notificationAARForSMS_OK";
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_SMS.getTemplate(), LanguageEnum.IT, request))
+                .thenReturn(Mono.just(expectedResult));
+
+        //ACT
+        webTestClient.put()
+                .uri(NOTIFICATION_AAR_FOR_SMS)
+                .accept(MediaType.APPLICATION_JSON)
+                .header(HttpHeaders.ACCEPT, "application/json")
+                .header("x-language", "IT")
+                .body(Mono.just(request), NotificationAARForSMS.class)
+                .exchange()
+
+                //ASSERT
+
+                .expectStatus()
+                .isAccepted()
+                .expectBody(String.class)
+                .isEqualTo(expectedResult);
+    }
+
+
+    @Test
+    void smsbody_OK() {
+        //ARRANGE
+        String expectedResult = "smsbody_OK";
+        Mockito.when(templateService.executeTextTemplate(TemplatesEnum.SMS_BODY.getTemplate(), LanguageEnum.IT))
+                .thenReturn(Mono.just(expectedResult));
+
+        // ACT
+        webTestClient.put()
+                .uri(SMSBODY)
+                .accept(MediaType.ALL)
+                .header("x-language", "IT")
+                .exchange()
+
+                //ASSERT
+
+                .expectStatus()
+                .isAccepted()
+                .expectBody(String.class)
+                .value(resource -> Assertions.assertEquals(expectedResult, resource));
+
     }
 
 }
