@@ -14,10 +14,6 @@
 
 	<properties>
 		<jacoco.min.line.cover.ratio>0.00</jacoco.min.line.cover.ratio>
-		<sonar.exclusions>
-			/src/**/TemplatesEngineApplication.java,
-			/src/**/exceptions/RestExceptionHandler.java
-		</sonar.exclusions>
 	</properties>
 
 	<dependencies>

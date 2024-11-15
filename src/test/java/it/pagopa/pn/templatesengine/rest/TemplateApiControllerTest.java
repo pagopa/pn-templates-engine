@@ -58,7 +58,7 @@ public class TemplateApiControllerTest {
     @MethodSource("executePdfTemplateTest")
     void testPdfTemplateWebClient(
             String testName,
-            String templateName,
+            TemplatesEnum templateName,
             Object request,
             LanguageEnum language,
             MediaType mediaType,
@@ -89,7 +89,7 @@ public class TemplateApiControllerTest {
     @MethodSource("executeTxtTemplateTest")
     void testTxtTemplateWebClient(
             String testName,
-            String templateName,
+            TemplatesEnum templateName,
             Object request,
             LanguageEnum language,
             MediaType mediaType,
@@ -117,7 +117,7 @@ public class TemplateApiControllerTest {
     @MethodSource("executeTxtTemplateTestNoBody")
     void testTxtTemplateWebClientNoBody(
             String testName,
-            String templateName,
+            TemplatesEnum templateName,
             LanguageEnum language,
             MediaType mediaType,
             HttpStatus expectedStatus,

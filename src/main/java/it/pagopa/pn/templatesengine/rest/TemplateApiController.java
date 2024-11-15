@@ -24,151 +24,151 @@ public class TemplateApiController implements TemplateApi {
     public Mono<ResponseEntity<Resource>> notificationReceivedLegalFact(LanguageEnum xLanguage,
                                                                         Mono<NotificationReceiverLegalFact> request,
                                                                         final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT.getTemplate(), xLanguage, request);
+        return processPdfTemplate(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<Resource>> pecDeliveryWorkflowLegalFact(LanguageEnum xLanguage,
                                                                        Mono<PecDeliveryWorkflowLegalFact> request,
                                                                        final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT.getTemplate(), xLanguage, request);
+        return processPdfTemplate(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<Resource>> notificationViewedLegalFact(LanguageEnum xLanguage,
                                                                       Mono<NotificationViewedLegalFact> request,
                                                                       final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT.getTemplate(), xLanguage, request);
+        return processPdfTemplate(TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<Resource>> legalFactMalfunction(LanguageEnum xLanguage,
                                                                Mono<LegalFactMalfunction> request,
                                                                final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.LEGAL_FACT_MALFUNCTION.getTemplate(), xLanguage, request);
+        return processPdfTemplate(TemplatesEnum.LEGAL_FACT_MALFUNCTION, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<Resource>> notificationCancelledLegalFact(LanguageEnum xLanguage,
                                                                          Mono<NotificationCancelledLegalFact> request,
                                                                          final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT.getTemplate(), xLanguage, request);
+        return processPdfTemplate(TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> notificationAAR(LanguageEnum xLanguage,
                                                         Mono<NotificationAAR> request,
                                                         final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR.getTemplate(), xLanguage, request);
+        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> notificationAARRADDalt(LanguageEnum xLanguage,
                                                                Mono<NotificationAARRADDalt> request,
                                                                final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT.getTemplate(), xLanguage, request);
+        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<Resource>> analogDeliveryWorkflowFailureLegalFact(LanguageEnum xLanguage,
                                                                                  Mono<AnalogDeliveryWorkflowFailureLegalFact> request,
                                                                                  final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT.getTemplate(), xLanguage, request);
+        return processPdfTemplate(TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> notificationAARForEMAIL(LanguageEnum xLanguage,
                                                                 Mono<NotificationAARForEMAIL> request,
                                                                 final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL.getTemplate(), xLanguage, request);
+        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> notificationAARForPEC(LanguageEnum xLanguage,
                                                               Mono<NotificationAARForPEC> request,
                                                               final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_PEC.getTemplate(), xLanguage, request);
+        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_PEC, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> notificationAARForSMS(LanguageEnum xLanguage,
                                                               Mono<NotificationAARForSMS> request,
                                                               final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_SMS.getTemplate(), xLanguage, request);
+        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_SMS, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> emailbody(LanguageEnum xLanguage,
                                                   Mono<Emailbody> request,
                                                   final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.EMAIL_BODY.getTemplate(), xLanguage, request);
+        return processTextTemplate(TemplatesEnum.EMAIL_BODY, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecbody(LanguageEnum xLanguage,
                                                 Mono<Pecbody> request,
                                                 final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_BODY.getTemplate(), xLanguage, request);
+        return processTextTemplate(TemplatesEnum.PEC_BODY, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecbodyconfirm(LanguageEnum xLanguage,
                                                        Mono<Pecbody> request,
                                                        final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_BODY_CONFIRM.getTemplate(), xLanguage, request);
+        return processTextTemplate(TemplatesEnum.PEC_BODY_CONFIRM, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecbodyreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_BODY_REJECT.getTemplate(), xLanguage);
+        return processTextTemplate(TemplatesEnum.PEC_BODY_REJECT, xLanguage);
     }
 
     @Override
     public Mono<ResponseEntity<String>> notificationAARSubject(LanguageEnum xLanguage,
                                                                Mono<NotificationAARSubject> request,
                                                                final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_SUBJECT.getTemplate(), xLanguage, request);
+        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_SUBJECT, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> emailsubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.EMAIL_SUBJECT.getTemplate(), xLanguage);
+        return processTextTemplate(TemplatesEnum.EMAIL_SUBJECT, xLanguage);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecsubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_SUBJECT.getTemplate(), xLanguage);
+        return processTextTemplate(TemplatesEnum.PEC_SUBJECT, xLanguage);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecsubjectconfirm(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_SUBJECT_CONFIRM.getTemplate(), xLanguage);
+        return processTextTemplate(TemplatesEnum.PEC_SUBJECT_CONFIRM, xLanguage);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecsubjectreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_SUBJECT_REJECT.getTemplate(), xLanguage);
+        return processTextTemplate(TemplatesEnum.PEC_SUBJECT_REJECT, xLanguage);
     }
 
     @Override
     public Mono<ResponseEntity<String>> smsbody(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.SMS_BODY.getTemplate(), xLanguage);
+        return processTextTemplate(TemplatesEnum.SMS_BODY, xLanguage);
     }
 
-    private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(String templateName, LanguageEnum xLanguage, Mono<T> request) {
+    private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(TemplatesEnum template, LanguageEnum xLanguage, Mono<T> request) {
         return request
-                .flatMap(dto -> templateService.executePdfTemplate(templateName, xLanguage, dto)
+                .flatMap(dto -> templateService.executePdfTemplate(template, xLanguage, dto)
                         .map(resultBytes -> ResponseEntity.accepted().body(new ByteArrayResource(resultBytes))));
     }
 
-    private <T> Mono<ResponseEntity<String>> processTextTemplate(String templateName, LanguageEnum xLanguage, Mono<T> request) {
+    private <T> Mono<ResponseEntity<String>> processTextTemplate(TemplatesEnum template, LanguageEnum xLanguage, Mono<T> request) {
         return request
-                .flatMap(dto -> templateService.executeTextTemplate(templateName, xLanguage, dto)
+                .flatMap(dto -> templateService.executeTextTemplate(template, xLanguage, dto)
                         .map(result -> ResponseEntity.accepted().body(result)));
     }
 
-    private Mono<ResponseEntity<String>> processTextTemplate(String templateName, LanguageEnum xLanguage) {
-        return templateService.executeTextTemplate(templateName, xLanguage)
+    private Mono<ResponseEntity<String>> processTextTemplate(TemplatesEnum template, LanguageEnum xLanguage) {
+        return templateService.executeTextTemplate(template, xLanguage)
                 .map(result -> ResponseEntity.accepted().body(result));
     }
 }

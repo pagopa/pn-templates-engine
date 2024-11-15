@@ -1,6 +1,5 @@
 package it.pagopa.pn.templatesengine.config;
 
-import freemarker.cache.ClassTemplateLoader;
 import freemarker.cache.StringTemplateLoader;
 import freemarker.template.DefaultObjectWrapperBuilder;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
@@ -20,23 +19,16 @@ public class PnFreemarkerConfig {
 
     /**
      * Configura e restituisce un bean FreeMarker `Configuration` utilizzato per il rendering dei template.
-     * Questo metodo imposta il caricamento dei template da due sorgenti:
-     * - `ClassTemplateLoader` per caricare i template da file nella directory specificata.
+     * Questo metodo imposta il caricamento dei template da una sorgente:
      * - `StringTemplateLoader` per caricare i template definiti come stringhe in base alla configurazione.
      *
-     * @param templatePath il percorso della directory che contiene i template, ottenuto dalle proprietà applicative.
+     * @param templatesPath il percorso della directory che contiene i template, ottenuto dalle proprietà applicative.
      * @return un'istanza di `freemarker.template.Configuration` configurata per l'utilizzo con FreeMarker.
      * @throws PnGenericException in caso di errore durante la configurazione del bean FreeMarker.
      */
     @Bean("freemarkerConfig")
-    public freemarker.template.Configuration freemarkerConfig(@Value("${templatesPath}") String templatePath) {
+    public freemarker.template.Configuration freemarkerConfig(@Value("${templatesPath}") String templatesPath) {
         try {
-            //Caricatore di template basato su percorso di classe, per accedere ai file in `templatePath`
-            ClassTemplateLoader classTemplateLoader = new ClassTemplateLoader(this.getClass().getClassLoader(), "/".concat(templatePath));
-
-
-            //Configurazione principale di FreeMarker
-            configuration.setTemplateLoader(classTemplateLoader);
             configuration.setDefaultEncoding("UTF-8");
             configuration.setLogTemplateExceptions(false);
             configuration.setWrapUncheckedExceptions(true);
@@ -46,9 +38,9 @@ public class PnFreemarkerConfig {
             templateConfig.getTemplates().forEach((templateKey, template) -> {
                 var input = template.getInput();
                 if (!template.isLoadAsString()) {  //carica il contenuto solo se il template necessita di un body
-                    input.forEach((inputKey, templateName) -> {
-                        String templateContent = TemplateUtils.loadTemplateContent(templatePath + "/" + templateName);
-                        stringLoader.putTemplate(templateName, templateContent);
+                    input.forEach((inputKey, templateFile) -> {
+                        String templateContent = TemplateUtils.loadTemplateContent(templatesPath + "/" + templateFile);
+                        stringLoader.putTemplate(templateFile, templateContent);
                     });
                 }
             });

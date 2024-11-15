@@ -1,6 +1,5 @@
 package it.pagopa.pn.templatesengine.config;
 
-import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
 import it.pagopa.pn.templatesengine.utils.TemplateUtils;
 import lombok.Data;
@@ -11,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,10 +25,8 @@ import java.util.Map;
 public class TemplateConfig {
 
     private String templatesPath;
-    private String templatesImagesPath;
-    private String templatesLogo;
-    private Map<String, Template> templatesAsString = new HashMap<>();
-    private Map<String, Template> templates;
+    private Map<TemplatesEnum, Template> templatesAsString = new EnumMap<>(TemplatesEnum.class);
+    private Map<TemplatesEnum, Template> templates;
 
     @Setter
     @Getter
@@ -45,13 +43,11 @@ public class TemplateConfig {
      */
     @PostConstruct
     public void verifyTemplates() {
-        for (String templateName : templates.keySet()) {
-            boolean isTemplatePresent = Arrays.stream(TemplatesEnum.values())
+        for (TemplatesEnum templateName : templates.keySet()) {
+            Arrays.stream(TemplatesEnum.values())
                     .anyMatch(templateEnum -> templateEnum.getTemplate().equals(templateName));
-            if (!isTemplatePresent) {
-                throw new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND,
-                        ExceptionTypeEnum.TEMPLATE_NOT_FOUND.getMessage() + templateName);
-            }
+            boolean isTemplatePresent = false;
+            // TODO
         }
     }
 

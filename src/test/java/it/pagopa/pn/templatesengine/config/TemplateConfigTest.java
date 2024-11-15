@@ -1,8 +1,8 @@
 package it.pagopa.pn.templatesengine.config;
 
-import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,13 +25,13 @@ class TemplateConfigTest {
 
     @BeforeEach
     void setup() {
-        Map<String, TemplateConfig.Template> templates = new HashMap<>();
+        Map<TemplatesEnum, TemplateConfig.Template> templates = new HashMap<>();
         TemplateConfig.Template template = new TemplateConfig.Template();
         template.setLoadAsString(true);
         Map<String, String> input = new HashMap<>();
         input.put(LANGUAGE, "email_test.html");
         template.setInput(input);
-        templates.put(EXISTING_TEMPLATE, template);
+        templates.put(TemplatesEnum.EMAIL_SUBJECT, template);
         templateConfig.setTemplates(templates);
         templateConfig.setTemplatesPath("templates-assets");
     }
@@ -39,7 +39,7 @@ class TemplateConfigTest {
     @Test
     void verifyTemplates_ShouldThrowException_WhenTemplateNotFoundInEnum() {
         // Arrange
-        templateConfig.getTemplates().put("nonExistentTemplate", new TemplateConfig.Template());
+        templateConfig.getTemplates().put(TemplatesEnum.EMAIL_BODY, new TemplateConfig.Template());
 
         // Act - Assert
         PnGenericException exception = assertThrows(PnGenericException.class, () -> templateConfig.verifyTemplates());
