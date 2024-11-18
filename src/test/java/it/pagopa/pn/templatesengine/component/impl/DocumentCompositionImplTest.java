@@ -2,21 +2,22 @@ package it.pagopa.pn.templatesengine.component.impl;
 
 import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
+import freemarker.template.DefaultObjectWrapperBuilder;
 import it.pagopa.pn.templatesengine.config.TemplateConfig;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
+import lombok.Getter;
+import lombok.Setter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.io.IOException;
-import java.io.StringWriter;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,70 +25,70 @@ import java.util.Map;
 class DocumentCompositionImplTest {
 
     private static final String TEMPLATE_NAME = "email_test.html";
-    private static final String TEMPLATE_CONTENT_OUTPUT = "Generated Text from Template";
     public static final String TEMPLATES_ASSETS = "templates-assets";
+    public static final String EMAIL_TEST = "email_test";
 
-    @MockBean
+    @Autowired
     Configuration freemarkerConfig;
     @MockBean
     TemplateConfig templateConfig;
-    @Mock
-    Template template;
 
     DocumentCompositionImpl documentComposition;
 
     @BeforeEach
     public void setup() {
-        documentComposition = new DocumentCompositionImpl(freemarkerConfig, templateConfig);
-        StringTemplateLoader stringLoader = new StringTemplateLoader();
-        stringLoader.putTemplate(TEMPLATE_NAME, TEMPLATE_CONTENT_OUTPUT);
+        ClassLoader classLoader = getClass().getClassLoader();
+        try (InputStream inputStream = classLoader.getResourceAsStream("templates-assets/" + TEMPLATE_NAME)) {
+            if (inputStream == null) {
+                throw new IllegalArgumentException("File not found:");
+            }
+            String templateContent = new String(inputStream.readAllBytes());
+            StringTemplateLoader stringLoader = new StringTemplateLoader();
+            stringLoader.putTemplate(EMAIL_TEST, templateContent);
+            freemarkerConfig.setTemplateLoader(stringLoader);
+            DefaultObjectWrapperBuilder owb = new DefaultObjectWrapperBuilder(freemarker.template.Configuration.VERSION_2_3_31);
+            owb.setMethodAppearanceFineTuner((in, out) -> out.setMethodShadowsProperty(false));
+            freemarkerConfig.setObjectWrapper(owb.build());
+            documentComposition = new DocumentCompositionImpl(freemarkerConfig, templateConfig);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
-    void executePdfTemplate() throws IOException {
+    void executePdfTemplate() {
         //ARRANGE
         Mockito.when(templateConfig.getTemplatesPath()).thenReturn(TEMPLATES_ASSETS);
-        Mockito.when(freemarkerConfig.getTemplate(TEMPLATE_NAME)).thenReturn(template);
-        Object mapTemplateModel = new Object();
-
+        TestModel testModel = new TestModel();
+        testModel.setName("Rossi");
+        Map<String, Object> model = new HashMap<>();
+        model.put("model", testModel);
         //ACT - ASSERT
-        var result = Assertions.assertDoesNotThrow(() -> documentComposition.executePdfTemplate(TEMPLATE_NAME, mapTemplateModel));
+        var result = Assertions.assertDoesNotThrow(() -> documentComposition.executePdfTemplate(EMAIL_TEST, model));
         Assertions.assertTrue(result.length > 0);
     }
 
     @Test
-    void executeTxtTemplate() throws IOException, TemplateException {
+    void executeTxtTemplate() {
         // ARRANGE
-        Mockito.when(freemarkerConfig.getTemplate(TEMPLATE_NAME)).thenReturn(template);
-        Map<String, String> mapTemplateModel = new HashMap<>();
-        mapTemplateModel.put("key", "value");
-
-        // Mock del comportamento di template.process()
-        Mockito.doAnswer(invocation -> {
-            StringWriter writer = invocation.getArgument(1);
-            writer.write(TEMPLATE_CONTENT_OUTPUT);
-            return null;
-        }).when(template).process(Mockito.eq(mapTemplateModel), Mockito.any(StringWriter.class));
-
+        Mockito.when(templateConfig.getTemplatesPath()).thenReturn(TEMPLATES_ASSETS);
+        TestModel testModel = new TestModel();
+        testModel.setName("Rossi");
+        Map<String, Object> model = new HashMap<>();
+        model.put("model", testModel);
         // ACT - ASSERT
-        String result = Assertions.assertDoesNotThrow(() -> documentComposition.executeTextTemplate(TEMPLATE_NAME, mapTemplateModel));
-        Assertions.assertEquals(TEMPLATE_CONTENT_OUTPUT, result);
+        String result = Assertions.assertDoesNotThrow(() -> documentComposition.executeTextTemplate(EMAIL_TEST, model));
+        Assertions.assertTrue(result.contains(testModel.name));
     }
 
     @Test
-    void processTemplate_shouldThrowPnGenericExceptionOnTemplateException() throws IOException, TemplateException {
-        // ARRANGE
-        Mockito.when(freemarkerConfig.getTemplate(TEMPLATE_NAME)).thenReturn(template);
-        Mockito.doThrow(new TemplateException("Template processing error", null))
-                .when(template).process(Mockito.any(), Mockito.any(StringWriter.class));
-
-        Map<String, Object> mapTemplateModel = new HashMap<>();
-
-        // ACT - ASSERT
+    void processTemplate_shouldThrowPnGenericExceptionOnTemplateException() {
+        // ARRANGE - ACT - ASSERT
         PnGenericException thrown = Assertions.assertThrows(PnGenericException.class, () ->
-                documentComposition.executeTextTemplate(TEMPLATE_NAME, mapTemplateModel)
+                documentComposition.executeTextTemplate(TEMPLATE_NAME, new HashMap<>())
         );
         Assertions.assertEquals(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION, thrown.getExceptionType());
+        Assertions.assertTrue(thrown.getMessage().contains("Template not found for name \"email_test.html\""));
     }
 
     @Test
@@ -102,5 +103,11 @@ class DocumentCompositionImplTest {
                 documentComposition.executePdfTemplate(TEMPLATE_NAME, mapTemplateModel)
         );
         Assertions.assertEquals(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION, thrown.getExceptionType());
+    }
+
+    @Getter
+    @Setter
+    public static class TestModel {
+        public String name;
     }
 }
