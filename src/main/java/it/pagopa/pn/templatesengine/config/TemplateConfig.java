@@ -1,5 +1,6 @@
 package it.pagopa.pn.templatesengine.config;
 
+import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
 import it.pagopa.pn.templatesengine.utils.TemplateUtils;
 import lombok.Data;
@@ -9,10 +10,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
-import java.util.Arrays;
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Configurazione per la gestione dei template dell'applicazione.
@@ -43,11 +42,18 @@ public class TemplateConfig {
      */
     @PostConstruct
     public void verifyTemplates() {
-        for (TemplatesEnum templateName : templates.keySet()) {
-            Arrays.stream(TemplatesEnum.values())
-                    .anyMatch(templateEnum -> templateEnum.getTemplate().equals(templateName));
-            boolean isTemplatePresent = false;
-            // TODO
+        Set<String> enumValues = Arrays.stream(TemplatesEnum.values())
+                .map(TemplatesEnum::name)
+                .collect(Collectors.toSet());
+
+        Set<String> yamlKeys = templates.keySet().stream()
+                .map(TemplatesEnum::name)
+                .collect(Collectors.toSet());
+
+        for (String enumValue: enumValues) {
+            if (!yamlKeys.contains(enumValue)) {
+                throw new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND, enumValue);
+            }
         }
     }
 

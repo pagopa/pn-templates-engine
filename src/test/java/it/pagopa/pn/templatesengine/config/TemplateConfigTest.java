@@ -17,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class TemplateConfigTest {
 
-    private static final String EXISTING_TEMPLATE = "existingTemplate";
     private static final String LANGUAGE = LanguageEnum.IT.getValue();
 
     @Autowired
@@ -52,7 +51,7 @@ class TemplateConfigTest {
         templateConfig.initializeTemplatesAsString();
 
         // Act - Assert
-        TemplateConfig.Template template = templateConfig.getTemplatesAsString().get(EXISTING_TEMPLATE);
+        TemplateConfig.Template template = templateConfig.getTemplatesAsString().get(TemplatesEnum.PEC_BODY_REJECT);
         assertTrue(template.getInput().containsKey(LANGUAGE));
         assertNotNull(template.getInput().get(LANGUAGE));
     }
