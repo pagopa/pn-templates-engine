@@ -8,9 +8,12 @@ import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
+
+import java.util.Optional;
 
 /**
  * Service per l'esecuzione e la gestione dei template, supportando sia i formati di testo che PDF.
@@ -37,12 +40,14 @@ public class TemplateService {
      */
     public <T> Mono<String> executeTextTemplate(TemplatesEnum template, LanguageEnum language, Mono<T> objectModel) {
         log.info("Execute TXT for template={},  language={} - START", template, language);
-        String fileName = getFileName(template, language);
-        return objectModel.flatMap(model -> Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model))
-                        .subscribeOn(Schedulers.boundedElastic()))
+        return objectModel.flatMap(model -> {
+                            String fileName = getFileName(template, language);
+                            return Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model))
+                                    .subscribeOn(Schedulers.boundedElastic());
+                        }
+                )
                 .doOnSuccess(result -> log.info("Execute TXT for templateName={}, language={} - COMPLETED", template, language))
-                .doOnError(error -> log.error("Execute TXT for templateName={}, language={} - FAILED", template, language, error))
-                .switchIfEmpty(Mono.error(new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND, template.getTemplate())));
+                .doOnError(error -> log.error("Execute TXT for templateName={}, language={} - FAILED", template, language, error));
     }
 
     /**
@@ -57,12 +62,13 @@ public class TemplateService {
      */
     public <T> Mono<byte[]> executePdfTemplate(TemplatesEnum template, LanguageEnum language, Mono<T> objectModel) {
         log.info("Execute Pdf for templateName={},  language={} - START", template, language);
-        String fileName = getFileName(template, language);
-        return objectModel.flatMap(model -> Mono.fromCallable(() -> documentComposition.executePdfTemplate(fileName, model))
-                        .subscribeOn(Schedulers.boundedElastic()))
+        return objectModel.flatMap(model -> {
+                    String fileName = getFileName(template, language);
+                    return Mono.fromCallable(() -> documentComposition.executePdfTemplate(fileName, model))
+                            .subscribeOn(Schedulers.boundedElastic());
+                })
                 .doOnSuccess(result -> log.info("Execute Pdf for templateName={}, language={} - COMPLETED", template, language))
-                .doOnError(error -> log.error("Execute Pdf for templateName={}, language={} - FAILED", template, language, error))
-                .switchIfEmpty(Mono.error(new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND, template.getTemplate())));
+                .doOnError(error -> log.error("Execute Pdf for templateName={}, language={} - FAILED", template, language, error));
     }
 
     /**
@@ -73,8 +79,12 @@ public class TemplateService {
      * @return il nome del file del template per la lingua specificata.
      */
     private String getFileName(TemplatesEnum template, LanguageEnum language) {
-        TemplateConfig.Template templates = templateConfig.getTemplates().get(template);
-        return templates.getInput().get(language.getValue());
+        return Optional.ofNullable(templateConfig.getTemplates().get(template))
+                .map(TemplateConfig.Template::getInput)
+                .map(inputMap -> inputMap.get(language.getValue()))
+                .orElseThrow(() -> new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND,
+                        ExceptionTypeEnum.TEMPLATE_NOT_FOUND.getMessage() + template.getTemplate() + ", lingua: "
+                                + language.getValue(), HttpStatus.NOT_FOUND));
     }
 
     /**
@@ -87,7 +97,14 @@ public class TemplateService {
      */
     public Mono<String> executeTextTemplate(TemplatesEnum template, LanguageEnum language) {
         log.info("Execute templateAsString for templateName={},  language={} - START", template, language);
-        TemplateConfig.Template templates = templateConfig.getTemplatesAsString().get(template);
-        return Mono.just(templates.getInput().get(language.getValue()));
+        return Mono.defer(() -> {
+            TemplateConfig.Template templates = templateConfig.getTemplatesAsString().get(template);
+            String templateInput = Optional.ofNullable(templates)
+                    .map(t -> t.getInput().get(language.getValue()))
+                    .orElseThrow(() -> new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND,
+                            ExceptionTypeEnum.TEMPLATE_NOT_FOUND.getMessage() + template.getTemplate() + ", lingua: "
+                                    + language.getValue(), HttpStatus.NOT_FOUND));
+            return Mono.just(templateInput);
+        });
     }
 }

@@ -4,7 +4,6 @@ import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import it.pagopa.pn.commons.exceptions.PnInternalException;
 import it.pagopa.pn.templatesengine.component.DocumentComposition;
 import it.pagopa.pn.templatesengine.config.TemplateConfig;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
@@ -15,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.helper.W3CDom;
 import org.jsoup.nodes.Document;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayOutputStream;
@@ -56,8 +56,8 @@ public class DocumentCompositionImpl implements DocumentComposition {
      */
     @Override
     public byte[] executePdfTemplate(String templateName, Object mapTemplateModel) {
-        String htmlMono = executeTextTemplate(templateName, mapTemplateModel);
-        return generatePdf(htmlMono);
+        String htmlContent = executeTextTemplate(templateName, mapTemplateModel);
+        return generatePdf(htmlContent);
     }
 
     /**
@@ -76,7 +76,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
             template.process(templateModel, stringWriter);
             return stringWriter.getBuffer().toString();
         } catch (TemplateException | IOException ex) {
-            throw new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION, ex.getMessage());
+            throw new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION, ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -102,7 +102,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
             builder.run();
             return baos.toByteArray();
         } catch (IOException ex) {
-            throw new PnInternalException(ex.getMessage(), ExceptionTypeEnum.ERROR_PDF_DOCUMENT_GENERATION.getMessage());
+            throw new PnGenericException(ExceptionTypeEnum.ERROR_PDF_DOCUMENT_GENERATION, ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

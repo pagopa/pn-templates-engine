@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 
 import javax.annotation.PostConstruct;
 import java.util.*;
@@ -50,9 +51,9 @@ public class TemplateConfig {
                 .map(TemplatesEnum::name)
                 .collect(Collectors.toSet());
 
-        for (String enumValue: enumValues) {
+        for (String enumValue : enumValues) {
             if (!yamlKeys.contains(enumValue)) {
-                throw new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND, enumValue);
+                throw new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND, enumValue, HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
     }

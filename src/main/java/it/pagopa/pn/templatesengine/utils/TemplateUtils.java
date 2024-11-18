@@ -4,6 +4,7 @@ import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpStatus;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -44,7 +45,7 @@ public class TemplateUtils {
             String uriPath = Paths.get(absolutePath).toUri().toString();
             return uriPath.replaceFirst("file:///", "file:/");
         } catch (Exception exception) {
-            throw new PnGenericException(ERROR_FILE_READING, exception.getMessage());
+            throw new PnGenericException(ERROR_FILE_READING, exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -63,7 +64,7 @@ public class TemplateUtils {
         try (InputStream inputStream = new ClassPathResource(templateFilePath).getInputStream()) {
             return new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
         } catch (IOException e) {
-            throw new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATE_LOADING, e.getMessage());
+            throw new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATE_LOADING, e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
