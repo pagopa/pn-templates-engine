@@ -56,17 +56,17 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<String>> notificationAAR(LanguageEnum xLanguage,
+    public Mono<ResponseEntity<Resource>> notificationAAR(LanguageEnum xLanguage,
                                                         Mono<NotificationAAR> request,
                                                         final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR, xLanguage, request);
+        return processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR, xLanguage, request);
     }
 
     @Override
-    public Mono<ResponseEntity<String>> notificationAARRADDalt(LanguageEnum xLanguage,
+    public Mono<ResponseEntity<Resource>> notificationAARRADDalt(LanguageEnum xLanguage,
                                                                Mono<NotificationAARRADDalt> request,
                                                                final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT, xLanguage, request);
+        return processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT, xLanguage, request);
     }
 
     @Override

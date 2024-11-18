@@ -257,24 +257,6 @@ public class TemplateApiControllerTest {
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
                         EXPECTED_RESULT
-                ),
-                Arguments.of(
-                        NOTIFICATION_AAR_RADDALT,
-                        TemplatesEnum.NOTIFICATION_AAR_RADDALT,
-                        new NotificationAARRADDalt(),
-                        LanguageEnum.IT,
-                        MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
-                        EXPECTED_RESULT
-                ),
-                Arguments.of(
-                        NOTIFICATION_AAR,
-                        TemplatesEnum.NOTIFICATION_AAR,
-                        new NotificationAAR(),
-                        LanguageEnum.IT,
-                        MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
-                        EXPECTED_RESULT
                 )
         );
     }
@@ -330,6 +312,24 @@ public class TemplateApiControllerTest {
                         PEC_DELIVERY_WORKFLOW_LEGAL_FACT,
                         TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT,
                         new PecDeliveryWorkflowLegalFact(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.ACCEPTED,
+                        new byte[]{1, 2, 3}
+                ),
+                Arguments.of(
+                        NOTIFICATION_AAR_RADDALT,
+                        TemplatesEnum.NOTIFICATION_AAR_RADDALT,
+                        new NotificationAARRADDalt(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.ACCEPTED,
+                        new byte[]{1, 2, 3}
+                ),
+                Arguments.of(
+                        NOTIFICATION_AAR,
+                        TemplatesEnum.NOTIFICATION_AAR,
+                        new NotificationAAR(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,

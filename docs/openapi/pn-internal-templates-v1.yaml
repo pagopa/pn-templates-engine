@@ -218,44 +218,10 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  ############################################################################################
-  ###                         SuccessResponseHTML      EMAIL                               ###
-  ############################################################################################
-
-  /templates-engine-private/v1/templates/notification-aar:
-    put:
-      summary: Generazione del html legato al template NotificationAAR
-      description: Genera un documento html basato sul template NotificationAAR.
-      operationId: notificationAAR
-      tags:
-        - Template
-      parameters:
-        - in: header
-          name: x-language
-          description: Lingua del documento
-          required: true
-          schema:
-            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
-      requestBody:
-        description: Parametri necessari per generare il documento
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: 'schemas-params.yaml#/components/schemas/NotificationAAR'
-
-      responses:
-        '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
-        '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
-        '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
-
   /templates-engine-private/v1/templates/notification-aar-radd-alt:
     put:
-      summary: Generazione del html legato al template NotificationAAR_RADDalt
-      description: Genera un documento html basato sul template NotificationAAR_RADDalt.
+      summary: Generazione del Pdf legato al template NotificationAAR_RADDalt
+      description: Genera un documento Pdf basato sul template NotificationAAR_RADDalt.
       operationId: notificationAAR_RADDalt
       tags:
         - Template
@@ -276,11 +242,45 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/notification-aar:
+    put:
+      summary: Generazione del Pdf legato al template NotificationAAR
+      description: Genera un documento Pdf basato sul template NotificationAAR.
+      operationId: notificationAAR
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: x-language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAAR'
+
+      responses:
+        '200':
+          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+        '400':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  ############################################################################################
+  ###                         SuccessResponseHTML      EMAIL                               ###
+  ############################################################################################
 
   /templates-engine-private/v1/templates/notification-aar-for-email:
     put:
