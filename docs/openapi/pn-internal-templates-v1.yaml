@@ -224,8 +224,8 @@ paths:
 
   /templates-engine-private/v1/templates/notification-aar:
     put:
-      summary: Generazione del pdf legato al template NotificationAAR
-      description: Genera un documento PDF basato sul template NotificationAAR.
+      summary: Generazione del html legato al template NotificationAAR
+      description: Genera un documento html basato sul template NotificationAAR.
       operationId: notificationAAR
       tags:
         - Template
@@ -254,8 +254,8 @@ paths:
 
   /templates-engine-private/v1/templates/notification-aar-radd-alt:
     put:
-      summary: Generazione del pdf legato al template NotificationAAR_RADDalt
-      description: Genera un documento PDF basato sul template NotificationAAR_RADDalt.
+      summary: Generazione del html legato al template NotificationAAR_RADDalt
+      description: Genera un documento html basato sul template NotificationAAR_RADDalt.
       operationId: notificationAAR_RADDalt
       tags:
         - Template
@@ -284,8 +284,8 @@ paths:
 
   /templates-engine-private/v1/templates/notification-aar-for-email:
     put:
-      summary: Generazione del pdf legato al template NotificationAARForEMAIL
-      description: Genera un documento PDF basato sul template NotificationAARForEMAIL.
+      summary: Generazione del html legato al template NotificationAARForEMAIL
+      description: Genera un documento html basato sul template NotificationAARForEMAIL.
       operationId: notificationAARForEMAIL
       tags:
         - Template
@@ -314,8 +314,8 @@ paths:
 
   /templates-engine-private/v1/templates/notification-aar-for-pec:
     put:
-      summary: Generazione del pdf legato al template NotificationAARForPEC
-      description: Genera un documento PDF basato sul template NotificationAARForPEC.
+      summary: Generazione del html legato al template NotificationAARForPEC
+      description: Genera un documento html basato sul template NotificationAARForPEC.
       operationId: notificationAARForPEC
       tags:
         - Template
@@ -344,8 +344,8 @@ paths:
 
   /templates-engine-private/v1/templates/emailbody:
     put:
-      summary: Generazione del pdf legato al template Emailbody
-      description: Genera un documento PDF basato sul template emailbody.
+      summary: Generazione del html legato al template Emailbody
+      description: Genera un documento html basato sul template emailbody.
       operationId: emailbody
       tags:
         - Template
@@ -374,8 +374,8 @@ paths:
 
   /templates-engine-private/v1/templates/pecbody:
     put:
-      summary: Generazione del pdf legato al template Pecbody
-      description: Genera un documento PDF basato sul template Pecbody.
+      summary: Generazione del html legato al template Pecbody
+      description: Genera un documento html basato sul template Pecbody.
       operationId: pecbody
       tags:
         - Template
@@ -404,8 +404,8 @@ paths:
 
   /templates-engine-private/v1/templates/pecbodyconfirm:
     put:
-      summary: Generazione del pdf legato al template Pecbodyconfirm
-      description: Genera un documento PDF basato sul template Pecbodyconfirm.
+      summary: Generazione del html legato al template Pecbodyconfirm
+      description: Genera un documento html basato sul template Pecbodyconfirm.
       operationId: pecbodyconfirm
       tags:
         - Template
@@ -434,8 +434,8 @@ paths:
 
   /templates-engine-private/v1/templates/pecbodyreject:
     put:
-      summary: Generazione del pdf legato al template Pecbodyreject
-      description: Genera un documento PDF basato sul template Pecbodyreject.
+      summary: Generazione del html legato al template Pecbodyreject
+      description: Genera un documento html basato sul template Pecbodyreject.
       operationId: pecbodyreject
       tags:
         - Template
@@ -461,8 +461,8 @@ paths:
 
   /templates-engine-private/v1/templates/notification-aar-for-sms:
     put:
-      summary: Generazione del pdf legato al template NotificationAARForSMS
-      description: Genera un documento PDF basato sul template NotificationAARForSMS.
+      summary: Generazione del TXT legato al template NotificationAARForSMS
+      description: Genera un documento TXT basato sul template NotificationAARForSMS.
       operationId: notificationAARForSMS
       tags:
         - Template
@@ -491,8 +491,8 @@ paths:
 
   /templates-engine-private/v1/templates/smsbody:
     put:
-      summary: Genera un documento PDF OTP di conferma SMS
-      description: Genera un documento PDF OTP di conferma SMS.
+      summary: Genera un documento TXT OTP di conferma SMS
+      description: Genera un documento TXT OTP di conferma SMS.
       operationId: smsbody
       tags:
         - Template
