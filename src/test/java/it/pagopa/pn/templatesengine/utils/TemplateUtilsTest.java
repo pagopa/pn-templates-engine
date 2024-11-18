@@ -14,7 +14,7 @@ class TemplateUtilsTest {
 
     private static final String VALID_PATH = "templates-assets/email_test.html";
     private static final String INVALID_PATH = "invalid/path/template.ftl";
-    private static final String TEMPLATE_CONTENT = "<div>test</div>";
+    private static final String TEMPLATE_CONTENT = "<div>Hello ATTRIBUTE, ";
 
     @Test
     void getFormattedPath_ShouldReturnFormattedUriPath_WhenValidRelativePathIsProvided() {

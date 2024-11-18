@@ -1,6 +1,7 @@
 package it.pagopa.pn.templatesengine.config;
 
 import freemarker.cache.ClassTemplateLoader;
+import freemarker.cache.StringTemplateLoader;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
@@ -49,7 +50,7 @@ class PnFreemarkerConfigTest {
 
         // Assert
         assertNotNull(result);
-        verify(configuration).setTemplateLoader(any(ClassTemplateLoader.class));
+        verify(configuration).setTemplateLoader(any(StringTemplateLoader.class));
     }
 
     @Test
@@ -57,7 +58,7 @@ class PnFreemarkerConfigTest {
         // Arrange
 
         doThrow(new RuntimeException("Errore di configurazione"))
-                .when(configuration).setTemplateLoader(any(ClassTemplateLoader.class));
+                .when(configuration).setTemplateLoader(any(StringTemplateLoader.class));
 
         // Act & Assert
         PnGenericException exception = assertThrows(PnGenericException.class, () -> {

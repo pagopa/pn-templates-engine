@@ -84,7 +84,7 @@ class DocumentCompositionImplTest {
     @Test
     void processTemplate_shouldThrowPnGenericExceptionOnTemplateException() {
         // ARRANGE - ACT - ASSERT
-        PnGenericException thrown = Assertions.assertThrows(PnGenericException.class, () ->
+        PnGenericException thrown = (PnGenericException)  Assertions.assertThrows(Exception.class, () ->
                 documentComposition.executeTextTemplate(TEMPLATE_NAME, new HashMap<>())
         );
         Assertions.assertEquals(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION, thrown.getExceptionType());
@@ -92,15 +92,11 @@ class DocumentCompositionImplTest {
     }
 
     @Test
-    void processTemplate_shouldThrowPnGenericExceptionOnIOException() throws IOException {
-        // ARRANGE
-        Mockito.when(freemarkerConfig.getTemplate(TEMPLATE_NAME)).thenThrow(new IOException("IO error"));
-
-        Map<String, Object> mapTemplateModel = new HashMap<>();
+    void processTemplate_shouldThrowPnGenericExceptionOnIOException() {
 
         // ACT - ASSERT
-        PnGenericException thrown = Assertions.assertThrows(PnGenericException.class, () ->
-                documentComposition.executePdfTemplate(TEMPLATE_NAME, mapTemplateModel)
+        PnGenericException thrown = (PnGenericException) Assertions.assertThrows(Exception.class, () ->
+                documentComposition.executePdfTemplate(TEMPLATE_NAME, new HashMap<>())
         );
         Assertions.assertEquals(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION, thrown.getExceptionType());
     }
