@@ -1,15 +1,16 @@
 package it.pagopa.pn.templatesengine.service;
 
-import it.pagopa.pn.templatesengine.config.TemplatesEnum;
-import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
 import it.pagopa.pn.templatesengine.component.DocumentComposition;
 import it.pagopa.pn.templatesengine.config.TemplateConfig;
+import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
 /**
  * Service per l'esecuzione e la gestione dei template, supportando sia i formati di testo che PDF.
@@ -28,16 +29,19 @@ public class TemplateService {
      * Esegue un template di testo utilizzando `DocumentComposition` e un modello di dati fornito, basandosi sul
      * nome del template e la lingua.
      *
-     * @param template il nome del template da eseguire.
-     * @param language la lingua da utilizzare per il template.
+     * @param template    il nome del template da eseguire.
+     * @param language    la lingua da utilizzare per il template.
      * @param objectModel il modello di dati da applicare al template.
      * @return un `Mono` contenente il risultato come stringa del template di testo, oppure un errore se il template
-     *         non viene trovato.
+     * non viene trovato.
      */
-    public Mono<String> executeTextTemplate(TemplatesEnum template, LanguageEnum language, Object objectModel) {
+    public <T> Mono<String> executeTextTemplate(TemplatesEnum template, LanguageEnum language, Mono<T> objectModel) {
         log.info("Execute TXT for template={},  language={} - START", template, language);
-        return Mono.justOrEmpty(getFileName(template, language))
-                .flatMap(templateFileName -> Mono.justOrEmpty(documentComposition.executeTextTemplate(templateFileName, objectModel)))
+        String fileName = getFileName(template, language);
+        return objectModel.flatMap(model -> Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model))
+                        .subscribeOn(Schedulers.boundedElastic()))
+                .doOnSuccess(result -> log.info("Execute TXT for templateName={}, language={} - COMPLETED", template, language))
+                .doOnError(error -> log.error("Execute TXT for templateName={}, language={} - FAILED", template, language, error))
                 .switchIfEmpty(Mono.error(new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND, template.getTemplate())));
     }
 
@@ -45,16 +49,19 @@ public class TemplateService {
      * Esegue un template in formato PDF utilizzando `DocumentComposition` e un modello di dati fornito, basandosi
      * sul nome del template e la lingua.
      *
-     * @param template il nome del template da eseguire.
-     * @param language la lingua da utilizzare per il template.
+     * @param template    il nome del template da eseguire.
+     * @param language    la lingua da utilizzare per il template.
      * @param objectModel il modello di dati da applicare al template.
      * @return un `Mono` contenente il risultato come array di byte del PDF generato, oppure un errore se il template
-     *         non viene trovato.
+     * non viene trovato.
      */
-    public Mono<byte[]> executePdfTemplate(TemplatesEnum template, LanguageEnum language, Object objectModel) {
+    public <T> Mono<byte[]> executePdfTemplate(TemplatesEnum template, LanguageEnum language, Mono<T> objectModel) {
         log.info("Execute Pdf for templateName={},  language={} - START", template, language);
-        return Mono.justOrEmpty(getFileName(template, language))
-                .flatMap(templateFileName -> Mono.justOrEmpty(documentComposition.executePdfTemplate(templateFileName, objectModel)))
+        String fileName = getFileName(template, language);
+        return objectModel.flatMap(model -> Mono.fromCallable(() -> documentComposition.executePdfTemplate(fileName, model))
+                        .subscribeOn(Schedulers.boundedElastic()))
+                .doOnSuccess(result -> log.info("Execute Pdf for templateName={}, language={} - COMPLETED", template, language))
+                .doOnError(error -> log.error("Execute Pdf for templateName={}, language={} - FAILED", template, language, error))
                 .switchIfEmpty(Mono.error(new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND, template.getTemplate())));
     }
 

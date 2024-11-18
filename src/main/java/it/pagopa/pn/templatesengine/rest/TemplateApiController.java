@@ -1,8 +1,8 @@
 package it.pagopa.pn.templatesengine.rest;
 
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
-import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.*;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.api.TemplateApi;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.*;
 import it.pagopa.pn.templatesengine.service.TemplateService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -156,15 +156,13 @@ public class TemplateApiController implements TemplateApi {
     }
 
     private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(TemplatesEnum template, LanguageEnum xLanguage, Mono<T> request) {
-        return request
-                .flatMap(dto -> templateService.executePdfTemplate(template, xLanguage, dto)
-                        .map(resultBytes -> ResponseEntity.accepted().body(new ByteArrayResource(resultBytes))));
+        return templateService.executePdfTemplate(template, xLanguage, request)
+                .map(resultBytes -> ResponseEntity.accepted().body(new ByteArrayResource(resultBytes)));
     }
 
     private <T> Mono<ResponseEntity<String>> processTextTemplate(TemplatesEnum template, LanguageEnum xLanguage, Mono<T> request) {
-        return request
-                .flatMap(dto -> templateService.executeTextTemplate(template, xLanguage, dto)
-                        .map(result -> ResponseEntity.accepted().body(result)));
+        return templateService.executeTextTemplate(template, xLanguage, request)
+                .map(result -> ResponseEntity.accepted().body(result));
     }
 
     private Mono<ResponseEntity<String>> processTextTemplate(TemplatesEnum template, LanguageEnum xLanguage) {

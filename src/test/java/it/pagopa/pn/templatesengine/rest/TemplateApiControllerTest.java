@@ -1,7 +1,7 @@
 package it.pagopa.pn.templatesengine.rest;
 
-import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.*;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.*;
 import it.pagopa.pn.templatesengine.service.TemplateService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -58,7 +58,7 @@ public class TemplateApiControllerTest {
     @MethodSource("executePdfTemplateTest")
     void testPdfTemplateWebClient(
             String testName,
-            TemplatesEnum templateName,
+            TemplatesEnum template,
             Object request,
             LanguageEnum language,
             MediaType mediaType,
@@ -66,8 +66,9 @@ public class TemplateApiControllerTest {
             byte[] expectedData
     ) {
         // Arrange
-        Mockito.when(templateService.executePdfTemplate(templateName, language, request))
+        Mockito.when(templateService.executePdfTemplate(Mockito.eq(template), Mockito.eq(language), Mockito.any(Mono.class)))
                 .thenReturn(Mono.just(expectedData));
+
         // Act & Assert
         webTestClient.put()
                 .uri(testName.toLowerCase())
@@ -89,7 +90,7 @@ public class TemplateApiControllerTest {
     @MethodSource("executeTxtTemplateTest")
     void testTxtTemplateWebClient(
             String testName,
-            TemplatesEnum templateName,
+            TemplatesEnum template,
             Object request,
             LanguageEnum language,
             MediaType mediaType,
@@ -97,7 +98,7 @@ public class TemplateApiControllerTest {
             String expectedData
     ) {
         // Arrange
-        Mockito.when(templateService.executeTextTemplate(templateName, language, request))
+        Mockito.when(templateService.executeTextTemplate(Mockito.eq(template), Mockito.eq(language), Mockito.any(Mono.class)))
                 .thenReturn(Mono.just(expectedData));
         // Act & Assert
         webTestClient.put()
@@ -143,7 +144,7 @@ public class TemplateApiControllerTest {
         return Stream.of(
                 Arguments.of(
                         SMSBODY,
-                        TemplatesEnum.SMS_BODY.getTemplate(),
+                        TemplatesEnum.SMS_BODY,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -151,7 +152,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECSUBJECTREJECT,
-                        TemplatesEnum.PEC_SUBJECT_REJECT.getTemplate(),
+                        TemplatesEnum.PEC_SUBJECT_REJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -159,7 +160,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECSUBJECTCONFIRM,
-                        TemplatesEnum.PEC_SUBJECT_CONFIRM.getTemplate(),
+                        TemplatesEnum.PEC_SUBJECT_CONFIRM,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -167,7 +168,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECSUBJECT,
-                        TemplatesEnum.PEC_SUBJECT.getTemplate(),
+                        TemplatesEnum.PEC_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -175,7 +176,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         EMAILSUBJECT,
-                        TemplatesEnum.EMAIL_SUBJECT.getTemplate(),
+                        TemplatesEnum.EMAIL_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -183,7 +184,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECBODYREJECT,
-                        TemplatesEnum.PEC_BODY_REJECT.getTemplate(),
+                        TemplatesEnum.PEC_BODY_REJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -196,7 +197,7 @@ public class TemplateApiControllerTest {
         return Stream.of(
                 Arguments.of(
                         NOTIFICATION_AARSUBJECT,
-                        TemplatesEnum.NOTIFICATION_AAR_SUBJECT.getTemplate(),
+                        TemplatesEnum.NOTIFICATION_AAR_SUBJECT,
                         new NotificationAARSubject(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -205,7 +206,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PEC_BODY_CONFIRM,
-                        TemplatesEnum.PEC_BODY_CONFIRM.getTemplate(),
+                        TemplatesEnum.PEC_BODY_CONFIRM,
                         new Pecbody(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -214,7 +215,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECBODY,
-                        TemplatesEnum.PEC_BODY.getTemplate(),
+                        TemplatesEnum.PEC_BODY,
                         new Pecbody(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -223,7 +224,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         EMAILBODY,
-                        TemplatesEnum.EMAIL_BODY.getTemplate(),
+                        TemplatesEnum.EMAIL_BODY,
                         new Emailbody(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -232,7 +233,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         NOTIFICATION_AAR_FOR_SMS,
-                        TemplatesEnum.NOTIFICATION_AAR_FOR_SMS.getTemplate(),
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_SMS,
                         new NotificationAARForSMS(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -241,7 +242,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         NOTIFICATION_AARFOR_PEC,
-                        TemplatesEnum.NOTIFICATION_AAR_FOR_PEC.getTemplate(),
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_PEC,
                         new NotificationAARForPEC(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -250,7 +251,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         NOTIFICATION_AARFOR_EMAIL,
-                        TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL.getTemplate(),
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL,
                         new NotificationAARForEMAIL(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -259,7 +260,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         NOTIFICATION_AAR_RADDALT,
-                        TemplatesEnum.NOTIFICATION_AAR_RADDALT.getTemplate(),
+                        TemplatesEnum.NOTIFICATION_AAR_RADDALT,
                         new NotificationAARRADDalt(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -268,7 +269,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         NOTIFICATION_AAR,
-                        TemplatesEnum.NOTIFICATION_AAR.getTemplate(),
+                        TemplatesEnum.NOTIFICATION_AAR,
                         new NotificationAAR(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -282,8 +283,8 @@ public class TemplateApiControllerTest {
         return Stream.of(
                 Arguments.of(
                         ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT,
-                        TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT.getTemplate(),
-                        new AnalogDeliveryWorkflowFailureLegalFact(),
+                        TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT,
+                        Mono.just(new AnalogDeliveryWorkflowFailureLegalFact()),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -291,8 +292,8 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         NOTIFICATION_CANCELLED_LEGAL_FACT,
-                        TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT.getTemplate(),
-                        new NotificationCancelledLegalFact(),
+                        TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT,
+                        Mono.just(new NotificationCancelledLegalFact()),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -300,8 +301,8 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         NOTIFICATION_VIEWED_LEGAL_FACT,
-                        TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT.getTemplate(),
-                        new NotificationViewedLegalFact(),
+                        TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT,
+                        Mono.just(new NotificationViewedLegalFact()),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -309,7 +310,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         LEGAL_FACT_MALFUNCTION,
-                        TemplatesEnum.LEGAL_FACT_MALFUNCTION.getTemplate(),
+                        TemplatesEnum.LEGAL_FACT_MALFUNCTION,
                         new LegalFactMalfunction(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -318,7 +319,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         NOTIFICATION_RECEIVED_LEGAL_FACT,
-                        TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT.getTemplate(),
+                        TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT,
                         new NotificationReceiverLegalFact(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -327,7 +328,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PEC_DELIVERY_WORKFLOW_LEGAL_FACT,
-                        TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT.getTemplate(),
+                        TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT,
                         new PecDeliveryWorkflowLegalFact(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,

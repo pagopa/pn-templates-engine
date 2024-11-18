@@ -58,9 +58,9 @@ public class TemplateConfig {
     @PostConstruct
     public void initializeTemplatesAsString() {
         templates.forEach((templateKey, template) -> {
-            var input = template.getInput();
+            Map<String, String> input = template.getInput();
             if (template.isLoadAsString()) {
-                var inputAsString = new HashMap<String, String>();
+                Map<String, String> inputAsString = new HashMap<>();
                 input.forEach((inputKey, templateName) -> {
                     String templateContent = TemplateUtils.loadTemplateContent(getTemplatesPath() + "/" + templateName);
                     inputAsString.put(inputKey, templateContent);

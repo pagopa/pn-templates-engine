@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Map;
+
 @Configuration
 @AllArgsConstructor
 public class PnFreemarkerConfig {
@@ -36,7 +38,7 @@ public class PnFreemarkerConfig {
             //Carica i template come stringa dal file system
             StringTemplateLoader stringLoader = new StringTemplateLoader();
             templateConfig.getTemplates().forEach((templateKey, template) -> {
-                var input = template.getInput();
+                Map<String, String> input = template.getInput();
                 if (!template.isLoadAsString()) {  //carica il contenuto solo se il template necessita di un body
                     input.forEach((inputKey, templateFile) -> {
                         String templateContent = TemplateUtils.loadTemplateContent(templatesPath + "/" + templateFile);
