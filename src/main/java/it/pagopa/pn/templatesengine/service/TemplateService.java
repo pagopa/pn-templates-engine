@@ -103,6 +103,7 @@ public class TemplateService {
                     .orElseThrow(() -> new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND,
                             ExceptionTypeEnum.TEMPLATE_NOT_FOUND.getMessage() + template.getTemplate() + ", lingua: "
                                     + language.getValue(), HttpStatus.NOT_FOUND));
+            log.info("Execute templateAsString for templateName={},  language={} - COMPLETED", template, language);
             return Mono.just(templateInput);
         });
     }
