@@ -37,20 +37,22 @@ public class DocumentCompositionImpl implements DocumentComposition {
      * Genera un testo a partire da un template FreeMarker, identificato da templateFile,
      * usando i dati contenuti in templateModel
      *
-     * @param templateFile     Nome del template da utilizzare.
+     * @param templateFile  Nome del template da utilizzare.
      * @param templateModel Modello di dati per il rendering del template.
      * @return risultato del template processato
      */
     @Override
     public String executeTextTemplate(String templateFile, Object templateModel) {
-        return processTemplate(templateFile, templateModel);
+        String result = processTemplate(templateFile, templateModel);
+        log.info("Conversion on Text, templateFile={} - COMPLETED", templateFile);
+        return result;
     }
 
     /**
      * Genera un PDF basato su un template FreeMarker, usando prima executeTextTemplate per ottenere il contenuto HTML,
      * che viene poi convertito in PDF tramite generatePdf.
      *
-     * @param templateFile     Nome del template da utilizzare.
+     * @param templateFile  Nome del template da utilizzare.
      * @param templateModel Modello di dati per il rendering del template.
      * @return Un array di byte contenente il PDF generato.
      */
@@ -69,7 +71,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
      * @return Una String contenente l'output del template processato.
      */
     private String processTemplate(String templateFile, Object templateModel) {
-        log.info("Conversion on Text - START");
+        log.info("Conversion on Text, templateFile={} - START", templateFile);
         try (StringWriter stringWriter = new StringWriter()) {
             Template template = freemarkerConfig.getTemplate(templateFile);
             template.process(templateModel, stringWriter);
@@ -77,7 +79,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
         } catch (TemplateException | IOException ex) {
             throw new PnGenericException(
                     ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION,
-                    ex.getMessage(),  HttpStatus.INTERNAL_SERVER_ERROR
+                    ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
     }
