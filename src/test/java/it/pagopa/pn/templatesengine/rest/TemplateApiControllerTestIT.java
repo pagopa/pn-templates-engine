@@ -1,0 +1,81 @@
+package it.pagopa.pn.templatesengine.rest;
+
+import it.pagopa.pn.templatesengine.config.BaseTest;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.AnalogDeliveryWorkflowFailureLegalFact;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.Recipient;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.reactive.server.WebTestClient;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
+
+import java.util.stream.Stream;
+
+public class TemplateApiControllerTestIT extends BaseTest {
+
+    public static final String ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT = "/templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact";
+
+    @Autowired
+    WebTestClient webTestClient;
+
+    @ParameterizedTest
+    @MethodSource("executePdfTemplateTest")
+    void testPdfTemplateWebClient(
+            String testName,
+            Object request,
+            LanguageEnum language,
+            MediaType mediaType,
+            HttpStatus expectedStatus
+    ) {
+        // Arrange
+
+        Flux.range(1, 10) // Genera 10 iterazioni
+                .flatMap(i -> Mono.defer(() -> Mono.just(webTestClient.put()
+                        .uri(testName)
+                        .accept(mediaType)
+                        .header(HttpHeaders.ACCEPT, mediaType.toString())
+                        .header("x-language", language.getValue())
+                        .body(Mono.just(request), request.getClass()) // Specifica esplicitamente il tipo di body
+                        .exchange()
+                        .expectStatus()
+                        .isEqualTo(expectedStatus)
+                        .expectBody(ByteArrayResource.class) // Specifica il tipo atteso nella risposta
+                        .value(resource -> {
+                            byte[] responseData = resource.getByteArray();
+                            Assertions.assertNotNull(responseData, "Response data should not be null");
+                        }))))
+                .parallel() // Abilita il parallelismo
+                .runOn(Schedulers.parallel()) // Usa un thread scheduler per eseguire le chiamate in parallelo
+                .sequential() // Ritorna a un flusso sequenziale dopo l'elaborazione parallela
+                .blockLast();// Aspetta che tutte le chiamate siano completate
+    }
+
+    private static Stream<Arguments> executePdfTemplateTest() {
+        Recipient recipient = new Recipient();
+        recipient.setDenomination("Denomination_test");
+        recipient.setTaxId("TAX_ID_TEST");
+        var analogDeliveryWorkflowFailureLegalFact = new AnalogDeliveryWorkflowFailureLegalFact()
+                .endWorkflowDate("endWorkflowDate_TEST").iun("TEST").endWorkflowTime("endWorkflowTime_TEST");
+        analogDeliveryWorkflowFailureLegalFact.recipient(recipient);
+
+        return Stream.of(
+                Arguments.of(
+                        ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT,
+                        analogDeliveryWorkflowFailureLegalFact,
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.ACCEPTED
+                )
+        );
+    }
+
+}
