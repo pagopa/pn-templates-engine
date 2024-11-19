@@ -7,6 +7,7 @@ import it.pagopa.pn.templatesengine.component.DocumentComposition;
 import it.pagopa.pn.templatesengine.component.impl.DocumentCompositionImpl;
 import it.pagopa.pn.templatesengine.config.TemplateConfig;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
+import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.Emailbody;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
@@ -15,9 +16,11 @@ import lombok.Setter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
@@ -67,15 +70,14 @@ class TemplateServiceTest {
             templates.put(TemplatesEnum.EMAIL_BODY, template);
             templateConfig.setTemplates(templates);
             templateConfig.setTemplatesAsString(templates);
-
-            documentComposition = new DocumentCompositionImpl(freemarkerConfig, templateConfig);
-            templateService = new TemplateService(documentComposition, templateConfig);
         }
     }
 
     @Test
     void executeTextTemplate() {
         // Arrange
+        documentComposition = new DocumentCompositionImpl(freemarkerConfig, templateConfig);
+        templateService = new TemplateService(documentComposition, templateConfig);
         Emailbody emailbody = new Emailbody();
         emailbody.setVerificationCode("VerificationCode");
 
@@ -91,6 +93,8 @@ class TemplateServiceTest {
     @Test
     void executePdfTemplate_Success() {
         // Arrange
+        documentComposition = new DocumentCompositionImpl(freemarkerConfig, templateConfig);
+        templateService = new TemplateService(documentComposition, templateConfig);
         Emailbody emailbody = new Emailbody();
         emailbody.setVerificationCode("VerificationCode");
 
@@ -108,6 +112,8 @@ class TemplateServiceTest {
 
     @Test
     void executeTextTemplateAsString_Success() {
+        documentComposition = new DocumentCompositionImpl(freemarkerConfig, templateConfig);
+        templateService = new TemplateService(documentComposition, templateConfig);
         // Act & Assert
         StepVerifier.create(templateService.executeTextTemplate(TemplatesEnum.EMAIL_BODY, LANGUAGE))
                 .expectNext(TEMPLATE_FILE_HTML)
@@ -115,24 +121,51 @@ class TemplateServiceTest {
     }
 
     @Test
-    void executePdfTemplate_EmptyResult() {
+    void executePdfTemplate_ShouldFailWhenDocumentCompositionThrowsException() {
+        // Arrange
+        documentComposition = Mockito.mock(DocumentComposition.class);
+        templateService = new TemplateService(documentComposition, templateConfig);
+        Emailbody emailbody = new Emailbody();
+        emailbody.setVerificationCode("VerificationCode");
+
+        Mockito.when(documentComposition.executePdfTemplate(Mockito.anyString(), Mockito.any()))
+                .thenThrow(new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION,
+                        "Non è stato possibile elaborare il pdf", HttpStatus.INTERNAL_SERVER_ERROR));
+
         // Act
-        Mono<byte[]> result = templateService.executePdfTemplate(TemplatesEnum.EMAIL_BODY, LANGUAGE, Mono.empty());
+        Mono<byte[]> result = templateService.executePdfTemplate(TemplatesEnum.EMAIL_BODY, LANGUAGE, Mono.just(emailbody));
 
         // Assert
         StepVerifier.create(result)
-                .expectError(PnGenericException.class)
+                .expectErrorMatches(throwable ->
+                        throwable instanceof PnGenericException &&
+                                throwable.getMessage().contains("Non è stato possibile elaborare il pdf")
+                )
                 .verify();
     }
 
     @Test
     void executeTxtTemplate_EmptyResult() {
+        // Arrange
+        documentComposition = Mockito.mock(DocumentComposition.class);
+        templateService = new TemplateService(documentComposition, templateConfig);
+        Emailbody emailbody = new Emailbody();
+        emailbody.setVerificationCode("VerificationCode");
+
+        Mockito.when(documentComposition.executeTextTemplate(Mockito.anyString(), Mockito.any()))
+                .thenThrow(new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION,
+                        "Non è stato possibile elaborare il template", HttpStatus.INTERNAL_SERVER_ERROR));
+
         // Act
-        Mono<String> result = templateService.executeTextTemplate(TemplatesEnum.EMAIL_BODY, LANGUAGE, Mono.empty());
+        Mono<String> result = templateService.executeTextTemplate(TemplatesEnum.EMAIL_BODY, LANGUAGE, Mono.just(emailbody));
 
         // Assert
         StepVerifier.create(result)
-                .expectError(PnGenericException.class)
+                .expectErrorMatches(throwable ->
+                        throwable instanceof PnGenericException &&
+                                throwable.getMessage().contains("Non è stato possibile elaborare il template")
+                        && ((PnGenericException) throwable).getExceptionType().equals(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION)
+                )
                 .verify();
     }
 

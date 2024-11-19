@@ -39,13 +39,12 @@ public class TemplateService {
      * non viene trovato.
      */
     public <T> Mono<String> executeTextTemplate(TemplatesEnum template, LanguageEnum language, Mono<T> objectModel) {
-        log.info("Execute TXT for template={},  language={} - START", template, language);
-        return objectModel.flatMap(model -> {
-                            String fileName = getFileName(template, language);
-                            return Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model))
-                                    .subscribeOn(Schedulers.boundedElastic());
-                        }
-                )
+        return objectModel.doOnNext(model -> log.info("Execute TXT for template={},  language={} - START", template, language))
+                .flatMap(model -> {
+                    String fileName = getFileName(template, language);
+                    return Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model))
+                            .subscribeOn(Schedulers.boundedElastic());
+                })
                 .doOnSuccess(result -> log.info("Execute TXT for templateName={}, language={} - COMPLETED", template, language))
                 .doOnError(error -> log.error("Execute TXT for templateName={}, language={} - FAILED", template, language, error));
     }
@@ -61,8 +60,8 @@ public class TemplateService {
      * non viene trovato.
      */
     public <T> Mono<byte[]> executePdfTemplate(TemplatesEnum template, LanguageEnum language, Mono<T> objectModel) {
-        log.info("Execute Pdf for templateName={},  language={} - START", template, language);
-        return objectModel.flatMap(model -> {
+        return objectModel.doOnNext(model -> log.info("Execute Pdf for templateName={},  language={} - START", template, language))
+                .flatMap(model -> {
                     String fileName = getFileName(template, language);
                     return Mono.fromCallable(() -> documentComposition.executePdfTemplate(fileName, model))
                             .subscribeOn(Schedulers.boundedElastic());
@@ -96,8 +95,8 @@ public class TemplateService {
      * @return un `Mono` contenente il testo del template in formato stringa.
      */
     public Mono<String> executeTextTemplate(TemplatesEnum template, LanguageEnum language) {
-        log.info("Execute templateAsString for templateName={},  language={} - START", template, language);
         return Mono.defer(() -> {
+            log.info("Execute templateAsString for templateName={},  language={} - START", template, language);
             TemplateConfig.Template templates = templateConfig.getTemplatesAsString().get(template);
             String templateInput = Optional.ofNullable(templates)
                     .map(t -> t.getInput().get(language.getValue()))
