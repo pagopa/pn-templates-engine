@@ -90,6 +90,7 @@ templates:
     input:
       IT: "pecbodyreject.html"
   smsbody:
+    loadAsString: true
     input:
       IT: "smsbody.txt"
   emailsubject:

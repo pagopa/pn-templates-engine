@@ -80,8 +80,36 @@ public class TemplateServiceTestIT extends BaseTest {
         // Assert
         StepVerifier.create(parallelResults)
                 .assertNext(results ->
-                    Assertions.assertEquals(10, results.size(), "Expected 10 results")
+                        Assertions.assertEquals(10, results.size(), "Expected 10 results")
                 )
                 .verifyComplete();
     }
+
+    @Test
+    void executeTemplateNoBody() {
+        // Genera un elenco di 10 richieste
+        List<Mono<String>> calls = IntStream.range(0, 10)
+                .mapToObj(i -> templateService.executeTextTemplate(
+                        TemplatesEnum.PEC_SUBJECT_REJECT,
+                        LanguageEnum.IT
+                )).collect(Collectors.toList());
+
+        // Esegue le richieste in parallelo e raccoglie i risultati
+        Mono<List<String>> parallelResults = Flux.fromIterable(calls)
+                .flatMap(Function.identity()) // Converte la lista di Mono in un Flux
+                .parallel() // Attiva il parallelismo
+                .runOn(Schedulers.boundedElastic()) // Scheduler per task IO-bound
+                .sequential() // Torna al flusso sequenziale dopo l'elaborazione
+                .collectList();
+
+        // Assert
+        StepVerifier.create(parallelResults)
+                .assertNext(results -> {
+                    Assertions.assertEquals(10, results.size(), "Expected 10 results");
+                    results.forEach(result ->
+                            Assertions.assertTrue(result.contains("SEND - La PEC che hai inserito non è valida"),
+                                    "Each result should include the verification code"));
+                }).verifyComplete();
+    }
+
 }

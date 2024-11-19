@@ -23,6 +23,7 @@ import java.util.stream.Stream;
 public class TemplateApiControllerTestIT extends BaseTest {
 
     public static final String ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT = "/templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact";
+    public static final String SMSBODY = "/templates-engine-private/v1/templates/smsbody";
 
     @Autowired
     WebTestClient webTestClient;
@@ -36,8 +37,6 @@ public class TemplateApiControllerTestIT extends BaseTest {
             MediaType mediaType,
             HttpStatus expectedStatus
     ) {
-        // Arrange
-
         Flux.range(1, 10) // Genera 10 iterazioni
                 .flatMap(i -> Mono.defer(() -> Mono.just(webTestClient.put()
                         .uri(testName)
@@ -57,6 +56,45 @@ public class TemplateApiControllerTestIT extends BaseTest {
                 .runOn(Schedulers.parallel()) // Usa un thread scheduler per eseguire le chiamate in parallelo
                 .sequential() // Ritorna a un flusso sequenziale dopo l'elaborazione parallela
                 .blockLast();// Aspetta che tutte le chiamate siano completate
+    }
+
+    @ParameterizedTest
+    @MethodSource("executeTxtTemplateTestNoBody")
+    void testTxtTemplateWebClientNoBody(
+            String testName,
+            LanguageEnum language,
+            MediaType mediaType,
+            HttpStatus expectedStatus
+    ) {
+        // Act & Assert
+        Flux.range(1, 10) // Genera 10 iterazioni
+                .flatMap(i -> Mono.defer(() -> Mono.just(webTestClient.put()
+                        .uri(testName)
+                        .accept(mediaType)
+                        .header(HttpHeaders.ACCEPT, mediaType.toString())
+                        .header("x-language", language.getValue())
+                        .exchange()
+                        .expectStatus()
+                        .isEqualTo(expectedStatus)
+                        .expectBody(String.class) // Specifica il tipo atteso nella risposta
+                        .value(resource ->
+                            Assertions.assertNotNull(resource, "Response data should not be null")
+                        ))))
+                .parallel() // Abilita il parallelismo
+                .runOn(Schedulers.parallel()) // Usa un thread scheduler per eseguire le chiamate in parallelo
+                .sequential() // Ritorna a un flusso sequenziale dopo l'elaborazione parallela
+                .blockLast();// Aspetta che tutte le chiamate siano completate
+    }
+
+    private static Stream<Arguments> executeTxtTemplateTestNoBody() {
+        return Stream.of(
+                Arguments.of(
+                        SMSBODY,
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.ACCEPTED
+                )
+        );
     }
 
     private static Stream<Arguments> executePdfTemplateTest() {
