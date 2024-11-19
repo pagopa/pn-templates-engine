@@ -34,49 +34,51 @@ public class DocumentCompositionImpl implements DocumentComposition {
     private final TemplateConfig templateConfig;
 
     /**
-     * Genera un testo a partire da un template FreeMarker, identificato da templateName,
-     * usando i dati contenuti in mapTemplateModel
+     * Genera un testo a partire da un template FreeMarker, identificato da templateFile,
+     * usando i dati contenuti in templateModel
      *
-     * @param templateName     Nome del template da utilizzare.
-     * @param mapTemplateModel Modello di dati per il rendering del template.
+     * @param templateFile     Nome del template da utilizzare.
+     * @param templateModel Modello di dati per il rendering del template.
      * @return risultato del template processato
      */
     @Override
-    public String executeTextTemplate(String templateName, Object mapTemplateModel) {
-        return processTemplate(templateName, mapTemplateModel);
+    public String executeTextTemplate(String templateFile, Object templateModel) {
+        return processTemplate(templateFile, templateModel);
     }
 
     /**
      * Genera un PDF basato su un template FreeMarker, usando prima executeTextTemplate per ottenere il contenuto HTML,
      * che viene poi convertito in PDF tramite generatePdf.
      *
-     * @param templateName     Nome del template da utilizzare.
-     * @param mapTemplateModel Modello di dati per il rendering del template.
+     * @param templateFile     Nome del template da utilizzare.
+     * @param templateModel Modello di dati per il rendering del template.
      * @return Un array di byte contenente il PDF generato.
      */
     @Override
-    public byte[] executePdfTemplate(String templateName, Object mapTemplateModel) {
-        String htmlContent = executeTextTemplate(templateName, mapTemplateModel);
-        return generatePdf(htmlContent);
+    public byte[] executePdfTemplate(String templateFile, Object templateModel) {
+        String htmlFile = executeTextTemplate(templateFile, templateModel);
+        return generatePdf(htmlFile);
     }
 
     /**
      * Metodo ausiliario che elabora un template FreeMarker usando il modello
      * di dati fornito e restituisce il risultato come stringa di testo.
      *
-     * @param templateName  Nome del template da caricare.
+     * @param templateFile  Nome del template da caricare.
      * @param templateModel Dati per il rendering.
      * @return Una String contenente l'output del template processato.
      */
-    private String processTemplate(String templateName, Object templateModel) {
-        try {
-            log.info("Conversion on Text - START");
-            StringWriter stringWriter = new StringWriter();
-            Template template = freemarkerConfig.getTemplate(templateName);
+    private String processTemplate(String templateFile, Object templateModel) {
+        log.info("Conversion on Text - START");
+        try (StringWriter stringWriter = new StringWriter()) {
+            Template template = freemarkerConfig.getTemplate(templateFile);
             template.process(templateModel, stringWriter);
-            return stringWriter.getBuffer().toString();
+            return stringWriter.toString();
         } catch (TemplateException | IOException ex) {
-            throw new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION, ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new PnGenericException(
+                    ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION,
+                    ex.getMessage(),  HttpStatus.INTERNAL_SERVER_ERROR
+            );
         }
     }
 
@@ -102,7 +104,10 @@ public class DocumentCompositionImpl implements DocumentComposition {
             builder.run();
             return baos.toByteArray();
         } catch (IOException ex) {
-            throw new PnGenericException(ExceptionTypeEnum.ERROR_PDF_DOCUMENT_GENERATION, ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new PnGenericException(
+                    ExceptionTypeEnum.ERROR_PDF_DOCUMENT_GENERATION, ex.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR
+            );
         }
     }
 }
