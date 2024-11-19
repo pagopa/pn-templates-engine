@@ -4,7 +4,6 @@ import freemarker.cache.StringTemplateLoader;
 import freemarker.template.DefaultObjectWrapperBuilder;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
-import it.pagopa.pn.templatesengine.utils.TemplateUtils;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +11,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 
 import java.util.Map;
+
+import static it.pagopa.pn.templatesengine.utils.TemplateUtils.loadTemplateContent;
 
 @Configuration
 @AllArgsConstructor
@@ -42,7 +43,7 @@ public class PnFreemarkerConfig {
                 Map<String, String> input = template.getInput();
                 if (!template.isLoadAsString()) {  //carica il contenuto solo se il template necessita di un body
                     input.forEach((inputKey, templateFile) -> {
-                        String templateContent = TemplateUtils.loadTemplateContent(templatesPath + "/" + templateFile);
+                        String templateContent = loadTemplateContent(templatesPath + "/" + templateFile);
                         stringLoader.putTemplate(templateFile, templateContent);
                     });
                 }
@@ -58,7 +59,8 @@ public class PnFreemarkerConfig {
 
             return configuration;
         } catch (Exception exception) {
-            throw new PnGenericException(ExceptionTypeEnum.ERROR_FREEMARKER_BEAN_CONFIGURATION, exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new PnGenericException(ExceptionTypeEnum.ERROR_FREEMARKER_BEAN_CONFIGURATION,
+                    exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
