@@ -1,12 +1,11 @@
-logging.config: classpath:logback-base.xml
-logging.level.root: debug
-
+logging.config: config/logback-local.xml
+mockserver.bean.port: 1050
 templatesPath: "templates-assets"
 
 templates:
   notificationReceivedLegalFact:
     input:
-      IT: "NotificationReceivedLegalFact.html"
+      IT: "email_test.html"
       DE: "NotificationReceivedLegalFact_de.html"
       SL: "NotificationReceivedLegalFact_sl.html"
       FR: "NotificationReceivedLegalFact_fr.html"

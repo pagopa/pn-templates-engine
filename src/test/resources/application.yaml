@@ -1,8 +1,0 @@
-logging.config: config/logback-local.xml
-mockserver.bean.port: 1050
-templatesPath: "templates-assets"
-
-templates:
-  notificationReceivedLegalFact:
-    input:
-      IT: "email_test.html"

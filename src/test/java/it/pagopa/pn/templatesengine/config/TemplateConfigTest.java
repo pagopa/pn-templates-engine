@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +16,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@ActiveProfiles("test")
 class TemplateConfigTest {
 
     private static final String LANGUAGE = LanguageEnum.IT.getValue();
@@ -51,9 +53,8 @@ class TemplateConfigTest {
         templateConfig.initializeTemplatesAsString();
 
         // Act - Assert
-        TemplateConfig.Template template = templateConfig.getTemplatesAsString().get(TemplatesEnum.PEC_BODY_REJECT);
+        TemplateConfig.Template template = templateConfig.getTemplatesAsString().get(TemplatesEnum.PEC_SUBJECT_REJECT);
         assertTrue(template.getInput().containsKey(LANGUAGE));
         assertNotNull(template.getInput().get(LANGUAGE));
     }
-
 }

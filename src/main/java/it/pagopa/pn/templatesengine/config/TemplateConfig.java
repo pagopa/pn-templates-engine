@@ -41,6 +41,7 @@ public class TemplateConfig {
      *
      * @throws PnGenericException se un template definito in configurazione non è trovato in `TemplatesEnum`.
      */
+
     @PostConstruct
     public void verifyTemplates() {
         Set<String> enumValues = Arrays.stream(TemplatesEnum.values())
