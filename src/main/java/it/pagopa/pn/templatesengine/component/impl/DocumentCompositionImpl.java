@@ -43,9 +43,9 @@ public class DocumentCompositionImpl implements DocumentComposition {
      */
     @Override
     public String executeTextTemplate(String templateFile, Object templateModel) {
-        String result = processTemplate(templateFile, templateModel);
+        String htmlContent = processTemplate(templateFile, templateModel);
         log.info("Conversion on Text, templateFile={} - COMPLETED", templateFile);
-        return result;
+        return htmlContent;
     }
 
     /**
@@ -58,8 +58,8 @@ public class DocumentCompositionImpl implements DocumentComposition {
      */
     @Override
     public byte[] executePdfTemplate(String templateFile, Object templateModel) {
-        String htmlFile = executeTextTemplate(templateFile, templateModel);
-        return generatePdf(htmlFile);
+        String htmlContent = executeTextTemplate(templateFile, templateModel);
+        return generatePdf(htmlContent);
     }
 
     /**
