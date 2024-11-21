@@ -1,0 +1,11 @@
+<mjml lang="it">
+  <mj-head>
+    <mj-title>Title template email</mj-title>
+  </mj-head>
+
+  <mj-body css-class="mail-body">
+    <mj-text>
+      <p>Paragraph template email</p>
+    </mj-text>
+  </mj-body>
+</mjml>
