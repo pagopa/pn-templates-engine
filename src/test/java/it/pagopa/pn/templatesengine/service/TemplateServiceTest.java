@@ -39,7 +39,7 @@ class TemplateServiceTest {
     @MockBean
     TemplateConfig templateConfig;
 
-    public static final String TEMPLATE_FILE_HTML = "emailbody.html";
+    public static final String TEMPLATE_FILE_HTML = "Mail_VerificationCodeBody.html";
     private static final LanguageEnum LANGUAGE = LanguageEnum.IT;
     private static final String TEMPLATE_PATH = "templates-assets";
 
@@ -67,7 +67,7 @@ class TemplateServiceTest {
             template.setInput(inputs);
 
             Map<TemplatesEnum, TemplateConfig.Template> templates = new HashMap<>();
-            templates.put(TemplatesEnum.EMAIL_BODY, template);
+            templates.put(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, template);
             templateConfig.setTemplates(templates);
             templateConfig.setTemplatesAsString(templates);
         }
@@ -83,7 +83,7 @@ class TemplateServiceTest {
 
         // Act & Assert
         Mono<byte[]> result = Assertions.assertDoesNotThrow(() ->
-                templateService.executePdfTemplate(TemplatesEnum.EMAIL_BODY, LANGUAGE, Mono.just(emailbody)));
+                templateService.executePdfTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE, Mono.just(emailbody)));
 
         StepVerifier.create(result)
                 .expectNextCount(1)
@@ -100,7 +100,7 @@ class TemplateServiceTest {
 
         // Act & Assert
         Mono<String> result = Assertions.assertDoesNotThrow(() ->
-                templateService.executeTextTemplate(TemplatesEnum.EMAIL_BODY, LANGUAGE, Mono.just(emailbody)));
+                templateService.executeTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE, Mono.just(emailbody)));
 
         StepVerifier.create(result)
                 .assertNext(actualResult -> {
@@ -115,7 +115,7 @@ class TemplateServiceTest {
         documentComposition = new DocumentCompositionImpl(freemarkerConfig, templateConfig);
         templateService = new TemplateService(documentComposition, templateConfig);
         // Act & Assert
-        StepVerifier.create(templateService.executeTextTemplate(TemplatesEnum.EMAIL_BODY, LANGUAGE))
+        StepVerifier.create(templateService.executeTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE))
                 .expectNext(TEMPLATE_FILE_HTML)
                 .verifyComplete();
     }
@@ -133,7 +133,7 @@ class TemplateServiceTest {
                         "Non è stato possibile elaborare il pdf", HttpStatus.INTERNAL_SERVER_ERROR));
 
         // Act
-        Mono<byte[]> result = templateService.executePdfTemplate(TemplatesEnum.EMAIL_BODY, LANGUAGE, Mono.just(emailbody));
+        Mono<byte[]> result = templateService.executePdfTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE, Mono.just(emailbody));
 
         // Assert
         StepVerifier.create(result)
@@ -157,7 +157,7 @@ class TemplateServiceTest {
                         "Non è stato possibile elaborare il template", HttpStatus.INTERNAL_SERVER_ERROR));
 
         // Act
-        Mono<String> result = templateService.executeTextTemplate(TemplatesEnum.EMAIL_BODY, LANGUAGE, Mono.just(emailbody));
+        Mono<String> result = templateService.executeTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE, Mono.just(emailbody));
 
         // Assert
         StepVerifier.create(result)

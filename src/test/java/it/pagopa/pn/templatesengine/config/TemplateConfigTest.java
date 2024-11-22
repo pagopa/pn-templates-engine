@@ -32,7 +32,7 @@ class TemplateConfigTest {
         Map<String, String> input = new HashMap<>();
         input.put(LANGUAGE, "email_test.html");
         template.setInput(input);
-        templates.put(TemplatesEnum.EMAIL_SUBJECT, template);
+        templates.put(TemplatesEnum.MAIL_VERIFICATION_CODE_SUBJECT, template);
         templateConfig.setTemplates(templates);
         templateConfig.setTemplatesPath("templates-assets");
     }
@@ -40,7 +40,7 @@ class TemplateConfigTest {
     @Test
     void verifyTemplates_ShouldThrowException_WhenTemplateNotFoundInEnum() {
         // Arrange
-        templateConfig.getTemplates().put(TemplatesEnum.EMAIL_BODY, new TemplateConfig.Template());
+        templateConfig.getTemplates().put(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, new TemplateConfig.Template());
 
         // Act - Assert
         PnGenericException exception = assertThrows(PnGenericException.class, () -> templateConfig.verifyTemplates());
@@ -53,7 +53,7 @@ class TemplateConfigTest {
         templateConfig.initializeTemplatesAsString();
 
         // Act - Assert
-        TemplateConfig.Template template = templateConfig.getTemplatesAsString().get(TemplatesEnum.PEC_SUBJECT_REJECT);
+        TemplateConfig.Template template = templateConfig.getTemplatesAsString().get(TemplatesEnum.PEC_PEC_VERIFICATION_CODE_SUBJECT_REJECT);
         assertTrue(template.getInput().containsKey(LANGUAGE));
         assertNotNull(template.getInput().get(LANGUAGE));
     }

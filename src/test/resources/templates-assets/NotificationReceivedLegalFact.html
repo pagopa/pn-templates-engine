@@ -122,11 +122,13 @@
           <div class="left-col col-5-10">
             <p>
               <strong>
-                <#if (physicalAddressAndDenomination)??>
-                ${physicalAddressAndDenomination}
-                <#else>
-                non presente
-              </#if>
+                <#if addressWriter.nullSafePhysicalAddressToString( recipient.physicalAddress,
+                  recipient.denomination, '<br/>' )??>
+                  ${addressWriter.nullSafePhysicalAddressToString( recipient.physicalAddress,
+                  recipient.denomination, '<br />')}
+                  <#else>
+                    non presente
+                </#if>
               </strong>
             </p>
           </div>

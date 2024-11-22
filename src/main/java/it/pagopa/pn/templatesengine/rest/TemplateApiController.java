@@ -45,7 +45,7 @@ public class TemplateApiController implements TemplateApi {
     public Mono<ResponseEntity<Resource>> legalFactMalfunction(LanguageEnum xLanguage,
                                                                Mono<LegalFactMalfunction> request,
                                                                final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.LEGAL_FACT_MALFUNCTION, xLanguage, request);
+        return processPdfTemplate(TemplatesEnum.MALFUNCTION_LEGAL_FACT, xLanguage, request);
     }
 
     @Override
@@ -101,26 +101,26 @@ public class TemplateApiController implements TemplateApi {
     public Mono<ResponseEntity<String>> emailbody(LanguageEnum xLanguage,
                                                   Mono<Emailbody> request,
                                                   final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.EMAIL_BODY, xLanguage, request);
+        return processTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecbody(LanguageEnum xLanguage,
                                                 Mono<Pecbody> request,
                                                 final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_BODY, xLanguage, request);
+        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecbodyconfirm(LanguageEnum xLanguage,
                                                        Mono<Pecbody> request,
                                                        final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_BODY_CONFIRM, xLanguage, request);
+        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACT_SUCCESS_BODY, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecbodyreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_BODY_REJECT, xLanguage);
+        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_SUBJECT, xLanguage);
     }
 
     @Override
@@ -132,27 +132,27 @@ public class TemplateApiController implements TemplateApi {
 
     @Override
     public Mono<ResponseEntity<String>> emailsubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.EMAIL_SUBJECT, xLanguage);
+        return processTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_SUBJECT, xLanguage);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecsubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_SUBJECT, xLanguage);
+        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACT_SUCCESS_SUBJECT, xLanguage);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecsubjectconfirm(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_SUBJECT_CONFIRM, xLanguage);
+        return processTextTemplate(TemplatesEnum.PEC_VERIFICATION_CODE_SUBJECT, xLanguage);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecsubjectreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_SUBJECT_REJECT, xLanguage);
+        return processTextTemplate(TemplatesEnum.PEC_PEC_VERIFICATION_CODE_SUBJECT_REJECT, xLanguage);
     }
 
     @Override
     public Mono<ResponseEntity<String>> smsbody(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.SMS_BODY, xLanguage);
+        return processTextTemplate(TemplatesEnum.SMS_VERIFICATION_CODE_BODY, xLanguage);
     }
 
     private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(TemplatesEnum template, LanguageEnum xLanguage, Mono<T> request) {

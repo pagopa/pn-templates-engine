@@ -27,12 +27,12 @@ templates:
       DE: "NotificationViewedLegalFact_de.html"
       SL: "NotificationViewedLegalFact_sl.html"
       FR: "NotificationViewedLegalFact_fr.html"
-  legalFactMalfunction:
+  malfunctionLegalFact:
     input:
-      IT: "LegalFactMalfunction.html"
-      DE: "LegalFactMalfunction_de.html"
-      SL: "LegalFactMalfunction_sl.html"
-      FR: "LegalFactMalfunction_fr.html"
+      IT: "MalfunctionLegalFact.html"
+      DE: "MalfunctionLegalFact_de.html"
+      SL: "MalfunctionLegalFact_sl.html"
+      FR: "MalfunctionLegalFact_fr.html"
   notificationCancelledLegalFact:
     input:
       IT: "NotificationCancelledLegalFact.html"
@@ -75,36 +75,35 @@ templates:
   notificationAARSubject:
     input:
       IT: "NotificationAARSubject.txt"
-  emailbody:
+  mailVerificationCode:
     input:
-      IT: "emailbody.html"
-  pecbody:
+      IT: "Mail_VerificationCodeBody.html"
+  PECVerificationCodeMessage:
     input:
-      IT: "pecbody.html"
-  pecbodyconfirm:
+      IT: "PEC_VerificationCodeBody.html"
+  PECValidationContactsSuccessMessage:
     input:
-      IT: "pecbodyconfirm.html"
-  pecbodyreject:
+      IT: "PEC_ValidationContactsSuccessBody.html"
+  PECValidationContactsRejectBody:
+    input:
+      IT: "PEC_ValidationContactsRejectBody.html"
+  SMSVerificationCodeBody:
     loadAsString: true
     input:
-      IT: "pecbodyreject.html"
-  smsbody:
+      IT: "SMS_VerificationCodeBody.txt"
+  MailVerificationCodeSubject:
     loadAsString: true
     input:
-      IT: "smsbody.txt"
-  emailsubject:
+      IT: "Mail_VerificationCodeSubject.txt"
+  PECVerificationCodeSubject:
     loadAsString: true
     input:
-      IT: "emailsubject.txt"
-  pecsubject:
+      IT: "PEC_VerificationCodeSubject.txt"
+  PECValidationContactsSuccessSubject:
     loadAsString: true
     input:
-      IT: "pecsubject.txt"
-  pecsubjectconfirm:
+      IT: "PEC_ValidationContactsSuccessSubject.txt"
+  PECValidationContactsSuccessRejectSubject:
     loadAsString: true
     input:
-      IT: "pecsubjectconfirm.txt"
-  pecsubjectreject:
-    loadAsString: true
-    input:
-      IT: "pecsubjectreject.txt"
+      IT: "PEC_ValidationContactsRejectSubject.txt"

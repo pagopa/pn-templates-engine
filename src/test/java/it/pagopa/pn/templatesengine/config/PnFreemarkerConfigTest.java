@@ -1,6 +1,5 @@
 package it.pagopa.pn.templatesengine.config;
 
-import freemarker.cache.ClassTemplateLoader;
 import freemarker.cache.StringTemplateLoader;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
@@ -45,7 +44,7 @@ class PnFreemarkerConfigTest {
         Map<String, String> templateInputs = new HashMap<>();
         templateInputs.put(LANGUAGE.getValue(), TEMPLATE_NAME);
         when(template.getInput()).thenReturn(templateInputs);
-        when(templateConfig.getTemplates()).thenReturn(Map.of(TemplatesEnum.EMAIL_BODY, template));
+        when(templateConfig.getTemplates()).thenReturn(Map.of(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, template));
 
         // Act
         freemarker.template.Configuration result = pnFreemarkerConfig.freemarkerConfig(TEMPLATES_ASSETS);

@@ -31,7 +31,7 @@ public class TemplateServiceTestIT extends BaseTest {
         // Genera un elenco di 10 richieste
         List<Mono<String>> calls = IntStream.range(0, 10)
                 .mapToObj(i -> templateService.executeTextTemplate(
-                        TemplatesEnum.EMAIL_BODY,
+                        TemplatesEnum.MAIL_VERIFICATION_CODE_BODY,
                         LanguageEnum.IT,
                         Mono.just(emailbody)
                 )).collect(Collectors.toList());
@@ -64,7 +64,7 @@ public class TemplateServiceTestIT extends BaseTest {
         // Genera un elenco di 10 richieste
         List<Mono<byte[]>> calls = IntStream.range(0, 10)
                 .mapToObj(i -> templateService.executePdfTemplate(
-                        TemplatesEnum.EMAIL_BODY,
+                        TemplatesEnum.MAIL_VERIFICATION_CODE_BODY,
                         LanguageEnum.IT,
                         Mono.just(emailbody)
                 )).collect(Collectors.toList());
@@ -90,7 +90,7 @@ public class TemplateServiceTestIT extends BaseTest {
         // Genera un elenco di 10 richieste
         List<Mono<String>> calls = IntStream.range(0, 10)
                 .mapToObj(i -> templateService.executeTextTemplate(
-                        TemplatesEnum.PEC_SUBJECT_REJECT,
+                        TemplatesEnum.PEC_PEC_VERIFICATION_CODE_SUBJECT_REJECT,
                         LanguageEnum.IT
                 )).collect(Collectors.toList());
 

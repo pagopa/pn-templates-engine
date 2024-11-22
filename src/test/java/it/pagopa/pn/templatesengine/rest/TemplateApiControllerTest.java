@@ -144,7 +144,7 @@ public class TemplateApiControllerTest {
         return Stream.of(
                 Arguments.of(
                         SMSBODY,
-                        TemplatesEnum.SMS_BODY,
+                        TemplatesEnum.SMS_VERIFICATION_CODE_BODY,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -152,7 +152,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECSUBJECTREJECT,
-                        TemplatesEnum.PEC_SUBJECT_REJECT,
+                        TemplatesEnum.PEC_PEC_VERIFICATION_CODE_SUBJECT_REJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -160,7 +160,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECSUBJECTCONFIRM,
-                        TemplatesEnum.PEC_SUBJECT_CONFIRM,
+                        TemplatesEnum.PEC_VERIFICATION_CODE_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -168,7 +168,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECSUBJECT,
-                        TemplatesEnum.PEC_SUBJECT,
+                        TemplatesEnum.PEC_VALIDATION_CONTACT_SUCCESS_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -176,7 +176,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         EMAILSUBJECT,
-                        TemplatesEnum.EMAIL_SUBJECT,
+                        TemplatesEnum.MAIL_VERIFICATION_CODE_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -184,7 +184,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECBODYREJECT,
-                        TemplatesEnum.PEC_BODY_REJECT,
+                        TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -206,7 +206,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PEC_BODY_CONFIRM,
-                        TemplatesEnum.PEC_BODY_CONFIRM,
+                        TemplatesEnum.PEC_VALIDATION_CONTACT_SUCCESS_BODY,
                         new Pecbody(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -215,7 +215,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECBODY,
-                        TemplatesEnum.PEC_BODY,
+                        TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY,
                         new Pecbody(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -224,7 +224,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         EMAILBODY,
-                        TemplatesEnum.EMAIL_BODY,
+                        TemplatesEnum.MAIL_VERIFICATION_CODE_BODY,
                         new Emailbody(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -292,7 +292,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         LEGAL_FACT_MALFUNCTION,
-                        TemplatesEnum.LEGAL_FACT_MALFUNCTION,
+                        TemplatesEnum.MALFUNCTION_LEGAL_FACT,
                         new LegalFactMalfunction(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
