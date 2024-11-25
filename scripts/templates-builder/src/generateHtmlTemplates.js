@@ -5,7 +5,6 @@ const {
   BASE_SOURCE_DIR,
   loadTranslations,
   BASE_OUTPUT_DIR,
-  getOutputTemplateName,
   getOutputFileName,
 } = require("./utils");
 const log = require("./logger");
@@ -23,7 +22,6 @@ async function generateHtmlTemplate() {
 
     for (const entry of entries) {
       const templateName = entry.name;
-      const outputTemplateName = getOutputTemplateName(templateName);
 
       if (!entry.isDirectory() || entry.name === "partials") {
         continue;
@@ -61,7 +59,7 @@ async function generateHtmlTemplate() {
       if (!hasLanguages) {
         const outputFileName = getOutputFileName(templateName);
         await renderAndWriteFile({
-          templateName: outputTemplateName,
+          templateName,
           fileName: outputFileName,
           content: templateContent,
         });
@@ -85,7 +83,7 @@ async function generateHtmlTemplate() {
             "utf8"
           );
           await renderAndWriteFile({
-            templateName: outputTemplateName,
+            templateName,
             fileName: outputFileName,
             content: langContent,
           });
@@ -95,7 +93,7 @@ async function generateHtmlTemplate() {
         const translations = await loadTranslations(lang, templateDir);
 
         await renderAndWriteFile({
-          templateName: outputTemplateName,
+          templateName,
           fileName: outputFileName,
           content: templateContent,
           renderData: {
@@ -123,10 +121,9 @@ async function renderAndWriteFile({
   content,
   renderData,
 }) {
-  const outputTemplateName = templateName;
   const outputFileName = fileName;
 
-  const outputDir = path.join(BASE_OUTPUT_DIR, "templates", outputTemplateName);
+  const outputDir = path.join(BASE_OUTPUT_DIR, "templates", templateName);
   await fs.ensureDir(outputDir);
 
   const outputFile = path.join(outputDir, `${outputFileName}.html`);

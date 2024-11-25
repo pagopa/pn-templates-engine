@@ -1,25 +1,9 @@
 const path = require("node:path");
 const {
-  getOutputTemplateName,
   getOutputFileName,
   loadTranslations,
   BASE_SOURCE_DIR,
 } = require("../src/utils");
-
-describe("getOutputTemplateName", () => {
-  it.each([
-    ["Some_Other_Template", "Some_Other_Template"],
-    ["Mail_VerificationCode", "emailbody"],
-    ["PEC_VerificationCodeMessage", "pecbody"],
-    ["PEC_ValidationContactsSuccessMessage", "pecbodyconfirm"],
-    ["PEC_ValidationContactsRejectMessage", "pecbodyreject"],
-  ])(
-    "should return the renamed template name for %s",
-    (input, expected) => {
-      expect(getOutputTemplateName(input)).toBe(expected);
-    }
-  );
-});
 
 describe("getOutputFileName", () => {
   it.each([
@@ -27,8 +11,6 @@ describe("getOutputFileName", () => {
     ["TestTemplateName", "it", "TestTemplateName"],
     ["TestTemplateName", "en", "TestTemplateName_en"],
     ["TestTemplateName", "fr", "TestTemplateName_fr"],
-    ["Mail_VerificationCode", "en", "emailbody_en"],
-    ["PEC_VerificationCodeMessage", "fr", "pecbody_fr"],
   ])(
     "should return the correct output file name for template %s with language %s",
     (templateName, lang, expected) => {
