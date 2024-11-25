@@ -35,19 +35,19 @@ public class TemplateApiControllerTest {
     public static final String ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT = "/templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact";
     public static final String NOTIFICATION_AARFOR_EMAIL = "/templates-engine-private/v1/templates/notification-aar-for-email";
     public static final String NOTIFICATION_AARFOR_PEC = "/templates-engine-private/v1/templates/notification-aar-for-pec";
-    public static final String EMAILBODY = "/templates-engine-private/v1/templates/emailbody";
-    public static final String PECBODY = "/templates-engine-private/v1/templates/pecbody";
-    public static final String PEC_BODY_CONFIRM = "/templates-engine-private/v1/templates/pecbodyconfirm";
-    public static final String PECBODYREJECT = "/templates-engine-private/v1/templates/pecbodyreject";
+    public static final String MAIL_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/mail-verification-code-body";
+    public static final String PEC_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/pec-verification-code-body";
+    public static final String PEC_VALIDATION_CONTACTS_SUCCESS_BODY = "/templates-engine-private/v1/templates/pec-validation-contacts-success-body";
+    public static final String PEC_VALIDATION_CONTACTS_REJECT_BODY = "/templates-engine-private/v1/templates/pec-validation-contacts-reject-body";
     public static final String NOTIFICATION_VIEWED_LEGAL_FACT = "/templates-engine-private/v1/templates/notification-viewed-legal-fact";
     public static final String NOTIFICATION_AARSUBJECT = "/templates-engine-private/v1/templates/notification-aar-subject";
-    public static final String EMAILSUBJECT = "/templates-engine-private/v1/templates/emailsubject";
-    public static final String PECSUBJECT = "/templates-engine-private/v1/templates/pecsubject";
-    public static final String PECSUBJECTCONFIRM = "/templates-engine-private/v1/templates/pecsubjectconfirm";
-    public static final String PECSUBJECTREJECT = "/templates-engine-private/v1/templates/pecsubjectreject";
-    public static final String LEGAL_FACT_MALFUNCTION = "/templates-engine-private/v1/templates/legal-fact-malfunction";
+    public static final String MAIL_VERIFICATION_CODE_SUBJECT = "/templates-engine-private/v1/templates/mail-verification-code-subject";
+    public static final String PEC_VERIFICATION_CODE_SUBJECT = "/templates-engine-private/v1/templates/pec-verification-code-subject";
+    public static final String PEC_VALIDATION_CONTACTS_SUCCESS_SUBJECT = "/templates-engine-private/v1/templates/pec-validation-contacts-success-subject";
+    public static final String PEC_VALIDATION_CONTACTS_REJECT_SUBJECT = "/templates-engine-private/v1/templates/pec-validation-contacts-reject-subject";
+    public static final String MALFUNCTION_LEGAL_FACT = "/templates-engine-private/v1/templates/malfunction-legal-fact";
     public static final String NOTIFICATION_AAR_FOR_SMS = "/templates-engine-private/v1/templates/notification-aar-for-sms";
-    public static final String SMSBODY = "/templates-engine-private/v1/templates/smsbody";
+    public static final String SMS_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/sms-verification-code-body";
 
     @Autowired
     WebTestClient webTestClient;
@@ -143,7 +143,7 @@ public class TemplateApiControllerTest {
     private static Stream<Arguments> executeTxtTemplateTestNoBody() {
         return Stream.of(
                 Arguments.of(
-                        SMSBODY,
+                        SMS_VERIFICATION_CODE_BODY,
                         TemplatesEnum.SMS_VERIFICATION_CODE_BODY,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -151,7 +151,7 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        PECSUBJECTREJECT,
+                        PEC_VALIDATION_CONTACTS_REJECT_SUBJECT,
                         TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -159,7 +159,7 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        PECSUBJECTCONFIRM,
+                        PEC_VALIDATION_CONTACTS_SUCCESS_SUBJECT,
                         TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -167,7 +167,7 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        PECSUBJECT,
+                        PEC_VERIFICATION_CODE_SUBJECT,
                         TemplatesEnum.PEC_VERIFICATION_CODE_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -175,7 +175,7 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        EMAILSUBJECT,
+                        MAIL_VERIFICATION_CODE_SUBJECT,
                         TemplatesEnum.MAIL_VERIFICATION_CODE_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -183,7 +183,7 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        PECBODYREJECT,
+                        PEC_VALIDATION_CONTACTS_REJECT_BODY,
                         TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -205,8 +205,8 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        PEC_BODY_CONFIRM,
-                        TemplatesEnum.PEC_VALIDATION_CONTACT_SUCCESS_BODY,
+                        PEC_VALIDATION_CONTACTS_SUCCESS_BODY,
+                        TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_BODY,
                         new Pecbody(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -214,7 +214,7 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        PECBODY,
+                        PEC_VERIFICATION_CODE_BODY,
                         TemplatesEnum.PEC_VERIFICATION_CODE_BODY,
                         new Pecbody(),
                         LanguageEnum.IT,
@@ -223,7 +223,7 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        EMAILBODY,
+                        MAIL_VERIFICATION_CODE_BODY,
                         TemplatesEnum.MAIL_VERIFICATION_CODE_BODY,
                         new Emailbody(),
                         LanguageEnum.IT,
@@ -291,7 +291,7 @@ public class TemplateApiControllerTest {
                         new byte[]{1, 2, 3}
                 ),
                 Arguments.of(
-                        LEGAL_FACT_MALFUNCTION,
+                        MALFUNCTION_LEGAL_FACT,
                         TemplatesEnum.MALFUNCTION_LEGAL_FACT,
                         new LegalFactMalfunction(),
                         LanguageEnum.IT,

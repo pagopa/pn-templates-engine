@@ -23,7 +23,7 @@ import java.util.stream.Stream;
 public class TemplateApiControllerTestIT extends BaseTest {
 
     public static final String ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT = "/templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact";
-    public static final String SMSBODY = "/templates-engine-private/v1/templates/smsbody";
+    public static final String SMS_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/sms-verification-code-body";
 
     @Autowired
     WebTestClient webTestClient;
@@ -89,7 +89,7 @@ public class TemplateApiControllerTestIT extends BaseTest {
     private static Stream<Arguments> executeTxtTemplateTestNoBody() {
         return Stream.of(
                 Arguments.of(
-                        SMSBODY,
+                        SMS_VERIFICATION_CODE_BODY,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED

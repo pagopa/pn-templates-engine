@@ -42,7 +42,7 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<Resource>> legalFactMalfunction(LanguageEnum xLanguage,
+    public Mono<ResponseEntity<Resource>> malfunctionLegalFact(LanguageEnum xLanguage,
                                                                Mono<LegalFactMalfunction> request,
                                                                final ServerWebExchange exchange) {
         return processPdfTemplate(TemplatesEnum.MALFUNCTION_LEGAL_FACT, xLanguage, request);
@@ -98,28 +98,28 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<String>> emailbody(LanguageEnum xLanguage,
+    public Mono<ResponseEntity<String>> mailVerificationCodeBody(LanguageEnum xLanguage,
                                                   Mono<Emailbody> request,
                                                   final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, xLanguage, request);
     }
 
     @Override
-    public Mono<ResponseEntity<String>> pecbody(LanguageEnum xLanguage,
+    public Mono<ResponseEntity<String>> pecVerificationCodeBody(LanguageEnum xLanguage,
                                                 Mono<Pecbody> request,
                                                 final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.PEC_VERIFICATION_CODE_BODY, xLanguage, request);
     }
 
     @Override
-    public Mono<ResponseEntity<String>> pecbodyconfirm(LanguageEnum xLanguage,
+    public Mono<ResponseEntity<String>> pecValidationContactsSuccessBody(LanguageEnum xLanguage,
                                                        Mono<Pecbody> request,
                                                        final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACT_SUCCESS_BODY, xLanguage, request);
+        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_BODY, xLanguage, request);
     }
 
     @Override
-    public Mono<ResponseEntity<String>> pecbodyreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<String>> pecValidationContactsRejectBody(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY, xLanguage);
     }
 
@@ -131,27 +131,27 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<String>> emailsubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<String>> mailVerificationCodeSubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_SUBJECT, xLanguage);
     }
 
     @Override
-    public Mono<ResponseEntity<String>> pecsubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<String>> pecVerificationCodeSubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.PEC_VERIFICATION_CODE_SUBJECT, xLanguage);
     }
 
     @Override
-    public Mono<ResponseEntity<String>> pecsubjectconfirm(LanguageEnum xLanguage, final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<String>> pecValidationContactsSuccessSubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_SUBJECT, xLanguage);
     }
 
     @Override
-    public Mono<ResponseEntity<String>> pecsubjectreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<String>> pecValidationContactsRejectSubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_SUBJECT, xLanguage);
     }
 
     @Override
-    public Mono<ResponseEntity<String>> smsbody(LanguageEnum xLanguage, final ServerWebExchange exchange) {
+    public Mono<ResponseEntity<String>> smsVerificationCodeBody(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.SMS_VERIFICATION_CODE_BODY, xLanguage);
     }
 

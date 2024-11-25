@@ -129,11 +129,11 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/legal-fact-malfunction:
+  /templates-engine-private/v1/templates/malfunction-legal-fact:
     put:
-      summary: Generazione del pdf legato al template LegalFactMalfunction
-      description: Genera un documento PDF basato sul template LegalFactMalfunction.
-      operationId: legalFactMalfunction
+      summary: Generazione del pdf legato al template MalfunctionLegalFact
+      description: Genera un documento PDF basato sul template MalfunctionLegalFact.
+      operationId: malfunctionLegalFact
       tags:
         - Template
       parameters:
@@ -342,11 +342,11 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/emailbody:
+  /templates-engine-private/v1/templates/mail-verification-code-body:
     put:
-      summary: Generazione del html legato al template Emailbody
-      description: Genera un documento html basato sul template emailbody.
-      operationId: emailbody
+      summary: Generazione del html legato al template MailVerificationCodeBody
+      description: Genera un documento html basato sul template MailVerificationCodeBody.
+      operationId: mailVerificationCodeBody
       tags:
         - Template
       parameters:
@@ -372,11 +372,11 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/pecbody:
+  /templates-engine-private/v1/templates/pec-verification-code-body:
     put:
-      summary: Generazione del html legato al template Pecbody
-      description: Genera un documento html basato sul template Pecbody.
-      operationId: pecbody
+      summary: Generazione del html legato al template PecVerificationCodeBody
+      description: Genera un documento html basato sul template PecVerificationCodeBody.
+      operationId: pecVerificationCodeBody
       tags:
         - Template
       parameters:
@@ -402,11 +402,11 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/pecbodyconfirm:
+  /templates-engine-private/v1/templates/pec-validation-contacts-success-body:
     put:
-      summary: Generazione del html legato al template Pecbodyconfirm
-      description: Genera un documento html basato sul template Pecbodyconfirm.
-      operationId: pecbodyconfirm
+      summary: Generazione del html legato al template PecValidationContactsSuccessBody
+      description: Genera un documento html basato sul template PecValidationContactsSuccessBody.
+      operationId: pecValidationContactsSuccessBody
       tags:
         - Template
       parameters:
@@ -432,11 +432,11 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/pecbodyreject:
+  /templates-engine-private/v1/templates/pec-validation-contacts-reject-body:
     put:
-      summary: Generazione del html legato al template Pecbodyreject
-      description: Genera un documento html basato sul template Pecbodyreject.
-      operationId: pecbodyreject
+      summary: Generazione del html legato al template PecValidationContactsRejectBody
+      description: Genera un documento html basato sul template PecValidationContactsRejectBody.
+      operationId: pecValidationContactsRejectBody
       tags:
         - Template
       parameters:
@@ -489,11 +489,11 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/smsbody:
+  /templates-engine-private/v1/templates/sms-verification-code-body:
     put:
-      summary: Genera un documento TXT OTP di conferma SMS
-      description: Genera un documento TXT OTP di conferma SMS.
-      operationId: smsbody
+      summary: Genera un documento TXT OTP di conferma SmsVerificationCodeBody
+      description: Genera un documento TXT OTP di conferma SmsVerificationCodeBody.
+      operationId: smsVerificationCodeBody
       tags:
         - Template
       parameters:
@@ -546,11 +546,11 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/emailsubject:
+  /templates-engine-private/v1/templates/mail-verification-code-subject:
     put:
-      summary: Generazione del txt legato al template emailsubject
-      description: Genera un documento txt basato sul template emailsubject.
-      operationId: emailsubject
+      summary: Generazione del txt legato al template MailVerificationCodeSubject
+      description: Genera un documento txt basato sul template MailVerificationCodeSubject.
+      operationId: mailVerificationCodeSubject
       tags:
         - Template
       parameters:
@@ -569,11 +569,11 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/pecsubject:
+  /templates-engine-private/v1/templates/pec-verification-code-subject:
     put:
-      summary: Generazione del file legato al template pecsubject
-      description: Genera un documento TXT basato sul template pecsubject.
-      operationId: pecsubject
+      summary: Generazione del file legato al template PecVerificationCodeSubject
+      description: Genera un documento TXT basato sul template PecVerificationCodeSubject.
+      operationId: pecVerificationCodeSubject
       tags:
         - Template
       parameters:
@@ -592,11 +592,11 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/pecsubjectconfirm:
+  /templates-engine-private/v1/templates/pec-validation-contacts-success-subject:
     put:
-      summary: Generazione del file legato al template pecsubjectconfirm
-      description: Genera un documento TXT basato sul template pecsubjectconfirm.
-      operationId: pecsubjectconfirm
+      summary: Generazione del file legato al template PecValidationContactsSuccessSubject
+      description: Genera un documento TXT basato sul template PecValidationContactsSuccessSubject.
+      operationId: pecValidationContactsSuccessSubject
       tags:
         - Template
       parameters:
@@ -615,11 +615,11 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/pecsubjectreject:
+  /templates-engine-private/v1/templates/pec-validation-contacts-reject-subject:
     put:
-      summary: Generazione del file legato al template pecsubjectreject
-      description: Genera un documento TXT basato sul template pecsubjectreject.
-      operationId: pecsubjectreject
+      summary: Generazione del file legato al template PecValidationContactsRejectSubject
+      description: Genera un documento TXT basato sul template PecValidationContactsRejectSubject.
+      operationId: pecValidationContactsRejectSubject
       tags:
         - Template
       parameters:

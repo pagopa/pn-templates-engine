@@ -67,7 +67,7 @@ class TemplateServiceTestIT extends BaseTest {
                         TemplatesEnum.MAIL_VERIFICATION_CODE_BODY,
                         LanguageEnum.IT,
                         Mono.just(emailbody)
-                )).collect(Collectors.toList());
+                )).toList();
 
         // Esegue le richieste in parallelo e raccoglie i risultati
         Mono<List<byte[]>> parallelResults = Flux.fromIterable(calls)
@@ -90,9 +90,9 @@ class TemplateServiceTestIT extends BaseTest {
         // Genera un elenco di 10 richieste
         List<Mono<String>> calls = IntStream.range(0, 10)
                 .mapToObj(i -> templateService.executeTextTemplate(
-                        TemplatesEnum.PEC_VERIFICATION_CODE_SUBJECT,
+                        TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_SUBJECT,
                         LanguageEnum.IT
-                )).collect(Collectors.toList());
+                )).toList();
 
         // Esegue le richieste in parallelo e raccoglie i risultati
         Mono<List<String>> parallelResults = Flux.fromIterable(calls)

@@ -24,7 +24,7 @@ public enum TemplatesEnum {
     PEC_VERIFICATION_CODE_SUBJECT("pecVerificationCodeSubject"),
     PEC_VALIDATION_CONTACTS_REJECT_BODY("pecValidationContactsRejectBody"),
     PEC_VALIDATION_CONTACTS_REJECT_SUBJECT("pecValidationContactsRejectSubject"),
-    PEC_VALIDATION_CONTACT_SUCCESS_BODY("pecValidationContactsSuccessBody"),
+    PEC_VALIDATION_CONTACTS_SUCCESS_BODY("pecValidationContactsSuccessBody"),
     PEC_VALIDATION_CONTACTS_SUCCESS_SUBJECT("pecValidationContactsSuccessSubject");
 
     private final String template;
