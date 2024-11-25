@@ -1,24 +1,24 @@
-# Html templates generator
+# HTML Templates Generator
 
 ## Requirements
 
 - Node.js v20 or higher
 
-## Generate script
+## Generate Script
 
-Per generare i template finali nella cartella output, lanciare il comando:
+To generate the final templates in the output folder, run the command:
 
 `npm run build`
 
-Per avere log di debug:
+For debug logs:
 
 `npm run build -- --debug`
 
 ## Test
 
-I test sono eseguiti utilizzando Jest (<https://jestjs.io/>).
+Tests are executed using Jest (<https://jestjs.io/>).
 
 `npm run test`
 
-I test generano i template nella cartella `test/mock/output` partendo dai template di test della cartella `test/mock/source`.
-Per un rapporto dettagliato del test coverage, aprire nel browser il file `test/coverage/lcov-report/index.html`.
+The tests generate the templates in the `test/mock/output` folder starting from the test templates in the `test/mock/source` folder.
+For a detailed test coverage report, open the file `test/coverage/lcov-report/index.html` in the browser.
