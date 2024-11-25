@@ -31,19 +31,17 @@ async function generateHtmlTemplate() {
 
       const templateDir = path.join(templatesDir, templateName);
 
-      // Copy index.txt
-      if (
-        fs.pathExistsSync(path.join(templateDir, "index.txt"))
-      ) {
-        await fs.copy(
-          path.join(templateDir, "index.txt"),
-          path.join(
-            BASE_OUTPUT_DIR,
-            "templates",
-            templateName,
-            `${templateName}.txt`
-          )
+      // Copy index.txt if exists
+      if (fs.pathExistsSync(path.join(templateDir, "index.txt"))) {
+        const outputFile = path.join(
+          BASE_OUTPUT_DIR,
+          "templates",
+          templateName,
+          `${templateName}.txt`
         );
+
+        log.debug(`Writing ${outputFile}`);
+        await fs.copy(path.join(templateDir, "index.txt"), outputFile);
         continue;
       }
 
@@ -78,9 +76,12 @@ async function generateHtmlTemplate() {
         const outputFileName = getOutputFileName(templateName, lang);
 
         // if it template exists, use it
-        if (lang === "it" && fs.existsSync(path.join(templateDir, "it.html"))) {
+        if (
+          lang === "it" &&
+          fs.existsSync(path.join(templateDir, "index_it.html"))
+        ) {
           const langContent = await fs.readFile(
-            path.join(templateDir, `${lang}.html`),
+            path.join(templateDir, "index_it.html"),
             "utf8"
           );
           await renderAndWriteFile({
