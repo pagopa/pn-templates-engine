@@ -3,7 +3,7 @@ const fs = require("node:fs").promises;
 const util = require("node:util");
 const { BASE_SOURCE_DIR } = require("./utils");
 const log = require("./logger");
-const exec = util.promisify(require("node:child_process").exec);
+const execFile = util.promisify(require("node:child_process").execFile);
 
 const templatesDir = path.join(BASE_SOURCE_DIR, "templates");
 
@@ -23,7 +23,7 @@ async function processMJMLFiles(dir) {
         const outputFile = path.join(dir, "index.html");
 
         log.debug(`Processing ${fullPath}`);
-        await exec(`npx mjml ${fullPath} -o ${outputFile}`);
+        await execFile("npx", ["mjml", fullPath, "-o", outputFile]);
       }
     }
   } catch (err) {
