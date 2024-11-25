@@ -9,17 +9,16 @@
   "author": "",
   "license": "SEE LICENSE IN LICENSE",
   "description": "",
+  "engines": {
+    "node": ">=16"
+  },
   "devDependencies": {
-    "@eslint/js": "^9.14.0",
+    "@eslint/js": "^8.57.1",
     "ejs": "^3.1.10",
-    "eslint": "^9.14.0",
+    "eslint": "^8.57.1",
     "fs-extra": "^11.2.0",
-    "globals": "^15.12.0",
     "jest": "^29.7.0",
     "jest-extended": "^4.0.2",
     "mjml": "^4.15.3"
-  },
-  "engines": {
-    "node": ">=20.0.0"
   }
 }
