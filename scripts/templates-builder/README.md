@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Node.js v20 or higher
+- Node.js v16
 
 ## Generate Script
 
