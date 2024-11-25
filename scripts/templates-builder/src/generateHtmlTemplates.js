@@ -30,6 +30,27 @@ async function generateHtmlTemplate() {
       }
 
       const templateDir = path.join(templatesDir, templateName);
+
+      // Copy index.txt
+      if (
+        fs.pathExistsSync(path.join(templateDir, "index.txt"))
+      ) {
+        await fs.copy(
+          path.join(templateDir, "index.txt"),
+          path.join(
+            BASE_OUTPUT_DIR,
+            "templates",
+            templateName,
+            `${templateName}.txt`
+          )
+        );
+        continue;
+      }
+
+      if (!fs.pathExistsSync(path.join(templateDir, "index.html"))) {
+        continue;
+      }
+
       const i18nDir = path.join(templateDir, "i18n");
 
       const templateContent = await fs.readFile(

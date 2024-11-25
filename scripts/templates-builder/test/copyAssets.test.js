@@ -28,11 +28,4 @@ describe("copyAssets", () => {
       expect(assetExists).toEqual(true);
     }
   );
-
-  it("should copy .txt files from templates", async () => {
-    const assetExists = await fs.pathExists(
-      path.join(BASE_OUTPUT_DIR, "templates", "sample.txt")
-    );
-    expect(assetExists).toEqual(true);
-  });
 });

@@ -99,4 +99,18 @@ describe("generateHtmlTemplates", () => {
     expect(deHtmlContent).toContain("<title>Titel • Titolo</title>");
     expect(deHtmlContent).toContain("<p>Körper • Corpo</p>");
   });
+
+  it("should generate template from .txt file", async () => {
+    const htmlPath = path.join(
+      BASE_OUTPUT_DIR,
+      "templates",
+      "TemplateTestTxt",
+      "TemplateTestTxt.txt"
+    );
+
+    expect(fs.pathExistsSync(htmlPath)).toEqual(true);
+
+    const indexHtmlContent = await fs.readFile(htmlPath, "utf8");
+    expect(indexHtmlContent).toContain("only test in .txt");
+  });
 });
