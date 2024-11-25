@@ -108,7 +108,7 @@ public class TemplateApiController implements TemplateApi {
     public Mono<ResponseEntity<String>> pecbody(LanguageEnum xLanguage,
                                                 Mono<Pecbody> request,
                                                 final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY, xLanguage, request);
+        return processTextTemplate(TemplatesEnum.PEC_VERIFICATION_CODE_BODY, xLanguage, request);
     }
 
     @Override
@@ -120,14 +120,14 @@ public class TemplateApiController implements TemplateApi {
 
     @Override
     public Mono<ResponseEntity<String>> pecbodyreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_SUBJECT, xLanguage);
+        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY, xLanguage);
     }
 
     @Override
     public Mono<ResponseEntity<String>> notificationAARSubject(LanguageEnum xLanguage,
                                                                Mono<NotificationAARSubject> request,
                                                                final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_SUBJECT, xLanguage, request);
+        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_SUBJECT, xLanguage, request);
     }
 
     @Override
@@ -137,17 +137,17 @@ public class TemplateApiController implements TemplateApi {
 
     @Override
     public Mono<ResponseEntity<String>> pecsubject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACT_SUCCESS_SUBJECT, xLanguage);
-    }
-
-    @Override
-    public Mono<ResponseEntity<String>> pecsubjectconfirm(LanguageEnum xLanguage, final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.PEC_VERIFICATION_CODE_SUBJECT, xLanguage);
     }
 
     @Override
+    public Mono<ResponseEntity<String>> pecsubjectconfirm(LanguageEnum xLanguage, final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_SUBJECT, xLanguage);
+    }
+
+    @Override
     public Mono<ResponseEntity<String>> pecsubjectreject(LanguageEnum xLanguage, final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_PEC_VERIFICATION_CODE_SUBJECT_REJECT, xLanguage);
+        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_SUBJECT, xLanguage);
     }
 
     @Override

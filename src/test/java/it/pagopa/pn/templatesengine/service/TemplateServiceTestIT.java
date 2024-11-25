@@ -17,7 +17,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class TemplateServiceTestIT extends BaseTest {
+class TemplateServiceTestIT extends BaseTest {
 
     @Autowired
     TemplateService templateService;
@@ -90,7 +90,7 @@ public class TemplateServiceTestIT extends BaseTest {
         // Genera un elenco di 10 richieste
         List<Mono<String>> calls = IntStream.range(0, 10)
                 .mapToObj(i -> templateService.executeTextTemplate(
-                        TemplatesEnum.PEC_PEC_VERIFICATION_CODE_SUBJECT_REJECT,
+                        TemplatesEnum.PEC_VERIFICATION_CODE_SUBJECT,
                         LanguageEnum.IT
                 )).collect(Collectors.toList());
 

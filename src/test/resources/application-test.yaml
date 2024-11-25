@@ -66,38 +66,38 @@ templates:
   notificationAARForSMS:
     input:
       IT: "NotificationAARForSMS.txt"
-  notificationAARSubject:
+  notificationAARForSubject:
     input:
-      IT: "NotificationAARSubject.txt"
-  mailVerificationCode:
+      IT: "NotificationAARForSubject.txt"
+  mailVerificationCodeBody:
     input:
       IT: "Mail_VerificationCodeBody.html"
-  PECVerificationCodeMessage:
+  pecVerificationCodeBody:
     input:
       IT: "PEC_VerificationCodeBody.html"
-  PECValidationContactsSuccessMessage:
-    input:
-      IT: "PEC_ValidationContactsSuccessBody.html"
-  PECValidationContactsRejectBody:
-    input:
-      IT: "PEC_ValidationContactsRejectBody.html"
-  SMSVerificationCodeBody:
-    loadAsString: true
-    input:
-      IT: "SMS_VerificationCodeBody.txt"
-  MailVerificationCodeSubject:
-    loadAsString: true
-    input:
-      IT: "Mail_VerificationCodeSubject.txt"
-  PECVerificationCodeSubject:
+  pecVerificationCodeSubject:
     loadAsString: true
     input:
       IT: "PEC_VerificationCodeSubject.txt"
-  PECValidationContactsSuccessSubject:
+  pecValidationContactsSuccessBody:
+    input:
+      IT: "PEC_ValidationContactsSuccessBody.html"
+  pecValidationContactsRejectBody:
+    input:
+      IT: "PEC_ValidationContactsRejectBody.html"
+  smsVerificationCodeBody:
+    loadAsString: true
+    input:
+      IT: "SMS_VerificationCodeBody.txt"
+  mailVerificationCodeSubject:
+    loadAsString: true
+    input:
+      IT: "Mail_VerificationCodeSubject.txt"
+  pecValidationContactsSuccessSubject:
     loadAsString: true
     input:
       IT: "PEC_ValidationContactsSuccessSubject.txt"
-  PECValidationContactsSuccessRejectSubject:
+  pecValidationContactsRejectSubject:
     loadAsString: true
     input:
       IT: "PEC_ValidationContactsRejectSubject.txt"

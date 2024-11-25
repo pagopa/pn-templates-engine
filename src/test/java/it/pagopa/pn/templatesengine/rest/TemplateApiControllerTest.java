@@ -152,7 +152,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECSUBJECTREJECT,
-                        TemplatesEnum.PEC_PEC_VERIFICATION_CODE_SUBJECT_REJECT,
+                        TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -160,7 +160,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECSUBJECTCONFIRM,
-                        TemplatesEnum.PEC_VERIFICATION_CODE_SUBJECT,
+                        TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -168,7 +168,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECSUBJECT,
-                        TemplatesEnum.PEC_VALIDATION_CONTACT_SUCCESS_SUBJECT,
+                        TemplatesEnum.PEC_VERIFICATION_CODE_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -184,7 +184,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECBODYREJECT,
-                        TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_SUBJECT,
+                        TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -197,7 +197,7 @@ public class TemplateApiControllerTest {
         return Stream.of(
                 Arguments.of(
                         NOTIFICATION_AARSUBJECT,
-                        TemplatesEnum.NOTIFICATION_AAR_SUBJECT,
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_SUBJECT,
                         new NotificationAARSubject(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -215,7 +215,7 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         PECBODY,
-                        TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY,
+                        TemplatesEnum.PEC_VERIFICATION_CODE_BODY,
                         new Pecbody(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,

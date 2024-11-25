@@ -53,7 +53,7 @@ class TemplateConfigTest {
         templateConfig.initializeTemplatesAsString();
 
         // Act - Assert
-        TemplateConfig.Template template = templateConfig.getTemplatesAsString().get(TemplatesEnum.PEC_PEC_VERIFICATION_CODE_SUBJECT_REJECT);
+        TemplateConfig.Template template = templateConfig.getTemplatesAsString().get(TemplatesEnum.PEC_VERIFICATION_CODE_SUBJECT);
         assertTrue(template.getInput().containsKey(LANGUAGE));
         assertNotNull(template.getInput().get(LANGUAGE));
     }
