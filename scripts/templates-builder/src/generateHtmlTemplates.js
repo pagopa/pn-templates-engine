@@ -66,9 +66,9 @@ async function generateHtmlTemplate() {
         continue;
       }
 
-      const languages = (
-        await fs.readdir(i18nDir, { withFileTypes: true })
-      ).map((entry) => entry.name.split(".")[0]);
+      const languages = (await fs.readdir(i18nDir)).map(
+        (entry) => entry.split(".")[0]
+      );
 
       for (const lang of languages) {
         const outputFileName = getOutputFileName(templateName, lang);
