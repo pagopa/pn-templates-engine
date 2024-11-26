@@ -24,11 +24,8 @@ components:
       type: object
       required:
         - verificationCode
-        - logoBase64
       properties:
         verificationCode:
-          type: string
-        logoBase64:
           type: string
 
     Emailbody:
@@ -59,7 +56,6 @@ components:
       type: object
       required:
         - notification
-        - logoBase64
         - perfezionamentoURL
         - quickAccessLink
         - PNFaqSendURL
@@ -69,8 +65,6 @@ components:
       properties:
         notification:
           $ref: '#/components/schemas/Notification'
-        logoBase64: # TODO Serve?
-          type: string
         perfezionamentoURL:
           type: string
         quickAccessLink:
