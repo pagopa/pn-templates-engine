@@ -22,6 +22,9 @@ components:
 
     Pecbody:
       type: object
+      required:
+        - verificationCode
+        - logoBase64
       properties:
         verificationCode:
           type: string
@@ -30,28 +33,43 @@ components:
 
     Emailbody:
       type: object
+      required:
+        - verificationCode
       properties:
         verificationCode:
           type: string
 
     NotificationAARForSMS:
       type: object
+      required:
+        - notification
       properties:
         notification:
           $ref: '#/components/schemas/Notification'
 
     NotificationAARSubject:
       type: object
+      required:
+        - notification
       properties:
         notification:
           $ref: '#/components/schemas/Notification'
 
     NotificationAARForPEC:
       type: object
+      required:
+        - notification
+        - logoBase64
+        - perfezionamentoURL
+        - quickAccessLink
+        - PNFaqSendURL
+        - piattaformaNotificheURL
+        - recipientType
+        - recipient
       properties:
         notification:
           $ref: '#/components/schemas/Notification'
-        logoBase64:
+        logoBase64: # TODO Serve?
           type: string
         perfezionamentoURL:
           type: string
@@ -68,6 +86,13 @@ components:
 
     NotificationAARForEMAIL:
       type: object
+      required:
+        - perfezionamentoURL
+        - quickAccessLink
+        - PNFaqSendURL
+        - piattaformaNotificheURL
+        - sendLogoLink
+        - notification
       properties:
         perfezionamentoURL:
           type: string
@@ -84,6 +109,11 @@ components:
 
     AnalogDeliveryWorkflowFailureLegalFact:
       type: object
+      required:
+        - iun
+        - endWorkflowDate
+        - endWorkflowTime
+        - recipient
       properties:
         iun:
           type: string
@@ -96,6 +126,17 @@ components:
 
     NotificationAAR_RADDalt:
       type: object
+      required:
+        - notification
+        - sendURL
+        - sendURLLAbel
+        - raddPhoneNumber
+        - perfezionamentoURL
+        - perfezionamentoURLLabel
+        - recipient
+        - piattaformaNotificheURL
+        - piattaformaNotificheURLLabel
+        - qrCodeQuickAccessLink
       properties:
         notification:
           $ref: '#/components/schemas/Notification'
@@ -120,6 +161,16 @@ components:
 
     NotificationAAR:
       type: object
+      required:
+        - notification
+        - qrCodeQuickAccessLink
+        - recipient
+        - piattaformaNotificheURL
+        - piattaformaNotificheURLLabel
+        - perfezionamentoURL
+        - perfezionamentoURLLabel
+        - sendURL
+        - sendURLLAbel
       properties:
         notification:
           $ref: '#/components/schemas/Notification'
@@ -142,6 +193,10 @@ components:
 
     NotificationCancelledLegalFact:
       type: object
+      required:
+        - notificationCancelledDate
+        - notification
+        - recipient
       properties:
         notificationCancelledDate:
           type: string
@@ -152,6 +207,11 @@ components:
 
     LegalFactMalfunction:
       type: object
+      required:
+        - startDate
+        - timeReferenceStartDate
+        - endDate
+        - timeReferenceEndDate
       properties:
         startDate:
           type: string
@@ -164,6 +224,11 @@ components:
 
     NotificationViewedLegalFact:
       type: object
+      required:
+        - iun
+        - when
+        - recipient
+        - delegate
       properties:
         iun:
           type: string
@@ -176,6 +241,9 @@ components:
 
     Delegate:
       type: object
+      required:
+        - denomination
+        - taxId
       properties:
         denomination:
           type: string
@@ -184,6 +252,11 @@ components:
 
     PecDeliveryWorkflowLegalFact:
       type: object
+      required:
+        - iun
+        - endWorkflowDate
+        - endWorkflowStatus
+        - deliveries
       properties:
         iun:
           type: string
@@ -198,6 +271,14 @@ components:
 
     Delivery:
       type: object
+      required:
+        - denomination
+        - taxId
+        - address
+        - type
+        - addressSource
+        - responseDate
+        - ok
       properties:
         denomination:
           type: string
@@ -216,6 +297,12 @@ components:
 
     NotificationReceiverLegalFact:
       type: object
+      required:
+        - sendDate
+        - notification
+        - subject
+        - physicalAddressAndDenomination
+        - digests
       properties:
         sendDate:
           type: string
@@ -232,6 +319,11 @@ components:
 
     Notification:
       type: object
+      required:
+        - iun
+        - subject
+        - sender
+        - recipients
       properties:
         iun:
           type: string
@@ -246,6 +338,10 @@ components:
 
     NotificationSender:
       type: object
+      required:
+        - paId
+        - paDenomination
+        - paTaxId
       properties:
         paId:
           type: string
@@ -256,6 +352,12 @@ components:
 
     Recipient:
       type: object
+      required:
+        - recipientType
+        - denomination
+        - taxId
+        - physicalAddress
+        - digitalDomicile
       properties:
         recipientType:
           type: string
@@ -270,6 +372,8 @@ components:
 
     DigitalDomicile:
       type: object
+      required:
+        - address
       properties:
         address:
           type: string

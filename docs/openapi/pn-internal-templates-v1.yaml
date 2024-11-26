@@ -9,7 +9,7 @@ info:
     url: http://www.pagopa.com/support
     email: support@pagopa.com
   termsOfService: termsOfService
-  x-api-id: ppr-chnnl
+  x-api-id: tmplts-ngn
   x-summary: summary
 servers:
   - url: https://api.pn.pagopa.it
@@ -19,7 +19,7 @@ tags:
   - name: Template
     description: Servizi per la generazione delle mail, pdf e sms.
   - name: HealthCheck
-    description: Metodo heartbeat
+    description: Stato del microservizio.
 
 paths:
   /status:
@@ -36,12 +36,12 @@ paths:
           description: Internal Server Error
 
   ############################################################################################
-  ###                          SuccessResponsePDF                                          ###
+  ###                                PDF Response                                          ###
   ############################################################################################
 
   /templates-engine-private/v1/templates/notification-received-legal-fact:
     put:
-      summary: Generazione del pdf legato al template NotificationReceivedLegalFact
+      summary: NotificationReceivedLegalFact
       description: Genera un documento PDF basato sul template notificationReceivedLegalFact.
       operationId: notificationReceivedLegalFact
       tags:
@@ -71,7 +71,7 @@ paths:
 
   /templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact:
     put:
-      summary: Generazione del pdf legato al template PecDeliveryWorkflowLegalFact
+      summary: PecDeliveryWorkflowLegalFact
       description: Genera un documento PDF basato sul template pecDeliveryWorkflowLegalFact.
       operationId: pecDeliveryWorkflowLegalFact
       tags:
@@ -101,7 +101,7 @@ paths:
 
   /templates-engine-private/v1/templates/notification-viewed-legal-fact:
     put:
-      summary: Generazione del pdf legato al template NotificationViewedLegalFact
+      summary: NotificationViewedLegalFact
       description: Genera un documento PDF basato sul template notificationViewedLegalFact.
       operationId: notificationViewedLegalFact
       tags:
@@ -131,7 +131,7 @@ paths:
 
   /templates-engine-private/v1/templates/malfunction-legal-fact:
     put:
-      summary: Generazione del pdf legato al template MalfunctionLegalFact
+      summary: MalfunctionLegalFact
       description: Genera un documento PDF basato sul template MalfunctionLegalFact.
       operationId: malfunctionLegalFact
       tags:
@@ -160,7 +160,7 @@ paths:
 
   /templates-engine-private/v1/templates/notification-cancelled-legal-fact:
     put:
-      summary: Generazione del pdf legato al template NotificationCancelledLegalFact
+      summary: NotificationCancelledLegalFact
       description: Genera un documento PDF basato sul template notificationCancelledLegalFact.
       operationId: notificationCancelledLegalFact
       tags:
@@ -190,7 +190,7 @@ paths:
 
   /templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact:
     put:
-      summary: Generazione del pdf legato al template AnalogDeliveryWorkflowFailureLegalFact
+      summary: AnalogDeliveryWorkflowFailureLegalFact
       description: Genera un documento PDF basato sul template AnalogDeliveryWorkflowFailureLegalFact.
       operationId: analogDeliveryWorkflowFailureLegalFact
       tags:
@@ -220,8 +220,8 @@ paths:
 
   /templates-engine-private/v1/templates/notification-aar-radd-alt:
     put:
-      summary: Generazione del Pdf legato al template NotificationAAR_RADDalt
-      description: Genera un documento Pdf basato sul template NotificationAAR_RADDalt.
+      summary: NotificationAAR_RADDalt
+      description: Genera un documento PDF basato sul template NotificationAAR_RADDalt.
       operationId: notificationAAR_RADDalt
       tags:
         - Template
@@ -250,8 +250,8 @@ paths:
 
   /templates-engine-private/v1/templates/notification-aar:
     put:
-      summary: Generazione del Pdf legato al template NotificationAAR
-      description: Genera un documento Pdf basato sul template NotificationAAR.
+      summary: NotificationAAR
+      description: Genera un documento PDF basato sul template NotificationAAR.
       operationId: notificationAAR
       tags:
         - Template
@@ -279,13 +279,13 @@ paths:
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   ############################################################################################
-  ###                         SuccessResponseHTML      EMAIL                               ###
+  ###                                    HTML Response                                     ###
   ############################################################################################
 
   /templates-engine-private/v1/templates/notification-aar-for-email:
     put:
-      summary: Generazione del html legato al template NotificationAARForEMAIL
-      description: Genera un documento html basato sul template NotificationAARForEMAIL.
+      summary: NotificationAARForEMAIL
+      description: Genera un documento HTML basato sul template NotificationAARForEMAIL.
       operationId: notificationAARForEMAIL
       tags:
         - Template
@@ -314,8 +314,8 @@ paths:
 
   /templates-engine-private/v1/templates/notification-aar-for-pec:
     put:
-      summary: Generazione del html legato al template NotificationAARForPEC
-      description: Genera un documento html basato sul template NotificationAARForPEC.
+      summary: NotificationAARForPEC
+      description: Genera un documento HTML basato sul template NotificationAARForPEC.
       operationId: notificationAARForPEC
       tags:
         - Template
@@ -344,8 +344,8 @@ paths:
 
   /templates-engine-private/v1/templates/mail-verification-code-body:
     put:
-      summary: Generazione del html legato al template MailVerificationCodeBody
-      description: Genera un documento html basato sul template MailVerificationCodeBody.
+      summary: MailVerificationCodeBody
+      description: Genera un documento HTML basato sul template MailVerificationCodeBody.
       operationId: mailVerificationCodeBody
       tags:
         - Template
@@ -374,8 +374,8 @@ paths:
 
   /templates-engine-private/v1/templates/pec-verification-code-body:
     put:
-      summary: Generazione del html legato al template PecVerificationCodeBody
-      description: Genera un documento html basato sul template PecVerificationCodeBody.
+      summary: PecVerificationCodeBody
+      description: Genera un documento HTML basato sul template PecVerificationCodeBody.
       operationId: pecVerificationCodeBody
       tags:
         - Template
@@ -404,8 +404,8 @@ paths:
 
   /templates-engine-private/v1/templates/pec-validation-contacts-success-body:
     put:
-      summary: Generazione del html legato al template PecValidationContactsSuccessBody
-      description: Genera un documento html basato sul template PecValidationContactsSuccessBody.
+      summary: PecValidationContactsSuccessBody
+      description: Genera un documento HTML basato sul template PecValidationContactsSuccessBody.
       operationId: pecValidationContactsSuccessBody
       tags:
         - Template
@@ -434,8 +434,8 @@ paths:
 
   /templates-engine-private/v1/templates/pec-validation-contacts-reject-body:
     put:
-      summary: Generazione del html legato al template PecValidationContactsRejectBody
-      description: Genera un documento html basato sul template PecValidationContactsRejectBody.
+      summary: PecValidationContactsRejectBody
+      description: Genera un documento HTML basato sul template PecValidationContactsRejectBody.
       operationId: pecValidationContactsRejectBody
       tags:
         - Template
@@ -456,12 +456,12 @@ paths:
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   ############################################################################################
-  ###                         SuccessResponseText   SMS                                    ###
+  ###                                     TXT Response                                     ###
   ############################################################################################
 
   /templates-engine-private/v1/templates/notification-aar-for-sms:
     put:
-      summary: Generazione del TXT legato al template NotificationAARForSMS
+      summary: NotificationAARForSMS
       description: Genera un documento TXT basato sul template NotificationAARForSMS.
       operationId: notificationAARForSMS
       tags:
@@ -491,7 +491,7 @@ paths:
 
   /templates-engine-private/v1/templates/sms-verification-code-body:
     put:
-      summary: Genera un documento TXT OTP di conferma SmsVerificationCodeBody
+      summary: SmsVerificationCodeBody
       description: Genera un documento TXT OTP di conferma SmsVerificationCodeBody.
       operationId: smsVerificationCodeBody
       tags:
@@ -518,8 +518,8 @@ paths:
 
   /templates-engine-private/v1/templates/notification-aar-subject:
     put:
-      summary: Generazione del TXT legato al template NotificationAARSubject
-      description: Genera un documento txt basato sul template NotificationAARSubject.
+      summary: NotificationAARSubject
+      description: Genera un documento TXT basato sul template NotificationAARSubject.
       operationId: notificationAARSubject
       tags:
         - Template
@@ -548,8 +548,8 @@ paths:
 
   /templates-engine-private/v1/templates/mail-verification-code-subject:
     put:
-      summary: Generazione del txt legato al template MailVerificationCodeSubject
-      description: Genera un documento txt basato sul template MailVerificationCodeSubject.
+      summary: MailVerificationCodeSubject
+      description: Genera un documento TXT basato sul template MailVerificationCodeSubject.
       operationId: mailVerificationCodeSubject
       tags:
         - Template
@@ -571,7 +571,7 @@ paths:
 
   /templates-engine-private/v1/templates/pec-verification-code-subject:
     put:
-      summary: Generazione del file legato al template PecVerificationCodeSubject
+      summary: PecVerificationCodeSubject
       description: Genera un documento TXT basato sul template PecVerificationCodeSubject.
       operationId: pecVerificationCodeSubject
       tags:
@@ -594,7 +594,7 @@ paths:
 
   /templates-engine-private/v1/templates/pec-validation-contacts-success-subject:
     put:
-      summary: Generazione del file legato al template PecValidationContactsSuccessSubject
+      summary: PecValidationContactsSuccessSubject
       description: Genera un documento TXT basato sul template PecValidationContactsSuccessSubject.
       operationId: pecValidationContactsSuccessSubject
       tags:
@@ -617,7 +617,7 @@ paths:
 
   /templates-engine-private/v1/templates/pec-validation-contacts-reject-subject:
     put:
-      summary: Generazione del file legato al template PecValidationContactsRejectSubject
+      summary: PecValidationContactsRejectSubject
       description: Genera un documento TXT basato sul template PecValidationContactsRejectSubject.
       operationId: pecValidationContactsRejectSubject
       tags:
