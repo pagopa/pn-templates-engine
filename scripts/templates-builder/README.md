@@ -6,13 +6,17 @@
 
 ## Generate Script
 
+Install all the dependencies listed in the package.json file
+
+`npm ci`
+
 To generate the final templates in the output folder, run the command:
 
-`npm run build`
+`npm run generate`
 
 For debug logs:
 
-`npm run build -- --debug`
+`npm run generate -- --debug`
 
 ## Test
 

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "build": "npm ci && node src/index.js",
+    "generate": "node src/index.js",
     "test": "jest -i --verbose --coverage"
   },
   "author": "",
