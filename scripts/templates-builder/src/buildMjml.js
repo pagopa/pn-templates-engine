@@ -1,5 +1,5 @@
 const path = require("node:path");
-const fs = require("node:fs").promises;
+const fs = require("fs-extra");
 const util = require("node:util");
 const { BASE_SOURCE_DIR } = require("./utils");
 const log = require("./logger");

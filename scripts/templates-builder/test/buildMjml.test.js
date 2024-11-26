@@ -37,4 +37,16 @@ describe("processMJMLFiles", () => {
     const partialsHtmlExists = await fs.pathExists(partialsHtml);
     expect(partialsHtmlExists).toEqual(false);
   });
+
+  it("should throw an error if fs.readdir fails", async () => {
+    jest.spyOn(fs, "readdir").mockImplementationOnce(() => {
+      throw new Error("Mocked error");
+    });
+  
+    await expect(buildMjml()).rejects.toThrow(
+      "Error processing mjml"
+    );
+  
+    fs.readdir.mockRestore();
+  });
 });

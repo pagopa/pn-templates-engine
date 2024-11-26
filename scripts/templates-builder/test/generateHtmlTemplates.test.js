@@ -113,4 +113,16 @@ describe("generateHtmlTemplates", () => {
     const indexHtmlContent = await fs.readFile(htmlPath, "utf8");
     expect(indexHtmlContent).toContain("only test in .txt");
   });
+  
+  it("should throw an error if fs.readdir fails", async () => {
+    jest.spyOn(fs, "readdir").mockImplementationOnce(() => {
+      throw new Error("Mocked error");
+    });
+  
+    await expect(generateHtmlTemplates()).rejects.toThrow(
+      "Error generating html templates"
+    );
+  
+    fs.readdir.mockRestore();
+  });
 });

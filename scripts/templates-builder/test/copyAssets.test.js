@@ -28,4 +28,13 @@ describe("copyAssets", () => {
       expect(assetExists).toEqual(true);
     }
   );
+
+  it("should throw an error and log it if copying fails", async () => {
+    const copySpy = jest.spyOn(fs, "copy").mockImplementation(() => {
+      throw new Error("Copy failed");
+    });
+  
+    await expect(copyAssets()).rejects.toThrow("Error copying assets");
+    copySpy.mockRestore();
+  });
 });
