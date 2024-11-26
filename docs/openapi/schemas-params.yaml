@@ -22,25 +22,49 @@ components:
 
     Pecbody:
       type: object
+      required:
+        - verificationCode
       properties:
         verificationCode:
-          type: string
-        logoBase64:
           type: string
 
     Emailbody:
       type: object
+      required:
+        - verificationCode
       properties:
         verificationCode:
           type: string
 
-    NotificationAARForPEC:
+    NotificationAARForSMS:
       type: object
+      required:
+        - notification
       properties:
         notification:
           $ref: '#/components/schemas/Notification'
-        logoBase64:
-          type: string
+
+    NotificationAARSubject:
+      type: object
+      required:
+        - notification
+      properties:
+        notification:
+          $ref: '#/components/schemas/Notification'
+
+    NotificationAARForPEC:
+      type: object
+      required:
+        - notification
+        - perfezionamentoURL
+        - quickAccessLink
+        - PNFaqSendURL
+        - piattaformaNotificheURL
+        - recipientType
+        - recipient
+      properties:
+        notification:
+          $ref: '#/components/schemas/Notification'
         perfezionamentoURL:
           type: string
         quickAccessLink:
@@ -56,10 +80,19 @@ components:
 
     NotificationAARForEMAIL:
       type: object
+      required:
+        - perfezionamentoURL
+        - quickAccessLink
+        - PNFaqSendURL
+        - piattaformaNotificheURL
+        - sendLogoLink
+        - notification
       properties:
         perfezionamentoURL:
           type: string
         quickAccessLink:
+          type: string
+        PNFaqSendURL:
           type: string
         piattaformaNotificheURL:
           type: string
@@ -70,6 +103,11 @@ components:
 
     AnalogDeliveryWorkflowFailureLegalFact:
       type: object
+      required:
+        - iun
+        - endWorkflowDate
+        - endWorkflowTime
+        - recipient
       properties:
         iun:
           type: string
@@ -82,7 +120,20 @@ components:
 
     NotificationAAR_RADDalt:
       type: object
+      required:
+        - notification
+        - sendURL
+        - sendURLLAbel
+        - raddPhoneNumber
+        - perfezionamentoURL
+        - perfezionamentoURLLabel
+        - recipient
+        - piattaformaNotificheURL
+        - piattaformaNotificheURLLabel
+        - qrCodeQuickAccessLink
       properties:
+        notification:
+          $ref: '#/components/schemas/Notification'
         sendURL:
           type: string
         sendURLLAbel:
@@ -99,9 +150,21 @@ components:
           type: string
         piattaformaNotificheURLLabel:
           type: string
+        qrCodeQuickAccessLink:
+          type: string
 
     NotificationAAR:
       type: object
+      required:
+        - notification
+        - qrCodeQuickAccessLink
+        - recipient
+        - piattaformaNotificheURL
+        - piattaformaNotificheURLLabel
+        - perfezionamentoURL
+        - perfezionamentoURLLabel
+        - sendURL
+        - sendURLLAbel
       properties:
         notification:
           $ref: '#/components/schemas/Notification'
@@ -124,6 +187,10 @@ components:
 
     NotificationCancelledLegalFact:
       type: object
+      required:
+        - notificationCancelledDate
+        - notification
+        - recipient
       properties:
         notificationCancelledDate:
           type: string
@@ -132,8 +199,13 @@ components:
         recipient:
           $ref: '#/components/schemas/Recipient'
 
-    PdfLegalFact:
+    LegalFactMalfunction:
       type: object
+      required:
+        - startDate
+        - timeReferenceStartDate
+        - endDate
+        - timeReferenceEndDate
       properties:
         startDate:
           type: string
@@ -146,6 +218,10 @@ components:
 
     NotificationViewedLegalFact:
       type: object
+      required:
+        - iun
+        - when
+        - recipient
       properties:
         iun:
           type: string
@@ -158,6 +234,9 @@ components:
 
     Delegate:
       type: object
+      required:
+        - denomination
+        - taxId
       properties:
         denomination:
           type: string
@@ -166,16 +245,31 @@ components:
 
     PecDeliveryWorkflowLegalFact:
       type: object
+      required:
+        - iun
+        - endWorkflowDate
+        - endWorkflowStatus
+        - deliveries
       properties:
         iun:
           type: string
         endWorkflowDate:
           type: string
-        delivery:
-          $ref: '#/components/schemas/Delivery'
+        endWorkflowStatus:
+          type: string
+        deliveries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Delivery'
 
     Delivery:
       type: object
+      required:
+        - denomination
+        - taxId
+        - type
+        - responseDate
+        - ok
       properties:
         denomination:
           type: string
@@ -183,25 +277,43 @@ components:
           type: string
         address:
           type: string
+        type:
+          type: string
+        addressSource:
+          type: string
+        responseDate:
+          type: string
+        ok:
+          type: boolean
 
     NotificationReceiverLegalFact:
       type: object
+      required:
+        - sendDate
+        - notification
+        - subject
+        - digests
       properties:
         sendDate:
           type: string
         notification:
           $ref: '#/components/schemas/Notification'
-        digest:
-          type: string
         subject:
           type: string
-        recipient:
-          $ref: '#/components/schemas/Recipient'
-        addressWriter:
+        physicalAddressAndDenomination:
           type: string
+        digests:
+          type: array
+          items:
+            type: string
 
     Notification:
       type: object
+      required:
+        - iun
+        - subject
+        - sender
+        - recipients
       properties:
         iun:
           type: string
@@ -209,9 +321,17 @@ components:
           type: string
         sender:
           $ref: '#/components/schemas/NotificationSender'
+        recipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
 
     NotificationSender:
       type: object
+      required:
+        - paId
+        - paDenomination
+        - paTaxId
       properties:
         paId:
           type: string
@@ -222,6 +342,12 @@ components:
 
     Recipient:
       type: object
+      required:
+        - recipientType
+        - denomination
+        - taxId
+        - physicalAddress
+        - digitalDomicile
       properties:
         recipientType:
           type: string

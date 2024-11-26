@@ -1,102 +1,109 @@
 logging:
   config: classpath:logback-local.xml
-
 # Runtime mode
 pn:
   env:
     runtime: DEVELOPMENT
 #pn.env.runtime=PROD
 
-resources:
-  templates:
-    path: classpath:/templates
+templatesPath: "templates-assets"
 
 templates:
-  templatePath: "templates"
-  templates:
-    notification-received-legal-fact:
-      input:
-        it: "NotificationReceivedLegalFact.html"
-        de: "NotificationReceivedLegalFact_de.html"
-        sl: "NotificationReceivedLegalFact_sl.html"
-        fr: "NotificationReceivedLegalFact_fr.html"
-    pecDeliveryWorkflowLegalFact:
-      input:
-        it: "PecDeliveryWorkflowLegalFact.html"
-        de: "PecDeliveryWorkflowLegalFact_de.html"
-        sl: "PecDeliveryWorkflowLegalFact_sl.html"
-        fr: "PecDeliveryWorkflowLegalFact_fr.html"
-    notificationViewedLegalFact:
-      input:
-        it: "NotificationViewedLegalFact.html"
-        de: "NotificationViewedLegalFact_de.html"
-        sl: "NotificationViewedLegalFact_sl.html"
-        fr: "NotificationViewedLegalFact_fr.html"
-    pdfFileCompliance:
-      input:
-        it: "PdfFileCompliance.html"
-    pdfLegalFact:
-      input:
-        it: "PdfLegalFact.html"
-        de: "PdfLegalFact_de.html"
-        sl: "PdfLegalFact_sl.html"
-        fr: "PdfLegalFact_fr.html"
-    notificationCancelledLegalFact:
-      input:
-        it: "NotificationCancelledLegalFact.html"
-        de: "NotificationCancelledLegalFact_de.html"
-        sl: "NotificationCancelledLegalFact_sl.html"
-        fr: "NotificationCancelledLegalFact_fr.html"
-    notificationAAR:
-      input:
-        it: "NotificationAAR.html"
-        de: "NotificationAAR_de.html"
-        sl: "NotificationAAR_sl.html"
-        fr: "NotificationAAR_fr.html"
-    notificationAAR_RADDalt:
-      input:
-        it: "NotificationAAR_RADDalt.html"
-        de: "NotificationAAR_RADDalt_de.html"
-        sl: "NotificationAAR_RADDalt_sl.html"
-        fr: "NotificationAAR_RADDalt_fr.html"
-    analogDeliveryWorkflowFailureLegalFact:
-      input:
-        it: "AnalogDeliveryWorkflowFailureLegalFact.html"
-        de: "AnalogDeliveryWorkflowFailureLegalFact_de.html"
-        sl: "AnalogDeliveryWorkflowFailureLegalFact_sl.html"
-        fr: "AnalogDeliveryWorkflowFailureLegalFact_fr.html"
-    notificationAARForEMAIL:
-      input:
-        it: "NotificationAARForEMAIL.html"
-        de: "NotificationAARForEMAIL_de.html"
-        sl: "NotificationAARForEMAIL_sl.html"
-        fr: "NotificationAARForEMAIL_fr.html"
-    notificationAARForPEC:
-      input:
-        it: "NotificationAARForPEC.html"
-        de: "NotificationAARForPEC_de.html"
-        sl: "NotificationAARForPEC_sl.html"
-        fr: "NotificationAARForPEC_fr.html"
-    notificationAARForSMS:
-      input:
-        it: "NotificationAARForSMS.txt"
-        sub: "NotificationAARSubject.txt"
-    emailbody:
-      input:
-        it: "emailbody.html"
-        sub: "emailsubject.txt"
-    pecbody:
-      input:
-        it: "pecbody.html"
-        sub: "pecsubject.txt"
-    pecbodyconfirm:
-      input:
-        it: "pecbodyconfirm.html"
-        sub: "pecsubjectconfirm.txt"
-    pecbodyreject:
-      input:
-        it: "pecbodyreject.html"
-        sub: "pecsubjectreject.txt"
-    smsbody:
-      input:
-        it: "smsbody.txt"
+  notificationReceivedLegalFact:
+    input:
+      IT: "NotificationReceivedLegalFact.html"
+      DE: "NotificationReceivedLegalFact_de.html"
+      SL: "NotificationReceivedLegalFact_sl.html"
+      FR: "NotificationReceivedLegalFact_fr.html"
+  pecDeliveryWorkflowLegalFact:
+    input:
+      IT: "PecDeliveryWorkflowLegalFact.html"
+      DE: "PecDeliveryWorkflowLegalFact_de.html"
+      SL: "PecDeliveryWorkflowLegalFact_sl.html"
+      FR: "PecDeliveryWorkflowLegalFact_fr.html"
+  notificationViewedLegalFact:
+    input:
+      IT: "NotificationViewedLegalFact.html"
+      DE: "NotificationViewedLegalFact_de.html"
+      SL: "NotificationViewedLegalFact_sl.html"
+      FR: "NotificationViewedLegalFact_fr.html"
+  malfunctionLegalFact:
+    input:
+      IT: "MalfunctionLegalFact.html"
+      DE: "MalfunctionLegalFact_de.html"
+      SL: "MalfunctionLegalFact_sl.html"
+      FR: "MalfunctionLegalFact_fr.html"
+  notificationCancelledLegalFact:
+    input:
+      IT: "NotificationCancelledLegalFact.html"
+      DE: "NotificationCancelledLegalFact_de.html"
+      SL: "NotificationCancelledLegalFact_sl.html"
+      FR: "NotificationCancelledLegalFact_fr.html"
+  notificationAAR:
+    input:
+      IT: "NotificationAAR.html"
+      DE: "NotificationAAR_de.html"
+      SL: "NotificationAAR_sl.html"
+      FR: "NotificationAAR_fr.html"
+  notificationAAR_RADDalt:
+    input:
+      IT: "NotificationAAR_RADDalt.html"
+      DE: "NotificationAAR_RADDalt_de.html"
+      SL: "NotificationAAR_RADDalt_sl.html"
+      FR: "NotificationAAR_RADDalt_fr.html"
+  analogDeliveryWorkflowFailureLegalFact:
+    input:
+      IT: "AnalogDeliveryWorkflowFailureLegalFact.html"
+      DE: "AnalogDeliveryWorkflowFailureLegalFact_de.html"
+      SL: "AnalogDeliveryWorkflowFailureLegalFact_sl.html"
+      FR: "AnalogDeliveryWorkflowFailureLegalFact_fr.html"
+  notificationAARForEMAIL:
+    input:
+      IT: "NotificationAARForEMAIL.html"
+      DE: "NotificationAARForEMAIL_de.html"
+      SL: "NotificationAARForEMAIL_sl.html"
+      FR: "NotificationAARForEMAIL_fr.html"
+  notificationAARForPEC:
+    input:
+      IT: "NotificationAARForPEC.html"
+      DE: "NotificationAARForPEC_de.html"
+      SL: "NotificationAARForPEC_sl.html"
+      FR: "NotificationAARForPEC_fr.html"
+  notificationAARForSMS:
+    input:
+      IT: "NotificationAARForSMS.txt"
+  notificationAARForSubject:
+    input:
+      IT: "NotificationAARForSubject.txt"
+  mailVerificationCodeBody:
+    input:
+      IT: "Mail_VerificationCodeBody.html"
+  pecVerificationCodeBody:
+    input:
+      IT: "PEC_VerificationCodeBody.html"
+  pecVerificationCodeSubject:
+    loadAsString: true
+    input:
+      IT: "PEC_VerificationCodeSubject.txt"
+  pecValidationContactsSuccessBody:
+    input:
+      IT: "PEC_ValidationContactsSuccessBody.html"
+  pecValidationContactsRejectBody:
+    input:
+      IT: "PEC_ValidationContactsRejectBody.html"
+  smsVerificationCodeBody:
+    loadAsString: true
+    input:
+      IT: "SMS_VerificationCodeBody.txt"
+  mailVerificationCodeSubject:
+    loadAsString: true
+    input:
+      IT: "Mail_VerificationCodeSubject.txt"
+  pecValidationContactsSuccessSubject:
+    loadAsString: true
+    input:
+      IT: "PEC_ValidationContactsSuccessSubject.txt"
+  pecValidationContactsRejectSubject:
+    loadAsString: true
+    input:
+      IT: "PEC_ValidationContactsRejectSubject.txt"

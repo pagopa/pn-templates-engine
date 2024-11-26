@@ -14,9 +14,46 @@
 
 	<properties>
 		<jacoco.min.line.cover.ratio>0.00</jacoco.min.line.cover.ratio>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+		<maven.compiler.release>17</maven.compiler.release>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>1.17.6</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mock-server</groupId>
+			<artifactId>mockserver-junit-jupiter</artifactId>
+			<version>5.11.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mock-server</groupId>
+			<artifactId>mockserver-netty</artifactId>
+			<version>5.11.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
@@ -135,10 +172,10 @@
 								<reactive>true</reactive>
 								<skipDefaultInterface>false</skipDefaultInterface>
 								<useTags>true</useTags>
-								<basePackage>${project.groupId}.templates.engine.generated.openapi.server.v1</basePackage>
-								<modelPackage>${project.groupId}.templates.engine.generated.openapi.server.v1.dto</modelPackage>
-								<apiPackage>${project.groupId}.templates.engine.generated.openapi.server.v1.api</apiPackage>
-								<configPackage>${project.groupId}.templates.engine.generated.openapi.server.v1.config</configPackage>
+								<basePackage>${project.groupId}.templatesengine.generated.openapi.server.v1</basePackage>
+								<modelPackage>${project.groupId}.templatesengine.generated.openapi.server.v1.dto</modelPackage>
+								<apiPackage>${project.groupId}.templatesengine.generated.openapi.server.v1.api</apiPackage>
+								<configPackage>${project.groupId}.templatesengine.generated.openapi.server.v1.config</configPackage>
 							</configOptions>
 						</configuration>
 					</execution>
