@@ -35,7 +35,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
 
     /**
      * Genera un testo a partire da un template FreeMarker, identificato da templateFile,
-     * usando i dati contenuti in templateModel
+     * applicando i dati forniti tramite templateModel
      *
      * @param templateFile  Nome del template da utilizzare.
      * @param templateModel Modello di dati per il rendering del template.
@@ -49,8 +49,9 @@ public class DocumentCompositionImpl implements DocumentComposition {
     }
 
     /**
-     * Genera un PDF basato su un template FreeMarker, usando prima executeTextTemplate per ottenere il contenuto HTML,
-     * che viene poi convertito in PDF tramite generatePdf.
+     * Genera un documento PDF a partire da un template FreeMarker.
+     * Prima esegue la generazione del contenuto HTML tramite il metodo `executeTextTemplate`,
+     * e successivamente lo converte in PDF.
      *
      * @param templateFile  Nome del template da utilizzare.
      * @param templateModel Modello di dati per il rendering del template.
@@ -63,12 +64,13 @@ public class DocumentCompositionImpl implements DocumentComposition {
     }
 
     /**
-     * Metodo ausiliario che elabora un template FreeMarker usando il modello
-     * di dati fornito e restituisce il risultato come stringa di testo.
+     * Elabora un template FreeMarker utilizzando il modello di dati fornito,
+     * restituendo il risultato come stringa.
      *
      * @param templateFile  Nome del template da caricare.
      * @param templateModel Dati per il rendering.
      * @return Una String contenente l'output del template processato.
+     * @throws PnGenericException In caso di errori durante il rendering del template.
      */
     private String processTemplate(String templateFile, Object templateModel) {
         log.info("Conversion on Text, templateFile={} - START", templateFile);
@@ -90,6 +92,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
      *
      * @param html Contenuto HTML da convertire in PDF.
      * @return Un array di byte rappresentante il PDF generato.
+     * @throws PnGenericException In caso di errori durante la generazione del PDF.
      */
     private byte[] generatePdf(String html) {
         log.info("Generating Pdf  - START");

@@ -23,8 +23,6 @@ public class PnFreemarkerConfig {
 
     /**
      * Configura e restituisce un bean FreeMarker `Configuration` utilizzato per il rendering dei template.
-     * Questo metodo imposta il caricamento dei template da una sorgente:
-     * - `StringTemplateLoader` per caricare i template definiti come stringhe in base alla configurazione.
      *
      * @param templatesPath il percorso della directory che contiene i template, ottenuto dalle proprietà applicative.
      * @return un'istanza di `freemarker.template.Configuration` configurata per l'utilizzo con FreeMarker.
