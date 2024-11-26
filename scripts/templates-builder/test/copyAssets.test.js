@@ -29,7 +29,7 @@ describe("copyAssets", () => {
     }
   );
 
-  it("should throw an error and log it if copying fails", async () => {
+  it("should throw an error if copying fails", async () => {
     const copySpy = jest.spyOn(fs, "copy").mockImplementation(() => {
       throw new Error("Copy failed");
     });
