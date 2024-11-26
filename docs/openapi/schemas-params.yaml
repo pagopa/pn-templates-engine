@@ -228,7 +228,6 @@ components:
         - iun
         - when
         - recipient
-        - delegate
       properties:
         iun:
           type: string
@@ -274,9 +273,7 @@ components:
       required:
         - denomination
         - taxId
-        - address
         - type
-        - addressSource
         - responseDate
         - ok
       properties:
@@ -301,7 +298,6 @@ components:
         - sendDate
         - notification
         - subject
-        - physicalAddressAndDenomination
         - digests
       properties:
         sendDate:
@@ -372,8 +368,6 @@ components:
 
     DigitalDomicile:
       type: object
-      required:
-        - address
       properties:
         address:
           type: string
