@@ -27,8 +27,8 @@ async function processMJMLFiles(dir) {
       }
     }
   } catch (err) {
-    log.error("Error processing mjml");
-    throw err;
+    log.error(err);
+    throw new Error("Error processing mjml");
   }
 }
 

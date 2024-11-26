@@ -17,8 +17,8 @@ async function copyAssets() {
 
     log.info("Assets copied!");
   } catch (err) {
-    log.error("Error copying assets");
-    throw err;
+    log.error(err);
+    throw new Error("Error copying assets");
   }
 }
 

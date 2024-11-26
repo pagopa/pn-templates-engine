@@ -106,8 +106,8 @@ async function generateHtmlTemplate() {
 
     log.info("Html templates generated!");
   } catch (err) {
-    log.error("Error generating html templates");
-    throw err;
+    log.error(err);
+    throw new Error("Error generating html templates");
   }
 }
 
