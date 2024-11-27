@@ -512,10 +512,6 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  ############################################################################################
-  ###                         SuccessResponseText  Subjects                                ###
-  ############################################################################################
-
   /templates-engine-private/v1/templates/notification-aar-subject:
     put:
       summary: NotificationAARSubject
@@ -545,6 +541,10 @@ paths:
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  ############################################################################################
+  ###                                     TXT no input Body                                ###
+  ############################################################################################
 
   /templates-engine-private/v1/templates/mail-verification-code-subject:
     put:
