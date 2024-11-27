@@ -4,7 +4,7 @@
 
 <head>
     <meta name="author" content="SEND - Servizio Notifiche Digitali" />
-    <title>Attestazione opponibile a terzi</title>
+    <title><% if (noIta) { %><%=subject%> &bull; <% } %><%=it_subject%></title>
     <link rel="stylesheet" href="../../styles/index.css">
 </head>
 
@@ -12,10 +12,10 @@
     <div class="container">
         <div id="header" class="row">
             <div class="left-col">
-                <img src="images/pn-logo-header.png" alt="Logo" />
+                <img src="../../images/pn-logo-header.png" alt="Logo" />
             </div>
             <div class="right-col">
-                <img src="images/send-logo.png" alt="Send Logo" />
+                <img src="../../images/send-logo.png" alt="Send Logo" />
             </div>
         </div>
         <!-- Se il footer viene messo in fondo al documento compare solo nell'ultima pagina -->
@@ -30,7 +30,7 @@
                 </p>
             </div>
             <div class="right-col">
-                <img src="images/pn-logo-footer.png" alt="Logo" />
+                <img src="../../images/pn-logo-footer.png" alt="Logo" />
             </div>
         </div>
         <% if (noIta) { %><h3 class="document-type mb-0">
