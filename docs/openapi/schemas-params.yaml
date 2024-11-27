@@ -20,7 +20,7 @@ components:
           type: string
           example: "Lingua non supportata. Usa uno dei seguenti valori: IT, DE, SL, FR."
 
-    Pecbody:
+    PecVerificationCodeBody:
       type: object
       required:
         - verificationCode
@@ -28,7 +28,15 @@ components:
         verificationCode:
           type: string
 
-    Emailbody:
+    PecValidationContactsSuccessBody:
+      type: object
+      required:
+        - verificationCode
+      properties:
+        verificationCode:
+          type: string
+
+    MailVerificationCodeBody:
       type: object
       required:
         - verificationCode
@@ -44,7 +52,7 @@ components:
         notification:
           $ref: '#/components/schemas/Notification'
 
-    NotificationAARSubject:
+    NotificationAARForSubject:
       type: object
       required:
         - notification
@@ -95,8 +103,6 @@ components:
         pnFaqSendURL:
           type: string
         piattaformaNotificheURL:
-          type: string
-        sendLogoLink:
           type: string
         notification:
           $ref: '#/components/schemas/Notification'
@@ -199,7 +205,7 @@ components:
         recipient:
           $ref: '#/components/schemas/Recipient'
 
-    LegalFactMalfunction:
+    MalfunctionLegalFact:
       type: object
       required:
         - startDate

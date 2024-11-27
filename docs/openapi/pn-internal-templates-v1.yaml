@@ -149,7 +149,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/LegalFactMalfunction'
+              $ref: 'schemas-params.yaml#/components/schemas/MalfunctionLegalFact'
       responses:
         '200':
           $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
@@ -362,7 +362,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/Emailbody'
+              $ref: 'schemas-params.yaml#/components/schemas/MailVerificationCodeBody'
 
       responses:
         '200':
@@ -392,7 +392,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/Pecbody'
+              $ref: 'schemas-params.yaml#/components/schemas/PecVerificationCodeBody'
 
       responses:
         '200':
@@ -422,7 +422,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/Pecbody'
+              $ref: 'schemas-params.yaml#/components/schemas/PecValidationContactsSuccessBody'
 
       responses:
         '200':
@@ -512,11 +512,11 @@ paths:
         '500':
           $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/notification-aar-subject:
+  /templates-engine-private/v1/templates/notification-aar-for-subject:
     put:
-      summary: NotificationAARSubject
-      description: Genera un documento TXT basato sul template NotificationAARSubject.
-      operationId: notificationAARSubject
+      summary: NotificationAARForSubject
+      description: Genera un documento TXT basato sul template NotificationAARForSubject.
+      operationId: notificationAARForSubject
       tags:
         - Template
       parameters:
@@ -532,7 +532,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/NotificationAARSubject'
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAARForSubject'
 
       responses:
         '200':
