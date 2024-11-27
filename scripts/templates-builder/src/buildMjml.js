@@ -1,9 +1,8 @@
 const path = require("node:path");
 const fs = require("fs-extra");
-const util = require("node:util");
 const { BASE_SOURCE_DIR } = require("./utils");
 const log = require("./logger");
-const exec = util.promisify(require("node:child_process").exec);
+const mjmlToHtml = require("mjml");
 
 const templatesDir = path.join(BASE_SOURCE_DIR, "templates");
 
@@ -23,7 +22,9 @@ async function processMJMLFiles(dir) {
         const outputFile = path.join(dir, "index.html");
 
         log.debug(`Processing ${fullPath}`);
-        await exec(`npx mjml ${fullPath} -o ${outputFile}`);
+        const mjml = await fs.readFile(fullPath, "utf8");
+        const { html } = mjmlToHtml(mjml);
+        await fs.writeFile(outputFile, html);
       }
     }
   } catch (err) {
