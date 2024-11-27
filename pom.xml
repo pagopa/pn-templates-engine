@@ -243,7 +243,7 @@
 									<executable>cmd</executable>
 									<arguments>
 										<argument>/c</argument>
-										<argument>build-templates.bat</argument>
+										<argument>build-templates.cmd</argument>
 									</arguments>
 								</configuration>
 							</execution>
