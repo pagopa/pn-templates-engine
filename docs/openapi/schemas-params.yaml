@@ -58,7 +58,7 @@ components:
         - notification
         - perfezionamentoURL
         - quickAccessLink
-        - PNFaqSendURL
+        - pnFaqSendURL
         - piattaformaNotificheURL
         - recipientType
         - recipient
@@ -69,7 +69,7 @@ components:
           type: string
         quickAccessLink:
           type: string
-        PNFaqSendURL:
+        pnFaqSendURL:
           type: string
         piattaformaNotificheURL:
           type: string
@@ -83,7 +83,7 @@ components:
       required:
         - perfezionamentoURL
         - quickAccessLink
-        - PNFaqSendURL
+        - pnFaqSendURL
         - piattaformaNotificheURL
         - sendLogoLink
         - notification
@@ -92,7 +92,7 @@ components:
           type: string
         quickAccessLink:
           type: string
-        PNFaqSendURL:
+        pnFaqSendURL:
           type: string
         piattaformaNotificheURL:
           type: string
