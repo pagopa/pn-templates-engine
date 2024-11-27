@@ -20,6 +20,7 @@ if exist "%TEST_RESOURCES_DIR%" (
 echo Running the template generation process...
 cd scripts\templates-builder
 call npm ci
+call npm test
 call npm run generate
 if errorlevel 1 (
     echo Failed to generate templates. Exiting.

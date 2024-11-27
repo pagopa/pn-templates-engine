@@ -18,6 +18,7 @@ fi
 echo "Running the template generation process..."
 cd ./scripts/templates-builder
 npm ci
+npm test
 npm run generate
 cd ../..
 
