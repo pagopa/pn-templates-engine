@@ -3,7 +3,11 @@
 <html lang="it">
 
 <head>
-    <title>Attestazione opponibile a terzi</title>
+    <#if endWorkflowStatus=="SUCCESS">
+    <title><% if (noIta) { %><%=subject_success%> &bull; <% } %><%=it_subject_success%></title>
+        <#else>
+        <title><% if (noIta) { %><%=subject_failure%> &bull; <% } %><%=it_subject_failure%></title>
+    </#if>
     <meta name="author" content="SEND - Servizio Notifiche Digitali" />
     <link rel="stylesheet" href="../../styles/index.css">
 </head>
