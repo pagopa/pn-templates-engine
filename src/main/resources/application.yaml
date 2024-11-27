@@ -95,6 +95,7 @@ templates:
     input:
       IT: "PEC_ValidationContactsSuccessBody/PEC_ValidationContactsSuccessBody.html"
   pecValidationContactsRejectBody:
+    loadAsString: true
     input:
       IT: "PEC_ValidationContactsRejectBody/PEC_ValidationContactsRejectBody.html"
   smsVerificationCodeBody:
