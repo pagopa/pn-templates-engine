@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -30,21 +31,19 @@ public class TemplateUtils {
     }
 
     /**
-     * Recupera il percorso formattato per un dato percorso relativo.
-     * <p>
-     * Il metodo risolve il percorso relativo fornito in un percorso assoluto e lo converte in una stringa URI.
-     * Il prefisso "file:///" viene sostituito con "file:/" per renderlo un URI valido.
-     * </p>
+     * Recupera baseUri dati templatePath e templateFile
      *
-     * @param relativePath il percorso relativo del template.
+     * @param templatesPath path direcotry templates
+     * @param templateFile nome file template
      * @return il percorso URI come stringa.
      * @throws PnGenericException se si verifica un errore durante la lettura del file o la risoluzione del percorso.
      */
-    public static String getFormattedPath(String relativePath) {
+    public static String getBaseURI(String templatesPath, String templateFile ) {
         try {
-            String absolutePath = new ClassPathResource(relativePath).getFile().getAbsolutePath();
-            String uriPath = Paths.get(absolutePath).toUri().toString();
-            return uriPath.replaceFirst("file:///", "file:/");
+            String relativePath = templatesPath + "/" + templateFile;
+            URL templateUrl = Thread.currentThread().getContextClassLoader().getResource( relativePath );
+            String baseUri = templateUrl.toString().replaceFirst("/[^/]*$", "/");
+            return baseUri;
         } catch (Exception exception) {
             throw new PnGenericException(ERROR_FILE_READING, exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -68,19 +67,4 @@ public class TemplateUtils {
             throw new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATE_LOADING, e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-    /**
-     * Costruisce il path per il caricamento dei file css e immagini.
-     *
-     * @param templatesPath percorso parentDirectory
-     * @param templateFile  percorso del file template.
-     * @return path relativo
-     */
-    public static String parentDirectory(String templatesPath, String templateFile ) {
-        String result = templatesPath + "/" + templateFile;
-        Path path = Paths.get(result);
-        String parentDirectory = path.getParent().toString();
-       return getFormattedPath(parentDirectory);
-    }
-
 }

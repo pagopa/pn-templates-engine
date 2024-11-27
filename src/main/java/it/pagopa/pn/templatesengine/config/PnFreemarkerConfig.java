@@ -47,7 +47,7 @@ public class PnFreemarkerConfig {
                 }
             });
 
-            //Aggiunge `StringTemplateLoader` alla configurazione di FreeMarke
+            //Aggiunge `StringTemplateLoader` alla configurazione di FreeMarker
             configuration.setTemplateLoader(stringLoader);
 
             //Configura un ObjectWrapper per gestire la visualizzazione di metodi e proprietà sugli oggetti

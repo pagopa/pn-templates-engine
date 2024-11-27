@@ -99,7 +99,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
     private byte[] generatePdf(String html, String templateFile) {
         log.info("Generating Pdf  - START");
         try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-            String baseUri = TemplateUtils.parentDirectory(templateConfig.getTemplatesPath(), templateFile);
+            String baseUri = TemplateUtils.getBaseURI(templateConfig.getTemplatesPath(), templateFile);
             Document jsoupDoc = Jsoup.parse(html);
             W3CDom w3cDom = new W3CDom();
             org.w3c.dom.Document w3cDoc = w3cDom.fromJsoup(jsoupDoc);

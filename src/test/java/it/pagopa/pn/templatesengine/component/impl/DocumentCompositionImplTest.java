@@ -26,7 +26,6 @@ class DocumentCompositionImplTest {
 
     private static final String TEMPLATE_NAME = "email_test.html";
     public static final String TEMPLATES_ASSETS = "templates-assets";
-    public static final String EMAIL_TEST = "email_test";
 
     @Autowired
     Configuration freemarkerConfig;
@@ -44,7 +43,7 @@ class DocumentCompositionImplTest {
             }
             String templateContent = new String(inputStream.readAllBytes());
             StringTemplateLoader stringLoader = new StringTemplateLoader();
-            stringLoader.putTemplate(EMAIL_TEST, templateContent);
+            stringLoader.putTemplate(TEMPLATE_NAME, templateContent);
             freemarkerConfig.setTemplateLoader(stringLoader);
             DefaultObjectWrapperBuilder owb = new DefaultObjectWrapperBuilder(freemarker.template.Configuration.VERSION_2_3_31);
             owb.setMethodAppearanceFineTuner((in, out) -> out.setMethodShadowsProperty(false));
@@ -64,7 +63,7 @@ class DocumentCompositionImplTest {
         Map<String, Object> model = new HashMap<>();
         model.put("model", testModel);
         //ACT - ASSERT
-        var result = Assertions.assertDoesNotThrow(() -> documentComposition.executePdfTemplate(EMAIL_TEST, model));
+        var result = Assertions.assertDoesNotThrow(() -> documentComposition.executePdfTemplate(TEMPLATE_NAME, model));
         Assertions.assertTrue(result.length > 0);
     }
 
@@ -77,7 +76,7 @@ class DocumentCompositionImplTest {
         Map<String, Object> model = new HashMap<>();
         model.put("model", testModel);
         // ACT - ASSERT
-        String result = Assertions.assertDoesNotThrow(() -> documentComposition.executeTextTemplate(EMAIL_TEST, model));
+        String result = Assertions.assertDoesNotThrow(() -> documentComposition.executeTextTemplate(TEMPLATE_NAME, model));
         Assertions.assertTrue(result.contains(testModel.name));
     }
 
@@ -85,10 +84,10 @@ class DocumentCompositionImplTest {
     void processTemplate_shouldThrowPnGenericExceptionOnTemplateException() {
         // ARRANGE - ACT - ASSERT
         PnGenericException thrown = (PnGenericException)  Assertions.assertThrows(Exception.class, () ->
-                documentComposition.executeTextTemplate(TEMPLATE_NAME, new HashMap<>())
+                documentComposition.executeTextTemplate("email_test", new HashMap<>())
         );
         Assertions.assertEquals(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION, thrown.getExceptionType());
-        Assertions.assertTrue(thrown.getMessage().contains("Template not found for name \"email_test.html\""));
+        Assertions.assertTrue(thrown.getMessage().contains("Template not found for name \"email_test\""));
     }
 
     @Test
