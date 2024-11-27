@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum.ERROR_FILE_READING;
@@ -66,6 +67,20 @@ public class TemplateUtils {
         } catch (IOException e) {
             throw new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATE_LOADING, e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    /**
+     * Costruisce il path per il caricamento dei file css e immagini.
+     *
+     * @param templatesPath percorso parentDirectory
+     * @param templateFile  percorso del file template.
+     * @return path relativo
+     */
+    public static String parentDirectory(String templatesPath, String templateFile ) {
+        String result = templatesPath + "/" + templateFile;
+        Path path = Paths.get(result);
+        String parentDirectory = path.getParent().toString();
+       return getFormattedPath(parentDirectory);
     }
 
 }
