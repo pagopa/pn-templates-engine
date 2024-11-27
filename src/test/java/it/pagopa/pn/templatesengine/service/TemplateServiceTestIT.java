@@ -1,8 +1,8 @@
 package it.pagopa.pn.templatesengine.service;
 
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
-import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.Emailbody;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.MailVerificationCodeBody;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,7 @@ import java.util.stream.IntStream;
 
 @SpringBootTest
 class TemplateServiceTestIT {
+    private final int NUM_REQUESTS = 100;
 
     @Autowired
     TemplateService templateService;
@@ -26,11 +27,11 @@ class TemplateServiceTestIT {
     @Test
     void executeTextTemplate() {
         // Arrange
-        Emailbody emailbody = new Emailbody();
+        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
         // Genera un elenco di 10 richieste
-        List<Mono<String>> calls = IntStream.range(0, 10)
+        List<Mono<String>> calls = IntStream.range(0, NUM_REQUESTS)
                 .mapToObj(i -> templateService.executeTextTemplate(
                         TemplatesEnum.MAIL_VERIFICATION_CODE_BODY,
                         LanguageEnum.IT,
@@ -48,7 +49,7 @@ class TemplateServiceTestIT {
         // Assert
         StepVerifier.create(parallelResults)
                 .assertNext(results -> {
-                    Assertions.assertEquals(10, results.size(), "Expected 10 results");
+                    Assertions.assertEquals(NUM_REQUESTS, results.size(), "Expected 10 results");
                     results.forEach(result ->
                             Assertions.assertTrue(result.contains("VerificationCode"),
                                     "Each result should include the verification code"));
@@ -59,11 +60,11 @@ class TemplateServiceTestIT {
     @Test
     void executePdfTemplate() {
         // Arrange
-        Emailbody emailbody = new Emailbody();
+        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
-        // Genera un elenco di 10 richieste
-        List<Mono<byte[]>> calls = IntStream.range(0, 10)
+        // Genera un elenco di 100 richieste
+        List<Mono<byte[]>> calls = IntStream.range(0, NUM_REQUESTS)
                 .mapToObj(i -> templateService.executePdfTemplate(
                         TemplatesEnum.MAIL_VERIFICATION_CODE_BODY,
                         LanguageEnum.IT,
@@ -81,7 +82,7 @@ class TemplateServiceTestIT {
         // Assert
         StepVerifier.create(parallelResults)
                 .assertNext(results ->
-                        Assertions.assertEquals(10, results.size(), "Expected 10 results")
+                        Assertions.assertEquals(NUM_REQUESTS, results.size(), "Expected 10 results")
                 )
                 .verifyComplete();
     }
@@ -89,7 +90,7 @@ class TemplateServiceTestIT {
     @Test
     void executeTemplateNoBody() {
         // Genera un elenco di 10 richieste
-        List<Mono<String>> calls = IntStream.range(0, 10)
+        List<Mono<String>> calls = IntStream.range(0, NUM_REQUESTS)
                 .mapToObj(i -> templateService.executeTextTemplate(
                         TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_SUBJECT,
                         LanguageEnum.IT
@@ -106,7 +107,7 @@ class TemplateServiceTestIT {
         // Assert
         StepVerifier.create(parallelResults)
                 .assertNext(results -> {
-                    Assertions.assertEquals(10, results.size(), "Expected 10 results");
+                    Assertions.assertEquals(NUM_REQUESTS, results.size(), "Expected 10 results");
                     results.forEach(result ->
                             Assertions.assertTrue(result.contains("SEND - La PEC che hai inserito non è valida"),
                                     "Each result should include the verification code"));

@@ -7,8 +7,8 @@ import it.pagopa.pn.templatesengine.config.TemplateConfig;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
-import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.Emailbody;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.MailVerificationCodeBody;
 import lombok.Getter;
 import lombok.Setter;
 import org.junit.jupiter.api.Assertions;
@@ -43,7 +43,7 @@ class TemplateServiceTest {
     @Test
     void executeTextTemplate() {
         // Arrange
-        Emailbody emailbody = new Emailbody();
+        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
         // Act & Assert
@@ -58,7 +58,7 @@ class TemplateServiceTest {
     @Test
     void executePdfTemplate_Success() {
         // Arrange
-        Emailbody emailbody = new Emailbody();
+        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
         // Act & Assert
@@ -86,7 +86,7 @@ class TemplateServiceTest {
         // Arrange
         documentComposition = Mockito.mock(DocumentComposition.class);
         templateService = new TemplateService(documentComposition, templateConfig);
-        Emailbody emailbody = new Emailbody();
+        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
         Mockito.when(documentComposition.executePdfTemplate(Mockito.anyString(), Mockito.any()))
@@ -110,7 +110,7 @@ class TemplateServiceTest {
         // Arrange
         documentComposition = Mockito.mock(DocumentComposition.class);
         templateService = new TemplateService(documentComposition, templateConfig);
-        Emailbody emailbody = new Emailbody();
+        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
         Mockito.when(documentComposition.executeTextTemplate(Mockito.anyString(), Mockito.any()))
