@@ -43,7 +43,7 @@ public class TemplateApiController implements TemplateApi {
 
     @Override
     public Mono<ResponseEntity<Resource>> malfunctionLegalFact(LanguageEnum xLanguage,
-                                                               Mono<LegalFactMalfunction> request,
+                                                               Mono<MalfunctionLegalFact> request,
                                                                final ServerWebExchange exchange) {
         return processPdfTemplate(TemplatesEnum.MALFUNCTION_LEGAL_FACT, xLanguage, request);
     }
@@ -99,21 +99,21 @@ public class TemplateApiController implements TemplateApi {
 
     @Override
     public Mono<ResponseEntity<String>> mailVerificationCodeBody(LanguageEnum xLanguage,
-                                                  Mono<Emailbody> request,
+                                                  Mono<MailVerificationCodeBody> request,
                                                   final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecVerificationCodeBody(LanguageEnum xLanguage,
-                                                Mono<Pecbody> request,
+                                                Mono<PecVerificationCodeBody> request,
                                                 final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.PEC_VERIFICATION_CODE_BODY, xLanguage, request);
     }
 
     @Override
     public Mono<ResponseEntity<String>> pecValidationContactsSuccessBody(LanguageEnum xLanguage,
-                                                       Mono<Pecbody> request,
+                                                       Mono<PecValidationContactsSuccessBody> request,
                                                        final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_BODY, xLanguage, request);
     }
@@ -124,8 +124,8 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<String>> notificationAARSubject(LanguageEnum xLanguage,
-                                                               Mono<NotificationAARSubject> request,
+    public Mono<ResponseEntity<String>> notificationAARForSubject(LanguageEnum xLanguage,
+                                                               Mono<NotificationAARForSubject> request,
                                                                final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_SUBJECT, xLanguage, request);
     }
