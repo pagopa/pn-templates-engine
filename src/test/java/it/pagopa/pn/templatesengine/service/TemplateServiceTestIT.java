@@ -1,12 +1,12 @@
 package it.pagopa.pn.templatesengine.service;
 
-import it.pagopa.pn.templatesengine.config.BaseTest;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.Emailbody;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
@@ -17,7 +17,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-class TemplateServiceTestIT extends BaseTest {
+@SpringBootTest
+class TemplateServiceTestIT {
 
     @Autowired
     TemplateService templateService;

@@ -1,6 +1,5 @@
 package it.pagopa.pn.templatesengine.rest;
 
-import it.pagopa.pn.templatesengine.config.BaseTest;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.AnalogDeliveryWorkflowFailureLegalFact;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.DigitalDomicile;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
@@ -10,6 +9,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,9 @@ import reactor.core.scheduler.Schedulers;
 
 import java.util.stream.Stream;
 
-public class TemplateApiControllerTestIT extends BaseTest {
+@SpringBootTest
+@AutoConfigureMockMvc
+public class TemplateApiControllerTestIT {
 
     public static final String ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT = "/templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact";
     public static final String SMS_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/sms-verification-code-body";
