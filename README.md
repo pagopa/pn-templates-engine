@@ -1,3 +1,2 @@
-# pn-template-ms-be
+# pn-templates-engine
 
-A template project for a new PN backend microservice 

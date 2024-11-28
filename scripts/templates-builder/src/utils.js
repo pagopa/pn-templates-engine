@@ -4,7 +4,7 @@ const fs = require("fs-extra");
 const BASE_SOURCE_DIR = path.join(__dirname, "../../../templates-assets");
 const BASE_OUTPUT_DIR = path.join(
   __dirname,
-  "../../../target/generated-templates-assets"
+  "../../../src/main/resources/generated-templates-assets"
 );
 
 async function loadTranslations(language, templateDir) {

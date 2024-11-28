@@ -5,7 +5,7 @@
       width="116px"
       align="left"
       padding-right="0"
-      src="${sendLogoLink}"
+      src="https://www.notifichedigitali.it/static/generic_assets/aar-logo-short-small.png"
       alt="SEND - Servizio Notifiche Digitali"
     />
   </mj-column>

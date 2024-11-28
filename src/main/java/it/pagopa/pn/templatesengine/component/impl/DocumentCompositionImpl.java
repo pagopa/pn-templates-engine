@@ -60,7 +60,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
     @Override
     public byte[] executePdfTemplate(String templateFile, Object templateModel) {
         String htmlContent = executeTextTemplate(templateFile, templateModel);
-        return generatePdf(htmlContent);
+        return generatePdf(htmlContent, templateFile);
     }
 
     /**
@@ -94,10 +94,10 @@ public class DocumentCompositionImpl implements DocumentComposition {
      * @return Un array di byte rappresentante il PDF generato.
      * @throws PnGenericException In caso di errori durante la generazione del PDF.
      */
-    private byte[] generatePdf(String html) {
+    private byte[] generatePdf(String html, String templateFile) {
         log.info("Generating Pdf  - START");
         try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-            String baseUri = TemplateUtils.getFormattedPath(templateConfig.getTemplatesPath());
+            String baseUri = TemplateUtils.getBaseURI(templateConfig.getTemplatesPath(), templateFile);
             Document jsoupDoc = Jsoup.parse(html);
             W3CDom w3cDom = new W3CDom();
             org.w3c.dom.Document w3cDoc = w3cDom.fromJsoup(jsoupDoc);

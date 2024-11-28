@@ -42,3 +42,5 @@ templates-assets/templates/PEC_ValidationContactsSuccessBody/index.html
 templates-assets/templates/PEC_VerificationCodeBody/index.html
 templates-assets/templates/NotificationAARForEMAIL/index.html
 templates-assets/templates/NotificationAARForPEC/index.html
+/src/main/resources/generated-templates-assets
+/src/test/resources/generated-templates-assets

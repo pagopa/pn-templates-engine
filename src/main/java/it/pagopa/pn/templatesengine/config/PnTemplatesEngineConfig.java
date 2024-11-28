@@ -19,5 +19,4 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @Import(SharedAutoConfiguration.class)
 @Slf4j
 public class PnTemplatesEngineConfig {
-
 }

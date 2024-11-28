@@ -1,16 +1,14 @@
 package it.pagopa.pn.templatesengine.service;
 
-import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
-import freemarker.template.DefaultObjectWrapperBuilder;
 import it.pagopa.pn.templatesengine.component.DocumentComposition;
 import it.pagopa.pn.templatesengine.component.impl.DocumentCompositionImpl;
 import it.pagopa.pn.templatesengine.config.TemplateConfig;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
-import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.Emailbody;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.MailVerificationCodeBody;
 import lombok.Getter;
 import lombok.Setter;
 import org.junit.jupiter.api.Assertions;
@@ -19,66 +17,33 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
 
-@SpringBootTest(classes = {freemarker.template.Configuration.class})
+@SpringBootTest
 class TemplateServiceTest {
 
     @Autowired
     Configuration freemarkerConfig;
+    @Autowired
+    TemplateConfig templateConfig;
     TemplateService templateService;
     DocumentComposition documentComposition;
-    @MockBean
-    TemplateConfig templateConfig;
 
-    public static final String TEMPLATE_FILE_HTML = "Mail_VerificationCodeBody.html";
     private static final LanguageEnum LANGUAGE = LanguageEnum.IT;
-    private static final String TEMPLATE_PATH = "templates-assets";
 
     @BeforeEach
-    public void setup() throws IOException {
-        ClassLoader classLoader = getClass().getClassLoader();
-        try (InputStream inputStream = classLoader.getResourceAsStream(TEMPLATE_PATH + "/" + TEMPLATE_FILE_HTML)) {
-            if (inputStream == null) {
-                throw new IllegalArgumentException("File not found:");
-            }
-            String templateContent = new String(inputStream.readAllBytes());
-            StringTemplateLoader stringLoader = new StringTemplateLoader();
-            stringLoader.putTemplate(TEMPLATE_FILE_HTML, templateContent);
-            freemarkerConfig.setTemplateLoader(stringLoader);
-            DefaultObjectWrapperBuilder owb = new DefaultObjectWrapperBuilder(freemarker.template.Configuration.VERSION_2_3_31);
-            owb.setMethodAppearanceFineTuner((in, out) -> out.setMethodShadowsProperty(false));
-            freemarkerConfig.setObjectWrapper(owb.build());
-
-            templateConfig = new TemplateConfig();
-            templateConfig.setTemplatesPath(TEMPLATE_PATH);
-            //setInputs
-            Map<String, String> inputs = new HashMap<>();
-            inputs.put(LANGUAGE.getValue(), TEMPLATE_FILE_HTML);
-            TemplateConfig.Template template = new TemplateConfig.Template();
-            template.setInput(inputs);
-
-            Map<TemplatesEnum, TemplateConfig.Template> templates = new HashMap<>();
-            templates.put(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, template);
-            templateConfig.setTemplates(templates);
-            templateConfig.setTemplatesAsString(templates);
-        }
+    public void setup() {
+        documentComposition = new DocumentCompositionImpl(freemarkerConfig, templateConfig);
+        templateService = new TemplateService(documentComposition, templateConfig);
     }
 
     @Test
     void executeTextTemplate() {
         // Arrange
-        documentComposition = new DocumentCompositionImpl(freemarkerConfig, templateConfig);
-        templateService = new TemplateService(documentComposition, templateConfig);
-        Emailbody emailbody = new Emailbody();
+        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
         // Act & Assert
@@ -93,9 +58,7 @@ class TemplateServiceTest {
     @Test
     void executePdfTemplate_Success() {
         // Arrange
-        documentComposition = new DocumentCompositionImpl(freemarkerConfig, templateConfig);
-        templateService = new TemplateService(documentComposition, templateConfig);
-        Emailbody emailbody = new Emailbody();
+        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
         // Act & Assert
@@ -112,11 +75,9 @@ class TemplateServiceTest {
 
     @Test
     void executeTextTemplateAsString_Success() {
-        documentComposition = new DocumentCompositionImpl(freemarkerConfig, templateConfig);
-        templateService = new TemplateService(documentComposition, templateConfig);
         // Act & Assert
-        StepVerifier.create(templateService.executeTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE))
-                .expectNext(TEMPLATE_FILE_HTML)
+        StepVerifier.create(templateService.executeTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_SUBJECT, LANGUAGE))
+                .expectNext("SEND - Conferma la tua e-mail")
                 .verifyComplete();
     }
 
@@ -125,7 +86,7 @@ class TemplateServiceTest {
         // Arrange
         documentComposition = Mockito.mock(DocumentComposition.class);
         templateService = new TemplateService(documentComposition, templateConfig);
-        Emailbody emailbody = new Emailbody();
+        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
         Mockito.when(documentComposition.executePdfTemplate(Mockito.anyString(), Mockito.any()))
@@ -149,7 +110,7 @@ class TemplateServiceTest {
         // Arrange
         documentComposition = Mockito.mock(DocumentComposition.class);
         templateService = new TemplateService(documentComposition, templateConfig);
-        Emailbody emailbody = new Emailbody();
+        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
         Mockito.when(documentComposition.executeTextTemplate(Mockito.anyString(), Mockito.any()))
