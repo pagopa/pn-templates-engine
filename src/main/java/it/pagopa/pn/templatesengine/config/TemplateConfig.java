@@ -6,6 +6,7 @@ import it.pagopa.pn.templatesengine.utils.TemplateUtils;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
 @Data
 @Configuration
 @ConfigurationProperties
+@Slf4j
 public class TemplateConfig {
 
     private String templatesPath;
@@ -57,6 +59,7 @@ public class TemplateConfig {
                 throw new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND, enumValue, HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
+        log.info("All defined templates have been found!");
     }
 
     /**
