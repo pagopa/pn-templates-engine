@@ -127,7 +127,7 @@
     </div>
     <div class="row py-16" id="disclaimer">
         <% if (noIta) { %><p class="caption my-8"><%-disclaimer%></p><% } %>
-        <p class="caption mb-0"><%-it_disclaimer%></p>
+        <p class="caption <%= noIta ? 'mb-0' : 'my-8' %>"><%-it_disclaimer%></p>
     </div>
 </body>
 
