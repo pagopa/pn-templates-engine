@@ -95,6 +95,7 @@ templates:
     input:
       IT: "PEC_VerificationCodeSubject/PEC_VerificationCodeSubject.txt"
   pecValidationContactsSuccessBody:
+    loadAsString: true
     input:
       IT: "PEC_ValidationContactsSuccessBody/PEC_ValidationContactsSuccessBody.html"
   pecValidationContactsRejectBody:
