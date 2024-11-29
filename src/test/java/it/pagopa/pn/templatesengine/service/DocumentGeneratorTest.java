@@ -41,11 +41,13 @@ public class DocumentGeneratorTest {
         var template = TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT;
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
         var model = new NotificationReceiverLegalFact()
-                .notification(buildNotification())
+                .notification(new NotificationReceiverLegalFactNotification()
+                        .iun("TEST")
+                        .recipients()
+                        .sender())
                 .digests(new ArrayList<>())
                 .sendDate("TEST_sendDate")
-                .subject("TEST_subject")
-                .physicalAddressAndDenomination("TEST_physicalAddressAndDenomination");
+                .subject("TEST_subject");
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
@@ -91,8 +93,7 @@ public class DocumentGeneratorTest {
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
         var model = new NotificationCancelledLegalFact()
                 .notificationCancelledDate("TEST_startDate")
-                .notification(buildNotification())
-                .recipient(buildRecipient());
+                .notification(buildNotification());
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
@@ -107,9 +108,7 @@ public class DocumentGeneratorTest {
                 .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
                 .piattaformaNotificheURLLabel("TEST_piattaformaNotificheURLLabel")
                 .perfezionamentoURL("TEST_perfezionamentoURL")
-                .perfezionamentoURLLabel("TEST_perfezionamentoURLLabel")
-                .sendURL("TEST_sendURL")
-                .sendURLLAbel("TEST_sendURLLAbel");
+                .perfezionamentoURLLabel("TEST_perfezionamentoURLLabel");
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
