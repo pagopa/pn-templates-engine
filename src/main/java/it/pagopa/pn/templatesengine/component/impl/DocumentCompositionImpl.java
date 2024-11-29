@@ -81,8 +81,8 @@ public class DocumentCompositionImpl implements DocumentComposition {
             return stringWriter.toString();
         } catch (TemplateException | IOException ex) {
             throw new DocumentCompositionException(
-                    ex.getMessage(),
                     ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION.getMessage(),
+                    ex.getMessage(),
                     HttpStatus.INTERNAL_SERVER_ERROR.value(),
                     ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION.getTitle(),
                     templateFile
@@ -114,8 +114,8 @@ public class DocumentCompositionImpl implements DocumentComposition {
             return baos.toByteArray();
         } catch (IOException | PnGenericException ex) {
             throw new DocumentCompositionException(
-                    ex.getMessage(),
                     ExceptionTypeEnum.ERROR_PDF_DOCUMENT_GENERATION.getMessage(),
+                    ex.getMessage(),
                     HttpStatus.INTERNAL_SERVER_ERROR.value(),
                     ExceptionTypeEnum.ERROR_PDF_DOCUMENT_GENERATION.getTitle(),
                     templateFile
