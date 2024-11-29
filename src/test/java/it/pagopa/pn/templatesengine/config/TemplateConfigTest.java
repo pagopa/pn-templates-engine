@@ -44,7 +44,7 @@ class TemplateConfigTest {
 
         // Act - Assert
         PnGenericException exception = assertThrows(PnGenericException.class, () -> templateConfig.verifyTemplates());
-        Assertions.assertEquals(ExceptionTypeEnum.TEMPLATE_NOT_FOUND, exception.getExceptionType());
+        Assertions.assertEquals(ExceptionTypeEnum.TEMPLATE_NOT_FOUND_FOR_LANGUAGE, exception.getExceptionType());
     }
 
     @Test

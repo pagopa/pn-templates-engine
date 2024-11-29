@@ -4,16 +4,15 @@ import it.pagopa.pn.templatesengine.component.DocumentComposition;
 import it.pagopa.pn.templatesengine.config.TemplateConfig;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
-import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
+import it.pagopa.pn.templatesengine.exceptions.TemplateNotFoundException;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
-import java.util.Optional;
+import java.util.Map;
 
 /**
  * Service per l'esecuzione e la gestione dei template, supportando sia i formati di testo che PDF.
@@ -71,22 +70,6 @@ public class TemplateService {
     }
 
     /**
-     * Recupera il nome del file del template corrispondente alla lingua specificata.
-     *
-     * @param template il nome del template di cui ottenere il file.
-     * @param language la lingua per cui recuperare il file del template.
-     * @return il nome del file del template per la lingua specificata.
-     */
-    private String getFileName(TemplatesEnum template, LanguageEnum language) {
-        return Optional.ofNullable(templateConfig.getTemplates().get(template))
-                .map(TemplateConfig.Template::getInput)
-                .map(inputMap -> inputMap.get(language.getValue()))
-                .orElseThrow(() -> new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND,
-                        ExceptionTypeEnum.TEMPLATE_NOT_FOUND.getMessage() + template.getTemplate() + ", lingua: "
-                                + language.getValue(), HttpStatus.NOT_FOUND));
-    }
-
-    /**
      * Esegue un template definito come stringa, basandosi sul nome del template e la lingua,
      * senza applicare un modello di dati. Utilizzato per template memorizzati come testo semplice.
      *
@@ -96,15 +79,59 @@ public class TemplateService {
      */
     public Mono<String> executeTextTemplate(TemplatesEnum template, LanguageEnum language) {
         return Mono.defer(() -> {
-            log.info("Execute templateAsString for templateName={},  language={} - START", template, language);
-            TemplateConfig.Template templates = templateConfig.getTemplatesAsString().get(template);
-            String templateInput = Optional.ofNullable(templates)
-                    .map(t -> t.getInput().get(language.getValue()))
-                    .orElseThrow(() -> new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND,
-                            ExceptionTypeEnum.TEMPLATE_NOT_FOUND.getMessage() + template.getTemplate() + ", lingua: "
-                                    + language.getValue(), HttpStatus.NOT_FOUND));
-            log.info("Execute templateAsString for templateName={},  language={} - COMPLETED", template, language);
+            log.info("Execute templateAsString for templateName={}, language={} - START", template, language);
+            var templates = templateConfig.getTemplatesAsString().get(template);
+            if (templates == null) {
+                return Mono.error(templateNotFoundException(template));
+            }
+            String templateInput = templates.getInput().get(language.getValue());
+            if (templateInput == null) {
+                String availableLanguages = availableLanguages(templates.getInput());
+                return Mono.error(templateNotFoundForLanguage(template, language, availableLanguages));
+            }
+            log.info("Execute templateAsString for templateName={}, language={} - COMPLETED", template, language);
             return Mono.just(templateInput);
         });
+    }
+    /**
+     * Recupera il nome del file del template corrispondente alla lingua specificata.
+     *
+     * @param template il nome del template di cui ottenere il file.
+     * @param language la lingua per cui recuperare il file del template.
+     * @return il nome del file del template per la lingua specificata.
+     */
+    private String getFileName(TemplatesEnum template, LanguageEnum language) {
+        TemplateConfig.Template templates = templateConfig.getTemplates().get(template);
+        if (templates == null) {
+            templateNotFoundException(template);
+        }
+        String fileName = templates.getInput().get(language.getValue());
+        if (fileName == null) {
+            String availableLanguages = availableLanguages(templates.getInput());
+            templateNotFoundForLanguage(template, language, availableLanguages);
+        }
+        return fileName;
+    }
+
+    private static Throwable templateNotFoundForLanguage(TemplatesEnum template, LanguageEnum language, String availableLanguages) {
+        throw new TemplateNotFoundException(
+                ExceptionTypeEnum.TEMPLATE_NOT_FOUND_FOR_LANGUAGE,
+                template,
+                String.format("Template not found for language '%s'. %s", language.getValue(), availableLanguages)
+        );
+    }
+
+    private static Throwable templateNotFoundException(TemplatesEnum template) {
+        throw new TemplateNotFoundException(
+                ExceptionTypeEnum.TEMPLATE_NOT_FOUND_FOR_LANGUAGE,
+                template,
+                "Template not found: " + template.getTemplate());
+    }
+
+    private String availableLanguages(Map<String, String> input) {
+        if (input == null || input.isEmpty()) {
+            return "No languages available.";
+        }
+        return "Languages available for this template: " + String.join(", ", input.keySet());
     }
 }
