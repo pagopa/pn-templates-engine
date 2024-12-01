@@ -99,7 +99,7 @@ public class TemplateApiControllerTestIT {
     }
 
     private static Stream<Arguments> executePdfTemplateTest() {
-        var recipient = new  NotificationViewedLegalFactRecipient();
+        var recipient = new AnalogDeliveryWorkflowFailureRecipient();
         recipient.setDenomination("Denomination_test");
         recipient.setTaxId("TAX_ID_TEST");
         var analogDeliveryWorkflowFailureLegalFact = new AnalogDeliveryWorkflowFailureLegalFact()
