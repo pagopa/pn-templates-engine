@@ -82,9 +82,9 @@ class DocumentCompositionImplTest {
     }
 
     @Test
-    void processTemplate_shouldThrowPnGenericExceptionOnTemplateException() {
+    void processTemplate_shouldThrowDocumentCompositionExceptionOnTemplateException() {
         // ARRANGE - ACT - ASSERT
-        DocumentCompositionException  thrown = (DocumentCompositionException) Assertions.assertThrows(Exception.class, () ->
+        DocumentCompositionException  thrown = Assertions.assertThrows(DocumentCompositionException.class, () ->
                 documentComposition.executeTextTemplate("email_test", new HashMap<>())
         );
         Assertions.assertEquals(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION.getMessage(), thrown.getMessage());
@@ -92,10 +92,9 @@ class DocumentCompositionImplTest {
     }
 
     @Test
-    void processTemplate_shouldThrowPnGenericExceptionOnIOException() {
-
+    void processTemplate_shouldThrowDocumentCompositionExceptionOnIOException() {
         // ACT - ASSERT
-        DocumentCompositionException thrown = (DocumentCompositionException ) Assertions.assertThrows(Exception.class, () ->
+        DocumentCompositionException thrown = Assertions.assertThrows(DocumentCompositionException.class, () ->
                 documentComposition.executePdfTemplate(TEMPLATE_NAME, new HashMap<>())
         );
         Assertions.assertEquals(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION.getMessage(), thrown.getMessage());
