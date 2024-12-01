@@ -4,6 +4,7 @@ import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapperBuilder;
 import it.pagopa.pn.templatesengine.config.TemplateConfig;
+import it.pagopa.pn.templatesengine.exceptions.DocumentCompositionException;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
 import lombok.Getter;
@@ -83,21 +84,22 @@ class DocumentCompositionImplTest {
     @Test
     void processTemplate_shouldThrowPnGenericExceptionOnTemplateException() {
         // ARRANGE - ACT - ASSERT
-        PnGenericException thrown = (PnGenericException)  Assertions.assertThrows(Exception.class, () ->
+        DocumentCompositionException  thrown = (DocumentCompositionException) Assertions.assertThrows(Exception.class, () ->
                 documentComposition.executeTextTemplate("email_test", new HashMap<>())
         );
-        Assertions.assertEquals(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION, thrown.getExceptionType());
-        Assertions.assertTrue(thrown.getMessage().contains("Template not found for name \"email_test\""));
+        Assertions.assertEquals(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION.getMessage(), thrown.getMessage());
+        Assertions.assertTrue(thrown.getProblem().getDetail().contains("Template not found for name \"email_test\""));
     }
 
     @Test
     void processTemplate_shouldThrowPnGenericExceptionOnIOException() {
 
         // ACT - ASSERT
-        PnGenericException thrown = (PnGenericException) Assertions.assertThrows(Exception.class, () ->
+        DocumentCompositionException thrown = (DocumentCompositionException ) Assertions.assertThrows(Exception.class, () ->
                 documentComposition.executePdfTemplate(TEMPLATE_NAME, new HashMap<>())
         );
-        Assertions.assertEquals(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION, thrown.getExceptionType());
+        Assertions.assertEquals(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION.getMessage(), thrown.getMessage());
+        Assertions.assertTrue(thrown.getProblem().getDetail().contains("The following has evaluated to null or missing:"));
     }
 
     @Getter
