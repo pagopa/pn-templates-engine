@@ -6,7 +6,6 @@ import freemarker.template.DefaultObjectWrapperBuilder;
 import it.pagopa.pn.templatesengine.config.TemplateConfig;
 import it.pagopa.pn.templatesengine.exceptions.DocumentCompositionException;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
-import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
 import lombok.Getter;
 import lombok.Setter;
 import org.junit.jupiter.api.Assertions;
