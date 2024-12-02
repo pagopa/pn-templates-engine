@@ -80,13 +80,13 @@ public class TemplateService {
     public Mono<String> executeTextTemplate(TemplatesEnum template, LanguageEnum language) {
         return Mono.defer(() -> {
             log.info("Execute templateAsString for templateName={}, language={} - START", template, language);
-            var templates = templateConfig.getTemplatesAsString().get(template);
-            if (templates == null) {
+            TemplateConfig.Template templateAsString = templateConfig.getTemplatesAsString().get(template);
+            if (templateAsString == null) {
                 return Mono.error(templateNotFoundException(template));
             }
-            String templateInput = templates.getInput().get(language.getValue());
+            String templateInput = templateAsString.getInput().get(language.getValue());
             if (templateInput == null) {
-                String availableLanguages = availableLanguages(templates.getInput());
+                String availableLanguages = availableLanguages(templateAsString.getInput());
                 return Mono.error(templateNotFoundForLanguage(template, language, availableLanguages));
             }
             log.info("Execute templateAsString for templateName={}, language={} - COMPLETED", template, language);
