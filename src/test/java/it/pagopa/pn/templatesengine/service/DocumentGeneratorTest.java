@@ -17,7 +17,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 @SpringBootTest
 public class DocumentGeneratorTest {
@@ -40,12 +39,22 @@ public class DocumentGeneratorTest {
     void generate_notificationReceivedLegalFact() {
         var template = TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT;
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
-        var model = new NotificationReceiverLegalFact()
-                .notification(buildNotification())
+        var recipient = new NotificationReceivedRecipient()
+                .denomination("Galileo Bruno")
+                .digitalDomicile(new NotificationReceivedDigitalDomicile().address("test@dominioPec.it"))
+                .taxId("CDCFSC11R99X001Z")
+                .physicalAddressAndDenomination("TEST_PhysicalAddressAndDenomination");
+        var notification = new NotificationReceivedNotification()
+                .iun("TEST")
+                .recipients(Collections.singletonList(recipient))
+                .sender(new NotificationReceivedSender()
+                        .paDenomination("TEST_paDenomination")
+                        .paTaxId("TEST_paTaxId"));
+        var model = new NotificationReceivedLegalFact()
+                .notification(notification)
                 .digests(new ArrayList<>())
                 .sendDate("TEST_sendDate")
-                .subject("TEST_subject")
-                .physicalAddressAndDenomination("TEST_physicalAddressAndDenomination");
+                .subject("TEST_subject");
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
@@ -53,11 +62,19 @@ public class DocumentGeneratorTest {
     void generate_pecDeliveryWorkflowLegalFact() {
         var template = TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT;
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
+        var delivery = new PecDeliveryWorkflowDelivery()
+                .denomination("TEST_denomination")
+                .taxId("TEST_taxId")
+                .address("TEST_address")
+                .type("TEST_type")
+                .addressSource("PLATFORM")
+                .responseDate("TEST_responseDate")
+                .ok(true);
         var model = new PecDeliveryWorkflowLegalFact()
                 .iun("TEST_iun")
                 .endWorkflowDate("TEST_endWorkflowDate")
                 .endWorkflowStatus("TEST_endWorkflowStatus")
-                .deliveries(buildDeliveries());
+                .deliveries(Collections.singletonList(delivery));
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
@@ -65,11 +82,17 @@ public class DocumentGeneratorTest {
     void generate_notificationViewedLegalFact() {
         var template = TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT;
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
+        var recipient = new NotificationViewedRecipient()
+                .denomination("Galileo Bruno")
+                .taxId("CDCFSC11R99X001Z");
+        var delegate = new NotificationViewedDelegate()
+                .denomination("Mario Rossi")
+                .taxId("MRRSSC11R99X001Z");
         var model = new NotificationViewedLegalFact()
                 .iun("TEST_iun")
                 .when("TEST_when")
-                .recipient(buildRecipient())
-                .delegate(buildDelegate());
+                .recipient(recipient)
+                .delegate(delegate);
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
@@ -89,45 +112,70 @@ public class DocumentGeneratorTest {
     void generate_notificationCancelledLegalFact() {
         var template = TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT;
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
+        var recipient = new NotificationCancelledRecipient()
+                .denomination("Galileo Bruno")
+                .taxId("CDCFSC11R99X001Z");
+        var sender = new NotificationCancelledSender()
+                .paDenomination("TEST_PaDenomination");
+        var notification = new NotificationCancelledNotification()
+                .iun("TEST")
+                .recipients(Collections.singletonList(recipient))
+                .sender(sender);
         var model = new NotificationCancelledLegalFact()
                 .notificationCancelledDate("TEST_startDate")
-                .notification(buildNotification())
-                .recipient(buildRecipient());
+                .notification(notification);
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
     @Test
-    void generate_notificationAAR() {
+    void generate_notificationAar() {
         var template = TemplatesEnum.NOTIFICATION_AAR;
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
-        var model = new NotificationAAR()
-                .notification(buildNotification())
+        var sender = new AarSender()
+                .paDenomination("TEST_PaDenomination");
+        var notification = new AarNotification()
+                .iun("TEST_iun")
+                .sender(sender)
+                .subject("notification Titolo di 134 caratteri massimi spazi compresi. Aid olotielit, sed eiusmod tempora incidunt ue et et dolore magna aliqua aliqua aliqua");
+        var recepient = new AarRecipient()
+                .recipientType("PF")
+                .taxId("CDCFSC11R99X001Z");
+        var model = new NotificationAar()
+                .notification(notification)
                 .qrCodeQuickAccessLink(BASE64_QR)
-                .recipient(buildRecipient())
+                .recipient(recepient)
                 .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
                 .piattaformaNotificheURLLabel("TEST_piattaformaNotificheURLLabel")
                 .perfezionamentoURL("TEST_perfezionamentoURL")
-                .perfezionamentoURLLabel("TEST_perfezionamentoURLLabel")
-                .sendURL("TEST_sendURL")
-                .sendURLLAbel("TEST_sendURLLAbel");
+                .perfezionamentoURLLabel("TEST_perfezionamentoURLLabel");
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
     @Test
-    void generate_notificationAAR_RADDalt() {
+    void generate_notificationAarRaddAlt() {
         var template = TemplatesEnum.NOTIFICATION_AAR_RADDALT;
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
-        var model = new NotificationAARRADDalt()
-                .notification(buildNotification())
+        var sender = new AarRaddAltSender()
+                .paDenomination("TEST_PaDenomination");
+        var notification = new AarRaddAltNotification()
+                .iun("TEST_iun")
+                .sender(sender)
+                .subject("notification Titolo di 134 caratteri massimi spazi compresi. Aid olotielit, sed eiusmod tempora incidunt ue et et dolore magna aliqua aliqua aliqua");
+        var recepient = new AarRaddAltRecipient()
+                .denomination("Galileo Bruno")
+                .recipientType("PF")
+                .taxId("CDCFSC11R99X001Z");
+        var model = new NotificationAarRaddAlt()
+                .notification(notification)
                 .qrCodeQuickAccessLink(BASE64_QR)
-                .recipient(buildRecipient())
+                .recipient(recepient)
                 .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
                 .piattaformaNotificheURLLabel("TEST_piattaformaNotificheURLLabel")
                 .perfezionamentoURL("TEST_perfezionamentoURL")
                 .perfezionamentoURLLabel("TEST_perfezionamentoURLLabel")
                 .sendURL("TEST_sendURL")
                 .sendURLLAbel("TEST_sendURLLAbel")
-                .raddPhoneNumber("TEST_");
+                .raddPhoneNumber("TEST_raddPhoneNumber");
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
@@ -135,40 +183,56 @@ public class DocumentGeneratorTest {
     void generate_analogDeliveryWorkflowFailureLegalFact() {
         var template = TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT;
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
+        var recepient = new AnalogDeliveryWorkflowFailureRecipient()
+                .denomination("Galileo Bruno")
+                .taxId("CDCFSC11R99X001Z");
         var model = new AnalogDeliveryWorkflowFailureLegalFact()
                 .iun("TEST_iun")
                 .endWorkflowDate("TEST_endWorkflowDate")
                 .endWorkflowTime("TEST_endWorkflowTime")
-                .recipient(buildRecipient());
+                .recipient(recepient);
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
     /** HTML **/
     @Test
-    void generate_notificationAARForEMAIL() {
+    void generate_notificationAarForEmail() {
         var template = TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL;
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
-        var model = new NotificationAARForEMAIL()
+        var sender = new AarForEmailSender()
+                .paDenomination("TEST_PaDenomination");
+        var notification = new AarForEmailNotification()
+                .iun("TEST_iun")
+                .sender(sender);
+        var model = new NotificationAarForEmail()
                 .perfezionamentoURL("TEST_perfezionamentoURL")
                 .quickAccessLink("TEST_quickAccessLink")
                 .pnFaqSendURL("TEST_pnFaqSendURL")
                 .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
-                .notification(buildNotification());
+                .notification(notification);
         generateAndSaveDocument(template, langs, model, FileType.HTML);
     }
 
     @Test
-    void generate_notificationAARForPEC() {
+    void generate_notificationAarForPec() {
         var template = TemplatesEnum.NOTIFICATION_AAR_FOR_PEC;
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
-        var model = new NotificationAARForPEC()
-                .notification(buildNotification())
+        var sender = new AarForPecSender()
+                .paDenomination("TEST_PaDenomination");
+        var notification = new AarForPecNotification()
+                .iun("TEST_iun")
+                .subject("TEST_subject")
+                .sender(sender);
+        var recepient = new AarForPecRecipient()
+                .taxId("CDCFSC11R99X001Z");
+        var model = new NotificationAarForPec()
+                .notification(notification)
                 .perfezionamentoURL("TEST_perfezionamentoURL")
                 .quickAccessLink("TEST_quickAccessLink")
                 .pnFaqSendURL("TEST_pnFaqSendURL")
                 .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
                 .recipientType("PF")
-                .recipient(buildRecipient());
+                .recipient(recepient);
         generateAndSaveDocument(template, langs, model, FileType.HTML);
     }
 
@@ -194,9 +258,7 @@ public class DocumentGeneratorTest {
     void generate_pecValidationContactsSuccessBody() {
         var template = TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_BODY;
         LanguageEnum[] langs = { LanguageEnum.IT };
-        var model = new PecValidationContactsSuccessBody()
-                .verificationCode("TEST_verificationCode");
-        generateAndSaveDocument(template, langs, model, FileType.HTML);
+        generateAndSaveDocument(template, langs, null, FileType.HTML_NO_INPUT);
     }
 
     @Test
@@ -208,20 +270,29 @@ public class DocumentGeneratorTest {
 
     /** TXT **/
     @Test
-    void generate_notificationAARForSMS() {
+    void generate_notificationAarForSms() {
         var template = TemplatesEnum.NOTIFICATION_AAR_FOR_SMS;
         LanguageEnum[] langs = { LanguageEnum.IT };
-        var model = new NotificationAARForSMS()
-                .notification(buildNotification());
+        var sender = new AarForSmsSender()
+                .paDenomination("TEST_PaDenomination");
+        var notification = new AarForSmsNotification()
+                .iun("TEST_iun")
+                .sender(sender);
+        var model = new NotificationAarForSms()
+                .notification(notification);
         generateAndSaveDocument(template, langs, model, FileType.TXT);
     }
 
     @Test
-    void generate_notificationAARForSubject() {
+    void generate_notificationAarForSubject() {
         var template = TemplatesEnum.NOTIFICATION_AAR_FOR_SUBJECT;
         LanguageEnum[] langs = { LanguageEnum.IT };
-        var model = new NotificationAARForSubject()
-                .notification(buildNotification());
+        var sender = new AarForSubjectSender()
+                .paDenomination("TEST_PaDenomination");
+        var notification = new AarForSubjectNotification()
+                .sender(sender);
+        var model = new NotificationAarForSubject()
+                .notification(notification);
         generateAndSaveDocument(template, langs, model, FileType.TXT);
     }
 
@@ -285,51 +356,6 @@ public class DocumentGeneratorTest {
             });
             System.out.print(template.getTemplate() + " successfully created at: " + filePath);
         }
-    }
-
-    private Notification buildNotification() {
-        return new Notification()
-                .iun("TEST_iun")
-                .recipients(buildRecipients())
-                .sender(buildSender())
-                .subject("notification Titolo di 134 caratteri massimi spazi compresi. Aid olotielit, sed eiusmod tempora incidunt ue et et dolore magna aliqua aliqua aliqua");
-
-    }
-    private NotificationSender buildSender() {
-        return new NotificationSender()
-                .paDenomination("TEST_paDenomination")
-                .paId("TEST_paId")
-                .paTaxId("TEST_taxId");
-    }
-
-    private Recipient buildRecipient() {
-        return new Recipient()
-                .recipientType("PF")
-                .denomination("Galileo Bruno")
-                .digitalDomicile(new DigitalDomicile().address("test@dominioPec.it"))
-                .taxId("CDCFSC11R99X001Z")
-                .physicalAddress("TEST_physicalAddress");
-    }
-    private List<Recipient> buildRecipients() {
-        return Collections.singletonList(buildRecipient());
-    }
-
-    private List<Delivery> buildDeliveries() {
-        var delivery = new Delivery()
-                .denomination("TEST_denomination")
-                .taxId("TEST_taxId")
-                .address("TEST_address")
-                .type("TEST_type")
-                .addressSource("PLATFORM")
-                .responseDate("TEST_responseDate")
-                .ok(true);
-        return Collections.singletonList(delivery);
-    }
-
-    private Delegate buildDelegate() {
-        return new Delegate()
-                .denomination("TEST_denomination")
-                .taxId("TEST_taxId");
     }
 
     @Getter

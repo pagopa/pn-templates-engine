@@ -1,9 +1,6 @@
 package it.pagopa.pn.templatesengine.rest;
 
-import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.AnalogDeliveryWorkflowFailureLegalFact;
-import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.DigitalDomicile;
-import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
-import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.Recipient;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -102,12 +99,7 @@ public class TemplateApiControllerTestIT {
     }
 
     private static Stream<Arguments> executePdfTemplateTest() {
-        Recipient recipient = new Recipient();
-        recipient.setRecipientType("TYPE_TEST");
-        recipient.setPhysicalAddress("ADDRESS_TEST");
-        DigitalDomicile domicile = new DigitalDomicile();
-        domicile.setAddress("DIGITAL_ADDRESS_TEST");
-        recipient.setDigitalDomicile(domicile);
+        var recipient = new AnalogDeliveryWorkflowFailureRecipient();
         recipient.setDenomination("Denomination_test");
         recipient.setTaxId("TAX_ID_TEST");
         var analogDeliveryWorkflowFailureLegalFact = new AnalogDeliveryWorkflowFailureLegalFact()

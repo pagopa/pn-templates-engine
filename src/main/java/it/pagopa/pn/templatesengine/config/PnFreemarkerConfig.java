@@ -35,7 +35,7 @@ public class PnFreemarkerConfig {
             configuration.setLogTemplateExceptions(false);
             configuration.setWrapUncheckedExceptions(true);
 
-            //Carica i template come stringa dal file system
+            // Carica i template come string dal file system
             StringTemplateLoader stringLoader = new StringTemplateLoader();
             templateConfig.getTemplates().forEach((templateKey, template) -> {
                 Map<String, String> input = template.getInput();
@@ -47,10 +47,8 @@ public class PnFreemarkerConfig {
                 }
             });
 
-            //Aggiunge `StringTemplateLoader` alla configurazione di FreeMarker
             configuration.setTemplateLoader(stringLoader);
-
-            //Configura un ObjectWrapper per gestire la visualizzazione di metodi e proprietà sugli oggetti
+            // Configura un ObjectWrapper per gestire i metodi non setter nei model
             DefaultObjectWrapperBuilder owb = new DefaultObjectWrapperBuilder(freemarker.template.Configuration.VERSION_2_3_31);
             owb.setMethodAppearanceFineTuner((in, out) -> out.setMethodShadowsProperty(false));
             configuration.setObjectWrapper(owb.build());

@@ -1,7 +1,7 @@
 {
   "it_language": "it",
   "it_subject": "Dichiarazione annullamento notifica sulla piattaforma SEND",
-  "it_body1": "Con il presente documento, reso disponibile al destinatario esclusivamente sulla Piattaforma SEND, si dichiara che la notifica avente IUN <b>${notification.getIun()}</b>, eseguita nei confronti di:",
+  "it_body1": "Con il presente documento, reso disponibile al destinatario esclusivamente sulla Piattaforma SEND, si dichiara che la notifica avente IUN <b>${notification.iun}</b>, eseguita nei confronti di:",
   "it_denomination": "Nome e Cognome / Ragione Sociale",
   "it_fiscalcode": "Codice fiscale",
   "it_body2": "è stata annullata su specifica istanza del Mittente <b>${notification.sender.paDenomination}</b> in data <b>${notificationCancelledDate}</b>.",

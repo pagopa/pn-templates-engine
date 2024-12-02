@@ -31,10 +31,10 @@ public class TemplateApiControllerTest {
     public static final String PEC_DELIVERY_WORKFLOW_LEGAL_FACT = "/templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact";
     public static final String NOTIFICATION_CANCELLED_LEGAL_FACT = "/templates-engine-private/v1/templates/notification-cancelled-legal-fact";
     public static final String NOTIFICATION_AAR = "/templates-engine-private/v1/templates/notification-aar";
-    public static final String NOTIFICATION_AAR_RADDALT = "/templates-engine-private/v1/templates/notification-aar-radd-alt";
+    public static final String NOTIFICATION_AAR_RADD_ALT = "/templates-engine-private/v1/templates/notification-aar-radd-alt";
     public static final String ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT = "/templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact";
-    public static final String NOTIFICATION_AARFOR_EMAIL = "/templates-engine-private/v1/templates/notification-aar-for-email";
-    public static final String NOTIFICATION_AARFOR_PEC = "/templates-engine-private/v1/templates/notification-aar-for-pec";
+    public static final String NOTIFICATION_AAR_FOR_EMAIL = "/templates-engine-private/v1/templates/notification-aar-for-email";
+    public static final String NOTIFICATION_AAR_FOR_PEC = "/templates-engine-private/v1/templates/notification-aar-for-pec";
     public static final String MAIL_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/mail-verification-code-body";
     public static final String PEC_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/pec-verification-code-body";
     public static final String PEC_VALIDATION_CONTACTS_SUCCESS_BODY = "/templates-engine-private/v1/templates/pec-validation-contacts-success-body";
@@ -167,6 +167,14 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
+                        PEC_VALIDATION_CONTACTS_SUCCESS_BODY,
+                        TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_BODY,
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.ACCEPTED,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
                         PEC_VERIFICATION_CODE_SUBJECT,
                         TemplatesEnum.PEC_VERIFICATION_CODE_SUBJECT,
                         LanguageEnum.IT,
@@ -198,16 +206,7 @@ public class TemplateApiControllerTest {
                 Arguments.of(
                         NOTIFICATION_AAR_FOR_SUBJECT,
                         TemplatesEnum.NOTIFICATION_AAR_FOR_SUBJECT,
-                        new NotificationAARForSubject(),
-                        LanguageEnum.IT,
-                        MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
-                        EXPECTED_RESULT
-                ),
-                Arguments.of(
-                        PEC_VALIDATION_CONTACTS_SUCCESS_BODY,
-                        TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_BODY,
-                        new PecValidationContactsSuccessBody(),
+                        new NotificationAarForSubject(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -234,25 +233,25 @@ public class TemplateApiControllerTest {
                 Arguments.of(
                         NOTIFICATION_AAR_FOR_SMS,
                         TemplatesEnum.NOTIFICATION_AAR_FOR_SMS,
-                        new NotificationAARForSMS(),
+                        new NotificationAarForSms(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        NOTIFICATION_AARFOR_PEC,
+                        NOTIFICATION_AAR_FOR_PEC,
                         TemplatesEnum.NOTIFICATION_AAR_FOR_PEC,
-                        new NotificationAARForPEC(),
+                        new NotificationAarForPec(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        NOTIFICATION_AARFOR_EMAIL,
+                        NOTIFICATION_AAR_FOR_EMAIL,
                         TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL,
-                        new NotificationAARForEMAIL(),
+                        new NotificationAarForEmail(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -302,7 +301,7 @@ public class TemplateApiControllerTest {
                 Arguments.of(
                         NOTIFICATION_RECEIVED_LEGAL_FACT,
                         TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT,
-                        new NotificationReceiverLegalFact(),
+                        new NotificationReceivedLegalFact(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -318,9 +317,9 @@ public class TemplateApiControllerTest {
                         new byte[]{1, 2, 3}
                 ),
                 Arguments.of(
-                        NOTIFICATION_AAR_RADDALT,
+                        NOTIFICATION_AAR_RADD_ALT,
                         TemplatesEnum.NOTIFICATION_AAR_RADDALT,
-                        new NotificationAARRADDalt(),
+                        new NotificationAarRaddAlt(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
@@ -329,7 +328,7 @@ public class TemplateApiControllerTest {
                 Arguments.of(
                         NOTIFICATION_AAR,
                         TemplatesEnum.NOTIFICATION_AAR,
-                        new NotificationAAR(),
+                        new NotificationAar(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.ACCEPTED,
