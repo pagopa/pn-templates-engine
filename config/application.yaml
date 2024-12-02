@@ -48,13 +48,13 @@ templates:
       DE: "NotificationCancelledLegalFact/NotificationCancelledLegalFact_de.html"
       SL: "NotificationCancelledLegalFact/NotificationCancelledLegalFact_sl.html"
       FR: "NotificationCancelledLegalFact/NotificationCancelledLegalFact_fr.html"
-  notificationAAR:
+  notificationAar:
     input:
       IT: "NotificationAAR/NotificationAAR.html"
       DE: "NotificationAAR/NotificationAAR_de.html"
       SL: "NotificationAAR/NotificationAAR_sl.html"
       FR: "NotificationAAR/NotificationAAR_fr.html"
-  notificationAAR_RADDalt:
+  notificationAarRaddAlt:
     input:
       IT: "NotificationAAR_RADDalt/NotificationAAR_RADDalt.html"
       DE: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_de.html"
@@ -66,22 +66,22 @@ templates:
       DE: "AnalogDeliveryWorkflowFailureLegalFact/AnalogDeliveryWorkflowFailureLegalFact_de.html"
       SL: "AnalogDeliveryWorkflowFailureLegalFact/AnalogDeliveryWorkflowFailureLegalFact_sl.html"
       FR: "AnalogDeliveryWorkflowFailureLegalFact/AnalogDeliveryWorkflowFailureLegalFact_fr.html"
-  notificationAARForEMAIL:
+  notificationAarForEmail:
     input:
       IT: "NotificationAARForEMAIL/NotificationAARForEMAIL.html"
       DE: "NotificationAARForEMAIL/NotificationAARForEMAIL_de.html"
       SL: "NotificationAARForEMAIL/NotificationAARForEMAIL_sl.html"
       FR: "NotificationAARForEMAIL/NotificationAARForEMAIL_fr.html"
-  notificationAARForPEC:
+  notificationAarForPec:
     input:
       IT: "NotificationAARForPEC/NotificationAARForPEC.html"
       DE: "NotificationAARForPEC/NotificationAARForPEC_de.html"
       SL: "NotificationAARForPEC/NotificationAARForPEC_sl.html"
       FR: "NotificationAARForPEC/NotificationAARForPEC_fr.html"
-  notificationAARForSMS:
+  notificationAarForSms:
     input:
       IT: "NotificationAARForSMS/NotificationAARForSMS.txt"
-  notificationAARForSubject:
+  notificationAarForSubject:
     input:
       IT: "NotificationAARFor_Subject/NotificationAARFor_Subject.txt"
   mailVerificationCodeBody:
@@ -95,6 +95,7 @@ templates:
     input:
       IT: "PEC_VerificationCodeSubject/PEC_VerificationCodeSubject.txt"
   pecValidationContactsSuccessBody:
+    loadAsString: true
     input:
       IT: "PEC_ValidationContactsSuccessBody/PEC_ValidationContactsSuccessBody.html"
   pecValidationContactsRejectBody:

@@ -105,8 +105,8 @@
           <div class="left-col col-5-10">
             <p>
               <strong>
-                <#if (recipient.getDigitalDomicile().getAddress())??>
-                  ${recipient.getDigitalDomicile().getAddress()}
+                <#if (recipient.digitalDomicile.address)??>
+                  ${recipient.digitalDomicile.address}
                   <#else>
                     non fornito dalla PA
                 </#if>
@@ -122,7 +122,7 @@
           <div class="left-col col-5-10">
             <p>
               <strong>
-                <#if (recipient.getDigitalDomicile().getAddress())??>
+                <#if (recipient.digitalDomicile.address)??>
                   Domicilio eletto presso la Pubblica Amministrazione mittente ex art.26, comma 5 lettera b del D.L.
                   76/2020
                   <#else>
@@ -140,8 +140,8 @@
           <div class="left-col col-5-10">
             <p>
               <strong>
-                <#if (physicalAddressAndDenomination)??>
-                  ${physicalAddressAndDenomination}
+                <#if (recipient.physicalAddressAndDenomination)??>
+                  ${recipient.physicalAddressAndDenomination}
                   <#else>
                   non presente
                 </#if>
