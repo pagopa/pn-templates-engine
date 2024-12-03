@@ -33,5 +33,6 @@
   "delegate_list_2":"svoj osebni dokument;",
   "delegate_list_3":"svojo davčno številko;",
   "delegate_list_4":"kopijo ali izvirnik davčne številke in identifikacijski dokument osebe, ki je podala pooblastilo.",
-  "delegate_list_5":"un documento che attesti il tuo ruolo di legale rappresentante."
+  "delegate_list_5":"un documento che attesti il tuo ruolo di legale rappresentante.",
+  "legal_representative": "in qualità di legale rappresentante di"
 }

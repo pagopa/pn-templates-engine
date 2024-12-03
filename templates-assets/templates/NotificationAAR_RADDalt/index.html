@@ -671,22 +671,31 @@
                         <%-delegate_title%> &bull; <%-it_delegate_title%>
                     </div>
                     <div id="mandate-box__form" class="nine-px">
-                        <%-io%> &bull; <%-it_io%>, ${recipient.denomination}
-                            ${recipient.taxId}, <%-delego%> &bull; <%-it_delego%>
-                                <div class="nine-px eleven-lh border-bottom mb-form">
-                                    <p><%-name%></p>
-                                    <p><%-it_name%></p>
-                                </div>
-                                <div class="nine-px eleven-lh border-bottom mb-form">
-                                    <p><%-fiscalcode%></p>
-                                    <p><%-it_fiscalcode%></p>
-                                </div>
-                                <p><%-delegate_body%></p>
-                                <p><%-it_delegate_body%></p>
-                                <div class="nine-px eleven-lh border-bottom mb-form">
-                                    <p><%-signature%></p>
-                                    <p><%-it_signature%></p>
-                                </div>
+                        <%-io%> &bull; <%-it_io%>, <#if recipient.recipientType=="PF">${recipient.denomination}
+                        ${recipient.taxId},
+                        <#else>
+                        <span style="display: inline-block; width: 74mm; margin-top: 0; padding-left: 4px" class="nine-px eleven-lh border-bottom mb-form">
+                            <p><%-name%></p>
+                            <p><%-it_name%></p>
+                        </span>
+                        <p>
+                            <%-legal_representative%> &bull; <%-it_legal_representative%> ${recipient.denomination}${recipient.taxId}, 
+                        </p>
+                        </#if><%-delego%> &bull; <%-it_delego%>
+                        <div class="nine-px eleven-lh border-bottom mb-form">
+                            <p><%-name%></p>
+                            <p><%-it_name%></p>
+                        </div>
+                        <div class="nine-px eleven-lh border-bottom mb-form">
+                            <p><%-fiscalcode%></p>
+                            <p><%-it_fiscalcode%></p>
+                        </div>
+                        <p><%-delegate_body%></p>
+                        <p><%-it_delegate_body%></p>
+                        <div class="nine-px eleven-lh border-bottom mb-form">
+                            <p><%-signature%></p>
+                            <p><%-it_signature%></p>
+                        </div>
                     </div>
                     <div id="mandate-box__list" class="section-list nine-px eleven-lh">
                         <div>
