@@ -6,6 +6,7 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import it.pagopa.pn.templatesengine.component.DocumentComposition;
 import it.pagopa.pn.templatesengine.config.TemplateConfig;
+import it.pagopa.pn.templatesengine.exceptions.DocumentCompositionException;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
 import it.pagopa.pn.templatesengine.utils.TemplateUtils;
@@ -79,9 +80,12 @@ public class DocumentCompositionImpl implements DocumentComposition {
             template.process(templateModel, stringWriter);
             return stringWriter.toString();
         } catch (TemplateException | IOException ex) {
-            throw new PnGenericException(
-                    ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION,
-                    ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR
+            throw new DocumentCompositionException(
+                    ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION.getMessage(),
+                    ex.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                    ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION.getTitle(),
+                    templateFile
             );
         }
     }
@@ -108,10 +112,13 @@ public class DocumentCompositionImpl implements DocumentComposition {
             builder.toStream(baos);
             builder.run();
             return baos.toByteArray();
-        } catch (IOException ex) {
-            throw new PnGenericException(
-                    ExceptionTypeEnum.ERROR_PDF_DOCUMENT_GENERATION, ex.getMessage(),
-                    HttpStatus.INTERNAL_SERVER_ERROR
+        } catch (IOException | PnGenericException ex) {
+            throw new DocumentCompositionException(
+                    ExceptionTypeEnum.ERROR_PDF_DOCUMENT_GENERATION.getMessage(),
+                    ex.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                    ExceptionTypeEnum.ERROR_PDF_DOCUMENT_GENERATION.getTitle(),
+                    templateFile
             );
         }
     }

@@ -20,93 +20,6 @@ components:
           type: string
           example: "Lingua non supportata. Usa uno dei seguenti valori: IT, DE, SL, FR."
 
-    PecVerificationCodeBody:
-      type: object
-      required:
-        - verificationCode
-      properties:
-        verificationCode:
-          type: string
-
-    PecValidationContactsSuccessBody:
-      type: object
-      required:
-        - verificationCode
-      properties:
-        verificationCode:
-          type: string
-
-    MailVerificationCodeBody:
-      type: object
-      required:
-        - verificationCode
-      properties:
-        verificationCode:
-          type: string
-
-    NotificationAARForSMS:
-      type: object
-      required:
-        - notification
-      properties:
-        notification:
-          $ref: '#/components/schemas/Notification'
-
-    NotificationAARForSubject:
-      type: object
-      required:
-        - notification
-      properties:
-        notification:
-          $ref: '#/components/schemas/Notification'
-
-    NotificationAARForPEC:
-      type: object
-      required:
-        - notification
-        - perfezionamentoURL
-        - quickAccessLink
-        - pnFaqSendURL
-        - piattaformaNotificheURL
-        - recipientType
-        - recipient
-      properties:
-        notification:
-          $ref: '#/components/schemas/Notification'
-        perfezionamentoURL:
-          type: string
-        quickAccessLink:
-          type: string
-        pnFaqSendURL:
-          type: string
-        piattaformaNotificheURL:
-          type: string
-        recipientType:
-          type: string
-        recipient:
-          $ref: '#/components/schemas/Recipient'
-
-    NotificationAARForEMAIL:
-      type: object
-      required:
-        - perfezionamentoURL
-        - quickAccessLink
-        - pnFaqSendURL
-        - piattaformaNotificheURL
-        - sendLogoLink
-        - notification
-      properties:
-        perfezionamentoURL:
-          type: string
-        quickAccessLink:
-          type: string
-        pnFaqSendURL:
-          type: string
-        piattaformaNotificheURL:
-          type: string
-        notification:
-          $ref: '#/components/schemas/Notification'
-
     AnalogDeliveryWorkflowFailureLegalFact:
       type: object
       required:
@@ -122,88 +35,24 @@ components:
         endWorkflowTime:
           type: string
         recipient:
-          $ref: '#/components/schemas/Recipient'
+          title: AnalogDeliveryWorkflowFailureRecipient
+          type: object
+          required:
+            - denomination
+            - taxId
+          properties:
+            denomination:
+              type: string
+            taxId:
+              type: string
 
-    NotificationAAR_RADDalt:
+    MailVerificationCodeBody:
       type: object
       required:
-        - notification
-        - sendURL
-        - sendURLLAbel
-        - raddPhoneNumber
-        - perfezionamentoURL
-        - perfezionamentoURLLabel
-        - recipient
-        - piattaformaNotificheURL
-        - piattaformaNotificheURLLabel
-        - qrCodeQuickAccessLink
+        - verificationCode
       properties:
-        notification:
-          $ref: '#/components/schemas/Notification'
-        sendURL:
+        verificationCode:
           type: string
-        sendURLLAbel:
-          type: string
-        raddPhoneNumber:
-          type: string
-        perfezionamentoURL:
-          type: string
-        perfezionamentoURLLabel:
-          type: string
-        recipient:
-          $ref: '#/components/schemas/Recipient'
-        piattaformaNotificheURL:
-          type: string
-        piattaformaNotificheURLLabel:
-          type: string
-        qrCodeQuickAccessLink:
-          type: string
-
-    NotificationAAR:
-      type: object
-      required:
-        - notification
-        - qrCodeQuickAccessLink
-        - recipient
-        - piattaformaNotificheURL
-        - piattaformaNotificheURLLabel
-        - perfezionamentoURL
-        - perfezionamentoURLLabel
-        - sendURL
-        - sendURLLAbel
-      properties:
-        notification:
-          $ref: '#/components/schemas/Notification'
-        qrCodeQuickAccessLink:
-          type: string
-        recipient:
-          $ref: '#/components/schemas/Recipient'
-        piattaformaNotificheURL:
-          type: string
-        piattaformaNotificheURLLabel:
-          type: string
-        perfezionamentoURL:
-          type: string
-        perfezionamentoURLLabel:
-          type: string
-        sendURL:
-          type: string
-        sendURLLAbel:
-          type: string
-
-    NotificationCancelledLegalFact:
-      type: object
-      required:
-        - notificationCancelledDate
-        - notification
-        - recipient
-      properties:
-        notificationCancelledDate:
-          type: string
-        notification:
-          $ref: '#/components/schemas/Notification'
-        recipient:
-          $ref: '#/components/schemas/Recipient'
 
     MalfunctionLegalFact:
       type: object
@@ -222,6 +71,353 @@ components:
         timeReferenceEndDate:
           type: string
 
+    NotificationAar:
+      type: object
+      required:
+        - qrCodeQuickAccessLink
+        - piattaformaNotificheURL
+        - piattaformaNotificheURLLabel
+        - perfezionamentoURL
+        - perfezionamentoURLLabel
+        - notification
+        - recipient
+      properties:
+        qrCodeQuickAccessLink:
+          type: string
+        piattaformaNotificheURL:
+          type: string
+        piattaformaNotificheURLLabel:
+          type: string
+        perfezionamentoURL:
+          type: string
+        perfezionamentoURLLabel:
+          type: string
+        notification:
+          title: AarNotification
+          type: object
+          required:
+            - iun
+            - subject
+            - sender
+          properties:
+            iun:
+              type: string
+            subject:
+              type: string
+            sender:
+              title: AarSender
+              type: object
+              required:
+                - paDenomination
+              properties:
+                paDenomination:
+                  type: string
+        recipient:
+          title: AarRecipient
+          type: object
+          required:
+            - recipientType
+            - taxId
+          properties:
+            recipientType:
+              type: string
+            taxId:
+              type: string
+
+    NotificationAarRaddAlt:
+      type: object
+      required:
+        - qrCodeQuickAccessLink
+        - sendURL
+        - sendURLLAbel
+        - raddPhoneNumber
+        - piattaformaNotificheURL
+        - piattaformaNotificheURLLabel
+        - perfezionamentoURL
+        - perfezionamentoURLLabel
+        - notification
+        - recipient
+      properties:
+        qrCodeQuickAccessLink:
+          type: string
+        sendURL:
+          type: string
+        sendURLLAbel:
+          type: string
+        raddPhoneNumber:
+          type: string
+        piattaformaNotificheURL:
+          type: string
+        piattaformaNotificheURLLabel:
+          type: string
+        perfezionamentoURL:
+          type: string
+        perfezionamentoURLLabel:
+          type: string
+        notification:
+          title: AarRaddAltNotification
+          type: object
+          required:
+            - iun
+            - subject
+            - sender
+          properties:
+            iun:
+              type: string
+            subject:
+              type: string
+            sender:
+              title: AarRaddAltSender
+              type: object
+              required:
+                - paDenomination
+              properties:
+                paDenomination:
+                  type: string
+        recipient:
+          title: AarRaddAltRecipient
+          type: object
+          required:
+            - recipientType
+            - taxId
+            - denomination
+          properties:
+            recipientType:
+              type: string
+            taxId:
+              type: string
+            denomination:
+              type: string
+
+    NotificationAarForSubject:
+      type: object
+      required:
+        - notification
+      properties:
+        notification:
+          title: AarForSubjectNotification
+          type: object
+          required:
+            - sender
+          properties:
+            sender:
+              title: AarForSubjectSender
+              type: object
+              required:
+                - paDenomination
+              properties:
+                paDenomination:
+                  type: string
+
+    NotificationAarForEmail:
+      type: object
+      required:
+        - perfezionamentoURL
+        - quickAccessLink
+        - pnFaqSendURL
+        - piattaformaNotificheURL
+        - notification
+      properties:
+        perfezionamentoURL:
+          type: string
+        quickAccessLink:
+          type: string
+        pnFaqSendURL:
+          type: string
+        piattaformaNotificheURL:
+          type: string
+        notification:
+          title: AarForEmailNotification
+          type: object
+          required:
+            - iun
+            - sender
+          properties:
+            iun:
+              type: string
+            sender:
+              title: AarForEmailSender
+              type: object
+              required:
+                - paDenomination
+              properties:
+                paDenomination:
+                  type: string
+
+    NotificationAarForPec:
+      type: object
+      required:
+        - perfezionamentoURL
+        - quickAccessLink
+        - pnFaqSendURL
+        - piattaformaNotificheURL
+        - recipientType
+        - notification
+        - recipient
+      properties:
+        perfezionamentoURL:
+          type: string
+        quickAccessLink:
+          type: string
+        pnFaqSendURL:
+          type: string
+        piattaformaNotificheURL:
+          type: string
+        recipientType:
+          type: string
+        notification:
+          title: AarForPecNotification
+          type: object
+          required:
+            - iun
+            - subject
+            - sender
+          properties:
+            iun:
+              type: string
+            subject:
+              type: string
+            sender:
+              title: AarForPecSender
+              type: object
+              required:
+                - paDenomination
+              properties:
+                paDenomination:
+                  type: string
+        recipient:
+          title: AarForPecRecipient
+          type: object
+          required:
+            - taxId
+          properties:
+            taxId:
+              type: string
+
+    NotificationAarForSms:
+      type: object
+      required:
+        - notification
+      properties:
+        notification:
+          title: AarForSmsNotification
+          type: object
+          required:
+            - iun
+            - sender
+          properties:
+            iun:
+              type: string
+            sender:
+              title: AarForSmsSender
+              type: object
+              required:
+                - paDenomination
+              properties:
+                paDenomination:
+                  type: string
+
+    NotificationCancelledLegalFact:
+      type: object
+      required:
+        - notificationCancelledDate
+        - notification
+      properties:
+        notificationCancelledDate:
+          type: string
+        notification:
+          title: NotificationCancelledNotification
+          type: object
+          required:
+            - iun
+            - sender
+          properties:
+            iun:
+              type: string
+            sender:
+              title: NotificationCancelledSender
+              type: object
+              required:
+                - paDenomination
+              properties:
+                paDenomination:
+                  type: string
+            recipients:
+              type: array
+              minItems: 1
+              items:
+                title: NotificationCancelledRecipient
+                type: object
+                required:
+                  - denomination
+                  - taxId
+                properties:
+                  denomination:
+                    type: string
+                  taxId:
+                    type: string
+
+    NotificationReceivedLegalFact:
+      type: object
+      required:
+        - sendDate
+        - subject
+        - digests
+        - notification
+      properties:
+        sendDate:
+          type: string
+        subject:
+          type: string
+        digests:
+          type: array
+          minItems: 1
+          items:
+            type: string
+        notification:
+          title: NotificationReceivedNotification
+          type: object
+          required:
+            - iun
+            - sender
+            - recipients
+          properties:
+            iun:
+              type: string
+            sender:
+              title: NotificationReceivedSender
+              type: object
+              required:
+                - paDenomination
+                - paTaxId
+              properties:
+                paDenomination:
+                  type: string
+                paTaxId:
+                  type: string
+            recipients:
+              type: array
+              items:
+                title: NotificationReceivedRecipient
+                type: object
+                required:
+                  - denomination
+                  - taxId
+                  - digitalDomicile
+                properties:
+                  denomination:
+                    type: string
+                  taxId:
+                    type: string
+                  digitalDomicile:
+                    title: NotificationReceivedDigitalDomicile
+                    type: object
+                    properties:
+                      address:
+                        type: string
+                  physicalAddressAndDenomination:
+                    type: string
+
     NotificationViewedLegalFact:
       type: object
       required:
@@ -234,26 +430,40 @@ components:
         when:
           type: string
         recipient:
-          $ref: '#/components/schemas/Recipient'
+          title: NotificationViewedRecipient
+          type: object
+          required:
+            - denomination
+            - taxId
+          properties:
+            denomination:
+              type: string
+            taxId:
+              type: string
         delegate:
-          $ref: '#/components/schemas/Delegate'
+          title: NotificationViewedDelegate
+          type: object
+          required:
+            - denomination
+            - taxId
+          properties:
+            denomination:
+              type: string
+            taxId:
+              type: string
 
-    Delegate:
+    PecVerificationCodeBody:
       type: object
       required:
-        - denomination
-        - taxId
+        - verificationCode
       properties:
-        denomination:
-          type: string
-        taxId:
+        verificationCode:
           type: string
 
     PecDeliveryWorkflowLegalFact:
       type: object
       required:
         - iun
-        - endWorkflowDate
         - endWorkflowStatus
         - deliveries
       properties:
@@ -265,109 +475,27 @@ components:
           type: string
         deliveries:
           type: array
+          minItems: 1
           items:
-            $ref: '#/components/schemas/Delivery'
-
-    Delivery:
-      type: object
-      required:
-        - denomination
-        - taxId
-        - type
-        - responseDate
-        - ok
-      properties:
-        denomination:
-          type: string
-        taxId:
-          type: string
-        address:
-          type: string
-        type:
-          type: string
-        addressSource:
-          type: string
-        responseDate:
-          type: string
-        ok:
-          type: boolean
-
-    NotificationReceiverLegalFact:
-      type: object
-      required:
-        - sendDate
-        - notification
-        - subject
-        - digests
-      properties:
-        sendDate:
-          type: string
-        notification:
-          $ref: '#/components/schemas/Notification'
-        subject:
-          type: string
-        physicalAddressAndDenomination:
-          type: string
-        digests:
-          type: array
-          items:
-            type: string
-
-    Notification:
-      type: object
-      required:
-        - iun
-        - subject
-        - sender
-        - recipients
-      properties:
-        iun:
-          type: string
-        subject:
-          type: string
-        sender:
-          $ref: '#/components/schemas/NotificationSender'
-        recipients:
-          type: array
-          items:
-            $ref: '#/components/schemas/Recipient'
-
-    NotificationSender:
-      type: object
-      required:
-        - paId
-        - paDenomination
-        - paTaxId
-      properties:
-        paId:
-          type: string
-        paDenomination:
-          type: string
-        paTaxId:
-          type: string
-
-    Recipient:
-      type: object
-      required:
-        - recipientType
-        - denomination
-        - taxId
-        - physicalAddress
-        - digitalDomicile
-      properties:
-        recipientType:
-          type: string
-        denomination:
-          type: string
-        taxId:
-          type: string
-        physicalAddress:
-          type: string
-        digitalDomicile:
-          $ref: '#/components/schemas/DigitalDomicile'
-
-    DigitalDomicile:
-      type: object
-      properties:
-        address:
-          type: string
+            title: PecDeliveryWorkflowDelivery
+            type: object
+            required:
+              - denomination
+              - taxId
+              - responseDate
+              - ok
+            properties:
+              denomination:
+                type: string
+              taxId:
+                type: string
+              address:
+                type: string
+              type:
+                type: string
+              addressSource:
+                type: string
+              responseDate:
+                type: string
+              ok:
+                type: boolean

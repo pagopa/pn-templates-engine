@@ -1,7 +1,7 @@
 {
     "language": "de",
     "subject": "Erklärung zur Stornierung der Zustellung auf der Plattform SEND",
-    "body1": "Mit diesem Dokument, das dem Empfänger ausschließlich auf der Plattform SEND zur Verfügung steht, wird erklärt, dass die Zustellung mit IUN <b>${notification.getIun()}</b>an den Empfänger:",
+    "body1": "Mit diesem Dokument, das dem Empfänger ausschließlich auf der Plattform SEND zur Verfügung steht, wird erklärt, dass die Zustellung mit IUN <b>${notification.iun}</b>an den Empfänger:",
     "denomination": "Vor- und Nachname / Firmenbezeichnung",
     "fiscalcode": "Steuernummer",
     "body2": ", auf ausdrückliches Ersuchen des Absenders <b>${notification.sender.paDenomination}</b> am <b>${notificationCancelledDate}</b>.",

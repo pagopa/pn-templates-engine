@@ -56,7 +56,7 @@ public class TemplateConfig {
 
         for (String enumValue : enumValues) {
             if (!yamlKeys.contains(enumValue)) {
-                throw new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND, enumValue, HttpStatus.INTERNAL_SERVER_ERROR);
+                throw new PnGenericException(ExceptionTypeEnum.TEMPLATE_NOT_FOUND_FOR_LANGUAGE, enumValue, HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
         log.info("All defined templates have been found!");
