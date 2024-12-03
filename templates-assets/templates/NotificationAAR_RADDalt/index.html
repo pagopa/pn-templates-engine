@@ -625,7 +625,6 @@
         </div>
     </div>
 
-    <#if recipient.recipientType=="PF">
         <!--------------------------- PAGE 2 --------------------------->
 
         <div id="main-page2">
@@ -646,14 +645,18 @@
                                 <ul id="square-list">
                                     <li><%-retrieve_copy_list_1%></li>
                                     <li><%-retrieve_copy_list_2%></li>
-                                    <li><%-retrieve_copy_list_3%></li>
+                                    <li><%-retrieve_copy_list_3%><#if recipient.recipientType=="PF">.</li><#else>;</li>
+                                    <li><%-retrieve_copy_list_4%></li>
+                                    </#if>
                                 </ul>
                             </p>
                             <p class="language-less-margin"><%-it_retrieve_copy_title_list%>
                                 <ul id="square-list">
                                     <li><%-it_retrieve_copy_list_1%></li>
                                     <li><%-it_retrieve_copy_list_2%></li>
-                                    <li><%-it_retrieve_copy_list_3%></li>
+                                    <li><%-it_retrieve_copy_list_3%><#if recipient.recipientType=="PF">.</li><#else>;</li>
+                                    <li><%-it_retrieve_copy_list_4%></li>
+                                    </#if>
                                 </ul>
                             </p>
                         </li>
@@ -724,7 +727,6 @@
     </div>
     </div>
     </div>
-    </#if>
 
 </body>
 
