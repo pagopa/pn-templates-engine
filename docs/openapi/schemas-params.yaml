@@ -331,6 +331,7 @@ components:
           required:
             - iun
             - sender
+            - recipients
           properties:
             iun:
               type: string
