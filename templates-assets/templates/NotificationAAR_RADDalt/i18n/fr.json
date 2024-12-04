@@ -11,7 +11,7 @@
   "send_refinement": "Les documents sont disponibles en ligne et dans les Points de retrait SEND pendant 120 jours à compter de la date de prise d’effet de la notification (date à laquelle elle devient légalement valide à toutes fins). Pour en savoir plus, consultez le site",
   "send_refinement_link": "<a href=\"${perfezionamentoURL}\">${perfezionamentoURLLabel}</a>",
   "read_more":"En savoir plus",
-  "retrieve_copy":"RETIRER UN EXEMPLAIRE SUR LE TERRITOIRE - CONTRE PAIEMENT",
+  "retrieve_copy":"RETIRER UNE COPIE SUR LE TERRITOIRE - CONTRE PAIEMENT",
   "retrieve_copy_1":"Demandez les documents notifiés même sans SPID ou CIE aux Points de retrait SEND (CAF et autres services autorisés). Recherchez les points de retrait près de chez vous sur",
   "retrieve_copy_1_link":"<a href=\"${sendURL}punti-di-ritiro\">${sendURLLAbel}/punti-di-ritiro</a>",
   "retrieve_copy_2":"ou <b>appelez le ${raddPhoneNumber}</b>",
