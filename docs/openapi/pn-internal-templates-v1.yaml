@@ -63,11 +63,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact:
     put:
@@ -93,11 +93,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notification-viewed-legal-fact:
     put:
@@ -123,11 +123,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/malfunction-legal-fact:
     put:
@@ -152,11 +152,11 @@ paths:
               $ref: 'schemas-params.yaml#/components/schemas/MalfunctionLegalFact'
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notification-cancelled-legal-fact:
     put:
@@ -182,11 +182,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact:
     put:
@@ -212,11 +212,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notification-aar-radd-alt:
     put:
@@ -242,11 +242,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notification-aar:
     put:
@@ -272,11 +272,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponsePDF'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponsePDF'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   ############################################################################################
   ###                                    HTML Response                                     ###
@@ -306,11 +306,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notification-aar-for-pec:
     put:
@@ -336,11 +336,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/mail-verification-code-body:
     put:
@@ -366,11 +366,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pec-verification-code-body:
     put:
@@ -396,11 +396,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pec-validation-contacts-success-body:
     put:
@@ -419,11 +419,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pec-validation-contacts-reject-body:
     put:
@@ -442,11 +442,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseHTML'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseHTML'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   ############################################################################################
   ###                                     TXT Response                                     ###
@@ -476,11 +476,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseText'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/sms-verification-code-body:
     put:
@@ -499,11 +499,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseText'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/notification-aar-for-subject:
     put:
@@ -529,11 +529,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseText'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   ############################################################################################
   ###                                     TXT no input Body                                ###
@@ -556,11 +556,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseText'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pec-verification-code-subject:
     put:
@@ -579,11 +579,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseText'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pec-validation-contacts-success-subject:
     put:
@@ -602,11 +602,11 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseText'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
   /templates-engine-private/v1/templates/pec-validation-contacts-reject-subject:
     put:
@@ -625,8 +625,8 @@ paths:
 
       responses:
         '200':
-          $ref: 'shcemas-responses.yaml#/components/responses/SuccessResponseText'
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseText'
         '400':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseBadRequest'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
-          $ref: 'shcemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
