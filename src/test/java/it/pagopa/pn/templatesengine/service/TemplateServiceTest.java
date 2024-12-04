@@ -42,7 +42,7 @@ class TemplateServiceTest {
     }
 
     @Test
-    void executeTextTemplate() {
+    void executeTextTemplate_Success() {
         // Arrange
         MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
@@ -52,7 +52,8 @@ class TemplateServiceTest {
                 templateService.executeTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE, Mono.just(emailbody)));
 
         StepVerifier.create(result)
-                .expectNextCount(1)
+                .assertNext(r -> Assertions.assertTrue(r.contains("VerificationCode"),
+                            "Result should include the verification code"))
                 .verifyComplete();
     }
 
@@ -66,13 +67,13 @@ class TemplateServiceTest {
                 .timeReferenceEndDate("TEST_timeReferenceEndDate");
 
         // Act & Assert
-        Mono<String> result = Assertions.assertDoesNotThrow(() ->
-                templateService.executeTextTemplate(TemplatesEnum.MALFUNCTION_LEGAL_FACT, LANGUAGE, Mono.just(model)));
+        Mono<byte[]> result = Assertions.assertDoesNotThrow(() ->
+                templateService.executePdfTemplate(TemplatesEnum.MALFUNCTION_LEGAL_FACT, LANGUAGE, Mono.just(model)));
 
         StepVerifier.create(result)
-                .assertNext(actualResult -> {
-                    Assertions.assertTrue(actualResult.contains("TEST_startDate"),
-                            "Result should include TEST_startDate");
+                .assertNext(r -> {
+                    Assertions.assertNotNull(r);
+                    Assertions.assertEquals(r.length, 60560);
                 })
                 .verifyComplete();
     }
