@@ -9,6 +9,7 @@ import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.MailVerificationCodeBody;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.MalfunctionLegalFact;
 import lombok.Getter;
 import lombok.Setter;
 import org.junit.jupiter.api.Assertions;
@@ -47,8 +48,8 @@ class TemplateServiceTest {
         emailbody.setVerificationCode("VerificationCode");
 
         // Act & Assert
-        Mono<byte[]> result = Assertions.assertDoesNotThrow(() ->
-                templateService.executePdfTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE, Mono.just(emailbody)));
+        Mono<String> result = Assertions.assertDoesNotThrow(() ->
+                templateService.executeTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE, Mono.just(emailbody)));
 
         StepVerifier.create(result)
                 .expectNextCount(1)
@@ -58,17 +59,20 @@ class TemplateServiceTest {
     @Test
     void executePdfTemplate_Success() {
         // Arrange
-        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
-        emailbody.setVerificationCode("VerificationCode");
+        var model = new MalfunctionLegalFact()
+                .startDate("TEST_startDate")
+                .timeReferenceStartDate("TEST_timeReferenceStartDate")
+                .endDate("TEST_endDate")
+                .timeReferenceEndDate("TEST_timeReferenceEndDate");
 
         // Act & Assert
         Mono<String> result = Assertions.assertDoesNotThrow(() ->
-                templateService.executeTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE, Mono.just(emailbody)));
+                templateService.executeTextTemplate(TemplatesEnum.MALFUNCTION_LEGAL_FACT, LANGUAGE, Mono.just(model)));
 
         StepVerifier.create(result)
                 .assertNext(actualResult -> {
-                    Assertions.assertTrue(actualResult.contains("VerificationCode"),
-                            "Result should include the verification code");
+                    Assertions.assertTrue(actualResult.contains("TEST_startDate"),
+                            "Result should include TEST_startDate");
                 })
                 .verifyComplete();
     }
