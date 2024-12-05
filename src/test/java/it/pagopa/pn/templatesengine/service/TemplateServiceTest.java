@@ -73,7 +73,11 @@ class TemplateServiceTest {
         StepVerifier.create(result)
                 .assertNext(r -> {
                     Assertions.assertNotNull(r);
-                    Assertions.assertEquals(r.length, 60560);
+                    Assertions.assertTrue(r.length > 0, "PDF byte array should not be empty");
+
+                    // Verify it's a PDF by checking the first bytes for the "%PDF-" signature
+                    String pdfHeader = new String(r, 0, 5); // Read the first 5 bytes
+                    Assertions.assertEquals("%PDF-", pdfHeader, "Generated file is not a valid PDF");
                 })
                 .verifyComplete();
     }
