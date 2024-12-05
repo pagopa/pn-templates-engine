@@ -1,12 +1,8 @@
 <mjml lang="it">
   <mj-head>
     <mj-title>SEND - La PEC che hai inserito non &egrave; valida</mj-title>
-    <mj-font
-      name="Titillium Web"
-      href="https://selfcare.pagopa.it/assets/font/selfhostedfonts.css"
-    />
     <mj-attributes>
-      <mj-all font-family="Titillium Web, system-ui, sans-serif" />
+      <mj-all font-family="system-ui, sans-serif" />
     </mj-attributes>
     <mj-raw>
       <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />

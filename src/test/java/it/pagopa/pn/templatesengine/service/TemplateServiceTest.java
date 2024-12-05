@@ -9,6 +9,7 @@ import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.MailVerificationCodeBody;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.MalfunctionLegalFact;
 import lombok.Getter;
 import lombok.Setter;
 import org.junit.jupiter.api.Assertions;
@@ -41,22 +42,7 @@ class TemplateServiceTest {
     }
 
     @Test
-    void executeTextTemplate() {
-        // Arrange
-        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
-        emailbody.setVerificationCode("VerificationCode");
-
-        // Act & Assert
-        Mono<byte[]> result = Assertions.assertDoesNotThrow(() ->
-                templateService.executePdfTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE, Mono.just(emailbody)));
-
-        StepVerifier.create(result)
-                .expectNextCount(1)
-                .verifyComplete();
-    }
-
-    @Test
-    void executePdfTemplate_Success() {
+    void executeTextTemplate_Success() {
         // Arrange
         MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
@@ -66,9 +52,32 @@ class TemplateServiceTest {
                 templateService.executeTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE, Mono.just(emailbody)));
 
         StepVerifier.create(result)
-                .assertNext(actualResult -> {
-                    Assertions.assertTrue(actualResult.contains("VerificationCode"),
-                            "Result should include the verification code");
+                .assertNext(r -> Assertions.assertTrue(r.contains("VerificationCode"),
+                            "Result should include the verification code"))
+                .verifyComplete();
+    }
+
+    @Test
+    void executePdfTemplate_Success() {
+        // Arrange
+        var model = new MalfunctionLegalFact()
+                .startDate("TEST_startDate")
+                .timeReferenceStartDate("TEST_timeReferenceStartDate")
+                .endDate("TEST_endDate")
+                .timeReferenceEndDate("TEST_timeReferenceEndDate");
+
+        // Act & Assert
+        Mono<byte[]> result = Assertions.assertDoesNotThrow(() ->
+                templateService.executePdfTemplate(TemplatesEnum.MALFUNCTION_LEGAL_FACT, LANGUAGE, Mono.just(model)));
+
+        StepVerifier.create(result)
+                .assertNext(r -> {
+                    Assertions.assertNotNull(r);
+                    Assertions.assertTrue(r.length > 0, "PDF byte array should not be empty");
+
+                    // Verify it's a PDF by checking the first bytes for the "%PDF-" signature
+                    String pdfHeader = new String(r, 0, 5); // Read the first 5 bytes
+                    Assertions.assertEquals("%PDF-", pdfHeader, "Generated file is not a valid PDF");
                 })
                 .verifyComplete();
     }
