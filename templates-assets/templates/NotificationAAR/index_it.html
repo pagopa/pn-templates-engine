@@ -308,6 +308,16 @@
             margin: 2.8mm 0 0 auto;
         }
 
+        #digital_notifications_box {
+            width: 93mm;
+            float: left;
+        }
+
+        #mandate-box {
+            width: 93mm;
+            float: right;
+        }
+
         ul#square-list-mandate {
             margin-top: 1mm;
         }
@@ -511,6 +521,22 @@
             margin: 3mm;
             margin-bottom: 1mm;
         }
+
+        #digital_notifications_appio_box {
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 5mm 0;
+            padding: 2mm 0 2mm 2mm;
+            width: 96mm;
+        }
+
+        #appio_image {
+            width: 8mm;
+        }
+        
+        #appio_description {
+            padding-left: 4mm;
+        }
     </style>
 </head>
 
@@ -594,32 +620,59 @@
         </div>
 
 
-        <div id="lower-section" style="height: 99mm; position: relative; padding-top: 5.6mm;">
-            <div id="mandate-box">
-                <div class="heading ten-px">
-                    DELEGA QUALCUNO A RICEVERE LE TUE NOTIFICHE
+        <div id="lower-section" style="height: 99mm; position: relative; padding-top: 5.6mm;" class="relative-box">
+            <#if recipient.recipientType=="PF">
+                <div id="digital_notifications_box">
+                    <div class="heading ten-px">
+                        RICEVI LE PROSSIME NOTIFICHE IN DIGITALE
+                    </div>
+                    <table id="digital_notifications_appio_box">
+                        <tr>
+                            <td>
+                                <img id="appio_image" src="../../images/io-on-light.jpg" />
+                            </td>
+                            <td>
+                                <p id="appio_description" class="nine-px">
+                                    Scarica l’app IO e attiva il servizio SEND - Notifiche digitali di IO - L’app dei servizi pubblici. Se riceverai nuove notifiche, potrai visualizzare i documenti e pagare eventuali spese direttamente dal tuo dispositivo.
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                    <p class="nine-px">
+                        In alternativa, vai su SEND all’indirizzo
+                        <b><a href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                        e indica i recapiti digitali con cui vuoi ricevere le prossime notifiche e comunicazioni.
+                    </p>
                 </div>
-                <div id="mandate-box__form" class="nine-px">
-                    <div class="section-list nine-px eleven-lh">
-                        <ol>
-                            <li>
-                                Vai su <b><a
-                                        href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
-                                e accedi con SPID o CIE (Carta d'Identità Elettronica);
-                            </li>
-                            <li>Seleziona “Deleghe“;</li>
-                            <li>Premi “Aggiungi una delega” e inserisci i dati della persona che vuoi delegare;</li>
-                            <li>Questa dovrà accedere a SEND con SPID o CIE e accettare la richiesta di delega. A
-                                partire da quel momento, riceverà su SEND le notifiche destinate a te.</li>
-                        </ol>
+
+                <div id="mandate-box">
+                    <div class="heading ten-px">
+                        DELEGA QUALCUNO A RICEVERE LE TUE NOTIFICHE
+                    </div>
+                    <div id="mandate-box__form" class="nine-px">
+                        <div class="section-list nine-px eleven-lh">
+                            <ol>
+                                <li>
+                                    Vai su <b><a
+                                            href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                                    e accedi con SPID o CIE (Carta d'Identità Elettronica);
+                                </li>
+                                <li>Seleziona “Deleghe“;</li>
+                                <li>Premi “Aggiungi una delega” e inserisci i dati della persona che vuoi delegare;</li>
+                                <li>Questa dovrà accedere a SEND con SPID o CIE e accettare la richiesta di delega. A
+                                    partire da quel momento, riceverà su SEND le notifiche destinate a te.</li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <#if recipient.recipientType=="PF">
                 <div id="read-more">
                     <p><b>Scopri di più</b></p>
                     <img id="arrow_image" src="../../images/arrow.jpg" />
                 </div>
+            </#if>
+
+            <#if recipient.recipientType=="PG">
+
             </#if>
         </div>
 
