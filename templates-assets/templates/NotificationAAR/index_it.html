@@ -297,25 +297,19 @@
             top: 10mm;
         }
 
+        #mandate-box {
+            width: 93mm;
+            float: right;
+        }
+
         #mandate-box__form {
             float: left;
             margin: 2.8mm 0 0 0;
         }
 
-        #mandate-box__list {
-            float: right;
-            width: 93mm;
-            margin: 2.8mm 0 0 auto;
-        }
-
         #digital_notifications_box {
             width: 93mm;
             float: left;
-        }
-
-        #mandate-box {
-            width: 93mm;
-            float: right;
         }
 
         ul#square-list-mandate {
@@ -622,10 +616,12 @@
 
         <div id="lower-section" style="height: 99mm; position: relative; padding-top: 5.6mm;" class="relative-box">
             <#if recipient.recipientType=="PF">
-                <div id="digital_notifications_box">
-                    <div class="heading ten-px">
-                        RICEVI LE PROSSIME NOTIFICHE IN DIGITALE
-                    </div>
+            <div id="digital_notifications_box"><#else><div>
+            </#if>
+                <div class="heading ten-px">
+                    RICEVI LE PROSSIME NOTIFICHE IN DIGITALE
+                </div>
+                <#if recipient.recipientType=="PF">
                     <table id="digital_notifications_appio_box">
                         <tr>
                             <td>
@@ -643,36 +639,43 @@
                         <b><a href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
                         e indica i recapiti digitali con cui vuoi ricevere le prossime notifiche e comunicazioni.
                     </p>
-                </div>
+                <#else>
+                    <p class="nine-px" style="margin: 4mm 0 16mm 2mm"> 
+                        Vai su SEND all’indirizzo 
+                        <b><a href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                        e indica i recapiti digitali con cui vuoi ricevere le prossime notifiche e comunicazioni.
+                    </p>   
+                </#if>
+            </div>
 
-                <div id="mandate-box">
-                    <div class="heading ten-px">
-                        DELEGA QUALCUNO A RICEVERE LE TUE NOTIFICHE
-                    </div>
-                    <div id="mandate-box__form" class="nine-px">
-                        <div class="section-list nine-px eleven-lh">
-                            <ol>
-                                <li>
-                                    Vai su <b><a
-                                            href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
-                                    e accedi con SPID o CIE (Carta d'Identità Elettronica);
-                                </li>
-                                <li>Seleziona “Deleghe“;</li>
-                                <li>Premi “Aggiungi una delega” e inserisci i dati della persona che vuoi delegare;</li>
-                                <li>Questa dovrà accedere a SEND con SPID o CIE e accettare la richiesta di delega. A
-                                    partire da quel momento, riceverà su SEND le notifiche destinate a te.</li>
-                            </ol>
-                        </div>
+            <#if recipient.recipientType=="PF">
+            <div id="mandate-box"><#else><div>
+            </#if>
+                <div class="heading ten-px">
+                    DELEGA QUALCUNO A RICEVERE LE TUE NOTIFICHE
+                </div>
+                <div id="mandate-box__form" class="nine-px">
+                    <div class="section-list nine-px eleven-lh">
+                        <ol>
+                            <li>
+                                Vai su <b><a
+                                        href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                                e accedi con SPID o CIE (Carta d'Identità Elettronica);
+                            </li>
+                            <li>Seleziona “Deleghe“;</li>
+                            <li>Premi “Aggiungi una delega” e inserisci i dati della persona che vuoi delegare;</li>
+                            <li>Questa dovrà accedere a SEND con SPID o CIE e accettare la richiesta di delega. A
+                                partire da quel momento, riceverà su SEND le notifiche destinate a te.</li>
+                        </ol>
                     </div>
                 </div>
+            </div>
+
+            <#if recipient.recipientType=="PF">
                 <div id="read-more">
                     <p><b>Scopri di più</b></p>
                     <img id="arrow_image" src="../../images/arrow.jpg" />
                 </div>
-            </#if>
-
-            <#if recipient.recipientType=="PG">
-
             </#if>
         </div>
 
