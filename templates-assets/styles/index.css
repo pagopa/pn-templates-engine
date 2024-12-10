@@ -161,3 +161,7 @@ a.faq-link-perfezionamento {
 .py-16 {
     padding: 21.333px 0;
 }
+
+.page-break-avoid {
+    page-break-inside: avoid;
+}
