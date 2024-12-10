@@ -297,15 +297,19 @@
             top: 10mm;
         }
 
+        #mandate-box {
+            width: 93mm;
+            float: right;
+        }
+
         #mandate-box__form {
             float: left;
             margin: 2.8mm 0 0 0;
         }
 
-        #mandate-box__list {
-            float: right;
+        #digital_notifications_box {
             width: 93mm;
-            margin: 2.8mm 0 0 auto;
+            float: left;
         }
 
         ul#square-list-mandate {
@@ -511,6 +515,22 @@
             margin: 3mm;
             margin-bottom: 1mm;
         }
+
+        #digital_notifications_appio_box {
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 5mm 0;
+            padding: 2mm 0 2mm 2mm;
+            width: 96mm;
+        }
+
+        #appio_image {
+            width: 24px;
+        }
+        
+        #appio_description {
+            padding: 0 2mm 0 4mm;
+        }
     </style>
 </head>
 
@@ -594,8 +614,43 @@
         </div>
 
 
-        <div id="lower-section" style="height: 99mm; position: relative; padding-top: 5.6mm;">
-            <div id="mandate-box">
+        <div id="lower-section" style="height: 99mm; position: relative; padding-top: 5.6mm;" class="relative-box">
+            <#if recipient.recipientType=="PF">
+            <div id="digital_notifications_box"><#else><div>
+            </#if>
+                <div class="heading ten-px">
+                    RICEVI LE PROSSIME NOTIFICHE IN DIGITALE
+                </div>
+                <#if recipient.recipientType=="PF">
+                    <table id="digital_notifications_appio_box">
+                        <tr>
+                            <td>
+                                <img id="appio_image" src="../../images/io-on-light.jpg" />
+                            </td>
+                            <td>
+                                <p id="appio_description" class="nine-px">
+                                    Scarica l’app IO e attiva il servizio SEND - Notifiche digitali di IO - L’app dei servizi pubblici. Se riceverai nuove notifiche, potrai visualizzare i documenti e pagare eventuali spese direttamente dal tuo dispositivo.
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                    <p class="nine-px">
+                        In alternativa, vai su SEND all’indirizzo
+                        <b><a href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                        e indica i recapiti digitali con cui vuoi ricevere le prossime notifiche e comunicazioni.
+                    </p>
+                <#else>
+                    <p class="nine-px" style="margin: 4mm 0 16mm 2mm"> 
+                        Vai su SEND all’indirizzo 
+                        <b><a href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                        e indica i recapiti digitali con cui vuoi ricevere le prossime notifiche e comunicazioni.
+                    </p>   
+                </#if>
+            </div>
+
+            <#if recipient.recipientType=="PF">
+            <div id="mandate-box"><#else><div>
+            </#if>
                 <div class="heading ten-px">
                     DELEGA QUALCUNO A RICEVERE LE TUE NOTIFICHE
                 </div>
@@ -615,6 +670,7 @@
                     </div>
                 </div>
             </div>
+
             <#if recipient.recipientType=="PF">
                 <div id="read-more">
                     <p><b>Scopri di più</b></p>
