@@ -1,1 +1,1 @@
-SEND - Nuova notifica da ${notification.sender.paDenomination}<#if notification.iun??> - ${notification.iun}</#if>
+SEND - Nuova notifica da ${notification.sender.paDenomination} - ${notification.iun}
