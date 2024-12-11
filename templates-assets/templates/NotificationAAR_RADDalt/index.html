@@ -706,24 +706,21 @@
                         <li><%-delegate_list_1%></li>
                         <li><%-delegate_list_2%></li>
                         <li><%-delegate_list_3%></li>
-                        <li><%-delegate_list_4%>
-                                <#if recipient.recipientType=="PF">.</li>
-                        <#else>;</li>
+                        <li><%-delegate_list_4%><#if recipient.recipientType=="PF">.</li><#else>;</li>
                         <li><%-delegate_list_5%></li>
-                            </#if>
+                        </#if>
                     </ul>
                 </div>
+
                 <div class="language-margin">
                     <%-it_delegate_title_list%>
                         <ul id="square-list-mandate">
                             <li><%-it_delegate_list_1%></li>
                             <li><%-it_delegate_list_2%></li>
                             <li><%-it_delegate_list_3%></li>
-                            <li><%-it_delegate_list_4%>
-                                    <#if recipient.recipientType=="PF">.</li>
-                            <#else>;</li>
-                                <li><%-it_delegate_list_5%></li>
-                                </#if>
+                            <li><%-it_delegate_list_4%><#if recipient.recipientType=="PF">.</li><#else>;</li>
+                            <li><%-it_delegate_list_5%></li>
+                            </#if>
                         </ul>
                 </div>
             </div>
