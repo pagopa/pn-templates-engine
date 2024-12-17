@@ -147,7 +147,7 @@ public class TemplateApiControllerTest {
                         TemplatesEnum.SMS_VERIFICATION_CODE_BODY,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
@@ -155,7 +155,7 @@ public class TemplateApiControllerTest {
                         TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
@@ -163,7 +163,7 @@ public class TemplateApiControllerTest {
                         TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
@@ -171,7 +171,7 @@ public class TemplateApiControllerTest {
                         TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_BODY,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
@@ -179,7 +179,7 @@ public class TemplateApiControllerTest {
                         TemplatesEnum.PEC_VERIFICATION_CODE_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
@@ -187,7 +187,7 @@ public class TemplateApiControllerTest {
                         TemplatesEnum.MAIL_VERIFICATION_CODE_SUBJECT,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
@@ -195,7 +195,7 @@ public class TemplateApiControllerTest {
                         TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         EXPECTED_RESULT
                 )
         );
@@ -209,7 +209,7 @@ public class TemplateApiControllerTest {
                         new NotificationAarForSubject(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
@@ -218,7 +218,7 @@ public class TemplateApiControllerTest {
                         new PecVerificationCodeBody(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
@@ -227,7 +227,7 @@ public class TemplateApiControllerTest {
                         new MailVerificationCodeBody(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
@@ -236,7 +236,7 @@ public class TemplateApiControllerTest {
                         new NotificationAarForSms(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
@@ -245,7 +245,7 @@ public class TemplateApiControllerTest {
                         new NotificationAarForPec(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
@@ -254,7 +254,7 @@ public class TemplateApiControllerTest {
                         new NotificationAarForEmail(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         EXPECTED_RESULT
                 )
         );
@@ -268,7 +268,7 @@ public class TemplateApiControllerTest {
                         Mono.just(new AnalogDeliveryWorkflowFailureLegalFact()),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         new byte[]{1, 2, 3}
                 ),
                 Arguments.of(
@@ -277,7 +277,7 @@ public class TemplateApiControllerTest {
                         Mono.just(new NotificationCancelledLegalFact()),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         new byte[]{1, 2, 3}
                 ),
                 Arguments.of(
@@ -286,7 +286,7 @@ public class TemplateApiControllerTest {
                         Mono.just(new NotificationViewedLegalFact()),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         new byte[]{1, 2, 3}
                 ),
                 Arguments.of(
@@ -295,7 +295,7 @@ public class TemplateApiControllerTest {
                         new MalfunctionLegalFact(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         new byte[]{1, 2, 3}
                 ),
                 Arguments.of(
@@ -304,7 +304,7 @@ public class TemplateApiControllerTest {
                         new NotificationReceivedLegalFact(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         new byte[]{1, 2, 3}
                 ),
                 Arguments.of(
@@ -313,7 +313,7 @@ public class TemplateApiControllerTest {
                         new PecDeliveryWorkflowLegalFact(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         new byte[]{1, 2, 3}
                 ),
                 Arguments.of(
@@ -322,7 +322,7 @@ public class TemplateApiControllerTest {
                         new NotificationAarRaddAlt(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         new byte[]{1, 2, 3}
                 ),
                 Arguments.of(
@@ -331,7 +331,7 @@ public class TemplateApiControllerTest {
                         new NotificationAar(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED,
+                        HttpStatus.OK,
                         new byte[]{1, 2, 3}
                 )
         );
