@@ -1,6 +1,9 @@
 {
   "Parameters": {
     "PnCronAnalyzer": "* */1 * * * *",
-    "WireTapLogActivation": "false"
+    "WireTapLogActivation": "false",
+    "CpuValue": "2048",
+    "MemoryAmount": "4GB",
+    "JavaToolOptions": "-Dreactor.netty.ioWorkerCount=120 -XX:MaxDirectMemorySize=1G"
   }
 }

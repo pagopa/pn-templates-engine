@@ -176,6 +176,11 @@ Parameters:
     Default: '-'
     Description: Cron for which you send the metric to CloudWatch
 
+  JavaToolOptions:
+    Type: String
+    Default: ''
+    Description: JavaToolOptions
+
 Resources:
   # PN-Templates-Engine microservice
   TemplatesEngineMicroservice:
@@ -214,6 +219,7 @@ Resources:
         EcsLogGroup: !Ref EcsLogGroup
         LogAlarmStrategyV1: !Ref LogAlarmStrategy
         WireTapLogActivation: !Ref WireTapLogActivation
+        JavaToolOptions: !Ref JavaToolOptions
 
   TemplatesEngineTaskManagedPolicy:
     Type: AWS::IAM::ManagedPolicy
