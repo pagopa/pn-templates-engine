@@ -11,14 +11,15 @@
   "send_refinement": "Les documents sont disponibles en ligne et dans les Points de retrait SEND pendant 120 jours à compter de la date de prise d’effet de la notification (date à laquelle elle devient légalement valide à toutes fins). Pour en savoir plus, consultez le site",
   "send_refinement_link": "<a href=\"${perfezionamentoURL}\">${perfezionamentoURLLabel}</a>",
   "read_more":"En savoir plus",
-  "retrieve_copy":"RETIRER UN EXEMPLAIRE SUR LE TERRITOIRE - CONTRE PAIEMENT",
+  "retrieve_copy":"RETIRER UNE COPIE SUR LE TERRITOIRE - CONTRE PAIEMENT",
   "retrieve_copy_1":"Demandez les documents notifiés même sans SPID ou CIE aux Points de retrait SEND (CAF et autres services autorisés). Recherchez les points de retrait près de chez vous sur",
   "retrieve_copy_1_link":"<a href=\"${sendURL}punti-di-ritiro\">${sendURLLAbel}/punti-di-ritiro</a>",
   "retrieve_copy_2":"ou <b>appelez le ${raddPhoneNumber}</b>",
   "retrieve_copy_title_list":"Apportez avec vous:",
   "retrieve_copy_list_1":"cet accusé de réception;",
   "retrieve_copy_list_2":"votre pièce d'identité;",
-  "retrieve_copy_list_3":"votre code fiscal.",
+  "retrieve_copy_list_3":"votre code fiscal",
+  "retrieve_copy_list_4":"un documento che attesti il tuo ruolo di legale rappresentante.",
   "retrieve_copy_3":"Payez les frais de service et retirez les documents notifiés.",
   "delegate_title":"Souhaitez-vous désigner un délégué?",
   "io":"Je",
@@ -32,5 +33,6 @@
   "delegate_list_2":"sa pièce d'identité;",
   "delegate_list_3":"son numéro d’identification fiscale;",
   "delegate_list_4":"une copie ou l'original du code fiscal et une pièce d'identité de la personne délégante",
-  "delegate_list_5":"un documento che attesti il tuo ruolo di legale rappresentante."
+  "delegate_list_5":"un documento che attesti il ruolo di legale rappresentante del delegante.",
+  "legal_representative": "in qualità di legale rappresentante di"
 }

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="author" content="SEND - Servizio Notifiche Digitali">
-    <title><% if (noIta) { %><%-aar_label%> &bull; <% } %><%-it_aar_label%></title>
+    <title><%-aar_label%> &bull; <%-it_aar_label%></title>
     <style type="text/css" media="all">
         @font-face {
             font-family: "Titillium Pro";
@@ -572,10 +572,10 @@
         <div id="center-section" class="relative-box" style="height: 99mm;">
             <div class="absolute-box">
                 <div id="main__subject" class="twelve-px sixteen-lh">
-                    <p><b><% if (noIta) { %><span><%-notification_subject%> &bull; </span><% } %><%-it_notification_subject%> (AAR): ${notification.subject}</b></p>
+                    <p><b><%-notification_subject%> &bull; <%-it_notification_subject%> (AAR): ${notification.subject}</b></p>
                 </div>
                 <div id="main__disclaimer" class="eleven-px sixteen-lh">
-                    <p><% if (noIta) { %><span><%-aar_subtitles_1%></span><% } %></p>
+                    <p><%-aar_subtitles_1%></p>
                     <p class="language-margin"><%-it_aar_subtitles_1%></p>
                 </div>
 
@@ -585,22 +585,22 @@
 
         <div id="lower-section" style="height: 99mm; position: relative;">
             <div class="row" style="height: 48mm;">
-                <div class="heading ten-px"><% if (noIta) { %><span><%-access_to_document_title%> &bull; </span><% } %><%-it_access_to_document_title%></div>
+                <div class="heading ten-px"><%-access_to_document_title%> &bull; <%-it_access_to_document_title%></div>
                 <div id="view-online-box-description">
                     <div class="section-list nine-px eleven-lh">
                         <ol>
                             <li>
-                                <% if (noIta) { %><p><%-access_to_document_1%> <b><%-access_to_document_1_link%></b></p><% } %>
+                                <p><%-access_to_document_1%> <b><%-access_to_document_1_link%></b></p>
                                 <p class="language-less-margin"><%-it_access_to_document_1%>
-                                        <b><%-it_access_to_document_1_link%></b>
+                                    <b><%-it_access_to_document_1_link%></b>
                                 </p>
                             </li>
                             <li>
-                                <% if (noIta) { %><p><%-access_to_document_2%></p><% } %>
+                                <p><%-access_to_document_2%></p>
                                 <p class="language-less-margin"><%-it_access_to_document_2%></p>
                             </li>
                             <li>
-                                <% if (noIta) { %><p><%-access_to_document_3%></p><% } %>
+                                <p><%-access_to_document_3%></p>
                                 <p class="language-less-margin"><%-it_access_to_document_3%></p>
                             </li>
                         </ol>
@@ -612,7 +612,7 @@
             </div>
             <div class="row">
                 <div id="send-perfezionamento" class="eight-px" style="padding-left: 2.5mm; line-height: normal;">
-                    <% if (noIta) { %><p><%-send_refinement%> <b><%-send_refinement_link%></b></p><% } %>
+                    <p><%-send_refinement%> <b><%-send_refinement_link%></b></p>
                     <p class="language-margin"><%-it_send_refinement%> <b><%-it_send_refinement_link%></b></p>
                 </div>
 
