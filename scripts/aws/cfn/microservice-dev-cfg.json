@@ -4,6 +4,6 @@
     "WireTapLogActivation": "false",
     "CpuValue": "2048",
     "MemoryAmount": "4GB",
-    "JavaToolOptions": "-Dreactor.netty.ioWorkerCount=4 -XX:MaxMetaspaceSize=512M -XX:MaxDirectMemorySize=1G"
+    "JavaToolOptions": "-XX:MaxMetaspaceSize=512M -XX:MaxDirectMemorySize=1G"
   }
 }
