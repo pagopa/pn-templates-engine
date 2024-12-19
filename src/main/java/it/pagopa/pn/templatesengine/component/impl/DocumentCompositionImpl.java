@@ -106,7 +106,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
             W3CDom w3cDom = new W3CDom();
             org.w3c.dom.Document w3cDoc = w3cDom.fromJsoup(jsoupDoc);
             PdfRendererBuilder builder = new PdfRendererBuilder();
-            builder.usePdfUaAccessbility(true);
+            builder.usePdfUaAccessibility(true);
             builder.usePdfAConformance(PdfRendererBuilder.PdfAConformance.PDFA_3_A);
             builder.withW3cDocument(w3cDoc, baseUri);
             builder.toStream(baos);
