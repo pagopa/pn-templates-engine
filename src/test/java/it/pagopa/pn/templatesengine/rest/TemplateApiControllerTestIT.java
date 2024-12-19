@@ -16,8 +16,8 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
-
 import java.util.stream.Stream;
+
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -93,7 +93,7 @@ public class TemplateApiControllerTestIT {
                         SMS_VERIFICATION_CODE_BODY,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED
+                        HttpStatus.OK
                 )
         );
     }
@@ -112,7 +112,7 @@ public class TemplateApiControllerTestIT {
                         analogDeliveryWorkflowFailureLegalFact,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
-                        HttpStatus.ACCEPTED
+                        HttpStatus.OK
                 )
         );
     }
