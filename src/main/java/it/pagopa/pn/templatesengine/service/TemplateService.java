@@ -10,7 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Schedulers;
 
 import java.util.Map;
 
@@ -41,8 +40,7 @@ public class TemplateService {
         return objectModel.doOnNext(model -> log.info("Execute TXT for template={},  language={} - START", template, language))
                 .flatMap(model -> {
                     String fileName = getFileName(template, language);
-                    return Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model))
-                            .subscribeOn(Schedulers.boundedElastic());
+                    return Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model));
                 })
                 .doOnSuccess(result -> log.info("Execute TXT for templateName={}, language={} - COMPLETED", template, language))
                 .doOnError(error -> log.error("Execute TXT for templateName={}, language={} - FAILED", template, language, error));
@@ -62,8 +60,7 @@ public class TemplateService {
         return objectModel.doOnNext(model -> log.info("Execute Pdf for templateName={},  language={} - START", template, language))
                 .flatMap(model -> {
                     String fileName = getFileName(template, language);
-                    return Mono.fromCallable(() -> documentComposition.executePdfTemplate(fileName, model))
-                            .subscribeOn(Schedulers.boundedElastic());
+                    return Mono.fromCallable(() -> documentComposition.executePdfTemplate(fileName, model));
                 })
                 .doOnSuccess(result -> log.info("Execute Pdf for templateName={}, language={} - COMPLETED", template, language))
                 .doOnError(error -> log.error("Execute Pdf for templateName={}, language={} - FAILED", template, language, error));
