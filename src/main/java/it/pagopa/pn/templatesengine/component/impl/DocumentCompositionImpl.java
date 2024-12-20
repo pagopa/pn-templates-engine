@@ -31,6 +31,7 @@ import java.io.StringWriter;
 @AllArgsConstructor
 public class DocumentCompositionImpl implements DocumentComposition {
 
+    private static final int MAX_PDF_SIZE = 1024 * 1024; // 1MB
     private final Configuration freemarkerConfig;
     private final TemplateConfig templateConfig;
 
@@ -61,7 +62,9 @@ public class DocumentCompositionImpl implements DocumentComposition {
     @Override
     public byte[] executePdfTemplate(String templateFile, Object templateModel) {
         String htmlContent = executeTextTemplate(templateFile, templateModel);
-        return generatePdf(htmlContent, templateFile);
+        var pdf = generatePdf(htmlContent, templateFile);
+        System.gc();
+        return pdf;
     }
 
     /**
@@ -101,7 +104,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
      */
     private byte[] generatePdf(String html, String templateFile) {
         log.info("Generating Pdf, templateFile={} - START", templateFile);
-        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream(MAX_PDF_SIZE)) {
             String baseUri = TemplateUtils.getBaseURI(templateConfig.getTemplatesPath(), templateFile);
             Document jsoupDoc = Jsoup.parse(html);
             W3CDom w3cDom = new W3CDom();
