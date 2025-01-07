@@ -8,15 +8,12 @@
 		<relativePath />
 	</parent>
 	<artifactId>pn-templates-engine</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.1.0-SNAPSHOT</version>
 	<name>pn-templates-engine</name>
 	<description>Template engine Microservice</description>
 
 	<properties>
 		<jacoco.min.line.cover.ratio>0.00</jacoco.min.line.cover.ratio>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
-		<maven.compiler.release>17</maven.compiler.release>
 	</properties>
 
 	<dependencies>
