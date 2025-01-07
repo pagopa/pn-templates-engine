@@ -1,3 +1,9 @@
 {
-  "Parameters" : {}
+  "Parameters": {
+    "PnCronAnalyzer": "* */1 * * * *",
+    "WireTapLogActivation": "false",
+    "CpuValue": "2048",
+    "MemoryAmount": "4GB",
+    "JavaToolOptions": "-XX:MaxMetaspaceSize=512M -XX:MaxDirectMemorySize=1G"
+  }
 }

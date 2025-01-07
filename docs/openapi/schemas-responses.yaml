@@ -1,0 +1,63 @@
+info:
+  version: v1.0
+components:
+  ############################################################################################
+  ###                          STRUTTURE RESPONSE CODE                                     ###
+  ############################################################################################
+  responses:
+    FailResponseBadRequest:
+      description: Richiesta non valida
+      content:
+        application/json:
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/ErrorResponse'
+    FailResponseInternalServerError:
+      description: Internal Server Error
+      content:
+        application/problem+json:
+          schema:
+            $ref: 'remote-refs.yaml#/components/schemas/Problem'
+    SuccessResponsePDF:
+      description: Ok
+      headers:
+        Content-Type:
+          description: Tipo di contenuto del documento
+          schema:
+            type: string
+            example: application/pdf
+        Content-Disposition:
+          description: Disposizione del contenuto per il download come allegato
+          schema:
+            type: string
+            example: attachment; filename="document.pdf"
+      content:
+        application/pdf:
+          schema:
+            type: string
+            format: binary
+    SuccessResponseHTML:
+      description: Ok
+      headers:
+        Content-Type:
+          description: Tipo di contenuto del documento
+          schema:
+            type: string
+            example: text/html
+      content:
+        text/html:
+          schema:
+            type: string
+    SuccessResponseText:
+      description: Ok
+      headers:
+        Content-Type:
+          description: Tipo di contenuto del documento
+          schema:
+            type: string
+            example: text/plain
+      content:
+        text/plain:
+          schema:
+            type: string
+
+
