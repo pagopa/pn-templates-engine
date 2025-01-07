@@ -1,3 +1,17 @@
-# pn-template-ms-be
+# pn-templates-engine
 
-A template project for a new PN backend microservice 
+To generate templates run
+
+```bash
+     ./build-templates.sh
+```
+
+To start application run
+
+```bash
+    ./mvnw clean install
+```
+
+```bash
+    ./mvnw spring-boot:run
+```

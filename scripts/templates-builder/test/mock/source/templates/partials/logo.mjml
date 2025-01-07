@@ -1,0 +1,5 @@
+<mj-section text-align="left" css-class="header" padding="0">
+  <mj-column padding="0" width="100px">
+    <mj-text>logo partials</mj-text>
+  </mj-column>
+</mj-section>
