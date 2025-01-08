@@ -193,7 +193,11 @@ components:
       type: object
       required:
         - notification
+        - iun
       properties:
+        iun:
+          type: string
+          description: Identificativo unico della notifica
         notification:
           title: AarForSubjectNotification
           type: object
