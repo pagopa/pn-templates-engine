@@ -290,7 +290,8 @@ public class DocumentGeneratorTest {
         var sender = new AarForSubjectSender()
                 .paDenomination("TEST_PaDenomination");
         var notification = new AarForSubjectNotification()
-                .sender(sender);
+                .sender(sender)
+                .iun("TEST_iun");
         var model = new NotificationAarForSubject()
                 .notification(notification);
         generateAndSaveDocument(template, langs, model, FileType.TXT);
