@@ -107,11 +107,9 @@ public class TemplateService {
     }
 
     private String getFileByDefaultLanguage(TemplatesEnum template, LanguageEnum language, TemplateConfig.Template templates) {
-        log.info("Template not available in the requested language, templateName={}, language={}", template, language);
         String defaultLanguage = templateConfig.getDefaultLanguage().getValue();
-        String fileName = templates.getInput().get(templateConfig.getDefaultLanguage().getValue());
-        log.info("Template with the default language, templateName={}, language={}", template, defaultLanguage);
-        return fileName;
+        log.info("Template not available in the requested language, using default, templateName={}, language={},  defaultLanguage={}", template, language, defaultLanguage);
+        return templates.getInput().get(defaultLanguage);
     }
 
     private static Throwable templateNotFoundException(TemplatesEnum template) {
