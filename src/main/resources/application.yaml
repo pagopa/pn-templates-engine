@@ -11,7 +11,7 @@ pn:
     runtime: PROD
 
 templatesPath: "generated-templates-assets/templates"
-
+defaultLanguage: IT
 templates:
   notificationReceivedLegalFact:
     input:

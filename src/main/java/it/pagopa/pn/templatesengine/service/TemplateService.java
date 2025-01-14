@@ -11,8 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import java.util.Map;
-
 /**
  * Service per l'esecuzione e la gestione dei template, supportando sia i formati di testo che PDF.
  * Utilizza `DocumentComposition` per generare contenuti basati su template e `TemplateConfig` per configurare e
@@ -83,8 +81,7 @@ public class TemplateService {
             }
             String templateInput = templateAsString.getInput().get(language.getValue());
             if (templateInput == null) {
-                String availableLanguages = availableLanguages(templateAsString.getInput());
-                return Mono.error(templateNotFoundForLanguage(template, language, availableLanguages));
+                templateInput =  getFileByDefaultLanguage(template, language, templateAsString);
             }
             log.info("Execute templateAsString for templateName={}, language={} - COMPLETED", template, language);
             return Mono.just(templateInput);
@@ -104,18 +101,15 @@ public class TemplateService {
         }
         String fileName = templates.getInput().get(language.getValue());
         if (fileName == null) {
-            String availableLanguages = availableLanguages(templates.getInput());
-            templateNotFoundForLanguage(template, language, availableLanguages);
+            fileName = getFileByDefaultLanguage(template, language, templates);
         }
         return fileName;
     }
 
-    private static Throwable templateNotFoundForLanguage(TemplatesEnum template, LanguageEnum language, String availableLanguages) {
-        throw new TemplateNotFoundException(
-                ExceptionTypeEnum.TEMPLATE_NOT_FOUND_FOR_LANGUAGE,
-                template,
-                String.format("Template not found for language '%s'. %s", language.getValue(), availableLanguages)
-        );
+    private String getFileByDefaultLanguage(TemplatesEnum template, LanguageEnum language, TemplateConfig.Template templates) {
+        String defaultLanguage = templateConfig.getDefaultLanguage().getValue();
+        log.info("Template not available in the requested language, using default, templateName={}, language={},  defaultLanguage={}", template, language, defaultLanguage);
+        return templates.getInput().get(defaultLanguage);
     }
 
     private static Throwable templateNotFoundException(TemplatesEnum template) {
@@ -123,12 +117,5 @@ public class TemplateService {
                 ExceptionTypeEnum.TEMPLATE_NOT_FOUND_FOR_LANGUAGE,
                 template,
                 "Template not found: " + template.getTemplate());
-    }
-
-    private String availableLanguages(Map<String, String> input) {
-        if (input == null || input.isEmpty()) {
-            return "No languages available.";
-        }
-        return "Languages available for this template: " + String.join(", ", input.keySet());
     }
 }
