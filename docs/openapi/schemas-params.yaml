@@ -408,7 +408,6 @@ components:
                 required:
                   - denomination
                   - taxId
-                  - digitalDomicile
                 properties:
                   denomination:
                     type: string
