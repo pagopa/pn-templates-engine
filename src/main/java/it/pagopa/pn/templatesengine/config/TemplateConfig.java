@@ -2,6 +2,7 @@ package it.pagopa.pn.templatesengine.config;
 
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
 import it.pagopa.pn.templatesengine.utils.TemplateUtils;
 import lombok.Data;
 import lombok.Getter;
@@ -29,6 +30,7 @@ public class TemplateConfig {
     private String templatesPath;
     private Map<TemplatesEnum, Template> templatesAsString = new EnumMap<>(TemplatesEnum.class);
     private Map<TemplatesEnum, Template> templates;
+    private LanguageEnum defaultLanguage;
 
     @Setter
     @Getter
