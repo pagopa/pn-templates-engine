@@ -1,5 +1,13 @@
 package it.pagopa.pn.templatesengine.service;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import it.pagopa.pn.commons.exceptions.PnInternalException;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.*;
 import lombok.Getter;
@@ -8,8 +16,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.Base64Utils;
 import reactor.core.publisher.Mono;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -17,12 +27,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Map;
+
+import static it.pagopa.pn.commons.exceptions.PnExceptionsCodes.ERROR_CODE_PN_GENERIC_ERROR;
 
 @SpringBootTest
 public class DocumentGeneratorTest {
     private static final String TEST_DIR_NAME = "target" + File.separator + "generated-test-documents";
     private static final Path TEST_DIR_PATH = Paths.get(TEST_DIR_NAME);
-    private static final String BASE64_QR = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQAAAAAVtjufAAAEd0lEQVR4Xu2XPdLrJhSGUSO2IBrYGjTSFqCRoIEtQANbkxrRpoQG5Xgk35tkjL8uaULh8Twevzq8cH6Ero/rD/RPcq//+b3+Da4HE7GWdJQkeT4Ej9hXnqodSZTDlfeVr7jWK33lnnh1WRLaptctHK6an/gu13ldzpldRbmifuS1jQixXKum7IjkB56qX6eJaaI50yr/Jf7PXA/hb+u3P585KIXLMo9dYc4Fzx6fe7wQBxYgnDzTaFSNy1uny+mgR1ablBPHjXk6fueXiXRShcsllwkNbV7uffW4cefSWKhuV34U2ZPz1unxfFxt5cyB2qKxa1LdOj0eZyRhU5tf+Xaqww+Pzz1uTIiTlGgk7ioL6MzbV57h6NpWy6JVskMFndvnHg/maOvSRmHpZmpos7x1ejzFkeNcGzxb5HR51m4fetwOKU6sCCvcUZ1ps7j31ePG5dff4fSVsVv26tHpcS/A6JlZNE1KD+DFo9Pj6Rwlzn4rkrOXz+L4zsHntFN1nMziIlyb1l/+f+QuH0VdZYTaQSw+tMi3zz0eNIHfNIPriIacDo0e/zs8Mi+SZVFylZw5HHz/yi0xroLauECxScnDx3fOTJlW5k7wwYqysvjodLhHJOes0aAhT+GeI/L43+EBSpcdqZzoclmxS/rkdY8bP0S0FfwqGYVFSt7n0uHOmQv2Zcd5M6dooHTr9HgwtbpzAp8RgTzVS37i7PC4nCt7+Uz5YsWRy6PT45ZjTZqEQmZJYQHS6vG5x+GJcn3V+XE7xbm94+xxrwrJJ9uHVA3EGbcnzh4PKRs7TuAzVeCzesfZ42af2T5z7FIDn/26vP3vcBf5Sspix6XmJprSb/87HHwOeacsRL5FDIf52/+P/AQLmMZRsmC8gLLz6PT4Lpcayoxw3E7KjDmeOHs8YpP9vAq/eMQ520W5dXpco0mOKxpq8ghhaFb41unxBilElxQ0hXQVTTJ/6/S4J3Yzlugh7cSznf/u7595ZHqDEu/sElnkkKWPTo9Dnl47R6xCiaE4FPTE2ePnOvKRQwFmJysc+vnjQ4/vA4w2Xs44Yigah8lv/zs8Lvtml33wuHHwOb/Psce1qA1t2dS0QwMqg3OP/x3expFP8zqYBnWGUymfvtbj4DMJ8GBER+Ipn7F+fOvwSMUV1Qkd+ZWwMNxN37nn7NrFlSFL55XUfXnqdo+f7NgpX1WoJ4WeY6fl+sp3dRKnyYlhxGyTCFClvnKopFcUeoM7yAeXcnp863GtCkVLPa6s8T7KIcfbtx6P0JLXmUMRBp8RnSd1x9njUIvIAZtixwnDMjSV/Y6zxxvlmxZRBfD5Cteve9LjKSTo3Wi4jEZU+UHj+7k9/qp868yCqznBkAMTxr2vHtfDSWBahEZoSST7RJ6+2eMJJm8YZKEhQKAvn59z73F4j3hNmMPhIFDwGa7hDxx8FrlwaPxY0xmH9AOHSzIhcZgTpmtEYMr4yhNcVS0xvE2MKpl8LvU718Nr1LfiOmDgxDAVPnN1j39a//N7/Wf8TwIyrfH4OjBLAAAAAElFTkSuQmCC";
+    public static final String CITTADINI_NOTIFICHEDIGITALI_IT_AAR_TEST = "https://cittadini.notifichedigitali.it/?aar=test";
     @Autowired
     TemplateService templateService;
 
@@ -142,7 +155,7 @@ public class DocumentGeneratorTest {
                 .taxId("CDCFSC11R99X001Z");
         var model = new NotificationAar()
                 .notification(notification)
-                .qrCodeQuickAccessLink(BASE64_QR)
+                .qrCodeQuickAccessLink(getQrCodeQuickAccessUrlAarDetail(CITTADINI_NOTIFICHEDIGITALI_IT_AAR_TEST))
                 .recipient(recepient)
                 .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
                 .piattaformaNotificheURLLabel("TEST_piattaformaNotificheURLLabel")
@@ -167,7 +180,7 @@ public class DocumentGeneratorTest {
                 .taxId("CDCFSC11R99X001Z");
         var model = new NotificationAarRaddAlt()
                 .notification(notification)
-                .qrCodeQuickAccessLink(BASE64_QR)
+                .qrCodeQuickAccessLink(getQrCodeQuickAccessUrlAarDetail(CITTADINI_NOTIFICHEDIGITALI_IT_AAR_TEST))
                 .recipient(recepient)
                 .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
                 .piattaformaNotificheURLLabel("TEST_piattaformaNotificheURLLabel")
@@ -356,6 +369,20 @@ public class DocumentGeneratorTest {
                 }
             });
             System.out.print(template.getTemplate() + " successfully created at: " + filePath);
+        }
+    }
+
+    private static String getQrCodeQuickAccessUrlAarDetail(String url) {
+        try {
+            Map<EncodeHintType, ?> conf = Map.of(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H, EncodeHintType.QR_VERSION, 14);
+            QRCodeWriter qrCodeWriter = new QRCodeWriter();
+            BitMatrix bitMatrix = qrCodeWriter.encode(url, BarcodeFormat.QR_CODE, 180, 180, conf);
+            ByteArrayOutputStream pngOutputStream = new ByteArrayOutputStream();
+            MatrixToImageWriter.writeToStream(bitMatrix, "PNG", pngOutputStream);
+            pngOutputStream.toByteArray();
+            return "data:image/png;base64, " .concat(Base64Utils.encodeToString(pngOutputStream.toByteArray()));
+        } catch (IOException | WriterException e) {
+            throw new PnInternalException(e.getMessage(), ERROR_CODE_PN_GENERIC_ERROR, e);
         }
     }
 
