@@ -189,6 +189,9 @@
 
     .align-center {
       vertical-align: middle;
+    }
+
+    .list-box-height {
       height: 41mm;
     }
 
@@ -219,22 +222,63 @@
       background-size: contain;
       /* Adatta l'immagine alle dimensioni del box */
       background-repeat: no-repeat;
+      margin-top: 3px;
     }
 
     .custom-list li.list_element-one::before {
-      background-image: url('../../images/numero-uno.png');
+      background-image: url('../../images/numero1.svg');
       /* Percorso dell'immagine PNG */
     }
 
     .custom-list li.list_element-two::before {
-      background-image: url('../../images/numero-uno.png');
+      background-image: url('../../images/numero2.svg');
       /* Percorso dell'immagine PNG */
     }
 
     .custom-list li.list_element-three::before {
-      background-image: url('../../images/numero-uno.png');
+      background-image: url('../../images/numero3.svg');
       /* Percorso dell'immagine PNG */
     }
+
+    .retrieve-box {
+      padding: 16px;
+    }
+
+    #arrow-img {
+      width: 24px;
+    }
+
+    #io_download {
+      text-align: left;
+      width: 100%;
+      height: 67px;
+      border: solid #ECECEC 0.66px;
+      border-radius: 8px;
+    }
+
+    #io_download h3 {
+      padding-bottom: 4px;
+    }
+
+    #io_download .float-right {
+      height: 45px;
+      margin: 11px 11px 11px 0;
+    }
+
+    #io_download .float-left {
+      margin: 14px 0 14px 11px;
+    }
+
+    #io_img {
+      width: 45px;
+    }
+
+  /* CHECK IF STILL USED */
+
+
+
+
+
 
 
 
@@ -654,7 +698,7 @@
               <div class="float-left font-upppercase twelve-pt">OPZIONE 1: Accedi ora ai documenti online</div>
               <div class="float-right nine-pt">Consultazione online gratuita</div>
             </div>
-            <div class="align-center relative-box">
+            <div class="align-center list-box-height relative-box">
               <div class="float-left qr_code_box">
                 <img alt="qr-code" id="qr-code" src="${qrCodeQuickAccessLink}" />
               </div>
@@ -682,159 +726,53 @@
 
     <div id="lower-section" style="height: 99mm; position: relative; padding-top: 5.6mm;" class="relative-box">
       <#if recipient.recipientType=="PF">
-        <div id="digital_notifications_box">
-          <#else>
-            <div>
+        <div class="heading">
+          <div class="float-left font-upppercase twelve-pt">OPZIONE 2: Ritira i documenti di persona</div>
+          <div class="float-right nine-pt">Servizio di stampa a pagamento</div>
+        </div>
+
+        <div class="align-center retrieve-box">
+          <p class="float-left">Puoi farlo tu o delegare una persona di fiducia. Segui le istruzioni sul retro del foglio.</p>
+          <img class="float-right" id="arrow-img" src="../../images/arrow.jpg" />
+        </div>
+
+        <div id="io_download">
+          <div class="float-left">
+            <h3 class="twelwe-pt font-upppercase">Con l’app io è tutto più semplice!</h3>
+            <p class="">Scarica gratuitamente IO e ricevi direttamente sul tuo dispositivo le comunicazioni a valore legale.</p>
+          </div>
+          <div class="float-right">
+            <img id="io_img" src="../../images/app-io.svg" />
+
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
       </#if>
 
-      <#if recipient.recipientType=="PF">
-        <table id="digital_notifications_appio_box">
-          <tr>
-            <td>
-              <img id="appio_image" src="../../images/io-on-light.jpg" />
-            </td>
-            <td>
-              <p id="appio_description" class="nine-pt">
-                Scarica l’app IO e attiva il servizio SEND - Notifiche digitali di IO - L’app dei servizi pubblici. Se
-                riceverai nuove notifiche, potrai visualizzare i documenti e pagare eventuali spese direttamente dal tuo
-                dispositivo.
-              </p>
-            </td>
-          </tr>
-        </table>
-        <p class="nine-pt">
-          In alternativa, vai su SEND all’indirizzo
-          <b><a href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
-          e indica i recapiti digitali con cui vuoi ricevere le prossime notifiche e comunicazioni.
-        </p>
-        <#else>
-          <p class="nine-pt" style="margin: 4mm 0 16mm 2mm">
-            Vai su SEND all’indirizzo
-            <b><a href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
-            e indica i recapiti digitali con cui vuoi ricevere le prossime notifiche e comunicazioni.
-          </p>
-      </#if>
+      
     </div>
 
-    <#if recipient.recipientType=="PF">
-      <div id="mandate-box">
-        <#else>
-          <div>
-    </#if>
-    <div class="heading ten-pt">
-      DELEGA QUALCUNO A RICEVERE LE TUE NOTIFICHE
-    </div>
-    <div id="mandate-box__form" class="nine-pt">
-      <div class="section-list nine-pt eleven-lh">
-        <ol>
-          <li>
-            Vai su <b><a href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
-            e accedi con SPID o CIE (Carta d'Identità Elettronica);
-          </li>
-          <li>Seleziona “Deleghe“;</li>
-          <li>Premi “Aggiungi una delega” e inserisci i dati della persona che vuoi delegare;</li>
-          <li>Questa dovrà accedere a SEND con SPID o CIE e accettare la richiesta di delega. A
-            partire da quel momento, riceverà su SEND le notifiche destinate a te.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-
-  <#if recipient.recipientType=="PF">
-    <div id="read-more">
-      <p><b>Scopri di più</b></p>
-      <img id="arrow_image" src="../../images/arrow.jpg" />
-    </div>
-  </#if>
-  </div>
-
-  </div>
 
   <#if recipient.recipientType=="PF">
     <!--------------------------- PAGE 2 --------------------------->
     <div>
       <div id="main-page2">
-        <h2 class="sixteen-lh twelve-pt">Con SEND - Servizio notifiche digitali ricevi le comunicazioni a valore
-          legale della Pubblica Amministrazione in digitale, dove ti è più comodo e senza raccomandata
-          cartacea</h2>
-        <div id="advantages">
-          <div id="advantages-explanation">
-            <h3 class="ten-pt">I VANTAGGI DELLE NOTIFICHE DIGITALI</h3>
-            <div class="advantages-row">
-              <div class="advantage-col">
-                <img class="message-advantages_explanation" src="../../images/moneypig.jpg" />
-                <div class="advantages-explanation__content">
-                  <b>Ti costa meno</b>:<br>
-                  diminuiscono i costi di notificazione
-                </div>
-              </div>
-              <div class="advantage-col" style="left: 25%;">
-                <img class="message-advantages_explanation" src="../../images/time.jpg" />
-                <div class="advantages-explanation__content">
-                  <b>Risparmi tempo</b>:<br>
-                  niente più attese per il ritiro della raccomandata
-                </div>
-              </div>
-              <div class="advantage-col" style="left: 50%;">
-                <img class="message-advantages_explanation" src="../../images/world.jpg" />
-                <div class="advantages-explanation__content">
-                  <b>Non importa dove sei</b>:<br>
-                  trovi le tue notifiche e documenti online o su IO
-                </div>
-              </div>
-              <div class="advantage-col" style="left: 75%;">
-                <img class="message-advantages_explanation" src="../../images/sustainable.jpg" />
-                <div class="advantages-explanation__content">
-                  <b>Proteggi l'ambiente</b>:<br>
-                  meno emissioni per il trasporto e meno carta
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="relative-box" style="height: 76mm;">
-          <div id="howto-explanation">
-            <div class="explanation-title">
-              <h4>COSA CAMBIA PER TE</h4>
-              <img id="icon-howto_explanation" src="../../images/veloce.jpg" />
-            </div>
-            <div id="howto-explanation__content" class="nine-pt eleven-lh">
-              <p>Quando un ente ti invia una comunicazione a valore legale tramite SEND, puoi venirne a
-                conoscenza:</p>
-              <ul id="square-list">
-                <li>con un <b>messaggio sull'app IO</b>, se attivi il servizio SEND - Notifiche digitali
-                  in app;</li>
-                <li>con una <b>PEC</b>, se la inserisci su SEND, se l’hai comunicata all’ente in
-                  precedenza o se è presente nei registri pubblici;</li>
-                <li>con una <b>e-mail</b> o un <b>SMS</b>, se inserisci i recapiti su SEND.</li>
-              </ul>
-              <p>Se SEND non riesce a raggiungerti via PEC o se non apri la notifica online o sull’app IO
-                entro i termini previsti dal servizio, continuerai a ricevere la raccomandata cartacea.
-              </p>
-              <p>Poiché SEND è in corso di adozione da parte degli enti sul territorio nazionale, potresti
-                ricevere ancora alcune comunicazioni a valore legale com'è avvenuto finora.</p>
-            </div>
-          </div>
-          <div id="io-box_explanation">
-            <div id="io-explanation">
-              <div class="explanation-title">
-                <h4 class="ten-pt">CON L'APP IO CONVIENE</h4>
-              </div>
-              <div id="io-explanation__content" class="nine-pt eleven-lh">
-                <p><b>Attiva il servizio SEND - Notifiche digitali su app IO</b> per ricevere le
-                  <b>prossime</b> comunicazioni a valore legale direttamente sul tuo dispositivo.
-                </p>
-                <p>Se non hai IO, scaricala gratuitamente dallo store.</p>
-              </div>
-            </div>
-            <img id="icon-io_explanation" src="../../images/io-sfondo-grigio.jpg" />
-          </div>
-        </div>
+        
+
 
       </div>
     </div>
   </#if>
 
 </body>
-
 </html>
