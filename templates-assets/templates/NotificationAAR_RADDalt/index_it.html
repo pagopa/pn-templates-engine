@@ -117,25 +117,27 @@
     /* logo-box style */
     #sender_box {
       position: absolute;
-      width: 87%;
+      width: 165mm;
       height: 23mm;
       top: 14mm;
     }
 
+    .logo-prefix {
+      margin-bottom: 14px;
+    }
+
     #send_box__logo {
-      position: absolute;
       width: 17mm;
-      margin-top: 8px;
     }
 
     #send_box {
       position: absolute;
-      max-width: 11%;
+      max-width: 25mm;
       float: right;
       top: 14mm;
       right: 0;
       width: 50mm;
-      height: 25mm;
+      height: 26mm;
       line-height: 8px;
       z-index: 1000;
     }
@@ -159,7 +161,7 @@
 
     .heading {
       width: 100%;
-      height: 7mm;
+      height: 7.7mm;
       background-color: #ececec;
       font-weight: bold;
       padding: 1.4mm 3.7mm;
@@ -177,6 +179,7 @@
 
     .float-right {
       float: right;
+      right: 0;
     }
 
     .qr_code_box {
@@ -188,7 +191,9 @@
     }
 
     .align-center {
-      vertical-align: middle;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     .list-box-height {
@@ -222,26 +227,27 @@
       background-size: contain;
       /* Adatta l'immagine alle dimensioni del box */
       background-repeat: no-repeat;
-      margin-top: 3px;
     }
 
     .custom-list li.list_element-one::before {
-      background-image: url('../../images/numero1.svg');
+      content: "❶";
       /* Percorso dell'immagine PNG */
     }
 
     .custom-list li.list_element-two::before {
-      background-image: url('../../images/numero2.svg');
+      content: "❷";
       /* Percorso dell'immagine PNG */
     }
 
     .custom-list li.list_element-three::before {
-      background-image: url('../../images/numero3.svg');
+      content: "❸";
       /* Percorso dell'immagine PNG */
     }
 
-    .retrieve-box {
-      padding: 16px;
+    .retrieve_box {
+      margin: 16px;
+      height: 27px;
+      position: relative;
     }
 
     #arrow-img {
@@ -254,6 +260,7 @@
       height: 67px;
       border: solid #ECECEC 0.66px;
       border-radius: 8px;
+      margin-top: 65px;
     }
 
     #io_download h3 {
@@ -272,6 +279,19 @@
     #io_img {
       width: 45px;
     }
+
+
+    #footer_disclaimer {
+      position: absolute;
+      bottom: 10mm;
+    }
+
+
+
+
+
+
+
 
   /* CHECK IF STILL USED */
 
@@ -661,7 +681,7 @@
       </div>
 
       <div id="send_box" class="eight-pt">
-        <p class="nine-pt">Inviata tramite</p>
+        <p class="nine-pt logo-prefix">Inviata tramite</p>
         <img id="send_box__logo" src="../../images/aar-logo.gif" />
         <p id="send_box_site" class="eight-pt font-bold"><a href="notifichedigitali.it">notifichedigitali.it</a></p>
 
@@ -698,12 +718,12 @@
               <div class="float-left font-upppercase twelve-pt">OPZIONE 1: Accedi ora ai documenti online</div>
               <div class="float-right nine-pt">Consultazione online gratuita</div>
             </div>
-            <div class="align-center list-box-height relative-box">
-              <div class="float-left qr_code_box">
+            <div class="list-box-height relative-box">
+              <div class="align-center float-left qr_code_box">
                 <img alt="qr-code" id="qr-code" src="${qrCodeQuickAccessLink}" />
               </div>
-              <div class="float-right access_online_box">
-                <div class="section-list nine-pt eleven-lh">
+              <div class="align-center float-right access_online_box">
+                <div class="section-list">
                   <ol class="custom-list">
                     <li class="list_element-one">
                       Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a
@@ -725,54 +745,40 @@
 
 
     <div id="lower-section" style="height: 99mm; position: relative; padding-top: 5.6mm;" class="relative-box">
-      <#if recipient.recipientType=="PF">
         <div class="heading">
           <div class="float-left font-upppercase twelve-pt">OPZIONE 2: Ritira i documenti di persona</div>
           <div class="float-right nine-pt">Servizio di stampa a pagamento</div>
         </div>
 
-        <div class="align-center retrieve-box">
-          <p class="float-left">Puoi farlo tu o delegare una persona di fiducia. Segui le istruzioni sul retro del foglio.</p>
-          <img class="float-right" id="arrow-img" src="../../images/arrow.jpg" />
+        <div class="retrieve_box">
+          <p class="align-center float-left">Puoi farlo tu o delegare una persona di fiducia. Segui le istruzioni sul retro del foglio.</p>
+          <img class="align-center float-right" id="arrow-img" src="../../images/arrow.jpg" />
         </div>
-
+        <#if recipient.recipientType=="PF">
         <div id="io_download">
           <div class="float-left">
             <h3 class="twelwe-pt font-upppercase">Con l’app io è tutto più semplice!</h3>
             <p class="">Scarica gratuitamente IO e ricevi direttamente sul tuo dispositivo le comunicazioni a valore legale.</p>
           </div>
           <div class="float-right">
-            <img id="io_img" src="../../images/app-io.svg" />
+            <img id="io_img" src="../../images/app-io.jpg" />
 
           </div>
         </div>
+        </#if>
 
-
-
-
-
-
-
-
-
-
-
-      </#if>
+        <div id="footer_disclaimer" class="eight-pt">
+          <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. <br>
+          Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online o ritirarli di persona. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}">${perfezionamentoURLLabel}</a></b></p>
+        </div>
 
       
     </div>
 
 
-  <#if recipient.recipientType=="PF">
     <!--------------------------- PAGE 2 --------------------------->
-    <div>
-      <div id="main-page2">
-        
-
-
-      </div>
+    <div id="main-page2" style="background-color: aliceblue;">
     </div>
-  </#if>
 
 </body>
 </html>
