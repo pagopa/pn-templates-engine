@@ -38,6 +38,7 @@
       font-weight: 400;
       font-size: 15px;
       /*11px on Figma*/
+      color: #031344;
       line-height: 18.6px;
     }
 
@@ -48,8 +49,9 @@
     }
     #main-page2 {
       margin: 10mm;
+      padding-top: 10mm;
       width: 190mm;
-      height: 274mm;
+      height: 285mm;
       position: relative;
     }
 
@@ -129,6 +131,11 @@
       height: 92.3mm;
     }
 
+    .absolute-box {
+      position: absolute;
+      bottom: 0;
+    }
+
     /* logo-box style */
     #sender_box {
       position: absolute;
@@ -177,14 +184,15 @@
     .heading {
       width: 100%;
       height: 7.7mm;
-      background-color: #ececec;
+      /* background-color: #ececec; */
+      background-color: #DBF9FA;
       font-weight: bold;
       padding: 1.4mm 3.7mm;
     }
 
     #qr-code {
-      height: 35.3mm;
-      width: 35.3mm;
+      height: 133px;
+      width: 133px;
       /* qr has a 4mm white frame around its visible area */
     }
 
@@ -207,10 +215,10 @@
     }
 
     .access_online_box {
-      width: 149mm;
+      width: 155mm;
     }
     .access_yourself_box {
-      width: 113mm;
+      width: 116mm;
     }
 
     .align-center {
@@ -224,11 +232,11 @@
     }
 
     .list-box-height_access_yourself_box {
-      height: 45.6mm;
+      height: 50mm;
       margin-top: 21px;
     }
 
-    .custom-list {
+    .custom-list, .custom-ol-list {
       list-style: none;
       /* Rimuove i numeretti predefiniti */
       padding: 0;
@@ -236,6 +244,9 @@
     }
 
     .custom-list li {
+      padding-left: 0;
+    }
+    .custom-ol-list > li {
       position: relative;
       /* Per posizionare l'immagine rispetto all'elemento */
       padding-left: 20px;
@@ -244,7 +255,7 @@
       /* Spazio tra gli elementi della lista */
     }
 
-    .custom-list li::before {
+    .custom-ol-list > li::before {
       content: "";
       /* Pseudo-elemento per aggiungere l'immagine */
       position: absolute;
@@ -257,17 +268,17 @@
       background-repeat: no-repeat;
     }
 
-    .custom-list li.list_element-one::before {
+    .custom-ol-list li.list_element-one::before {
       content: "❶";
       /* Percorso dell'immagine PNG */
     }
 
-    .custom-list li.list_element-two::before {
+    .custom-ol-list li.list_element-two::before {
       content: "❷";
       /* Percorso dell'immagine PNG */
     }
 
-    .custom-list li.list_element-three::before {
+    .custom-ol-list li.list_element-three::before {
       content: "❸";
       /* Percorso dell'immagine PNG */
     }
@@ -286,7 +297,6 @@
       text-align: left;
       width: 100%;
       height: 67px;
-      border: solid #ECECEC 0.66px;
       border-radius: 8px;
       margin-top: 65px;
     }
@@ -309,9 +319,14 @@
     }
 
 
-    #footer_disclaimer {
+    #footer_disclaimer, #footer_advantages {
       position: absolute;
       bottom: 0mm;
+    }
+
+    #footer_advantages {
+      text-align: center;
+      width: 100%;
     }
 
     ul#square-list-mandate {
@@ -332,18 +347,21 @@
     }
     
     .blue-border {
-      border: solid #CED8F9 0.66px;
+      border: solid #CED8F9 1px;
       border-radius: 7px;
     }
 
     #mandate_box {
       padding: 21px;
-      margin-top: 32px;
-      height: 269px;
+      margin-top: 45px;
+      min-height: 269px;
+      overflow: hidden;
+    }
+    #mandate_box .title {
+      padding: 0 0 27px 0;
     }
 
     #mandate-box__form {
-      margin: 2.8mm 0 0 0;
       width: 48%;
     }
 
@@ -351,42 +369,21 @@
       width: 48%;
     }
 
-
-
-
-  /* CHECK IF STILL USED */
-
-
-
-
-
-
-
-
-
-    #recipient-addr-box {
-      text-transform: uppercase;
-      position: absolute;
-      top: 63mm;
-      left: 100mm;
-      width: 100mm;
-      height: 24mm;
-      padding: .3mm 5.6mm;
-      line-height: 14.6px;
+    .advantages-explanation__content {
+      width: 90%;
+      margin: 11px auto;
+      text-align: center;
     }
 
-
-
-    .absolute-box {
-      position: absolute;
-      bottom: 0;
+    .advantages-row {
+      width: 90%;
+      height: 35mm;
+      margin: auto;
     }
 
-    .rounded-box {
-      border: 1px solid black;
-      border-radius: 5px;
-      font-size: 11.93px;
-      line-height: normal;
+    .advantage-col {
+      width: 193px;
+      position: absolute;
     }
 
     .section-list {
@@ -403,6 +400,10 @@
     }
 
     a {
+      text-decoration: underline;
+      color: #0B3EE3;
+    }
+    a.black {
       text-decoration: none;
       color: inherit;
     }
@@ -411,82 +412,15 @@
       margin-top: 3mm;
     }
 
-
-
-
-
-    #payment-box {
-      float: right;
-      width: 93mm;
-    }
-
-    #io-notifications {
-      position: absolute;
-      width: 92mm;
-      right: 0;
-    }
-
-    #io-notifications .rounded-box {
-      height: 18mm;
-      margin: 2mm 0;
-    }
-
-    #io-notifications__image {
-      position: absolute;
-      top: 4mm;
-      left: 3mm;
-      height: 10mm;
-    }
-
-    #io-notifications__content {
-      position: absolute;
-      top: 2mm;
-      left: 12.8mm;
-      width: 75mm;
-    }
-
-    #io-notifications__description {
-      padding-left: 5.3px;
-    }
-
-    #send-info {
-      width: 92mm;
-    }
-
-    #send-info .rounded-box {
-      height: 17mm;
-      margin: 2mm 0;
-    }
-
-    #send-info__content {
-      position: absolute;
-      width: 100%;
-      padding: 1.75mm;
-    }
-
     .border-bottom {
       border-bottom: solid 1.3px #ECECEC;
       margin-top: 4.2mm;
+      padding-bottom: 5px;
       color: #7D7D7D;
     }
 
     .mb-form {
       margin-bottom: 4.2mm;
-    }
-
-    #radd-termini-condizioni {
-      padding-left: 2.5mm;
-      padding-bottom: 2mm;
-      line-height: normal;
-    }
-
-    #send-perfezionamento {
-      top: 10mm;
-    }
-
-    #digital_notifications_box {
-      width: 93mm;
-      float: left;
     }
 
     ul#square-list-mandate {
@@ -500,220 +434,23 @@
       margin-top: 0.4mm;
     }
 
-
-    /* SECOND PAGE */
-    #send-explanation {
-      width: 94mm;
-      border-radius: 5px;
-      padding: 3mm 4mm 3mm 3mm;
-      height: 90mm;
-    }
-
-    #print-explanation {
-      width: 190mm;
-      border-radius: 5px;
-      padding: 3mm;
-      height: 19mm;
-      border: solid #ECECEC 0.66px;
-      position: absolute;
-      bottom: 0;
-    }
-
-    #send-explanation p,
-    #print-explanation p,
-    #io-box_explanation p,
-    #howto-explanation p,
-    #io-explanation .explanation-title {
-      margin-bottom: 2mm;
-      text-align: left;
-    }
-
-    #print-explanation .explanation-title {
-      margin-bottom: 0.5mm;
-    }
-
-    #howto-explanation {
-      border: solid #ECECEC 0.66px;
-      width: 94mm;
-      border-radius: 5px;
-      padding: 4.23mm 2.7mm;
-      float: left;
-      height: 76mm;
-    }
-
-    #howto-explanation #square-list li,
-    #howto-explanation li {
-      margin-top: 1.4mm;
-    }
-
-    #io-box_explanation {
-      float: right;
-      width: 94mm;
-      border: solid #ECECEC 0.66px;
-      background-color: #ECECEC;
-      border-radius: 5px;
-      padding: 5.6mm 5.8mm 0 4.2mm;
-      text-align: center;
-      height: 76mm;
-      position: relative;
-    }
-
-    #advantages {
-      width: 100%;
-    }
-
-    #advantages-explanation {
-      text-align: center;
-      margin: 5.6mm 0 5.6mm 0;
-      width: 100%;
-      border: solid #ECECEC 0.66px;
-      border-radius: 8px;
-    }
-
-    #app-io__explanation {
-      margin-top: 5mm;
-      width: 100%;
-      height: 50mm;
-      background-color: #ECECEC;
-      border-radius: 5px;
-    }
-
-    #advantages-explanation h3 {
-      margin: 5mm;
-    }
-
-    #read-more {
-      position: absolute;
-      bottom: 2.5cm;
-      width: 100%;
-    }
-
-    #read-more p {
-      position: absolute;
-      right: 8mm;
-    }
-
-    #read-more img {
-      position: absolute;
-      right: 0;
-      width: 5mm;
-      bottom: -4mm;
-    }
-
-    .advantages-row {
-      height: 35mm;
-      position: relative;
-    }
-
-    .advantage-col {
-      position: absolute;
-      width: 25%;
-      margin-bottom: 5.6mm;
-    }
-
-    .advantages-explanation__content {
-      width: 90%;
-      text-align: center;
-      margin: auto;
-      font-size: 12px;
-      line-height: 14.667px;
-    }
-
-    #io-icon-bgdark {
-      width: 13mm;
-      position: absolute;
-      top: 5mm;
-      left: 5mm;
-    }
-
-    #phone-io {
-      width: 59mm;
-      bottom: 0mm;
-      left: 15mm;
-      position: absolute;
-    }
-
-    #app-io__description {
-      position: absolute;
-      left: 71mm;
-      margin: 5mm;
-    }
-
-    #howto-explanation .explanation-title {
-      position: relative;
-      display: table;
-      width: 100%;
-      height: 9mm;
-    }
-
-    #send-explanation .explanation-title {
-      position: relative;
-      display: table;
-      width: 100%;
-      height: 14mm;
-      margin-bottom: 2mm;
-    }
-
-    #howto-explanation .explanation-title h4,
-    #send-explanation .explanation-title h4 {
-      width: 65mm;
-      display: table-cell;
-      vertical-align: middle;
-    }
-
-    #howto-explanation .explanation-title img,
-    #send-explanation .explanation-title img {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 7mm;
-    }
-
-    #howto-explanation ul {
-      margin-bottom: 1mm;
-    }
-
-    #icon-io_explanation {
-      width: 40mm;
-      padding: 0 2mm;
-      position: absolute;
-      bottom: 0;
-      left: 33%;
-    }
-
-    #icon-io_logo {
-      width: 10mm;
-      position: absolute;
-      left: 4mm;
-    }
-
     img.message-advantages_explanation {
       height: 34px;
       margin: 3mm;
       margin-bottom: 1mm;
     }
 
-    #digital_notifications_appio_box {
-      border: 1px solid black;
-      border-radius: 5px;
-      margin: 5mm 0;
-      padding: 2mm 0 2mm 2mm;
-      width: 96mm;
+    .read-more {
+      padding-top: 21px;
     }
 
-    #appio_image {
-      width: 24px;
-    }
 
-    #appio_description {
-      padding: 0 2mm 0 4mm;
-    }
   </style>
 </head>
 
 <body>
   <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
-  <div id="main-page" style="background-color: aliceblue;">
+  <div id="main-page">
     <div id="upper-section">
       <div id="sender_box">
         <div id="" class="nine-pt">
@@ -725,7 +462,7 @@
       <div id="send_box" class="eight-pt">
         <p class="nine-pt logo-prefix">Inviata tramite</p>
         <img id="send_box__logo" src="../../images/aar-logo.gif" />
-        <p id="send_box_site" class="eight-pt font-bold"><a href="notifichedigitali.it">notifichedigitali.it</a></p>
+        <p id="send_box_site" class="eight-pt font-bold"><a class="black" href="notifichedigitali.it">notifichedigitali.it</a></p>
 
       </div>
 
@@ -749,7 +486,7 @@
         </div>
         <div id="main_disclaimer" class="eleven-pt sixteen-lh">
           <p><b>Accedi subito ai documenti online</b> seguendo le istruzioni, o se preferisci, ritira i documenti in
-            forma cartacea presso uno dei punti di ritiro SEND (CAF e altri esercenti convenzionati). Tieni presente che
+            forma cartacea presso uno dei Punti di ritiro SEND (CAF e altri esercenti convenzionati). Tieni presente che
             il contenuto della comunicazione produrrà effetti giuridici nei tuoi confronti anche senza la tua presa
             visione.
           </p>
@@ -766,7 +503,7 @@
               </div>
               <div class="align-center float-right access_online_box">
                 <div class="section-list">
-                  <ol class="custom-list">
+                  <ol class="custom-ol-list">
                     <li class="list_element-one">
                       Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a
                           href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
@@ -797,7 +534,7 @@
           <img class="align-center float-right" id="arrow-img" src="../../images/arrow.jpg" />
         </div>
         <#if recipient.recipientType=="PF">
-        <div id="io_download">
+        <div id="io_download" class="blue-border">
           <div class="float-left">
             <h3 class="twelwe-pt font-upppercase">Con l’app io è tutto più semplice!</h3>
             <p class="">Scarica gratuitamente IO e ricevi direttamente sul tuo dispositivo le comunicazioni a valore legale.</p>
@@ -819,7 +556,7 @@
 
 
   <!--------------------------- PAGE 2 --------------------------->
-  <div id="main-page2" style="background-color: aliceblue;">
+  <div id="main-page2">
     <div class="heading">
       <div class="float-left font-upppercase twelve-pt">OPZIONE 2: Ritira i documenti di persona</div>
       <div class="float-right nine-pt">Servizio di stampa a pagamento</div>
@@ -828,9 +565,9 @@
     <div class="list-box-height_access_yourself_box relative-box">
       <div class=" float-left access_yourself_box">
         <div class="section-list">
-          <ol class="custom-list eleven-pt">
+          <ol class="custom-ol-list eleven-pt">
             <li class="list_element-one">
-              Cerca i punti di ritiro SEND più vicini a te su <b><a href="${sendURL}punti-di-ritiro">${sendURLLAbel}</a></b> oppure chiama il numero <b>${raddPhoneNumber}</b>
+              Cerca i Punti di ritiro SEND più vicini a te su <br> <b><a href="${sendURL}punti-di-ritiro">${sendURLLAbel}</a></b> oppure chiama il numero <b>${raddPhoneNumber}</b>
             </li>
             <li class="list_element-two">Recati al punto di ritiro portando con te: 
               <ul id="square-list">
@@ -862,7 +599,7 @@
     </div>
 
     <div id="mandate_box" class="blue-border">
-      <p class="font-bold">
+      <p class="font-bold title">
         Vuoi che qualcuno ritiri i documenti per te?
       </p>
       <div id="mandate-box__form" class="float-left">
@@ -870,7 +607,7 @@
           Io, ${recipient.denomination} ${recipient.taxId}, delego
           <#else>
             <div>
-              <p>Io,  <span style="display: inline-block; width: 84mm; margin-top: 0;" class="nine-px eleven-lh border-bottom mb-form">
+              <p class="mandate-name">Io,  <span style="display: inline-block; width: 80mm; margin-top: 0;" class="nine-px eleven-lh border-bottom mb-form">
                 Nome e Cognome
               </span></p>
               in qualità di legale rappresentante di ${recipient.denomination} ${recipient.taxId}, delego
@@ -905,6 +642,47 @@
       </div>
 
     </div>
+
+    <div id="footer_advantages">
+      <h3 class="font-uppercase ten-pt font-bold">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? CREA UNA DELEGA PERMANENTE SU SEND</h3>
+
+      <p class="advantages-explanation__content">SEND è il servizio digitale che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione. Con SEND puoi delegare una o più persone di fiducia ad accedere alle tue prossime comunicazioni a valore legale.</p>
+
+      <div class="advantages-row nine-pt">
+        <div class="advantage-col">
+          <img class="message-advantages_explanation" src="../../images/time.png" />
+          <div class="advantages-explanation__content">
+            <b>Non perdi tempo</b><br>Non serve più ritirare fisicamente le raccomandate
+          </div>
+        </div>
+        <div class="advantage-col" style="left: 267px;" >
+          <img class="message-advantages_explanation" src="../../images/earth.png" />
+          <div class="advantages-explanation__content">
+            <b>Non importa dove sei</b><br>
+            La persona delegata può accedere ai tuoi documenti online
+          </div>
+        </div>
+        <div class="advantage-col" style="left: 493px">
+          <img class="message-advantages_explanation" src="../../images/mask.png" />
+          <div class="advantages-explanation__content">
+            <b>Hai sempre il controllo</b><br>
+            Puoi revocare o modificare le deleghe in qualsiasi momento
+          </div>
+        </div>
+      </div>
+
+      <div class="read-more">
+        <p>Per saperne di più vai sul sito <b><a href="${sendURL}">${sendURLLAbel}</a></b></p>
+      </div>
+
+    </div>
+
+    
+
+
+
+
+
   </div>
 
 </body>
