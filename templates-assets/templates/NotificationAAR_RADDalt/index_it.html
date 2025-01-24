@@ -36,11 +36,27 @@
     body {
       font-family: "Titillium Pro", sans-serif;
       font-weight: 400;
-      font-size: 14.3px;
+      font-size: 15px;
       /*11px on Figma*/
       line-height: 18.6px;
     }
 
+    #main-page {
+      margin: 10mm;
+      height: 277mm; 
+      width: 192mm; 
+    }
+    #main-page2 {
+      margin: 10mm;
+      width: 190mm;
+      height: 274mm;
+      position: relative;
+    }
+
+    .relative-box {
+      position: relative;
+    }
+    
     /* font equivalence */
     .seven-pt {
       font-size: 9.333px;
@@ -101,17 +117,16 @@
     }
 
     #upper-section {
-      width: 100%;
       position: relative;
       padding: 0 12px;
-      height: 99mm;
     }
 
     #upper-section,
     #center-section,
     #lower-section {
-      margin: 0mm 10mm 0mm 10mm;
-      width: 190mm;
+      width: 100%;
+      margin: 0mm;
+      height: 92.3mm;
     }
 
     /* logo-box style */
@@ -119,7 +134,7 @@
       position: absolute;
       width: 165mm;
       height: 23mm;
-      top: 14mm;
+      top: 0;
     }
 
     .logo-prefix {
@@ -134,7 +149,7 @@
       position: absolute;
       max-width: 25mm;
       float: right;
-      top: 14mm;
+      top: 0;
       right: 0;
       width: 50mm;
       height: 26mm;
@@ -185,9 +200,17 @@
     .qr_code_box {
       width: 41mm;
     }
+    .iun_box {
+      width: 61mm;
+      padding: 11px;
+      margin-right: 15px;
+    }
 
     .access_online_box {
       width: 149mm;
+    }
+    .access_yourself_box {
+      width: 113mm;
     }
 
     .align-center {
@@ -196,8 +219,13 @@
       transform: translateY(-50%);
     }
 
-    .list-box-height {
+    .list-box-height_qr_code_box {
       height: 41mm;
+    }
+
+    .list-box-height_access_yourself_box {
+      height: 45.6mm;
+      margin-top: 21px;
     }
 
     .custom-list {
@@ -283,12 +311,45 @@
 
     #footer_disclaimer {
       position: absolute;
-      bottom: 10mm;
+      bottom: 0mm;
     }
 
+    ul#square-list-mandate {
+      margin-top: 1mm;
+    }
 
+    ul#square-list li,
+    ul#square-list-mandate li {
+      list-style-type: square;
+      margin-left: 5mm;
+      margin-top: 0.4mm;
+      margin-bottom: 0;
+    }
 
+    .grey-border {
+      border: solid #ECECEC 0.66px;
+      border-radius: 7px;
+    }
+    
+    .blue-border {
+      border: solid #CED8F9 0.66px;
+      border-radius: 7px;
+    }
 
+    #mandate_box {
+      padding: 21px;
+      margin-top: 32px;
+      height: 269px;
+    }
+
+    #mandate-box__form {
+      margin: 2.8mm 0 0 0;
+      width: 48%;
+    }
+
+    #mandate-box__list {
+      width: 48%;
+    }
 
 
 
@@ -314,16 +375,7 @@
       line-height: 14.6px;
     }
 
-    #main-page2 {
-      margin: 10mm;
-      width: 190mm;
-      height: 274mm;
-      position: relative;
-    }
 
-    .relative-box {
-      position: relative;
-    }
 
     .absolute-box {
       position: absolute;
@@ -430,16 +482,6 @@
 
     #send-perfezionamento {
       top: 10mm;
-    }
-
-    #mandate-box {
-      width: 93mm;
-      float: right;
-    }
-
-    #mandate-box__form {
-      float: left;
-      margin: 2.8mm 0 0 0;
     }
 
     #digital_notifications_box {
@@ -671,7 +713,7 @@
 
 <body>
   <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
-  <div style="height: 297mm; width: 192mm;">
+  <div id="main-page" style="background-color: aliceblue;">
     <div id="upper-section">
       <div id="sender_box">
         <div id="" class="nine-pt">
@@ -699,7 +741,7 @@
 
     </div>
 
-    <div id="center-section" class="relative-box" style="height: 99mm;">
+    <div id="center-section" class="relative-box">
       <div class="absolute-box">
         <div id="main_subject" class="twelve-pt sixteen-lh">
           <b>Hai ricevuto una comunicazione a valore legale da ${notification.sender.paDenomination} con oggetto:
@@ -718,7 +760,7 @@
               <div class="float-left font-upppercase twelve-pt">OPZIONE 1: Accedi ora ai documenti online</div>
               <div class="float-right nine-pt">Consultazione online gratuita</div>
             </div>
-            <div class="list-box-height relative-box">
+            <div class="list-box-height_qr_code_box relative-box">
               <div class="align-center float-left qr_code_box">
                 <img alt="qr-code" id="qr-code" src="${qrCodeQuickAccessLink}" />
               </div>
@@ -744,7 +786,7 @@
     </div>
 
 
-    <div id="lower-section" style="height: 99mm; position: relative; padding-top: 5.6mm;" class="relative-box">
+    <div id="lower-section" class="relative-box">
         <div class="heading">
           <div class="float-left font-upppercase twelve-pt">OPZIONE 2: Ritira i documenti di persona</div>
           <div class="float-right nine-pt">Servizio di stampa a pagamento</div>
@@ -770,15 +812,100 @@
         <div id="footer_disclaimer" class="eight-pt">
           <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. <br>
           Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online o ritirarli di persona. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}">${perfezionamentoURLLabel}</a></b></p>
+        </div>     
+    </div>
+
+  </div>
+
+
+  <!--------------------------- PAGE 2 --------------------------->
+  <div id="main-page2" style="background-color: aliceblue;">
+    <div class="heading">
+      <div class="float-left font-upppercase twelve-pt">OPZIONE 2: Ritira i documenti di persona</div>
+      <div class="float-right nine-pt">Servizio di stampa a pagamento</div>
+    </div>
+
+    <div class="list-box-height_access_yourself_box relative-box">
+      <div class=" float-left access_yourself_box">
+        <div class="section-list">
+          <ol class="custom-list eleven-pt">
+            <li class="list_element-one">
+              Cerca i punti di ritiro SEND più vicini a te su <b><a href="${sendURL}punti-di-ritiro">${sendURLLAbel}</a></b> oppure chiama il numero <b>${raddPhoneNumber}</b>
+            </li>
+            <li class="list_element-two">Recati al punto di ritiro portando con te: 
+              <ul id="square-list">
+                <li>questo avviso</li>
+                <li>un tuo documento di riconoscimento</li>
+                <li>il tuo codice fiscale</li>
+              </ul></li>
+            <li class="list_element-three">Paga il costo del servizio di stampa e ritira i documenti notificati</li>
+          </ol>
         </div>
-
-      
+      </div>
+      <div class="float-right iun_box ten-pt grey-border">
+        <div id="iun-code" class="eight-px">
+          <div>
+            <b>Identificativo Univoco Notifica:</b>
+            <br />${notification.iun}
+          </div>
+          <div style="margin-top: 4mm;">
+            <b>Codice fiscale - Persona <#if recipient.recipientType=="PF">
+              fisica:
+              <#else>
+                giuridica:
+            </#if></b>
+            <br />${recipient.taxId}
+          </div>
+        </div>
+      </div>
+    
     </div>
 
+    <div id="mandate_box" class="blue-border">
+      <p class="font-bold">
+        Vuoi che qualcuno ritiri i documenti per te?
+      </p>
+      <div id="mandate-box__form" class="float-left">
+        <#if recipient.recipientType=="PF">
+          Io, ${recipient.denomination} ${recipient.taxId}, delego
+          <#else>
+            <div>
+              <p>Io,  <span style="display: inline-block; width: 84mm; margin-top: 0;" class="nine-px eleven-lh border-bottom mb-form">
+                Nome e Cognome
+              </span></p>
+              in qualità di legale rappresentante di ${recipient.denomination} ${recipient.taxId}, delego
+            </div>
+        </#if>
+        <div class="nine-px eleven-lh border-bottom mb-form">
+          Nome e Cognome
+        </div>
+        <div class="nine-px eleven-lh border-bottom mb-form">
+          Codice Fiscale
+        </div>
+        a ritirare i documenti notificati.
+        <div class="nine-px eleven-lh border-bottom" style="margin-bottom: 0;">
+          Firma
+        </div>
+      </div>
 
-    <!--------------------------- PAGE 2 --------------------------->
-    <div id="main-page2" style="background-color: aliceblue;">
+      <div id="mandate-box__list" class="float-right section-list">
+        La persona delegata dovrà portare con sé:
+        <ul id="square-list-mandate">
+          <li>questo avviso con la delega compilata e firmata;</li>
+          <li>un suo documento di riconoscimento;</li>
+          <li>il suo codice fiscale;</li>
+          <li>una copia o l’originale del codice fiscale e di un documento di riconoscimento del delegante<#if recipient.recipientType=="PF">.</li>
+              <#else>;</li>
+                <li>un documento che attesti il tuo ruolo
+                  di
+                  legale rappresentante.</li>
+            </#if>
+        </ul>
+        
+      </div>
+
     </div>
+  </div>
 
 </body>
 </html>
