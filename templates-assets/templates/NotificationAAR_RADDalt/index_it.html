@@ -44,7 +44,7 @@
 
     #main-page {
       margin: 10mm;
-      height: 277mm; 
+      height: 275mm; 
       width: 192mm; 
     }
     #main-page2 {
@@ -238,7 +238,6 @@
 
     .custom-list, .custom-ol-list {
       list-style: none;
-      /* Rimuove i numeretti predefiniti */
       padding: 0;
       margin: 0;
     }
@@ -248,11 +247,8 @@
     }
     .custom-ol-list > li {
       position: relative;
-      /* Per posizionare l'immagine rispetto all'elemento */
-      padding-left: 20px;
-      /* Distanza tra l'immagine e il testo */
+      padding-left: 31px;
       margin-bottom: 10px;
-      /* Spazio tra gli elementi della lista */
     }
 
     .custom-ol-list > li::before {
@@ -263,6 +259,7 @@
       top: 0;
       width: 13.33px;
       height: 13.33px;
+      font-size: 21px;
       background-size: contain;
       /* Adatta l'immagine alle dimensioni del box */
       background-repeat: no-repeat;
@@ -270,17 +267,14 @@
 
     .custom-ol-list li.list_element-one::before {
       content: "❶";
-      /* Percorso dell'immagine PNG */
     }
 
     .custom-ol-list li.list_element-two::before {
       content: "❷";
-      /* Percorso dell'immagine PNG */
     }
 
     .custom-ol-list li.list_element-three::before {
       content: "❸";
-      /* Percorso dell'immagine PNG */
     }
 
     .retrieve_box {
@@ -391,7 +385,6 @@
     }
 
     .section-list ol {
-      padding-left: 5mm;
       margin: 2mm 0;
     }
 
@@ -486,7 +479,7 @@
         </div>
         <div id="main_disclaimer" class="eleven-pt sixteen-lh">
           <p><b>Accedi subito ai documenti online</b> seguendo le istruzioni, o se preferisci, ritira i documenti in
-            forma cartacea presso uno dei Punti di ritiro SEND (CAF e altri esercenti convenzionati). Tieni presente che
+            forma cartacea presso uno dei punti di ritiro SEND (CAF e altri esercenti convenzionati). Tieni presente che
             il contenuto della comunicazione produrrà effetti giuridici nei tuoi confronti anche senza la tua presa
             visione.
           </p>
@@ -567,7 +560,7 @@
         <div class="section-list">
           <ol class="custom-ol-list eleven-pt">
             <li class="list_element-one">
-              Cerca i Punti di ritiro SEND più vicini a te su <br> <b><a href="${sendURL}punti-di-ritiro">${sendURLLAbel}</a></b> oppure chiama il numero <b>${raddPhoneNumber}</b>
+              Cerca il Punto di ritiro SEND più vicinio a te su <br> <b><a href="${sendURL}punti-di-ritiro">${sendURLLAbel}</a></b> oppure chiama il numero <br> <b>${raddPhoneNumber}</b>
             </li>
             <li class="list_element-two">Recati al punto di ritiro portando con te: 
               <ul id="square-list">
