@@ -75,6 +75,8 @@ components:
       type: object
       required:
         - qrCodeQuickAccessLink
+        - sendURL
+        - sendURLLAbel
         - piattaformaNotificheURL
         - piattaformaNotificheURLLabel
         - perfezionamentoURL
@@ -83,6 +85,10 @@ components:
         - recipient
       properties:
         qrCodeQuickAccessLink:
+          type: string
+        sendURL:
+          type: string
+        sendURLLAbel:
           type: string
         piattaformaNotificheURL:
           type: string
