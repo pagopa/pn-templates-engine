@@ -136,7 +136,6 @@
       bottom: 0;
     }
 
-    /* logo-box style */
     #sender_box {
       position: absolute;
       width: 165mm;
@@ -208,6 +207,7 @@
     .qr_code_box {
       width: 41mm;
     }
+
     .iun_box {
       width: 61mm;
       padding: 11px;
@@ -217,6 +217,7 @@
     .access_online_box {
       width: 155mm;
     }
+
     .access_yourself_box {
       width: 116mm;
     }
@@ -245,6 +246,7 @@
     .custom-list li {
       padding-left: 0;
     }
+
     .custom-ol-list > li {
       position: relative;
       padding-left: 31px;
@@ -253,7 +255,6 @@
 
     .custom-ol-list > li::before {
       content: "";
-      /* Pseudo-elemento per aggiungere l'immagine */
       position: absolute;
       left: 0;
       top: 0;
@@ -261,7 +262,6 @@
       height: 13.33px;
       font-size: 21px;
       background-size: contain;
-      /* Adatta l'immagine alle dimensioni del box */
       background-repeat: no-repeat;
     }
 
@@ -311,7 +311,6 @@
     #io_img {
       width: 45px;
     }
-
 
     #footer_disclaimer, #footer_advantages {
       position: absolute;
@@ -396,6 +395,7 @@
       text-decoration: underline;
       color: #0B3EE3;
     }
+
     a.black {
       text-decoration: none;
       color: inherit;
@@ -436,8 +436,6 @@
     .read-more {
       padding-top: 21px;
     }
-
-
   </style>
 </head>
 
@@ -451,15 +449,11 @@
           <p class="font-bold twelve-pt">${notification.sender.paDenomination}</p>
         </div>
       </div>
-
       <div id="send_box" class="eight-pt">
         <p class="nine-pt logo-prefix">Inviata tramite</p>
         <img id="send_box__logo" src="../../images/aar-logo.gif" />
         <p id="send_box_site" class="eight-pt font-bold"><a class="black" href="notifichedigitali.it">notifichedigitali.it</a></p>
-
       </div>
-
-
       <div id="recipient-addr-box">
         <!-- Si lascia lo spazio per l'indirizzo che verra' inserito dal consolidatore -->
         <br />
@@ -468,9 +462,7 @@
         <br />
         <br />
       </div>
-
     </div>
-
     <div id="center-section" class="relative-box">
       <div class="absolute-box">
         <div id="main_subject" class="twelve-pt sixteen-lh">
@@ -509,19 +501,15 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
-
-
     <div id="lower-section" class="relative-box">
         <div class="heading">
           <div class="float-left font-upppercase twelve-pt">OPZIONE 2: Ritira i documenti di persona</div>
           <div class="float-right nine-pt">Servizio di stampa a pagamento</div>
         </div>
-
         <div class="retrieve_box">
           <p class="align-center float-left">Puoi farlo tu o delegare una persona di fiducia. Segui le istruzioni sul retro del foglio.</p>
           <img class="align-center float-right" id="arrow-img" src="../../images/arrow.jpg" />
@@ -534,17 +522,14 @@
           </div>
           <div class="float-right">
             <img id="io_img" src="../../images/app-io.jpg" />
-
           </div>
         </div>
         </#if>
-
         <div id="footer_disclaimer" class="eight-pt">
           <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. <br>
           Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online o ritirarli di persona. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}">${perfezionamentoURLLabel}</a></b></p>
         </div>     
     </div>
-
   </div>
 
 
@@ -554,7 +539,6 @@
       <div class="float-left font-upppercase twelve-pt">OPZIONE 2: Ritira i documenti di persona</div>
       <div class="float-right nine-pt">Servizio di stampa a pagamento</div>
     </div>
-
     <div class="list-box-height_access_yourself_box relative-box">
       <div class=" float-left access_yourself_box">
         <div class="section-list">
@@ -588,9 +572,7 @@
           </div>
         </div>
       </div>
-    
     </div>
-
     <div id="mandate_box" class="blue-border">
       <p class="font-bold title">
         Vuoi che qualcuno ritiri i documenti per te?
@@ -617,7 +599,6 @@
           Firma
         </div>
       </div>
-
       <div id="mandate-box__list" class="float-right section-list">
         La persona delegata dovrà portare con sé:
         <ul id="square-list-mandate">
@@ -633,14 +614,10 @@
         </ul>
         
       </div>
-
     </div>
-
     <div id="footer_advantages">
       <h3 class="font-uppercase ten-pt font-bold">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? CREA UNA DELEGA PERMANENTE SU SEND</h3>
-
       <p class="advantages-explanation__content">SEND è il servizio digitale che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione. Con SEND puoi delegare una o più persone di fiducia ad accedere alle tue prossime comunicazioni a valore legale.</p>
-
       <div class="advantages-row nine-pt">
         <div class="advantage-col">
           <img class="message-advantages_explanation" src="../../images/time.png" />
@@ -663,19 +640,10 @@
           </div>
         </div>
       </div>
-
       <div class="read-more">
         <p>Per saperne di più vai sul sito <b><a href="${sendURL}">${sendURLLAbel}</a></b></p>
       </div>
-
     </div>
-
-    
-
-
-
-
-
   </div>
 
 </body>
