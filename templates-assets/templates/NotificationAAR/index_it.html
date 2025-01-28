@@ -147,7 +147,7 @@
 
         #sender_box {
             position: absolute;
-            width: 165mm;
+            width: 90mm;
             height: 23mm;
             top: 0;
         }
@@ -158,6 +158,26 @@
 
         #send_box__logo {
             width: 17mm;
+        }
+
+        #iun_send {
+            position: absolute;
+            max-width: 90mm;
+            float: right;
+            top: 0;
+            right: 0;
+            width: 90mm;
+            height: 26mm;
+        }
+
+        #iun_box {
+            padding-bottom: 0;
+            position: absolute;
+            bottom: 0;
+        }
+
+        #iun_box h6 {
+            font-size: 12px;
         }
 
         #send_box {
@@ -267,7 +287,7 @@
             content: "";
             position: absolute;
             left: 0;
-            top: 0;
+            top: -2px;
             font-size: 21px;
             background-size: contain;
             background-repeat: no-repeat;
@@ -383,7 +403,7 @@
             width: 90%;
             height: 35mm;
             margin: auto;
-            padding: 52px 0 0;
+            padding: 55px 0 0;
         }
 
         .advantage-col {
@@ -461,11 +481,19 @@
                     <p class="font-bold twelve-pt">${notification.sender.paDenomination}</p>
                 </div>
             </div>
-            <div id="send_box" class="eight-pt">
-                <p class="nine-pt logo-prefix">Inviata tramite</p>
-                <img id="send_box__logo" src="../../images/aar-logo.gif" />
-                <p id="send_box_site" class="eight-pt font-bold"><a class="black"
-                        href="notifichedigitali.it">notifichedigitali.it</a></p>
+            <div id="iun_send">
+                <div id="iun_box" class="iun_box nine-pt">
+                    <h6 class="font-bold">Identificativo Univoco Notifica:</h6>
+                    <p>${notification.iun}</p>
+                    <h6 class="font-bold">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </h6>
+                    <p>${recipient.taxId}</p>
+                </div>
+                <div id="send_box" class="eight-pt">
+                    <p class="nine-pt logo-prefix">Inviata tramite</p>
+                    <img id="send_box__logo" src="../../images/aar-logo.gif" />
+                    <p id="send_box_site" class="eight-pt font-bold"><a class="black"
+                            href="notifichedigitali.it">notifichedigitali.it</a></p>
+                </div>
             </div>
             <div id="recipient-addr-box">
                 <!-- Si lascia lo spazio per l'indirizzo che verra' inserito dal consolidatore -->
@@ -516,21 +544,20 @@
                             <li class="list_element-two">Accedi e scarica i documenti: contengono
                                 informazioni importanti che ti
                                 riguardano</li>
-                            <li class="list_element-three">Poi potrai pagare online oppure presso tutti i
-                                canali abilitati a
-                                pagoPA</li>
+                            <li class="list_element-three">Se previsto un pagamento, potrai pagare online o presso i
+                                canali abilitati a pagoPA</li>
                         </ol>
                     </div>
                 </div>
             </div>
             <div id="footer_disclaimer" class="eight-pt">
                 <#if recipient.recipientType=="PF">
-                    <div id="io_download" class="blue-border">
-                        <div class="float-left">
+                    <div id="io_download" class="blue-border relative-box">
+                        <div class="float-left align-center">
                             <h3 class="twelwe-pt font-upppercase">Con l'app IO è ancora più semplice!</h3>
                             <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
                         </div>
-                        <div class="float-right">
+                        <div class="float-right align-center">
                             <img id="io_img" src="../../images/app-io.jpg" />
                         </div>
                     </div>
@@ -558,20 +585,20 @@
 
             <div class="advantages-row nine-pt">
                 <div class="advantage-col">
-                    <img class="message-advantages_explanation" src="../../images/time.png" />
+                    <img class="message-advantages_explanation" src="../../images/time.jpg" />
                     <div class="advantages-explanation__content">
                         <b>Non perdi tempo</b><br>Non serve più ritirare fisicamente le raccomandate
                     </div>
                 </div>
                 <div class="advantage-col" style="left: 267px;">
-                    <img class="message-advantages_explanation" src="../../images/earth.png" />
+                    <img class="message-advantages_explanation" src="../../images/earth.jpg" />
                     <div class="advantages-explanation__content">
                         <b>Non importa dove sei</b><br>
                         La persona delegata può accedere ai tuoi documenti online
                     </div>
                 </div>
                 <div class="advantage-col" style="left: 493px">
-                    <img class="message-advantages_explanation" src="../../images/mask.png" />
+                    <img class="message-advantages_explanation" src="../../images/control.jpg" />
                     <div class="advantages-explanation__content">
                         <b>Hai sempre il controllo</b><br>
                         Puoi revocare o modificare le deleghe in qualsiasi momento

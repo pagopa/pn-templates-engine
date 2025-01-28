@@ -266,7 +266,7 @@
       content: "";
       position: absolute;
       left: 0;
-      top: 0;
+      top: -2px;
       font-size: 21px;
       background-size: contain;
       background-repeat: no-repeat;
@@ -505,8 +505,8 @@
                     </li>
                     <li class="list_element-two">Accedi e scarica i documenti: contengono informazioni importanti che ti
                       riguardano</li>
-                    <li class="list_element-three">Poi potrai pagare online oppure presso tutti i canali abilitati a
-                      pagoPA</li>
+                      <li class="list_element-three">Se previsto un pagamento, potrai pagare online o presso i
+                        canali abilitati a pagoPA</li>
                   </ol>
                 </div>
               </div>
@@ -525,12 +525,12 @@
           <img class="align-center float-right" id="arrow-img" src="../../images/arrow.jpg" />
         </div>
         <#if recipient.recipientType=="PF">
-        <div id="io_download" class="blue-border">
-          <div class="float-left">
+        <div id="io_download" class="blue-border relative-box">
+          <div class="float-left align-center">
             <h3 class="twelwe-pt font-upppercase">Con l'app IO è ancora più semplice!</h3>
             <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
           </div>
-          <div class="float-right">
+          <div class="float-right align-center">
             <img id="io_img" src="../../images/app-io.jpg" />
           </div>
         </div>
@@ -617,9 +617,7 @@
           <li>il suo codice fiscale;</li>
           <li>una copia o l’originale del codice fiscale e di un documento di riconoscimento del delegante<#if recipient.recipientType=="PF">.</li>
               <#else>;</li>
-                <li>un documento che attesti il tuo ruolo
-                  di
-                  legale rappresentante.</li>
+                <li>un documento che attesti il ruolo di legale rappresentante del delegante. </li>
             </#if>
         </ul>
         
@@ -630,20 +628,20 @@
       <p class="advantages-explanation__content">SEND è il servizio digitale che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione. Con SEND puoi delegare una o più persone di fiducia ad accedere alle tue prossime comunicazioni a valore legale.</p>
       <div class="advantages-row nine-pt">
         <div class="advantage-col">
-          <img class="message-advantages_explanation" src="../../images/time.png" />
+          <img class="message-advantages_explanation" src="../../images/time.jpg" />
           <div class="advantages-explanation__content">
             <b>Non perdi tempo</b><br>Non serve più ritirare fisicamente le raccomandate
           </div>
         </div>
         <div class="advantage-col" style="left: 267px;" >
-          <img class="message-advantages_explanation" src="../../images/earth.png" />
+          <img class="message-advantages_explanation" src="../../images/earth.jpg" />
           <div class="advantages-explanation__content">
             <b>Non importa dove sei</b><br>
             La persona delegata può accedere ai tuoi documenti online
           </div>
         </div>
         <div class="advantage-col" style="left: 493px">
-          <img class="message-advantages_explanation" src="../../images/mask.png" />
+          <img class="message-advantages_explanation" src="../../images/control.jpg" />
           <div class="advantages-explanation__content">
             <b>Hai sempre il controllo</b><br>
             Puoi revocare o modificare le deleghe in qualsiasi momento
