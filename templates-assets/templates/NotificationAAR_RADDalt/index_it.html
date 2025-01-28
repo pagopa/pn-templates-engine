@@ -43,15 +43,16 @@
     }
 
     #main-page {
-      margin: 10mm;
-      height: 275mm; 
-      width: 192mm; 
+      margin: 14mm 10mm;
+      height: 269mm; 
+      width: 190mm; 
     }
+
     #main-page2 {
-      margin: 10mm;
-      padding-top: 10mm;
+      margin: 14mm 10mm 0 10mm;
+      padding-top: 14mm;
       width: 190mm;
-      height: 285mm;
+      height: 293mm;
       position: relative;
     }
 
@@ -128,7 +129,15 @@
     #lower-section {
       width: 100%;
       margin: 0mm;
-      height: 92.3mm;
+    }
+
+    #upper-section,
+    #lower-section {
+      height: 85mm;
+    }
+
+    #center-section {
+      height: 99mm;
     }
 
     .absolute-box {
@@ -288,13 +297,15 @@
     #io_download {
       text-align: left;
       width: 100%;
-      height: 67px;
+      height: 83px;
       border-radius: 8px;
-      margin-top: 65px;
+      margin-top: 49px;
+      font-size: 14.3px;;
     }
 
     #io_download h3 {
       padding-bottom: 4px;
+      font-size: 16px;
     }
 
     #io_download .float-right {
@@ -304,6 +315,7 @@
 
     #io_download .float-left {
       margin: 14px 0 14px 11px;
+      width: 85%;
     }
 
     #io_img {
@@ -469,7 +481,7 @@
         </div>
         <div id="main_disclaimer" class="eleven-pt sixteen-lh">
           <p><b>Accedi subito ai documenti online</b> seguendo le istruzioni, o se preferisci, ritira i documenti in
-            forma cartacea presso uno dei punti di ritiro SEND (CAF e altri esercenti convenzionati). Tieni presente che
+            forma cartacea presso uno dei Punti di ritiro SEND (CAF e altri esercenti convenzionati). Tieni presente che
             il contenuto della comunicazione produrrà effetti giuridici nei tuoi confronti anche senza la tua presa
             visione.
           </p>
@@ -515,8 +527,8 @@
         <#if recipient.recipientType=="PF">
         <div id="io_download" class="blue-border">
           <div class="float-left">
-            <h3 class="twelwe-pt font-upppercase">Con l’app io è tutto più semplice!</h3>
-            <p class="">Scarica gratuitamente IO e ricevi direttamente sul tuo dispositivo le comunicazioni a valore legale.</p>
+            <h3 class="twelwe-pt font-upppercase">Con l'app IO è ancora più semplice!</h3>
+            <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
           </div>
           <div class="float-right">
             <img id="io_img" src="../../images/app-io.jpg" />
