@@ -61,6 +61,11 @@
         }
 
         /* font equivalence */
+        .six-pt {
+            font-size: 8px;
+        }
+        /* 6px on Figma */
+
         .seven-pt {
             font-size: 9.333px;
         }
@@ -149,7 +154,20 @@
             position: absolute;
             width: 90mm;
             height: 23mm;
-            top: 0;
+            top: -7.5px;
+        }
+
+        #legal_subtitle {
+            margin-top: 8px;
+        }
+
+        #legal_subtitle p {
+            width: 67px;
+            line-height: 10px;
+            border-top: solid 1px;
+            padding-top: 7px;
+            font-weight: 600;
+            letter-spacing: 0.50px;
         }
 
         .logo-prefix {
@@ -477,8 +495,10 @@
         <div id="upper-section">
             <div id="sender_box">
                 <div id="" class="nine-pt">
-                    <p>Hai ricevuto una comunicazione a valore legale da</p>
-                    <p class="font-bold twelve-pt">${notification.sender.paDenomination}</p>
+                    <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
+                    <div id="legal_subtitle">
+                        <p class="six-pt">COMUNICAZIONE A VALORE <br> LEGALE</p>
+                    </div>
                 </div>
             </div>
             <div id="iun_send">
@@ -492,7 +512,7 @@
                     <p class="nine-pt logo-prefix">Inviata tramite</p>
                     <img id="send_box__logo" src="../../images/aar-logo.gif" />
                     <p id="send_box_site" class="eight-pt font-bold"><a class="black"
-                            href="notifichedigitali.it">notifichedigitali.it</a></p>
+                            href="${sendURL}">${sendURLLAbel}</a></p>
                 </div>
             </div>
             <div id="recipient-addr-box">
@@ -567,7 +587,7 @@
                     documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. <br>
                     Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai
                     rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a
-                            href="${perfezionamentoURL}">${perfezionamentoURLLabel}</a></b></p>
+                            href="${perfezionamentoURL}">www.${perfezionamentoURLLabel}</a></b></p>
             </div>
         </div>
     </div>
@@ -606,7 +626,7 @@
             </div>
 
             <div class="read-more">
-                <p>Per saperne di più vai sul sito <b><a href="${sendURL}">${sendURLLAbel}</a></b></p>
+                <p>Per saperne di più vai sul sito <b><a href="${sendURL}">www.${sendURLLAbel}</a></b></p>
             </div>
         </div>
     </div>

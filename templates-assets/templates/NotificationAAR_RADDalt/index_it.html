@@ -61,40 +61,39 @@
     }
     
     /* font equivalence */
+    .six-pt {
+      font-size: 8px;
+    }
+    /* 6px on Figma */
+
     .seven-pt {
       font-size: 9.333px;
     }
-
     /* 7px on Figma */
 
     .eight-pt {
       font-size: 10.667px;
     }
-
     /* 8px on Figma */
 
     .nine-pt {
       font-size: 12px;
     }
-
     /* 9px on Figma */
 
     .ten-pt {
       font-size: 13.333px;
     }
-
     /* 10px on Figma */
 
     .eleven-pt {
       font-size: 14.3px;
     }
-
     /* 11px on Figma */
 
     .twelve-pt {
       font-size: 16px;
     }
-
     /* 12px on Figma */
 
 
@@ -147,9 +146,22 @@
 
     #sender_box {
       position: absolute;
-      width: 165mm;
+      width: 160mm;
       height: 23mm;
-      top: 0;
+      top: -7.5px;
+    }
+
+    #legal_subtitle {
+      margin-top: 8px;
+    }
+
+    #legal_subtitle p {
+      width: 67px;
+      line-height: 10px;
+      border-top: solid 1px;
+      padding-top: 7px;
+      font-weight: 600;
+      letter-spacing: 0.50px;
     }
 
     .logo-prefix {
@@ -455,14 +467,16 @@
     <div id="upper-section">
       <div id="sender_box">
         <div id="" class="nine-pt">
-          <p>Hai ricevuto una comunicazione a valore legale da</p>
-          <p class="font-bold twelve-pt">${notification.sender.paDenomination}</p>
+          <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
+          <div id="legal_subtitle">
+            <p class="six-pt">COMUNICAZIONE A VALORE <br> LEGALE</p>
+          </div>
         </div>
       </div>
       <div id="send_box" class="eight-pt">
         <p class="nine-pt logo-prefix">Inviata tramite</p>
         <img id="send_box__logo" src="../../images/aar-logo.gif" />
-        <p id="send_box_site" class="eight-pt font-bold"><a class="black" href="notifichedigitali.it">notifichedigitali.it</a></p>
+        <p id="send_box_site" class="eight-pt font-bold"><a class="black" href="${sendURL}">${sendURLLAbel}</a></p>
       </div>
       <div id="recipient-addr-box">
         <!-- Si lascia lo spazio per l'indirizzo che verra' inserito dal consolidatore -->
@@ -537,7 +551,7 @@
         </#if>
         <div id="footer_disclaimer" class="eight-pt">
           <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. <br>
-          Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online o ritirarli di persona. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}">${perfezionamentoURLLabel}</a></b></p>
+          Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online o ritirarli di persona. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}">www.${perfezionamentoURLLabel}</a></b></p>
         </div>     
     </div>
   </div>
@@ -554,19 +568,22 @@
         <div class="section-list">
           <ol class="custom-ol-list eleven-pt">
             <li class="list_element-one">
-              Cerca il Punto di ritiro SEND più vicino a te su <br> <b><a href="${sendURL}punti-di-ritiro">${sendURLLAbel}</a></b> oppure chiama il numero <br> <b>${raddPhoneNumber}</b>
+              Cerca il Punto di ritiro SEND più vicino a te su <br> <b><a href="${sendURL}">www.${sendURLLAbel}</a></b> oppure chiama il numero <br> <b>${raddPhoneNumber}</b>
             </li>
             <li class="list_element-two">Recati al punto di ritiro portando con te: 
               <ul id="square-list">
                 <li>questo avviso</li>
                 <li>un tuo documento di riconoscimento</li>
-                <li>il tuo codice fiscale</li>
+                <li>il tuo codice fiscale<#if recipient.recipientType=="PF"></li>
+                <#else></li>
+                  <li>un documento che attesti il tuo ruolo di legale rappresentante</li>
+              </#if>
               </ul></li>
             <li class="list_element-three">Paga il costo del servizio di stampa e ritira i documenti notificati</li>
           </ol>
         </div>
       </div>
-      <div class="float-right iun_box ten-pt grey-border">
+      <div class="float-right iun_box ten-pt blue-border">
         <div id="iun-code" class="eight-px">
           <div>
             <b>Identificativo Univoco Notifica:</b>
@@ -612,12 +629,12 @@
       <div id="mandate-box__list" class="float-right section-list">
         La persona delegata dovrà portare con sé:
         <ul id="square-list-mandate">
-          <li>questo avviso con la delega compilata e firmata;</li>
-          <li>un suo documento di riconoscimento;</li>
-          <li>il suo codice fiscale;</li>
-          <li>una copia o l’originale del codice fiscale e di un documento di riconoscimento del delegante<#if recipient.recipientType=="PF">.</li>
-              <#else>;</li>
-                <li>un documento che attesti il ruolo di legale rappresentante del delegante. </li>
+          <li>questo avviso con la delega compilata e firmata</li>
+          <li>un suo documento di riconoscimento</li>
+          <li>il suo codice fiscale</li>
+          <li>una copia o l’originale del codice fiscale e di un documento di riconoscimento del delegante<#if recipient.recipientType=="PF"></li>
+              <#else></li>
+                <li>un documento che attesti il ruolo di legale rappresentante del delegante</li>
             </#if>
         </ul>
         
@@ -649,7 +666,7 @@
         </div>
       </div>
       <div class="read-more">
-        <p>Per saperne di più vai sul sito <b><a href="${sendURL}">${sendURLLAbel}</a></b></p>
+        <p>Per saperne di più vai sul sito <b><a href="${sendURL}">www.${sendURLLAbel}</a></b></p>
       </div>
     </div>
   </div>
