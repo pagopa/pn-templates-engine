@@ -157,8 +157,6 @@ public class DocumentGeneratorTest {
                 .notification(notification)
                 .qrCodeQuickAccessLink(getQrCodeQuickAccessUrlAarDetail(CITTADINI_NOTIFICHEDIGITALI_IT_AAR_TEST))
                 .recipient(recepient)
-                .sendURL("TEST_sendURL")
-                .sendURLLAbel("TEST_sendURLLabel")
                 .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
                 .piattaformaNotificheURLLabel("TEST_piattaformaNotificheURLLabel")
                 .perfezionamentoURL("TEST_perfezionamentoURL")
