@@ -43,8 +43,10 @@ components:
           properties:
             denomination:
               type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
             taxId:
               type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
 
     MailVerificationCodeBody:
       type: object
@@ -112,6 +114,7 @@ components:
               properties:
                 paDenomination:
                   type: string
+                  x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
         recipient:
           title: AarRecipient
           type: object
@@ -123,6 +126,7 @@ components:
               type: string
             taxId:
               type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
 
     NotificationAarRaddAlt:
       type: object
@@ -174,6 +178,7 @@ components:
               properties:
                 paDenomination:
                   type: string
+                  x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
         recipient:
           title: AarRaddAltRecipient
           type: object
@@ -186,8 +191,10 @@ components:
               type: string
             taxId:
               type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
             denomination:
               type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
 
     NotificationAarForSubject:
       type: object
@@ -208,6 +215,7 @@ components:
               properties:
                 paDenomination:
                   type: string
+                  x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
 
     NotificationAarForEmail:
       type: object
@@ -243,6 +251,7 @@ components:
               properties:
                 paDenomination:
                   type: string
+                  x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
 
     NotificationAarForPec:
       type: object
@@ -285,6 +294,7 @@ components:
               properties:
                 paDenomination:
                   type: string
+                  x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
         recipient:
           title: AarForPecRecipient
           type: object
@@ -293,6 +303,7 @@ components:
           properties:
             taxId:
               type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
 
     NotificationAarForSms:
       type: object
@@ -316,6 +327,7 @@ components:
               properties:
                 paDenomination:
                   type: string
+                  x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
 
     NotificationCancelledLegalFact:
       type: object
@@ -343,6 +355,7 @@ components:
               properties:
                 paDenomination:
                   type: string
+                  x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
             recipients:
               type: array
               minItems: 1
@@ -355,8 +368,10 @@ components:
                 properties:
                   denomination:
                     type: string
+                    x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                   taxId:
                     type: string
+                    x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
 
     NotificationReceivedLegalFact:
       type: object
@@ -394,8 +409,10 @@ components:
               properties:
                 paDenomination:
                   type: string
+                  x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                 paTaxId:
                   type: string
+                  x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
             recipients:
               type: array
               items:
@@ -408,16 +425,20 @@ components:
                 properties:
                   denomination:
                     type: string
+                    x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                   taxId:
                     type: string
+                    x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                   digitalDomicile:
                     title: NotificationReceivedDigitalDomicile
                     type: object
                     properties:
                       address:
                         type: string
+                        x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                   physicalAddressAndDenomination:
                     type: string
+                    x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
 
     NotificationViewedLegalFact:
       type: object
@@ -439,8 +460,10 @@ components:
           properties:
             denomination:
               type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
             taxId:
               type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
         delegate:
           title: NotificationViewedDelegate
           type: object
@@ -450,8 +473,10 @@ components:
           properties:
             denomination:
               type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
             taxId:
               type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
 
     PecVerificationCodeBody:
       type: object
@@ -488,10 +513,13 @@ components:
             properties:
               denomination:
                 type: string
+                x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
               taxId:
                 type: string
+                x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
               address:
                 type: string
+                x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
               type:
                 type: string
               addressSource:

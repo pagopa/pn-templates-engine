@@ -35,6 +35,7 @@ components:
           schema:
             type: string
             format: binary
+            x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
     SuccessResponseHTML:
       description: Ok
       headers:
@@ -47,6 +48,7 @@ components:
         text/html:
           schema:
             type: string
+            x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
     SuccessResponseText:
       description: Ok
       headers:
@@ -59,5 +61,4 @@ components:
         text/plain:
           schema:
             type: string
-
-
+            x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
