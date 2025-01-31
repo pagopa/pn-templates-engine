@@ -28,6 +28,7 @@ components:
         Content-Disposition:
           description: Disposizione del contenuto per il download come allegato
           schema:
+            x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
             type: string
             example: attachment; filename="document.pdf"
       content:
@@ -41,6 +42,7 @@ components:
         Content-Type:
           description: Tipo di contenuto del documento
           schema:
+            x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
             type: string
             example: text/html
       content:
@@ -53,11 +55,10 @@ components:
         Content-Type:
           description: Tipo di contenuto del documento
           schema:
+            x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
             type: string
             example: text/plain
       content:
         text/plain:
           schema:
             type: string
-
-
