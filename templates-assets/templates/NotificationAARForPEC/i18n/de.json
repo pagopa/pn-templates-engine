@@ -11,6 +11,6 @@
   "read_more":"Du erhältst diese Empfangsbestätigung als <#if recipientType=='PF'>natürliche Person<#else>juristische Person</#if> mit der Steuernummer ${recipient.taxId}. SEND ist ein Tool, das den Versand von Zustellungen durch die öffentliche Verwaltung sicherer, effizienter und kostengünstiger macht. <a href=\"${pnFaqSendURL}\" title=\"Scopri di pi&ugrave;\">Mehr hierzu</a>",
   "button":"Zugang zu den Dokumenten",
   "greetings":"Bis bald",
-  "footer":"Die ausgebende K&ouml;rperschaft kennt diese PEC-Adresse, weil du sie in deine SEND-Adressen aufgenommen hast, weil sie Teil eines der im Kodex der digitalen Verwaltung vorgesehenen Register ist oder weil du sie ihr fr&uuml;her mitgeteilt hast. Um Adressen zu bearbeiten oder weitere hinzuzuf&uuml;gen, <a title=\"Weiter auf der Plattform Benachrichtigungen\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">gehe bitte zu deinen Adressen</a>."
+  "footer":"Die ausgebende K&#246;rperschaft kennt diese PEC-Adresse, weil du sie in deine SEND-Adressen aufgenommen hast, weil sie Teil eines der im Kodex der digitalen Verwaltung vorgesehenen Register ist oder weil du sie ihr fr&#252;her mitgeteilt hast. Um Adressen zu bearbeiten oder weitere hinzuzuf&#252;gen, <a title=\"Weiter auf der Plattform Benachrichtigungen\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">gehe bitte zu deinen Adressen</a>."
 
 }
