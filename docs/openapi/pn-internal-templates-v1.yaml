@@ -630,3 +630,25 @@ paths:
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+
+### API TO GENERATE BASE64 QRCODE ####
+  /qrcode-generator:
+    get:
+      summary: generate base64 qrcode
+      description: generazione del qrcode in base64
+      tags:
+        - QrCodeGenerator
+      operationId: qrcodegenerator
+      parameters:
+        - name: url
+          in: query
+          required: true
+          description: url
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: 'schemas-responses.yaml#/components/responses/ResponseQrCode'
+        '500':
+          description: Internal Server Error

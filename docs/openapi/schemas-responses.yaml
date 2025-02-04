@@ -62,3 +62,19 @@ components:
         text/plain:
           schema:
             type: string
+    ResponseQrCode:
+      description: Ok
+      headers:
+        Content-Type:
+          description: QrCode base64 value
+          schema:
+            type: string
+            example: application/json
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              base64value:
+                type: string
+                description: QrCode base64 value

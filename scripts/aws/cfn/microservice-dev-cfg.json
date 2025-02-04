@@ -1,6 +1,6 @@
 {
   "Parameters": {
-    "PnCronAnalyzer": "* */1 * * * *",
+    "PnCronAnalyzer": "-",
     "WireTapLogActivation": "false",
     "CpuValue": "2048",
     "MemoryAmount": "4GB",
