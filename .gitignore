@@ -3,7 +3,6 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-templates-assets/templates/.DS_Store
 
 
 ### STS ###
@@ -47,3 +46,4 @@ templates-assets/templates/NotificationAARForPEC/index.html
 /src/main/resources/generated-templates-assets
 /src/test/resources/generated-templates-assets
 src/main/.DS_Store
+templates-assets/templates/.DS_Store
