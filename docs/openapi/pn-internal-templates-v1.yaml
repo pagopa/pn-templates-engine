@@ -633,7 +633,7 @@ paths:
 
 
 ### API TO GENERATE BASE64 QRCODE ####
-  /qrcode-generator:
+  /templates-engine-private/v1/qrcode-generator:
     get:
       summary: generate base64 qrcode
       description: generazione del qrcode in base64
