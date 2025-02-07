@@ -7,7 +7,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 @WebFluxTest(QrCodeApiController.class)
 public class QrCodeApiControllerTest {
-    public static final String API_URI = "/qrcode-generator";
+    public static final String API_URI = "/templates-engine-private/v1/qrcode-generator";
     @Autowired
     WebTestClient webTestClient;
     @Test
