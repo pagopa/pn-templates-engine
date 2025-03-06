@@ -176,7 +176,8 @@ public class DocumentGeneratorTest {
                 .perfezionamentoURLLabel("TEST_perfezionamentoURLLabel")
                 .sendURL("TEST_sendURL")
                 .sendURLLAbel("TEST_sendURLLAbel")
-                .raddPhoneNumber("TEST_raddPhoneNumber");
+                .raddPhoneNumber("TEST_raddPhoneNumber")
+                .senderLogoBase64(null);
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
