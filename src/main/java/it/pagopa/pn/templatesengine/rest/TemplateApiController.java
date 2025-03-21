@@ -1,8 +1,10 @@
 package it.pagopa.pn.templatesengine.rest;
 
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
+import it.pagopa.pn.templatesengine.config.TemplatesParamsEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.api.TemplateApi;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.*;
+import it.pagopa.pn.templatesengine.resolver.TemplateValueResolver;
 import it.pagopa.pn.templatesengine.service.TemplateService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,12 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
+
 @Slf4j
 @RestController
 @AllArgsConstructor
 public class TemplateApiController implements TemplateApi {
 
     private final TemplateService templateService;
+    private final TemplateValueResolver templateValueResolver;
 
     @Override
     public Mono<ResponseEntity<Resource>> notificationReceivedLegalFact(
@@ -65,7 +73,18 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<NotificationAar> request,
             final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR, xLanguage, request);
+        return request
+                // Scarica l'immagine e la converte in base64
+                .flatMap(r ->
+                        resolveAndUpdateField(
+                                r,
+                                NotificationAar::getSenderLogoBase64,
+                                NotificationAar::setSenderLogoBase64,
+                                TemplatesEnum.NOTIFICATION_AAR,
+                                TemplatesParamsEnum.SENDER_LOGO_BASE64
+                        ))
+                .flatMap(r ->
+                        processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR, xLanguage, Mono.just(r)));
     }
 
     @Override
@@ -73,7 +92,18 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<NotificationAarRaddAlt> request,
             final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT, xLanguage, request);
+        return request
+                // Scarica l'immagine e la converte in base64
+                .flatMap(r ->
+                        resolveAndUpdateField(
+                                r,
+                                NotificationAarRaddAlt::getSenderLogoBase64,
+                                NotificationAarRaddAlt::setSenderLogoBase64,
+                                TemplatesEnum.NOTIFICATION_AAR_RADDALT,
+                                TemplatesParamsEnum.SENDER_LOGO_BASE64
+                        ))
+                .flatMap(r ->
+                        processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT, xLanguage, Mono.just(r)));
     }
 
     @Override
@@ -202,5 +232,23 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage) {
         return templateService.executeTextTemplate(template, xLanguage)
                 .map(result -> ResponseEntity.ok().body(result));
+    }
+
+    private <T> Mono<T> resolveAndUpdateField(
+            T object,
+            Function<T, String> getter,
+            BiConsumer<T, String> setter,
+            TemplatesEnum template,
+            TemplatesParamsEnum param) {
+
+        return templateValueResolver.resolve(getter.apply(object), template, param)
+                .map(v -> {
+                    setter.accept(object, v);
+                    return object;
+                })
+                .switchIfEmpty(Mono.fromCallable(() -> { // Se resolve() è empty, assegna null
+                    setter.accept(object,null);
+                    return object;
+                }));
     }
 }
