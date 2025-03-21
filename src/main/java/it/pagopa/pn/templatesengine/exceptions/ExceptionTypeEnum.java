@@ -11,7 +11,8 @@ public enum ExceptionTypeEnum {
     ERROR_OBJECT_MAPPING( "ERROR_OBJECT_MAPPING", "Errore durante la mappatura di un oggetto."),
     ERROR_FILE_READING( "ERROR_IMAGE_READING", "Errore durante la lettura del file."),
     ERROR_TEMPLATE_LOADING("ERROR_LOAD_TEMPLATE", "Errore durante la lettura dei template."),
-    TEMPLATE_NOT_FOUND_FOR_LANGUAGE("TEMPLATE_NOT_FOUND", "Template not found for the selected language");
+    TEMPLATE_NOT_FOUND_FOR_LANGUAGE("TEMPLATE_NOT_FOUND", "Template not found for the selected language"),
+    RESOLVER_PARAM_NOT_FOUND("RESOLVER_PARAM_NOT_FOUND", "Resolver param not found");
 
     private final String title;
     private final String message;
