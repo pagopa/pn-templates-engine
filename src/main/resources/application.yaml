@@ -5,10 +5,11 @@ spring:
   application:
     name: PN-TEMPLATES-ENGINE
 
-# Runtime mode
 pn:
-  env:
+  env: # Runtime mode
     runtime: PROD
+  templates-engine:
+    parameterStoreCacheTTL: 10m
 
 templatesPath: "generated-templates-assets/templates"
 defaultLanguage: IT
@@ -49,12 +50,30 @@ templates:
       DE: "NotificationAAR/NotificationAAR_de.html"
       SL: "NotificationAAR/NotificationAAR_sl.html"
       FR: "NotificationAAR/NotificationAAR_fr.html"
+    resolvers:
+      senderLogoBase64:
+        enabled: true
+        bypassAllWithNull: true
+        returnNullOnError: true
+        whitelistEnabled: false
+#        whitelistParameterStores:
+#          - TemplateEngineWhitelist1
+#          - TemplateEngineWhitelist2
   notificationAarRaddAlt:
     input:
       IT: "NotificationAAR_RADDalt/NotificationAAR_RADDalt.html"
       DE: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_de.html"
       SL: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_sl.html"
       FR: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_fr.html"
+    resolvers:
+      senderLogoBase64:
+        enabled: true
+        bypassAllWithNull: true
+        returnNullOnError: true
+        whitelistEnabled: false
+#        whitelistParameterStores:
+#          - TemplateEngineWhitelist1
+#          - TemplateEngineWhitelist2
   analogDeliveryWorkflowFailureLegalFact:
     input:
       IT: "AnalogDeliveryWorkflowFailureLegalFact/AnalogDeliveryWorkflowFailureLegalFact.html"
