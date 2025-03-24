@@ -10,8 +10,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import static it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum.ERROR_FILE_READING;
 
