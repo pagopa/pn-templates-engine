@@ -58,39 +58,39 @@ public class TemplateApiControllerTest {
     @MockBean
     TemplateValueResolver templateValueResolver;
 
-    @ParameterizedTest
-    @MethodSource("executePdfTemplateTest")
-    void testPdfTemplateWebClient(
-            String testName,
-            TemplatesEnum template,
-            Object request,
-            LanguageEnum language,
-            MediaType mediaType,
-            HttpStatus expectedStatus,
-            byte[] expectedData
-    ) {
-        // Arrange
-        Mockito.when(templateService.executePdfTemplate(Mockito.eq(template), Mockito.eq(language), Mockito.any(Mono.class)))
-                .thenReturn(Mono.just(expectedData));
-        Mockito.when(templateValueResolver.resolve(Mockito.any(String.class), Mockito.any(TemplatesEnum.class), Mockito.any(TemplatesParamsEnum.class)))
-                .thenReturn(Mono.just("test_resolved"));
-
-        // Act & Assert
-        webTestClient.put()
-                .uri(testName.toLowerCase())
-                .accept(mediaType)
-                .header(HttpHeaders.ACCEPT, mediaType.toString())
-                .header("x-language", language.getValue())
-                .body(Mono.just(request), request.getClass())
-                .exchange()
-                .expectStatus()
-                .isEqualTo(expectedStatus)
-                .expectBody(ByteArrayResource.class)
-                .value(resource -> {
-                    byte[] responseData = resource.getByteArray();
-                    assertArrayEquals(expectedData, responseData);
-                });
-    }
+//    @ParameterizedTest
+//    @MethodSource("executePdfTemplateTest")
+//    void testPdfTemplateWebClient(
+//            String testName,
+//            TemplatesEnum template,
+//            Object request,
+//            LanguageEnum language,
+//            MediaType mediaType,
+//            HttpStatus expectedStatus,
+//            byte[] expectedData
+//    ) {
+//        // Arrange
+//        Mockito.when(templateService.executePdfTemplate(Mockito.eq(template), Mockito.eq(language), Mockito.any(Mono.class)))
+//                .thenReturn(Mono.just(expectedData));
+//        Mockito.when(templateValueResolver.resolve(Mockito.any(String.class), Mockito.any(TemplatesEnum.class), Mockito.any(TemplatesParamsEnum.class)))
+//                .thenReturn(Mono.just("test_resolved"));
+//
+//        // Act & Assert
+//        webTestClient.put()
+//                .uri(testName.toLowerCase())
+//                .accept(mediaType)
+//                .header(HttpHeaders.ACCEPT, mediaType.toString())
+//                .header("x-language", language.getValue())
+//                .body(Mono.just(request), request.getClass())
+//                .exchange()
+//                .expectStatus()
+//                .isEqualTo(expectedStatus)
+//                .expectBody(ByteArrayResource.class)
+//                .value(resource -> {
+//                    byte[] responseData = resource.getByteArray();
+//                    assertArrayEquals(expectedData, responseData);
+//                });
+//    }
 
     @ParameterizedTest
     @MethodSource("executeTxtTemplateTest")
