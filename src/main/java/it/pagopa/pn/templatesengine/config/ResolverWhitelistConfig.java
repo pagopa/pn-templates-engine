@@ -11,7 +11,9 @@ import javax.annotation.PostConstruct;
 import java.util.*;
 import java.util.stream.Collectors;
 
-
+/**
+ * Classe per la gestione della whitelist delle configurazioni dei resolver.
+ */
 @Slf4j
 @RequiredArgsConstructor
 @Component
@@ -22,6 +24,9 @@ public class ResolverWhitelistConfig {
     private final Map<Tuple2<TemplatesEnum, TemplatesParamsEnum>, Set<String>> whitelistParametersStoresMap = new HashMap<>();
     private final Map<Tuple2<TemplatesEnum, TemplatesParamsEnum>, Set<String>> whitelist = new HashMap<>();
 
+    /**
+     * Metodo di inizializzazione che carica i dati della whitelist dai Parameter Store.
+     */
     @PostConstruct
     public void initializeWhitelist() {
         initializeWhitelistParametersStoresMap();
@@ -34,11 +39,23 @@ public class ResolverWhitelistConfig {
         log.info("Whitelist Loaded: {}", whitelist);
     }
 
+    /**
+     * Verifica se un valore è presente nella whitelist per un dato template e parametro.
+     *
+     * @param template Il template di riferimento.
+     * @param param    Il parametro del template.
+     * @param value    Il valore da verificare.
+     * @return {@code true} se il valore è presente nella whitelist, altrimenti {@code false}.
+     */
     public boolean isInWhitelist(TemplatesEnum template, TemplatesParamsEnum param, String value) {
         var values = whitelist.getOrDefault(Tuples.of(template, param), Set.of());
         return values.contains(value);
     }
 
+    /**
+     * Inizializza la mappa dei parametri dello store che devono essere utilizzati per la whitelist.
+     * Questa mappa viene costruita sulla base della configurazione dei template.
+     */
     private void initializeWhitelistParametersStoresMap() {
         templateConfig.getTemplates().forEach((template, entry) -> {
             var resolvers = entry.getResolvers();
