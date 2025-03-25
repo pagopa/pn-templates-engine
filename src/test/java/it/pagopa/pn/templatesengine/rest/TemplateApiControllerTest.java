@@ -1,10 +1,10 @@
 package it.pagopa.pn.templatesengine.rest;
 
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
-import it.pagopa.pn.templatesengine.config.TemplatesParamsEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.*;
 import it.pagopa.pn.templatesengine.resolver.TemplateValueResolver;
 import it.pagopa.pn.templatesengine.service.TemplateService;
+import it.pagopa.pn.templatesengine.utils.TemplatesExampleParameters;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -72,7 +72,7 @@ public class TemplateApiControllerTest {
         // Arrange
         Mockito.when(templateService.executePdfTemplate(Mockito.eq(template), Mockito.eq(language), Mockito.any(Mono.class)))
                 .thenReturn(Mono.just(expectedData));
-        Mockito.when(templateValueResolver.resolve(Mockito.any(String.class), Mockito.any(TemplatesEnum.class), Mockito.any(TemplatesParamsEnum.class)))
+        Mockito.when(templateValueResolver.resolve(Mockito.any(), Mockito.any(), Mockito.any()))
                 .thenReturn(Mono.just("test_resolved"));
 
         // Act & Assert
@@ -325,11 +325,7 @@ public class TemplateApiControllerTest {
                 Arguments.of(
                         NOTIFICATION_AAR_RADD_ALT,
                         TemplatesEnum.NOTIFICATION_AAR_RADDALT,
-                        new NotificationAarRaddAlt()
-                                .perfezionamentoURLLabel("Test Label")
-                                .perfezionamentoURL("https://test.com")
-                                .sendURL("https://send.com")
-                                .qrCodeQuickAccessLink("https://qr-code.com"),
+                        TemplatesExampleParameters.getNotificationAarRaddAlt(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.OK,
@@ -338,7 +334,7 @@ public class TemplateApiControllerTest {
                 Arguments.of(
                         NOTIFICATION_AAR,
                         TemplatesEnum.NOTIFICATION_AAR,
-                        new NotificationAar(),
+                        TemplatesExampleParameters.getNotificationAar(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.OK,
