@@ -16,9 +16,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 @Slf4j
 @RestController
@@ -26,7 +24,7 @@ import java.util.function.Supplier;
 public class TemplateApiController implements TemplateApi {
 
     private final TemplateService templateService;
-    private final TemplateValueResolver templateValueResolver;
+    public final TemplateValueResolver templateValueResolver;
 
     @Override
     public Mono<ResponseEntity<Resource>> notificationReceivedLegalFact(

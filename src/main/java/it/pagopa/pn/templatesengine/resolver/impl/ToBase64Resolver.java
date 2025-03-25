@@ -1,8 +1,7 @@
 package it.pagopa.pn.templatesengine.resolver.impl;
 
 import it.pagopa.pn.templatesengine.resolver.Resolver;
-import it.pagopa.pn.templatesengine.resolver.ResolverEnum;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tika.Tika;
 import org.springframework.stereotype.Component;
@@ -12,7 +11,7 @@ import java.util.Base64;
 
 @Slf4j
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ToBase64Resolver implements Resolver<String>{
     private final UrlResolver urlResolver;
     private final Tika tika = new Tika();

@@ -10,6 +10,7 @@ pn:
     runtime: PROD
   templates-engine:
     parameterStoreCacheTTL: 10m
+    urlResolverTimeout: 5s
 
 templatesPath: "generated-templates-assets/templates"
 defaultLanguage: IT
@@ -57,8 +58,8 @@ templates:
         returnNullOnError: true
         whitelistEnabled: false
 #        whitelistParameterStores:
-#          - TemplateEngineWhitelist1
-#          - TemplateEngineWhitelist2
+#          - /pn-templates-engine/Whitelist1
+#          - /pn-templates-engine/Whitelist2
   notificationAarRaddAlt:
     input:
       IT: "NotificationAAR_RADDalt/NotificationAAR_RADDalt.html"
@@ -71,9 +72,6 @@ templates:
         bypassAllWithNull: true
         returnNullOnError: true
         whitelistEnabled: false
-#        whitelistParameterStores:
-#          - TemplateEngineWhitelist1
-#          - TemplateEngineWhitelist2
   analogDeliveryWorkflowFailureLegalFact:
     input:
       IT: "AnalogDeliveryWorkflowFailureLegalFact/AnalogDeliveryWorkflowFailureLegalFact.html"
