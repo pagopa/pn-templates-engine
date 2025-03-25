@@ -104,6 +104,10 @@
 
 
         /* line-height equivalence */
+        .eight-lh {
+            line-height: 8px;
+        }
+
         .sixteen-lh {
             line-height: 21.333px;
         }
@@ -152,12 +156,12 @@
 
         #sender_box {
             position: absolute;
-            width: 90mm;
+            width: 150mm;
             height: 23mm;
-            top: -7.5px;
+            top: -12px;
         }
 
-        #legal_subtitle {
+        #legal_subtitle, #sender_logo {
             margin-top: 8px;
         }
 
@@ -168,6 +172,10 @@
             padding-top: 7px;
             font-weight: 600;
             letter-spacing: 0.50px;
+        }
+
+        #sender_logo img {
+            height: 53px; /* 40pt on Figma */
         }
 
         .logo-prefix {
@@ -494,13 +502,25 @@
     <div id="main-page">
         <div id="upper-section">
             <div id="sender_box">
-                <div id="" class="nine-pt">
-                    <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
-                    <div id="legal_subtitle">
-                        <p class="six-pt">COMUNICAZIONE A VALORE <br> LEGALE</p>
+                <#if senderLogoBase64??>
+        
+                <div class="nine-pt">
+                  <p class="six-pt eight-lh">COMUNICAZIONE A VALORE LEGALE</p>
+                  <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
+                  <div id="sender_logo">
+                    <img src="${senderLogoBase64}" alt="">
                     </div>
                 </div>
-            </div>
+                <#else>
+        
+                <div class="nine-pt">
+                  <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
+                  <div id="legal_subtitle">
+                    <p class="six-pt">COMUNICAZIONE A VALORE <br> LEGALE</p>
+                  </div>
+                </div>
+                </#if>
+              </div>
             <div id="iun_send">
                 <div id="iun_box" class="iun_box nine-pt">
                     <h6 class="font-bold">Identificativo Univoco Notifica:</h6>
