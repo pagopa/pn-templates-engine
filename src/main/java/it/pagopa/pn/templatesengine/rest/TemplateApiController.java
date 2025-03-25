@@ -232,6 +232,33 @@ public class TemplateApiController implements TemplateApi {
                 .map(result -> ResponseEntity.ok().body(result));
     }
 
+    /**
+     * Risolve un valore di un parametro di template e aggiorna il campo dell'oggetto con il valore risolto.
+     * <p>
+     * Il metodo recupera il valore del parametro da un oggetto, lo passa al resolver per risolverlo (ad esempio,
+     * per convertirlo in base64 o eseguire altre operazioni), e aggiorna il campo dell'oggetto con il valore risolto.
+     * Se il valore risolto è vuoto, il campo viene impostato su null.
+     *
+     * <pre>
+     * // Esempio di utilizzo:
+     * NotificationAar notification = new NotificationAar();
+     * Mono<NotificationAar> updatedNotification = resolveAndUpdateField(
+     *     notification,
+     *     NotificationAar::getSenderLogoBase64,
+     *     NotificationAar::setSenderLogoBase64,
+     *     TemplatesEnum.NOTIFICATION_AAR,
+     *     TemplatesParamsEnum.SENDER_LOGO_BASE64
+     * );
+     * </pre>
+     *
+     * @param <T> Il tipo dell'oggetto che contiene il campo da aggiornare.
+     * @param object L'oggetto contenente il campo da aggiornare.
+     * @param getter Funzione che estrae il valore del parametro dall'oggetto.
+     * @param setter Funzione che imposta il valore del parametro nell'oggetto.
+     * @param template Il template di riferimento per risolvere il parametro.
+     * @param param Il parametro del template da risolvere.
+     * @return Un Mono dell'oggetto con il campo aggiornato, o con il campo impostato su null se il valore risolto è vuoto.
+     */
     private <T> Mono<T> resolveAndUpdateField(
             T object,
             Function<T, String> getter,

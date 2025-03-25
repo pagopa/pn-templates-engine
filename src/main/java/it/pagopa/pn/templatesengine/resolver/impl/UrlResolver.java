@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+/**
+ * Resolver che risolve un URL e recupera i dati binari associati a tale URL.
+ */
 @Slf4j
 @Component
 public class UrlResolver implements Resolver<byte[]> {
@@ -18,6 +21,12 @@ public class UrlResolver implements Resolver<byte[]> {
         this.config = config;
     }
 
+    /**
+     * Risolve l'URL fornito e restituisce i dati binari associati.
+     *
+     * @param paramValue URL della risorsa da risolvere.
+     * @return Mono che emette i dati binari come byte array, oppure un errore se l'URL è nullo o vuoto.
+     */
     @Override
     public Mono<byte[]> resolve(String paramValue) {
         if (paramValue == null) {

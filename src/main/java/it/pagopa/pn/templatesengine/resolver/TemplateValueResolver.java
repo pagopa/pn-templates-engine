@@ -13,6 +13,10 @@ import java.util.Map;
 
 import static it.pagopa.pn.templatesengine.resolver.ResolverEnum.TO_BASE64_RESOLVER;
 
+/**
+ * Classe responsabile della risoluzione dei valori dei parametri di un template.
+ * Utilizza diversi resolver per elaborare i valori dei parametri in base alla configurazione specificata.
+ */
 @Slf4j
 @Component
 public class TemplateValueResolver {
@@ -30,6 +34,17 @@ public class TemplateValueResolver {
         resolverMap =  Map.of(TO_BASE64_RESOLVER, toBase64Resolver);
     }
 
+    /**
+     * Risolve il valore del parametro del template utilizzando il resolver configurato
+     * nel parametro.
+     * <p>
+     * Es. param = "TO_BASE64_RESOLVER:http://example.com"
+     *
+     * @param paramValue Il valore del parametro da risolvere.
+     * @param template Il template di riferimento.
+     * @param param Il parametro del template da risolvere.
+     * @return Mono che emette il valore risolto o vuoto se non è possibile risolvere.
+     */
     public Mono<String> resolve(String paramValue,
                                 TemplatesEnum template,
                                 TemplatesParamsEnum param) {
@@ -80,7 +95,14 @@ public class TemplateValueResolver {
                 : Mono.just(paramValue);
     }
 
-    public TemplateConfig.Resolver getResolverConfig(TemplatesEnum template, TemplatesParamsEnum param) {
+    /**
+     * Recupera la configurazione del resolver per il template e il parametro specificato.
+     *
+     * @param template Il template di riferimento.
+     * @param param Il parametro del template per cui recuperare la configurazione.
+     * @return La configurazione del resolver per il parametro, o null se non esiste.
+     */
+    private TemplateConfig.Resolver getResolverConfig(TemplatesEnum template, TemplatesParamsEnum param) {
         // Non può essere null perché il controllo viene fatto da TemplatesConfig
         var resolversMap = templateConfig.getTemplates().get(template).getResolvers();
         if(resolversMap == null)
