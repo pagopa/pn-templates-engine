@@ -6,6 +6,7 @@ import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.config.TemplatesParamsEnum;
 import it.pagopa.pn.templatesengine.resolver.impl.ToBase64Resolver;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
@@ -91,7 +92,7 @@ public class TemplateValueResolver {
                         log.error("Error during resolution of value: {}", cleanedValue, e);
                         return resolverConf.isReturnNullOnError() ? Mono.empty() : Mono.just(paramValue);
                     })
-                    .doOnNext((v)-> log.info("Resolved value={}", v))
+                    .doOnNext((v)-> log.info("Resolved value={}", StringUtils.abbreviate(v, 50)))
                 : Mono.just(paramValue);
     }
 
