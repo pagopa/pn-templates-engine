@@ -15,3 +15,8 @@ To start application run
 ```bash
     ./mvnw spring-boot:run
 ```
+
+To generate templates and start application run
+```bash
+     ./build-templates-run.sh
+```

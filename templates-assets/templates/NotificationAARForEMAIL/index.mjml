@@ -20,7 +20,6 @@
 
     <mj-wrapper>
       <!-- PagoPA Logo -->
-      
       <mj-section padding="0">
         <mj-group vertical-align="middle">
           <mj-column
@@ -30,21 +29,6 @@
             vertical-align="middle"
           >
             <mj-include padding="0" path="../partials/main-logo.mjml" />
-          </mj-column>
-          <mj-column
-            width="75%"
-            css-class="column-text"
-            vertical-align="middle"
-            padding-left="0"
-          >
-            <mj-text padding-left="15px">
-              <% if (noIta) { %><p style="font-size: 10px; font-weight: 700">
-                <%-avviso_cortesia%>
-              </p><% } %>
-              <p style="font-size: 10px; font-weight: 700">
-                <%-it_avviso_cortesia%>
-              </p>
-            </mj-text>
           </mj-column>
         </mj-group>
       </mj-section>
@@ -95,6 +79,12 @@
               <%-body1%>
             </p><% } %>
 
+            <% if (noIta) { %><p style="margin-top: 10px">
+              <%-body3%>
+            </p><% } %>
+             <% if (noIta) { %><p style="margin-top: 20px">
+              <%-perfection%>
+            </p><% } %>
             <% if (noIta) { %><p style="margin-top: 20px">
               <%-body2%>
             </p><% } %>
@@ -102,7 +92,13 @@
             <p style="margin-top: 10px">
               <%-it_body1%>
             </p>
+            <p style="margin-top: 10px">
+              <%-it_body3%>
+            </p>
 
+            <p style="margin-top: 20px">
+              <%-it_perfection%>
+            </p>
             <p style="margin-top: 20px">
               <%-it_body2%>
             </p>
@@ -125,16 +121,10 @@
             </p>
 
             <!-- Perfezionamento Notifica -->
-            <% if (noIta) { %><p style="margin-top: 0px">
-              <%-perfection%>
-            </p><% } %>
-            <% if (noIta) { %><p style="font-size: 14px; line-height: 22px">
+            <% if (noIta) { %><p>
               <%-read_more%>
             </p><% } %>
-            <p style="margin-top: 0px">
-              <%-it_perfection%>
-            </p>
-            <p style="font-size: 14px; line-height: 22px">
+            <p>
               <%-it_read_more%>
             </p>
           </mj-text>
@@ -145,7 +135,7 @@
             padding-bottom="0px"
             color="#17324D"
           >
-            <p style="margin-top: 0px; margin-bottom: 14px">
+            <p style="margin-top: 0px; margin-bottom: 10px">
             <% if (noIta) { %><span><%-greetings%> &bull; </span><% } %> <%-it_greetings%>,</p>
             
             <p style="margin: 0px">SEND - Servizio Notifiche Digitali</p>
