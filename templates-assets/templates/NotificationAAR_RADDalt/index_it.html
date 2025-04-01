@@ -130,13 +130,20 @@
       margin: 0mm;
     }
 
-    #upper-section,
-    #lower-section {
+    #upper-section{
       height: 85mm;
     }
 
     #center-section {
-      height: 99mm;
+      height: 103mm;
+    }
+
+    #lower-section {
+      height: 81mm;
+    }
+
+    #center-section .absolute-box{
+      bottom: 4mm;
     }
 
     .absolute-box {
@@ -254,7 +261,7 @@
     }
 
     .list-box-height_access_yourself_box {
-      height: 50mm;
+      height: 75mm;
       margin-top: 21px;
     }
 
@@ -294,6 +301,14 @@
 
     .custom-ol-list li.list_element-three::before {
       content: "❸";
+    }
+
+    .custom-ol-list li.list_element-four::before {
+      content: "❹";
+    }
+
+    .custom-ol-list li.list_element-five::before {
+      content: "❺";
     }
 
     .retrieve_box {
@@ -519,8 +534,9 @@
                     </li>
                     <li class="list_element-two">Accedi e scarica i documenti: contengono informazioni importanti che ti
                       riguardano</li>
-                      <li class="list_element-three">Se previsto un pagamento, potrai pagare online o presso i
-                        canali abilitati a pagoPA</li>
+                    <li class="list_element-three">Se previsto un pagamento, potrai pagare online o presso i
+                      canali abilitati a pagoPA</li>
+                    <li class="list_element-four">In fase di pagamento l'importo si aggiornerà con i costi di notifica e gli eventuali costi della raccomandata</li>
                   </ol>
                 </div>
               </div>
@@ -541,8 +557,8 @@
         <#if recipient.recipientType=="PF">
         <div id="io_download" class="blue-border relative-box">
           <div class="float-left align-center">
-            <h3 class="twelwe-pt font-upppercase">Con l'app IO è ancora più semplice!</h3>
-            <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
+            <h3 class="twelwe-pt font-upppercase">Con l'app IO è ancora più semplice e risparmi</h3>
+            <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo e risparmia sui costi della raccomandata: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
           </div>
           <div class="float-right align-center">
             <img id="io_img" src="../../images/app-io.jpg" />
@@ -550,7 +566,7 @@
         </div>
         </#if>
         <div id="footer_disclaimer" class="eight-pt">
-          <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. <br>
+          <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. L’importo da pagare dipende dalla modalità che scegli per accedere alla notifica, dalla tipologia dell’eventuale raccomandata a te inviata e scelta dall’ente, dal numero di tentativi di recapito. <br>
           Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online o ritirarli di persona. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}">www.${perfezionamentoURLLabel}</a></b></p>
         </div>     
     </div>
@@ -579,7 +595,9 @@
                   <li>un documento che attesti il tuo ruolo di legale rappresentante</li>
               </#if>
               </ul></li>
-            <li class="list_element-three">Paga il costo del servizio di stampa e ritira i documenti notificati</li>
+            <li class="list_element-three">Paga 1,40 € per il servizio di stampa e ritira i documenti</li>
+            <li class="list_element-four">Se presente un avviso pagoPA paga presso un canale abilitato oppure online</li>
+            <li class="list_element-five">In fase di pagamento l'importo si aggiornerà con i costi di notifica e gli eventuali costi della raccomandata</li>
           </ol>
         </div>
       </div>
@@ -640,9 +658,10 @@
         
       </div>
     </div>
+    <#if recipient.recipientType=="PF">
     <div id="footer_advantages">
-      <h3 class="font-uppercase ten-pt font-bold">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? CREA UNA DELEGA PERMANENTE SU SEND</h3>
-      <p class="advantages-explanation__content">SEND è il servizio digitale che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione. Con SEND puoi delegare una o più persone di fiducia ad accedere alle tue prossime comunicazioni a valore legale.</p>
+      <h3 class="font-uppercase ten-pt font-bold">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? PUOI FARTI AIUTARE DA UNA PERSONA DI FIDUCIA</h3>
+      <p class="advantages-explanation__content">SEND è il servizio digitale che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione. Con SEND puoi dare accesso alle tue comunicazioni a valore legale a una o più persone di fiducia tramite la delega digitale su SEND.    </p>
       <div class="advantages-row nine-pt">
         <div class="advantage-col">
           <img class="message-advantages_explanation" src="../../images/time.jpg" />
@@ -669,6 +688,7 @@
         <p>Per saperne di più vai sul sito <b><a href="${sendURL}">www.${sendURLLAbel}</a></b></p>
       </div>
     </div>
+    </#if>
   </div>
 
 </body>
