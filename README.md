@@ -13,5 +13,5 @@ To start application run
 ```
 
 ```bash
-    ./mvnw spring-boot:run
+    ./build-templates.sh && ./mvnw spring-boot:run
 ```
