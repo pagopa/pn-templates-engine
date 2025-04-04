@@ -1,8 +1,10 @@
 package it.pagopa.pn.templatesengine.rest;
 
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
+import it.pagopa.pn.templatesengine.config.TemplatesParamsEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.api.TemplateApi;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.*;
+import it.pagopa.pn.templatesengine.resolver.TemplateValueResolver;
 import it.pagopa.pn.templatesengine.service.TemplateService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,12 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.util.function.BiConsumer;
+import java.util.function.Function;
+
 @Slf4j
 @RestController
 @AllArgsConstructor
 public class TemplateApiController implements TemplateApi {
 
     private final TemplateService templateService;
+    public final TemplateValueResolver templateValueResolver;
 
     @Override
     public Mono<ResponseEntity<Resource>> notificationReceivedLegalFact(
@@ -65,7 +71,18 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<NotificationAar> request,
             final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR, xLanguage, request);
+        return request
+                // Scarica l'immagine e la converte in base64
+                .flatMap(r ->
+                        resolveAndUpdateField(
+                                r,
+                                NotificationAar::getSenderLogoBase64,
+                                NotificationAar::setSenderLogoBase64,
+                                TemplatesEnum.NOTIFICATION_AAR,
+                                TemplatesParamsEnum.SENDER_LOGO_BASE64
+                        ))
+                .flatMap(r ->
+                        processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR, xLanguage, Mono.just(r)));
     }
 
     @Override
@@ -73,7 +90,18 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<NotificationAarRaddAlt> request,
             final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT, xLanguage, request);
+        return request
+                // Scarica l'immagine e la converte in base64
+                .flatMap(r ->
+                        resolveAndUpdateField(
+                                r,
+                                NotificationAarRaddAlt::getSenderLogoBase64,
+                                NotificationAarRaddAlt::setSenderLogoBase64,
+                                TemplatesEnum.NOTIFICATION_AAR_RADDALT,
+                                TemplatesParamsEnum.SENDER_LOGO_BASE64
+                        ))
+                .flatMap(r ->
+                        processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT, xLanguage, Mono.just(r)));
     }
 
     @Override
@@ -202,5 +230,50 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage) {
         return templateService.executeTextTemplate(template, xLanguage)
                 .map(result -> ResponseEntity.ok().body(result));
+    }
+
+    /**
+     * Risolve un valore di un parametro di template e aggiorna il campo dell'oggetto con il valore risolto.
+     * <p>
+     * Il metodo recupera il valore del parametro da un oggetto, lo passa al resolver per risolverlo (ad esempio,
+     * per convertirlo in base64 o eseguire altre operazioni), e aggiorna il campo dell'oggetto con il valore risolto.
+     * Se il valore risolto è vuoto, il campo viene impostato su null.
+     *
+     * <pre>
+     * // Esempio di utilizzo:
+     * NotificationAar notification = new NotificationAar();
+     * Mono<NotificationAar> updatedNotification = resolveAndUpdateField(
+     *     notification,
+     *     NotificationAar::getSenderLogoBase64,
+     *     NotificationAar::setSenderLogoBase64,
+     *     TemplatesEnum.NOTIFICATION_AAR,
+     *     TemplatesParamsEnum.SENDER_LOGO_BASE64
+     * );
+     * </pre>
+     *
+     * @param <T> Il tipo dell'oggetto che contiene il campo da aggiornare.
+     * @param object L'oggetto contenente il campo da aggiornare.
+     * @param getter Funzione che estrae il valore del parametro dall'oggetto.
+     * @param setter Funzione che imposta il valore del parametro nell'oggetto.
+     * @param template Il template di riferimento per risolvere il parametro.
+     * @param param Il parametro del template da risolvere.
+     * @return Un Mono dell'oggetto con il campo aggiornato, o con il campo impostato su null se il valore risolto è vuoto.
+     */
+    private <T> Mono<T> resolveAndUpdateField(
+            T object,
+            Function<T, String> getter,
+            BiConsumer<T, String> setter,
+            TemplatesEnum template,
+            TemplatesParamsEnum param) {
+
+        return templateValueResolver.resolve(getter.apply(object), template, param)
+                .map(v -> {
+                    setter.accept(object, v);
+                    return object;
+                })
+                .switchIfEmpty(Mono.fromCallable(() -> { // Se resolve() è empty, assegna null
+                    setter.accept(object,null);
+                    return object;
+                }));
     }
 }

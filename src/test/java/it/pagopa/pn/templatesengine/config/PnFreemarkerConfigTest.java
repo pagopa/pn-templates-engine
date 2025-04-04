@@ -41,8 +41,8 @@ class PnFreemarkerConfigTest {
         // Arrange
         TemplateConfig.Template template = mock(TemplateConfig.Template.class);
         when(template.isLoadAsString()).thenReturn(false);
-        Map<String, String> templateInputs = new HashMap<>();
-        templateInputs.put(LANGUAGE.getValue(), TEMPLATE_NAME);
+        Map<LanguageEnum, String> templateInputs = new HashMap<>();
+        templateInputs.put(LANGUAGE, TEMPLATE_NAME);
         when(template.getInput()).thenReturn(templateInputs);
         when(templateConfig.getTemplates()).thenReturn(Map.of(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, template));
 
