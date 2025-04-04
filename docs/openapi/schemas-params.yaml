@@ -127,6 +127,8 @@ components:
             taxId:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
               type: string
+        senderLogoBase64:
+          type: string
 
     NotificationAarRaddAlt:
       type: object

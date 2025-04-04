@@ -3,11 +3,12 @@ logging:
 server:
   port: 8099
 
-# Runtime mode
 pn:
-  env:
+  env: # Runtime mode
     runtime: DEVELOPMENT
-#pn.env.runtime=PROD
+  templates-engine:
+    parameterStoreCacheTTL: 10m
+    urlResolverTimeout: 5s
 
 # AWS specific configurations
 aws:
@@ -54,12 +55,27 @@ templates:
       DE: "NotificationAAR/NotificationAAR_de.html"
       SL: "NotificationAAR/NotificationAAR_sl.html"
       FR: "NotificationAAR/NotificationAAR_fr.html"
+    resolvers:
+      senderLogoBase64:
+        enabled: true
+        bypassAllWithNull: false
+        returnNullOnError: true
+        whitelistEnabled: false
+#        whitelistParameterStores:
+#          - /pn-templates-engine/Whitelist1
+#          - /pn-templates-engine/Whitelist2
   notificationAarRaddAlt:
     input:
       IT: "NotificationAAR_RADDalt/NotificationAAR_RADDalt.html"
       DE: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_de.html"
       SL: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_sl.html"
       FR: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_fr.html"
+    resolvers:
+      senderLogoBase64:
+        enabled: true
+        bypassAllWithNull: false
+        returnNullOnError: true
+        whitelistEnabled: false
   analogDeliveryWorkflowFailureLegalFact:
     input:
       IT: "AnalogDeliveryWorkflowFailureLegalFact/AnalogDeliveryWorkflowFailureLegalFact.html"

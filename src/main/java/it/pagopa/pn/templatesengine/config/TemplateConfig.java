@@ -1,12 +1,15 @@
 package it.pagopa.pn.templatesengine.config;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
+import it.pagopa.pn.templatesengine.utils.JacksonUtils;
 import it.pagopa.pn.templatesengine.utils.TemplateUtils;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -36,7 +39,21 @@ public class TemplateConfig {
     @Getter
     public static class Template {
         private boolean loadAsString = false;
-        private Map<String, String> input = new HashMap<>();
+        private Map<LanguageEnum, String> input = new HashMap<>();
+        // Il controllo sulla chiava inserita nella mappa resolvers
+        // viene effettuato direttamente da spring
+        private Map<TemplatesParamsEnum, Resolver> resolvers;
+    }
+
+    @Setter
+    @Getter
+    @ToString
+    public static class Resolver {
+        private boolean enabled = false;
+        private boolean bypassAllWithNull = false;
+        private boolean returnNullOnError = true;
+        private boolean whitelistEnabled = false;
+        private List<String> whitelistParameterStores;
     }
 
     /**
@@ -45,7 +62,6 @@ public class TemplateConfig {
      *
      * @throws PnGenericException se un template definito in configurazione non è trovato in `TemplatesEnum`.
      */
-
     @PostConstruct
     public void verifyTemplates() {
         Set<String> enumValues = Arrays.stream(TemplatesEnum.values())
@@ -55,6 +71,8 @@ public class TemplateConfig {
         Set<String> yamlKeys = templates.keySet().stream()
                 .map(TemplatesEnum::name)
                 .collect(Collectors.toSet());
+
+        log.info("Defined templates: {}", yamlKeys);
 
         for (String enumValue : enumValues) {
             if (!yamlKeys.contains(enumValue)) {
@@ -71,9 +89,9 @@ public class TemplateConfig {
     @PostConstruct
     public void initializeTemplatesAsString() {
         templates.forEach((templateKey, template) -> {
-            Map<String, String> input = template.getInput();
+            var input = template.getInput();
             if (template.isLoadAsString()) {
-                Map<String, String> inputAsString = new HashMap<>();
+                Map<LanguageEnum, String> inputAsString = new HashMap<>();
                 input.forEach((inputKey, templateName) -> {
                     String templateContent = TemplateUtils.loadTemplateContent(getTemplatesPath() + "/" + templateName);
                     inputAsString.put(inputKey, templateContent);
@@ -84,4 +102,23 @@ public class TemplateConfig {
             }
         });
     }
+
+    @PostConstruct
+    public void printConfig() throws JsonProcessingException {
+        Map<String, Object> config = Map.of(
+                "templatesPath", templatesPath,
+                "defaultLanguage", defaultLanguage,
+                "templates", templates
+        );
+        var sb = new StringBuilder();
+        sb.append("\n************************* TEMPLATES CONFIG *************************\n");
+        try {
+            sb.append(JacksonUtils.ObjectToYamlString(config));
+        } catch (JsonProcessingException e) {
+            sb.append("ERROR: Unable to convert config to YAML\n");
+        }
+        sb.append("*********************************************************************");
+        log.info(sb.toString());
+    }
+
 }

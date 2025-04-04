@@ -1,0 +1,5108 @@
+{
+	"info": {
+		"_postman_id": "5d9ec040-ee97-4d9c-9cf2-749b1d3c6e01",
+		"name": "API Templates Engine",
+		"description": "# Interface definition for Templates Engine\n\n\nContact Support:\n Name: API Support\n Email: support@pagopa.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14562876"
+	},
+	"item": [
+		{
+			"name": "status",
+			"item": [
+				{
+					"name": "healthCheck path",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/templates-engine-private/status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"templates-engine-private",
+								"status"
+							]
+						},
+						"description": "health check path per verificare lo stato del micro servizio"
+					},
+					"response": [
+						{
+							"name": "Ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/status",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/status",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"status"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "templates-engine-private",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "templates",
+							"item": [
+								{
+									"name": "notification-received-legal-fact",
+									"item": [
+										{
+											"name": "NotificationReceivedLegalFact",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/pdf"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"sendDate\": \"GG/MM/AAAA HH:MM\",\n  \"notification\": {\n    \"iun\": \"AAAA-AAAA-AAAA-000000-A-0\",\n    \"sender\": { \n      \"paDenomination\": \"Ente_Mittente\",\n      \"paTaxId\": \"00000000000\"\n    },\n    \"recipients\": [\n      {\n        \"denomination\": \"Nome_Cognome\",\n        \"taxId\": \"AAAAAA00A00A000A\",\n        \"physicalAddressAndDenomination\": \"Viale_Esempio_1\",\n        \"digitalDomicile\": {\n          \"address\": null\n        }\n      }\n    ]\n  },\n  \"subject\": \"Lorem_Ipsum_Lorem Ipsum_Lorem_Ipsum\",\n  \"digests\": [\n    \"910CD898B166E3E3E394584EB0AB1A7D445992D04BADBCA62FAEE9488B4A117A\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-received-legal-fact",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"notification-received-legal-fact"
+													]
+												},
+												"description": "Genera un documento PDF basato sul template notificationReceivedLegalFact."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/pdf"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"sendDate\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"digests\": [\n    \"<string>\"\n  ],\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\",\n      \"paTaxId\": \"<string>\"\n    },\n    \"recipients\": [\n      {\n        \"denomination\": \"<string>\",\n        \"taxId\": \"<string>\",\n        \"digitalDomicile\": {\n          \"address\": \"<string>\"\n        },\n        \"physicalAddressAndDenomination\": \"<string>\"\n      },\n      {\n        \"denomination\": \"<string>\",\n        \"taxId\": \"<string>\",\n        \"digitalDomicile\": {\n          \"address\": \"<string>\"\n        },\n        \"physicalAddressAndDenomination\": \"<string>\"\n      }\n    ]\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-received-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-received-legal-fact"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/pdf"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														},
+														{
+															"key": "Content-Disposition",
+															"value": "<string>",
+															"description": {
+																"content": "Disposizione del contenuto per il download come allegato",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"sendDate\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"digests\": [\n    \"<string>\"\n  ],\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\",\n      \"paTaxId\": \"<string>\"\n    },\n    \"recipients\": [\n      {\n        \"denomination\": \"<string>\",\n        \"taxId\": \"<string>\",\n        \"digitalDomicile\": {\n          \"address\": \"<string>\"\n        },\n        \"physicalAddressAndDenomination\": \"<string>\"\n      },\n      {\n        \"denomination\": \"<string>\",\n        \"taxId\": \"<string>\",\n        \"digitalDomicile\": {\n          \"address\": \"<string>\"\n        },\n        \"physicalAddressAndDenomination\": \"<string>\"\n      }\n    ]\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-received-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-received-legal-fact"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"sendDate\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"digests\": [\n    \"<string>\"\n  ],\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\",\n      \"paTaxId\": \"<string>\"\n    },\n    \"recipients\": [\n      {\n        \"denomination\": \"<string>\",\n        \"taxId\": \"<string>\",\n        \"digitalDomicile\": {\n          \"address\": \"<string>\"\n        },\n        \"physicalAddressAndDenomination\": \"<string>\"\n      },\n      {\n        \"denomination\": \"<string>\",\n        \"taxId\": \"<string>\",\n        \"digitalDomicile\": {\n          \"address\": \"<string>\"\n        },\n        \"physicalAddressAndDenomination\": \"<string>\"\n      }\n    ]\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-received-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-received-legal-fact"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "pec-delivery-workflow-legal-fact",
+									"item": [
+										{
+											"name": "PecDeliveryWorkflowLegalFact FAILED",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "FR",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/pdf"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"iun\": \"AAAA-AAAA-AAAA-000000-A-0\",\n  \"endWorkflowDate\": \"GG/MM/AAAA HH:MM\",\n  \"endWorkflowStatus\": \"FAILED\",\n  \"deliveries\": [\n    {\n      \"denomination\": \"Nome_Cognome\",\n      \"taxId\": \"AAAAAA00A00A000A\",\n      \"type\": \"TEST_NO_SERCQ\",\n      \"responseDate\": \"GG/MM/AAAA HH:MM\",\n      \"ok\": true,\n      \"address\": \"Viale_Esempio_1\",\n      \"addressSource\": \"PLATFORM\"\n    }\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"pec-delivery-workflow-legal-fact"
+													]
+												},
+												"description": "Genera un documento PDF basato sul template pecDeliveryWorkflowLegalFact."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/pdf"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"iun\": \"<string>\",\n  \"endWorkflowStatus\": \"<string>\",\n  \"deliveries\": [\n    {\n      \"denomination\": \"<string>\",\n      \"taxId\": \"<string>\",\n      \"responseDate\": \"<string>\",\n      \"ok\": \"<boolean>\",\n      \"address\": \"<string>\",\n      \"type\": \"<string>\",\n      \"addressSource\": \"<string>\"\n    }\n  ],\n  \"endWorkflowDate\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-delivery-workflow-legal-fact"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/pdf"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														},
+														{
+															"key": "Content-Disposition",
+															"value": "<string>",
+															"description": {
+																"content": "Disposizione del contenuto per il download come allegato",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"iun\": \"<string>\",\n  \"endWorkflowStatus\": \"<string>\",\n  \"deliveries\": [\n    {\n      \"denomination\": \"<string>\",\n      \"taxId\": \"<string>\",\n      \"responseDate\": \"<string>\",\n      \"ok\": \"<boolean>\",\n      \"address\": \"<string>\",\n      \"type\": \"<string>\",\n      \"addressSource\": \"<string>\"\n    }\n  ],\n  \"endWorkflowDate\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-delivery-workflow-legal-fact"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"iun\": \"<string>\",\n  \"endWorkflowStatus\": \"<string>\",\n  \"deliveries\": [\n    {\n      \"denomination\": \"<string>\",\n      \"taxId\": \"<string>\",\n      \"responseDate\": \"<string>\",\n      \"ok\": \"<boolean>\",\n      \"address\": \"<string>\",\n      \"type\": \"<string>\",\n      \"addressSource\": \"<string>\"\n    }\n  ],\n  \"endWorkflowDate\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-delivery-workflow-legal-fact"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										},
+										{
+											"name": "PecDeliveryWorkflowLegalFact SUCCESS",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/pdf"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"iun\": \"AAAA-AAAA-AAAA-000000-A-0\",\n  \"endWorkflowDate\": \"GG/MM/AAAA HH:MM\",\n  \"endWorkflowStatus\": \"SUCCESS\",\n  \"deliveries\": [\n    {\n      \"denomination\": \"Nome_Cognome\",\n      \"taxId\": \"AAAAAA00A00A000A\",\n      \"type\": \"TEST_NO_SERCQ\",\n      \"responseDate\": \"GG/MM/AAAA HH:MM\",\n      \"ok\": true,\n      \"address\": \"Viale_Esempio_1\",\n      \"addressSource\": \"PLATFORM\"\n    }\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"pec-delivery-workflow-legal-fact"
+													]
+												},
+												"description": "Genera un documento PDF basato sul template pecDeliveryWorkflowLegalFact."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/pdf"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"iun\": \"<string>\",\n  \"endWorkflowStatus\": \"<string>\",\n  \"deliveries\": [\n    {\n      \"denomination\": \"<string>\",\n      \"taxId\": \"<string>\",\n      \"responseDate\": \"<string>\",\n      \"ok\": \"<boolean>\",\n      \"address\": \"<string>\",\n      \"type\": \"<string>\",\n      \"addressSource\": \"<string>\"\n    }\n  ],\n  \"endWorkflowDate\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-delivery-workflow-legal-fact"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/pdf"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														},
+														{
+															"key": "Content-Disposition",
+															"value": "<string>",
+															"description": {
+																"content": "Disposizione del contenuto per il download come allegato",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"iun\": \"<string>\",\n  \"endWorkflowStatus\": \"<string>\",\n  \"deliveries\": [\n    {\n      \"denomination\": \"<string>\",\n      \"taxId\": \"<string>\",\n      \"responseDate\": \"<string>\",\n      \"ok\": \"<boolean>\",\n      \"address\": \"<string>\",\n      \"type\": \"<string>\",\n      \"addressSource\": \"<string>\"\n    }\n  ],\n  \"endWorkflowDate\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-delivery-workflow-legal-fact"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"iun\": \"<string>\",\n  \"endWorkflowStatus\": \"<string>\",\n  \"deliveries\": [\n    {\n      \"denomination\": \"<string>\",\n      \"taxId\": \"<string>\",\n      \"responseDate\": \"<string>\",\n      \"ok\": \"<boolean>\",\n      \"address\": \"<string>\",\n      \"type\": \"<string>\",\n      \"addressSource\": \"<string>\"\n    }\n  ],\n  \"endWorkflowDate\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-delivery-workflow-legal-fact"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "notification-viewed-legal-fact",
+									"item": [
+										{
+											"name": "NotificationViewedLegalFact",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/pdf"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"iun\": \"AAAA-AAAA-AAAA-000000-A-0\",\n  \"when\": \"GG/MM/AAAA HH:MM\",\n  \"recipient\": {\n    \"denomination\": \"Nome_Cognome\",\n    \"taxId\": \"AAAAAA00A00A000A\"\n  },\n  \"delegate\": {\n    \"denomination\": \"Nome_Cognome\",\n    \"taxId\": \"AAAAAA00A00A000A\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-viewed-legal-fact",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"notification-viewed-legal-fact"
+													]
+												},
+												"description": "Genera un documento PDF basato sul template notificationViewedLegalFact."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/pdf"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"iun\": \"<string>\",\n  \"when\": \"<string>\",\n  \"recipient\": {\n    \"denomination\": \"<string>\",\n    \"taxId\": \"<string>\"\n  },\n  \"delegate\": {\n    \"denomination\": \"<string>\",\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-viewed-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-viewed-legal-fact"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/pdf"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														},
+														{
+															"key": "Content-Disposition",
+															"value": "<string>",
+															"description": {
+																"content": "Disposizione del contenuto per il download come allegato",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"iun\": \"<string>\",\n  \"when\": \"<string>\",\n  \"recipient\": {\n    \"denomination\": \"<string>\",\n    \"taxId\": \"<string>\"\n  },\n  \"delegate\": {\n    \"denomination\": \"<string>\",\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-viewed-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-viewed-legal-fact"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"iun\": \"<string>\",\n  \"when\": \"<string>\",\n  \"recipient\": {\n    \"denomination\": \"<string>\",\n    \"taxId\": \"<string>\"\n  },\n  \"delegate\": {\n    \"denomination\": \"<string>\",\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-viewed-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-viewed-legal-fact"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "malfunction-legal-fact",
+									"item": [
+										{
+											"name": "MalfunctionLegalFact",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/pdf"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"startDate\": \"GG/MM/AAAA\",\n  \"timeReferenceStartDate\": \"HH:MM\",\n  \"endDate\": \"GG/MM/AAAA\",\n  \"timeReferenceEndDate\": \"HH:MM\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/malfunction-legal-fact",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"malfunction-legal-fact"
+													]
+												},
+												"description": "Genera un documento PDF basato sul template MalfunctionLegalFact."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/pdf"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"startDate\": \"<string>\",\n  \"timeReferenceStartDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"timeReferenceEndDate\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/malfunction-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"malfunction-legal-fact"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/pdf"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														},
+														{
+															"key": "Content-Disposition",
+															"value": "<string>",
+															"description": {
+																"content": "Disposizione del contenuto per il download come allegato",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"startDate\": \"<string>\",\n  \"timeReferenceStartDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"timeReferenceEndDate\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/malfunction-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"malfunction-legal-fact"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"startDate\": \"<string>\",\n  \"timeReferenceStartDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"timeReferenceEndDate\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/malfunction-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"malfunction-legal-fact"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "notification-cancelled-legal-fact",
+									"item": [
+										{
+											"name": "NotificationCancelledLegalFact",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/pdf"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"notificationCancelledDate\": \"GG/MM/AAAA HH:MM\",\n  \"notification\": {\n    \"iun\": \"AAAA-AAAA-AAAA-000000-A-0\",\n    \"sender\": {\n      \"paDenomination\": \"Ente_Mittente\"\n    },\n    \"recipients\": [\n      {\n        \"denomination\": \"Nome_Cognome\",\n        \"taxId\": \"AAAAAA00A00A000A\"\n      }\n    ]\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-cancelled-legal-fact",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"notification-cancelled-legal-fact"
+													]
+												},
+												"description": "Genera un documento PDF basato sul template notificationCancelledLegalFact."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/pdf"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"notificationCancelledDate\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    },\n    \"recipients\": [\n      {\n        \"denomination\": \"<string>\",\n        \"taxId\": \"<string>\"\n      }\n    ]\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-cancelled-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-cancelled-legal-fact"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/pdf"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														},
+														{
+															"key": "Content-Disposition",
+															"value": "<string>",
+															"description": {
+																"content": "Disposizione del contenuto per il download come allegato",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"notificationCancelledDate\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    },\n    \"recipients\": [\n      {\n        \"denomination\": \"<string>\",\n        \"taxId\": \"<string>\"\n      }\n    ]\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-cancelled-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-cancelled-legal-fact"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"notificationCancelledDate\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    },\n    \"recipients\": [\n      {\n        \"denomination\": \"<string>\",\n        \"taxId\": \"<string>\"\n      }\n    ]\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-cancelled-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-cancelled-legal-fact"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "analog-delivery-workflow-failure-legal-fact",
+									"item": [
+										{
+											"name": "AnalogDeliveryWorkflowFailureLegalFact",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/pdf"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"iun\": \"AAAA-AAAA-AAAA-000000-A-0\",\n  \"endWorkflowDate\": \"GG/MM/AAAA\",\n  \"endWorkflowTime\": \"HH:MM\",\n  \"recipient\": {\n    \"denomination\": \"Nome_Cognome\",\n    \"taxId\": \"AAAAAA00A00A000A\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"analog-delivery-workflow-failure-legal-fact"
+													]
+												},
+												"description": "Genera un documento PDF basato sul template AnalogDeliveryWorkflowFailureLegalFact."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/pdf"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"iun\": \"<string>\",\n  \"endWorkflowDate\": \"<string>\",\n  \"endWorkflowTime\": \"<string>\",\n  \"recipient\": {\n    \"denomination\": \"<string>\",\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"analog-delivery-workflow-failure-legal-fact"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/pdf"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														},
+														{
+															"key": "Content-Disposition",
+															"value": "<string>",
+															"description": {
+																"content": "Disposizione del contenuto per il download come allegato",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"iun\": \"<string>\",\n  \"endWorkflowDate\": \"<string>\",\n  \"endWorkflowTime\": \"<string>\",\n  \"recipient\": {\n    \"denomination\": \"<string>\",\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"analog-delivery-workflow-failure-legal-fact"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"iun\": \"<string>\",\n  \"endWorkflowDate\": \"<string>\",\n  \"endWorkflowTime\": \"<string>\",\n  \"recipient\": {\n    \"denomination\": \"<string>\",\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"analog-delivery-workflow-failure-legal-fact"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "notification-aar-radd-alt",
+									"item": [
+										{
+											"name": "NotificationAarRaddAlt PF",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/pdf"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"notification\": {\n        \"iun\": \"AAAA-AAAA-AAAA-000000-A-0\",\n        \"subject\": \"Lorem_Ipsum_Lorem Ipsum_Lorem_Ipsum Lorem_Ipsum_Lorem Ipsum_Lorem_Ipsum\",\n        \"sender\": {\n            \"paDenomination\": \"Ente_Mittente\"\n        }\n    },\n    \"sendURL\": \"https://www.notifichedigitali.it\",\n    \"sendURLLAbel\": \"notifichedigitali.it\",\n    \"raddPhoneNumber\": \"06.9318.9500\",\n    \"perfezionamentoURL\": \"https://notifichedigitali.it/perfezionamento\",\n    \"perfezionamentoURLLabel\": \"notifichedigitali.it/perfezionamento\",\n    \"recipient\": {\n        \"recipientType\": \"PF\",\n        \"denomination\": \"Nome_Cognome\",\n        \"taxId\": \"AAAAAA00A00A000A\"\n    },\n    \"piattaformaNotificheURL\": \"https://login.notifichedigitali.it/\",\n    \"piattaformaNotificheURLLabel\": \"login.notifichedigitali.it\",\n    \"qrCodeQuickAccessLink\": \"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQAAAAAVtjufAAAEd0lEQVR4Xu2XPdLrJhSGUSO2IBrYGjTSFqCRoIEtQANbkxrRpoQG5Xgk35tkjL8uaULh8Twevzq8cH6Ero/rD/RPcq//+b3+Da4HE7GWdJQkeT4Ej9hXnqodSZTDlfeVr7jWK33lnnh1WRLaptctHK6an/gu13ldzpldRbmifuS1jQixXKum7IjkB56qX6eJaaI50yr/Jf7PXA/hb+u3P585KIXLMo9dYc4Fzx6fe7wQBxYgnDzTaFSNy1uny+mgR1ablBPHjXk6fueXiXRShcsllwkNbV7uffW4cefSWKhuV34U2ZPz1unxfFxt5cyB2qKxa1LdOj0eZyRhU5tf+Xaqww+Pzz1uTIiTlGgk7ioL6MzbV57h6NpWy6JVskMFndvnHg/maOvSRmHpZmpos7x1ejzFkeNcGzxb5HR51m4fetwOKU6sCCvcUZ1ps7j31ePG5dff4fSVsVv26tHpcS/A6JlZNE1KD+DFo9Pj6Rwlzn4rkrOXz+L4zsHntFN1nMziIlyb1l/+f+QuH0VdZYTaQSw+tMi3zz0eNIHfNIPriIacDo0e/zs8Mi+SZVFylZw5HHz/yi0xroLauECxScnDx3fOTJlW5k7wwYqysvjodLhHJOes0aAhT+GeI/L43+EBSpcdqZzoclmxS/rkdY8bP0S0FfwqGYVFSt7n0uHOmQv2Zcd5M6dooHTr9HgwtbpzAp8RgTzVS37i7PC4nCt7+Uz5YsWRy6PT45ZjTZqEQmZJYQHS6vG5x+GJcn3V+XE7xbm94+xxrwrJJ9uHVA3EGbcnzh4PKRs7TuAzVeCzesfZ42af2T5z7FIDn/26vP3vcBf5Sspix6XmJprSb/87HHwOeacsRL5FDIf52/+P/AQLmMZRsmC8gLLz6PT4Lpcayoxw3E7KjDmeOHs8YpP9vAq/eMQ520W5dXpco0mOKxpq8ghhaFb41unxBilElxQ0hXQVTTJ/6/S4J3Yzlugh7cSznf/u7595ZHqDEu/sElnkkKWPTo9Dnl47R6xCiaE4FPTE2ePnOvKRQwFmJysc+vnjQ4/vA4w2Xs44Yigah8lv/zs8Lvtml33wuHHwOb/Psce1qA1t2dS0QwMqg3OP/x3expFP8zqYBnWGUymfvtbj4DMJ8GBER+Ipn7F+fOvwSMUV1Qkd+ZWwMNxN37nn7NrFlSFL55XUfXnqdo+f7NgpX1WoJ4WeY6fl+sp3dRKnyYlhxGyTCFClvnKopFcUeoM7yAeXcnp863GtCkVLPa6s8T7KIcfbtx6P0JLXmUMRBp8RnSd1x9njUIvIAZtixwnDMjSV/Y6zxxvlmxZRBfD5Cteve9LjKSTo3Wi4jEZU+UHj+7k9/qp868yCqznBkAMTxr2vHtfDSWBahEZoSST7RJ6+2eMJJm8YZKEhQKAvn59z73F4j3hNmMPhIFDwGa7hDxx8FrlwaPxY0xmH9AOHSzIhcZgTpmtEYMr4yhNcVS0xvE2MKpl8LvU718Nr1LfiOmDgxDAVPnN1j39a//N7/Wf8TwIyrfH4OjBLAAAAAElFTkSuQmCC\",\n    \"senderLogoBase64\": \"TO_BASE64_RESOLVER:https://selfcare.pagopa.it/institutions/9a7c1b23-46a3-489b-8ed4-398ffb32b45a/logo.png\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-radd-alt",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"notification-aar-radd-alt"
+													]
+												},
+												"description": "Genera un documento PDF basato sul template NotificationAarRaddAlt."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/pdf"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"qrCodeQuickAccessLink\": \"<string>\",\n  \"sendURL\": \"<string>\",\n  \"sendURLLAbel\": \"<string>\",\n  \"raddPhoneNumber\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"piattaformaNotificheURLLabel\": \"<string>\",\n  \"perfezionamentoURL\": \"<string>\",\n  \"perfezionamentoURLLabel\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"recipientType\": \"<string>\",\n    \"taxId\": \"<string>\",\n    \"denomination\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-radd-alt",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-radd-alt"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/pdf"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														},
+														{
+															"key": "Content-Disposition",
+															"value": "<string>",
+															"description": {
+																"content": "Disposizione del contenuto per il download come allegato",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"qrCodeQuickAccessLink\": \"<string>\",\n  \"sendURL\": \"<string>\",\n  \"sendURLLAbel\": \"<string>\",\n  \"raddPhoneNumber\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"piattaformaNotificheURLLabel\": \"<string>\",\n  \"perfezionamentoURL\": \"<string>\",\n  \"perfezionamentoURLLabel\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"recipientType\": \"<string>\",\n    \"taxId\": \"<string>\",\n    \"denomination\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-radd-alt",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-radd-alt"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"qrCodeQuickAccessLink\": \"<string>\",\n  \"sendURL\": \"<string>\",\n  \"sendURLLAbel\": \"<string>\",\n  \"raddPhoneNumber\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"piattaformaNotificheURLLabel\": \"<string>\",\n  \"perfezionamentoURL\": \"<string>\",\n  \"perfezionamentoURLLabel\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"recipientType\": \"<string>\",\n    \"taxId\": \"<string>\",\n    \"denomination\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-radd-alt",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-radd-alt"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										},
+										{
+											"name": "NotificationAarRaddAlt PG",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/pdf"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"notification\": {\n    \"iun\": \"AAAA-AAAA-AAAA-000000-A-0\",\n    \"subject\": \"Lorem_Ipsum_Lorem Ipsum_Lorem_Ipsum Lorem_Ipsum_Lorem Ipsum_Lorem_Ipsum\",\n    \"sender\": {\n      \"paDenomination\": \"Ente_Mittente\"\n    }\n  },\n  \"sendURL\": \"https://www.notifichedigitali.it\",\n  \"sendURLLAbel\": \"notifichedigitali.it\",\n  \"raddPhoneNumber\": \"06.9318.9500\",\n  \"perfezionamentoURL\": \"https://notifichedigitali.it/perfezionamento\",\n  \"perfezionamentoURLLabel\": \"notifichedigitali.it/perfezionamento\",\n  \"recipient\": {\n    \"recipientType\": \"PG\",\n    \"denomination\": \"Nome_Impresa\",\n    \"taxId\": \"0000000000000\"\n  },\n  \"piattaformaNotificheURL\": \"https://imprese.notifichedigitali.it/\",\n  \"piattaformaNotificheURLLabel\": \"imprese.notifichedigitali.it\",\n  \"qrCodeQuickAccessLink\": \"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQAAAAAVtjufAAAEd0lEQVR4Xu2XPdLrJhSGUSO2IBrYGjTSFqCRoIEtQANbkxrRpoQG5Xgk35tkjL8uaULh8Twevzq8cH6Ero/rD/RPcq//+b3+Da4HE7GWdJQkeT4Ej9hXnqodSZTDlfeVr7jWK33lnnh1WRLaptctHK6an/gu13ldzpldRbmifuS1jQixXKum7IjkB56qX6eJaaI50yr/Jf7PXA/hb+u3P585KIXLMo9dYc4Fzx6fe7wQBxYgnDzTaFSNy1uny+mgR1ablBPHjXk6fueXiXRShcsllwkNbV7uffW4cefSWKhuV34U2ZPz1unxfFxt5cyB2qKxa1LdOj0eZyRhU5tf+Xaqww+Pzz1uTIiTlGgk7ioL6MzbV57h6NpWy6JVskMFndvnHg/maOvSRmHpZmpos7x1ejzFkeNcGzxb5HR51m4fetwOKU6sCCvcUZ1ps7j31ePG5dff4fSVsVv26tHpcS/A6JlZNE1KD+DFo9Pj6Rwlzn4rkrOXz+L4zsHntFN1nMziIlyb1l/+f+QuH0VdZYTaQSw+tMi3zz0eNIHfNIPriIacDo0e/zs8Mi+SZVFylZw5HHz/yi0xroLauECxScnDx3fOTJlW5k7wwYqysvjodLhHJOes0aAhT+GeI/L43+EBSpcdqZzoclmxS/rkdY8bP0S0FfwqGYVFSt7n0uHOmQv2Zcd5M6dooHTr9HgwtbpzAp8RgTzVS37i7PC4nCt7+Uz5YsWRy6PT45ZjTZqEQmZJYQHS6vG5x+GJcn3V+XE7xbm94+xxrwrJJ9uHVA3EGbcnzh4PKRs7TuAzVeCzesfZ42af2T5z7FIDn/26vP3vcBf5Sspix6XmJprSb/87HHwOeacsRL5FDIf52/+P/AQLmMZRsmC8gLLz6PT4Lpcayoxw3E7KjDmeOHs8YpP9vAq/eMQ520W5dXpco0mOKxpq8ghhaFb41unxBilElxQ0hXQVTTJ/6/S4J3Yzlugh7cSznf/u7595ZHqDEu/sElnkkKWPTo9Dnl47R6xCiaE4FPTE2ePnOvKRQwFmJysc+vnjQ4/vA4w2Xs44Yigah8lv/zs8Lvtml33wuHHwOb/Psce1qA1t2dS0QwMqg3OP/x3expFP8zqYBnWGUymfvtbj4DMJ8GBER+Ipn7F+fOvwSMUV1Qkd+ZWwMNxN37nn7NrFlSFL55XUfXnqdo+f7NgpX1WoJ4WeY6fl+sp3dRKnyYlhxGyTCFClvnKopFcUeoM7yAeXcnp863GtCkVLPa6s8T7KIcfbtx6P0JLXmUMRBp8RnSd1x9njUIvIAZtixwnDMjSV/Y6zxxvlmxZRBfD5Cteve9LjKSTo3Wi4jEZU+UHj+7k9/qp868yCqznBkAMTxr2vHtfDSWBahEZoSST7RJ6+2eMJJm8YZKEhQKAvn59z73F4j3hNmMPhIFDwGa7hDxx8FrlwaPxY0xmH9AOHSzIhcZgTpmtEYMr4yhNcVS0xvE2MKpl8LvU718Nr1LfiOmDgxDAVPnN1j39a//N7/Wf8TwIyrfH4OjBLAAAAAElFTkSuQmCC\",\n  \"senderLogoBase64\": \"TO_BASE64_RESOLVER:https://selcpcheckoutsa.z6.web.core.windows.net/institutions/9a7c1b23-46a3-489b-8ed4-398ffb32b45a/logo.png\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-radd-alt",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"notification-aar-radd-alt"
+													]
+												},
+												"description": "Genera un documento PDF basato sul template NotificationAarRaddAlt."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/pdf"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"qrCodeQuickAccessLink\": \"<string>\",\n  \"sendURL\": \"<string>\",\n  \"sendURLLAbel\": \"<string>\",\n  \"raddPhoneNumber\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"piattaformaNotificheURLLabel\": \"<string>\",\n  \"perfezionamentoURL\": \"<string>\",\n  \"perfezionamentoURLLabel\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"recipientType\": \"<string>\",\n    \"taxId\": \"<string>\",\n    \"denomination\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-radd-alt",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-radd-alt"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/pdf"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														},
+														{
+															"key": "Content-Disposition",
+															"value": "<string>",
+															"description": {
+																"content": "Disposizione del contenuto per il download come allegato",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"qrCodeQuickAccessLink\": \"<string>\",\n  \"sendURL\": \"<string>\",\n  \"sendURLLAbel\": \"<string>\",\n  \"raddPhoneNumber\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"piattaformaNotificheURLLabel\": \"<string>\",\n  \"perfezionamentoURL\": \"<string>\",\n  \"perfezionamentoURLLabel\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"recipientType\": \"<string>\",\n    \"taxId\": \"<string>\",\n    \"denomination\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-radd-alt",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-radd-alt"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"qrCodeQuickAccessLink\": \"<string>\",\n  \"sendURL\": \"<string>\",\n  \"sendURLLAbel\": \"<string>\",\n  \"raddPhoneNumber\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"piattaformaNotificheURLLabel\": \"<string>\",\n  \"perfezionamentoURL\": \"<string>\",\n  \"perfezionamentoURLLabel\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"recipientType\": \"<string>\",\n    \"taxId\": \"<string>\",\n    \"denomination\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-radd-alt",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-radd-alt"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "notification-aar",
+									"item": [
+										{
+											"name": "NotificationAar PF",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/pdf"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"notification\": {\n    \"iun\": \"AAAA-AAAA-AAAA-000000-A-0\",\n    \"subject\": \"Lorem_Ipsum_Lorem Ipsum_Lorem_Ipsum Lorem_Ipsum_Lorem Lorem_Ipsum_Lorem\",\n    \"sender\": {\n      \"paDenomination\": \"Ente_Mittente\"\n    }\n  },\n  \"sendURL\": \"https://www.notifichedigitali.it\",\n  \"sendURLLAbel\": \"notifichedigitali.it\",\n  \"perfezionamentoURL\": \"https://notifichedigitali.it/perfezionamento\",\n  \"perfezionamentoURLLabel\": \"notifichedigitali.it/perfezionamento\",\n  \"recipient\": {\n    \"recipientType\": \"PF\",\n    \"denomination\": \"Nome_Cognome\",\n    \"taxId\": \"AAAAAA00A00A000A\"\n  },\n  \"piattaformaNotificheURL\": \"https://login.notifichedigitali.it/\",\n  \"piattaformaNotificheURLLabel\": \"login.notifichedigitali.it\",\n  \"qrCodeQuickAccessLink\": \"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQAAAAAVtjufAAAEd0lEQVR4Xu2XPdLrJhSGUSO2IBrYGjTSFqCRoIEtQANbkxrRpoQG5Xgk35tkjL8uaULh8Twevzq8cH6Ero/rD/RPcq//+b3+Da4HE7GWdJQkeT4Ej9hXnqodSZTDlfeVr7jWK33lnnh1WRLaptctHK6an/gu13ldzpldRbmifuS1jQixXKum7IjkB56qX6eJaaI50yr/Jf7PXA/hb+u3P585KIXLMo9dYc4Fzx6fe7wQBxYgnDzTaFSNy1uny+mgR1ablBPHjXk6fueXiXRShcsllwkNbV7uffW4cefSWKhuV34U2ZPz1unxfFxt5cyB2qKxa1LdOj0eZyRhU5tf+Xaqww+Pzz1uTIiTlGgk7ioL6MzbV57h6NpWy6JVskMFndvnHg/maOvSRmHpZmpos7x1ejzFkeNcGzxb5HR51m4fetwOKU6sCCvcUZ1ps7j31ePG5dff4fSVsVv26tHpcS/A6JlZNE1KD+DFo9Pj6Rwlzn4rkrOXz+L4zsHntFN1nMziIlyb1l/+f+QuH0VdZYTaQSw+tMi3zz0eNIHfNIPriIacDo0e/zs8Mi+SZVFylZw5HHz/yi0xroLauECxScnDx3fOTJlW5k7wwYqysvjodLhHJOes0aAhT+GeI/L43+EBSpcdqZzoclmxS/rkdY8bP0S0FfwqGYVFSt7n0uHOmQv2Zcd5M6dooHTr9HgwtbpzAp8RgTzVS37i7PC4nCt7+Uz5YsWRy6PT45ZjTZqEQmZJYQHS6vG5x+GJcn3V+XE7xbm94+xxrwrJJ9uHVA3EGbcnzh4PKRs7TuAzVeCzesfZ42af2T5z7FIDn/26vP3vcBf5Sspix6XmJprSb/87HHwOeacsRL5FDIf52/+P/AQLmMZRsmC8gLLz6PT4Lpcayoxw3E7KjDmeOHs8YpP9vAq/eMQ520W5dXpco0mOKxpq8ghhaFb41unxBilElxQ0hXQVTTJ/6/S4J3Yzlugh7cSznf/u7595ZHqDEu/sElnkkKWPTo9Dnl47R6xCiaE4FPTE2ePnOvKRQwFmJysc+vnjQ4/vA4w2Xs44Yigah8lv/zs8Lvtml33wuHHwOb/Psce1qA1t2dS0QwMqg3OP/x3expFP8zqYBnWGUymfvtbj4DMJ8GBER+Ipn7F+fOvwSMUV1Qkd+ZWwMNxN37nn7NrFlSFL55XUfXnqdo+f7NgpX1WoJ4WeY6fl+sp3dRKnyYlhxGyTCFClvnKopFcUeoM7yAeXcnp863GtCkVLPa6s8T7KIcfbtx6P0JLXmUMRBp8RnSd1x9njUIvIAZtixwnDMjSV/Y6zxxvlmxZRBfD5Cteve9LjKSTo3Wi4jEZU+UHj+7k9/qp868yCqznBkAMTxr2vHtfDSWBahEZoSST7RJ6+2eMJJm8YZKEhQKAvn59z73F4j3hNmMPhIFDwGa7hDxx8FrlwaPxY0xmH9AOHSzIhcZgTpmtEYMr4yhNcVS0xvE2MKpl8LvU718Nr1LfiOmDgxDAVPnN1j39a//N7/Wf8TwIyrfH4OjBLAAAAAElFTkSuQmCC\",\n  \"senderLogoBase64\": \"TO_BASE64_RESOLVER:https://selcpcheckoutsa.z6.web.core.windows.net/institutions/9a7c1b23-46a3-489b-8ed4-398ffb32b45a/logo.png\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"notification-aar"
+													]
+												},
+												"description": "Genera un documento PDF basato sul template NotificationAar."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/pdf"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"qrCodeQuickAccessLink\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"piattaformaNotificheURLLabel\": \"<string>\",\n  \"perfezionamentoURL\": \"<string>\",\n  \"perfezionamentoURLLabel\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"recipientType\": \"<string>\",\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/pdf"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														},
+														{
+															"key": "Content-Disposition",
+															"value": "<string>",
+															"description": {
+																"content": "Disposizione del contenuto per il download come allegato",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"qrCodeQuickAccessLink\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"piattaformaNotificheURLLabel\": \"<string>\",\n  \"perfezionamentoURL\": \"<string>\",\n  \"perfezionamentoURLLabel\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"recipientType\": \"<string>\",\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"qrCodeQuickAccessLink\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"piattaformaNotificheURLLabel\": \"<string>\",\n  \"perfezionamentoURL\": \"<string>\",\n  \"perfezionamentoURLLabel\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"recipientType\": \"<string>\",\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										},
+										{
+											"name": "NotificationAar PG",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/pdf"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"notification\": {\n        \"iun\": \"AAAA-AAAA-AAAA-000000-A-0\",\n        \"subject\": \"Lorem_Ipsum_Lorem Ipsum_Lorem_Ipsum Lorem_Ipsum_Lorem Lorem_Ipsum_Lorem\",\n        \"sender\": {\n            \"paDenomination\": \"Ente_Mittente\"\n        }\n    },\n    \"sendURL\": \"https://www.notifichedigitali.it\",\n    \"sendURLLAbel\": \"notifichedigitali.it\",\n    \"perfezionamentoURL\": \"https://notifichedigitali.it/perfezionamento\",\n    \"perfezionamentoURLLabel\": \"notifichedigitali.it/perfezionamento\",\n    \"recipient\": {\n        \"recipientType\": \"PG\",\n        \"denomination\": \"Nome_Impresa\",\n        \"taxId\": \"0000000000000\"\n    },\n    \"piattaformaNotificheURL\": \"https://imprese.notifichedigitali.it/\",\n    \"piattaformaNotificheURLLabel\": \"imprese.notifichedigitali.it\",\n    \"qrCodeQuickAccessLink\": \"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAALQAAAC0AQAAAAAVtjufAAAEd0lEQVR4Xu2XPdLrJhSGUSO2IBrYGjTSFqCRoIEtQANbkxrRpoQG5Xgk35tkjL8uaULh8Twevzq8cH6Ero/rD/RPcq//+b3+Da4HE7GWdJQkeT4Ej9hXnqodSZTDlfeVr7jWK33lnnh1WRLaptctHK6an/gu13ldzpldRbmifuS1jQixXKum7IjkB56qX6eJaaI50yr/Jf7PXA/hb+u3P585KIXLMo9dYc4Fzx6fe7wQBxYgnDzTaFSNy1uny+mgR1ablBPHjXk6fueXiXRShcsllwkNbV7uffW4cefSWKhuV34U2ZPz1unxfFxt5cyB2qKxa1LdOj0eZyRhU5tf+Xaqww+Pzz1uTIiTlGgk7ioL6MzbV57h6NpWy6JVskMFndvnHg/maOvSRmHpZmpos7x1ejzFkeNcGzxb5HR51m4fetwOKU6sCCvcUZ1ps7j31ePG5dff4fSVsVv26tHpcS/A6JlZNE1KD+DFo9Pj6Rwlzn4rkrOXz+L4zsHntFN1nMziIlyb1l/+f+QuH0VdZYTaQSw+tMi3zz0eNIHfNIPriIacDo0e/zs8Mi+SZVFylZw5HHz/yi0xroLauECxScnDx3fOTJlW5k7wwYqysvjodLhHJOes0aAhT+GeI/L43+EBSpcdqZzoclmxS/rkdY8bP0S0FfwqGYVFSt7n0uHOmQv2Zcd5M6dooHTr9HgwtbpzAp8RgTzVS37i7PC4nCt7+Uz5YsWRy6PT45ZjTZqEQmZJYQHS6vG5x+GJcn3V+XE7xbm94+xxrwrJJ9uHVA3EGbcnzh4PKRs7TuAzVeCzesfZ42af2T5z7FIDn/26vP3vcBf5Sspix6XmJprSb/87HHwOeacsRL5FDIf52/+P/AQLmMZRsmC8gLLz6PT4Lpcayoxw3E7KjDmeOHs8YpP9vAq/eMQ520W5dXpco0mOKxpq8ghhaFb41unxBilElxQ0hXQVTTJ/6/S4J3Yzlugh7cSznf/u7595ZHqDEu/sElnkkKWPTo9Dnl47R6xCiaE4FPTE2ePnOvKRQwFmJysc+vnjQ4/vA4w2Xs44Yigah8lv/zs8Lvtml33wuHHwOb/Psce1qA1t2dS0QwMqg3OP/x3expFP8zqYBnWGUymfvtbj4DMJ8GBER+Ipn7F+fOvwSMUV1Qkd+ZWwMNxN37nn7NrFlSFL55XUfXnqdo+f7NgpX1WoJ4WeY6fl+sp3dRKnyYlhxGyTCFClvnKopFcUeoM7yAeXcnp863GtCkVLPa6s8T7KIcfbtx6P0JLXmUMRBp8RnSd1x9njUIvIAZtixwnDMjSV/Y6zxxvlmxZRBfD5Cteve9LjKSTo3Wi4jEZU+UHj+7k9/qp868yCqznBkAMTxr2vHtfDSWBahEZoSST7RJ6+2eMJJm8YZKEhQKAvn59z73F4j3hNmMPhIFDwGa7hDxx8FrlwaPxY0xmH9AOHSzIhcZgTpmtEYMr4yhNcVS0xvE2MKpl8LvU718Nr1LfiOmDgxDAVPnN1j39a//N7/Wf8TwIyrfH4OjBLAAAAAElFTkSuQmCC\",\n    \"senderLogoBase64\": \"TO_BASE64_RESOLVER:https://selfcare.pagopa.it/institutions/9a7c1b23-46a3-489b-8ed4-398ffb32b45a/logo.png\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"notification-aar"
+													]
+												},
+												"description": "Genera un documento PDF basato sul template NotificationAar."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/pdf"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"qrCodeQuickAccessLink\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"piattaformaNotificheURLLabel\": \"<string>\",\n  \"perfezionamentoURL\": \"<string>\",\n  \"perfezionamentoURLLabel\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"recipientType\": \"<string>\",\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/pdf"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														},
+														{
+															"key": "Content-Disposition",
+															"value": "<string>",
+															"description": {
+																"content": "Disposizione del contenuto per il download come allegato",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"qrCodeQuickAccessLink\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"piattaformaNotificheURLLabel\": \"<string>\",\n  \"perfezionamentoURL\": \"<string>\",\n  \"perfezionamentoURLLabel\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"recipientType\": \"<string>\",\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"qrCodeQuickAccessLink\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"piattaformaNotificheURLLabel\": \"<string>\",\n  \"perfezionamentoURL\": \"<string>\",\n  \"perfezionamentoURLLabel\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"recipientType\": \"<string>\",\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "notification-aar-for-email",
+									"item": [
+										{
+											"name": "NotificationAarForEmail",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/html"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"perfezionamentoURL\": \"https://www.notifichedigitali.it/perfezionamento/\",\n  \"quickAccessLink\": \"TEST_quickAccessLink\",\n  \"pnFaqSendURL\": \"https://www.notifichedigitali.it/it/faq/\",\n  \"piattaformaNotificheURL\": \"https://cittadini.notifichedigitali.it/auth/login\",\n  \"notification\": {\n    \"sender\": {\n      \"paDenomination\": \"Comune di Palermo\"\n    },\n    \"iun\": \"111\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-email",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"notification-aar-for-email"
+													]
+												},
+												"description": "Genera un documento HTML basato sul template NotificationAarForEmail."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "text/html"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"perfezionamentoURL\": \"<string>\",\n  \"quickAccessLink\": \"<string>\",\n  \"pnFaqSendURL\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-email",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-for-email"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/html"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"perfezionamentoURL\": \"<string>\",\n  \"quickAccessLink\": \"<string>\",\n  \"pnFaqSendURL\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-email",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-for-email"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"perfezionamentoURL\": \"<string>\",\n  \"quickAccessLink\": \"<string>\",\n  \"pnFaqSendURL\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-email",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-for-email"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "notification-aar-for-pec",
+									"item": [
+										{
+											"name": "NotificationAarForPec",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/html"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"notification\": {\n    \"iun\": \"TEST\",\n    \"subject\": \"Notifica digitale\",\n    \"sender\": {\n      \"paDenomination\": \"Comune di Palermo\"\n    }\n  },\n  \"perfezionamentoURL\": \"https://www.notifichedigitali.it/it/perfezionamento/\",\n  \"quickAccessLink\": \"TEST\",\n  \"pnFaqSendURL\": \"https://www.notifichedigitali.it/it/faq/\",\n  \"piattaformaNotificheURL\": \"https://cittadini.notifichedigitali.it/auth/login\",\n  \"recipientType\": \"PF\",\n  \"recipient\": {\n    \"taxId\": \"LVLDAA85T50G702B\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-pec",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"notification-aar-for-pec"
+													]
+												},
+												"description": "Genera un documento HTML basato sul template NotificationAarForPec."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "text/html"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"perfezionamentoURL\": \"<string>\",\n  \"quickAccessLink\": \"<string>\",\n  \"pnFaqSendURL\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"recipientType\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-pec",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-for-pec"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/html"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"perfezionamentoURL\": \"<string>\",\n  \"quickAccessLink\": \"<string>\",\n  \"pnFaqSendURL\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"recipientType\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-pec",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-for-pec"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"perfezionamentoURL\": \"<string>\",\n  \"quickAccessLink\": \"<string>\",\n  \"pnFaqSendURL\": \"<string>\",\n  \"piattaformaNotificheURL\": \"<string>\",\n  \"recipientType\": \"<string>\",\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  },\n  \"recipient\": {\n    \"taxId\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-pec",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-for-pec"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "mail-verification-code-body",
+									"item": [
+										{
+											"name": "MailVerificationCodeBody",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/html"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"verificationCode\": \"TEST\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/mail-verification-code-body",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"mail-verification-code-body"
+													]
+												},
+												"description": "Genera un documento HTML basato sul template MailVerificationCodeBody."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "text/html"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"verificationCode\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/mail-verification-code-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"mail-verification-code-body"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/html"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"verificationCode\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/mail-verification-code-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"mail-verification-code-body"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"verificationCode\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/mail-verification-code-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"mail-verification-code-body"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "pec-verification-code-body",
+									"item": [
+										{
+											"name": "PecVerificationCodeBody",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/html"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"verificationCode\": \"TEST\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-verification-code-body",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"pec-verification-code-body"
+													]
+												},
+												"description": "Genera un documento HTML basato sul template PecVerificationCodeBody."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "text/html"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"verificationCode\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-verification-code-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-verification-code-body"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/html"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"verificationCode\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-verification-code-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-verification-code-body"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"verificationCode\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-verification-code-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-verification-code-body"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "pec-validation-contacts-success-body",
+									"item": [
+										{
+											"name": "PecValidationContactsSuccessBody",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Accept",
+														"value": "text/html"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-success-body",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"pec-validation-contacts-success-body"
+													]
+												},
+												"description": "Genera un documento HTML basato sul template PecValidationContactsSuccessBody."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "text/html"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-success-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-validation-contacts-success-body"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/html"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-success-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-validation-contacts-success-body"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-success-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-validation-contacts-success-body"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "pec-validation-contacts-reject-body",
+									"item": [
+										{
+											"name": "PecValidationContactsRejectBody",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Accept",
+														"value": "text/html"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-reject-body",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"pec-validation-contacts-reject-body"
+													]
+												},
+												"description": "Genera un documento HTML basato sul template PecValidationContactsRejectBody."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "text/html"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-reject-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-validation-contacts-reject-body"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/html"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-reject-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-validation-contacts-reject-body"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-reject-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-validation-contacts-reject-body"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "notification-aar-for-sms",
+									"item": [
+										{
+											"name": "NotificationAarForSms",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"notification\": {\n    \"iun\": \"TEST\",\n    \"sender\": {\n      \"paDenomination\": \"Comune di Palermo\"\n    }\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-sms",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"notification-aar-for-sms"
+													]
+												},
+												"description": "Genera un documento TXT basato sul template NotificationAarForSms."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-sms",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-for-sms"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-sms",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-for-sms"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"notification\": {\n    \"iun\": \"<string>\",\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-sms",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-for-sms"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "sms-verification-code-body",
+									"item": [
+										{
+											"name": "SmsVerificationCodeBody",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/sms-verification-code-body",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"sms-verification-code-body"
+													]
+												},
+												"description": "Genera un documento TXT OTP di conferma SmsVerificationCodeBody."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/sms-verification-code-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"sms-verification-code-body"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/sms-verification-code-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"sms-verification-code-body"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/sms-verification-code-body",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"sms-verification-code-body"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "notification-aar-for-subject",
+									"item": [
+										{
+											"name": "NotificationAarForSubject",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"notification\": {\n    \"sender\": {\n      \"paDenomination\": \"TEST_paDenomination\"\n    }\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-subject",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"notification-aar-for-subject"
+													]
+												},
+												"description": "Genera un documento TXT basato sul template NotificationAarForSubject."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"notification\": {\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-for-subject"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"notification\": {\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-for-subject"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"notification\": {\n    \"sender\": {\n      \"paDenomination\": \"<string>\"\n    }\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-aar-for-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-aar-for-subject"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "mail-verification-code-subject",
+									"item": [
+										{
+											"name": "MailVerificationCodeSubject",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/mail-verification-code-subject",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"mail-verification-code-subject"
+													]
+												},
+												"description": "Genera un documento TXT basato sul template MailVerificationCodeSubject."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/mail-verification-code-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"mail-verification-code-subject"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/mail-verification-code-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"mail-verification-code-subject"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/mail-verification-code-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"mail-verification-code-subject"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "pec-verification-code-subject",
+									"item": [
+										{
+											"name": "PecVerificationCodeSubject",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-verification-code-subject",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"pec-verification-code-subject"
+													]
+												},
+												"description": "Genera un documento TXT basato sul template PecVerificationCodeSubject."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-verification-code-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-verification-code-subject"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-verification-code-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-verification-code-subject"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-verification-code-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-verification-code-subject"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "pec-validation-contacts-success-subject",
+									"item": [
+										{
+											"name": "PecValidationContactsSuccessSubject",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-success-subject",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"pec-validation-contacts-success-subject"
+													]
+												},
+												"description": "Genera un documento TXT basato sul template PecValidationContactsSuccessSubject."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-success-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-validation-contacts-success-subject"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-success-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-validation-contacts-success-subject"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-success-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-validation-contacts-success-subject"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "pec-validation-contacts-reject-subject",
+									"item": [
+										{
+											"name": "PecValidationContactsRejectSubject",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-reject-subject",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"pec-validation-contacts-reject-subject"
+													]
+												},
+												"description": "Genera un documento TXT basato sul template PecValidationContactsRejectSubject."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-reject-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-validation-contacts-reject-subject"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-reject-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-validation-contacts-reject-subject"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/pec-validation-contacts-reject-subject",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"pec-validation-contacts-reject-subject"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.pn.pagopa.it"
+		}
+	]
+}
