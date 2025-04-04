@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>pn-templates-engine</artifactId>
 	<version>1.3.0-SNAPSHOT</version>
-	<name>pn-templates-engine</name>ß
+	<name>pn-templates-engine</name>
 	<description>Template engine Microservice</description>
 
 	<properties>
