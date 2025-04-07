@@ -265,8 +265,13 @@
       height: 41mm;
     }
 
-    .list-box-height_access_yourself_box {
-      height: 75mm;
+    .list-box-height_access_yourself_box_pg {
+      height: 80mm;
+      margin-top: 21px;
+    }
+
+    .list-box-height_access_yourself_box_pf {
+      height: 73mm;
       margin-top: 21px;
     }
 
@@ -592,12 +597,15 @@
       <div class="float-left font-upppercase twelve-pt">OPZIONE 2: Ritira i documenti di persona</div>
       <div class="float-right nine-pt">Servizio di stampa a pagamento</div>
     </div>
-    <div class="list-box-height_access_yourself_box relative-box">
+    <#if recipient.recipientType=="PF">
+    <div class="list-box-height_access_yourself_box_pf relative-box">
+    <#else>
+    <div class="list-box-height_access_yourself_box_pg relative-box">
+    </#if>
       <div class=" float-left access_yourself_box">
         <div class="section-list">
           <ol class="custom-ol-list eleven-pt">
             <li class="list_element-one">
-              Cerca il Punto di ritiro SEND più vicino a te su <br> <b><a href="${sendURL}/punti-di-ritiro">www.${sendURLLAbel}/punti-di-ritiro</a></b> oppure chiama il <br>numero <b>${raddPhoneNumber}</b>
               Cerca il Punto di ritiro SEND più vicino a te su <br> <b><a href="${sendURL}/punti-di-ritiro">www.${sendURLLAbel}/punti-di-ritiro</a></b> oppure chiama il <br>numero <b>${raddPhoneNumber}</b>
             </li>
             <li class="list_element-two">Recati al punto di ritiro portando con te: 
@@ -611,7 +619,7 @@
               </ul></li>
             <li class="list_element-three">Paga 1,40 € per il servizio di stampa e ritira i documenti</li>
           </ol>
-          <p style="margin-top: 8mm;">Se presente un avviso pagoPA paga presso un canale abilitato oppure online. In fase di pagamento l'importo si aggiornerà con i costi di notifica </p>
+          <p style="margin-top: 8mm;">Se presente un avviso pagoPA paga presso un canale abilitato oppure online. In fase di pagamento l'importo si aggiornerà con i costi di notifica</p>
         </div>
       </div>
       <div class="float-right iun_box ten-pt blue-border">
