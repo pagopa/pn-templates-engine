@@ -79,7 +79,7 @@ public class TemplateService {
             if (templateAsString == null) {
                 return Mono.error(templateNotFoundException(template));
             }
-            String templateInput = templateAsString.getInput().get(language.getValue());
+            String templateInput = templateAsString.getInput().get(language);
             if (templateInput == null) {
                 templateInput =  getFileByDefaultLanguage(template, language, templateAsString);
             }
@@ -99,7 +99,7 @@ public class TemplateService {
         if (templates == null) {
             templateNotFoundException(template);
         }
-        String fileName = templates.getInput().get(language.getValue());
+        String fileName = templates.getInput().get(language);
         if (fileName == null) {
             fileName = getFileByDefaultLanguage(template, language, templates);
         }
@@ -107,7 +107,7 @@ public class TemplateService {
     }
 
     private String getFileByDefaultLanguage(TemplatesEnum template, LanguageEnum language, TemplateConfig.Template templates) {
-        String defaultLanguage = templateConfig.getDefaultLanguage().getValue();
+        LanguageEnum defaultLanguage = templateConfig.getDefaultLanguage();
         log.info("Template not available in the requested language, using default, templateName={}, language={},  defaultLanguage={}", template, language, defaultLanguage);
         return templates.getInput().get(defaultLanguage);
     }
