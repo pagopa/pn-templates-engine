@@ -576,11 +576,33 @@
                     <div class="align-center float-right access_online_box">
                         <div class="section-list">
                             <ol class="custom-ol-list">
+                            <!--
+                                Related to https://pagopa.atlassian.net/browse/PN-14670
+                                we use hard-coded link in order to fix this bug. Anyway this part is commented
+                                because we will restore it as soon as we migrate configurations of templates
+                                in pn-templates-engine
+
+                                #Sarah Donvito, 18/04/2025
+
+                               <li class="list_element-one">
+                                   Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
+                                   vai sul sito web <b><a
+                                           href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                               </li>
+                            -->
+                                <#if recipient.recipientType=="PF">
                                 <li class="list_element-one">
                                     Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
                                     vai sul sito web <b><a
-                                            href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                                        href="https://login.notifichedigitali.it/auth/login">login.notifichedigitali.it</a></b>
                                 </li>
+                                <#else>
+                                <li class="list_element-one">
+                                    Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
+                                    vai sul sito web <b><a
+                                        href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                                </li>
+                                </#if>
                                 <li class="list_element-two">Accedi e scarica i documenti: contengono
                                     informazioni importanti che ti
                                     riguardano</li>
