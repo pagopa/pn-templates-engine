@@ -4,6 +4,7 @@ import freemarker.cache.StringTemplateLoader;
 import freemarker.template.DefaultObjectWrapperBuilder;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
+import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -38,7 +39,7 @@ public class PnFreemarkerConfig {
             // Carica i template come string dal file system
             StringTemplateLoader stringLoader = new StringTemplateLoader();
             templateConfig.getTemplates().forEach((templateKey, template) -> {
-                Map<String, String> input = template.getInput();
+                Map<LanguageEnum, String> input = template.getInput();
                 if (!template.isLoadAsString()) {  //carica il contenuto solo se il template necessita di un body
                     input.forEach((inputKey, templateFile) -> {
                         String templateContent = loadTemplateContent(templatesPath + "/" + templateFile);

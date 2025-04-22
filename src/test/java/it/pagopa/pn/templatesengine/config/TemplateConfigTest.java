@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ActiveProfiles("test")
 class TemplateConfigTest {
 
-    private static final String LANGUAGE = LanguageEnum.IT.getValue();
+    private static final LanguageEnum LANGUAGE = LanguageEnum.IT;
 
     @Autowired
     private TemplateConfig templateConfig;
@@ -29,7 +29,7 @@ class TemplateConfigTest {
         Map<TemplatesEnum, TemplateConfig.Template> templates = new HashMap<>();
         TemplateConfig.Template template = new TemplateConfig.Template();
         template.setLoadAsString(true);
-        Map<String, String> input = new HashMap<>();
+        Map<LanguageEnum, String> input = new HashMap<>();
         input.put(LANGUAGE, "email_test.html");
         template.setInput(input);
         templates.put(TemplatesEnum.MAIL_VERIFICATION_CODE_SUBJECT, template);
