@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "subject":"SEND - Neue Zustellung von ${notification.sender.paDenomination}",
+  "subject":"SEND - Neue Zustellung von ${notification.sender.paDenomination} - ${notification.iun}",
   "hello":"Hallo",
   "body1":"Du hast auf SEND - Servizio Notifiche Digitali eine Zustellung von <strong>${notification.sender.paDenomination}</strong> mit IUN-Code ${notification.iun} erhalten. Eine Zustellung ist eine <strong>rechtsgültige Mitteilung</strong> , die aus einer Empfangsbestätigung und einem oder mehreren Dokumenten besteht.",
   "body2":"Du hast bis zu 120 Tage ab dem <a href=\"${perfezionamentoURL}\" title=\"data di perfezionamento\">Datum der Vervollständigung</a> der Zustellung Zeit, <strong>auf die Dokumente zuzugreifen</strong>. Die Frist für eine etwaige Zahlung und für die Einlegung von Rechtsmitteln ist in den Dokumenten vermerkt.",

@@ -1,6 +1,6 @@
 {
   "it_language": "it",
-  "it_subject":"SEND - Nuova notifica da ${notification.sender.paDenomination}",
+  "it_subject":"SEND - Nuova notifica da ${notification.sender.paDenomination} - ${notification.iun}",
   "it_hello":"Ciao",
   "it_body1":"Hai ricevuto una notifica su SEND - Servizio Notifiche Digitali.",
   "it_sender_label":"Mittente",

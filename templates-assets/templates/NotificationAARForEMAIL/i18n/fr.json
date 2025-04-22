@@ -1,6 +1,6 @@
 {
   "language": "fr",
-  "subject":"SEND - Nouvelle notification de la part de ${notification.sender.paDenomination}",
+  "subject":"SEND - Nouvelle notification de la part de ${notification.sender.paDenomination} - ${notification.iun}",
   "hello":"Bonjour",
   "body1":"Vous avez reçu sur SEND - Servizio Notifiche Digitali une notification de la part de <strong>${notification.sender.paDenomination}</strong> con Codice IUN ${notification.iun}. Une notification est une <strong>communication ayant une valeur juridique</strong> compos&eacute;e d&apos;un accus&eacute; de r&eacute;ception et d&apos;un ou plusieurs documents.",
   "body2":"Vous disposez d&apos;un d&eacute;lai de 120 jours &agrave; compter de la <a href=\"${perfezionamentoURL}\" title=\"data di perfezionamento\">date de finalisation</a> de la notification pour <strong>acc&eacute;der aux documents</strong>. Le d&eacute;lai &eacute;ventuel pour le paiement et, le cas &eacute;ch&eacute;ant, pour toute contestation est indiqu&eacute; dans les documents.",

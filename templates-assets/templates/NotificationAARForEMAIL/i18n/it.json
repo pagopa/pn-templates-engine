@@ -1,6 +1,6 @@
 {
   "it_language": "it",
-  "it_subject":"SEND - Nuova notifica da ${notification.sender.paDenomination}",
+  "it_subject":"SEND - Nuova notifica da ${notification.sender.paDenomination} - ${notification.iun}",
   "it_hello":"Ciao",
   "it_body1":"Hai ricevuto su SEND - Servizio Notifiche Digitali una notifica da parte di <strong>${notification.sender.paDenomination}</strong> con Codice IUN ${notification.iun}. Una notifica &egrave; una <strong>comunicazione a valore legale</strong> composta da un avviso di avvenuta ricezione e da uno o pi&ugrave; documenti.",
   "it_body2":"Hai fino a 120 giorni dalla <a href=\"${perfezionamentoURL}\" title=\"data di perfezionamento\">data di perfezionamento</a> della notifica per <strong>accedere ai documenti</strong>. Il termine per il pagamento, se previsto, e per eventuali impugnazioni &egrave; indicato nei documenti.",

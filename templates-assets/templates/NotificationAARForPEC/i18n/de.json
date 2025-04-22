@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "subject":"SEND - Neue Zustellung von ${notification.sender.paDenomination}",
+  "subject":"SEND - Neue Zustellung von ${notification.sender.paDenomination} - ${notification.iun}",
   "hello":"Hallo",
   "body1":"Du hast eine Zustellung auf SEND - Servizio Notifiche Digitali.",
   "sender_label":"Absender",
