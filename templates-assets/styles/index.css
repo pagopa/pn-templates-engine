@@ -162,6 +162,10 @@ a.faq-link-perfezionamento {
     padding: 21.333px 0;
 }
 
+.pt-16 {
+    padding-top: 21.333px;
+}
+
 .page-break-avoid {
     page-break-inside: avoid;
 }
