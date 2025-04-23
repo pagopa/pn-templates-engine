@@ -509,7 +509,7 @@
       <div id="send_box" class="eight-pt">
         <p class="nine-pt logo-prefix">Inviata tramite</p>
         <img id="send_box__logo" src="../../images/aar-logo.gif" />
-        <p id="send_box_site" class="eight-pt font-bold"><a class="black" href="${sendURL}">${sendURLLAbel}</a></p>
+        <p id="send_box_site" class="eight-pt font-bold"><a class="black" href="https://www.notifichedigitali.it/">notifichedigitali.it</a></p>
       </div>
       <div id="recipient-addr-box">
         <!-- Si lascia lo spazio per l'indirizzo che verra' inserito dal consolidatore -->
@@ -546,10 +546,32 @@
               <div class="align-center float-right access_online_box">
                 <div class="section-list">
                   <ol class="custom-ol-list">
+                    <!--
+                                Related to https://pagopa.atlassian.net/browse/PN-14670
+                                we use hard-coded link in order to fix this bug. Anyway this part is commented
+                                because we will restore it as soon as we migrate configurations of templates
+                                in pn-templates-engine
+
+                                #Sarah Donvito, 18/04/2025
+
+                               <li class="list_element-one">
+                                  Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a
+                                      href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                              </li>
+                            -->
+
+                    <#if recipient.recipientType=="PF">
                     <li class="list_element-one">
                       Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a
-                          href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                            href="https://login.notifichedigitali.it/auth/login">login.notifichedigitali.it</a></b>
                     </li>
+                    <#else>
+                    <li class="list_element-one">
+                      Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
+                      vai sul sito web <b><a
+                            href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                    </li>
+                  </#if>
                     <li class="list_element-two">Accedi e scarica i documenti: contengono informazioni importanti che ti
                       riguardano</li>
                     <li class="list_element-three">Se previsto un pagamento, potrai pagare online o presso i
@@ -606,7 +628,7 @@
         <div class="section-list">
           <ol class="custom-ol-list eleven-pt">
             <li class="list_element-one">
-              Cerca il Punto di ritiro SEND più vicino a te su <br> <b><a href="${sendURL}/punti-di-ritiro">www.${sendURLLAbel}/punti-di-ritiro</a></b> oppure chiama il <br>numero <b>${raddPhoneNumber}</b>
+              Cerca il Punto di ritiro SEND più vicino a te su <br> <b><a href="https://www.notifichedigitali.it/punti-di-ritiro">www.notifichedigitali.it/punti-di-ritiro</a></b> oppure chiama il <br>numero <b>${raddPhoneNumber}</b>
             </li>
             <li class="list_element-two">Recati al punto di ritiro portando con te: 
               <ul id="square-list">
@@ -706,7 +728,7 @@
         </div>
       </div>
       <div class="read-more">
-        <p>Per saperne di più vai sul sito <b><a href="${sendURL}">www.${sendURLLAbel}</a></b></p>
+        <p>Per saperne di più vai sul sito <b><a href="https://www.notifichedigitali.it/">www.notifichedigitali.it</a></b></p>
       </div>
     </div>
     </#if>
