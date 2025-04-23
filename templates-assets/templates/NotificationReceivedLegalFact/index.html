@@ -161,6 +161,7 @@
         <p class="right py-16"><% if (noIta) { %><span><%-signature%> &bull; </span><% } %><%-it_signature%></p>
       </div>
     </div>
+  <% if (noIta) { %>
     <div class="row margin-top-large">
       <div class="left-col col-3-10">
         <p>&nbsp;</p>
@@ -170,6 +171,7 @@
         <% if (noIta) { %><p><%-it_disclaimer_lang%></p><% } %>
       </div>
     </div>
+  <% } %>
   </div>
 </body>
 
