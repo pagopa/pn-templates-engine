@@ -1,10 +1,10 @@
 # pn-templates-engine
 
-To generate templates run
-
+To generate templates
 ```bash
-     ./build-templates.sh
+    ./build-templates.sh
 ```
+
 
 To start application run
 
@@ -12,6 +12,8 @@ To start application run
     ./mvnw clean install
 ```
 
+
+To generate templates and start application run
 ```bash
-    ./build-templates.sh && ./mvnw spring-boot:run
+     ./build-templates.sh && ./mvnw spring-boot:run
 ```

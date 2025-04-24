@@ -45,3 +45,5 @@ templates-assets/templates/NotificationAARForEMAIL/index.html
 templates-assets/templates/NotificationAARForPEC/index.html
 /src/main/resources/generated-templates-assets
 /src/test/resources/generated-templates-assets
+templates-assets/templates/.DS_Store
+docs/.DS_Store
