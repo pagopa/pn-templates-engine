@@ -1,6 +1,6 @@
 {
   "language": "sl",
-  "subject": "SEND - Novo obvestilo od ${notification.sender.paDenomination}",
+  "subject": "SEND - Novo obvestilo od ${notification.sender.paDenomination} - ${notification.iun}",
   "hello": "Pozdravljeni",
   "body1": "prejeli ste obvestilo prek storitve SEND - Servizio Notifiche Digitali.",
   "sender_label": "Po&#353;iljatelj",

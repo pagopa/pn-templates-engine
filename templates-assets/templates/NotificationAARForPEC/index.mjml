@@ -1,6 +1,6 @@
 <mjml lang="it">
   <mj-head>
-    <mj-title>SEND - Nuova notifica da ${notification.sender.paDenomination}</mj-title>
+    <mj-title>SEND - Nuova notifica da ${notification.sender.paDenomination} - ${notification.iun}</mj-title>
     <mj-attributes>
       <mj-all font-family="system-ui, sans-serif" />
     </mj-attributes>

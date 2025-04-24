@@ -1,6 +1,6 @@
 {
   "language": "fr",
-  "subject":"SEND - Nouvelle notification de la part de ${notification.sender.paDenomination}",
+  "subject":"SEND - Nouvelle notification de la part de ${notification.sender.paDenomination} - ${notification.iun}",
   "hello":"Bonjour",
   "body1":"Vous avez re&#xE7;u une notification sur SEND - Servizio Notifiche Digitali.",
   "sender_label":"Exp&#xE9;diteur",
