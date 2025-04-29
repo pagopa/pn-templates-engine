@@ -105,7 +105,8 @@ public class DocumentGeneratorTest {
                 .startDate("TEST_startDate")
                 .timeReferenceStartDate("TEST_timeReferenceStartDate")
                 .endDate("TEST_endDate")
-                .timeReferenceEndDate("TEST_timeReferenceEndDate");
+                .timeReferenceEndDate("TEST_timeReferenceEndDate")
+                .description("TEST_description");
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
