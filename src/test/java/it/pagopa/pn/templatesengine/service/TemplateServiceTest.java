@@ -64,7 +64,8 @@ class TemplateServiceTest {
                 .startDate("TEST_startDate")
                 .timeReferenceStartDate("TEST_timeReferenceStartDate")
                 .endDate("TEST_endDate")
-                .timeReferenceEndDate("TEST_timeReferenceEndDate");
+                .timeReferenceEndDate("TEST_timeReferenceEndDate")
+                .description("TEST_description");
 
         // Act & Assert
         Mono<byte[]> result = Assertions.assertDoesNotThrow(() ->
