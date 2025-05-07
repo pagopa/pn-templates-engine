@@ -3,7 +3,7 @@
 <html lang="it">
 
 <head>
-    <title><% if (noIta) { %><%=subject%> &bull; <% } %><%=it_subject%></title>
+    <title><% if (noIta) { %><%-subject%> &bull; <% } %><%-it_subject%></title>
   <meta name="author" content="SEND - Servizio Notifiche Digitali" />
   <link rel="stylesheet" href="../../styles/index.css">
 </head>
@@ -34,10 +34,10 @@
       </div>
 
       <% if (noIta) { %><h3 class="document-type mb-0">
-        <%=subject%>
+        <%-subject%>
       </h3><% } %>
       <h3 class="document-type">
-        <%=it_subject%>
+        <%-it_subject%>
       </h3>
 
       <% if (noIta) { %><p class="paragraph my-8">

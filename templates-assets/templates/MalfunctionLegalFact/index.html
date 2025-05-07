@@ -4,7 +4,7 @@
 
 <head>
     <meta name="author" content="SEND - Servizio Notifiche Digitali" />
-    <title><% if (noIta) { %><%=subject%> &bull; <% } %><%=it_subject%></title>
+    <title><% if (noIta) { %><%-subject%> &bull; <% } %><%-it_subject%></title>
     <link rel="stylesheet" href="../../styles/index.css">
 </head>
 
@@ -34,21 +34,21 @@
             </div>
         </div>
         <% if (noIta) { %><h3 class="document-type mb-0">
-            <%=subject%>
+            <%-subject%>
         </h3><% } %>
         <h3 class="document-type">
-            <%=it_subject%>
+            <%-it_subject%>
         </h3>
 
         <% if (noIta) { %><p class="paragraph my-8">
-            <%=body1%>
+            <%-body1%>
         </p><% } %>
         <% if (noIta) { %><p class="paragraph my-8">
             <%-body2%>
         </p><% } %>
 
         <p class="paragraph mb-0">
-            <%=it_body1%>
+            <%-it_body1%>
         </p>
         <p class="paragraph my-8">
             <%-it_body2%>
