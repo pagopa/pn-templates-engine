@@ -1020,7 +1020,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"startDate\": \"GG/MM/AAAA\",\n  \"timeReferenceStartDate\": \"HH:MM\",\n  \"endDate\": \"GG/MM/AAAA\",\n  \"timeReferenceEndDate\": \"HH:MM\"\n  \"description\": \"Lorem ipsum\"\n}",
+													"raw": "{\n  \"startDate\": \"GG/MM/AAAA\",\n  \"timeReferenceStartDate\": \"HH:MM\",\n  \"endDate\": \"GG/MM/AAAA\",\n  \"timeReferenceEndDate\": \"HH:MM\"\n  \"htmlDescription\": \"Lorem ipsum\"\n}",
 													"options": {
 														"raw": {
 															"headerFamily": "json",

@@ -63,7 +63,7 @@ components:
         - timeReferenceStartDate
         - endDate
         - timeReferenceEndDate
-        - description
+        - htmlDescription
       properties:
         startDate:
           type: string
@@ -73,7 +73,7 @@ components:
           type: string
         timeReferenceEndDate:
           type: string
-        description:
+        htmlDescription:
           type: string
 
     NotificationAar:

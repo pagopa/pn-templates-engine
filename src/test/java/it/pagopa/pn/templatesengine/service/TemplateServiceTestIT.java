@@ -68,7 +68,7 @@ class TemplateServiceTestIT {
                 .timeReferenceStartDate("TEST_timeReferenceStartDate")
                 .endDate("TEST_endDate")
                 .timeReferenceEndDate("TEST_timeReferenceEndDate")
-                .description("TEST_description");
+                .htmlDescription("<p>Sample <b>TEST_description</b></p>");
 
         // Genera un elenco di 100 richieste
         List<Mono<byte[]>> calls = IntStream.range(0, NUM_REQUESTS)
