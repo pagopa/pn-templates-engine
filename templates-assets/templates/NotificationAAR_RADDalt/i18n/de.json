@@ -15,7 +15,7 @@
   "send_refinement_link": "<a href=\"${perfezionamentoURL}\">${perfezionamentoURLLabel}</a>",
   "read_more":"Mehr hierzu",
   "retrieve_copy":"HOLE EINE KOPIE VOR ORT AB - GEGEN BEZAHLUNG",
-  "retrieve_copy_1":"Beantrage die Aushändigung einer Kopie der zugestellten Dokumente auch ohne SPID oder CIE bei den SEND- Abholstellen (Steuerbeistandsstellen und andere vertragsgebundene Händler). Suche nach den Abholstellen in deiner Nähe auf der Internet-Seite",
+  "retrieve_copy_1":"Beantrage die Aushändigung einer Kopie der zugestellten Dokumente auch ohne SPID oder CIE bei den SEND-Abholstellen (Steuerbeistandsstellen und andere vertragsgebundene Händler). Suche nach den Abholstellen in deiner Nähe auf der Internet-Seite",
   "retrieve_copy_1_link":"<a href=\"${sendURL}punti-di-ritiro\">${sendURLLAbel}/punti-di-ritiro</a>",
   "retrieve_copy_2":" oder <b>rufe die Telefonnummer ${raddPhoneNumber}</b> an",
   "retrieve_copy_title_list":"Nimm folgendes mit:",
