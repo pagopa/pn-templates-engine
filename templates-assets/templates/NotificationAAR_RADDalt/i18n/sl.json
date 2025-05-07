@@ -1,6 +1,9 @@
 {
   "language": "sl",
   "aar_label": "POTRDILO O PREJEMU",
+  "iun": "Edinstvena identifikacijska oznaka obvestila",
+  "fiscal_code": "Dav&#269;no &#352;tevilko",
+  "recipient_type": "<#if recipient.recipientType=='PF'>fizi&#269;na<#else>pravna</#if> oseba",
   "notification_subject": "Obvestilo o prejemu:",
   "aar_subtitles_1": "Prejeli ste uradno sporočilo od ${notification.sender.paDenomination}: <b>Prejeli ste uradno sporočilo od</b>. Če niso vključeni v to obvestilo, <b>do dokumentov lahko dostopate na spletu na platformi SEND</b>. ki jo že uporabljate. Če je predvideno plačilo, bo v dokumentih naveden datum poteka in datum za morebitne pritožbe.",
   "access_to_document_title": "DOSTOP DO DOKUMENTOV NA SPLETU - BREZPLAČNO",
