@@ -1,10 +1,12 @@
 package it.pagopa.pn.templatesengine.rest;
 
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
-import it.pagopa.pn.templatesengine.config.TemplatesParamsEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.api.TemplateApi;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.*;
-import it.pagopa.pn.templatesengine.resolver.TemplateValueResolver;
+import it.pagopa.pn.templatesengine.processor.template.AarTemplateParamsProcessor;
+import it.pagopa.pn.templatesengine.processor.SimpleProcessor;
+import it.pagopa.pn.templatesengine.processor.template.NotificationAarProcessor;
+import it.pagopa.pn.templatesengine.processor.template.NotificationAarRaddAltProcessor;
 import it.pagopa.pn.templatesengine.service.TemplateService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,23 +17,25 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import java.util.function.BiConsumer;
-import java.util.function.Function;
-
 @Slf4j
 @RestController
 @AllArgsConstructor
 public class TemplateApiController implements TemplateApi {
 
     private final TemplateService templateService;
-    public final TemplateValueResolver templateValueResolver;
+    private final SimpleProcessor<Object> simpleProcessor;
+    private final NotificationAarProcessor notificationAarProcessor;
+    private final NotificationAarRaddAltProcessor notificationAarRaddAltProcessor;
 
     @Override
     public Mono<ResponseEntity<Resource>> notificationReceivedLegalFact(
             LanguageEnum xLanguage,
             Mono<NotificationReceivedLegalFact> request,
             final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT, xLanguage, request);
+        return request
+                .flatMap(simpleProcessor::process)
+                .flatMap(o ->
+                        processPdfTemplate(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT, xLanguage, request));
     }
 
     @Override
@@ -39,7 +43,10 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<PecDeliveryWorkflowLegalFact> request,
             final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT, xLanguage, request);
+        return request
+                .flatMap(simpleProcessor::process)
+                .flatMap(o ->
+                        processPdfTemplate(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT, xLanguage, request));
     }
 
     @Override
@@ -47,7 +54,10 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<NotificationViewedLegalFact> request,
             final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT, xLanguage, request);
+        return request
+                .flatMap(simpleProcessor::process)
+                .flatMap(o ->
+                    processPdfTemplate(TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT, xLanguage, request));
     }
 
     @Override
@@ -55,7 +65,10 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<MalfunctionLegalFact> request,
             final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.MALFUNCTION_LEGAL_FACT, xLanguage, request);
+        return request
+                .flatMap(simpleProcessor::process)
+                .flatMap(o ->
+                        processPdfTemplate(TemplatesEnum.MALFUNCTION_LEGAL_FACT, xLanguage, request));
     }
 
     @Override
@@ -63,7 +76,10 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<NotificationCancelledLegalFact> request,
             final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT, xLanguage, request);
+        return request
+                .flatMap(simpleProcessor::process)
+                .flatMap(o ->
+                        processPdfTemplate(TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT, xLanguage, Mono.just(o)));
     }
 
     @Override
@@ -72,17 +88,9 @@ public class TemplateApiController implements TemplateApi {
             Mono<NotificationAar> request,
             final ServerWebExchange exchange) {
         return request
-                // Scarica l'immagine e la converte in base64
-                .flatMap(r ->
-                        resolveAndUpdateField(
-                                r,
-                                NotificationAar::getSenderLogoBase64,
-                                NotificationAar::setSenderLogoBase64,
-                                TemplatesEnum.NOTIFICATION_AAR,
-                                TemplatesParamsEnum.SENDER_LOGO_BASE64
-                        ))
-                .flatMap(r ->
-                        processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR, xLanguage, Mono.just(r)));
+                .flatMap(notificationAarProcessor::process)
+                .flatMap(o ->
+                        processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR, xLanguage, Mono.just(o)));
     }
 
     @Override
@@ -91,17 +99,9 @@ public class TemplateApiController implements TemplateApi {
             Mono<NotificationAarRaddAlt> request,
             final ServerWebExchange exchange) {
         return request
-                // Scarica l'immagine e la converte in base64
-                .flatMap(r ->
-                        resolveAndUpdateField(
-                                r,
-                                NotificationAarRaddAlt::getSenderLogoBase64,
-                                NotificationAarRaddAlt::setSenderLogoBase64,
-                                TemplatesEnum.NOTIFICATION_AAR_RADDALT,
-                                TemplatesParamsEnum.SENDER_LOGO_BASE64
-                        ))
-                .flatMap(r ->
-                        processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT, xLanguage, Mono.just(r)));
+                .flatMap(notificationAarRaddAltProcessor::process)
+                .flatMap(o ->
+                        processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT, xLanguage, Mono.just(o)));
     }
 
     @Override
@@ -109,7 +109,10 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<AnalogDeliveryWorkflowFailureLegalFact> request,
             final ServerWebExchange exchange) {
-        return processPdfTemplate(TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT, xLanguage, request);
+        return request
+                .flatMap(simpleProcessor::process)
+                .flatMap(o ->
+                        processPdfTemplate(TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT, xLanguage, Mono.just(o)));
     }
 
     @Override
@@ -117,7 +120,10 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<NotificationAarForEmail> request,
             final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL, xLanguage, request);
+        return request
+                .flatMap(simpleProcessor::process)
+                .flatMap(o ->
+                        processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL, xLanguage, Mono.just(o)));
     }
 
     @Override
@@ -125,7 +131,10 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<NotificationAarForPec> request,
             final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_PEC, xLanguage, request);
+        return request
+                .flatMap(simpleProcessor::process)
+                .flatMap(o ->
+                        processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_PEC, xLanguage, Mono.just(o)));
     }
 
     @Override
@@ -133,7 +142,10 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<NotificationAarForSms> request,
             final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_SMS, xLanguage, request);
+        return request
+                .flatMap(simpleProcessor::process)
+                .flatMap(o ->
+                        processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_SMS, xLanguage, Mono.just(o)));
     }
 
     @Override
@@ -141,7 +153,10 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<MailVerificationCodeBody> request,
             final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, xLanguage, request);
+        return request
+                .flatMap(simpleProcessor::process)
+                .flatMap(o ->
+                        processTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, xLanguage, Mono.just(o)));
     }
 
     @Override
@@ -149,7 +164,21 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<PecVerificationCodeBody> request,
             final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_VERIFICATION_CODE_BODY, xLanguage, request);
+        return request
+                .flatMap(simpleProcessor::process)
+                .flatMap(o ->
+                        processTextTemplate(TemplatesEnum.PEC_VERIFICATION_CODE_BODY, xLanguage, Mono.just(o)));
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> notificationAarForSubject(
+            LanguageEnum xLanguage,
+            Mono<NotificationAarForSubject> request,
+            final ServerWebExchange exchange) {
+        return request
+                .flatMap(simpleProcessor::process)
+                .flatMap(o ->
+                        processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_SUBJECT, xLanguage, Mono.just(o)));
     }
 
     @Override
@@ -159,13 +188,6 @@ public class TemplateApiController implements TemplateApi {
         return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY, xLanguage);
     }
 
-    @Override
-    public Mono<ResponseEntity<String>> notificationAarForSubject(
-            LanguageEnum xLanguage,
-            Mono<NotificationAarForSubject> request,
-            final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_SUBJECT, xLanguage, request);
-    }
 
     @Override
     public Mono<ResponseEntity<String>> mailVerificationCodeSubject(
@@ -259,21 +281,21 @@ public class TemplateApiController implements TemplateApi {
      * @param param Il parametro del template da risolvere.
      * @return Un Mono dell'oggetto con il campo aggiornato, o con il campo impostato su null se il valore risolto è vuoto.
      */
-    private <T> Mono<T> resolveAndUpdateField(
-            T object,
-            Function<T, String> getter,
-            BiConsumer<T, String> setter,
-            TemplatesEnum template,
-            TemplatesParamsEnum param) {
-
-        return templateValueResolver.resolve(getter.apply(object), template, param)
-                .map(v -> {
-                    setter.accept(object, v);
-                    return object;
-                })
-                .switchIfEmpty(Mono.fromCallable(() -> { // Se resolve() è empty, assegna null
-                    setter.accept(object,null);
-                    return object;
-                }));
-    }
+//    private <T> Mono<T> resolveAndUpdateField(
+//            T object,
+//            Function<T, String> getter,
+//            BiConsumer<T, String> setter,
+//            TemplatesEnum template,
+//            TemplatesParamsEnum param) {
+//
+//        return templateValueResolver.resolve(getter.apply(object), template, param)
+//                .map(v -> {
+//                    setter.accept(object, v);
+//                    return object;
+//                })
+//                .switchIfEmpty(Mono.fromCallable(() -> { // Se resolve() è empty, assegna null
+//                    setter.accept(object,null);
+//                    return object;
+//                }));
+//    }
 }

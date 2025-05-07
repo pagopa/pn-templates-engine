@@ -16,20 +16,18 @@ import java.util.Base64;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class ToBase64Resolver implements Resolver<String, String>{
-    private final UrlResolver urlResolver;
+public class Base64Resolver implements Resolver<byte[], String>{
     private final Tika tika = new Tika();
 
     /**
      * Risolve l'URL fornito e restituisce i dati codificati in Base64.
      *
-     * @param paramValue URL della risorsa da risolvere e convertire in Base64.
+     * @param value URL della risorsa da risolvere e convertire in Base64.
      * @return Mono che emette una stringa con i dati codificati in Base64.
      */
-    public Mono<String> resolve(String paramValue) {
+    public Mono<String> resolve(byte[] value) {
         // Phase 1: Resolve URL and get binary data
-        return urlResolver.resolve(paramValue)
-                .map(this::encodeToBase64);  // Phase 2: Encode data into Base64
+        return Mono.just(encodeToBase64(value));  // Phase 2: Encode data into Base64
     }
 
     /**

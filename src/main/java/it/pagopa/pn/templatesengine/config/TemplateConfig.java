@@ -34,6 +34,7 @@ public class TemplateConfig {
     private Map<TemplatesEnum, Template> templatesAsString = new EnumMap<>(TemplatesEnum.class);
     private Map<TemplatesEnum, Template> templates;
     private LanguageEnum defaultLanguage;
+    private Map<String, String> templatesStaticParams;
 
     @Setter
     @Getter

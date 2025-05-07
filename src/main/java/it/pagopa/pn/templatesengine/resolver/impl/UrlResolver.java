@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
  */
 @Slf4j
 @Component
-public class UrlResolver implements Resolver<byte[]> {
+public class UrlResolver implements Resolver<String, byte[]> {
     private final WebClient webClient;
     private final PnTemplatesEngineConfig config;
 

@@ -5,7 +5,8 @@ import lombok.Getter;
 
 @Getter
 public enum ResolverEnum {
-    TO_BASE64_RESOLVER("TO_BASE64_RESOLVER");
+    TO_BASE64_RESOLVER("TO_BASE64_RESOLVER"),
+    QRCODE_RESOLVER("QRCODE_RESOLVER");
 
     private final String value;
 

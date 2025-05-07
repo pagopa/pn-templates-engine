@@ -100,6 +100,18 @@ class DocumentCompositionImplTest {
         Assertions.assertTrue(thrown.getProblem().getDetail().contains("The following has evaluated to null or missing:"));
     }
 
+    @Test
+    void test() {
+        //ARRANGE
+        Mockito.when(templateConfig.getTemplatesPath()).thenReturn(TEMPLATES_ASSETS);
+        Map<String, Object> model = new HashMap<>();
+        model.put("static", Map.of("name", "provola"));
+        model.put("dynamic", Map.of("name", "provola"));
+        //ACT - ASSERT
+        var result = Assertions.assertDoesNotThrow(() -> documentComposition.executePdfTemplate(TEMPLATE_NAME, model));
+        Assertions.assertTrue(result.length > 0);
+    }
+
     @Getter
     @Setter
     public static class TestModel {
