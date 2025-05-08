@@ -1,13 +1,16 @@
 {
   "language": "de",
-  "aar_label": "EMPFANGSBESTÄTIGUNG",
-  "notification_subject": "Empfangsbestätigung Feststellungs",
-  "aar_subtitles_1": "Du hast eine rechtsgültige Mitteilung von ${notification.sender.paDenomination}: <b>siehe die zugestellten Dokumente</b>. Wenn sie nicht in diesem Bescheid enthalten sind, <b>kannst du die Dokumente online auf SEND</b>. Ist eine Zahlung vorgesehen, so findest du das Fälligkeitsdatum und den Termin für etwaige Einsprüche in den Dokumenten.",
-  "access_to_document_title": "GREIFE AUF DIE ONLINE-DOKUMENTE ZU - KOSTENLOS",
+  "aar_label": "BENACHRICHTIGUNG &Uuml;BER DEN ERFOLGTEN EMPFANG",
+  "iun": "Einheitlicher Kodex",
+  "fiscal_code": "Steuernummer",
+  "recipient_type": "<#if recipient.recipientType==\"PF\">Nat&uuml;rliche <#else>Juristische </#if> Person",
+  "notification_subject": "Benachrichtigung &uuml;ber den erfolgten Empfang",
+  "aar_subtitles_1": "Du hast eine rechtsg&uuml;ltige Mitteilung von der Körperschaft ${notification.sender.paDenomination} erhalten: <b>siehe die zugestellten Dokumente</b>. Wenn sie nicht in diesem Bescheid enthalten sind, <b>kannst du im Internet &uuml;ber SEND</b>. Ist eine Zahlung vorgesehen, so findest du das Fälligkeitsdatum und den Termin f&uuml;r etwaige Einspr&uuml;che in den Dokumenten.",
+  "access_to_document_title": "GREIFE ONLINE AUF DIE DOKUMENTE ZU - KOSTENLOS",
   "access_to_document_1": "Scanne den QR-Code oder öffne",
   "access_to_document_1_link":"<a href=\"${piattaformaNotificheURL}auth/login\">${piattaformaNotificheURLLabel}</a>",
-  "access_to_document_2": "Melde dich mit SPID oder CIE an (elektronischer Personalausweis)",
-  "access_to_document_3": "Ruf die zugestellten Dokumente ab",
-  "send_refinement": "Die zugestellten Dokumente sind 120 Tage nach dem Vervollständigungsdatum der Zustellung (dem Datum, an dem sie für alle Zwecke rechtsgültig wird) online einsehbar. Mehr hierzu auf",
+  "access_to_document_2": "Melde dich mit SPID oder elektronischem Personalausweis (CIE) an",
+  "access_to_document_3": "Greife auf die zugestellten Dokumente zu",
+  "send_refinement": "Die zugestellten Dokumente sind 120 Tage nach dem Vervollständigungsdatum der Zustellung (dem Datum, an dem sie f&uuml;r alle Zwecke rechtsg&uuml;ltig wird) online einsehbar. Mehr hierzu auf",
   "send_refinement_link": "<a href=\"${perfezionamentoURL}\">${perfezionamentoURLLabel}</a>"
 }
