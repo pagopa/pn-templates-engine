@@ -644,18 +644,16 @@
                             <ul id="square-list">
                                 <li><%-retrieve_copy_list_1%></li>
                                 <li><%-retrieve_copy_list_2%></li>
-                                <li><%-retrieve_copy_list_3%><#if recipient.recipientType=="PF"></li><#else></li>
-                                <li><%-retrieve_copy_list_4%></li>
-                                </#if>
+                                <li><%-retrieve_copy_list_3%></li>
+                                <#if recipient.recipientType=="PG"><li><%-retrieve_copy_list_4%></li></#if>
                             </ul>
                         </p>
                         <p class="language-less-margin"><%-it_retrieve_copy_title_list%>
                             <ul id="square-list">
                                 <li><%-it_retrieve_copy_list_1%></li>
                                 <li><%-it_retrieve_copy_list_2%></li>
-                                <li><%-it_retrieve_copy_list_3%><#if recipient.recipientType=="PF"></li><#else></li>
-                                <li><%-it_retrieve_copy_list_4%></li>
-                                </#if>
+                                <li><%-it_retrieve_copy_list_3%></li>
+                                <#if recipient.recipientType=="PG"><li><%-it_retrieve_copy_list_4%></li></#if>
                             </ul>
                         </p>
                     </li>
@@ -704,9 +702,8 @@
                         <li><%-delegate_list_1%></li>
                         <li><%-delegate_list_2%></li>
                         <li><%-delegate_list_3%></li>
-                        <li><%-delegate_list_4%><#if recipient.recipientType=="PF"></li><#else></li>
-                        <li><%-delegate_list_5%></li>
-                        </#if>
+                        <li><%-delegate_list_4%></li>
+                        <#if recipient.recipientType=="PG"><li><%-delegate_list_5%></li></#if>
                     </ul>
                 </div>
 
@@ -716,9 +713,8 @@
                             <li><%-it_delegate_list_1%></li>
                             <li><%-it_delegate_list_2%></li>
                             <li><%-it_delegate_list_3%></li>
-                            <li><%-it_delegate_list_4%><#if recipient.recipientType=="PF"></li><#else></li>
-                            <li><%-it_delegate_list_5%></li>
-                            </#if>
+                            <li><%-it_delegate_list_4%></li>
+                            <#if recipient.recipientType=="PF"><li><%-it_delegate_list_5%></li></#if>
                         </ul>
                 </div>
             </div>
