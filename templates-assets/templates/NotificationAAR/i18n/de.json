@@ -3,7 +3,7 @@
   "aar_label": "BENACHRICHTIGUNG &Uuml;BER DEN ERFOLGTEN EMPFANG",
   "iun": "Einheitlicher Kodex",
   "fiscal_code": "Steuernummer",
-  "recipient_type": "<#if recipient.recipientType==\"PF\"> Nat&uuml;rliche <#else> Juristische </#if> Person",
+  "recipient_type": "<#if recipient.recipientType==\"PF\">Nat&uuml;rliche <#else>Juristische </#if> Person",
   "notification_subject": "Benachrichtigung &uuml;ber den erfolgten Empfang",
   "aar_subtitles_1": "Du hast eine rechtsg&uuml;ltige Mitteilung von der Körperschaft ${notification.sender.paDenomination} erhalten: <b>siehe die zugestellten Dokumente</b>. Wenn sie nicht in diesem Bescheid enthalten sind, <b>kannst du im Internet &uuml;ber SEND</b>. Ist eine Zahlung vorgesehen, so findest du das Fälligkeitsdatum und den Termin f&uuml;r etwaige Einspr&uuml;che in den Dokumenten.",
   "access_to_document_title": "GREIFE ONLINE AUF DIE DOKUMENTE ZU - KOSTENLOS",

@@ -3,7 +3,7 @@
   "aar_label": "ACCUSÉ DE RÉCEPTION",
   "iun": "Code IUN",
   "fiscal_code": "Code Fiscal",
-  "recipient_type": "Personne <#if recipient.recipientType=='PF'> physique<#else> morale</#if>",
+  "recipient_type": "Personne <#if recipient.recipientType=='PF'>physique<#else>morale</#if>",
   "notification_subject": "Accusé de réception",
   "aar_subtitles_1": "Vous avez reçu une communication ayant une valeur juridique de ${notification.sender.paDenomination}: <b>voir les documents notifiés.</b>. S'ils ne figurent pas dans le présent avis, <b>vous pouvez consulter les documents en ligne sur le site SEND</b>. Si un paiement est dû, vous trouverez la date d'échéance et la date d'éventuelles contestations dans les documents.",
   "access_to_document_title": "ACCÉDER AUX DOCUMENTS EN LIGNE - GRATUIT",
