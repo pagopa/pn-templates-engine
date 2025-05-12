@@ -3,7 +3,7 @@
 <html lang="it">
 
 <head>
-    <title><% if (noIta) { %><%=subject%> &bull; <% } %><%=it_subject%></title>
+    <title><% if (noIta) { %><%-subject%> &bull; <% } %><%-it_subject%></title>
     <meta name="author" content="SEND - Servizio Notifiche Digitali" />
     <link rel="stylesheet" href="../../styles/index.css">
   </head>
@@ -39,8 +39,8 @@
         </div>
       </div>
 
-      <% if (noIta) { %><h3 class="document-type mb-0"><%=subject%></h3><% } %>
-      <h3 class="document-type"><%=it_subject%></h3>
+      <% if (noIta) { %><h3 class="document-type mb-0"><%-subject%></h3><% } %>
+      <h3 class="document-type"><%-it_subject%></h3>
 
       <% if (noIta) { %><p class="paragraph mb-0"><%-body1%></p><% } %>
       <p class="paragraph"><%-it_body1%></p>
@@ -86,7 +86,7 @@
 
 
       <div class="py-16">
-          <p class="right"><% if (noIta) { %><span><%=signature%> &bull; </span><% } %><%=it_signature%></p>
+          <p class="right"><% if (noIta) { %><span><%-signature%> &bull; </span><% } %><%-it_signature%></p>
       </div>
 
       <div class="row">
@@ -94,8 +94,8 @@
             <p>&nbsp;</p>
         </div>
         <div class="right-col col-7-10">
-          <% if (noIta) { %><p class="py-16"><%=disclaimer_lang%></p><% } %>
-            <% if (noIta) { %><p><%=it_disclaimer_lang%></p><% } %>
+          <% if (noIta) { %><p class="py-16"><%-disclaimer_lang%></p><% } %>
+            <% if (noIta) { %><p><%-it_disclaimer_lang%></p><% } %>
         </div>
       </div>
     </div>
