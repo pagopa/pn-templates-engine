@@ -1,6 +1,9 @@
 {
   "it_language": "it",
   "it_aar_label": "Avviso di Avvenuta Ricezione",
+  "it_iun": "Codice univoco",
+  "it_fiscal_code": "Codice fiscale",
+  "it_recipient_type": "Persona <#if recipient.recipientType==\"PF\">fisica<#else>giuridica</#if>",
   "it_notification_subject": "Avviso di Avvenuta Ricezione",
   "it_aar_subtitles_1": "Hai ricevuto una comunicazione a valore legale da ${notification.sender.paDenomination}: <b>prendi visione dei documenti notificati</b>. Se non sono inclusi in questo avviso, <b>accedi ai documenti online su SEND</b>. Se è previsto un pagamento, nei documenti troverai la data di scadenza e quella per eventuali ricorsi.",
   "it_access_to_document_title": "Accedi ai documenti online - gratis",

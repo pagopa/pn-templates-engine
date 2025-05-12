@@ -108,10 +108,14 @@
             position: absolute;
             left: 24.7mm;
             top: -.1mm;
-            width: 40mm;
+            width: 100mm;
             text-transform: uppercase;
             font-weight: 700;
             color: #616161;
+        }
+
+        #fiscal-code-box div{
+            margin-top: 16px;
         }
 
         #iun-code {
@@ -540,21 +544,19 @@
             <div id="logo-box">
                 <img id="logo-box__logo" src="../../images/aar-logo.gif" />
                 <div id="logo-box__subtitle" class="seven-px">
-                    <%-it_aar_label%>
+                    <%-aar_label%> &bull; <%-it_aar_label%>
                 </div>
             </div>
 
             <div id="iun-code" class="eight-px">
                 <div>
-                    <div><b>Codice univoco:</b></div>
+                    <div><b><%-iun%>:</b></div>
+                    <div class="language-less-margin"><b><%-it_iun%>:</b></div>
                     <br />${notification.iun}
                 </div>
                 <div style="margin-top: 4mm;">
-                    <div><b>Codice fiscale - Persona <#if recipient.recipientType=="PF">
-                                fisica:
-                                <#else>
-                                    giuridica:
-                            </#if></b></div>
+                    <div><b><%-fiscal_code%> - <%-recipient_type%>:</b></div>
+                    <div class="language-less-margin"><b><%-it_fiscal_code%> - <%-it_recipient_type%>:</b></div>
                     <br />${recipient.taxId}
                 </div>
             </div>
