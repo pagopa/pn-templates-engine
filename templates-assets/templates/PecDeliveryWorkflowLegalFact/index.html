@@ -4,9 +4,9 @@
 
 <head>
     <#if endWorkflowStatus=="SUCCESS">
-    <title><% if (noIta) { %><%=subject_success%> &bull; <% } %><%=it_subject_success%></title>
+    <title><% if (noIta) { %><%-subject_success%> &bull; <% } %><%-it_subject_success%></title>
         <#else>
-        <title><% if (noIta) { %><%=subject_failure%> &bull; <% } %><%=it_subject_failure%></title>
+        <title><% if (noIta) { %><%-subject_failure%> &bull; <% } %><%-it_subject_failure%></title>
     </#if>
     <meta name="author" content="SEND - Servizio Notifiche Digitali" />
     <link rel="stylesheet" href="../../styles/index.css">
@@ -38,29 +38,29 @@
 
         <#if endWorkflowStatus=="SUCCESS">
         <% if (noIta) { %><h3 class="document-type mb-0">
-            <%=subject_success%>
+            <%-subject_success%>
         </h3><% } %>
         <h3 class="document-type">
-            <%=it_subject_success%>
+            <%-it_subject_success%>
         </h3>
             <#else>
             <% if (noIta) { %><h3 class="document-type mb-0">
-                <%=subject_failure%>
+                <%-subject_failure%>
             </h3><% } %>
             <h3 class="document-type">
-                <%=it_subject_failure%>
+                <%-it_subject_failure%>
             </h3>
         </#if>
 
         <% if (noIta) { %><p class="paragraph my-8">
-            <%=body1%>
+            <%-body1%>
         </p><% } %>
         <% if (noIta) { %><p class="paragraph my-8">
             <%-body2%>
         </p><% } %>
 
         <p class="paragraph mb-0">
-            <%=it_body1%>
+            <%-it_body1%>
         </p>
         <p class="paragraph my-8">
             <%-it_body2%>
