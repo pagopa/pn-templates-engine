@@ -6,6 +6,11 @@
     <meta name="author" content="SEND - Servizio Notifiche Digitali" />
     <title><% if (noIta) { %><%=subject%> &bull; <% } %><%=it_subject%></title>
     <link rel="stylesheet" href="../../styles/index.css">
+    <style>
+        .html-description + ul {
+            margin: 0 0 1.5rem 1rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -50,7 +55,7 @@
         <p class="paragraph mb-0">
             <%=it_body1%>
         </p>
-        <p class="paragraph my-8">
+        <p class="paragraph my-8 html-description">
             <%-it_body2%>
         </p>
 
