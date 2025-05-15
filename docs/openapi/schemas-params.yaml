@@ -75,6 +75,7 @@ components:
           type: string
         htmlDescription:
           type: string
+          description: Description in html format. It must be contained in parent tag <p></p>
 
     NotificationAar:
       type: object
