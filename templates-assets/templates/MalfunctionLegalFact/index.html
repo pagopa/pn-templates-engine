@@ -7,9 +7,12 @@
     <title><% if (noIta) { %><%=subject%> &bull; <% } %><%=it_subject%></title>
     <link rel="stylesheet" href="../../styles/index.css">
     <style>
-        .html-description + ul {
-            margin: 0 0 1.5rem 1rem;
+        .html-description, .html-description + p {
+            display: inline;
         }
+        .html-description + p + ul {
+            margin: 1rem 0 1rem 1rem;
+         }
     </style>
 </head>
 
@@ -55,9 +58,11 @@
         <p class="paragraph mb-0">
             <%=it_body1%>
         </p>
-        <p class="paragraph my-8 html-description">
-            <%-it_body2%>
-        </p>
+        <div class="paragraph my-8">
+            <p class="html-description">
+                <%-it_body2%>
+            </p>
+        </div>
 
     </div>
     <div class="py-16">
