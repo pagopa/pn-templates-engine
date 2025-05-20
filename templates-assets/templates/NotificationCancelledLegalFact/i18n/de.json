@@ -1,12 +1,12 @@
 {
     "language": "de",
-    "subject": "Erklärung zur Stornierung der Zustellung auf der Plattform SEND",
-    "body1": "Mit diesem Dokument, das dem Empfänger ausschließlich auf der Plattform SEND zur Verf&uuml;gung steht, wird erklärt, dass die Zustellung mit IUN <b>${notification.iun}</b>an den Empfänger:",
+    "subject": "Erklärung &uuml;ber die Annullierung der Zustellung auf der SEND-Plattform",
+    "body1": "Mit diesem Dokument, das dem Empfänger ausschließlich auf der SEND-Plattform zur Verf&uuml;gung steht, wird erklärt, dass die Zustellung mit IUN <b>${notification.iun}</b> durchgef&uuml;hrt an den Empfänger:",
     "denomination": "Vor- und Nachname / Firmenbezeichnung",
     "fiscalcode": "Steuernummer",
-    "body2": "auf ausdr&uuml;ckliches Ersuchen des Absenders <b>${notification.sender.paDenomination}</b> am <b>${notificationCancelledDate}</b>.",
-    "disclaimer1": "Die Stornierung auf SEND, die Gegenstand dieser Erklärung ist, bedeutet nicht notwendigerweise, dass die Voraussetzung f&uuml;r die Zustellung nicht eingetreten ist oder dass Zustellungen hinsichtlich der gleichen Dokumenten, die auf anderen Kanälen als der Plattform SEND ausgef&uuml;hrt werden, ebenfalls storniert werden.",
-    "disclaimer2": "F&uuml;r Informationen &uuml;ber die Gr&uuml;nde f&uuml;r die Stornierung, auf die in dieser Erklärung Bezug genommen wird, und &uuml;ber die Abwicklung von Zahlungen, die bereits vor der Stornierung erfolgt sind, hat sich der Empfänger ausschließlich an den Absender zu wenden.",
-    "signature": "Von PagoPA S.p.A. digital signiert",
+    "body2": "auf ausdr&uuml;ckliches Ersuchen des Absenders <b>${notification.sender.paDenomination}</b> am <b>${notificationCancelledDate}</b> annulliert wurde.",
+    "disclaimer1": "Die Annullierung dieser SEND -Zustellung, die Gegenstand dieser Erklärung ist, bedeutet nicht notwendigerweise, dass die Voraussetzung f&uuml;r die Zustellung nicht mehr vorhanden ist oder dass Zustellungen derselben Dokumente, die &uuml;ber andere Kanäle erfolgt sind, ebenfalls annulliert werden.",
+    "disclaimer2": "F&uuml;r Informationen &uuml;ber die Gr&uuml;nde der gegenständlichen Annullierung und &uuml;ber die Verwaltung einer eventuellen Zahlung, die vor der Annullierung erfolgt ist, muss sich der Empfänger ausschließlich an den Absender wenden.",
+    "signature": "Von PagoPA S.p.A. digital unterzeichnet",
     "disclaimer_lang": "Der Originaltext dieser Dokumente ist auf Italienisch. Bei Abweichungen zwischen der italienischen Fassung und den &Uuml;bersetzungen in andere Sprachen sind die Bedeutung und die Bestimmungen der italienischen Sprache maßgebend."
 }
