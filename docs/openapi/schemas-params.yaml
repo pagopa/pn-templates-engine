@@ -64,7 +64,6 @@ components:
         - endDate
         - timeReferenceEndDate
         - htmlDescription
-        - htmlDescription
       properties:
         startDate:
           type: string
