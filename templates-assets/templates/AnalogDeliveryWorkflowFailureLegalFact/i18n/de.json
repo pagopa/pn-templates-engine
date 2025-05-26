@@ -1,8 +1,8 @@
 {
     "language": "de",
-    "subject": "Hinterlegung der Benachrichtigung &Uuml;ber den erfolgten Empfang",
-    "body1": "Im Sinne des Art. 26, Absatz 7, des G.D. 76/2020, betreffend die Zustellung identifiziert durch IUN ${iun},<br> wurde die Benachrichtigung &uuml;ber den erfolgten Empfang am ${endWorkflowDate} um ${endWorkflowTime} Uhr vom Betreiber auf der Plattform hinterlegt und dem Empfänger ${recipient.denomination} <br>STEUERNUMMER: ${recipient.taxId} zur Verf&uuml;gung gestellt, da dieser aus anderen Gründen als vor&uuml;bergehender Abwesenheit oder Annahmeverweigerung der Benachrichtigung (sowohl des Empfängers selbst, als auch der anderen zustellbevollmächtigten Personen) unauffindbar ist.",
-    "body2": "Gemäß Art. 26, Absatz 7, des GD 76/2020, vervollständigt sich die Zustellung am zehnten Tag nach der vorgenannten Hinterlegung auf der Plattform, es sei denn, der Empfänger oder sein Bevollmächtigter ruft die Zustellung über die Plattform an einem Tag und zu einer Uhrzeit vor Ablauf dieser Frist ab.",
+    "subject": "Hinterlegung der Benachrichtigung &uuml;ber den erfolgten Empfang",
+    "body1": "Im Sinne des Art. 26, Absatz 7, des G.D. 76/2020, betreffend die Zustellung identifiziert durch IUN ${iun},<br> wurde die Benachrichtigung &uuml;ber den erfolgten Empfang am ${endWorkflowDate} um ${endWorkflowTime} Uhr vom Betreiber auf der Plattform hinterlegt und dem Empfänger ${recipient.denomination} <br>STEUERNUMMER: ${recipient.taxId} zur Verf&uuml;gung gestellt, da dieser aus anderen Gr&uuml;nden als vor&uuml;bergehender Abwesenheit oder Annahmeverweigerung der Benachrichtigung (sowohl des Empfängers selbst, als auch der anderen zustellbevollmächtigten Personen) unauffindbar ist.",
+    "body2": "Gemäß Art. 26, Absatz 7, des GD 76/2020, vervollständigt sich die Zustellung am zehnten Tag nach der vorgenannten Hinterlegung auf der Plattform, es sei denn, der Empfänger oder sein Bevollmächtigter ruft die Zustellung &Uuml;ber die Plattform an einem Tag und zu einer Uhrzeit vor Ablauf dieser Frist ab.",
     "signature": "Von PagoPA S.p.A. digital unterzeichnet",
     "disclaimer_lang": "Der Originaltext dieser Dokumente ist auf Italienisch. Bei Abweichungen zwischen der italienischen Fassung und den &Uuml;bersetzungen in andere Sprachen sind die Bedeutung und die Bestimmungen der italienischen Sprache maßgebend."
 }
