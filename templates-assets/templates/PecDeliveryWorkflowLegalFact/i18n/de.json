@@ -5,7 +5,7 @@
   "body1":"Gemäß Artikel 26, Absatz 11 des Gesetzesdekrets 76/2020 in geltender Fassung BESCHEINIGT PagoPA S.p.A. als rechtmäßiger Betreiber der im selben Artikel 26 genannten Plattform f&uuml;r digitale Zustellungen (auch bekannt als SEND - Servizio Notifiche Digitali), mit jeglicher Rechtskräftigkeit f&uuml;r die Entgegenhaltung gegen&uuml;ber Dritten, HIERMIT, dass:",
   "body2":"die in der durch IUN <b>${iun}</b> identifizierten Zustellung genannten Akten wie folgt verwaltet wurden:",
   "body3_success":"die entsprechende digitale Benachrichtigung &uuml;ber den erfolgten Empfang wurde am <strong>${delivery.responseDate}</strong> an das oben angegebene digitale Domizil &uuml;bermittelt.",
-  "body3_failure":"Am <strong>${delivery.responseDate}</strong>, ging die entsprechende Benachrichtigung &uuml;ber die Unzustellbarkeit an das angegebene digitale Domizil ein.",
+  "body3_failure":"Am <strong>${delivery.responseDate}</strong> ist die entsprechende Benachrichtigung &uuml;ber die Unzustellbarkeit an das angegebene digitale Domizil eingegangen.",
   "body4_failure":"Am <strong>${endWorkflowDate}</strong>, hat der Betreiber der Plattform die Benachrichtigung &uuml;ber die Unzustellbarkeit der Nachricht gemäß Art. 26, Absatz 6 des Gesetzesdekrets 76 vom 16. Juli 2020 bereitgestellt.",
   "denomination": "Vor- und Nachname / Firmenbezeichnung",
   "fiscalcode": "Steuernummer",
