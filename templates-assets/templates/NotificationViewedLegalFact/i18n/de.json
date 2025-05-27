@@ -1,14 +1,14 @@
 {
     "language": "de",
     "subject": "Bescheinigung die Dritten entgegengehalten werden kann: erfolgter Zugang",
-    "body1": "Gemäß Artikel 26, Absatz 11 des Gesetzesdekrets 76/2020 in geltender Fassung BESCHEINIGT PagoPA S.p.A. als rechtmäßiger Betreiber der im selben Artikel 26 genannten Plattform f&uuml;r digitale Zustellungen (auch bekannt als SEND - Servizio Notifiche Digitali), mit jeglicher Rechtskräftigkeit f&uuml;r die Entgegenhaltung gegen&uuml;ber Dritten, HIERMIT, dass:",
+    "body1": "Gem&auml;ß Artikel 26, Absatz 11 des Gesetzesdekrets 76/2020 in geltender Fassung BESCHEINIGT PagoPA S.p.A. als rechtm&auml;ßiger Betreiber der im selben Artikel 26 genannten Plattform f&uuml;r digitale Zustellungen (auch bekannt als SEND - Servizio Notifiche Digitali), mit jeglicher Rechtskr&auml;ftigkeit f&uuml;r die Entgegenhaltung gegen&uuml;ber Dritten, HIERMIT, dass:",
     "body2": "die in der durch IUN  <b>${iun}</b> identifizierten Zustellung genannten Akten wie folgt verwaltet wurden:",
-    "recipient": "Empfänger",
-    "delegate": "Bevollmächtigter",
+    "recipient": "Empf&auml;nger",
+    "delegate": "Bevollm&auml;chtigter",
     "denomination": "Vor- und Nachname / Firmenbezeichnung",
     "fiscalcode": "Steuernummer",
-    "body3": "hatte der <#if delegate??> Bevollmächtigter <#else> Empfänger </#if> am <strong>${when}</strong> Zugang auf die zugestellten elektronischen Dokumente (identifiziert mittels oben angegebener IUN).",
+    "body3": "hatte der <#if delegate??> Bevollm&auml;chtigter <#else> Empf&auml;nger </#if> am <strong>${when}</strong> Zugang auf die zugestellten elektronischen Dokumente (identifiziert mittels oben angegebener IUN).",
     "signature": "Von PagoPA S.p.A. digital unterzeichnet",
     "disclaimer_lang": "Der Originaltext dieser Dokumente ist auf Italienisch. Bei Abweichungen zwischen der italienischen Fassung und den &Uuml;bersetzungen in andere Sprachen sind die Bedeutung und die Bestimmungen der italienischen Sprache maßgebend.",
-    "disclaimer": "In dieser Bescheinigung wird das Datum angegeben, an dem der Empfänger (oder sein Bevollmächtigter) erstmals &uuml;ber die Plattform Zugang zu dem zugestellten Dokument hatte. Dieses Datum entspricht nicht unbedingt dem Datum der Vervollständigung der Zustellung, das aufgrund des Fristablaufs auch fr&uuml;her liegen kann. Um das korrekte Datum der Vervollständigung der Zustellung zu ermitteln, wird der Empfänger (oder sein Bevollmächtigter) gebeten, <strong><a class=\"faq-link-perfezionamento\" href=\"https://notifichedigitali.pagopa.it/de/faq/#perfezionamento-come-posso-sapere\">in diesen FAQ</a></strong> zu pr&uuml;fen, wie das Datum der Vervollständigung zu berechnen ist."
+    "disclaimer": "In dieser Bescheinigung wird das Datum angegeben, an dem der Empf&auml;nger (oder sein Bevollm&auml;chtigter) erstmals &uuml;ber die Plattform Zugang zu dem zugestellten Dokument hatte. Dieses Datum entspricht nicht unbedingt dem Datum der Vervollst&auml;ndigung der Zustellung, das aufgrund des Fristablaufs auch fr&uuml;her liegen kann. Um das korrekte Datum der Vervollst&auml;ndigung der Zustellung zu ermitteln, wird der Empf&auml;nger (oder sein Bevollm&auml;chtigter) gebeten, <strong><a class=\"faq-link-perfezionamento\" href=\"https://notifichedigitali.pagopa.it/de/faq/#perfezionamento-come-posso-sapere\">in diesen FAQ</a></strong> zu pr&uuml;fen, wie das Datum der Vervollst&auml;ndigung zu berechnen ist."
 }
