@@ -90,9 +90,12 @@
               risparmiare tempo e denaro,
               <a
                 style="color: #0073e6; text-decoration: underline"
-                href="https://cittadini.notifichedigitali.it/recapiti"
-                >vai ai tuoi recapiti</a
-              >
+                <#if recipientType == "PF">
+                  href="https://cittadini.notifichedigitali.it/recapiti"
+                <#else>
+                  href="https://imprese.notifichedigitali.it/recapiti"
+                </#if>
+                >vai ai tuoi recapiti</a>
               e inserisci nuovamente l’indirizzo assicurandoti che si tratti di
               una PEC e non di un indirizzo email ordinario e che non siano
               presenti errori di digitazione.
