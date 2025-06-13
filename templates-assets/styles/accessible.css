@@ -1,0 +1,165 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url(../fonts/Montserrat/static/Montserrat-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url(../fonts/Montserrat/static/Montserrat-Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+@page {
+    size: A4;
+    margin: 36mm 10mm 32mm 10mm;
+
+    @top-left {
+        content: element(header);
+        vertical-align: top;
+    }
+
+    @bottom-center {
+        content: element(footer);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.document-type {
+    margin: 0 0 7mm 0;
+    font-size: 14px; /* 14pt on Figma */
+}
+
+#header {
+    position: running(header); /* questo consente di stampare l'header ad ogni pagina */
+    font-size: 18.667px;
+}
+
+#header img {
+    margin-top: 15mm;
+    width: 119px;
+    height: 35px;
+    /* 85x25 */
+}
+
+#footer {
+    position: running(footer); /* questo consente di stampare il footer ad ogni pagina */
+    font-size: 9px; /* 8pt on Figma */
+    color: #475A6D;
+    border-top: 1px solid #E3E7EB;
+    padding-top: 3mm;
+    margin-bottom: 10mm;
+}
+
+#footer p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.2em;
+}
+
+body {
+    font-size: 12px; /* 12pt on Figma */
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5em;
+}
+
+a {
+    color: inherit;
+}
+
+a.faq-link-perfezionamento {
+    text-decoration: none;
+}
+
+#footer img {
+    width: 45px;
+    height: 45px;
+}
+
+#disclaimer {
+    font-size: 10px; /* 10pt on Figma */
+}
+
+.margin-top-medium {
+    margin-top: 10mm;
+}
+
+.margin-top-large {
+    margin-top: 15mm;
+}
+
+.margin-y-small {
+    margin: 5mm 0;
+}
+
+.margin-y-medium {
+    margin: 10mm 0;
+}
+
+.right {
+    text-align: right;
+}
+
+.paragraph {
+    margin: 21.333px 0;
+}
+
+
+.hash-list li {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.my-8 {
+    margin: 10.667px 0;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.py-16 {
+    padding: 21.333px 0;
+}
+
+.pt-16 {
+    padding-top: 21.333px;
+}
+
+.table {
+    display: table;
+    width: 100%;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+}
+
+.left-col, .right-col, .left-header-col, .right-header-col, .left-footer-col, .right-footer-col{
+    width: 50%
+}
+
+.right-header-col, .right-footer-col, .signature {
+    text-align: right;
+}
+
+.left-footer-col {
+    vertical-align: top;
+}
