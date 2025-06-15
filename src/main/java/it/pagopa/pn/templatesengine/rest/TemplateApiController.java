@@ -155,8 +155,9 @@ public class TemplateApiController implements TemplateApi {
     @Override
     public Mono<ResponseEntity<String>> pecValidationContactsRejectBody(
             LanguageEnum xLanguage,
+            Mono<PecValidationContactsBody> request,
             final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY, xLanguage);
+        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY, xLanguage, request);
     }
 
     @Override
@@ -191,8 +192,9 @@ public class TemplateApiController implements TemplateApi {
     @Override
     public Mono<ResponseEntity<String>> pecValidationContactsSuccessBody(
             LanguageEnum xLanguage,
+            Mono<PecValidationContactsBody> request,
             ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_BODY, xLanguage);
+        return processTextTemplate(TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_BODY, xLanguage, request);
     }
 
     @Override
