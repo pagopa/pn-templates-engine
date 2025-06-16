@@ -173,14 +173,6 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        PEC_VALIDATION_CONTACTS_SUCCESS_BODY,
-                        TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_BODY,
-                        LanguageEnum.IT,
-                        MediaType.APPLICATION_JSON,
-                        HttpStatus.OK,
-                        EXPECTED_RESULT
-                ),
-                Arguments.of(
                         PEC_VERIFICATION_CODE_SUBJECT,
                         TemplatesEnum.PEC_VERIFICATION_CODE_SUBJECT,
                         LanguageEnum.IT,
@@ -191,14 +183,6 @@ public class TemplateApiControllerTest {
                 Arguments.of(
                         MAIL_VERIFICATION_CODE_SUBJECT,
                         TemplatesEnum.MAIL_VERIFICATION_CODE_SUBJECT,
-                        LanguageEnum.IT,
-                        MediaType.APPLICATION_JSON,
-                        HttpStatus.OK,
-                        EXPECTED_RESULT
-                ),
-                Arguments.of(
-                        PEC_VALIDATION_CONTACTS_REJECT_BODY,
-                        TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.OK,
@@ -258,6 +242,24 @@ public class TemplateApiControllerTest {
                         NOTIFICATION_AAR_FOR_EMAIL,
                         TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL,
                         new NotificationAarForEmail(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        PEC_VALIDATION_CONTACTS_SUCCESS_BODY,
+                        TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_BODY,
+                        new PecValidationContactsBody(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        PEC_VALIDATION_CONTACTS_REJECT_BODY,
+                        TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY,
+                        new PecValidationContactsBody(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.OK,
