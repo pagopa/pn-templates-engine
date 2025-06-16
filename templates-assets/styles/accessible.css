@@ -160,6 +160,10 @@ a.faq-link-perfezionamento {
     text-align: right;
 }
 
+.signature {
+    max-width: 60%;
+}
+
 .left-footer-col {
     vertical-align: top;
 }

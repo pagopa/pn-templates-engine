@@ -25,43 +25,80 @@
       <h1 class="document-type subject">
         Attestazione maggiore
       </h1>
+      <% if (noIta) { %><p class="paragraph">
+        <%-body1%>
+      </p><% } %>
+      <% if (noIta) { %><p class="paragraph">
+        <%-body2%>
+      </p><% } %>
       <p class="paragraph">
-        corpo del pdf
+        <%-it_body1%>
+      </p>
+      <p class="paragraph">
+        <%-it_body2%>
       </p>
 
       <ul class="paragraph hash-list">
-        <li>
-          <b>1234567890</b>
-        </li>
-        <li>
-          <b>1234567890</b>
-        </li><li>
-          <b>1234567890</b>
-        </li>
+        <#list digests as digest>
+          <li>
+            <strong>${digest}</strong>
+          </li>
+        </#list>
       </ul>
 
+      <% if (noIta) { %><p class="paragraph">
+        <%-body3%>
+      </p><% } %>
+      <% if (noIta) { %><p>
+        <%-body4%>
+      </p><% } %>
+      <p class="paragraph">
+        <%-it_body3%>
+      </p>
+      <p>
+        <%-it_body4%>
+      </p>
+      
+      <#list notification.recipients as recipient>
       <div class="table margin-y-medium">
         <div class="row">
-          <p class="cell left-info-col">Nome</p>
-          <p class="cell right-info-col"><b>Mario Rossi</b></p>
+          <p class="cell left-info-col"><% if (noIta) { %><span><%-denomination%> &bull; </span><% } %><%-it_denomination%></p>
+          <p class="cell right-info-col"><b>${recipient.denomination}</b></p>
         </div>
         <div class="row">
-          <p class="cell left-info-col">Codice fiscale</p>
-          <p class="cell right-info-col"><b>1234567890</b></p>
+          <p class="cell left-info-col"><% if (noIta) { %><span><%-fiscalcode%> &bull; </span><% } %><%-it_fiscalcode%></p>
+          <p class="cell right-info-col"><b>${recipient.taxId}</b></p>
         </div>
         <div class="row">
-          <p class="cell left-info-col">Domicilio digitale</p>
-          <p class="cell right-info-col"><b>Diadem Sifaka</b></p>
+          <p class="cell left-info-col"><% if (noIta) { %><span><%-digitaldomicile%> &bull; </span><% } %><%-it_digitaldomicile%></p>
+          <p class="cell right-info-col"><b><#if (recipient.digitalDomicile.address)??>
+                  ${recipient.digitalDomicile.address}
+                  <#else>
+                    non fornito dalla PA
+                </#if></b></p>
         </div>
         <div class="row">
-          <p class="cell left-info-col">Tipologia Domicilio digitale</p>
-          <p class="cell right-info-col"><b>Ring-tailed</b></p>
+          <p class="cell left-info-col"><% if (noIta) { %><span><%-digitaldomicile_type%> &bull; </span><% } %><%-it_digitaldomicile_type%></p>
+          <p class="cell right-info-col"><b><#if (recipient.digitalDomicile.address)??>
+                  Domicilio eletto presso la Pubblica Amministrazione mittente ex art.26, comma 5 lettera b del D.L.
+                  76/2020
+                  <#else>
+                    non fornito dalla PA
+                </#if></b></p>
         </div>
       </div>
+      </#list>
 
-      <section class=" margin-top-large signature">
-          <p class="signature py-16">Firmato</p>
+      <section class="margin-top-large signature">
+          <p class="signature py-16"><% if (noIta) { %><span><%-signature%> &bull; </span><% } %><%-it_signature%></p>
+          <% if (noIta) { %>
+            <div class="signature margin-top-large">
+              <% if (noIta) { %><p class="py-16"><%-disclaimer_lang%></p><% } %>
+              <% if (noIta) { %><p><%-it_disclaimer_lang%></p><% } %>
+            </div>
+        <% } %>
       </section>
+
 
     </main>
 
