@@ -13,10 +13,13 @@
         <a
           title="Continua su Piattaforma Notifiche"
           class="link"
-          href="https://cittadini.notifichedigitali.it/recapiti"
+          <#if recipientType == "PF">
+            href="https://cittadini.notifichedigitali.it/recapiti"
+          <#else>
+            href="https://imprese.notifichedigitali.it/recapiti"
+          </#if>
           style="color: #0073e6; text-decoration: underline"
-          >vai ai tuoi recapiti</a
-        >.
+          >vai ai tuoi recapiti</a>.
       </p>
     </mj-text>
   </mj-column>
