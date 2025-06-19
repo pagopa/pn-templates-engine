@@ -12,6 +12,13 @@
     font-style: normal;
 }
 
+@page :first {
+  margin: 36mm 10mm 32mm 10mm;
+  @bottom-center {
+    content: element(footer);
+  }
+}
+
 @page {
     size: A4;
     margin: 36mm 10mm 32mm 10mm;
@@ -54,8 +61,12 @@
     font-size: 9px; /* 8pt on Figma */
     color: #475A6D;
     border-top: 1px solid #E3E7EB;
-    padding-top: 3mm;
-    margin-bottom: 10mm;
+    /* padding-top: 3mm; */
+    /* margin-bottom: 10mm; */
+    margin-bottom: 0;
+    padding: 5mm 0;
+    height: auto;
+
 }
 
 #footer p {
@@ -152,16 +163,26 @@ a.faq-link-perfezionamento {
     display: table-cell;
 }
 
-.left-col, .right-col, .left-header-col, .right-header-col, .left-footer-col, .right-footer-col{
+.width-50 {
     width: 50%
 }
 
-.right-header-col, .right-footer-col, .signature {
-    text-align: right;
+.width-90 {
+    width: 90%;
+}
+.width-10 {
+    width: 10%;
 }
 
-.signature {
-    max-width: 60%;
+.width-60 {
+    width: 60%;
+}
+.width-40 {
+    width: 40%;
+}
+
+.left-signature-lang-col {
+    width: 40%;
 }
 
 .left-footer-col {
