@@ -46,7 +46,7 @@
                 margin: 0;
               "
             >
-              SEND - Recapito legale PEC confermato
+              SEND - Domicilio digitale PEC confermato
             </h1>
           </mj-text>
 
@@ -69,8 +69,8 @@
                 line-height: 28px;
               "
             >
-              L&apos;indirizzo PEC che hai indicato su SEND come recapito legale
-              <strong>&egrave; confermato</strong>.
+              L&apos;indirizzo PEC che hai indicato su SEND come domicilio digitale di
+              piattaforma <strong>&egrave; confermato</strong>.
             </p>
             <p
               style="
@@ -81,8 +81,8 @@
               "
             >
               A partire da questo momento, lo useremo come
-              <strong>indirizzo principale</strong> per inviarti gli avvisi di
-              avvenuta ricezione. <br />Per maggiori informazioni,
+              <strong>indirizzo principale</strong> per inviarti le notifiche.
+              <br />Per maggiori informazioni,
               <a
                 style="color: #0073e6; text-decoration: underline"
                 href="https://notifichedigitali.pagopa.it/faq"
