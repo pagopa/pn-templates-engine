@@ -10,6 +10,10 @@
     </#if>
     <meta name="author" content="SEND - Servizio Notifiche Digitali" />
     <link rel="stylesheet" href="../../styles/accessible.css">
+    <bookmarks>
+        <bookmark name="Oggetto dell'attestazione" href="#subject"/>
+        <bookmark name="Firma" href="#signature"/>
+    </bookmarks>
 </head>
 
 <body>
@@ -41,9 +45,9 @@
     
     <main>
         <#if endWorkflowStatus=="SUCCESS">
-            <h1 class="document-type subject mb-0"><% if (noIta) { %><%-subject_success%><br><% } %>  <%-it_subject_success%></h1>
+            <h1 class="document-type subject mb-0" id="subject"><% if (noIta) { %><%-subject_success%><br><% } %>  <%-it_subject_success%></h1>
         <#else>
-            <h1 class="document-type subject mb-0"><% if (noIta) { %><%-subject_failure%><br><% } %>  <%-it_subject_failure%></h1>
+            <h1 class="document-type subject mb-0" id="subject"><% if (noIta) { %><%-subject_failure%><br><% } %>  <%-it_subject_failure%></h1>
         </#if>
 
         <% if (noIta) { %><p class="paragraph my-8">
@@ -150,7 +154,7 @@
             </p>
         </#if>
 
-        <div class="margin-top-large table">
+        <div class="margin-top-large table" id="signature">
             <div class="row">
                 <div class="cell width-10" aria-hidden="true"></div>
                 <div class="cell width-90 right">

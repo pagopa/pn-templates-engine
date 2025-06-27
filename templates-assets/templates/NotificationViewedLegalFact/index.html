@@ -6,6 +6,12 @@
     <title><% if (noIta) { %><%-subject%> &bull; <% } %><%-it_subject%></title>
     <meta name="author" content="SEND - Servizio Notifiche Digitali" />
     <link rel="stylesheet" href="../../styles/accessible.css">
+    <bookmarks>
+        <bookmark name="Oggetto dell'attestazione" href="#subject"/>
+        <bookmark name="Destinatario" href="#recipient"/>
+        <bookmark name="Firma" href="#signature"/>
+        <bookmark name="Disclaimer" href="#disclaimer"/>
+    </bookmarks>
 </head>
 
 <body>
@@ -36,7 +42,7 @@
     </footer>
 
     <main>
-        <h1 class="document-type subject mb-0">
+        <h1 class="document-type subject mb-0" id="subject">
             <% if (noIta) { %><%-subject%><br><% } %>  <%-it_subject%>
         </h1>
 
@@ -53,7 +59,7 @@
             <%-it_body2%>
         </p>
 
-        <div class="table margin-y-medium">
+        <div class="table margin-y-medium" id="recipient">
             <p><strong><% if (noIta) { %><span><%-recipient%> &bull; </span><% } %><%-it_recipient%></strong></p>
             <div class="row">
                 <div class="cell width-50">
@@ -106,7 +112,7 @@
             <%-it_body3%>
         </p>
 
-        <div class="margin-top-large table">
+        <div class="margin-top-large table" id="signature">
             <div class="row">
                 <div class="cell width-10" aria-hidden="true"></div>
                 <div class="cell width-90 right">
