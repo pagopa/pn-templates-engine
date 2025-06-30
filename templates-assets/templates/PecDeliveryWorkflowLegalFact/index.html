@@ -9,47 +9,45 @@
         <title><% if (noIta) { %><%-subject_failure%> &bull; <% } %><%-it_subject_failure%></title>
     </#if>
     <meta name="author" content="SEND - Servizio Notifiche Digitali" />
-    <link rel="stylesheet" href="../../styles/index.css">
+    <link rel="stylesheet" href="../../styles/accessible.css">
+    <bookmarks>
+        <bookmark name="Oggetto dell'attestazione" href="#subject"/>
+        <bookmark name="Firma" href="#signature"/>
+    </bookmarks>
 </head>
 
 <body>
-    <div class="container">
-        <div id="header" class="row">
-            <div class="left-col">
-                <img src="../../images/pn-logo-header.png" style="width:126px; height:35px;" />
-            </div>
-            <div class="right-col">
-                <img src="../../images/send-logo.png" style="width:81px; height:26.24px;" />
-            </div>
+    <header id="header" class="table">
+        <div class="row">
+        <div class="width-50 cell">
+        <img src="../../images/pn-logo-header.png" class="pagopa-logo-header" alt="Logo di PagoPA S.p.A."/>
         </div>
-        <!-- Se il footer viene messo in fondo al documento compare solo nell'ultima pagina -->
-        <div id="footer" class="row">
-            <div class="left-col">
-                <p>PagoPA S.p.A.</p>
-                <p>società per azioni con socio unico</p>
-                <p>capitale sociale di euro 1,000,000 interamente versato</p>
-                <p>sede legale in Roma, Piazza Colonna 370, CAP 00187</p>
-                <p>n. di iscrizione a Registro Imprese di Roma, CF e P.IVA 15376371009</p>
-            </div>
-            <div class="right-col">
-                <img src="../../images/pn-logo-footer.png" />
-            </div>
+        <div class="width-50 cell right">
+        <img src="../../images/send-logo.png" class="send-logo-header" alt="Logo di SEND - Servizio Notifiche Digitali"/>
         </div>
-
+        </div>
+    </header>
+    <!-- Se il footer viene messo in fondo al documento compare solo nell'ultima pagina -->
+    <footer id="footer" class="table">
+      <div class="row">
+        <div class="cell width-50 left-footer-col">
+          <p>PagoPA S.p.A.</p>
+          <p>società per azioni con socio unico</p>
+          <p>capitale sociale di euro 1000000 interamente versato</p>
+          <p>sede legale in Roma, Piazza Colonna 370, CAP 00187</p>
+          <p>n. di iscrizione a Registro Imprese di Roma, CF e P.IVA 15376371009</p>
+        </div>
+        <div class="cell right width-50">
+          <img src="../../images/pn-logo-footer.png" alt="Logo PagoPA S.p.A."/>
+        </div>
+      </div>
+    </footer>
+    
+    <main>
         <#if endWorkflowStatus=="SUCCESS">
-        <% if (noIta) { %><h3 class="document-type mb-0">
-            <%-subject_success%>
-        </h3><% } %>
-        <h3 class="document-type">
-            <%-it_subject_success%>
-        </h3>
-            <#else>
-            <% if (noIta) { %><h3 class="document-type mb-0">
-                <%-subject_failure%>
-            </h3><% } %>
-            <h3 class="document-type">
-                <%-it_subject_failure%>
-            </h3>
+            <h1 class="document-type subject mb-0" id="subject"><% if (noIta) { %><%-subject_success%><br><% } %>  <%-it_subject_success%></h1>
+        <#else>
+            <h1 class="document-type subject mb-0" id="subject"><% if (noIta) { %><%-subject_failure%><br><% } %>  <%-it_subject_failure%></h1>
         </#if>
 
         <% if (noIta) { %><p class="paragraph my-8">
@@ -67,85 +65,84 @@
         </p>
 
         <#list deliveries as delivery>
-            <div class="margin-y-small">
-                <div class="row page-break-avoid">
-                    <div class="left-col col-5-10">
-                        <p><% if (noIta) { %><span><%-denomination%> &bull; </span><% } %><%-it_denomination%></p>
-                    </div>
-                    <div class="left-col col-5-10">
-                        <p><strong>${delivery.denomination}</strong></p>
-                    </div>
+        <div class="table margin-y-medium">
+            <div class="row">
+                <div class="cell width-50">
+                    <p><% if (noIta) { %><span><%-denomination%> &bull; </span><% } %><%-it_denomination%></p>
                 </div>
-
-                <div class="row page-break-avoid">
-                    <div class="left-col col-5-10">
-                        <p><% if (noIta) { %><span><%-fiscalcode%> &bull; </span><% } %><%-it_fiscalcode%></p>
-                    </div>
-                    <div class="left-col col-5-10">
-                        <p><strong>${delivery.taxId}</strong></p>
-                    </div>
+                <div class="cell  width-50">
+                    <p><b>${delivery.denomination}</b></p>
                 </div>
-
-                <div class="row page-break-avoid">
-                    <div class="left-col col-5-10">
-                        <p><% if (noIta) { %><span><%-digitaldomicile%> &bull; </span><% } %><%-it_digitaldomicile%></p>
-                    </div>
-                    <div class="left-col col-5-10">
-                        <p>
-                            <#if delivery.address??>
-                                <#if delivery.type=="SERCQ">
-                                    <strong>Domicilio Digitale SEND</strong>
-                                    <#else>
-                                        <strong>${delivery.address}</strong>
-                                </#if>
-                                <#else>
-                                    non presente
-                            </#if>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="row page-break-avoid">
-                    <div class="left-col col-5-10">
-                        <p><% if (noIta) { %><span><%-digitaldomicile_type%> &bull; </span><% } %><%-it_digitaldomicile_type%></p>
-                    </div>
-                    <div class="left-col col-5-10">
-                        <p>
-                            <#if delivery.addressSource??>
-                                <#if delivery.addressSource=="PLATFORM">
-                                    <strong>Domicilio di Piattaforma ex art.26, comma 5 lettera c del D.L.
-                                        76/2020</strong>
-                                    <#elseif delivery.addressSource=="SPECIAL">
-                                        <strong>Domicilio eletto presso la Pubblica Amministrazione mittente ex art.26,
-                                            comma 5 lettera b del D.L. 76/2020</strong>
-                                        <#elseif delivery.addressSource=="GENERAL">
-                                            <strong>Domicilio generale inserito nei registri pubblici ex art.26, comma 5
-                                                lettera a del D.L. 76/2020</strong>
-                                </#if>
-                                <#else>
-                                    non presente
-                            </#if>
-                        </p>
-                    </div>
-                </div>
-
             </div>
-            <#if delivery.ok>
+            
+            <div class="row">
+                <div class="cell width-50">
+                    <p><% if (noIta) { %><span><%-fiscalcode%> &bull; </span><% } %><%-it_fiscalcode%></p>
+                </div>
+                <div class="cell width-50">
+                    <p><b>${delivery.taxId}</b></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cell width-50">
+                    <p><% if (noIta) { %><span><%-digitaldomicile%> &bull; </span><% } %><%-it_digitaldomicile%></p>
+                </div>
+                <div class="cell width-50">
+                    <p>
+                        <#if delivery.address??>
+                            <#if delivery.type=="SERCQ">
+                                <b>Domicilio Digitale SEND</b>
+                                <#else>
+                                    <b>${delivery.address}</b>
+                            </#if>
+                            <#else>
+                                non presente
+                        </#if>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cell width-50">
+                    <p><% if (noIta) { %><span><%-digitaldomicile_type%> &bull; </span><% } %><%-it_digitaldomicile_type%></p>
+                </div>
+                <div class="cell width-50">
+                    <p>
+                        <#if delivery.addressSource??>
+                            <#if delivery.addressSource=="PLATFORM">
+                                <strong>Domicilio di Piattaforma ex art.26, comma 5 lettera c del D.L.
+                                    76/2020</strong>
+                                <#elseif delivery.addressSource=="SPECIAL">
+                                    <strong>Domicilio eletto presso la Pubblica Amministrazione mittente ex art.26,
+                                        comma 5 lettera b del D.L. 76/2020</strong>
+                                    <#elseif delivery.addressSource=="GENERAL">
+                                        <strong>Domicilio generale inserito nei registri pubblici ex art.26, comma 5
+                                            lettera a del D.L. 76/2020</strong>
+                            </#if>
+                            <#else>
+                                non presente
+                        </#if>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <#if delivery.ok>
+            <% if (noIta) { %><p class="paragraph my-8">
+                <%-body3_success%>
+            </p><% } %>
+            <p class="paragraph my-8">
+                <%-it_body3_success%>
+            </p>
+            <#else>
                 <% if (noIta) { %><p class="paragraph my-8">
-                    <%-body3_success%>
+                    <%-body3_failure%>
                 </p><% } %>
                 <p class="paragraph my-8">
-                    <%-it_body3_success%>
+                    <%-it_body3_failure%>
                 </p>
-                <#else>
-                    <% if (noIta) { %><p class="paragraph my-8">
-                        <%-body3_failure%>
-                    </p><% } %>
-                    <p class="paragraph my-8">
-                        <%-it_body3_failure%>
-                    </p>
-            </#if>
-
+        </#if>
         </#list>
 
         <#if endWorkflowStatus !="SUCCESS">
@@ -157,20 +154,26 @@
             </p>
         </#if>
 
-        <div class="py-16">
-            <p class="right"><% if (noIta) { %><span><%-signature%> &bull; </span><% } %><%-it_signature%></p>
-        </div>
-        <div class="row margin-top-small">
-            <div class="left-col col-3-10">
-                <p>&nbsp;</p>
+        <div class="margin-top-large table" id="signature">
+            <div class="row">
+                <div class="cell width-10" aria-hidden="true"></div>
+                <div class="cell width-90 right">
+                <p class="py-16"><% if (noIta) { %><span><%-signature%> &bull; </span><% } %><%-it_signature%></p>
+                </div>
             </div>
-            <div class="left-col col-7-10">
+        </div>
+        <% if (noIta) { %>
+        <div class="table">
+            <div class="row">
+                <div class="cell width-40" aria-hidden="true"></div>
+                <div class="margin-top-large cell width-60 right">
                 <% if (noIta) { %><p class="py-16"><%-disclaimer_lang%></p><% } %>
                 <% if (noIta) { %><p><%-it_disclaimer_lang%></p><% } %>
+                </div>
             </div>
         </div>
-
-    </div>
+        <% } %>
+    </main>
 </body>
 
 </html>
