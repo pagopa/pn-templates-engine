@@ -75,7 +75,7 @@
                 padding-bottom: 0;
               "
             >
-              L&apos;indirizzo PEC che hai inserito su SEND come recapito legale
+              L&#39;indirizzo PEC che hai inserito su SEND come domicilio digitale di piattaforma
               <strong>non &egrave; formalmente valido</strong>.
             </p>
             <p
@@ -86,14 +86,14 @@
                 padding-bottom: 0;
               "
             >
-              Per ricevere gli avvisi di avvenuta ricezione in digitale e
+              Per ricevere le notifiche in digitale e
               risparmiare tempo e denaro,
               <a
                 style="color: #0073e6; text-decoration: underline"
                 href="https://cittadini.notifichedigitali.it/recapiti"
                 >vai ai tuoi recapiti</a
               >
-              e inserisci nuovamente l’indirizzo assicurandoti che si tratti di
+              e inserisci nuovamente l&#39;indirizzo assicurandoti che si tratti di
               una PEC e non di un indirizzo email ordinario e che non siano
               presenti errori di digitazione.
             </p>
