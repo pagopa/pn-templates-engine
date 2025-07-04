@@ -32,6 +32,7 @@ class TemplateServiceTestIT {
         // Arrange
         MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
+        emailbody.setRecipientType("PG");
 
         // Genera un elenco di 10 richieste
         List<Mono<String>> calls = IntStream.range(0, NUM_REQUESTS)

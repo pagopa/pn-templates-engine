@@ -46,6 +46,7 @@ class TemplateServiceTest {
         // Arrange
         MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
+        emailbody.recipientType("PG");
 
         // Act & Assert
         Mono<String> result = Assertions.assertDoesNotThrow(() ->

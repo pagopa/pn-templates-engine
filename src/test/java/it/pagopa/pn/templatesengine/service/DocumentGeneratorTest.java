@@ -244,7 +244,8 @@ public class DocumentGeneratorTest {
         var template = TemplatesEnum.MAIL_VERIFICATION_CODE_BODY;
         LanguageEnum[] langs = { LanguageEnum.IT };
         var model = new MailVerificationCodeBody()
-                .verificationCode("TEST_verificationCode");
+                .verificationCode("TEST_verificationCode")
+                .recipientType("PG");
         generateAndSaveDocument(template, langs, model, FileType.HTML);
     }
 
@@ -253,7 +254,8 @@ public class DocumentGeneratorTest {
         var template = TemplatesEnum.PEC_VERIFICATION_CODE_BODY;
         LanguageEnum[] langs = { LanguageEnum.IT };
         var model = new PecVerificationCodeBody()
-                .verificationCode("TEST_verificationCode");
+                .verificationCode("TEST_verificationCode")
+                .recipientType("PG");
         generateAndSaveDocument(template, langs, model, FileType.HTML);
     }
 
@@ -261,14 +263,18 @@ public class DocumentGeneratorTest {
     void generate_pecValidationContactsSuccessBody() {
         var template = TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_BODY;
         LanguageEnum[] langs = { LanguageEnum.IT };
-        generateAndSaveDocument(template, langs, null, FileType.HTML_NO_INPUT);
+        var model = new PecValidationContactsBody()
+                .recipientType("PG");
+        generateAndSaveDocument(template, langs, model, FileType.HTML);
     }
 
     @Test
     void generate_pecValidationContactsRejectBody() {
         var template = TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_BODY;
         LanguageEnum[] langs = { LanguageEnum.IT };
-        generateAndSaveDocument(template, langs, null, FileType.HTML_NO_INPUT);
+        var model = new PecValidationContactsBody()
+                .recipientType("PG");
+        generateAndSaveDocument(template, langs, model, FileType.HTML);
     }
 
     /** TXT **/
