@@ -416,6 +416,13 @@ paths:
           required: true
           schema:
             $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/PecValidationContactsBody'
 
       responses:
         '200':
@@ -439,6 +446,13 @@ paths:
           required: true
           schema:
             $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/PecValidationContactsBody'
 
       responses:
         '200':

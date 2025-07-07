@@ -52,8 +52,11 @@ components:
       type: object
       required:
         - verificationCode
+        - recipientType
       properties:
         verificationCode:
+          type: string
+        recipientType:
           type: string
 
     MalfunctionLegalFact:
@@ -492,12 +495,23 @@ components:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
               type: string
 
+    PecValidationContactsBody:
+      type: object
+      required:
+        - recipientType
+      properties:
+        recipientType:
+          type: string
+
     PecVerificationCodeBody:
       type: object
       required:
         - verificationCode
+        - recipientType
       properties:
         verificationCode:
+          type: string
+        recipientType:
           type: string
 
     PecDeliveryWorkflowLegalFact:
