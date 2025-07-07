@@ -12,6 +12,13 @@
     font-style: normal;
 }
 
+@page :first {
+  margin: 36mm 10mm 32mm 10mm;
+  @bottom-center {
+    content: element(footer);
+  }
+}
+
 @page {
     size: A4;
     margin: 36mm 10mm 32mm 10mm;
@@ -32,11 +39,46 @@
     box-sizing: border-box;
 }
 
+.document-type {
+    margin: 0 0 7mm 0;
+    font-size: 14px; /* 14pt on Figma */
+}
+
+#header {
+    position: running(header); /* questo consente di stampare l'header ad ogni pagina */
+    font-size: 18.667px;
+}
+
+#header img {
+    margin-top: 15mm;
+    width: 119px;
+    height: 35px;
+    /* 85x25 */
+}
+
+#footer {
+    position: running(footer); /* questo consente di stampare il footer ad ogni pagina */
+    font-size: 9px; /* 8pt on Figma */
+    color: #475A6D;
+    border-top: 1px solid #E3E7EB;
+    /* padding-top: 3mm; */
+    /* margin-bottom: 10mm; */
+    margin-bottom: 0;
+    padding: 5mm 0;
+    height: auto;
+
+}
+
+#footer p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.2em;
+}
+
 body {
     font-size: 12px; /* 12pt on Figma */
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
-    overflow: hidden;
 }
 
 p {
@@ -48,35 +90,9 @@ p {
 a {
     color: inherit;
 }
+
 a.faq-link-perfezionamento {
     text-decoration: none;
-}
-
-#header {
-    position: running(header);
-    font-size: 18.667px
-}
-
-#header img {
-    margin-top: 15mm;
-    width: 119px;
-    height: 35px;
-    /* 85x25 */
-}
-
-#footer {
-    position: running(footer);
-    font-size: 9px; /* 8pt on Figma */
-    color: #475A6D;
-    border-top: 1px solid #E3E7EB;
-    padding-top: 3mm;
-    margin-bottom: 10mm;
-}
-
-#footer p {
-    margin: 0;
-    padding: 0;
-    line-height: 1.2em;
 }
 
 #footer img {
@@ -87,34 +103,6 @@ a.faq-link-perfezionamento {
 #disclaimer {
     font-size: 10px; /* 10pt on Figma */
 }
-
-.row {
-    width: 100%;
-}
-
-.row::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-.left-col {
-    float: left;
-}
-
-.right-col {
-    float: right;
-}
-
-.col-1-10 { width: 10%; }
-.col-2-10 { width: 20%; }
-.col-3-10 { width: 30%; }
-.col-4-10 { width: 40%; }
-.col-5-10 { width: 50%; }
-.col-6-10 { width: 60%; }
-.col-7-10 { width: 70%; }
-.col-8-10 { width: 80%; }
-.col-9-10 { width: 90%; }
 
 .margin-top-medium {
     margin-top: 10mm;
@@ -140,10 +128,6 @@ a.faq-link-perfezionamento {
     margin: 21.333px 0;
 }
 
-.document-type {
-    margin: 0 0 7mm 0;
-    font-size: 14px; /* 14pt on Figma */
-}
 
 .hash-list li {
     list-style-type: disc;
@@ -166,6 +150,51 @@ a.faq-link-perfezionamento {
     padding-top: 21.333px;
 }
 
-.page-break-avoid {
-    page-break-inside: avoid;
+.table {
+    display: table;
+    width: 100%;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+}
+
+.width-50 {
+    width: 50%
+}
+
+.width-90 {
+    width: 90%;
+}
+.width-10 {
+    width: 10%;
+}
+
+.width-60 {
+    width: 60%;
+}
+.width-40 {
+    width: 40%;
+}
+
+.left-signature-lang-col {
+    width: 40%;
+}
+
+.left-footer-col {
+    vertical-align: top;
+}
+
+.pagopa-logo-header {
+    width:126px; 
+    height:35px
+}
+
+.send-logo-header {
+    width:81px;
+    height:26.24px;
 }
