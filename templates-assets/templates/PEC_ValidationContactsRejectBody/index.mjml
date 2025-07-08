@@ -75,8 +75,8 @@
                 padding-bottom: 0;
               "
             >
-              L&#39;indirizzo PEC che hai inserito su SEND come recapito legale
-              <strong>non &egrave; formalmente valido</strong>.
+              L&#39;indirizzo PEC che hai inserito su SEND come domicilio digitale di
+              piattaforma <strong>non &egrave; formalmente valido</strong>.
             </p>
             <p
               style="
@@ -86,8 +86,7 @@
                 padding-bottom: 0;
               "
             >
-              Per ricevere gli avvisi di avvenuta ricezione in digitale e
-              risparmiare tempo e denaro,
+              Per ricevere le notifiche in digitale e risparmiare tempo e denaro,
               <a
                 style="color: #0073e6; text-decoration: underline"
                 <#if recipientType == "PF">
