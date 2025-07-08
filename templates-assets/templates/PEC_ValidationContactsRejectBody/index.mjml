@@ -75,7 +75,7 @@
                 padding-bottom: 0;
               "
             >
-              L&apos;indirizzo PEC che hai inserito su SEND come recapito legale
+              L&#39;indirizzo PEC che hai inserito su SEND come recapito legale
               <strong>non &egrave; formalmente valido</strong>.
             </p>
             <p
@@ -96,7 +96,7 @@
                   href="https://imprese.notifichedigitali.it/recapiti"
                 </#if>
                 >vai ai tuoi recapiti</a>
-              e inserisci nuovamente l’indirizzo assicurandoti che si tratti di
+              e inserisci nuovamente l&#39;indirizzo assicurandoti che si tratti di
               una PEC e non di un indirizzo email ordinario e che non siano
               presenti errori di digitazione.
             </p>
