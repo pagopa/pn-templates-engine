@@ -100,19 +100,6 @@
           </div>
         </div>
 
-                <div class="row">
-          <div class="cell width-50">
-            <p><% if (noIta) { %><span><%-address%> &bull; </span><% } %><%-it_address%></p>
-          </div>
-          <div class="cell width-50">
-            <p><b><#if (recipient.physicalAddressAndDenomination)??>
-                  ${recipient.physicalAddressAndDenomination}
-                  <#else>
-                  non presente
-                </#if></b></p>
-          </div>
-        </div>
-
         <div class="row">
           <div class="cell width-50">
             <p><% if (noIta) { %><span><%-digitaldomicile%> &bull; </span><% } %><%-it_digitaldomicile%></p>
@@ -136,6 +123,18 @@
                   76/2020
                   <#else>
                     non fornito dalla PA
+                </#if></b></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="cell width-50">
+            <p><% if (noIta) { %><span><%-address%> &bull; </span><% } %><%-it_address%></p>
+          </div>
+          <div class="cell width-50">
+            <p><b><#if (recipient.physicalAddressAndDenomination)??>
+                  ${recipient.physicalAddressAndDenomination}
+                  <#else>
+                  non presente
                 </#if></b></p>
           </div>
         </div>
