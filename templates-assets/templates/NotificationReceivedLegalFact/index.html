@@ -131,11 +131,7 @@
             <p><% if (noIta) { %><span><%-address%> &bull; </span><% } %><%-it_address%></p>
           </div>
           <div class="cell width-50">
-            <p><b><#if (recipient.physicalAddressAndDenomination)??>
-                  ${recipient.physicalAddressAndDenomination}
-                  <#else>
-                  non presente
-                </#if></b></p>
+            <p><b><#if (recipient.physicalAddressAndDenomination)??>${recipient.physicalAddressAndDenomination}<#else>non presente</#if></b></p>
           </div>
         </div>
 
