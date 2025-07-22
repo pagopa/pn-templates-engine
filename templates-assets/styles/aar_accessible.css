@@ -1,0 +1,228 @@
+@font-face {
+    font-family: "Titillium Pro";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../fonts/Titillium_Pro/TitilliumSansPro-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Titillium Pro";
+    font-style: normal;
+    font-weight: bold;
+    src: url(../fonts/Titillium_Pro/TitilliumSansPro-Bold.ttf) format('truetype');
+}
+
+@page {
+    size: A4;
+    margin: 0mm;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Titillium Pro", sans-serif;
+    font-weight: 400;
+    font-size: 15px; /*11px on Figma*/
+    color: #031344;
+    line-height: 18.6px;
+}
+
+#first-page {
+    margin: 14mm 10mm;
+    height: 269mm;
+    width: 190mm;
+}
+
+#second-page {
+    margin: 14mm 10mm 0 10mm;
+    padding-top: 14mm;
+    width: 190mm;
+    height: 293mm;
+    position: relative;
+}
+
+/* font equivalence */
+.six-pt {
+    font-size: 8px; /* 6px on Figma */
+}
+
+.seven-pt {
+    font-size: 9.333px; /* 7px on Figma */
+}
+
+.eight-pt {
+    font-size: 10.667px; /* 8px on Figma */
+}
+
+.nine-pt {
+    font-size: 12px; /* 9px on Figma */
+}
+
+.ten-pt {
+    font-size: 13.333px; /* 10px on Figma */
+}
+
+.eleven-pt {
+    font-size: 14.3px; /* 11px on Figma */
+}
+
+.twelve-pt {
+    font-size: 16px; /* 12px on Figma */
+}
+
+/* line-height equivalence */
+.eight-lh {
+    line-height: 8px;
+}
+
+.eleven-lh {
+    line-height: 14.667px; /* 11px on Figma */
+}
+
+.sixteen-lh {
+    line-height: 21.333px; /* 16px on Figma */
+}
+
+
+.font-bold {
+    font-weight: 700;
+}
+
+#sender_logo img {
+    height: 53px; /* 40pt on Figma */
+}
+
+#sender_box {
+    width: 95mm;
+    height: 23mm;
+}
+
+#sender_box .absolute-box {
+    position: absolute;
+
+}
+
+#sender_box p{
+    white-space: nowrap;
+    overflow: visible;
+}
+
+#send_box__logo {
+    width: 17mm;
+}
+
+#legal_subtitle, #sender_logo {
+    margin-top: 8px;
+}
+
+#legal_subtitle p {
+    width: 67px;
+    line-height: 10px;
+    border-top: solid 1px;
+    padding-top: 7px;
+    font-weight: 600;
+    letter-spacing: 0.50px;
+}
+
+#upper-section,
+#center-section,
+#lower-section {
+    width: 100%;
+    margin: 0mm;
+}
+
+#upper-section,
+#lower-section {
+    height: 85mm;
+}
+
+#center-section {
+    height: 99mm;
+}
+
+#upper-section {
+    position: relative;
+    padding: 0 12px;
+}
+
+#iun_send {
+    max-width: 90mm;
+    top: 0;
+    right: 0;
+    width: 90mm;
+    height: 26mm;
+}
+
+#iun_box {
+    padding-bottom: 0;
+}
+
+#iun_box h6 {
+    font-size: 12px;
+}
+
+#send_box {
+    max-width: 25mm;
+    width: 50mm;
+    height: 26mm;
+    line-height: 8px;
+    z-index: 1000;
+}
+
+#send_box_site {
+    bottom: 0;
+}
+
+.table {
+    display: table;
+    width: 100%;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+}
+
+.vertical-align-bottom {
+    vertical-align: bottom;
+}
+
+.vertical-align-top {
+    vertical-align: top;
+}
+
+.relative-box {
+    position: relative;
+}
+
+.width-40 {
+    width: 40%;
+}
+
+.width-50 {
+    width: 60%;
+}
+
+.width-60 {
+    width: 60%;
+}
+
+.logo-prefix, #send_box_site {
+    line-height: 6mm;
+}
+
+a {
+    text-decoration: underline;
+    color: #0B3EE3;
+}
+
+a.black {
+    text-decoration: none;
+    color: inherit;
+}
