@@ -43,9 +43,11 @@ components:
           properties:
             denomination:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password # NO EXTERNAL
               type: string
             taxId:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password # NO EXTERNAL
               type: string
 
     MailVerificationCodeBody:
@@ -121,6 +123,7 @@ components:
               properties:
                 paDenomination:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                  format: password # NO EXTERNAL
                   type: string
         recipient:
           title: AarRecipient
@@ -133,6 +136,7 @@ components:
               type: string
             taxId:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password # NO EXTERNAL
               type: string
         senderLogoBase64:
           type: string
@@ -179,6 +183,7 @@ components:
               type: string
             subject:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password # NO EXTERNAL
               type: string
             sender:
               title: AarRaddAltSender
@@ -188,6 +193,7 @@ components:
               properties:
                 paDenomination:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                  format: password # NO EXTERNAL
                   type: string
         recipient:
           title: AarRaddAltRecipient
@@ -201,9 +207,11 @@ components:
               type: string
             taxId:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password # NO EXTERNAL
               type: string
             denomination:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password # NO EXTERNAL
               type: string
         senderLogoBase64:
           type: string
@@ -231,6 +239,7 @@ components:
               properties:
                 paDenomination:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                  format: password # NO EXTERNAL
                   type: string
 
     NotificationAarForEmail:
@@ -267,6 +276,7 @@ components:
               properties:
                 paDenomination:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                  format: password # NO EXTERNAL
                   type: string
 
     NotificationAarForPec:
@@ -302,6 +312,7 @@ components:
               type: string
             subject:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password # NO EXTERNAL
               type: string
             sender:
               title: AarForPecSender
@@ -311,6 +322,7 @@ components:
               properties:
                 paDenomination:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                  format: password # NO EXTERNAL
                   type: string
         recipient:
           title: AarForPecRecipient
@@ -320,6 +332,7 @@ components:
           properties:
             taxId:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password # NO EXTERNAL
               type: string
 
     NotificationAarForSms:
@@ -344,6 +357,7 @@ components:
               properties:
                 paDenomination:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                  format: password # NO EXTERNAL
                   type: string
 
     NotificationCancelledLegalFact:
@@ -372,6 +386,7 @@ components:
               properties:
                 paDenomination:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                  format: password # NO EXTERNAL
                   type: string
             recipients:
               type: array
@@ -385,9 +400,11 @@ components:
                 properties:
                   denomination:
                     x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                    format: password # NO EXTERNAL
                     type: string
                   taxId:
                     x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                    format: password # NO EXTERNAL
                     type: string
 
     NotificationReceivedLegalFact:
@@ -402,6 +419,7 @@ components:
           type: string
         subject:
           x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+          format: password # NO EXTERNAL
           type: string
         digests:
           type: array
@@ -427,9 +445,11 @@ components:
               properties:
                 paDenomination:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                  format: password # NO EXTERNAL
                   type: string
                 paTaxId:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                  format: password # NO EXTERNAL
                   type: string
             recipients:
               type: array
@@ -442,9 +462,11 @@ components:
                 properties:
                   denomination:
                     x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                    format: password # NO EXTERNAL
                     type: string
                   taxId:
                     x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                    format: password # NO EXTERNAL
                     type: string
                   digitalDomicile:
                     title: NotificationReceivedDigitalDomicile
@@ -452,9 +474,11 @@ components:
                     properties:
                       address:
                         x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                        format: password # NO EXTERNAL
                         type: string
                   physicalAddressAndDenomination:
                     x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                    format: password # NO EXTERNAL
                     type: string
 
     NotificationViewedLegalFact:
@@ -477,9 +501,11 @@ components:
           properties:
             denomination:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password # NO EXTERNAL
               type: string
             taxId:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password # NO EXTERNAL
               type: string
         delegate:
           title: NotificationViewedDelegate
@@ -490,9 +516,11 @@ components:
           properties:
             denomination:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password # NO EXTERNAL
               type: string
             taxId:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password # NO EXTERNAL
               type: string
 
     PecValidationContactsBody:
@@ -541,17 +569,21 @@ components:
             properties:
               denomination:
                 x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                format: password # NO EXTERNAL
                 type: string
               taxId:
                 x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                format: password # NO EXTERNAL
                 type: string
               address:
                 x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                format: password # NO EXTERNAL
                 type: string
               type:
                 type: string
               addressSource:
                 x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                format: password # NO EXTERNAL
                 type: string
               responseDate:
                 type: string
