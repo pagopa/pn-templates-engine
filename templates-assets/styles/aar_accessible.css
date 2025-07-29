@@ -97,10 +97,11 @@ body {
 
 #sender_box {
     width: 95mm;
+    max-width: 95mm;
     height: 23mm;
 }
 
-#sender_box .absolute-box {
+#sender_box.absolute-box {
     position: absolute;
 
 }
@@ -178,6 +179,7 @@ body {
 
 .table {
     display: table;
+    table-layout: fixed;
     width: 100%;
 }
 

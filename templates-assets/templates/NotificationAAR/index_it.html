@@ -15,14 +15,15 @@
         <section id="first-page">
             <section id="upper-section">
                 <div class="table">
-                    <div class="row relative-box">
-                        <div class="cell vertical-align-top" id="sender_box">
+                    <div class="row">
+                        <div class="cell width-40 vertical-align-top" id="sender_box">
                             <#if senderLogoBase64??>
-                                <div class="nine-pt absolute-box">
+            
+                                <div class="nine-pt">
                                     <p class="six-pt eight-lh">COMUNICAZIONE A VALORE LEGALE</p>
                                     <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
                                     <div id="sender_logo">
-                                        <img src="${senderLogoBase64}" alt="">
+                                        <img src="${senderLogoBase64}" alt="Logo di ${notification.sender.paDenomination}">
                                     </div>
                                 </div>
                             <#else>
@@ -36,7 +37,7 @@
                             </#if>
                         </div>
                         
-                        <div class="cell" id="iun_send">
+                        <div class="cell width-60" id="iun_send">
                             <div class="row iun_send_row">
                                 <div id="iun_box" class="iun_box nine-pt cell vertical-align-bottom width-60">
                                     <h6 class="font-bold">Identificativo Univoco Notifica:</h6>
@@ -44,9 +45,9 @@
                                     <h6 class="font-bold">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </h6>
                                     <p>${recipient.taxId}</p>
                                 </div>
-                                <div id="send_box" class="eight-pt cell vertical-align-bottom width-40">
+                                <div id="send_box" class="eight-pt cell vertical-align-bottom">
                                     <p class="nine-pt logo-prefix">Inviata tramite</p>
-                                    <img id="send_box__logo" src="../../images/aar-logo.gif" />
+                                    <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
                                     <p id="send_box_site" class="eight-pt font-bold"><a class="black"
                                             href="https://www.notifichedigitali.it/">notifichedigitali.it</a></p>
                                 </div>
