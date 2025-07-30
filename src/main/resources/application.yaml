@@ -78,6 +78,12 @@ templates:
       DE: "AnalogDeliveryWorkflowFailureLegalFact/AnalogDeliveryWorkflowFailureLegalFact_de.html"
       SL: "AnalogDeliveryWorkflowFailureLegalFact/AnalogDeliveryWorkflowFailureLegalFact_sl.html"
       FR: "AnalogDeliveryWorkflowFailureLegalFact/AnalogDeliveryWorkflowFailureLegalFact_fr.html"
+  analogDeliveryWorkflowTimeoutLegalFact:
+    input:
+      IT: "AnalogDeliveryWorkflowTimeoutLegalFact/AnalogDeliveryWorkflowTimeoutLegalFact.html"
+      DE: "AnalogDeliveryWorkflowTimeoutLegalFact/AnalogDeliveryWorkflowTimeoutLegalFact_de.html"
+      SL: "AnalogDeliveryWorkflowTimeoutLegalFact/AnalogDeliveryWorkflowTimeoutLegalFact_sl.html"
+      FR: "AnalogDeliveryWorkflowTimeoutLegalFact/AnalogDeliveryWorkflowTimeoutLegalFact_fr.html"
   notificationAarForEmail:
     input:
       IT: "NotificationAARForEMAIL/NotificationAARForEMAIL.html"
