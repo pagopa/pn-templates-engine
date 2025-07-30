@@ -64,6 +64,104 @@
                     </div>
                 </div>
             </section>
+
+            <section id="center-section">
+                <h1 id="main_subject" class="twelve-pt sixteen-lh">Hai ricevuto una comunicazione a valore legale da <b>${notification.sender.paDenomination}</b> con oggetto: <b>${notification.subject}</b></h1>
+                <div id="main_disclaimer" class="eleven-pt sixteen-lh">
+                    <p><b>Prendi visione della copia dei documenti allegati o accedi ai documenti originali online</b> seguendo
+                        le istruzioni. Tieni presente che il contenuto della comunicazione produrrà effetti giuridici
+                        nei tuoi confronti anche senza la tua presa visione dei documenti.
+                    </p>
+                </div>
+                <div id="view_online_box">
+                    <div class="table">
+                        <div class="row heading">
+                            <div class="cell"><h2 class="font-uppercase twelve-pt">Accedi ora ai documenti online</h2></div>
+                            <div class="cell text-right nine-pt">Consultazione online gratuita</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table list-box-height_qr_code_box">
+                    <div class="row">
+                        <div class="cell vertical-align-center qr_code_box">
+                            <img alt="Codice QR di collegamento diretto alla notifica su SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
+                        </div>
+                        <div class="cell vertical-align-center access_online_box">
+                            <div class="section-list">
+                                <ol class="custom-ol-list">
+                                <!--
+                                    Related to https://pagopa.atlassian.net/browse/PN-14670
+                                    we use hard-coded link in order to fix this bug. Anyway this part is commented
+                                    because we will restore it as soon as we migrate configurations of templates
+                                    in pn-templates-engine
+
+                                    #Sarah Donvito, 18/04/2025
+
+                                <li class="list_element-one">
+                                    Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
+                                    vai sul sito web <b><a
+                                            href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                                </li>
+                                -->
+                                    <#if recipient.recipientType=="PF">
+                                    <li class="list_element-one"><p><span class="sr-only">1</span>
+                                        Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
+                                        vai sul sito web <b><a
+                                            href="https://login.notifichedigitali.it/auth/login">login.notifichedigitali.it</a></b></p>
+                                    </li>
+                                    <#else>
+                                    <li class="list_element-one"><p><span class="sr-only">1</span>
+                                        Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
+                                        vai sul sito web <b><a
+                                            href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b></p>
+                                    </li>
+                                    </#if>
+                                    <li class="list_element-two"><p><span class="sr-only">2</span>Accedi e scarica i documenti: contengono informazioni importanti che ti riguardano</p></li>
+                                    <li class="list_element-three"><p><span class="sr-only">3</span>Se previsto un pagamento, potrai pagare online o presso i canali abilitati a pagoPA</p></li>
+                                    <li class="list_element-four"><p><span class="sr-only">4</span>In fase di pagamento l'importo si aggiornerà con i costi di notifica</p></li>
+        
+                                </ol>
+                            </div>
+                            <div class="section-list">
+                                <div class="custom-ol-list table">
+                                <!--
+                                    Related to https://pagopa.atlassian.net/browse/PN-14670
+                                    we use hard-coded link in order to fix this bug. Anyway this part is commented
+                                    because we will restore it as soon as we migrate configurations of templates
+                                    in pn-templates-engine
+
+                                    #Sarah Donvito, 18/04/2025
+
+                                <li class="list_element-one">
+                                    Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
+                                    vai sul sito web <b><a
+                                            href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                                </li>
+                                -->
+                                    <#if recipient.recipientType=="PF">
+                                    <div class="list_element-one row">
+                                        <div class="cell" style="max-width: 10%;"><span aria-label="uno">❶</span></div>
+                                        <div class="cell">
+                                            <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a
+                                            href="https://login.notifichedigitali.it/auth/login">login.notifichedigitali.it</a></b></p>
+                                        </div>
+                                    </div>
+                                    <#else>
+                                    <div class="list_element-one row">
+                                        <div class="cell" style="max-width: 10%;"><span aria-label="uno">❶</span></div>
+                                        <div class="cell">
+                                            <p><span class="sr-only">1</span>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a
+                                            href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b></p>
+                                        </div>
+                                    </div>
+                                    </#if>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </section>
     </main>
 

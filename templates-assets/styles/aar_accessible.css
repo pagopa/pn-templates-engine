@@ -30,6 +30,18 @@ body {
     line-height: 18.6px;
 }
 
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
 #first-page {
     margin: 14mm 10mm;
     height: 269mm;
@@ -41,7 +53,6 @@ body {
     padding-top: 14mm;
     width: 190mm;
     height: 293mm;
-    position: relative;
 }
 
 /* font equivalence */
@@ -101,11 +112,6 @@ body {
     height: 23mm;
 }
 
-#sender_box.absolute-box {
-    position: absolute;
-
-}
-
 #sender_box p{
     white-space: nowrap;
     overflow: visible;
@@ -145,7 +151,6 @@ body {
 }
 
 #upper-section {
-    position: relative;
     padding: 0 12px;
 }
 
@@ -199,8 +204,8 @@ body {
     vertical-align: top;
 }
 
-.relative-box {
-    position: relative;
+.vertical-align-center {
+    vertical-align: middle;
 }
 
 .width-40 {
@@ -227,4 +232,107 @@ a {
 a.black {
     text-decoration: none;
     color: inherit;
+}
+
+.heading {
+    width: 100%;
+    height: 7.7mm;
+    background-color: #DBF9FA;
+    font-weight: bold;
+    padding: 1.4mm 3.7mm;
+}
+
+.font-uppercase {
+    text-transform: uppercase;
+}
+.text-right {
+    text-align: right;
+}
+h1 {
+    font-weight: 400;
+}
+
+/*********************** center-section *******************/
+
+#main_subject {
+    font-weight: 400;
+    padding-top: 0mm;
+    word-wrap: break-word;
+    margin-bottom: 1.5mm;
+    padding: 0 12px;
+}
+
+#main_disclaimer {
+    margin: 5mm 0 1.5mm 0;
+    padding: 0 12px;
+}
+
+#view_online_box {
+    margin-top: 3mm;
+}
+
+.heading .cell {
+    padding: 1.4mm 3.7mm;
+}
+
+.list-box-height_qr_code_box {
+    height: 41mm;
+}
+
+.qr_code_box {
+    width: 41mm;
+}
+
+.access_online_box {
+    width: 148mm;
+    height: 41mm;
+}
+
+.section-list {
+    padding-left: 5.3px;
+}
+
+.section-list ol {
+    margin: 2mm 0;
+}
+
+.section-list li {
+    margin-top: 1.5mm;
+}
+
+.custom-list,
+.custom-ol-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-ol-list>li {
+    padding-left: 31px;
+    margin-bottom: 10px;
+}
+
+.custom-ol-list>li::before {
+    content: "";
+    left: 0;
+    top: -2px;
+    font-size: 21px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.custom-ol-list li.list_element-one::before {
+    content: "❶";
+}
+
+.custom-ol-list li.list_element-two::before {
+    content: "❷";
+}
+
+.custom-ol-list li.list_element-three::before {
+    content: "❸";
+}
+
+.custom-ol-list li.list_element-four::before {
+    content: "❹";
 }
