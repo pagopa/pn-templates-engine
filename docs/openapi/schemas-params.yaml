@@ -55,6 +55,7 @@ components:
         - iun
         - endWorkflowDate
         - endWorkflowTime
+        - attempt
         - recipient
       properties:
         iun:
@@ -62,6 +63,8 @@ components:
         endWorkflowDate:
           type: string
         endWorkflowTime:
+          type: string
+        attempt:
           type: string
         recipient:
           title: AnalogDeliveryWorkflowTimeoutRecipient
@@ -74,6 +77,9 @@ components:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
               type: string
             taxId:
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              type: string
+            physicalAddress:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
               type: string
 
