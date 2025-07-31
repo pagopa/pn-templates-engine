@@ -14,7 +14,7 @@
         <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
         <section id="first-page">
             <section id="upper-section">
-                <div class="table">
+                <div class="fixed-table">
                     <div class="row">
                         <div class="cell width-40 vertical-align-top" id="sender_box">
                             <#if senderLogoBase64??>
@@ -85,11 +85,10 @@
                 <div class="table list-box-height_qr_code_box">
                     <div class="row">
                         <div class="cell vertical-align-center qr_code_box">
-                            <img alt="Codice QR di collegamento diretto alla notifica su SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
+                            <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
                         </div>
                         <div class="cell vertical-align-center access_online_box">
                             <div class="section-list">
-                                <ol class="custom-ol-list">
                                 <!--
                                     Related to https://pagopa.atlassian.net/browse/PN-14670
                                     we use hard-coded link in order to fix this bug. Anyway this part is commented
@@ -104,58 +103,40 @@
                                             href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
                                 </li>
                                 -->
+                                <div class="table">
                                     <#if recipient.recipientType=="PF">
-                                    <li class="list_element-one"><p><span class="sr-only">1</span>
-                                        Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
-                                        vai sul sito web <b><a
-                                            href="https://login.notifichedigitali.it/auth/login">login.notifichedigitali.it</a></b></p>
-                                    </li>
-                                    <#else>
-                                    <li class="list_element-one"><p><span class="sr-only">1</span>
-                                        Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
-                                        vai sul sito web <b><a
-                                            href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b></p>
-                                    </li>
-                                    </#if>
-                                    <li class="list_element-two"><p><span class="sr-only">2</span>Accedi e scarica i documenti: contengono informazioni importanti che ti riguardano</p></li>
-                                    <li class="list_element-three"><p><span class="sr-only">3</span>Se previsto un pagamento, potrai pagare online o presso i canali abilitati a pagoPA</p></li>
-                                    <li class="list_element-four"><p><span class="sr-only">4</span>In fase di pagamento l'importo si aggiornerà con i costi di notifica</p></li>
-        
-                                </ol>
-                            </div>
-                            <div class="section-list">
-                                <div class="custom-ol-list table">
-                                <!--
-                                    Related to https://pagopa.atlassian.net/browse/PN-14670
-                                    we use hard-coded link in order to fix this bug. Anyway this part is commented
-                                    because we will restore it as soon as we migrate configurations of templates
-                                    in pn-templates-engine
-
-                                    #Sarah Donvito, 18/04/2025
-
-                                <li class="list_element-one">
-                                    Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
-                                    vai sul sito web <b><a
-                                            href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
-                                </li>
-                                -->
-                                    <#if recipient.recipientType=="PF">
-                                    <div class="list_element-one row">
-                                        <div class="cell" style="max-width: 10%;"><span aria-label="uno">❶</span></div>
-                                        <div class="cell">
-                                            <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a
-                                            href="https://login.notifichedigitali.it/auth/login">login.notifichedigitali.it</a></b></p>
+                                    <div class="row">
+                                        <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
+                                        <div class="cell vertical-align-top">
+                                            <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a href="https://login.notifichedigitali.it/auth/login">login.notifichedigitali.it</a></b></p>
                                         </div>
                                     </div>
                                     <#else>
-                                    <div class="list_element-one row">
-                                        <div class="cell" style="max-width: 10%;"><span aria-label="uno">❶</span></div>
-                                        <div class="cell">
-                                            <p><span class="sr-only">1</span>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a
-                                            href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b></p>
+                                    <div class="row">
+                                        <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
+                                        <div class="cell vertical-align-top">
+                                            <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b></p>
                                         </div>
                                     </div>
                                     </#if>
+                                    <div class="row">
+                                        <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
+                                        <div class="cell vertical-align-top">
+                                            <p>Accedi e scarica i documenti: contengono informazioni importanti che ti riguardano</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell number-list"><img src="../../images/numero-3.png" alt="Numero 3"></div>
+                                        <div class="cell vertical-align-top">
+                                            <p>Se previsto un pagamento, potrai pagare online o presso i canali abilitati a pagoPA</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell number-list"><img src="../../images/numero-4.png" alt="Numero 4"></div>
+                                        <div class="cell vertical-align-top">
+                                            <p>In fase di pagamento l'importo si aggiornerà con i costi di notifica</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -184,10 +184,14 @@ body {
 
 .table {
     display: table;
-    table-layout: fixed;
     width: 100%;
 }
 
+.fixed-table {
+    table-layout: fixed;
+    display: table;
+    width: 100%;
+}
 .row {
     display: table-row;
 }
@@ -208,16 +212,20 @@ body {
     vertical-align: middle;
 }
 
+.width-5 {
+    width: 5%;
+}
+
 .width-40 {
     width: 40%;
 }
 
-.width-50 {
+.width-60 {
     width: 60%;
 }
 
-.width-60 {
-    width: 60%;
+.width-95 {
+    width: 95%;
 }
 
 .logo-prefix, #send_box_site {
@@ -312,27 +320,11 @@ h1 {
     margin-bottom: 10px;
 }
 
-.custom-ol-list>li::before {
-    content: "";
-    left: 0;
-    top: -2px;
-    font-size: 21px;
-    background-size: contain;
-    background-repeat: no-repeat;
+.number-list {
+    padding-right: 6px;
+    padding-top: 6px;
 }
 
-.custom-ol-list li.list_element-one::before {
-    content: "❶";
-}
-
-.custom-ol-list li.list_element-two::before {
-    content: "❷";
-}
-
-.custom-ol-list li.list_element-three::before {
-    content: "❸";
-}
-
-.custom-ol-list li.list_element-four::before {
-    content: "❹";
+.number-list img {
+    width: 16px;
 }
