@@ -104,21 +104,21 @@
                                 </li>
                                 -->
                                 <div class="table">
-                                    <#if recipient.recipientType=="PF">
+                                    <!-- <#if recipient.recipientType=="PF"> -->
                                     <div class="row">
                                         <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
                                         <div class="cell vertical-align-top">
                                             <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a href="https://login.notifichedigitali.it/auth/login">login.notifichedigitali.it</a></b></p>
                                         </div>
                                     </div>
-                                    <#else>
+                                    <!-- <#else> -->
                                     <div class="row">
                                         <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
                                         <div class="cell vertical-align-top">
                                             <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b></p>
                                         </div>
                                     </div>
-                                    </#if>
+                                    <!-- </#if> -->
                                     <div class="row">
                                         <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
                                         <div class="cell vertical-align-top">
@@ -142,6 +142,27 @@
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <section id="lower-section">
+                <#if recipient.recipientType=="PF">
+                <div class="table blue-border-box">
+                    <div class="row" id="io_download">
+                        <div class="cell vertical-align-top width-85">
+                                <h3 class="twelwe-pt font-uppercase">Con l'app IO è ancora più semplice e risparmi</h3>
+                                <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo e risparmia sui costi della raccomandata: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
+                        </div>
+                        <div class="cell width-15 text-right vertical-align-center" id="io_img">
+                            <img src="../../images/app-io.jpg" alt="Logo di app IO" />
+                        </div>
+                    </div>
+                </div>        
+                </#if>
+                <footer id="footer_disclaimer" class="eight-pt">
+                    <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l’importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell’eventuale raccomandata a te inviata e scelta dall’ente, dal numero di tentativi di recapito.  <br>
+                        Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai
+                        rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}">www.${perfezionamentoURLLabel}</a></b></p>
+                </footer>
             </section>
         </section>
     </main>

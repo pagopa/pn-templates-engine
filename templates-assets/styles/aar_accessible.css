@@ -25,21 +25,9 @@
 body {
     font-family: "Titillium Pro", sans-serif;
     font-weight: 400;
-    font-size: 15px; /*11px on Figma*/
+    font-size: 14.3px; /*11px on Figma*/
     color: #031344;
     line-height: 18.6px;
-}
-
-/* Screen reader only text */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
 }
 
 #first-page {
@@ -148,6 +136,7 @@ body {
 
 #center-section {
     height: 99mm;
+    margin-bottom: 20px;
 }
 
 #upper-section {
@@ -216,12 +205,20 @@ body {
     width: 5%;
 }
 
+.width-15 {
+    width: 15%;
+}
+
 .width-40 {
     width: 40%;
 }
 
 .width-60 {
     width: 60%;
+}
+
+.width-85 {
+    width: 85%;
 }
 
 .width-95 {
@@ -288,16 +285,12 @@ h1 {
 }
 
 .qr_code_box {
-    width: 41mm;
+    width: 40mm;
 }
 
 .access_online_box {
-    width: 148mm;
+    width: 150mm;
     height: 41mm;
-}
-
-.section-list {
-    padding-left: 5.3px;
 }
 
 .section-list ol {
@@ -306,6 +299,10 @@ h1 {
 
 .section-list li {
     margin-top: 1.5mm;
+}
+
+.section-list .cell {
+    padding-top: 7px;
 }
 
 .custom-list,
@@ -321,10 +318,38 @@ h1 {
 }
 
 .number-list {
-    padding-right: 6px;
-    padding-top: 6px;
+    padding-right: 5px;
+    padding-top: 2px;
 }
 
 .number-list img {
-    width: 16px;
+    width: 21px;
+}
+
+/*********************** lower-section *******************/
+
+#io_download {
+    width: 100%;
+    height: 83px;
+    border-radius: 8px;
+    font-size: 14.3px;
+}
+
+#io_download h3 {
+    padding-bottom: 4px;
+}
+
+#io_download {
+    height: 45px;
+}
+
+#io_img img {
+    width: 45px;
+}
+
+.blue-border-box {
+    border: solid #CED8F9 1px;
+    border-radius: 7px;
+    padding: 11px;
+    margin-bottom: 125px;
 }
