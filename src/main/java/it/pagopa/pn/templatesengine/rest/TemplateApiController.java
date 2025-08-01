@@ -113,6 +113,14 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
+    public Mono<ResponseEntity<Resource>> analogDeliveryWorkflowTimeoutLegalFact(
+            LanguageEnum xLanguage,
+            Mono<AnalogDeliveryWorkflowTimeoutLegalFact> request,
+            final ServerWebExchange exchange) {
+        return processPdfTemplate(TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_TIMEOUT_LEGAL_FACT, xLanguage, request);
+    }
+
+    @Override
     public Mono<ResponseEntity<String>> notificationAarForEmail(
             LanguageEnum xLanguage,
             Mono<NotificationAarForEmail> request,
