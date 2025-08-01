@@ -2,7 +2,7 @@
 <html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title><%-it_subject%></title>
+  <title><% if (noIta) { %><%-subject%><br><% } %>  <%-it_subject%></title>
   <meta name="author" content="SEND - Servizio Notifiche Digitali" />
   <link rel="stylesheet" href="../../styles/accessible.css">
   <bookmarks>
@@ -41,31 +41,35 @@
 
 <main>
   <h1 class="document-type subject mb-0" id="subject">
-    <%-it_subject%>
+    <% if (noIta) { %><%-subject%><br><% } %>  <%-it_subject%>
   </h1>
 
+  <% if (noIta) { %><p class="paragraph">
+    <%-body1%>
+  </p><% } %>
+  <% if (noIta) { %><p class="paragraph">
+    <%-body2%>
+  </p><% } %>
   <p class="paragraph">
     <%-it_body1%>
   </p>
-
-  <p class="paragraph center strong">
-    <%-it_attesta%>
-  </p>
-
   <p class="paragraph">
     <%-it_body2%>
   </p>
 
-  <div class="table margin-y-medium" id="recipient">
-
-    <div class="row">
-      <div class="cell width-50">
-        <p><b><#if (recipient.physicalAddress)??>${recipient.physicalAddress}<#else>non presente</#if></b></p>
-      </div>
+  <div class="row">
+    <div class="cell width-50">
+      <p><% if (noIta) { %><span><%-address%> &bull; </span><% } %><%-it_address%></p>
     </div>
-
-
+    <div class="cell width-50">
+      <p><b><#if (recipient.physicalAddress)??>${recipient.physicalAddress}<#else>non presente</#if></b></p>
+    </div>
   </div>
+
+
+  <% if (noIta) { %><p class="paragraph">
+    <%-body2%>
+  </p><% } %>
   <p class="paragraph">
     <%-it_body3%>
   </p>
@@ -74,10 +78,21 @@
     <div class="row">
       <div class="cell width-10" aria-hidden="true"></div>
       <div class="cell width-90 right">
-        <p class="py-16"><%-it_signature%></p>
+        <p class="py-16"><% if (noIta) { %><span><%-signature%> &bull; </span><% } %><%-it_signature%></p>
       </div>
     </div>
   </div>
+  <% if (noIta) { %>
+  <div class="table">
+    <div class="row">
+      <div class="cell width-40" aria-hidden="true"></div>
+      <div class="margin-top-large cell width-60 right">
+        <% if (noIta) { %><p class="py-16"><%-disclaimer_lang%></p><% } %>
+        <% if (noIta) { %><p><%-it_disclaimer_lang%></p><% } %>
+      </div>
+    </div>
+  </div>
+  <% } %>
 
 </main>
 </body>

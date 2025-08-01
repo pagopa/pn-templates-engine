@@ -1,9 +1,10 @@
 {
   "it_language": "it",
   "it_subject": "Attestazione opponibile a terzi: mancata ricezione esiti dall'addetto al recapito estero",
-  "it_body1": "Ai sensi dell’art. 26, comma 11, del decreto-legge 76/2020 s.m.i., la PagoPA S.p.A. nella sua qualità di gestore ex lege della Piattaforma Notifiche Digitali di cui allo stesso art. 26 (anche nota come SEND - Servizio Notifiche Digitali), con ogni valore legale per l'opponibilità a terzi,",
-  "it_attesta": "ATTESTA CHE:",
-  "it_body2": "relativamente agli atti di cui alla notifica identificata con IUN <b>${iun}</b>, avente come destinatario <b>${recipient.denomination}</b>, <b>${recipient.taxId}</b>, e gestita tramite <b><#if attempt == \"1\">secondo<#else>primo</#if></b> invio analogico all'indirizzo estero,",
+  "it_body1": "Ai sensi dell’art. 26, comma 11, del decreto-legge 76/2020 s.m.i., la PagoPA S.p.A. nella sua qualità di gestore ex lege della Piattaforma Notifiche Digitali di cui allo stesso art. 26 (anche nota come SEND - Servizio Notifiche Digitali), con ogni valore legale per l'opponibilità a terzi, ATTESTA CHE:",
+  "it_body2": "relativamente agli atti di cui alla notifica identificata con IUN <b>${iun}</b>, avente come destinatario <b>${recipient.denomination}</b>, <b>${recipient.taxId}</b>, e gestita tramite <b><#if attempt == \"1\">secondo<#else>primo</#if></b> invio analogico",
+  "it_address": "all'indirizzo estero",
   "it_body3": "alla data del <b>${endWorkflowDate} ${endWorkflowTime}</b> risulta decorso il termine di 120 giorni dalla data di affidamento della notifica previsti dall’art. 26, comma 7, del decreto-legge 76/2020 senza che sia pervenuto alcun esito da parte dell’addetto al recapito estero.",
-  "it_signature": "Firmato digitalmente da PagoPA S.p.A."
+  "it_signature": "Firmato digitalmente da PagoPA S.p.A.",
+  "it_disclaimer_lang":"Il testo originario di questi documenti è in lingua italiana. In caso di contrasto tra la versione italiana e le traduzioni in altre lingue, prevarranno il significato e le condizioni della lingua italiana."
 }
