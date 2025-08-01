@@ -197,6 +197,24 @@ public class DocumentGeneratorTest {
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
+
+    @Test
+    void generate_analogDeliveryWorkflowTimeoutLegalFact() {
+        var template = TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_TIMEOUT_LEGAL_FACT;
+        LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
+        var recepient = new AnalogDeliveryWorkflowTimeoutRecipient()
+                .denomination("Galileo Bruno")
+                .taxId("CDCFSC11R99X001Z")
+                .physicalAddress("TEST_PhysicalAddressAndDenomination");
+        var model = new AnalogDeliveryWorkflowTimeoutLegalFact()
+                .iun("TEST_iun")
+                .endWorkflowDate("TEST_endWorkflowDate")
+                .endWorkflowTime("TEST_endWorkflowTime")
+                .attempt("0")
+                .recipient(recepient);
+        generateAndSaveDocument(template, langs, model, FileType.PDF);
+    }
+
     /** HTML **/
     @Test
     void generate_notificationAarForEmail() {
