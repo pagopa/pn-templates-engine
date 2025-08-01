@@ -57,18 +57,20 @@
     <%-it_body2%>
   </p>
 
-  <div class="row">
-    <div class="cell width-50">
-      <p><% if (noIta) { %><span><%-address%> &bull; </span><% } %><%-it_address%></p>
-    </div>
-    <div class="cell width-50">
-      <p><b><#if (recipient.physicalAddress)??>${recipient.physicalAddress}<#else>non presente</#if></b></p>
+  <div class="table margin-y-medium">
+    <div class="row">
+      <div class="cell width-50">
+        <p><% if (noIta) { %><span><%-address%> &bull; </span><% } %><%-it_address%></p>
+      </div>
+      <div class="cell width-50">
+        <p><b><#if (recipient.physicalAddress)??>${recipient.physicalAddress}<#else>non presente</#if></b></p>
+      </div>
     </div>
   </div>
 
 
   <% if (noIta) { %><p class="paragraph">
-    <%-body2%>
+    <%-body3%>
   </p><% } %>
   <p class="paragraph">
     <%-it_body3%>

@@ -201,7 +201,7 @@ public class DocumentGeneratorTest {
     @Test
     void generate_analogDeliveryWorkflowTimeoutLegalFact() {
         var template = TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_TIMEOUT_LEGAL_FACT;
-        LanguageEnum[] langs = { LanguageEnum.IT };
+        LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE };
         var recepient = new AnalogDeliveryWorkflowTimeoutRecipient()
                 .denomination("Galileo Bruno")
                 .taxId("CDCFSC11R99X001Z")
