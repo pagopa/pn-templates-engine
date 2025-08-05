@@ -43,6 +43,35 @@ body {
     height: 269mm;
 }
 
+#upper-section,
+#center-section,
+#lower-section {
+    width: 100%;
+    margin: 0mm;
+}
+
+#upper-section,
+#lower-section {
+    height: 85mm;
+}
+
+#center-section {
+    height: 99mm;
+    margin-bottom: 20px;
+}
+
+#center-section-radd {
+    height: 97mm;
+}
+
+#lower-section-radd {
+    height: 87mm;
+}
+
+#upper-section {
+    padding: 0 12px;
+}
+
 /* font equivalence */
 .six-pt {
     font-size: 8px; /* 6px on Figma */
@@ -89,6 +118,19 @@ body {
     font-weight: 700;
 }
 
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.pl-2 {
+    padding-left: 16px;
+}
+
+.pr-2 {
+    padding-right: 16px;
+}
+
 #sender_logo img {
     height: 53px; /* 40pt on Figma */
 }
@@ -119,27 +161,6 @@ body {
     padding-top: 7px;
     font-weight: 600;
     letter-spacing: 0.50px;
-}
-
-#upper-section,
-#center-section,
-#lower-section {
-    width: 100%;
-    margin: 0mm;
-}
-
-#upper-section,
-#lower-section {
-    height: 85mm;
-}
-
-#center-section {
-    height: 99mm;
-    margin-bottom: 20px;
-}
-
-#upper-section {
-    padding: 0 12px;
 }
 
 #iun_send {
@@ -208,12 +229,20 @@ body {
     width: 15%;
 }
 
+.width-27 {
+    width: 27%;
+}
+
 .width-40 {
     width: 40%;
 }
 
 .width-60 {
     width: 60%;
+}
+
+.width-73 {
+    width: 73%;
 }
 
 .width-85 {
@@ -243,7 +272,6 @@ a.black {
     height: 7.7mm;
     background-color: #DBF9FA;
     font-weight: bold;
-    padding: 1.4mm 3.7mm;
 }
 
 .font-uppercase {
@@ -359,6 +387,14 @@ h1 {
     margin-bottom: 125px;
 }
 
+.blue-border-box-radd {
+    border: solid #CED8F9 1px;
+    border-radius: 7px;
+    padding: 11px;
+    margin-top: 37px;
+    margin-bottom: 50px;
+}
+
 /*********************** page 2 *******************/
 
 .advantages-explanation__content {
@@ -388,4 +424,12 @@ img.message-advantages_explanation {
 
 .read-more {
     padding-top: 21px;
+}
+
+.retrieve_box {
+    margin: 16px;
+}
+
+#arrow-img {
+    width: 24px;
 }
