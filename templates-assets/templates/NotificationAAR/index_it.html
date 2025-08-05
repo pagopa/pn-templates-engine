@@ -48,8 +48,9 @@
                                 <div id="send_box" class="eight-pt cell vertical-align-bottom">
                                     <p class="nine-pt logo-prefix">Inviata tramite</p>
                                     <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
-                                    <p id="send_box_site" class="eight-pt font-bold"><a class="black"
-                                            href="https://www.notifichedigitali.it/">notifichedigitali.it</a></p>
+                                    <p id="send_box_site" class="eight-pt font-bold">
+                                        <a class="black"
+                                            href="https://www.notifichedigitali.it/"  title="Sito di SEND - Servizio Notifiche Digitali">notifichedigitali.it</a></p>
                                 </div>
                             </div>
                         </div>
@@ -76,8 +77,12 @@
                 <div id="view_online_box">
                     <div class="table">
                         <div class="row heading">
-                            <div class="cell"><h2 class="font-uppercase twelve-pt">Accedi ora ai documenti online</h2></div>
-                            <div class="cell text-right nine-pt">Consultazione online gratuita</div>
+                            <div class="cell">
+                                <h2 class="font-uppercase twelve-pt">Accedi ora ai documenti online</h2>
+                            </div>
+                            <div class="cell text-right nine-pt">
+                                <p>Consultazione online gratuita</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -104,21 +109,21 @@
                                 </li>
                                 -->
                                 <div class="table">
-                                    <!-- <#if recipient.recipientType=="PF"> -->
+                                    <#if recipient.recipientType=="PF">
                                     <div class="row">
                                         <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
                                         <div class="cell vertical-align-top">
-                                            <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a href="https://login.notifichedigitali.it/auth/login">login.notifichedigitali.it</a></b></p>
+                                            <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a href="https://login.notifichedigitali.it/auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">login.notifichedigitali.it</a></b></p>
                                         </div>
                                     </div>
-                                    <!-- <#else> -->
+                                    <#else>
                                     <div class="row">
                                         <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
                                         <div class="cell vertical-align-top">
-                                            <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b></p>
+                                            <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a></b></p>
                                         </div>
                                     </div>
-                                    <!-- </#if> -->
+                                    </#if>
                                     <div class="row">
                                         <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
                                         <div class="cell vertical-align-top">
@@ -162,7 +167,7 @@
                     <footer id="footer_disclaimer" class="eight-pt" style="margin-top: 225px;">
                 </#if>
                     <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l’importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell’eventuale raccomandata a te inviata e scelta dall’ente, dal numero di tentativi di recapito.  <br>
-                    Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}">www.${perfezionamentoURLLabel}</a></b></p>
+                    Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">www.${perfezionamentoURLLabel}</a></b></p>
                 </footer>
             </section>
         </section>
@@ -174,30 +179,37 @@
             <div class="table advantages-table">
                 <div class="advantages-row nine-pt row">
                     <div class="advantage-col cell text-center">
-                        <img class="message-advantages_explanation" src="../../images/time.jpg" alt="" aria-hidden="true"/>
+                        <img class="message-advantages_explanation" src="../../images/time.jpg" alt=""/>
                         <div class="advantages-explanation__content">
-                            <b>Non perdi tempo</b><br>Non serve più ritirare fisicamente le raccomandate
+                            <p>
+                                <b>Non perdi tempo</b><br>
+                                Non serve più ritirare fisicamente le raccomandate
+                            </p>
                         </div>
                     </div>
                     <div class="advantage-col cell text-center">
-                        <img class="message-advantages_explanation" src="../../images/earth.jpg"  alt="" role="presentation"/>
+                        <img class="message-advantages_explanation" src="../../images/earth.jpg"  alt=""/>
                         <div class="advantages-explanation__content">
-                            <b>Non importa dove sei</b><br>
-                            La persona delegata può accedere ai tuoi documenti online
+                            <p>
+                                <b>Non importa dove sei</b><br>
+                                La persona delegata può accedere ai tuoi documenti online
+                            </p>
                         </div>
                     </div>
                     <div class="advantage-col cell text-center">
                         <img class="message-advantages_explanation" src="../../images/control.jpg"  alt=""/>
                         <div class="advantages-explanation__content">
-                            <b>Hai sempre il controllo</b><br>
-                            Puoi revocare o modificare le deleghe in qualsiasi momento
+                            <p>
+                                <b>Hai sempre il controllo</b><br>
+                                Puoi revocare o modificare le deleghe in qualsiasi momento
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="read-more text-center">
-                <p>Per saperne di più vai sul sito <b><a href="https://www.notifichedigitali.it/">www.notifichedigitali.it</a></b></p>
+                <p>Per saperne di più vai sul sito <b><a href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">www.notifichedigitali.it</a></b></p>
             </div>
 
         </section>
