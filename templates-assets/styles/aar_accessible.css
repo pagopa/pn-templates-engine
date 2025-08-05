@@ -60,8 +60,14 @@ body {
     margin-bottom: 20px;
 }
 
+#upper-section-radd {
+    height: 77mm;
+}
+
 #center-section-radd {
-    height: 97mm;
+    height: 103mm;
+    display: table-cell;
+    vertical-align: bottom;
 }
 
 #lower-section-radd {

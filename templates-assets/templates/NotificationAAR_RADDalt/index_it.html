@@ -12,7 +12,7 @@
 <body>
   <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
   <section id="first-page">
-    <section id="upper-section">
+    <section id="upper-section-radd">
         <div class="fixed-table">
             <div class="row">
                 <div class="cell width-40 vertical-align-top" id="sender_box">
@@ -48,7 +48,7 @@
                             <p class="nine-pt logo-prefix">Inviata tramite</p>
                             <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
                             <p id="send_box_site" class="eight-pt font-bold"><a class="black"
-                                    href="https://www.notifichedigitali.it/">notifichedigitali.it</a></p>
+                                    href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">notifichedigitali.it</a></p>
                         </div>
                     </div>
                 </div>
@@ -104,21 +104,21 @@
                         </li>
                         -->
                         <div class="table">
-                            <!-- <#if recipient.recipientType=="PF"> -->
+                            <#if recipient.recipientType=="PF">
                             <div class="row">
                                 <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
                                 <div class="cell vertical-align-top">
-                                    <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a href="https://login.notifichedigitali.it/auth/login">login.notifichedigitali.it</a></b></p>
+                                    <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a href="https://login.notifichedigitali.it/auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">login.notifichedigitali.it</a></b></p>
                                 </div>
                             </div>
-                            <!-- <#else> -->
+                            <#else>
                             <div class="row">
                                 <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
                                 <div class="cell vertical-align-top">
-                                    <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b></p>
+                                    <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a></b></p>
                                 </div>
                             </div>
-                            <!-- </#if> -->
+                            </#if>
                             <div class="row">
                                 <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
                                 <div class="cell vertical-align-top">
@@ -181,7 +181,7 @@
         <footer id="footer_disclaimer" class="eight-pt" style="margin-top: 170px;">
         </#if>
             <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l’importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell’eventuale raccomandata a te inviata e scelta dall’ente, dal numero di tentativi di recapito.  <br>
-            Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}">www.${perfezionamentoURLLabel}</a></b></p>
+            Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">www.${perfezionamentoURLLabel}</a></b></p>
         </footer>
     </section>
   </section>
