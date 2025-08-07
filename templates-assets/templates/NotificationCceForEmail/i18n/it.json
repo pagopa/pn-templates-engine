@@ -1,3 +1,8 @@
 {
-  "it_language": "it"
+  "it_language": "it",
+  "it_subject": "CCE evoluto - Notifiche",
+  "it_hello": "Ciao",
+  "it_body1": "Hai ricevuto una nuova comunicazione tramite il servizio SEND. I dettagli della notifica sono riportati sopra.",
+  "it_body2": "Puoi accedere alla documentazione completa tramite il pulsante qui sotto. Il termine per la consultazione o eventuali azioni è indicato nei documenti.",
+  "it_button": "Accedi ai documenti"
 }
