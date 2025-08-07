@@ -1,109 +1,76 @@
 <!DOCTYPE html>
-<html lang="it" dir="auto" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="light dark" />
-  <meta name="supported-color-schemes" content="light dark" />
-  <title>CCE evoluto - Notifiche</title>
+  <meta charset="UTF-8">
+  <title>SEND - Documenti relativi alla notifica [IUN]</title>
   <style>
     body {
       font-family: system-ui, sans-serif;
-      margin: 0;
-      padding: 0;
       background-color: #ffffff;
       color: #17324D;
+      padding: 20px;
+      margin: 0;
     }
 
     .container {
-      width: 100%;
       max-width: 600px;
-      margin: 0 auto;
-      padding: 16px;
-    }
-
-    .header {
-      display: flex;
-      align-items: center;
-      padding: 16px 0;
-    }
-
-    .logo {
-      width: 116px;
-      height: auto;
+      margin: auto;
     }
 
     h1 {
-      font-size: 32px;
-      line-height: 40px;
-      margin: 0;
-      font-weight: bold;
+      font-size: 24px;
+      color: #17324D;
     }
 
     p {
       font-size: 16px;
-      line-height: 24px;
-      margin: 16px 0;
+      line-height: 1.5;
+      margin-top: 16px;
     }
 
-    .cta-button {
-      display: inline-block;
-      margin: 40px 0;
-      padding: 8px 20px;
+    .footer {
       font-size: 14px;
-      color: #fff !important;
-      background-color: #0073e6;
-      border-radius: 4px;
-      text-decoration: none;
-      letter-spacing: 0.3px;
+      color: #555;
+      margin-top: 40px;
     }
 
-    @media screen and (max-width: 600px) {
-      .logo {
-        min-width: 116px;
-        width: auto !important;
-      }
-
-      .container {
-        padding: 12px;
-      }
+    a {
+      color: #0073e6;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 <div class="container">
+  <h1>SEND - Documenti relativi alla notifica ${notification.iun}</h1>
 
-  <!-- Titolo -->
-  <% if (noIta) { %>
-  <h1><%-subject%></h1>
-  <% } %>
-  <h1><%-it_subject%></h1>
+  <p>Ciao [${notification.denomination],</p>
 
-  <!-- Saluto -->
   <p>
-    <% if (noIta) { %>
-    <span><%-hello%> &bull; </span>
-    <% } %>
-    <%-it_hello%>,
+    In data [data] hai richiesto di ricevere i documenti relativi alla notifica SEND con codice <strong>${notification.iun}</strong>,
+    tramite il call center di SEND – Servizio Notifiche Digitali.
   </p>
 
-  <!-- Dati notifica -->
-  <p><strong>Denominazione:</strong> ${notification.denomination}</p>
-  <p><strong>Codice IUN:</strong> ${notification.iun}</p>
-  <p><strong>Data apertura ticket:</strong> ${notification.ticketDate}</p>
-  <p><strong>Data ricezione VR:</strong> ${notification.vrDate}</p>
+  <p>In allegato a questa email, trovi i documenti relativi alla notifica.</p>
 
-  <!-- Corpo email -->
-  <p><%-it_body1%></p>
-  <p><%-it_body2%></p>
-
-  <!-- CTA -->
   <p>
-    <a href="${quickAccessLink}" title="Accedi ai documenti" class="cta-button">
-      <%-it_button%>
-    </a>
+    Tieni presente che la data di invio di questa email non coincide con la <strong>data di perfezionamento</strong>,
+    ovvero quella da cui decorrono gli effetti giuridici dell'atto notificato.
+    Per maggiori informazioni sulla data di perfezionamento visita
+    <a href="https://notifichedigitali.it/perfezionamento" target="_blank">notifichedigitali.it/perfezionamento</a>.
   </p>
 
+  <p>
+    I termini per il pagamento – se previsto – e per eventuali impugnazioni sono indicati nei documenti.
+  </p>
+
+  <p>Saluti<br>SEND – Servizio Notifiche Digitali</p>
+
+  <div class="footer">
+    <p>
+      Ricevi questa email perché hai comunicato un tuo recapito al call center di SEND in data ${notification.vrDate}.
+    </p>
+  </div>
 </div>
 </body>
 </html>
