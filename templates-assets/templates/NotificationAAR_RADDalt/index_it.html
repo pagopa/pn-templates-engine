@@ -178,7 +178,7 @@
 
     <!--------------------------- PAGE 2 (297mm x 192mm) --------------------------->
     <section id="second-page">
-        <section class="upper-section-radd" id="retrieve_info_box">
+        <section class="retrieve_info_box" id="">
             <div class="table">
                 <div class="row heading">
                     <div class="cell"><h2 class="font-uppercase twelve-pt">Opzione 2: Ritira i documenti di persona</h2></div>
@@ -186,7 +186,7 @@
                 </div>
             </div>
 
-            <div id="access_yourself_box" class="table">
+            <div id="access_yourself_box" class="table section-list">
                 <div class="row">
                     <div class="cell width-60 vertical-align-top">
                         <div class="table access_yourself_list">
@@ -252,7 +252,7 @@
                 </p>
                 <div class="table">
                     <div class="row">
-                        <div class="cell">
+                        <div class="cell width-50">
                             <#if recipient.recipientType=="PF">
                             <p>Io, ${recipient.denomination} ${recipient.taxId}, delego</p>
                             <#else>
@@ -274,13 +274,13 @@
                             Firma
                             </div>
                         </div>
-                        <div class="cell">
+                        <div class="cell width-50 cell-large-spacing">
                             <p>La persona delegata dovrà portare con sé:</p>
                             <ul id="square-list-mandate">
-                                <li>questo avviso con la delega compilata e firmata</li>
-                                <li>un suo documento di riconoscimento</li>
-                                <li>il suo codice fiscale</li>
-                                <li>una copia o l’originale del codice fiscale e di un documento di riconoscimento del delegante<#if recipient.recipientType=="PF"></li>
+                                <li >questo avviso con la delega compilata e firmata</li>
+                                <li class="number-list">un suo documento di riconoscimento</li>
+                                <li class="number-list">il suo codice fiscale</li>
+                                <li class="number-list">una copia o l’originale del codice fiscale e di un documento di riconoscimento del delegante<#if recipient.recipientType=="PF"></li>
                                 <#else></li>
                                     <li>un documento che attesti il ruolo di legale rappresentante del delegante</li>
                                 </#if>

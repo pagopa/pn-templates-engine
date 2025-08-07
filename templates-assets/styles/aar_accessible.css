@@ -73,8 +73,12 @@ body {
     display: table-cell;
 }
 
+.retrieve_info_box {
+    height: 103mm;
+}
+
 .mandate-section {
-    height: 113mm;
+    height: 87mm;
     display: table-cell;
 }
 
@@ -243,6 +247,19 @@ body {
 
 .width-40 {
     width: 40%;
+}
+
+.width-47 {
+    width: 47%;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+
+.width-53 {
+    width: 53%;
 }
 
 .width-60 {
@@ -478,7 +495,6 @@ ul#square-list-mandate li {
 
 #mandate_box {
     padding: 21px;
-    margin-top: 52px;
 }
 
 #mandate_box .title {
@@ -500,4 +516,8 @@ ul#square-list-mandate li {
 
 .mb-form {
     margin-bottom: 4.2mm;
+}
+
+.cell-large-spacing {
+    padding-left: 5mm;
 }
