@@ -6,6 +6,7 @@ import lombok.Getter;
 public enum TemplatesEnum {
 
     ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT("analogDeliveryWorkflowFailureLegalFact"),
+    ANALOG_DELIVERY_WORKFLOW_TIMEOUT_LEGAL_FACT("analogDeliveryWorkflowTimeoutLegalFact"),
     MALFUNCTION_LEGAL_FACT("malfunctionLegalFact"),
     NOTIFICATION_RECEIVED_LEGAL_FACT("notificationReceivedLegalFact"),
     NOTIFICATION_VIEWED_LEGAL_FACT("notificationViewedLegalFact"),

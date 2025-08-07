@@ -48,6 +48,42 @@ components:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
               type: string
 
+
+    AnalogDeliveryWorkflowTimeoutLegalFact:
+      type: object
+      required:
+        - iun
+        - endWorkflowDate
+        - endWorkflowTime
+        - attempt
+        - recipient
+      properties:
+        iun:
+          type: string
+        endWorkflowDate:
+          type: string
+        endWorkflowTime:
+          type: string
+        attempt:
+          type: string
+        recipient:
+          title: AnalogDeliveryWorkflowTimeoutRecipient
+          type: object
+          required:
+            - denomination
+            - taxId
+          properties:
+            denomination:
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              type: string
+            taxId:
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              type: string
+            physicalAddress:
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              type: string
+
+
     MailVerificationCodeBody:
       type: object
       required:
