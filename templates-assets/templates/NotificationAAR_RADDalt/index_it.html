@@ -12,10 +12,10 @@
 <body>
   <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
   <section id="first-page">
-    <section id="upper-section-radd">
+    <section class="upper-section-radd">
         <div class="fixed-table">
             <div class="row">
-                <div class="cell width-40 vertical-align-top" id="sender_box">
+                <div class="cell vertical-align-top" id="sender_box_radd">
                     <#if senderLogoBase64??>
     
                         <div class="nine-pt">
@@ -36,21 +36,11 @@
                     </#if>
                 </div>
                 
-                <div class="cell width-60" id="iun_send">
-                    <div class="row iun_send_row">
-                        <div id="iun_box" class="iun_box nine-pt cell vertical-align-bottom width-60">
-                            <h6 class="font-bold">Identificativo Univoco Notifica:</h6>
-                            <p>${notification.iun}</p>
-                            <h6 class="font-bold">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </h6>
-                            <p>${recipient.taxId}</p>
-                        </div>
-                        <div id="send_box" class="eight-pt cell vertical-align-bottom">
-                            <p class="nine-pt logo-prefix">Inviata tramite</p>
-                            <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
-                            <p id="send_box_site" class="eight-pt font-bold"><a class="black"
-                                    href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">notifichedigitali.it</a></p>
-                        </div>
-                    </div>
+                <div class="cell eight-pt cell vertical-align-bottom" id="send_box_radd">
+                    <p class="nine-pt logo-prefix">Inviata tramite</p>
+                    <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
+                    <p id="send_box_site" class="eight-pt font-bold"><a class="black"
+                            href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">notifichedigitali.it</a></p>
                 </div>
             </div>
             <div class="row" id="recipient-addr-box">
@@ -64,7 +54,7 @@
         </div>
     </section>
 
-    <section id="center-section-radd" class="mb-0">
+    <section class="center-section-radd" class="mb-0 vertical-align-bottom">
         <h1 id="main_subject" class="twelve-pt sixteen-lh">Hai ricevuto una comunicazione a valore legale da <b>${notification.sender.paDenomination}</b> con oggetto: <b>${notification.subject}</b></h1>
         <div id="main_disclaimer" class="eleven-pt sixteen-lh">
             <p><b>Accedi subito ai documenti online</b> seguendo le istruzioni, o se preferisci, ritira i documenti in
@@ -144,7 +134,7 @@
         </div>
     </section>
 
-    <section id="lower-section-radd">
+    <section class="lower-section-radd">
         <div class="table">
           <div class="row heading">
               <div class="cell"><h2 class="font-uppercase twelve-pt">Opzione 2: Ritira i documenti di persona</h2></div>
@@ -185,5 +175,166 @@
         </footer>
     </section>
   </section>
+
+    <!--------------------------- PAGE 2 (297mm x 192mm) --------------------------->
+    <section id="second-page">
+        <section class="upper-section-radd" id="retrieve_info_box">
+            <div class="table">
+                <div class="row heading">
+                    <div class="cell"><h2 class="font-uppercase twelve-pt">Opzione 2: Ritira i documenti di persona</h2></div>
+                    <div class="cell text-right nine-pt width-40">Servizio di stampa a pagamento</div>
+                </div>
+            </div>
+
+            <div id="access_yourself_box" class="table">
+                <div class="row">
+                    <div class="cell width-60 vertical-align-top">
+                        <div class="table access_yourself_list">
+                            <div class="row">
+                                <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
+                                <div class="cell vertical-align-top">
+                                    <p>Cerca il Punto di ritiro SEND più vicino a te su <br> <b><a href="https://www.notifichedigitali.it/punti-di-ritiro" title="Pagina dei Punti di ritiro SEND">www.notifichedigitali.it/punti-di-ritiro</a></b> oppure chiama il <br>numero <b>${raddPhoneNumber}</b>
+                                </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
+                                <div class="cell vertical-align-top">
+                                    <p>Recati al punto di ritiro portando con te: 
+                                        <ul id="square-list">
+                                            <li>questo avviso</li>
+                                            <li>un tuo documento di riconoscimento</li>
+                                            <li>il tuo codice fiscale<#if recipient.recipientType=="PF"></li>
+                                            <#else></li>
+                                            <li>un documento che attesti il tuo ruolo di legale rappresentante</li>
+                                        </#if>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="cell number-list"><img src="../../images/numero-3.png" alt="Numero 3"></div>
+                                <div class="cell vertical-align-top">
+                                    <p>Paga 1,40 € per il servizio di stampa e ritira i documenti</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell width-40 vertical-align-top">
+                        <div class="iun_box ten-pt blue-border-iun">
+                            <div id="iun-code" class="eight-px">
+                                <div>
+                                    <b>Identificativo Univoco Notifica:</b>
+                                    <br />${notification.iun}
+                                </div>
+                                <div style="margin-top: 4mm;">
+                                    <b>Codice fiscale - Persona <#if recipient.recipientType=="PF">
+                                    fisica:
+                                    <#else>
+                                        giuridica:
+                                    </#if></b>
+                                    <br />${recipient.taxId}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <p style="margin-top: 8mm;">Se presente un avviso pagoPA paga presso un canale abilitato oppure online. In fase di pagamento l'importo si aggiornerà con i costi di notifica</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mandate-section">
+            <div id="mandate_box" class="blue-border-iun">
+                <p class="font-bold title">
+                    Vuoi che qualcuno ritiri i documenti per te?
+                </p>
+                <div class="table">
+                    <div class="row">
+                        <div class="cell">
+                            <#if recipient.recipientType=="PF">
+                            <p>Io, ${recipient.denomination} ${recipient.taxId}, delego</p>
+                            <#else>
+                                <div>
+                                <p>Io,  <span class="nine-px eleven-lh form-field border-bottom mb-form">
+                                    Nome e Cognome
+                                </span></p>
+                                in qualità di legale rappresentante di ${recipient.denomination} ${recipient.taxId}, delego
+                                </div>
+                            </#if>
+                            <div class="nine-px eleven-lh border-bottom mb-form">
+                            Nome e Cognome
+                            </div>
+                            <div class="nine-px eleven-lh border-bottom mb-form">
+                            Codice Fiscale
+                            </div>
+                            a ritirare i documenti notificati.
+                            <div class="nine-px eleven-lh border-bottom mb-0">
+                            Firma
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <p>La persona delegata dovrà portare con sé:</p>
+                            <ul id="square-list-mandate">
+                                <li>questo avviso con la delega compilata e firmata</li>
+                                <li>un suo documento di riconoscimento</li>
+                                <li>il suo codice fiscale</li>
+                                <li>una copia o l’originale del codice fiscale e di un documento di riconoscimento del delegante<#if recipient.recipientType=="PF"></li>
+                                <#else></li>
+                                    <li>un documento che attesti il ruolo di legale rappresentante del delegante</li>
+                                </#if>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <#if recipient.recipientType=="PF">
+        <section id="help_box" class="vertical-align-bottom">
+            <h4 class="ten-pt font-uppercase text-center">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? PUOI FARTI AIUTARE DA UNA PERSONA DI FIDUCIA</h4>
+            <p class="advantages-explanation__content text-center"> Con SEND puoi dare accesso alle tue comunicazioni a valore legale a una o più persone di fiducia: accedi a SEND per creare una delega digitale. SEND è il servizio digitale che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
+
+            <div class="table advantages-table">
+                <div class="advantages-row nine-pt row">
+                    <div class="advantage-col cell text-center">
+                        <img class="message-advantages_explanation" src="../../images/time.jpg" alt=""/>
+                        <div class="advantages-explanation__content">
+                            <p>
+                                <b>Non perdi tempo</b><br>
+                                Non serve più ritirare fisicamente le raccomandate
+                            </p>
+                        </div>
+                    </div>
+                    <div class="advantage-col cell text-center">
+                        <img class="message-advantages_explanation" src="../../images/earth.jpg"  alt=""/>
+                        <div class="advantages-explanation__content">
+                            <p>
+                                <b>Non importa dove sei</b><br>
+                                La persona delegata può accedere ai tuoi documenti online
+                            </p>
+                        </div>
+                    </div>
+                    <div class="advantage-col cell text-center">
+                        <img class="message-advantages_explanation" src="../../images/control.jpg"  alt=""/>
+                        <div class="advantages-explanation__content">
+                            <p>
+                                <b>Hai sempre il controllo</b><br>
+                                Puoi revocare o modificare le deleghe in qualsiasi momento
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="read-more text-center">
+                <p>Per saperne di più vai sul sito <b><a href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">www.notifichedigitali.it</a></b></p>
+            </div>
+        </section>
+        </#if>
+
+    </section>
 </body>
 </html>

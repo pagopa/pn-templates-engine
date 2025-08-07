@@ -28,53 +28,61 @@ body {
     font-size: 14.3px; /*11px on Figma*/
     color: #031344;
     line-height: 18.6px;
+    margin: 0;
+    padding: 0
 }
 
 #first-page {
     margin: 14mm 10mm;
     height: 269mm;
     width: 190mm;
+    overflow: hidden;
 }
 
 #second-page {
-    margin: 14mm 10mm 0 10mm;
+    margin: 14mm 10mm;
     padding-top: 14mm;
     width: 190mm;
     height: 269mm;
+    overflow: hidden;
 }
 
-#upper-section,
-#center-section,
-#lower-section {
+.upper-section,
+.center-section,
+.lower-section {
     width: 100%;
     margin: 0mm;
 }
 
-#upper-section,
-#lower-section {
+.upper-section,
+.lower-section {
     height: 85mm;
 }
 
-#center-section {
+.center-section {
     height: 99mm;
     margin-bottom: 20px;
 }
 
-#upper-section-radd {
+.upper-section-radd {
     height: 77mm;
 }
 
-#center-section-radd {
+.center-section-radd {
     height: 103mm;
     display: table-cell;
-    vertical-align: bottom;
 }
 
-#lower-section-radd {
+.mandate-section {
+    height: 113mm;
+    display: table-cell;
+}
+
+.lower-section-radd {
     height: 87mm;
 }
 
-#upper-section {
+.upper-section {
     padding: 0 12px;
 }
 
@@ -129,12 +137,8 @@ body {
     margin-bottom: 0 !important;
 }
 
-.pl-2 {
-    padding-left: 16px;
-}
-
-.pr-2 {
-    padding-right: 16px;
+.pb-0 {
+    padding-bottom: 0 !important;
 }
 
 #sender_logo img {
@@ -144,6 +148,11 @@ body {
 #sender_box {
     width: 95mm;
     max-width: 95mm;
+    height: 23mm;
+}
+
+#sender_box_radd {
+    width: 159mm;
     height: 23mm;
 }
 
@@ -169,28 +178,21 @@ body {
     letter-spacing: 0.50px;
 }
 
-#iun_send {
-    max-width: 90mm;
-    top: 0;
-    right: 0;
-    width: 90mm;
-    height: 26mm;
-}
-
-#iun_box {
-    padding-bottom: 0;
-}
-
-#iun_box h6 {
+.iun_box h6 {
     font-size: 12px;
 }
 
 #send_box {
-    max-width: 25mm;
-    width: 50mm;
+    max-width: 90mm;
+    width: 25%;
     height: 26mm;
     line-height: 8px;
-    z-index: 1000;
+}
+
+#send_box_radd {
+    width: 13mm;
+    height: 26mm;
+    line-height: 8px;
 }
 
 #send_box_site {
@@ -438,4 +440,64 @@ img.message-advantages_explanation {
 
 #arrow-img {
     width: 24px;
+}
+
+#help_box {
+    height: 78mm;
+}
+
+#access_yourself_box{
+    margin-top: 4mm;
+    padding: 0 12px;
+    width: auto;
+}
+
+
+ul#square-list-mandate {
+    margin-top: 1mm;
+}
+
+ul#square-list li,
+ul#square-list-mandate li {
+    list-style-type: square;
+    margin-left: 5mm;
+    margin-top: 0.4mm;
+    margin-bottom: 0;
+}
+
+.iun_box {
+    width: 52mm;
+    margin: 0 0 0 auto;
+    padding: 16px;
+}
+
+.blue-border-iun {
+    border: solid #CED8F9 1px;
+    border-radius: 7px;
+}
+
+#mandate_box {
+    padding: 21px;
+    margin-top: 52px;
+}
+
+#mandate_box .title {
+    padding: 0 0 27px 0;
+}
+
+.form-field {
+    display: inline-block; 
+    width: 80mm; 
+    margin-top: 0;
+}
+
+.border-bottom {
+    border-bottom: solid 1.3px #ECECEC;
+    margin-top: 4.2mm;
+    padding-bottom: 5px;
+    color: #7D7D7D;
+}
+
+.mb-form {
+    margin-bottom: 4.2mm;
 }

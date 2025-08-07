@@ -13,7 +13,7 @@
     <main>
         <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
         <section id="first-page">
-            <section id="upper-section">
+            <section class="upper-section">
                 <div class="fixed-table">
                     <div class="row">
                         <div class="cell width-40 vertical-align-top" id="sender_box">
@@ -38,8 +38,8 @@
                         </div>
                         
                         <div class="cell width-60" id="iun_send">
-                            <div class="row iun_send_row">
-                                <div id="iun_box" class="iun_box nine-pt cell vertical-align-bottom width-60">
+                            <div class="row">
+                                <div id="iun_box" class="iun_box nine-pt cell vertical-align-bottom pb-0">
                                     <h6 class="font-bold">Identificativo Univoco Notifica:</h6>
                                     <p>${notification.iun}</p>
                                     <h6 class="font-bold">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </h6>
@@ -66,7 +66,7 @@
                 </div>
             </section>
 
-            <section id="center-section">
+            <section class="center-section">
                 <h1 id="main_subject" class="twelve-pt sixteen-lh">Hai ricevuto una comunicazione a valore legale da <b>${notification.sender.paDenomination}</b> con oggetto: <b>${notification.subject}</b></h1>
                 <div id="main_disclaimer" class="eleven-pt sixteen-lh">
                     <p><b>Prendi visione della copia dei documenti allegati o accedi ai documenti originali online</b> seguendo
@@ -149,7 +149,7 @@
                 </div>
             </section>
 
-            <section id="lower-section">
+            <section class="lower-section">
                 <#if recipient.recipientType=="PF">
                     <div class="table blue-border-box">
                         <div class="row" id="io_download">
@@ -171,7 +171,9 @@
                 </footer>
             </section>
         </section>
-
+        
+        <#if recipient.recipientType=="PF">
+        <!--------------------------- PAGE 2 (297mm x 192mm) --------------------------->
         <section id="second-page">
             <h4 class="ten-pt font-uppercase text-center">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? PUOI FARTI AIUTARE DA UNA PERSONA DI FIDUCIA</h4>
             <p class="advantages-explanation__content text-center"> Con SEND puoi dare accesso alle tue comunicazioni a valore legale a una o più persone di fiducia: accedi a SEND per creare una delega digitale. SEND è il servizio digitale che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
@@ -213,6 +215,8 @@
             </div>
 
         </section>
+        </#if>
+
     </main>
 
 </body>
