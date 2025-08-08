@@ -12,10 +12,10 @@
 <body>
   <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
   <section id="first-page">
-    <section class="upper-section-radd" style="background-color: red;">
+    <section class="upper-section">
         <div class="fixed-table">
             <div class="row">
-                <div class="cell vertical-align-top" id="sender_box_radd">
+                <div class="cell vertical-align-top width-85 pl-12" id="sender_box">
                     <#if senderLogoBase64??>
     
                         <div class="nine-pt">
@@ -36,7 +36,7 @@
                     </#if>
                 </div>
                 
-                <div class="cell eight-pt cell vertical-align-bottom" id="send_box_radd">
+                <div class="cell width-15 pt-12 eight-pt cell vertical-align-bottom" id="send_box">
                     <p class="nine-pt logo-prefix">Inviata tramite</p>
                     <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
                     <p id="send_box_site" class="eight-pt font-bold"><a class="black"
@@ -54,8 +54,8 @@
         </div>
     </section>
 
-    <section class="center-section-radd" class="mb-0 vertical-align-bottom" style="background-color: green;">
-        <h1 id="main_subject" class="twelve-pt sixteen-lh">Hai ricevuto una comunicazione a valore legale da <b>${notification.sender.paDenomination}</b> con oggetto: <b>${notification.subject}</b></h1>
+    <section class="center-section" class="mb-0 vertical-align-bottom">
+        <h1 id="main_subject" class="twelve-pt sixteen-lh px-12">Hai ricevuto una comunicazione a valore legale da <b>${notification.sender.paDenomination}</b> con oggetto: <b>${notification.subject}</b></h1>
         <div id="main_disclaimer" class="eleven-pt sixteen-lh">
             <p><b>Accedi subito ai documenti online</b> seguendo le istruzioni, o se preferisci, ritira i documenti in
             forma cartacea presso uno dei Punti di ritiro SEND (CAF e altri esercenti convenzionati). Tieni presente che
@@ -78,7 +78,7 @@
                     <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
                 </div>
                 <div class="cell vertical-align-center access_online_box">
-                    <div class="section-list">
+                    <div class="section-list px-12">
                         <!--
                             Related to https://pagopa.atlassian.net/browse/PN-14670
                             we use hard-coded link in order to fix this bug. Anyway this part is commented
@@ -134,7 +134,7 @@
         </div>
     </section>
 
-    <section class="lower-section-radd" style="background-color: aqua;">
+    <section class="lower-section">
         <div class="table">
           <div class="row heading">
               <div class="cell"><h2 class="font-uppercase twelve-pt">Opzione 2: Ritira i documenti di persona</h2></div>
@@ -142,12 +142,16 @@
           </div>
         </div>
 
-        <div class="table retrieve_box">
+        <#if recipient.recipientType=="PF">
+        <div class="table">
+        <#else>
+        <div class="table" style="margin-bottom: 40mm;">
+        </#if>
             <div class="row">
-              <div class="cell">
+              <div class="cell p-12">
                 <p>Puoi farlo tu o delegare una persona di fiducia. Segui le istruzioni sul retro del foglio.</p>
               </div>
-              <div class="cell text-right">
+              <div class="cell p-12 text-right">
                 <img id="arrow-img" src="../../images/arrow.jpg" alt="Freccia: procedi alla pagina seguente"/>
               </div>
             </div>
@@ -156,11 +160,11 @@
         <#if recipient.recipientType=="PF">
         <div class="table blue-border-box-radd">
             <div class="row" id="io_download">
-                <div class="cell vertical-align-top width-85">
+                <div class="cell py-12 pl-12 vertical-align-top width-85">
                         <h3 class="twelwe-pt font-uppercase">Con l'app IO è ancora più semplice e risparmi</h3>
                         <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo e risparmia sui costi della raccomandata: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
                 </div>
-                <div class="cell width-15 text-right vertical-align-center" id="io_img">
+                <div class="cell pr-12 width-15 text-right vertical-align-center" id="io_img">
                     <img src="../../images/app-io.jpg" alt="Logo di app IO" />
                 </div>
             </div>
@@ -220,8 +224,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cell width-40 vertical-align-top">
-                        <div class="iun_box ten-pt blue-border-iun">
+                    <div class="cell width-40 pl-27 vertical-align-top">
+                        <div class="iun_box_radd ten-pt blue-border-iun">
                             <div id="iun-code" class="eight-px">
                                 <div>
                                     <b>Identificativo Univoco Notifica:</b>
