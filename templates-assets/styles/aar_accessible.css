@@ -36,7 +36,6 @@ body {
     margin: 14mm 10mm;
     height: 269mm;
     width: 190mm;
-    overflow: hidden;
 }
 
 #second-page {
@@ -214,6 +213,7 @@ body {
 .width-15 {
     width: 15%;
 }
+
 .width-17 {
     width: 17%;
 }
