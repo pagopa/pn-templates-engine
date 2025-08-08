@@ -32,7 +32,7 @@ body {
     padding: 0
 }
 
-#first-page {
+#first-page, #second-page {
     margin: 14mm 10mm;
     height: 269mm;
     width: 190mm;
@@ -40,13 +40,10 @@ body {
 }
 
 #second-page {
-    margin: 14mm 10mm;
     padding-top: 14mm;
-    width: 190mm;
-    height: 269mm;
-    overflow: hidden;
 }
 
+/************************************ start sections ************************/
 .upper-section,
 .center-section,
 .lower-section {
@@ -54,24 +51,47 @@ body {
     margin: 0mm;
 }
 
-.upper-section,
+/* no radd */
+.upper-section {
+    height: 81mm;
+}
 .lower-section {
     height: 85mm;
+    display: table;
 }
 
 .center-section {
-    height: 99mm;
-    margin-bottom: 20px;
+    height: 101mm;
+    display: table-cell;
+    vertical-align: bottom;
 }
 
+#footer_disclaimer {
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+
+/* radd */
 .upper-section-radd {
-    height: 77mm;
+    height: 80mm;
 }
 
 .center-section-radd {
-    height: 103mm;
+    height: 80mm;
     display: table-cell;
 }
+
+.lower-section-radd {
+    height: 80mm;
+}
+
+
+
+
+
+
+
 
 .retrieve_info_box {
     height: 103mm;
@@ -81,16 +101,23 @@ body {
     height: 87mm;
     display: table-cell;
 }
+/************************************ end sections ************************/
 
-.lower-section-radd {
-    height: 87mm;
-}
 
-.upper-section {
-    padding: 0 12px;
-}
 
-/* font equivalence */
+
+
+
+
+
+
+
+
+
+
+
+
+/******************** start font and line-height equivalence ********************/
 .six-pt {
     font-size: 8px; /* 6px on Figma */
 }
@@ -119,7 +146,6 @@ body {
     font-size: 16px; /* 12px on Figma */
 }
 
-/* line-height equivalence */
 .eight-lh {
     line-height: 8px;
 }
@@ -131,76 +157,37 @@ body {
 .sixteen-lh {
     line-height: 21.333px; /* 16px on Figma */
 }
+/******************** end font and line-height equivalence ********************/
 
+
+
+
+/********************************* start utils *******************************/
 .font-bold {
     font-weight: 700;
 }
 
-
 .mb-0 {
     margin-bottom: 0 !important;
 }
-
 .pb-0 {
     padding-bottom: 0 !important;
 }
 
-#sender_logo img {
-    height: 53px; /* 40pt on Figma */
+.pt-12 {
+    padding-top: 12px;
 }
-
-#sender_box {
-    width: 95mm;
-    max-width: 95mm;
-    height: 23mm;
+.pr-12 {
+    padding-right: 12px;
 }
-
-#sender_box_radd {
-    width: 159mm;
-    height: 23mm;
+.pb-12 {
+    padding-bottom: 12px;
 }
-
-#sender_box p{
-    white-space: nowrap;
-    overflow: visible;
+.pl-12 {
+    padding-left: 12px;
 }
-
-#send_box__logo {
-    width: 17mm;
-}
-
-#legal_subtitle, #sender_logo {
-    margin-top: 8px;
-}
-
-#legal_subtitle p {
-    width: 67px;
-    line-height: 10px;
-    border-top: solid 1px;
-    padding-top: 7px;
-    font-weight: 600;
-    letter-spacing: 0.50px;
-}
-
-.iun_box h6 {
-    font-size: 12px;
-}
-
-#send_box {
-    max-width: 90mm;
-    width: 25%;
-    height: 26mm;
-    line-height: 8px;
-}
-
-#send_box_radd {
-    width: 13mm;
-    height: 26mm;
-    line-height: 8px;
-}
-
-#send_box_site {
-    bottom: 0;
+.px-12 {
+    padding: 0 12px;
 }
 
 .table {
@@ -213,6 +200,7 @@ body {
     display: table;
     width: 100%;
 }
+
 .row {
     display: table-row;
 }
@@ -249,17 +237,24 @@ body {
     width: 40%;
 }
 
-.width-47 {
-    width: 47%;
+.width-43 {
+    width: 43%;
+}
+
+.width-45 {
+    width: 45%;
 }
 
 .width-50 {
     width: 50%;
 }
 
-
 .width-53 {
     width: 53%;
+}
+
+.width-55 {
+    width: 55%;
 }
 
 .width-60 {
@@ -276,6 +271,60 @@ body {
 
 .width-95 {
     width: 95%;
+}
+/********************************* end utils *******************************/
+
+
+
+
+#sender_logo img {
+    height: 53px; /* 40pt on Figma */
+}
+
+#sender_box {
+    height: 23mm;
+}
+
+#sender_box_radd {
+    width: 159mm;
+    height: 23mm;
+}
+
+#sender_box p{
+    white-space: nowrap;
+    overflow: visible;
+}
+
+#send_box__logo {
+    width: 17mm;
+}
+
+#legal_subtitle, #sender_logo {
+    margin-top: 8px;
+}
+
+#legal_subtitle p {
+    width: 67px;
+    line-height: 10px;
+    border-top: solid 1px;
+    padding-top: 7px;
+    font-weight: 600;
+    letter-spacing: 0.50px;
+}
+
+.iun_box h6 {
+    font-size: 12px;
+}
+
+#send_box {
+    height: 26mm;
+    line-height: 8px;
+}
+
+#send_box_radd {
+    width: 13mm;
+    height: 26mm;
+    line-height: 8px;
 }
 
 .logo-prefix, #send_box_site {
@@ -294,7 +343,7 @@ a.black {
 
 .heading {
     width: 100%;
-    height: 7.7mm;
+    height: 7mm;
     background-color: #DBF9FA;
     font-weight: bold;
 }
@@ -321,17 +370,10 @@ h1 {
     font-weight: 400;
     padding-top: 0mm;
     word-wrap: break-word;
-    margin-bottom: 1.5mm;
-    padding: 0 12px;
 }
 
 #main_disclaimer {
-    margin: 5mm 0 1.5mm 0;
-    padding: 0 12px;
-}
-
-#view_online_box {
-    margin-top: 3mm;
+    padding: 2mm 12px 4.2mm 12px;
 }
 
 .heading .cell {
@@ -339,11 +381,12 @@ h1 {
 }
 
 .list-box-height_qr_code_box {
-    height: 41mm;
+    height: 40mm;
+    margin-bottom: 5mm;
 }
 
 .qr_code_box {
-    width: 40mm;
+    width: 38mm;
 }
 
 .access_online_box {
@@ -409,7 +452,7 @@ h1 {
     border: solid #CED8F9 1px;
     border-radius: 7px;
     padding: 11px;
-    margin-bottom: 125px;
+    margin-top: 90px;
 }
 
 .blue-border-box-radd {
@@ -419,6 +462,17 @@ h1 {
     margin-top: 37px;
     margin-bottom: 50px;
 }
+
+#qr-code {
+    height: 38.5mm
+}
+
+
+
+
+
+
+
 
 /*********************** page 2 *******************/
 
@@ -483,9 +537,8 @@ ul#square-list-mandate li {
 }
 
 .iun_box {
-    width: 52mm;
-    margin: 0 0 0 auto;
-    padding: 16px;
+    padding: 0 40px;
+    width: 47mm;
 }
 
 .blue-border-iun {
