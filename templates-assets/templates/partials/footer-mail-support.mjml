@@ -1,0 +1,14 @@
+<mj-section css-class="section" padding-bottom="16px" padding-top="0px">
+  <mj-column>
+    <mj-text
+      css-class="footer-text"
+      font-size="14px"
+      line-height="20px"
+      color="#17324D"
+    >
+      <p style="margin-top: 0px; font-size: 14px">
+        Ricevi questa email perché hai comunicato un tuo recapito al call center di SEND in data ${subscription_date}
+      </p>
+    </mj-text>
+  </mj-column>
+</mj-section>
