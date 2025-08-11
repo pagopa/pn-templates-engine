@@ -376,12 +376,12 @@ h1 {
 }
 
 .list-box-height_qr_code_box {
-    height: 40mm;
+    height: 42mm;
     margin-bottom: 5mm;
 }
 
 .qr_code_box {
-    width: 38mm;
+    width: 41mm;
 }
 
 .access_online_box {
@@ -454,7 +454,7 @@ h1 {
 }
 
 #qr-code {
-    height: 38.5mm
+    height: 41mm
 }
 
 
