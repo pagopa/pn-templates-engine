@@ -55,7 +55,7 @@
     </section>
 
     <section class="center-section" class="mb-0 vertical-align-bottom">
-        <h1 id="main_subject" class="twelve-pt sixteen-lh px-12">Hai ricevuto una comunicazione a valore legale da <b>${notification.sender.paDenomination}</b> con oggetto: <b>${notification.subject}</b></h1>
+        <h1 id="main_subject" class="twelve-pt sixteen-lh px-12 pt-0 weight-400">Hai ricevuto una comunicazione a valore legale da <b>${notification.sender.paDenomination}</b> con oggetto: <b>${notification.subject}</b></h1>
         <div id="main_disclaimer" class="eleven-pt sixteen-lh">
             <p><b>Accedi subito ai documenti online</b> seguendo le istruzioni, o se preferisci, ritira i documenti in
             forma cartacea presso uno dei Punti di ritiro SEND (CAF e altri esercenti convenzionati). Tieni presente che
@@ -65,7 +65,7 @@
         </div>
         <div id="view_online_box">
             <div class="table">
-                <div class="row heading">
+                <div class="row heading w-100 font-bold">
                     <div class="cell"><h2 class="font-uppercase twelve-pt">Opzione 1: Accedi ora ai documenti online</h2></div>
                     <div class="cell text-right nine-pt">Consultazione online gratuita</div>
                 </div>
@@ -136,7 +136,7 @@
 
     <section class="lower-section">
         <div class="table">
-          <div class="row heading">
+          <div class="row heading w-100 font-bold">
               <div class="cell"><h2 class="font-uppercase twelve-pt">Opzione 2: Ritira i documenti di persona</h2></div>
               <div class="cell text-right nine-pt width-40">Servizio di stampa a pagamento</div>
           </div>
@@ -158,8 +158,8 @@
         </div>
 
         <#if recipient.recipientType=="PF">
-        <div class="table blue-border-box-radd">
-            <div class="row" id="io_download">
+        <div class="table blue-border-box-radd radius-8">
+            <div class="row eleven-pt radius-8 w-100" id="io_download">
                 <div class="cell py-12 pl-12 vertical-align-top width-85">
                         <h3 class="twelwe-pt font-uppercase">Con l'app IO è ancora più semplice e risparmi</h3>
                         <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo e risparmia sui costi della raccomandata: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
@@ -184,7 +184,7 @@
     <section id="second-page">
         <section class="retrieve_info_box" id="">
             <div class="table">
-                <div class="row heading">
+                <div class="row heading w-100 font-bold">
                     <div class="cell"><h2 class="font-uppercase twelve-pt">Opzione 2: Ritira i documenti di persona</h2></div>
                     <div class="cell text-right nine-pt width-40">Servizio di stampa a pagamento</div>
                 </div>
@@ -225,7 +225,7 @@
                         </div>
                     </div>
                     <div class="cell width-40 pl-27 vertical-align-top">
-                        <div class="iun_box_radd ten-pt blue-border-iun">
+                        <div class="iun_box_radd ten-pt blue-border-iun radius-8">
                             <div id="iun-code" class="eight-px">
                                 <div>
                                     <b>Identificativo Univoco Notifica:</b>
@@ -261,7 +261,7 @@
                             <p>Io, ${recipient.denomination} ${recipient.taxId}, delego</p>
                             <#else>
                                 <div>
-                                <p>Io,  <span class="nine-px eleven-lh form-field border-bottom mb-form">
+                                <p>Io,  <span class="nine-px eleven-lh form-field border-bottom mb-form mt-0">
                                     Nome e Cognome
                                 </span></p>
                                 in qualità di legale rappresentante di ${recipient.denomination} ${recipient.taxId}, delego
@@ -299,7 +299,7 @@
         <#if recipient.recipientType=="PF">
         <section id="help_box" class="vertical-align-bottom">
             <h4 class="ten-pt font-uppercase text-center">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? PUOI FARTI AIUTARE DA UNA PERSONA DI FIDUCIA</h4>
-            <p class="advantages-explanation__content text-center"> Con SEND puoi dare accesso alle tue comunicazioni a valore legale a una o più persone di fiducia: accedi a SEND per creare una delega digitale. SEND è il servizio digitale che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
+            <p class="advantages-explanation__content text-center width-85"> Con SEND puoi dare accesso alle tue comunicazioni a valore legale a una o più persone di fiducia: accedi a SEND per creare una delega digitale. SEND è il servizio digitale che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
 
             <div class="table advantages-table">
                 <div class="advantages-row nine-pt row">

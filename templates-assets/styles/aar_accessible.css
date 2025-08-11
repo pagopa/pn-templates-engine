@@ -42,7 +42,8 @@ body {
     padding-top: 14mm;
 }
 
-/************************************ start sections ************************/
+
+/********************************* start sections *********************************/
 .upper-section,
 .center-section,
 .lower-section {
@@ -77,29 +78,12 @@ body {
     height: 87mm;
     display: table-cell;
 }
-/************************************ end sections ************************/
+/********************************* end sections ***********************************/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/******************** start font and line-height equivalence ********************/
+/********************************* start font and line-height utils ***************/
 .six-pt {
     font-size: 8px; /* 6px on Figma */
-}
-
-.seven-pt {
-    font-size: 9.333px; /* 7px on Figma */
 }
 
 .eight-pt {
@@ -133,44 +117,85 @@ body {
 .sixteen-lh {
     line-height: 21.333px; /* 16px on Figma */
 }
-/******************** end font and line-height equivalence ********************/
 
-
-
-
-/********************************* start utils *******************************/
 .font-bold {
     font-weight: 700;
 }
 
+a {
+    text-decoration: underline;
+    color: #0B3EE3;
+}
+
+a.black {
+    text-decoration: none;
+    color: inherit;
+}
+
+.font-uppercase {
+    text-transform: uppercase;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.weight-400 {
+    font-weight: 400 !important;
+}
+
+/********************************* end font and line-height utils *****************/
+
+
+/********************************* start space utils ******************************/
 .mb-0 {
     margin-bottom: 0 !important;
 }
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
 .pb-0 {
     padding-bottom: 0 !important;
+}
+
+.pt-0 {
+    padding-top: 0 !important;
 }
 
 .pt-12 {
     padding-top: 12px;
 }
+
 .pr-12 {
     padding-right: 12px;
 }
+
 .pb-12 {
     padding-bottom: 12px;
 }
+
 .pl-12 {
     padding-left: 12px;
 }
+
 .pl-27 {
     padding-left: 27px;
 }
+
 .px-12 {
     padding: 0 12px;
 }
+
 .py-12 {
     padding: 12px 0;
 }
+
 .p-12 {
     padding: 12px;
 }
@@ -206,78 +231,104 @@ body {
     vertical-align: middle;
 }
 
-.width-5 {
-    width: 5%;
-}
-
 .width-15 {
     width: 15%;
-}
-
-.width-17 {
-    width: 17%;
-}
-
-.width-20 {
-    width: 20%;
-}
-
-.width-27 {
-    width: 27%;
 }
 
 .width-40 {
     width: 40%;
 }
 
-.width-43 {
-    width: 43%;
-}
-
-.width-45 {
-    width: 45%;
-}
-
 .width-50 {
     width: 50%;
-}
-
-.width-53 {
-    width: 53%;
-}
-
-.width-55 {
-    width: 55%;
 }
 
 .width-60 {
     width: 60%;
 }
 
-.width-73 {
-    width: 73%;
-}
-
-.width-80 {
-    width: 80%;
-}
-
-.width-83 {
-    width: 83%;
-}
-
 .width-85 {
     width: 85%;
 }
 
-.width-95 {
-    width: 95%;
+.w-100 {
+    width: 100%;
 }
-/********************************* end utils *******************************/
+
+.radius-8 {
+    border-radius: 8px;
+}
+/********************************* end space utils ********************************/
 
 
+/********************************* start form utils *******************************/
+.form-field {
+    display: inline-block; 
+    width: 80mm;
+}
+
+.border-bottom {
+    border-bottom: solid 1.3px #ECECEC;
+    margin-top: 4.2mm;
+    padding-bottom: 5px;
+    color: #7D7D7D;
+}
+
+.mb-form {
+    margin-bottom: 4.2mm;
+}
+
+.cell-large-spacing {
+    padding-left: 5mm;
+}
+/********************************* end form utils *********************************/
 
 
+/********************************* start components *******************************/
+.heading {
+    height: 7mm;
+    background-color: #DBF9FA;
+}
+
+.heading .cell {
+    padding: 1.4mm 3.7mm;
+}
+
+#arrow-img {
+    width: 24px;
+}
+
+#main_subject {
+    word-wrap: break-word;
+}
+
+#main_disclaimer {
+    padding: 2mm 12px 4.2mm 12px;
+}
+
+.blue-border-box {
+    border: solid #CED8F9 1px;
+    padding: 11px;
+    margin-top: 90px;
+}
+
+.blue-border-box-radd {
+    border: solid #CED8F9 1px;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+.blue-border-iun {
+    border: solid #CED8F9 1px;
+}
+
+.read-more {
+    padding-top: 21px;
+}
+/********************************* end components *********************************/
+
+
+/********************************* start sender box *******************************/
 #sender_logo img {
     height: 53px; /* 40pt on Figma */
 }
@@ -291,7 +342,7 @@ body {
     height: 23mm;
 }
 
-#sender_box p{
+#sender_box p {
     white-space: nowrap;
     overflow: visible;
 }
@@ -313,10 +364,6 @@ body {
     letter-spacing: 0.50px;
 }
 
-.iun_box h6 {
-    font-size: 12px;
-}
-
 #send_box {
     height: 26mm;
     line-height: 8px;
@@ -325,56 +372,10 @@ body {
 .logo-prefix, #send_box_site {
     line-height: 6mm;
 }
+/********************************* end sender box *********************************/
 
-a {
-    text-decoration: underline;
-    color: #0B3EE3;
-}
 
-a.black {
-    text-decoration: none;
-    color: inherit;
-}
-
-.heading {
-    width: 100%;
-    height: 7mm;
-    background-color: #DBF9FA;
-    font-weight: bold;
-}
-
-.font-uppercase {
-    text-transform: uppercase;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.text-center {
-    text-align: center;
-}
-
-h1 {
-    font-weight: 400;
-}
-
-/*********************** center-section *******************/
-
-#main_subject {
-    font-weight: 400;
-    padding-top: 0mm;
-    word-wrap: break-word;
-}
-
-#main_disclaimer {
-    padding: 2mm 12px 4.2mm 12px;
-}
-
-.heading .cell {
-    padding: 1.4mm 3.7mm;
-}
-
+/********************************* start qr-code box ******************************/
 .list-box-height_qr_code_box {
     height: 42mm;
     margin-bottom: 5mm;
@@ -384,11 +385,14 @@ h1 {
     width: 41mm;
 }
 
-.access_online_box {
-    width: 150mm;
-    height: 41mm;
+#qr-code {
+    height: 41mm
 }
 
+/********************************* end qr-code box ********************************/
+
+
+/********************************* start lists ************************************/
 .section-list ol {
     margin: 2mm 0;
 }
@@ -422,13 +426,23 @@ h1 {
     width: 21px;
 }
 
-/*********************** lower-section *******************/
+ul#square-list-mandate {
+    margin-top: 1mm;
+}
 
+ul#square-list li,
+ul#square-list-mandate li {
+    list-style-type: square;
+    margin-left: 5mm;
+    margin-top: 0.4mm;
+    margin-bottom: 0;
+}
+/********************************* end lists **************************************/
+
+
+/********************************* start io box ***********************************/
 #io_download {
-    width: 100%;
     height: 45px;
-    border-radius: 8px;
-    font-size: 14.3px;
 }
 
 #io_download h3 {
@@ -438,34 +452,10 @@ h1 {
 #io_img img {
     width: 45px;
 }
-
-.blue-border-box {
-    border: solid #CED8F9 1px;
-    border-radius: 7px;
-    padding: 11px;
-    margin-top: 90px;
-}
-
-.blue-border-box-radd {
-    border: solid #CED8F9 1px;
-    border-radius: 7px;
-    margin-top: 35px;
-    margin-bottom: 30px;
-}
-
-#qr-code {
-    height: 41mm
-}
+/********************************* end io box *************************************/
 
 
-
-
-
-
-
-
-/*********************** page 2 *******************/
-
+/********************************* start advantages section ***********************/
 .advantages-explanation__content {
     width: 95%;
     margin: 11px auto;
@@ -475,10 +465,6 @@ h1 {
     padding-top: 24px;
     margin: 0 auto;
     height: 35mm;
-}
-
-.advantages-table .cell .advantages-explanation__content {
-    width: 85%;
 }
 
 .advantage-col {
@@ -491,39 +477,30 @@ img.message-advantages_explanation {
     margin-bottom: 1mm;
 }
 
-.read-more {
-    padding-top: 21px;
-}
-
-.retrieve_box {
-    margin: 16px;
-}
-
-#arrow-img {
-    width: 24px;
-}
-
 #help_box {
     height: 78mm;
 }
+/********************************* end advantages section *************************/
 
-#access_yourself_box{
+
+
+
+
+
+
+
+
+
+
+.access_online_box {
+    width: 150mm;
+    height: 41mm;
+}
+
+#access_yourself_box {
     margin-top: 4mm;
     padding: 0 12px;
     width: auto;
-}
-
-
-ul#square-list-mandate {
-    margin-top: 1mm;
-}
-
-ul#square-list li,
-ul#square-list-mandate li {
-    list-style-type: square;
-    margin-left: 5mm;
-    margin-top: 0.4mm;
-    margin-bottom: 0;
 }
 
 .iun_box {
@@ -536,36 +513,10 @@ ul#square-list-mandate li {
     width: 61mm;
 }
 
-.blue-border-iun {
-    border: solid #CED8F9 1px;
-    border-radius: 7px;
-}
-
 #mandate_box {
     padding: 21px;
 }
 
 #mandate_box .title {
     padding: 0 0 27px 0;
-}
-
-.form-field {
-    display: inline-block; 
-    width: 80mm; 
-    margin-top: 0;
-}
-
-.border-bottom {
-    border-bottom: solid 1.3px #ECECEC;
-    margin-top: 4.2mm;
-    padding-bottom: 5px;
-    color: #7D7D7D;
-}
-
-.mb-form {
-    margin-bottom: 4.2mm;
-}
-
-.cell-large-spacing {
-    padding-left: 5mm;
 }
