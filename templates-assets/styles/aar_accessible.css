@@ -122,6 +122,10 @@ body {
     font-weight: 700;
 }
 
+.weight-400 {
+    font-weight: 400 !important;
+}
+
 a {
     text-decoration: underline;
     color: #0B3EE3;
@@ -143,11 +147,6 @@ a.black {
 .text-center {
     text-align: center;
 }
-
-.weight-400 {
-    font-weight: 400 !important;
-}
-
 /********************************* end font and line-height utils *****************/
 
 
@@ -481,16 +480,6 @@ img.message-advantages_explanation {
     height: 78mm;
 }
 /********************************* end advantages section *************************/
-
-
-
-
-
-
-
-
-
-
 
 .access_online_box {
     width: 150mm;
