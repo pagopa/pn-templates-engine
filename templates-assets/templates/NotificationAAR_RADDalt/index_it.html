@@ -94,21 +94,18 @@
                         </li>
                         -->
                         <div class="table">
-                            <#if recipient.recipientType=="PF">
                             <div class="row">
                                 <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
                                 <div class="cell vertical-align-top">
-                                    <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a href="https://login.notifichedigitali.it/auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">login.notifichedigitali.it</a></b></p>
+                                    <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b>
+                                        <#if recipient.recipientType=="PF">
+                                        <a href="https://login.notifichedigitali.it/auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">login.notifichedigitali.it</a>
+                                        <#else>
+                                        <a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a>
+                                        </#if>
+                                    </b></p>
                                 </div>
                             </div>
-                            <#else>
-                            <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
-                                <div class="cell vertical-align-top">
-                                    <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b><a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a></b></p>
-                                </div>
-                            </div>
-                            </#if>
                             <div class="row">
                                 <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
                                 <div class="cell vertical-align-top">
