@@ -509,3 +509,24 @@ img.message-advantages_explanation {
 #mandate_box .title {
     padding: 0 0 27px 0;
 }
+
+.message-advantages_explanation {
+    height: 34px;
+    width: 34px;
+    margin: 3mm auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.icon-time {
+    background-image: url("../images/time.jpg");
+}
+
+.icon-earth {
+    background-image: url("../images/earth.jpg");
+}
+
+.icon-control {
+    background-image: url("../images/control.jpg");
+}
