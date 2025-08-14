@@ -35,7 +35,7 @@
                             <p class="six-pt eight-lh">COMUNICAZIONE A VALORE LEGALE</p>
                             <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
                             <div id="sender_logo">
-                                <img src="${senderLogoBase64}" alt="Logo di ${notification.sender.paDenomination}">
+                                <p><img src="${senderLogoBase64}" alt="Logo di ${notification.sender.paDenomination}"></p>
                             </div>
                         </div>
                     <#else>
@@ -51,7 +51,7 @@
                 
                 <div class="cell width-15 pt-12 eight-pt cell vertical-align-bottom" id="send_box">
                     <p class="nine-pt logo-prefix">Inviata tramite</p>
-                    <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
+                    <p><img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/></p>
                     <p id="send_box_site" class="eight-pt font-bold"><a class="black"
                             href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">notifichedigitali.it</a></p>
                 </div>
@@ -88,7 +88,7 @@
         <div class="table list-box-height_qr_code_box">
             <div class="row">
                 <div class="cell vertical-align-center qr_code_box">
-                    <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
+                    <p><img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" /></p>
                 </div>
                 <div class="cell vertical-align-center access_online_box">
                     <div class="section-list px-12">
@@ -108,7 +108,9 @@
                         -->
                         <div class="table">
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
+                                <div class="cell number-list">
+                                    <p><img src="../../images/numero-1.png" alt="Numero 1"></p>
+                                </div>
                                 <div class="cell vertical-align-top">
                                     <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b>
                                         <#if recipient.recipientType=="PF">
@@ -120,19 +122,25 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
+                                <div class="cell number-list">
+                                    <p><img src="../../images/numero-2.png" alt="Numero 2"></p>
+                                </div>
                                 <div class="cell vertical-align-top">
                                     <p>Accedi e scarica i documenti: contengono informazioni importanti che ti riguardano</p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-3.png" alt="Numero 3"></div>
+                                <div class="cell number-list">
+                                    <p><img src="../../images/numero-3.png" alt="Numero 3"></p>
+                                </div>
                                 <div class="cell vertical-align-top">
                                     <p>Se previsto un pagamento, potrai pagare online o presso i canali abilitati a pagoPA</p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-4.png" alt="Numero 4"></div>
+                                <div class="cell number-list">
+                                    <p><img src="../../images/numero-4.png" alt="Numero 4"></p>
+                                </div>
                                 <div class="cell vertical-align-top">
                                     <p>In fase di pagamento l'importo si aggiornerà con i costi di notifica</p>
                                 </div>
@@ -162,7 +170,7 @@
                 <p>Puoi farlo tu o delegare una persona di fiducia. Segui le istruzioni sul retro del foglio.</p>
               </div>
               <div class="cell p-12 text-right">
-                <img id="arrow-img" src="../../images/arrow.jpg" alt="Freccia: procedi alla pagina seguente"/>
+                <p><img id="arrow-img" src="../../images/arrow.jpg" alt="Freccia: procedi alla pagina seguente"/></p>
               </div>
             </div>
         </div>
@@ -170,12 +178,12 @@
         <#if recipient.recipientType=="PF">
         <div class="table blue-border-box-radd radius-8">
             <div class="row eleven-pt radius-8 w-100" id="io_download">
-                <div class="cell py-12 pl-12 vertical-align-top width-85">
+                <div class="cell p-12 vertical-align-top width-85">
                         <h3 class="twelwe-pt font-uppercase">Con l'app IO è ancora più semplice e risparmi</h3>
                         <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo e risparmia sui costi della raccomandata: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
                 </div>
                 <div class="cell pr-12 width-15 text-right vertical-align-center" id="io_img">
-                    <img src="../../images/app-io.jpg" alt="Logo di app IO" />
+                    <p><img src="../../images/app-io.jpg" alt="Logo di app IO" /></p>
                 </div>
             </div>
         </div>
@@ -205,14 +213,18 @@
                     <div class="cell width-60 vertical-align-top">
                         <div class="table access_yourself_list">
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
+                                <div class="cell number-list">
+                                    <p><img src="../../images/numero-1.png" alt="Numero 1"></p>
+                                </div>
                                 <div class="cell vertical-align-top">
                                     <p>Cerca il Punto di ritiro SEND più vicino a te su <br> <b><a href="https://www.notifichedigitali.it/punti-di-ritiro" title="Pagina dei Punti di ritiro SEND">www.notifichedigitali.it/punti-di-ritiro</a></b> oppure chiama il <br>numero <b>${raddPhoneNumber}</b>
                                 </p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
+                                <div class="cell number-list">
+                                    <p><img src="../../images/numero-2.png" alt="Numero 2"></p>
+                                </div>
                                 <div class="cell vertical-align-top">
                                     <p>Recati al punto di ritiro portando con te: 
                                         <ul id="square-list">
@@ -227,7 +239,9 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-3.png" alt="Numero 3"></div>
+                                <div class="cell number-list">
+                                    <p><img src="../../images/numero-3.png" alt="Numero 3"></p>
+                                </div>
                                 <div class="cell vertical-align-top">
                                     <p>Paga 1,40 € per il servizio di stampa e ritira i documenti</p>
                                 </div>
@@ -237,18 +251,18 @@
                     <div class="cell width-40 pl-27 vertical-align-top">
                         <div class="iun_box_radd ten-pt blue-border-iun radius-8">
                             <div id="iun-code" class="eight-px">
-                                <div>
+                                <p>
                                     <b>Identificativo Univoco Notifica:</b>
                                     <br />${notification.iun}
-                                </div>
-                                <div style="margin-top: 4mm;">
+                                </p>
+                                <p style="margin-top: 4mm;">
                                     <b>Codice fiscale - Persona <#if recipient.recipientType=="PF">
                                     fisica:
                                     <#else>
                                         giuridica:
                                     </#if></b>
                                     <br />${recipient.taxId}
-                                </div>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -291,7 +305,7 @@
                         <div class="cell width-50 cell-large-spacing">
                             <p>La persona delegata dovrà portare con sé:</p>
                             <ul id="square-list-mandate">
-                                <li >questo avviso con la delega compilata e firmata</li>
+                                <li>questo avviso con la delega compilata e firmata</li>
                                 <li class="number-list">un suo documento di riconoscimento</li>
                                 <li class="number-list">il suo codice fiscale</li>
                                 <li class="number-list">una copia o l’originale del codice fiscale e di un documento di riconoscimento del delegante<#if recipient.recipientType=="PF"></li>
@@ -308,13 +322,13 @@
 
         <#if recipient.recipientType=="PF">
         <section id="help_box" class="vertical-align-bottom">
-            <h4 class="ten-pt font-uppercase text-center">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? PUOI FARTI AIUTARE DA UNA PERSONA DI FIDUCIA</h4>
+            <h1 class="ten-pt font-uppercase text-center">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? PUOI FARTI AIUTARE DA UNA PERSONA DI FIDUCIA</h1>
             <p class="advantages-explanation__content text-center width-85"> Con SEND puoi dare accesso alle tue comunicazioni a valore legale a una o più persone di fiducia: accedi a SEND per creare una delega digitale. SEND è il servizio digitale che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
 
             <div class="table advantages-table">
                 <div class="advantages-row nine-pt row">
                     <div class="advantage-col cell text-center">
-                        <img class="message-advantages_explanation" src="../../images/time.jpg" alt=""/>
+                        <div class="message-advantages_explanation icon-time"></div>
                         <div class="advantages-explanation__content">
                             <p>
                                 <b>Non perdi tempo</b><br>
@@ -323,7 +337,7 @@
                         </div>
                     </div>
                     <div class="advantage-col cell text-center">
-                        <img class="message-advantages_explanation" src="../../images/earth.jpg"  alt=""/>
+                        <div class="message-advantages_explanation icon-earth"></div>
                         <div class="advantages-explanation__content">
                             <p>
                                 <b>Non importa dove sei</b><br>
@@ -332,7 +346,7 @@
                         </div>
                     </div>
                     <div class="advantage-col cell text-center">
-                        <img class="message-advantages_explanation" src="../../images/control.jpg"  alt=""/>
+                        <div class="message-advantages_explanation icon-control"></div>
                         <div class="advantages-explanation__content">
                             <p>
                                 <b>Hai sempre il controllo</b><br>

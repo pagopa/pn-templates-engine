@@ -36,7 +36,7 @@
                                     <p class="six-pt eight-lh">COMUNICAZIONE A VALORE LEGALE</p>
                                     <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
                                     <div id="sender_logo">
-                                        <img src="${senderLogoBase64}" alt="Logo di ${notification.sender.paDenomination}">
+                                        <p><img src="${senderLogoBase64}" alt="Logo di ${notification.sender.paDenomination}"></p>
                                     </div>
                                 </div>
                             <#else>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div id="send_box" class="eight-pt cell vertical-align-bottom">
                                     <p class="nine-pt logo-prefix">Inviata tramite</p>
-                                    <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
+                                    <p><img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/></p>
                                     <p id="send_box_site" class="eight-pt font-bold">
                                         <a class="black"
                                             href="https://www.notifichedigitali.it/"  title="Sito di SEND - Servizio Notifiche Digitali">notifichedigitali.it</a></p>
@@ -103,7 +103,7 @@
                 <div class="table list-box-height_qr_code_box pb-12">
                     <div class="row">
                         <div class="cell vertical-align-center qr_code_box">
-                            <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
+                            <p><img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" /></p>
                         </div>
                         <div class="cell vertical-align-center access_online_box">
                             <div class="section-list px-12">
@@ -123,7 +123,9 @@
                                 -->
                                 <div class="table" id="how_to_online">
                                     <div class="row">
-                                        <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
+                                        <div class="cell number-list">
+                                            <p><img src="../../images/numero-1.png" alt="Numero 1"></p>
+                                        </div>
                                         <div class="cell vertical-align-top">
                                             <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b>
                                                 <#if recipient.recipientType=="PF">
@@ -135,19 +137,25 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
+                                        <div class="cell number-list">
+                                            <p><img src="../../images/numero-2.png" alt="Numero 2"></p>
+                                        </div>
                                         <div class="cell vertical-align-top">
                                             <p>Accedi e scarica i documenti: contengono informazioni importanti che ti riguardano</p>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="cell number-list"><img src="../../images/numero-3.png" alt="Numero 3"></div>
+                                        <div class="cell number-list">
+                                            <p><img src="../../images/numero-3.png" alt="Numero 3"></p>
+                                        </div>
                                         <div class="cell vertical-align-top">
                                             <p>Se previsto un pagamento, potrai pagare online o presso i canali abilitati a pagoPA</p>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="cell number-list"><img src="../../images/numero-4.png" alt="Numero 4"></div>
+                                        <div class="cell number-list">
+                                            <p><img src="../../images/numero-4.png" alt="Numero 4"></p>
+                                        </div>
                                         <div class="cell vertical-align-top">
                                             <p>In fase di pagamento l'importo si aggiornerà con i costi di notifica</p>
                                         </div>
@@ -169,7 +177,7 @@
                                         <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo e risparmia sui costi della raccomandata: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
                                 </div>
                                 <div class="cell width-15 text-right vertical-align-center" id="io_img">
-                                    <img src="../../images/app-io.jpg" alt="Logo di app IO" />
+                                    <p><img src="../../images/app-io.jpg" alt="Logo di app IO" /></p>
                                 </div>
                             </div>
                         </div>
