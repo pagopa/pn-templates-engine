@@ -1,6 +1,8 @@
 <mjml lang="it">
   <mj-head>
-    <mj-title>SEND - Email con atto allegato</mj-title>
+    <mj-title><% if (noIta) { %>
+              <%-subject%> &bull; <% } %><%-it_subject%></mj-title>
+    
     <mj-attributes>
       <mj-all font-family="system-ui, sans-serif" />
     </mj-attributes>
@@ -28,7 +30,13 @@
             color="#17324D"
           >
             <!-- H4 Desktop (from MUI Italia)-->
-            <h1 style="font-size: 32px; line-height: 40px; margin: 0">SEND - Email con atto allegato</h1>
+            <h1 style="font-size: 32px; line-height: 40px; margin: 0"></h1>
+            <% if (noIta) { %><h1 style="font-size: 32px; line-height: 40px; margin: 0">
+              <%-subject%>
+            </h1><% } %>
+            <h1 style="font-size: 32px; line-height: 40px; margin: 0">
+              <%-it_subject%>
+            </h1>
           </mj-text>
 
           <!-- Main Message -->
@@ -42,7 +50,7 @@
             padding-bottom="0px"
             color="#17324D"
           >
-            <p style="margin-top: 0px">Ciao ${name},</p>
+            <p style="margin-top: 0px"><% if (noIta) { %><span><%-hello%> &bull; </span><% } %><%-it_hello%>,</p>
           </mj-text>
           <mj-text
             css-class="text"
@@ -53,21 +61,36 @@
             padding-top="0px"
             color="#17324D"
           >
+            <% if (noIta) { %><p style="margin-top: 10px">
+              <%-body1%>
+            </p><% } %>
+            <% if (noIta) { %><p style="margin-top: 10px">
+              <%-body2%>
+            </p><% } %>
+            <% if (noIta) { %><p style="margin-top: 10px">
+              <%-body3%>
+            </p><% } %>
+            <% if (noIta) { %><p style="margin-top: 10px">
+              <%-body4%>
+            </p><% } %>
+
             <p style="margin-top: 10px">
-              in data ${date} hai richiesto di ricevere i documenti relativi alla notifica SEND con codice ${iun}, tramite il call center di SEND - Servizio Notifiche Digitali.
+              <%-it_body1%>
             </p>
             <p style="margin-top: 10px">
-              In allegato a questa email, trovi i documenti relativi alla notifica.
+              <%-it_body2%>
             </p>
             <p style="margin-top: 10px">
-              Tieni presente che la data di invio di questa email non coincide con la data di perfezionamento, ovvero quella da cui decorrono gli effetti giuridici dell'atto notificato. Per maggiori informazioni sulla data di perfezionamento visita <a title="Link alla pagina di perfezionamento" class="link" style="text-decoration: underline" href="https://notifichedigitali.it/perfezionamento">https://notifichedigitali.it/perfezionamento</a>
+              <%-it_body3%>
             </p>
             <p style="margin-top: 10px">
-              I termini per il pagamento - se previsto - e per eventuali impugnazioni sono indicati nei documenti.</a>
+              <%-it_body4%>
             </p>
           </mj-text>
           <mj-text css-class="text" font-size="14px" line-height="20px" padding-bottom="0px" color="#17324D">
-            <p style="margin-top: 0px; margin-bottom: 14 px">Saluti,</p>
+            <p style="margin-top: 0px; margin-bottom: 10 px">
+            <% if (noIta) { %><span><%-greetings%> &bull; </span><% } %> <%-it_greetings%>,</p>
+
             <p style="margin: 0px">SEND - Servizio Notifiche Digitali</p>
           </mj-text>
         </mj-column>
@@ -75,7 +98,23 @@
       <!-- Divider -->
       <mj-include path="../partials/divider.mjml" />
       <!-- Footer/Disclaimer -->
-      <mj-include path="../partials/footer-mail-support.mjml" />
+      <mj-section css-class="section" padding-bottom="16px" padding-top="0px">
+        <mj-column>
+          <mj-text
+            css-class="footer-text"
+            font-size="14px"
+            line-height="20px"
+            color="#17324D"
+          >
+            <% if (noIta) { %><p style="margin-top: 0px; font-size: 14px">
+              <%-footer%>
+            </p><% } %>
+            <p style="margin-top: 0px; font-size: 14px">
+              <%-it_footer%>
+            </p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
     </mj-wrapper>
   </mj-body>
 </mjml>
