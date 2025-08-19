@@ -128,6 +128,15 @@ public class TemplateApiController implements TemplateApi {
         return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL, xLanguage, request);
     }
 
+
+    @Override
+    public Mono<ResponseEntity<String>> notificationCceForEmail(
+            LanguageEnum xLanguage,
+            Mono<NotificationCceForEmail> request, final
+            ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.NOTIFICATION_CCE_FOR_EMAIL, xLanguage, request);
+    }
+
     @Override
     public Mono<ResponseEntity<String>> notificationAarForPec(
             LanguageEnum xLanguage,
