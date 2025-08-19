@@ -183,8 +183,8 @@ a.black {
     padding-left: 12px;
 }
 
-.pl-27 {
-    padding-left: 27px;
+.pl-72 {
+    padding-left: 72px;
 }
 
 .px-12 {
@@ -270,7 +270,7 @@ a.black {
     border-bottom: solid 1.3px #ECECEC;
     margin-top: 4.2mm;
     padding-bottom: 5px;
-    color: #7D7D7D;
+    color: #595959;
 }
 
 .mb-form {
@@ -488,7 +488,6 @@ img.message-advantages_explanation {
 
 #access_yourself_box {
     margin-top: 4mm;
-    padding: 0 12px;
     width: auto;
 }
 
@@ -499,7 +498,7 @@ img.message-advantages_explanation {
 
 .iun_box_radd {
     padding: 9px;
-    width: 61mm;
+    width: 50mm;
 }
 
 #mandate_box {
