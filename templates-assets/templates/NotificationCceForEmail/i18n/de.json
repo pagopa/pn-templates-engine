@@ -1,11 +1,11 @@
 {
   "language": "de",
-  "subject": "dedededededededededede",
-  "hello":"dededededededededededede",
-  "body1":"dededededededededededede",
-  "body2":"dededededededededededede",
-  "body3":"dededededededededededede",
-  "body4":"dededededededededededede",
-  "greetings":"dededede",
-  "footer":"dededede"
+  "subject": "[fac-simile] SEND - E-Mail mit beigefügtem Dokument",
+  "hello":"[fac-simile] Hallo ${denomination}",
+  "body1":"[fac-simile] Am ${ticketDate} haben Sie über das Callcenter von SEND - Servizio Notifiche Digitali (Digitaler Benachrichtigungsdienst) die Zusendung der Dokumente zur Benachrichtigung SEND mit dem Code ${iun} angefordert.",
+  "body2":"[fac-simile] Im Anhang dieser E-Mail finden Sie die Dokumente zur Benachrichtigung.",
+  "body3":"[fac-simile] Bitte beachten Sie, dass das Versanddatum dieser E-Mail nicht mit dem Datum des Inkrafttretens übereinstimmt, d. h. dem Datum, ab dem die Rechtswirkungen des zugestellten Dokuments wirksam werden. Weitere Informationen zum Datum des Inkrafttretens finden Sie unter <a title=\"Link zur Seite zum Inkrafttreten\" class=\"link\" style=\"text-decoration: underline\" href=\"https://notifichedigitali.it/perfezionamento\">https://notifichedigitali.it/perfezionamento</a>",
+  "body4":"[fac-simile] Die Fristen für die Zahlung - sofern vorgesehen - und für eventuelle Einsprüche sind in den Dokumenten angegeben.",
+  "greetings":"[fac-simile] Mit freundlichen Grüßen",
+  "footer":"[fac-simile] Sie erhalten diese E-Mail, weil Sie dem Callcenter von SEND am ${vrDate} Ihre Kontaktdaten mitgeteilt haben."
 }
