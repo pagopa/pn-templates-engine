@@ -1,0 +1,119 @@
+<mjml lang="it">
+  <mj-head>
+    <mj-title><% if (noIta) { %>
+              <%-subject%> &bull; <% } %><%-it_subject%></mj-title>
+    
+    <mj-attributes>
+      <mj-all font-family="system-ui, sans-serif" />
+    </mj-attributes>
+    <mj-raw>
+      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+      <meta name="color-scheme" content="light dark" />
+      <meta name="supported-color-schemes" content="light dark" />
+    </mj-raw>
+  </mj-head>
+
+  <mj-body css-class="mail-body">
+    <mj-include path="../../styles/style.css" type="css" />
+    <mj-wrapper>
+      <!-- PagoPA Logo -->
+      <mj-include text-align="left" padding="0" path="../partials/main-logo-verification.mjml" />
+      <mj-section css-class="section" padding-bottom="0px" padding-top="0px">
+        <mj-column>
+          <!-- Title -->
+          <mj-text
+            css-class="text"
+            font-weight="bold"
+            align="left"
+            padding-top="16px"
+            padding-bottom="16px"
+            color="#17324D"
+          >
+            <!-- H4 Desktop (from MUI Italia)-->
+            <% if (noIta) { %><h1 style="font-size: 32px; line-height: 40px; margin: 0">
+              <%-subject%>
+            </h1><% } %>
+            <h1 style="font-size: 32px; line-height: 40px; margin: 0">
+              <%-it_subject%>
+            </h1>
+          </mj-text>
+
+          <!-- Main Message -->
+          <mj-text
+            css-class="text"
+            font-size="18px"
+            line-height="24px"
+            font-weight="regular"
+            align="left"
+            padding-top="16px"
+            padding-bottom="0px"
+            color="#17324D"
+          >
+            <p style="margin-top: 0px"><% if (noIta) { %><span><%-hello%> &bull; </span><% } %><%-it_hello%>,</p>
+          </mj-text>
+          <mj-text
+            css-class="text"
+            font-size="18px"
+            line-height="24px"
+            font-weight="regular"
+            align="left"
+            padding-top="0px"
+            color="#17324D"
+          >
+            <% if (noIta) { %><p style="margin-top: 10px">
+              <%-body1%>
+            </p><% } %>
+            <% if (noIta) { %><p style="margin-top: 10px">
+              <%-body2%>
+            </p><% } %>
+            <% if (noIta) { %><p style="margin-top: 10px">
+              <%-body3%>
+            </p><% } %>
+            <% if (noIta) { %><p style="margin-top: 10px">
+              <%-body4%>
+            </p><% } %>
+
+            <p style="margin-top: 10px">
+              <%-it_body1%>
+            </p>
+            <p style="margin-top: 10px">
+              <%-it_body2%>
+            </p>
+            <p style="margin-top: 10px">
+              <%-it_body3%>
+            </p>
+            <p style="margin-top: 10px">
+              <%-it_body4%>
+            </p>
+          </mj-text>
+          <mj-text css-class="text" font-size="14px" line-height="20px" padding-bottom="0px" color="#17324D">
+            <p style="margin-top: 0px; margin-bottom: 10 px">
+            <% if (noIta) { %><span><%-greetings%> &bull; </span><% } %> <%-it_greetings%>,</p>
+
+            <p style="margin: 0px">SEND - Servizio Notifiche Digitali</p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <!-- Divider -->
+      <mj-include path="../partials/divider.mjml" />
+      <!-- Footer/Disclaimer -->
+      <mj-section css-class="section" padding-bottom="16px" padding-top="0px">
+        <mj-column>
+          <mj-text
+            css-class="footer-text"
+            font-size="14px"
+            line-height="20px"
+            color="#17324D"
+          >
+            <% if (noIta) { %><p style="margin-top: 0px; font-size: 14px">
+              <%-footer%>
+            </p><% } %>
+            <p style="margin-top: 0px; font-size: 14px">
+              <%-it_footer%>
+            </p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>

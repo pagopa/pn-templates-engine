@@ -1,0 +1,11 @@
+{
+  "language": "sl",
+  "subject": "[fac-simile]SEND - E-pošta s priloženim dokumentom",
+  "hello":"[fac-simile] Pozdravljeni ${denomination}",
+  "body1":"[fac-simile] dne ${ticketDate} ste prek klicnega centra SEND - Servizio Notifiche Digitali (Služba za digitalna obvestila) zaprosili za prejem dokumentov v zvezi z obvestilom SEND s kodo ${iun}.",
+  "body2":"[fac-simile] V prilogi k temu e-poštnemu sporočilu najdete dokumente v zvezi z obvestilom.",
+  "body3":"[fac-simile] Upoštevajte, da datum pošiljanja tega e-poštnega sporočila ne sovpada z datumom dokončanja, tj. datumom, od katerega začnejo veljati pravni učinki obvestila. Za več informacij o datumu dokončanja obiščite <a title=\"Povezava do strani dokončanja\" class=\"link\" style=\"text-decoration: underline\" href=\"https://notifichedigitali.it/perfezionamento\">https://notifichedigitali.it/perfezionamento</a>",
+  "body4":"[fac-simile] Roki za plačilo - če je predvideno - in za morebitne pritožbe so navedeni v dokumentih.",
+  "greetings":"[fac-simile] Lep pozdrav",
+  "footer":"[fac-simile] To e-poštno sporočilo ste prejeli, ker ste svojo kontaktno informacijo posredovali klicnemu centru SEND dne ${vrDate}"
+}
