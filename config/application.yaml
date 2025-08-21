@@ -141,3 +141,6 @@ templates:
       DE: "NotificationCceForEmail/NotificationCceForEmail_de.html"
       SL: "NotificationCceForEmail/NotificationCceForEmail_sl.html"
       FR: "NotificationCceForEmail/NotificationCceForEmail_fr.html"
+  notificationCceForSubject:
+    input:
+      IT: "NotificationCceFor_Subject/NotificationCceFor_Subject.txt"
