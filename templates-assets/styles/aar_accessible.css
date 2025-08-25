@@ -1,0 +1,531 @@
+@font-face {
+    font-family: "Titillium Pro";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../fonts/Titillium_Pro/TitilliumSansPro-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Titillium Pro";
+    font-style: normal;
+    font-weight: bold;
+    src: url(../fonts/Titillium_Pro/TitilliumSansPro-Bold.ttf) format('truetype');
+}
+
+@page {
+    size: A4;
+    margin: 0mm;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Titillium Pro", sans-serif;
+    font-weight: 400;
+    font-size: 14.3px; /*11px on Figma*/
+    color: #031344;
+    line-height: 18.6px;
+    margin: 0;
+    padding: 0
+}
+
+#first-page, #second-page {
+    margin: 14mm 10mm;
+    height: 269mm;
+    width: 190mm;
+}
+
+#second-page {
+    padding-top: 14mm;
+}
+
+
+/********************************* start sections *********************************/
+.upper-section,
+.center-section,
+.lower-section {
+    width: 100%;
+    margin: 0mm;
+}
+
+.upper-section {
+    height: 81mm;
+}
+
+.lower-section {
+    height: 85mm;
+}
+
+.center-section {
+    height: 101mm;
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+#footer_disclaimer {
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+.retrieve_info_box {
+    height: 103mm;
+}
+
+.mandate-section {
+    height: 87mm;
+    display: table-cell;
+}
+/********************************* end sections ***********************************/
+
+
+/********************************* start font and line-height utils ***************/
+.six-pt {
+    font-size: 8px; /* 6px on Figma */
+}
+
+.eight-pt {
+    font-size: 10.667px; /* 8px on Figma */
+}
+
+.nine-pt {
+    font-size: 12px; /* 9px on Figma */
+}
+
+.ten-pt {
+    font-size: 13.333px; /* 10px on Figma */
+}
+
+.eleven-pt {
+    font-size: 14.3px; /* 11px on Figma */
+}
+
+.twelve-pt {
+    font-size: 16px; /* 12px on Figma */
+}
+
+.eight-lh {
+    line-height: 8px;
+}
+
+.eleven-lh {
+    line-height: 14.667px; /* 11px on Figma */
+}
+
+.sixteen-lh {
+    line-height: 21.333px; /* 16px on Figma */
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.weight-400 {
+    font-weight: 400 !important;
+}
+
+a {
+    text-decoration: underline;
+    color: #0B3EE3;
+}
+
+a.black {
+    text-decoration: none;
+    color: inherit;
+}
+
+.font-uppercase {
+    text-transform: uppercase;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+/********************************* end font and line-height utils *****************/
+
+
+/********************************* start space utils ******************************/
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+.pb-0 {
+    padding-bottom: 0 !important;
+}
+
+.pt-0 {
+    padding-top: 0 !important;
+}
+
+.pt-12 {
+    padding-top: 12px;
+}
+
+.pr-12 {
+    padding-right: 12px;
+}
+
+.pb-12 {
+    padding-bottom: 12px;
+}
+
+.pl-12 {
+    padding-left: 12px;
+}
+
+.pl-72 {
+    padding-left: 72px;
+}
+
+.px-12 {
+    padding: 0 12px;
+}
+
+.py-12 {
+    padding: 12px 0;
+}
+
+.p-12 {
+    padding: 12px;
+}
+
+.table {
+    display: table;
+    width: 100%;
+}
+
+.fixed-table {
+    table-layout: fixed;
+    display: table;
+    width: 100%;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+}
+
+.vertical-align-bottom {
+    vertical-align: bottom;
+}
+
+.vertical-align-top {
+    vertical-align: top;
+}
+
+.vertical-align-center {
+    vertical-align: middle;
+}
+
+.width-15 {
+    width: 15%;
+}
+
+.width-40 {
+    width: 40%;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.width-60 {
+    width: 60%;
+}
+
+.width-85 {
+    width: 85%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.radius-8 {
+    border-radius: 8px;
+}
+/********************************* end space utils ********************************/
+
+
+/********************************* start form utils *******************************/
+.form-field {
+    display: inline-block; 
+    width: 80mm;
+}
+
+.border-bottom {
+    border-bottom: solid 1.3px #ECECEC;
+    margin-top: 4.2mm;
+    padding-bottom: 5px;
+    color: #595959;
+}
+
+.mb-form {
+    margin-bottom: 4.2mm;
+}
+
+.cell-large-spacing {
+    padding-left: 5mm;
+}
+/********************************* end form utils *********************************/
+
+
+/********************************* start components *******************************/
+.heading {
+    height: 7mm;
+    background-color: #DBF9FA;
+}
+
+.heading .cell {
+    padding: 1.4mm 3.7mm;
+}
+
+#arrow-img {
+    width: 24px;
+}
+
+#main_subject {
+    word-wrap: break-word;
+}
+
+#main_disclaimer {
+    padding: 2mm 12px 4.2mm 12px;
+}
+
+.blue-border-box {
+    border: solid #CED8F9 1px;
+    padding: 11px;
+    margin-top: 90px;
+}
+
+.blue-border-box-radd {
+    border: solid #CED8F9 1px;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+.blue-border-iun {
+    border: solid #CED8F9 1px;
+}
+
+.read-more {
+    padding-top: 21px;
+}
+/********************************* end components *********************************/
+
+
+/********************************* start sender box *******************************/
+#sender_logo img {
+    height: 53px; /* 40pt on Figma */
+}
+
+#sender_box {
+    height: 23mm;
+}
+
+#sender_box_radd {
+    width: 159mm;
+    height: 23mm;
+}
+
+#sender_box p {
+    white-space: nowrap;
+    overflow: visible;
+}
+
+#send_box__logo {
+    width: 17mm;
+}
+
+#legal_subtitle, #sender_logo {
+    margin-top: 8px;
+}
+
+#legal_subtitle p {
+    width: 67px;
+    line-height: 10px;
+    border-top: solid 1px;
+    padding-top: 7px;
+    font-weight: 600;
+    letter-spacing: 0.50px;
+}
+
+#send_box {
+    height: 26mm;
+    line-height: 8px;
+}
+
+.logo-prefix, #send_box_site {
+    line-height: 6mm;
+}
+/********************************* end sender box *********************************/
+
+
+/********************************* start qr-code box ******************************/
+.list-box-height_qr_code_box {
+    height: 42mm;
+    margin-bottom: 5mm;
+}
+
+.qr_code_box {
+    width: 41mm;
+}
+
+#qr-code {
+    height: 41mm
+}
+
+/********************************* end qr-code box ********************************/
+
+
+/********************************* start lists ************************************/
+.section-list ol {
+    margin: 2mm 0;
+}
+
+.section-list li {
+    margin-top: 1.5mm;
+}
+
+.section-list .cell {
+    padding-top: 7px;
+}
+
+.custom-list,
+.custom-ol-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-ol-list>li {
+    padding-left: 31px;
+    margin-bottom: 10px;
+}
+
+.number-list {
+    padding-right: 5px;
+    padding-top: 2px;
+}
+
+.number-list img {
+    width: 21px;
+}
+
+ul#square-list-mandate {
+    margin-top: 1mm;
+}
+
+ul#square-list li,
+ul#square-list-mandate li {
+    list-style-type: square;
+    margin-left: 5mm;
+    margin-top: 0.4mm;
+    margin-bottom: 0;
+}
+/********************************* end lists **************************************/
+
+
+/********************************* start io box ***********************************/
+#io_download {
+    height: 45px;
+}
+
+#io_download h3 {
+    padding-bottom: 4px;
+}
+
+#io_img img {
+    width: 45px;
+}
+/********************************* end io box *************************************/
+
+
+/********************************* start advantages section ***********************/
+.advantages-explanation__content {
+    width: 95%;
+    margin: 11px auto;
+}
+
+.advantages-table {
+    padding-top: 24px;
+    margin: 0 auto;
+    height: 35mm;
+}
+
+.advantage-col {
+    width: 33.33%;
+}
+
+img.message-advantages_explanation {
+    height: 34px;
+    margin: 3mm;
+    margin-bottom: 1mm;
+}
+
+#help_box {
+    height: 78mm;
+}
+/********************************* end advantages section *************************/
+
+.access_online_box {
+    width: 150mm;
+    height: 41mm;
+}
+
+#access_yourself_box {
+    margin-top: 4mm;
+    width: auto;
+}
+
+.iun_box {
+    padding: 0 40px;
+    width: 47mm;
+}
+
+.iun_box_radd {
+    padding: 9px;
+    width: 50mm;
+}
+
+#mandate_box {
+    padding: 21px;
+}
+
+#mandate_box .title {
+    padding: 0 0 27px 0;
+}
+
+.message-advantages_explanation {
+    height: 34px;
+    width: 34px;
+    margin: 3mm auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.icon-time {
+    background-image: url("../images/time.jpg");
+}
+
+.icon-earth {
+    background-image: url("../images/earth.jpg");
+}
+
+.icon-control {
+    background-image: url("../images/control.jpg");
+}
