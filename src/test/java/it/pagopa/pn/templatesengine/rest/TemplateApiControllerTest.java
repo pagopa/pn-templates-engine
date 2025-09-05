@@ -50,7 +50,6 @@ public class TemplateApiControllerTest {
     public static final String MALFUNCTION_LEGAL_FACT = "/templates-engine-private/v1/templates/malfunction-legal-fact";
     public static final String NOTIFICATION_AAR_FOR_SMS = "/templates-engine-private/v1/templates/notification-aar-for-sms";
     public static final String SMS_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/sms-verification-code-body";
-    public static final String NOTIFICATION_CCE_FOR_EMAIL = "/templates-engine-private/v1/templates/notification-cce-for-email";
 
     @Autowired
     WebTestClient webTestClient;
@@ -248,15 +247,6 @@ public class TemplateApiControllerTest {
                         HttpStatus.OK,
                         EXPECTED_RESULT
                 ),
-                Arguments.of(
-                        NOTIFICATION_CCE_FOR_EMAIL,
-                        TemplatesEnum.NOTIFICATION_CCE_FOR_EMAIL,
-                        new NotificationCceForEmail(),
-                        LanguageEnum.IT,
-                        MediaType.APPLICATION_JSON,
-                        HttpStatus.OK,
-                        EXPECTED_RESULT
-                            ),
                 Arguments.of(
                         PEC_VALIDATION_CONTACTS_SUCCESS_BODY,
                         TemplatesEnum.PEC_VALIDATION_CONTACTS_SUCCESS_BODY,
