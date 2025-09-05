@@ -234,19 +234,6 @@ public class DocumentGeneratorTest {
         generateAndSaveDocument(template, langs, model, FileType.HTML);
     }
 
-
-//    @Test
-//    void generate_notificationCceForEmail() {
-//        var template = TemplatesEnum.NOTIFICATION_CCE_FOR_EMAIL;
-//        LanguageEnum[] langs = { LanguageEnum.IT };
-//        var model = new NotificationCceForEmail()
-//                .denomination("testDenomination")
-//                .iun("testIun")
-//                .ticketDate("testTicketDate")
-//                .vrDate("testVrDate");
-//        generateAndSaveDocument(template, langs, model, FileType.HTML);
-//    }
-
     @Test
     void generate_notificationAarForPec() {
         var template = TemplatesEnum.NOTIFICATION_AAR_FOR_PEC;

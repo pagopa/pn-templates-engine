@@ -135,6 +135,3 @@ templates:
     loadAsString: true
     input:
       IT: "PEC_ValidationContactsRejectSubject/PEC_ValidationContactsRejectSubject.txt"
-  notificationCceForEmail:
-    input:
-      IT: "NotificationCceForEmail/NotificationCceForEmail.html"

@@ -87,9 +87,6 @@ templates:
       DE: "NotificationAARForEMAIL/NotificationAARForEMAIL_de.html"
       SL: "NotificationAARForEMAIL/NotificationAARForEMAIL_sl.html"
       FR: "NotificationAARForEMAIL/NotificationAARForEMAIL_fr.html"
-  notificationCceForEmail:
-    input:
-      IT: "NotificationCceForEmail/NotificationCceForEmail.html"
   notificationAarForPec:
     input:
       IT: "NotificationAARForPEC/NotificationAARForPEC.html"
