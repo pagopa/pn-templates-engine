@@ -305,6 +305,24 @@ components:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                   type: string
 
+    NotificationCceForEmail:
+      type: object
+      required:
+        - denomination
+        - iun
+        - ticketDate
+        - vrDate
+      properties:
+        denomination:
+          x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+          type: string
+        iun:
+          type: string
+        ticketDate:
+          type: string
+        vrDate:
+          type: string
+
     NotificationAarForPec:
       type: object
       required:
