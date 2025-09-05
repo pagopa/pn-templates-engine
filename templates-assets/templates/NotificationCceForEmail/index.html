@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>SEND - Documenti relativi alla notifica [IUN]</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background-color: #ffffff;
+      color: #17324D;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #17324D;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-top: 16px;
+    }
+
+    .footer {
+      font-size: 14px;
+      color: #555;
+      margin-top: 40px;
+    }
+
+    a {
+      color: #0073e6;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>SEND - Documenti relativi alla notifica ${notification.iun}</h1>
+
+  <p>Ciao [${notification.denomination],</p>
+
+  <p>
+    In data [data] hai richiesto di ricevere i documenti relativi alla notifica SEND con codice <strong>${notification.iun}</strong>,
+    tramite il call center di SEND – Servizio Notifiche Digitali.
+  </p>
+
+  <p>In allegato a questa email, trovi i documenti relativi alla notifica.</p>
+
+  <p>
+    Tieni presente che la data di invio di questa email non coincide con la <strong>data di perfezionamento</strong>,
+    ovvero quella da cui decorrono gli effetti giuridici dell'atto notificato.
+    Per maggiori informazioni sulla data di perfezionamento visita
+    <a href="https://notifichedigitali.it/perfezionamento" target="_blank">notifichedigitali.it/perfezionamento</a>.
+  </p>
+
+  <p>
+    I termini per il pagamento – se previsto – e per eventuali impugnazioni sono indicati nei documenti.
+  </p>
+
+  <p>Saluti<br>SEND – Servizio Notifiche Digitali</p>
+
+  <div class="footer">
+    <p>
+      Ricevi questa email perché hai comunicato un tuo recapito al call center di SEND in data ${notification.vrDate}.
+    </p>
+  </div>
+</div>
+</body>
+</html>
