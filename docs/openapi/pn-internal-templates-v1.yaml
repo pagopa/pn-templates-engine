@@ -492,36 +492,6 @@ paths:
         '500':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/notification-cce-for-email:
-    put:
-      summary: NotificationCceForEmail
-      description: Genera un documento HTML basato sul template NotificationCceForEmail.
-      operationId: notificationCceForEmail
-      tags:
-        - Template
-      parameters:
-        - in: header
-          name: x-language
-          description: Lingua del documento
-          required: true
-          schema:
-            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
-      requestBody:
-        description: Parametri necessari per generare il documento
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: 'schemas-params.yaml#/components/schemas/NotificationCceForEmail'
-
-      responses:
-        '200':
-          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseHTML'
-        '400':
-          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
-        '500':
-          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
-
   ############################################################################################
   ###                                     TXT Response                                     ###
   ############################################################################################
