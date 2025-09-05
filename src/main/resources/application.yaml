@@ -134,9 +134,6 @@ templates:
   notificationCceForEmail:
     input:
       IT: "NotificationCceForEmail/NotificationCceForEmail.html"
-      DE: "NotificationCceForEmail/NotificationCceForEmail_de.html"
-      SL: "NotificationCceForEmail/NotificationCceForEmail_sl.html"
-      FR: "NotificationCceForEmail/NotificationCceForEmail_fr.html"
   notificationCceForSubject:
     loadAsString: true
     input:
