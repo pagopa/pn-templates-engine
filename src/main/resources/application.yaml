@@ -87,9 +87,6 @@ templates:
       DE: "NotificationAARForEMAIL/NotificationAARForEMAIL_de.html"
       SL: "NotificationAARForEMAIL/NotificationAARForEMAIL_sl.html"
       FR: "NotificationAARForEMAIL/NotificationAARForEMAIL_fr.html"
-  notificationCceForEmail:
-    input:
-      IT: "NotificationCceForEmail/NotificationCceForEmail.html"
   notificationAarForPec:
     input:
       IT: "NotificationAARForPEC/NotificationAARForPEC.html"
@@ -134,3 +131,10 @@ templates:
     loadAsString: true
     input:
       IT: "PEC_ValidationContactsRejectSubject/PEC_ValidationContactsRejectSubject.txt"
+  notificationCceForEmail:
+    input:
+      IT: "NotificationCceForEmail/NotificationCceForEmail.html"
+  notificationCceForSubject:
+    loadAsString: true
+    input:
+      IT: "NotificationCceFor_Subject/NotificationCceFor_Subject.txt"

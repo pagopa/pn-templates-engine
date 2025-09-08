@@ -3276,7 +3276,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"verificationCode\": \"TEST\"\n}",
+													"raw": "{\n  \"verificationCode\": \"TEST\", \"recipientType\":\"PF\" \n}",
 													"options": {
 														"raw": {
 															"headerFamily": "json",
@@ -3320,7 +3320,7 @@
 														],
 														"body": {
 															"mode": "raw",
-															"raw": "{\n  \"verificationCode\": \"<string>\"\n}",
+															"raw": "{\n  \"verificationCode\": \"<string>\", \"recipientType\": \"<string>\" \n}",
 															"options": {
 																"raw": {
 																	"headerFamily": "json",
@@ -3382,7 +3382,7 @@
 														],
 														"body": {
 															"mode": "raw",
-															"raw": "{\n  \"verificationCode\": \"<string>\"\n}",
+															"raw": "{\n  \"verificationCode\": \"<string>\", \"recipientType\": \"<string>\" \n}",
 															"options": {
 																"raw": {
 																	"headerFamily": "json",
@@ -3436,7 +3436,7 @@
 														],
 														"body": {
 															"mode": "raw",
-															"raw": "{\n  \"verificationCode\": \"<string>\"\n}",
+															"raw": "{\n  \"verificationCode\": \"<string>\", \"recipientType\": \"<string>\" \n}",
 															"options": {
 																"raw": {
 																	"headerFamily": "json",
@@ -5051,6 +5051,227 @@
 																"v1",
 																"templates",
 																"pec-validation-contacts-reject-subject"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/problem+json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference https://raw.githubusercontent.com/pagopa/pn-commons/61cdf0712f133c8c69e056abfad6ce5223242ba0/docs/openapi/pn-errors.yaml#/components/schemas/Problem not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "notification-cce-for-email",
+									"item": [
+										{
+											"name": "NotificationCceForEmail",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "x-language",
+														"value": "IT",
+														"description": "(Required) Lingua del documento"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/html"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"denomination\": \"Mario Rossi\",\n  \"date\": \"01/01/0001\",\n  \"iun\": \"AAA-AAAA-AAAA-AAAA\",\n  \"vrDate\": \"01/01/0001\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-cce-for-email",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"templates-engine-private",
+														"v1",
+														"templates",
+														"notification-cce-for-email"
+													]
+												},
+												"description": "Genera un documento HTML basato sul template NotificationCceForEmail."
+											},
+											"response": [
+												{
+													"name": "Ok",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "text/html"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"denomination\": \"<string>\",\n  \"ticketDate\": \"<string>\",\n  \"iun\": \"<string>\",\n  \"vrDate\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-cce-for-email",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-cce-for-email"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/html"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "Tipo di contenuto del documento",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												},
+												{
+													"name": "Richiesta non valida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"denomination\": \"<string>\",\n  \"ticketDate\": \"<string>\",\n  \"iun\": \"<string>\",\n  \"vrDate\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-cce-for-email",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-cce-for-email"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "x-language",
+																"value": "IT",
+																"description": "(Required) Lingua del documento"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/problem+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"denomination\": \"<string>\",\n  \"ticketDate\": \"<string>\",\n  \"iun\": \"<string>\",\n  \"vrDate\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/templates-engine-private/v1/templates/notification-cce-for-email",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"templates-engine-private",
+																"v1",
+																"templates",
+																"notification-cce-for-email"
 															]
 														}
 													},

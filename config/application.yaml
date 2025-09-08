@@ -138,3 +138,6 @@ templates:
   notificationCceForEmail:
     input:
       IT: "NotificationCceForEmail/NotificationCceForEmail.html"
+  notificationCceForSubject:
+    input:
+      IT: "NotificationCceFor_Subject/NotificationCceFor_Subject.txt"

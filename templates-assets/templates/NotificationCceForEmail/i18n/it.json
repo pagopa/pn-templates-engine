@@ -1,11 +1,12 @@
 {
   "it_language": "it",
-  "it_subject": "SEND - Documenti relativi alla notifica ${notification.iun}",
-  "it_hello": "Ciao ${notification.denomination},",
-  "it_body1": "In data ${notification.ticketDate} hai richiesto di ricevere i documenti relativi alla notifica SEND con codice ${notification.iun}, tramite il call center di SEND – Servizio Notifiche Digitali.",
-  "it_body2": "In allegato a questa email, trovi i documenti relativi alla notifica.",
-  "it_body3": "Tieni presente che la data di invio di questa email non coincide con la <strong>data di perfezionamento</strong>, ovvero quella da cui decorrono gli effetti giuridici dell'atto notificato. Per maggiori informazioni sulla data di perfezionamento visita <a href=\"https://notifichedigitali.it/perfezionamento\" target=\"_blank\">notifichedigitali.it/perfezionamento</a>.",
-  "it_body4": "I termini per il pagamento – se previsto – e per eventuali impugnazioni sono indicati nei documenti.",
-  "it_greetings": "Saluti<br>SEND – Servizio Notifiche Digitali",
-  "it_footer": "Ricevi questa email perché hai comunicato un tuo recapito al call center di SEND in data ${notification.vrDate}."
+  "it_subject": "SEND - Documenti relativi alla notifica ${iun}",
+  "it_hello":"Ciao ${denomination}",
+  "it_body1":"in data ${ticketDate} hai richiesto di ricevere i documenti relativi alla notifica SEND con codice ${iun}, tramite il call center di SEND - Servizio Notifiche Digitali.",
+  "it_body2":"In allegato a questa email, trovi <b>i documenti relativi alla notifica</b>.",
+  "it_body3":"Tieni presente che la data di invio di questa email non coincide con la data di perfezionamento, ovvero quella da cui decorrono gli effetti giuridici dell&#39;atto notificato. Per maggiori informazioni sulla data di perfezionamento visita <a title=\"Link alla pagina di perfezionamento\" class=\"link\" style=\"text-decoration: underline\" href=\"https://notifichedigitali.it/perfezionamento\">https://notifichedigitali.it/perfezionamento</a>",
+  "it_body4":"I termini per il pagamento - se previsto - e per eventuali impugnazioni sono indicati nei documenti.",
+  "it_greetings":"Saluti",
+  "it_footer":"Ricevi questa email perch&eacute; hai comunicato un tuo recapito al call center di SEND in data ${vrDate}."
+
 }
