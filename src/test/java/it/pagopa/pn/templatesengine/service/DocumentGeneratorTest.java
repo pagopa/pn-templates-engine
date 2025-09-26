@@ -217,8 +217,8 @@ public class DocumentGeneratorTest {
 
     /** HTML **/
     @Test
-    void generate_notificationAarForEmail() {
-        var template = TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL;
+    void generate_notificationAarForEmailAnalog() {
+        var template = TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_ANALOG;
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
         var sender = new AarForEmailSender()
                 .paDenomination("TEST_PaDenomination");
@@ -230,6 +230,47 @@ public class DocumentGeneratorTest {
                 .quickAccessLink("TEST_quickAccessLink")
                 .pnFaqSendURL("TEST_pnFaqSendURL")
                 .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
+                .deliveryMode(DeliveryMode.ANALOG)
+                .notification(notification);
+        generateAndSaveDocument(template, langs, model, FileType.HTML);
+    }
+
+    /** HTML **/
+    @Test
+    void generate_notificationAarForEmailAnalog_withNullDeliveryModeValue() {
+        var template = TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_ANALOG;
+        LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
+        var sender = new AarForEmailSender()
+                .paDenomination("TEST_PaDenomination");
+        var notification = new AarForEmailNotification()
+                .iun("TEST_iun")
+                .sender(sender);
+        var model = new NotificationAarForEmail()
+                .perfezionamentoURL("TEST_perfezionamentoURL")
+                .quickAccessLink("TEST_quickAccessLink")
+                .pnFaqSendURL("TEST_pnFaqSendURL")
+                .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
+                .deliveryMode(null)
+                .notification(notification);
+        generateAndSaveDocument(template, langs, model, FileType.HTML);
+    }
+
+    /** HTML **/
+    @Test
+    void generate_notificationAarForEmailDigital() {
+        var template = TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_DIGITAL;
+        LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
+        var sender = new AarForEmailSender()
+                .paDenomination("TEST_PaDenomination");
+        var notification = new AarForEmailNotification()
+                .iun("TEST_iun")
+                .sender(sender);
+        var model = new NotificationAarForEmail()
+                .perfezionamentoURL("TEST_perfezionamentoURL")
+                .quickAccessLink("TEST_quickAccessLink")
+                .pnFaqSendURL("TEST_pnFaqSendURL")
+                .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
+                .deliveryMode(DeliveryMode.DIGITAL)
                 .notification(notification);
         generateAndSaveDocument(template, langs, model, FileType.HTML);
     }
@@ -297,8 +338,23 @@ public class DocumentGeneratorTest {
 
     /** TXT **/
     @Test
-    void generate_notificationAarForSms() {
-        var template = TemplatesEnum.NOTIFICATION_AAR_FOR_SMS;
+    void generate_notificationAarForSmsAnalog() {
+        var template = TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_ANALOG;
+        LanguageEnum[] langs = { LanguageEnum.IT };
+        var sender = new AarForSmsSender()
+                .paDenomination("TEST_PaDenomination");
+        var notification = new AarForSmsNotification()
+                .iun("TEST_iun")
+                .sender(sender);
+        var model = new NotificationAarForSms()
+                .notification(notification);
+        generateAndSaveDocument(template, langs, model, FileType.TXT);
+    }
+
+    /** TXT **/
+    @Test
+    void generate_notificationAarForSmsDigital() {
+        var template = TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_DIGITAL;
         LanguageEnum[] langs = { LanguageEnum.IT };
         var sender = new AarForSmsSender()
                 .paDenomination("TEST_PaDenomination");

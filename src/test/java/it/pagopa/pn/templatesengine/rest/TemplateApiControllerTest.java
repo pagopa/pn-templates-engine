@@ -223,8 +223,26 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         NOTIFICATION_AAR_FOR_SMS,
-                        TemplatesEnum.NOTIFICATION_AAR_FOR_SMS,
-                        new NotificationAarForSms(),
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_ANALOG,
+                        getNotificationAarForSms(DeliveryMode.ANALOG),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        NOTIFICATION_AAR_FOR_SMS,
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_DIGITAL,
+                        getNotificationAarForSms(DeliveryMode.DIGITAL),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        NOTIFICATION_AAR_FOR_SMS,
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_ANALOG,
+                        getNotificationAarForSms(null),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.OK,
@@ -241,8 +259,27 @@ public class TemplateApiControllerTest {
                 ),
                 Arguments.of(
                         NOTIFICATION_AAR_FOR_EMAIL,
-                        TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL,
-                        new NotificationAarForEmail(),
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_ANALOG,
+                        getNotificationAarForEmail(DeliveryMode.ANALOG),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        NOTIFICATION_AAR_FOR_EMAIL,
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_DIGITAL,
+                        getNotificationAarForEmail(DeliveryMode.DIGITAL),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+
+                Arguments.of(
+                        NOTIFICATION_AAR_FOR_EMAIL,
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_ANALOG,
+                        getNotificationAarForEmail(null),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.OK,
@@ -353,6 +390,34 @@ public class TemplateApiControllerTest {
                         new byte[]{1, 2, 3}
                 )
         );
+    }
+
+    private static NotificationAarForSms getNotificationAarForSms(DeliveryMode deliveryMode) {
+        NotificationAarForSms notificationAarForSms = new NotificationAarForSms();
+        AarForSmsNotification notification = new AarForSmsNotification();
+        notification.setIun("test_iun");
+        AarForSmsSender sender = new AarForSmsSender();
+        sender.setPaDenomination("test_pa");
+        notification.setSender(sender);
+        notificationAarForSms.setNotification(notification);
+        notificationAarForSms.setDeliveryMode(deliveryMode);
+        return notificationAarForSms;
+    }
+
+    private static NotificationAarForEmail getNotificationAarForEmail(DeliveryMode deliveryMode) {
+        NotificationAarForEmail notificationAarForEmail = new NotificationAarForEmail();
+        AarForEmailNotification notification = new AarForEmailNotification();
+        notification.setIun("test_iun");
+        AarForEmailSender sender = new AarForEmailSender();
+        sender.setPaDenomination("test_pa");
+        notification.setSender(sender);
+        notificationAarForEmail.setNotification(notification);
+        notificationAarForEmail.setPerfezionamentoURL("test_perfezionamento_url");
+        notificationAarForEmail.setPiattaformaNotificheURL("test_piattaforma_notifiche_url");
+        notificationAarForEmail.setPnFaqSendURL("test_pn_faq_send_url");
+        notificationAarForEmail.setQuickAccessLink("test_quick_access_link");
+        notificationAarForEmail.setDeliveryMode(deliveryMode);
+        return notificationAarForEmail;
     }
 
 }

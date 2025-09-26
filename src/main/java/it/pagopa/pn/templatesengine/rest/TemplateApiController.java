@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
@@ -125,7 +126,14 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<NotificationAarForEmail> request,
             final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL, xLanguage, request);
+        //Per garantire la retrocompatibilità, se il valore di deliveryMode è null, il template da generare dovrà essere quello ANALOGICO.
+        return request.flatMap(r -> {
+            DeliveryMode deliveryMode = r.getDeliveryMode();
+            TemplatesEnum template = (Objects.isNull(deliveryMode) || deliveryMode.equals(DeliveryMode.ANALOG))
+                    ? TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_ANALOG
+                    : TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_DIGITAL;
+            return processTextTemplate(template, xLanguage, Mono.just(r));
+        });
     }
 
 
@@ -150,7 +158,14 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<NotificationAarForSms> request,
             final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_SMS, xLanguage, request);
+        //Per garantire la retrocompatibilità, se il valore di deliveryMode è null, il template da generare dovrà essere quello ANALOGICO.
+        return request.flatMap(r -> {
+            DeliveryMode deliveryMode = r.getDeliveryMode();
+            TemplatesEnum template = (Objects.isNull(deliveryMode) || deliveryMode.equals(DeliveryMode.ANALOG))
+                    ? TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_ANALOG
+                    : TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_DIGITAL;
+            return processTextTemplate(template, xLanguage, Mono.just(r));
+        });
     }
 
     @Override
