@@ -26,7 +26,7 @@ body {
     font-family: "Titillium Pro", sans-serif;
     font-weight: 400;
     font-size: 14.3px; /*11px on Figma*/
-    color: #031344;
+    color: #000000;
     line-height: 18.6px;
     margin: 0;
     padding: 0
@@ -267,7 +267,7 @@ a.black {
 }
 
 .border-bottom {
-    border-bottom: solid 1.3px #ECECEC;
+    border-bottom: solid 1.3px #7C7C7B;
     margin-top: 4.2mm;
     padding-bottom: 5px;
     color: #595959;
@@ -306,19 +306,19 @@ a.black {
 }
 
 .blue-border-box {
-    border: solid #CED8F9 1px;
+    border: solid #7C7C7B 1px;
     padding: 11px;
     margin-top: 90px;
 }
 
 .blue-border-box-radd {
-    border: solid #CED8F9 1px;
+    border: solid #7C7C7B 1px;
     margin-top: 35px;
     margin-bottom: 30px;
 }
 
 .blue-border-iun {
-    border: solid #CED8F9 1px;
+    border: solid #7C7C7B 1px;
 }
 
 .read-more {
