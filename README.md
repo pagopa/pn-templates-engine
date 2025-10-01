@@ -36,5 +36,5 @@ Put this html in <main> tag of aar document
 </div>
 
 <!-- linee pieghe in 3 -->
-<div style="height: 99mm; width:210mm; position: absolute; top: 99mm; border-bottom: 2px dotted purple; border-top: 2px dotted purple; box-sizing: border-box"></div>
+<div style="height: 95mm; width:210mm; position: absolute; top: 96mm; border-bottom: 2px dotted purple; border-top: 2px dotted purple; box-sizing: border-box"></div>
 ```
