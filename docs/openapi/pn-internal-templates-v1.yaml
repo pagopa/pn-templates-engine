@@ -314,9 +314,9 @@ paths:
 
   /templates-engine-private/v1/templates/notification-aar-for-email:
     put:
-      summary: NotificationAarForEmail
-      description: Genera un documento HTML basato sul template NotificationAarForEmail.
-      operationId: notificationAarForEmail
+      summary: NotificationAarForEmailAnalog
+      description: Genera un documento HTML basato sul template NotificationAarForEmailAnalog.
+      operationId: notificationAarForEmailAnalog
       tags:
         - Template
       parameters:
@@ -558,9 +558,9 @@ paths:
 
   /templates-engine-private/v1/templates/notification-aar-for-sms:
     put:
-      summary: NotificationAarForSms
-      description: Genera un documento TXT basato sul template NotificationAarForSms.
-      operationId: notificationAarForSms
+      summary: NotificationAarForSmsAnalog
+      description: Genera un documento TXT basato sul template NotificationAarForSmsAnalog.
+      operationId: notificationAarForSmsAnalog
       tags:
         - Template
       parameters:
