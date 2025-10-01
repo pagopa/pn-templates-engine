@@ -121,7 +121,7 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<String>> notificationAarForEmail(
+    public Mono<ResponseEntity<String>> notificationAarForEmailAnalog(
             LanguageEnum xLanguage,
             Mono<NotificationAarForEmail> request,
             final ServerWebExchange exchange) {
@@ -146,7 +146,7 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<String>> notificationAarForSms(
+    public Mono<ResponseEntity<String>> notificationAarForSmsAnalog(
             LanguageEnum xLanguage,
             Mono<NotificationAarForSms> request,
             final ServerWebExchange exchange) {
