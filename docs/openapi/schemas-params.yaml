@@ -286,12 +286,6 @@ components:
           type: string
         piattaformaNotificheURL:
           type: string
-        deliveryMode:
-          type: string
-          description: Modalità di consegna della notifica
-          enum:
-            - DIGITAL
-            - ANALOG
         notification:
           title: AarForEmailNotification
           type: object
@@ -387,12 +381,6 @@ components:
       required:
         - notification
       properties:
-        deliveryMode:
-          type: string
-          description: Modalità di consegna della notifica
-          enum:
-            - DIGITAL
-            - ANALOG
         notification:
           title: AarForSmsNotification
           type: object
