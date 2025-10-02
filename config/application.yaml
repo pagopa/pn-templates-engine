@@ -85,21 +85,30 @@ templates:
   analogDeliveryWorkflowTimeoutLegalFact:
     input:
       IT: "AnalogDeliveryWorkflowTimeoutLegalFact/AnalogDeliveryWorkflowTimeoutLegalFact.html"
-  notificationAarForEmail:
+  notificationAarForEmailAnalog:
     input:
-      IT: "NotificationAARForEMAIL/NotificationAARForEMAIL.html"
-      DE: "NotificationAARForEMAIL/NotificationAARForEMAIL_de.html"
-      SL: "NotificationAARForEMAIL/NotificationAARForEMAIL_sl.html"
-      FR: "NotificationAARForEMAIL/NotificationAARForEMAIL_fr.html"
+      IT: "NotificationAARForEMAILAnalog/NotificationAARForEMAILAnalog.html"
+      DE: "NotificationAARForEMAILAnalog/NotificationAARForEMAILAnalog_de.html"
+      SL: "NotificationAARForEMAILAnalog/NotificationAARForEMAILAnalog_sl.html"
+      FR: "NotificationAARForEMAILAnalog/NotificationAARForEMAILAnalog_fr.html"
+  notificationAarForEmailDigital:
+    input:
+      IT: "NotificationAARForEMAILDigital/NotificationAARForEMAILDigital.html"
+      DE: "NotificationAARForEMAILDigital/NotificationAARForEMAILDigital_de.html"
+      SL: "NotificationAARForEMAILDigital/NotificationAARForEMAILDigital_sl.html"
+      FR: "NotificationAARForEMAILDigital/NotificationAARForEMAILDigital_fr.html"
   notificationAarForPec:
     input:
       IT: "NotificationAARForPEC/NotificationAARForPEC.html"
       DE: "NotificationAARForPEC/NotificationAARForPEC_de.html"
       SL: "NotificationAARForPEC/NotificationAARForPEC_sl.html"
       FR: "NotificationAARForPEC/NotificationAARForPEC_fr.html"
-  notificationAarForSms:
+  notificationAarForSmsAnalog:
     input:
-      IT: "NotificationAARForSMS/NotificationAARForSMS.txt"
+      IT: "NotificationAARForSMSAnalog/NotificationAARForSMSAnalog.txt"
+  notificationAarForSmsDigital:
+    input:
+      IT: "NotificationAARForSMSDigital/NotificationAARForSMSDigital.txt"
   notificationAarForSubject:
     input:
       IT: "NotificationAARFor_Subject/NotificationAARFor_Subject.txt"

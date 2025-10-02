@@ -35,7 +35,8 @@ public class TemplateApiControllerTest {
     public static final String NOTIFICATION_AAR = "/templates-engine-private/v1/templates/notification-aar";
     public static final String NOTIFICATION_AAR_RADD_ALT = "/templates-engine-private/v1/templates/notification-aar-radd-alt";
     public static final String ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT = "/templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact";
-    public static final String NOTIFICATION_AAR_FOR_EMAIL = "/templates-engine-private/v1/templates/notification-aar-for-email";
+    public static final String NOTIFICATION_AAR_FOR_EMAIL_ANALOG = "/templates-engine-private/v1/templates/notification-aar-for-email";
+    public static final String NOTIFICATION_AAR_FOR_EMAIL_DIGITAL = "/templates-engine-private/v1/templates/notification-aar-for-email-digital";
     public static final String NOTIFICATION_AAR_FOR_PEC = "/templates-engine-private/v1/templates/notification-aar-for-pec";
     public static final String MAIL_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/mail-verification-code-body";
     public static final String PEC_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/pec-verification-code-body";
@@ -48,7 +49,8 @@ public class TemplateApiControllerTest {
     public static final String PEC_VALIDATION_CONTACTS_SUCCESS_SUBJECT = "/templates-engine-private/v1/templates/pec-validation-contacts-success-subject";
     public static final String PEC_VALIDATION_CONTACTS_REJECT_SUBJECT = "/templates-engine-private/v1/templates/pec-validation-contacts-reject-subject";
     public static final String MALFUNCTION_LEGAL_FACT = "/templates-engine-private/v1/templates/malfunction-legal-fact";
-    public static final String NOTIFICATION_AAR_FOR_SMS = "/templates-engine-private/v1/templates/notification-aar-for-sms";
+    public static final String NOTIFICATION_AAR_FOR_SMS_ANALOG = "/templates-engine-private/v1/templates/notification-aar-for-sms";
+    public static final String NOTIFICATION_AAR_FOR_SMS_DIGITAL = "/templates-engine-private/v1/templates/notification-aar-for-sms-digital";
     public static final String SMS_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/sms-verification-code-body";
     public static final String NOTIFICATION_CCE_FOR_EMAIL = "/templates-engine-private/v1/templates/notification-cce-for-email";
 
@@ -222,8 +224,17 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        NOTIFICATION_AAR_FOR_SMS,
-                        TemplatesEnum.NOTIFICATION_AAR_FOR_SMS,
+                        NOTIFICATION_AAR_FOR_SMS_ANALOG,
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_ANALOG,
+                        new NotificationAarForSms(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        NOTIFICATION_AAR_FOR_SMS_DIGITAL,
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_DIGITAL,
                         new NotificationAarForSms(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -240,8 +251,17 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        NOTIFICATION_AAR_FOR_EMAIL,
-                        TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL,
+                        NOTIFICATION_AAR_FOR_EMAIL_ANALOG,
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_ANALOG,
+                        new NotificationAarForEmail(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        NOTIFICATION_AAR_FOR_EMAIL_DIGITAL,
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_DIGITAL,
                         new NotificationAarForEmail(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
