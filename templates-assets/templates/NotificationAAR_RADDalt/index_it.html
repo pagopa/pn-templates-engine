@@ -111,13 +111,21 @@
                             <div class="row">
                                 <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
                                 <div class="cell vertical-align-top">
-                                    <p>Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b>
-                                        <#if recipient.recipientType=="PF">
-                                        <a href="https://login.notifichedigitali.it/auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">login.notifichedigitali.it</a>
+                                    <#if recipient.recipientType=="PF">
+                                        <p>
+                                            Inquadra il <b>codice QR</b> con l’app IO o con la fotocamera del tuo dispositivo.
+                                            <br>
+                                            In alternativa vai sul sito web <b>
+                                            <a href="https://login.notifichedigitali.it/auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">login.notifichedigitali.it</a>
+                                        </b>
+                                        </p>
                                         <#else>
-                                        <a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a>
-                                        </#if>
-                                    </b></p>
+                                        <p>
+                                            Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b>
+                                            <a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a>
+                                        </b>
+                                        </p>
+                                    </#if>
                                 </div>
                             </div>
                             <div class="row">
