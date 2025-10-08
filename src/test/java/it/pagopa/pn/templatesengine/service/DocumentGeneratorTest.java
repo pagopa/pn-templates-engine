@@ -222,10 +222,10 @@ public class DocumentGeneratorTest {
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
         var sender = new AarForEmailSender()
                 .paDenomination("TEST_PaDenomination");
-        var notification = new AarForEmailNotification()
+        var notification = new AarForEmailNotificationAnalog()
                 .iun("TEST_iun")
                 .sender(sender);
-        var model = new NotificationAarForEmail()
+        var model = new NotificationAarForEmailAnalog()
                 .perfezionamentoURL("TEST_perfezionamentoURL")
                 .quickAccessLink("TEST_quickAccessLink")
                 .pnFaqSendURL("TEST_pnFaqSendURL")
@@ -241,10 +241,13 @@ public class DocumentGeneratorTest {
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
         var sender = new AarForEmailSender()
                 .paDenomination("TEST_PaDenomination");
-        var notification = new AarForEmailNotification()
+        var recipient = new AarForEmailRecipient()
+                .denomination("Mario Rossi");
+        var notification = new AarForEmailNotificationDigital()
                 .iun("TEST_iun")
-                .sender(sender);
-        var model = new NotificationAarForEmail()
+                .sender(sender)
+                .recipient(recipient);
+        var model = new NotificationAarForEmailDigital()
                 .perfezionamentoURL("TEST_perfezionamentoURL")
                 .quickAccessLink("TEST_quickAccessLink")
                 .pnFaqSendURL("TEST_pnFaqSendURL")
@@ -321,10 +324,10 @@ public class DocumentGeneratorTest {
         LanguageEnum[] langs = { LanguageEnum.IT };
         var sender = new AarForSmsSender()
                 .paDenomination("TEST_PaDenomination");
-        var notification = new AarForSmsNotification()
+        var notification = new AarForSmsNotificationAnalog()
                 .iun("TEST_iun")
                 .sender(sender);
-        var model = new NotificationAarForSms()
+        var model = new NotificationAarForSmsAnalog()
                 .notification(notification);
         generateAndSaveDocument(template, langs, model, FileType.TXT);
     }
@@ -336,10 +339,10 @@ public class DocumentGeneratorTest {
         LanguageEnum[] langs = { LanguageEnum.IT };
         var sender = new AarForSmsSender()
                 .paDenomination("TEST_PaDenomination");
-        var notification = new AarForSmsNotification()
+        var notification = new AarForSmsNotificationDigital()
                 .iun("TEST_iun")
                 .sender(sender);
-        var model = new NotificationAarForSms()
+        var model = new NotificationAarForSmsDigital()
                 .notification(notification);
         generateAndSaveDocument(template, langs, model, FileType.TXT);
     }

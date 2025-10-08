@@ -123,7 +123,7 @@ public class TemplateApiController implements TemplateApi {
     @Override
     public Mono<ResponseEntity<String>> notificationAarForEmailAnalog(
             LanguageEnum xLanguage,
-            Mono<NotificationAarForEmail> request,
+            Mono<NotificationAarForEmailAnalog> request,
             final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_ANALOG, xLanguage, request);
     }
@@ -131,7 +131,7 @@ public class TemplateApiController implements TemplateApi {
     @Override
     public Mono<ResponseEntity<String>> notificationAarForEmailDigital(
             LanguageEnum xLanguage,
-            Mono<NotificationAarForEmail> request,
+            Mono<NotificationAarForEmailDigital> request,
             final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_DIGITAL, xLanguage, request);
     }
@@ -156,7 +156,7 @@ public class TemplateApiController implements TemplateApi {
     @Override
     public Mono<ResponseEntity<String>> notificationAarForSmsAnalog(
             LanguageEnum xLanguage,
-            Mono<NotificationAarForSms> request,
+            Mono<NotificationAarForSmsAnalog> request,
             final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_ANALOG, xLanguage, request);
     }
@@ -164,7 +164,7 @@ public class TemplateApiController implements TemplateApi {
     @Override
     public Mono<ResponseEntity<String>> notificationAarForSmsDigital(
             LanguageEnum xLanguage,
-            Mono<NotificationAarForSms> request,
+            Mono<NotificationAarForSmsDigital> request,
             final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_DIGITAL, xLanguage, request);
     }

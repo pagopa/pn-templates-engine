@@ -269,7 +269,7 @@ components:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                   type: string
 
-    NotificationAarForEmail:
+    NotificationAarForEmailAnalog:
       type: object
       required:
         - perfezionamentoURL
@@ -287,7 +287,7 @@ components:
         piattaformaNotificheURL:
           type: string
         notification:
-          title: AarForEmailNotification
+          title: AarForEmailNotificationAnalog
           type: object
           required:
             - iun
@@ -302,6 +302,51 @@ components:
                 - paDenomination
               properties:
                 paDenomination:
+                  x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                  type: string
+
+    NotificationAarForEmailDigital:
+      type: object
+      required:
+        - perfezionamentoURL
+        - quickAccessLink
+        - pnFaqSendURL
+        - piattaformaNotificheURL
+        - notification
+      properties:
+        perfezionamentoURL:
+          type: string
+        quickAccessLink:
+          type: string
+        pnFaqSendURL:
+          type: string
+        piattaformaNotificheURL:
+          type: string
+        notification:
+          title: AarForEmailNotificationDigital
+          type: object
+          required:
+            - iun
+            - sender
+          properties:
+            iun:
+              type: string
+            sender:
+              title: AarForEmailSender
+              type: object
+              required:
+                - paDenomination
+              properties:
+                paDenomination:
+                  x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                  type: string
+            recipient:
+              title: AarForEmailRecipient
+              type: object
+              required:
+                - denomination
+              properties:
+                denomination:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                   type: string
 
@@ -376,13 +421,37 @@ components:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
               type: string
 
-    NotificationAarForSms:
+    NotificationAarForSmsAnalog:
       type: object
       required:
         - notification
       properties:
         notification:
-          title: AarForSmsNotification
+          title: AarForSmsNotificationAnalog
+          type: object
+          required:
+            - iun
+            - sender
+          properties:
+            iun:
+              type: string
+            sender:
+              title: AarForSmsSender
+              type: object
+              required:
+                - paDenomination
+              properties:
+                paDenomination:
+                  x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                  type: string
+
+    NotificationAarForSmsDigital:
+      type: object
+      required:
+        - notification
+      properties:
+        notification:
+          title: AarForSmsNotificationDigital
           type: object
           required:
             - iun
