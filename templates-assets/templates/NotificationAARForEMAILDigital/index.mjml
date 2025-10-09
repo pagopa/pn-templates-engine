@@ -80,12 +80,6 @@
             </p><% } %>
 
             <% if (noIta) { %><p style="margin-top: 10px">
-              <%-body3%>
-            </p><% } %>
-             <% if (noIta) { %><p style="margin-top: 20px">
-              <%-perfection%>
-            </p><% } %>
-            <% if (noIta) { %><p style="margin-top: 20px">
               <%-body2%>
             </p><% } %>
 
@@ -93,15 +87,9 @@
               <%-it_body1%>
             </p>
             <p style="margin-top: 10px">
-              <%-it_body3%>
-            </p>
-
-            <p style="margin-top: 20px">
-              <%-it_perfection%>
-            </p>
-            <p style="margin-top: 20px">
               <%-it_body2%>
             </p>
+
             <!-- Don't include https:// in the URL label -->
             <p style="margin: 40px 0px; font-size: 14px">
               <a
@@ -120,13 +108,25 @@
               >
             </p>
 
-            <!-- Perfezionamento Notifica -->
-            <% if (noIta) { %><p>
-              <%-read_more%>
+            <% if (noIta) { %><p style="margin-top: 10px">
+              <%-perfection%>
             </p><% } %>
-            <p>
-              <%-it_read_more%>
+
+            <% if (noIta) { %><p style="margin-top: 10px">
+              <%-payment%>
+            </p><% } %>
+
+            <p style="margin-top: 10px">
+              <%-it_perfection%>
             </p>
+            <p style="margin-top: 10px">
+              <%-it_payment%>
+            </p>
+
+            <p style="margin-top: 30px; margin-bottom: 30px;background: linear-gradient(0deg, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.90) 100%), #6BCFFB; padding: 21px; border-radius: 11px">
+            <% if (noIta) { %><span><%-banner%> &bull; </span><% } %> <%-it_banner%>,</p>
+            
+
           </mj-text>
           <mj-text
             css-class="text"
@@ -154,6 +154,10 @@
             line-height="20px"
             color="#5C6F82"
           >
+            <% if (noIta) { %><p style="margin-top: 0px; font-size: 14px">
+              &ast; <%-footnote%> &bull; </span><% } %> <%-it_footnote%>
+            </p>
+
             <% if (noIta) { %><p style="margin-top: 0px; font-size: 14px">
               <%-footer%>
             </p><% } %>
