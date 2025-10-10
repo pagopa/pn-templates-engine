@@ -9,5 +9,5 @@
   "it_read_more":"SEND &egrave; uno strumento che rende l&apos;invio di notifiche da parte della Pubblica Amministrazione pi&ugrave; sicuro, efficiente ed economico. <a href=\"${pnFaqSendURL}\" title=\"Scopri di pi&ugrave;\">Scopri di pi&ugrave;</a>",
   "it_button":"Accedi ai documenti su SEND",
   "it_greetings":"A presto",
-  "it_footer":"Ricevi questa comunicazione perch&eacute; hai inserito il tuo indirizzo e-mail tra i recapiti di cortesia di SEND. Per modificare i recapiti o aggiungerne altri, <a title=\"Continua su Piattaforma Notifiche\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">vai ai tuoi recapiti</a>."
+  "it_footer":"Ricevi questa comunicazione perch&eacute; hai inserito il tuo indirizzo email tra i recapiti di cortesia di SEND. Per modificare i recapiti o aggiungerne altri, <a title=\"Continua su Piattaforma Notifiche\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">vai ai tuoi recapiti</a>."
 }
