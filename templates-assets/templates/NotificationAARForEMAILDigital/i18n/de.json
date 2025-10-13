@@ -3,12 +3,12 @@
   "subject":"SEND - Neue Zustellung von ${notification.sender.paDenomination} - ${notification.iun}",
   "hello":"Hallo",
   "body1":"Sie haben &uuml;ber Ihren digitalen Wohnsitz eine rechtsg&uuml;ltige Mitteilung von der K&ouml;rperschaft <strong>${notification.sender.paDenomination}</strong> mit dem IUN-Code ${notification.iun} erhalten. Melden Sie sich bei SEND an, um diese einzusehen.",
-  "body2":"Diese Zustellung gilt 7 Tage* nach dem Eingang an Ihrer digitalen Zustelladresse als rechtsg&uuml;ltig zugestellt, auch wenn Sie sie nicht &ouml;ffnen oder lesen.",
+  "body2":"Diese Zustellung gilt 7 Tage&#42; nach dem Eingang an Ihrer digitalen Zustelladresse als rechtsg&uuml;ltig zugestellt, auch wenn Sie sie nicht &ouml;ffnen oder lesen.",
   "button":"Auf die Dokumente auf SEND zugreifen",
   "perfection":"Sie haben ab dem Zeitpunkt der Zustellung der Mitteilung 120 Tage Zeit, um die Dokumente online einzusehen. Danach stehen sie auf SEND nicht mehr zur Verf&uuml;gung und Sie m&uuml;ssen sich an die sendende K&ouml;rperschaft wenden.",
   "payment":"Die Frist f&uuml;r die Zahlung, falls vorgesehen, und f&uuml;r etwaige Einspr&uuml;che ist in den Dokumenten angegeben.",
   "banner":"Mit dem digitalen Wohnsitz erhalten Sie keine papierenen Bescheide mehr und m&uuml;ssen nicht l&auml;nger die Versandkosten f&uuml;r Einschreiben tragen.",
   "greetings":"Bis bald",
-  "footnote":"Wenn Sie die Zustellung nach 21:00 Uhr erhalten haben, beginnt die 7-Tage-Frist am darauffolgenden Tag.",
+  "footnote":"&#42;Wenn Sie die Zustellung nach 21:00 Uhr erhalten haben, beginnt die 7-Tage-Frist am darauffolgenden Tag.",
   "footer":"Sie erhalten diese Mitteilung, weil Sie Ihre E-Mail-Adresse unter den H&ouml;flichkeitskontakten von SEND angegeben haben. Um die Kontakte zu &auml;ndern oder weitere hinzuzuf&uuml;gen, <a title=\"Weiter auf der Zustellplattform\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">gehen Sie zu Ihren Kontakten</a>."
 }
