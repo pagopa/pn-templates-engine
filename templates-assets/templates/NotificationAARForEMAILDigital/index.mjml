@@ -124,7 +124,7 @@
             </p>
 
             <p style="margin-top: 30px; margin-bottom: 30px;background: linear-gradient(0deg, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.90) 100%), #6BCFFB; padding: 21px; border-radius: 11px">
-            <% if (noIta) { %><span><%-banner%> &bull; </span><% } %> <%-it_banner%>,</p>
+            <% if (noIta) { %><span><%-banner%> &bull; </span><% } %> <%-it_banner%></p>
             
 
           </mj-text>
@@ -155,7 +155,7 @@
             color="#5C6F82"
           >
             <% if (noIta) { %><p style="margin-top: 0px; font-size: 14px">
-              &ast; <%-footnote%> &bull; </span><% } %> <%-it_footnote%>
+              &#42; <%-footnote%> &bull; </span><% } %> <%-it_footnote%>
             </p>
 
             <% if (noIta) { %><p style="margin-top: 0px; font-size: 14px">

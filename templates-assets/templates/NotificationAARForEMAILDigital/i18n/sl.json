@@ -3,7 +3,7 @@
   "subject":"SEND - Novo obvestilo od ${notification.sender.paDenomination} - ${notification.iun}",
   "hello":"Pozdravljeni",
   "body1":"Na va&scaron;e digitalno prebivali&scaron;&ccaron;e ste prejeli obvestilo s pravno veljavo s strani <strong>${notification.sender.paDenomination}</strong> z Edinstveno identifikacijsko oznako obvestila (IUN) ${notification.iun}. Dostopite do SEND, da ga preverite.",
-  "body2":"To obvestilo bo &scaron;telo kot pravno vro&ccaron;eno 7 dni&ast; po prejemu na va&scaron;e digitalno prebivali&scaron;&ccaron;e, tudi &ccaron;e ga ne odprete ali ne preberete.",
+  "body2":"To obvestilo bo &scaron;telo kot pravno vro&ccaron;eno 7 dni&#42; po prejemu na va&scaron;e digitalno prebivali&scaron;&ccaron;e, tudi &ccaron;e ga ne odprete ali ne preberete.",
   "button":"Dostop do dokumentov na SEND",
   "perfection":"Od trenutka, ko se obvestilo &scaron;teje za vro&ccaron;eno, imate na voljo 120 dni za ogled dokumentov na spletu. Kasneje ne bodo ve&ccaron; na voljo na platformi SEND in se boste morali obrniti na organ, ki vam jih je poslal.",
   "payment":"Rok za pla&ccaron;ilo, &ccaron;e je predvideno, in za morebitne pritožbe je naveden v dokumentih.",
