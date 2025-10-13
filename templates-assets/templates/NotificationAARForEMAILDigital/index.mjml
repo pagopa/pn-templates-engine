@@ -155,7 +155,7 @@
             color="#5C6F82"
           >
             <% if (noIta) { %><p style="margin-top: 0px; font-size: 14px">
-              <x%-footnote%> &bull; </span><% } %> <%-it_footnote%>
+              <%-footnote%> &bull; </span><% } %> <%-it_footnote%>
             </p>
 
             <% if (noIta) { %><p style="margin-top: 20px; font-size: 14px">

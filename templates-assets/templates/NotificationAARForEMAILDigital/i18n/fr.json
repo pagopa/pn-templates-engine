@@ -9,6 +9,6 @@
   "payment":"Le d&eacute;lai de paiement, le cas &eacute;ch&eacute;ant, et celui pour d&#39;&eacute;ventuels recours sont indiqu&eacute;s dans les documents.",
   "banner":"Avec le domicile num&eacute;rique, vous ne recevrez plus d&#39;avis papier et n&#39;aurez plus &agrave; supporter les frais d&#39;exp&eacute;dition des courriers recommand&eacute;s.",
   "greetings":"&Agrave; bient&ocirc;t",
-  "footnote":"&#42; Si vous avez re&ccedil;u la communication apr&egrave;s 21h00, les 7 jours courent &agrave; partir du jour suivant.",
+  "footnote":"&#42;Si vous avez re&ccedil;u la communication apr&egrave;s 21h00, les 7 jours courent &agrave; partir du jour suivant.",
   "footer":"Vous recevez cette communication car vous avez ins&eacute;r&eacute; votre adresse e-mail parmi les coordonn&eacute;es de courtoisie de SEND. Pour modifier les coordonn&eacute;es ou en ajouter d&#39;autres, <a title=\"Continuer sur la Plateforme de Notifications\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">allez &agrave; vos coordonn&eacute;es</a>."
 }
