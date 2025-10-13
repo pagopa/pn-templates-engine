@@ -143,7 +143,7 @@ h1 {
   }
 
   .banner-box {
-    color: #17324D
+    color: #17324D !important;
   }
 
 }
