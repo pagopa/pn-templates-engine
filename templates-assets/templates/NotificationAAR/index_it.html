@@ -6,676 +6,237 @@
     <meta charset="UTF-8" />
     <meta name="author" content="SEND - Servizio Notifiche Digitali">
     <title>Avviso di Avvenuta Ricezione</title>
-    <style type="text/css" media="all">
-        @font-face {
-            font-family: "Titillium Pro";
-            font-style: normal;
-            font-weight: normal;
-            src: url(../../fonts/Titillium_Pro/TitilliumSansPro-Regular.ttf) format('truetype');
-        }
-
-        @font-face {
-            font-family: "Titillium Pro";
-            font-style: normal;
-            font-weight: bold;
-            src: url(../../fonts/Titillium_Pro/TitilliumSansPro-Bold.ttf) format('truetype');
-        }
-
-        @page {
-            size: A4;
-            margin: 0mm;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            text-indent: 0 !important;
-        }
-
-        body {
-            font-family: "Titillium Pro", sans-serif;
-            font-weight: 400;
-            font-size: 15px;
-            /*11px on Figma*/
-            color: #031344;
-            line-height: 18.6px;
-        }
-
-        #main-page {
-            margin: 14mm 10mm;
-            height: 269mm;
-            width: 190mm;
-        }
-
-        #main-page2 {
-            margin: 14mm 10mm 0 10mm;
-            padding-top: 14mm;
-            width: 190mm;
-            height: 293mm;
-            position: relative;
-        }
-
-        .relative-box {
-            position: relative;
-        }
-
-        /* font equivalence */
-        .six-pt {
-            font-size: 8px;
-        }
-        /* 6px on Figma */
-
-        .seven-pt {
-            font-size: 9.333px;
-        }
-
-        /* 7px on Figma */
-
-        .eight-pt {
-            font-size: 10.667px;
-        }
-
-        /* 8px on Figma */
-
-        .nine-pt {
-            font-size: 12px;
-        }
-
-        /* 9px on Figma */
-
-        .ten-pt {
-            font-size: 13.333px;
-        }
-
-        /* 10px on Figma */
-
-        .eleven-pt {
-            font-size: 14.3px;
-        }
-
-        /* 11px on Figma */
-
-        .twelve-pt {
-            font-size: 16px;
-        }
-
-        /* 12px on Figma */
-
-
-        /* line-height equivalence */
-        .eight-lh {
-            line-height: 8px;
-        }
-
-        .sixteen-lh {
-            line-height: 21.333px;
-        }
-
-        /* 16px on Figma */
-
-        .eleven-lh {
-            line-height: 14.667px;
-        }
-
-        /* 11px on Figma */
-
-        .font-bold {
-            font-weight: 700;
-        }
-
-        .font-upppercase {
-            text-transform: uppercase;
-        }
-
-        #upper-section {
-            position: relative;
-            padding: 0 12px;
-        }
-
-        #upper-section,
-        #center-section,
-        #lower-section {
-            width: 100%;
-            margin: 0mm;
-        }
-
-        #upper-section,
-        #lower-section {
-            height: 85mm;
-        }
-
-        #center-section {
-            height: 99mm;
-        }
-
-        .absolute-box {
-            position: absolute;
-            bottom: 0;
-        }
-
-        #sender_box {
-            position: absolute;
-            width: 150mm;
-            height: 23mm;
-            top: -12px;
-        }
-
-        #legal_subtitle, #sender_logo {
-            margin-top: 8px;
-        }
-
-        #legal_subtitle p {
-            width: 67px;
-            line-height: 10px;
-            border-top: solid 1px;
-            padding-top: 7px;
-            font-weight: 600;
-            letter-spacing: 0.50px;
-        }
-
-        #sender_logo img {
-            height: 53px; /* 40pt on Figma */
-        }
-
-        .logo-prefix {
-            margin-bottom: 14px;
-        }
-
-        #send_box__logo {
-            width: 17mm;
-        }
-
-        #iun_send {
-            position: absolute;
-            max-width: 90mm;
-            float: right;
-            top: 0;
-            right: 0;
-            width: 90mm;
-            height: 26mm;
-        }
-
-        #iun_box {
-            padding-bottom: 0;
-            position: absolute;
-            bottom: 0;
-        }
-
-        #iun_box h6 {
-            font-size: 12px;
-        }
-
-        #send_box {
-            position: absolute;
-            max-width: 25mm;
-            float: right;
-            top: 0;
-            right: 0;
-            width: 50mm;
-            height: 26mm;
-            line-height: 8px;
-            z-index: 1000;
-        }
-
-        #send_box_site {
-            position: absolute;
-            bottom: 0;
-        }
-
-        #main_subject {
-            padding-top: 0mm;
-            word-wrap: break-word;
-            margin-bottom: 1.5mm;
-            padding: 0 12px;
-        }
-
-        #main_disclaimer {
-            margin: 5mm 0 1.5mm 0;
-            padding: 0 12px;
-        }
-
-        .heading {
-            width: 100%;
-            height: 7.7mm;
-            /* background-color: #ececec; */
-            background-color: #DBF9FA;
-            font-weight: bold;
-            padding: 1.4mm 3.7mm;
-        }
-
-        #qr-code {
-            height: 133px;
-            width: 133px;
-            /* qr has a 4mm white frame around its visible area */
-        }
-
-        .float-left {
-            float: left;
-        }
-
-        .float-right {
-            float: right;
-            right: 0;
-        }
-
-        .qr_code_box {
-            width: 41mm;
-        }
-
-        .iun_box {
-            width: 61mm;
-            padding: 11px;
-            margin-right: 15px;
-        }
-
-        .access_online_box {
-            width: 155mm;
-        }
-
-        .access_yourself_box {
-            width: 116mm;
-        }
-
-        .align-center {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .list-box-height_qr_code_box {
-            height: 41mm;
-        }
-
-        .list-box-height_access_yourself_box {
-            height: 50mm;
-            margin-top: 21px;
-        }
-
-        .custom-list,
-        .custom-ol-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .custom-list li {
-            padding-left: 0;
-        }
-
-        .custom-ol-list>li {
-            position: relative;
-            padding-left: 31px;
-            margin-bottom: 10px;
-        }
-
-        .custom-ol-list>li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: -2px;
-            font-size: 21px;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        .custom-ol-list li.list_element-one::before {
-            content: "❶";
-        }
-
-        .custom-ol-list li.list_element-two::before {
-            content: "❷";
-        }
-
-        .custom-ol-list li.list_element-three::before {
-            content: "❸";
-        }
-
-        .custom-ol-list li.list_element-four::before {
-            content: "❹";
-        }
-
-        .retrieve_box {
-            margin: 16px;
-            height: 27px;
-            position: relative;
-        }
-
-        #arrow-img {
-            width: 24px;
-        }
-
-        #io_download {
-            text-align: left;
-            width: 100%;
-            height: 83px;
-            border-radius: 8px;
-            margin-bottom: 90px;
-            font-size: 14.3px;
-        }
-
-        #io_download h3 {
-            padding-bottom: 4px;
-        }
-
-        #io_download .float-right {
-            height: 45px;
-            margin: 11px 11px 11px 0;
-        }
-
-        #io_download .float-left {
-            margin: 14px 0 14px 11px;
-            width: 85%;
-        }
-
-        #io_img {
-            width: 45px;
-        }
-
-        #footer_disclaimer {
-            position: absolute;
-            bottom: 0mm;
-        }
-
-        #footer_advantages {
-            text-align: center;
-            width: 100%;
-        }
-
-        ul#square-list-mandate {
-            margin-top: 1mm;
-        }
-
-        ul#square-list li,
-        ul#square-list-mandate li {
-            list-style-type: square;
-            margin-left: 5mm;
-            margin-top: 0.4mm;
-            margin-bottom: 0;
-        }
-
-        .grey-border {
-            border: solid #ECECEC 0.66px;
-            border-radius: 7px;
-        }
-
-        .blue-border {
-            border: solid #CED8F9 1px;
-            border-radius: 7px;
-        }
-
-        #mandate_box {
-            padding: 21px;
-            margin-top: 45px;
-            min-height: 269px;
-            overflow: hidden;
-        }
-
-        #mandate_box .title {
-            padding: 0 0 27px 0;
-        }
-
-        #mandate-box__form {
-            width: 48%;
-        }
-
-        #mandate-box__list {
-            width: 48%;
-        }
-
-        .advantages-explanation__content {
-            width: 90%;
-            margin: 11px auto;
-            text-align: center;
-        }
-
-        .advantages-row {
-            width: 90%;
-            height: 35mm;
-            margin: auto;
-            padding: 55px 0 0;
-        }
-
-        .advantage-col {
-            width: 193px;
-            position: absolute;
-        }
-
-        .section-list {
-            padding-left: 5.3px;
-        }
-
-        .section-list ol {
-            margin: 2mm 0;
-        }
-
-        .section-list li {
-            margin-top: 1.5mm;
-        }
-
-        a {
-            text-decoration: underline;
-            color: #0B3EE3;
-        }
-
-        a.black {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .row {
-            margin-top: 3mm;
-        }
-
-        .border-bottom {
-            border-bottom: solid 1.3px #ECECEC;
-            margin-top: 4.2mm;
-            padding-bottom: 5px;
-            color: #7D7D7D;
-        }
-
-        .mb-form {
-            margin-bottom: 4.2mm;
-        }
-
-        ul#square-list-mandate {
-            margin-top: 1mm;
-        }
-
-        ul#square-list li,
-        ul#square-list-mandate li {
-            list-style-type: square;
-            margin-left: 5mm;
-            margin-top: 0.4mm;
-        }
-
-        img.message-advantages_explanation {
-            height: 34px;
-            margin: 3mm;
-            margin-bottom: 1mm;
-        }
-
-        .read-more {
-            padding-top: 21px;
-        }
-    </style>
+    <link rel="stylesheet" href="../../styles/aar_accessible.css">
+    <bookmarks>
+        <bookmark name="Dati del mittente della notifica" href="#sender_box"/>
+        <bookmark name="Dati della notifica" href="#iun_box"/>
+        <bookmark name="Notifica inviata tramite SEND" href="#send_box"/>
+        <bookmark name="Oggetto e mittente della notifica" href="#main_subject"/>
+        <bookmark name="Codice QR della notifica" href="#qr-code"/>
+        <bookmark name="Step di accesso online alla notifica" href="#how_to_online"/>
+        <bookmark name="Vantaggi dell'utilizzo di SEND tramite app IO" href="#io_download"/>
+        <bookmark name="Note legali del documento" href="#footer_disclaimer"/>
+        <bookmark name="Informazioni sulle deleghe su SEND" href="#mandate_infobox"/>
+        <bookmark name="Note legali del documento" href="#footer_disclaimer"/>
+        <bookmark name="Vantaggi dell'utilizzo di SEND" href="#advantages_infobox"/>
+    </bookmarks>
 </head>
 
 <body>
-    <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
-    <div id="main-page">
-        <div id="upper-section">
-            <div id="sender_box">
-                <#if senderLogoBase64??>
-        
-                <div class="nine-pt">
-                  <p class="six-pt eight-lh">COMUNICAZIONE A VALORE LEGALE</p>
-                  <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
-                  <div id="sender_logo">
-                    <img src="${senderLogoBase64}" alt="">
+    <main>
+        <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
+        <section id="first-page">
+            <section class="upper-section vertical-align-top">
+                <div class="fixed-table">
+                    <div class="row">
+                        <div class="cell width-50 pl-8 vertical-align-top" id="sender_box">
+                            <#if senderLogoBase64??>
+            
+                                <div class="nine-pt">
+                                    <p class="six-pt eight-lh">COMUNICAZIONE A VALORE LEGALE</p>
+                                    <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
+                                    <div id="sender_logo">
+                                        <img src="${senderLogoBase64}" alt="Logo di ${notification.sender.paDenomination}">
+                                    </div>
+                                </div>
+                            <#else>
+                        
+                                <div class="nine-pt mt-8">
+                                    <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
+                                    <div id="legal_subtitle">
+                                        <p class="six-pt">COMUNICAZIONE A VALORE LEGALE</p>
+                                    </div>
+                                </div>
+                            </#if>
+                        </div>
+                        
+                        <div class="cell width-50 pt-12" id="iun_send">
+                            <div class="row">
+                                <div id="iun_box" class="iun_box nine-pt cell vertical-align-bottom pb-0">
+                                    <p class="font-bold nine-pt">Identificativo Univoco Notifica:</p>
+                                    <p>${notification.iun}</p>
+                                    <p class="font-bold nine-pt">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </p>
+                                    <p>${recipient.taxId}</p>
+                                </div>
+                                <div id="send_box" class="eight-pt cell vertical-align-bottom">
+                                    <p class="nine-pt logo-prefix">Inviata tramite</p>
+                                    <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
+                                    <p id="send_box_site" class="eight-pt font-bold">
+                                        <a class="black"
+                                            href="https://www.notifichedigitali.it/"  title="Sito di SEND - Servizio Notifiche Digitali">notifichedigitali.it</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="recipient-addr-box">
+                        <!-- Si lascia lo spazio per l'indirizzo che verra' inserito dal consolidatore -->
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     </div>
                 </div>
-                <#else>
-        
-                <div class="nine-pt">
-                  <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
-                  <div id="legal_subtitle">
-                    <p class="six-pt">COMUNICAZIONE A VALORE <br> LEGALE</p>
-                  </div>
-                </div>
-                </#if>
-              </div>
-            <div id="iun_send">
-                <div id="iun_box" class="iun_box nine-pt">
-                    <h6 class="font-bold">Identificativo Univoco Notifica:</h6>
-                    <p>${notification.iun}</p>
-                    <h6 class="font-bold">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </h6>
-                    <p>${recipient.taxId}</p>
-                </div>
-                <div id="send_box" class="eight-pt">
-                    <p class="nine-pt logo-prefix">Inviata tramite</p>
-                    <img id="send_box__logo" src="../../images/aar-logo.gif" />
-                    <p id="send_box_site" class="eight-pt font-bold"><a class="black"
-                            href="https://www.notifichedigitali.it/">notifichedigitali.it</a></p>
-                </div>
-            </div>
-            <div id="recipient-addr-box">
-                <!-- Si lascia lo spazio per l'indirizzo che verra' inserito dal consolidatore -->
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-            </div>
-        </div>
-        <div id="center-section" class="relative-box">
-            <div class="absolute-box">
-                <div id="main_subject" class="twelve-pt sixteen-lh">
-                    Hai ricevuto una comunicazione a valore legale da <b>${notification.sender.paDenomination}</b> con
-                        oggetto: <b>${notification.subject}</b>
-                </div>
+            </section>
+
+            <section class="center-section vertical-align-bottom">
+                <h1 id="main_subject" class="twelve-pt sixteen-lh px-12 pt-0 weight-400">Hai ricevuto una comunicazione a valore legale da <b>${notification.sender.paDenomination}</b> con oggetto: <b>${notification.subject}</b></h1>
                 <div id="main_disclaimer" class="eleven-pt sixteen-lh">
                     <p><b>Prendi visione della copia dei documenti allegati o accedi ai documenti originali online</b> seguendo
                         le istruzioni. Tieni presente che il contenuto della comunicazione produrrà effetti giuridici
                         nei tuoi confronti anche senza la tua presa visione dei documenti.
                     </p>
                 </div>
-                <div class="row">
-                    <div id="view_online_box">
-                        <div class="heading">
-                            <div class="font-upppercase twelve-pt">Accedi ora ai documenti online
+                <div id="view_online_box">
+                    <div class="table">
+                        <div class="row heading font-bold w-100">
+                            <div class="cell">
+                                <h2 class="font-uppercase twelve-pt">Accedi ora ai documenti online</h2>
+                            </div>
+                            <div class="cell text-right nine-pt">
+                                <p>Consultazione online gratuita</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
-                <div class="list-box-height_qr_code_box relative-box">
-                    <div class="align-center float-left qr_code_box">
-                        <img alt="qr-code" id="qr-code" src="${qrCodeQuickAccessLink}" />
-                    </div>
-                    <div class="align-center float-right access_online_box">
-                        <div class="section-list">
-                            <ol class="custom-ol-list">
-                            <!--
-                                Related to https://pagopa.atlassian.net/browse/PN-14670
-                                we use hard-coded link in order to fix this bug. Anyway this part is commented
-                                because we will restore it as soon as we migrate configurations of templates
-                                in pn-templates-engine
 
-                                #Sarah Donvito, 18/04/2025
+                <div class="table list-box-height_qr_code_box pb-12">
+                    <div class="row">
+                        <div class="cell vertical-align-center qr_code_box">
+                            <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
+                        </div>
+                        <div class="cell vertical-align-center access_online_box">
+                            <div class="section-list px-12">
+                                <!--
+                                    Related to https://pagopa.atlassian.net/browse/PN-14670
+                                    we use hard-coded link in order to fix this bug. Anyway this part is commented
+                                    because we will restore it as soon as we migrate configurations of templates
+                                    in pn-templates-engine
 
-                               <li class="list_element-one">
-                                   Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
-                                   vai sul sito web <b><a
-                                           href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
-                               </li>
-                            -->
-                                <#if recipient.recipientType=="PF">
+                                    #Sarah Donvito, 18/04/2025
+
                                 <li class="list_element-one">
                                     Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
                                     vai sul sito web <b><a
-                                        href="https://login.notifichedigitali.it/auth/login">login.notifichedigitali.it</a></b>
+                                            href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
                                 </li>
-                                <#else>
-                                <li class="list_element-one">
-                                    Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
-                                    vai sul sito web <b><a
-                                        href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
-                                </li>
-                                </#if>
-                                <li class="list_element-two">Accedi e scarica i documenti: contengono
-                                    informazioni importanti che ti
-                                    riguardano</li>
-                                <li class="list_element-three">Se previsto un pagamento, potrai pagare online o presso i
-                                    canali abilitati a pagoPA</li>
-                                <li class="list_element-four">In fase di pagamento l'importo si aggiornerà con i costi di notifica</li>
-    
-                            </ol>
+                                -->
+                                <div class="table" id="how_to_online">
+                                    <div class="row">
+                                        <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
+                                        <div class="cell vertical-align-top">
+                                            <#if recipient.recipientType=="PF">
+                                                <p>
+                                                    Inquadra il <b>codice QR</b> con l’app IO o con la fotocamera del tuo dispositivo.
+                                                    <br>
+                                                    In alternativa vai sul sito web <b>
+                                                        <a href="https://login.notifichedigitali.it/auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">login.notifichedigitali.it</a>
+                                                    </b>
+                                                </p>
+                                                <#else>
+                                                <p>
+                                                    Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b>
+                                                        <a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a>
+                                                    </b>
+                                                </p>
+                                            </#if>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
+                                        <div class="cell vertical-align-top">
+                                            <p>Accedi e scarica i documenti: contengono informazioni importanti che ti riguardano</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell number-list"><img src="../../images/numero-3.png" alt="Numero 3"></div>
+                                        <div class="cell vertical-align-top">
+                                            <p>Se previsto un pagamento, potrai pagare online o presso i canali abilitati a pagoPA</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell number-list"><img src="../../images/numero-4.png" alt="Numero 4"></div>
+                                        <div class="cell vertical-align-top">
+                                            <p>In fase di pagamento l'importo si aggiornerà con i costi di notifica</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div id="lower-section" class="relative-box">
-            
-            <div id="footer_disclaimer" class="eight-pt">
+            </section>
+
+            <section class="lower-section table vertical-align-bottom">
                 <#if recipient.recipientType=="PF">
-                    <div id="io_download" class="blue-border relative-box">
-                        <div class="float-left align-center">
-                            <h3 class="twelwe-pt font-upppercase">Con l'app IO è ancora più semplice e risparmi</h3>
-                            <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo e risparmia sui costi della raccomandata: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
+                    <div class="row">
+                        <div class="table blue-border-box radius-8">
+                            <div class="row eleven-pt radius-8 w-100" id="io_download">
+                                <div class="cell vertical-align-top width-85">
+                                        <h3 class="twelwe-pt font-uppercase">Con l'app IO è ancora più semplice e risparmi</h3>
+                                        <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo e risparmia sui costi della raccomandata: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
+                                </div>
+                                <div class="cell width-15 text-right vertical-align-center" id="io_img">
+                                    <img src="../../images/app-io.jpg" alt="Logo di app IO" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="float-right align-center">
-                            <img id="io_img" src="../../images/app-io.jpg" />
-                        </div>
-                    </div>
+                    </div> 
                 </#if>
+                <footer id="footer_disclaimer" class="eight-pt">
+                    <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l’importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell’eventuale raccomandata a te inviata e scelta dall’ente, dal numero di tentativi di recapito.  <br>
+                    Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">www.${perfezionamentoURLLabel}</a></b></p>
+                </footer>
+            </section>
+        </section>
+        
+        <#if recipient.recipientType=="PF">
+        <!--------------------------- PAGE 2 (297mm x 192mm) --------------------------->
+        <section id="second-page">
+            <h4 class="ten-pt font-uppercase text-center" id="mandate_infobox">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? PUOI FARTI AIUTARE DA UNA PERSONA DI FIDUCIA</h4>
+            <p class="advantages-explanation__content text-center width-85"> Con SEND puoi dare accesso alle tue comunicazioni a valore legale a una o più persone di fiducia: accedi a SEND per creare una delega digitale. SEND è il servizio digitale che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
 
-                <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l’importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell’eventuale raccomandata a te inviata e scelta dall’ente, dal numero di tentativi di recapito.  <br>
-                    Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai
-                    rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a
-                            href="${perfezionamentoURL}">www.${perfezionamentoURLLabel}</a></b></p>
-            </div>
-        </div>
-    </div>
-
-
-    <!--------------------------- PAGE 2 --------------------------->
-    <#if recipient.recipientType=="PF">
-    <div id="main-page2">
-        <div id="footer_advantages">
-            <h3 class="font-uppercase ten-pt font-bold">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? PUOI FARTI AIUTARE DA UNA PERSONA DI FIDUCIA</h3>
-            <p class="advantages-explanation__content"> Con SEND puoi dare accesso alle tue comunicazioni a valore legale a una o più persone di fiducia: accedi a SEND per creare una delega digitale. SEND è il servizio digitale che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
-
-            <div class="advantages-row nine-pt">
-                <div class="advantage-col">
-                    <img class="message-advantages_explanation" src="../../images/time.jpg" />
-                    <div class="advantages-explanation__content">
-                        <b>Non perdi tempo</b><br>Non serve più ritirare fisicamente le raccomandate
+            <div class="table advantages-table" id="advantages_infobox">
+                <div class="advantages-row nine-pt row">
+                    <div class="advantage-col cell text-center">
+                        <div class="message-advantages_explanation icon-time"></div>
+                        <div class="advantages-explanation__content">
+                            <p>
+                                <b>Non perdi tempo</b><br>
+                                Non serve più ritirare fisicamente le raccomandate
+                            </p>
+                        </div>
+                    </div>
+                    <div class="advantage-col cell text-center">
+                        <div class="message-advantages_explanation icon-earth"></div>
+                        <div class="advantages-explanation__content">
+                            <p>
+                                <b>Non importa dove sei</b><br>
+                                La persona delegata può accedere ai tuoi documenti online
+                            </p>
+                        </div>
+                    </div>
+                    <div class="advantage-col cell text-center">
+                        <div class="message-advantages_explanation icon-control"></div>
+                        <div class="advantages-explanation__content">
+                            <p>
+                                <b>Hai sempre il controllo</b><br>
+                                Puoi revocare o modificare le deleghe in qualsiasi momento
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="advantage-col" style="left: 267px;">
-                    <img class="message-advantages_explanation" src="../../images/earth.jpg" />
-                    <div class="advantages-explanation__content">
-                        <b>Non importa dove sei</b><br>
-                        La persona delegata può accedere ai tuoi documenti online
-                    </div>
-                </div>
-                <div class="advantage-col" style="left: 493px">
-                    <img class="message-advantages_explanation" src="../../images/control.jpg" />
-                    <div class="advantages-explanation__content">
-                        <b>Hai sempre il controllo</b><br>
-                        Puoi revocare o modificare le deleghe in qualsiasi momento
-                    </div>
-                </div>
             </div>
 
-            <div class="read-more">
-                <p>Per saperne di più vai sul sito <b><a href="https://www.notifichedigitali.it/">www.notifichedigitali.it</a></b></p>
+
+            <div class="read-more text-center">
+                <p>Per saperne di più vai sul sito <b><a href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">www.notifichedigitali.it</a></b></p>
             </div>
-        </div>
-    </div>
-    </#if>
+
+        </section>
+        </#if>
+
+    </main>
 
 </body>
 
