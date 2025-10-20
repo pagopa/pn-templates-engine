@@ -113,7 +113,7 @@
                                 <div class="cell vertical-align-top">
                                     <#if recipient.recipientType=="PF">
                                         <p>
-                                            Inquadra il <b>codice QR</b> con l’app IO o con la fotocamera del tuo dispositivo.
+                                            Inquadra il <b>codice QR</b> con l'app IO o con la fotocamera del tuo dispositivo.
                                             <br>
                                             In alternativa vai sul sito web <b>
                                             <a href="https://login.notifichedigitali.it/auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">login.notifichedigitali.it</a>
@@ -193,8 +193,8 @@
         <#else>
         <footer id="footer_disclaimer" class="eight-pt" style="margin-top: 170px;">
         </#if>
-            <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l’importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell’eventuale raccomandata a te inviata e scelta dall’ente, dal numero di tentativi di recapito.  <br>
-            Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">www.${perfezionamentoURLLabel}</a></b></p>
+            <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l'importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell'eventuale raccomandata a te inviata e scelta dall'ente, dal numero di tentativi di recapito.  <br>
+            Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online o ritirarli di persona. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">www.${perfezionamentoURLLabel}</a></b></p>
         </footer>
     </section>
   </section>
@@ -261,7 +261,7 @@
         </section>
 
         <section class="mandate-section">
-            <div id="mandate_box" class="blue-border-iun">
+            <div id="mandate_box" class="blue-border-iun radius-8">
                 <p class="font-bold title">
                     Vuoi che qualcuno ritiri i documenti per te?
                 </p>
@@ -295,7 +295,7 @@
                                 <li >questo avviso con la delega compilata e firmata</li>
                                 <li class="number-list">un suo documento di riconoscimento</li>
                                 <li class="number-list">il suo codice fiscale</li>
-                                <li class="number-list">una copia o l’originale del codice fiscale e di un documento di riconoscimento del delegante<#if recipient.recipientType=="PF"></li>
+                                <li class="number-list">una copia o l'originale del codice fiscale e di un documento di riconoscimento del delegante<#if recipient.recipientType=="PF"></li>
                                 <#else></li>
                                     <li>un documento che attesti il ruolo di legale rappresentante del delegante</li>
                                 </#if>
@@ -310,7 +310,7 @@
         <#if recipient.recipientType=="PF">
         <section id="help_box" class="vertical-align-bottom">
             <h2 class="ten-pt font-uppercase text-center">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? PUOI FARTI AIUTARE DA UNA PERSONA DI FIDUCIA</h2>
-            <p class="advantages-explanation__content text-center width-85"> Con SEND puoi dare accesso alle tue comunicazioni a valore legale a una o più persone di fiducia: accedi a SEND per creare una delega digitale. SEND è il servizio digitale che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
+            <p class="advantages-explanation__content text-center width-85"> Con SEND puoi dare accesso alle tue comunicazioni a valore legale a una o più persone di fiducia: accedi a SEND per creare una delega digitale. SEND è il servizio digitale che semplifica l'invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
 
             <div class="table advantages-table">
                 <div class="advantages-row nine-pt row">
@@ -345,7 +345,7 @@
             </div>
 
             <div class="read-more text-center">
-                <p>Per saperne di più vai sul sito <b><a href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">www.notifichedigitali.it</a></b></p>
+                <p>Per saperne di più vai sul sito SEND <b><a href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">www.notifichedigitali.it</a></b></p>
             </div>
         </section>
         </#if>
