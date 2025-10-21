@@ -1,15 +1,15 @@
 {
-  "language": "sl",
-  "subject": "SEND - Novo obvestilo od ${notification.sender.paDenomination} - ${notification.iun}",
-  "hello": "&Zcaron;ivjo",
-  "body1": "<#if recipientType=='PF'>Prejel/a si<#else>Tvoje podjetje je prejelo</#if> obvestilo na SEND - Servizio Notifiche Digitali.",
-  "sender_label": "Po&#353;iljatelj",
-  "subject_label": "Zadeva",
-  "iun_label": "Koda IUN",
-  "body2": "Obvestilo je <strong>pravno veljavna komunikacija</strong>, ki jo sestavljata potrdilo o prejemu in en ali ve&#269; dokumentov.",
-  "body3": "<#if recipientType=='PF'>Ima&#353;<#else>Podjetje ima</#if> na voljo do 120 dni od <a style=\"color: #0073e6; text-decoration: underline\" href=\"${perfezionamentoURL}\" title=\"datuma dokon&#269;nosti\">datuma dokon&#269;nosti</a> obvestila za <strong>dostop do dokumentov</strong>. Rok za pla&#269;ilo, &#269;e je predvideno, in za morebitne prito&#382;be je naveden v dokumentih.",
-  "read_more": "To potrdilo o prejemu prejema&#353; kot <#if recipientType=='PF'>fizi&#269;na oseba<#else>pravna oseba</#if> z Dav&#269;no &#353;tevilko ${recipient.taxId}. SEND je orodje, ki omogo&#269;a, da je po&#353;iljanje obvestil s strani Javne uprave varnej&#353;e, u&#269;inkovitej&#353;e in ekonomi&#269;nej&#353;e. <a href=\"${pnFaqSendURL}\" title=\"Izvedi ve&#269;\">Izvedi ve&#269;</a>",
-  "button": "Dostop do dokumentov na SEND",
-  "greetings": "Se vidimo kmalu",
-  "footer": "Institucija po&#353;iljateljica pozna ta naslov PEC (certificirana e-po&#353;ta), ker <#if recipientType=='PF'>si ga<#else>ga je podjetje</#if> vnesel/o v <#if recipientType=='PF'>svoje<#else>svoje</#if> kontaktne podatke na SEND, ker je del enega od registrov, ki jih dolo&#269;a Kodeks za digitalno upravo, ali ker <#if recipientType=='PF'>si jim ga<#else>jim je bil</#if> sporo&#269;il/o v preteklosti. Za spremembo kontaktnih podatkov ali dodajanje drugih, <a title=\"Nadaljuj na platformi za obvestila\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">pojdi na svoje kontaktne podatke</a>."
+  "language":"sl",
+  "subject":"SEND - Novo obvestilo od ${notification.sender.paDenomination} - ${notification.iun}",
+  "hello":"Pozdravljeni",
+  "body1":"<#if recipientType=='PF'>Prejel/a si<#else>Tvoje podjetje je prejelo</#if> obvestilo na SEND - Servizio Notifiche Digitali.",
+  "sender_label":"Po&#353;iljatelj",
+  "subject_label":"Zadeva",
+  "iun_label":"IUN (Edinstvena identifikacijska oznaka obvestila)",
+  "body2":"Obvestilo je <strong>pravno veljavna komunikacija</strong> sestavljena iz potrdila o prejemu in enega ali ve&#269; dokumentov.",
+  "body3":"<#if recipientType=='PF'>Ima&#353;<#else>Podjetje ima</#if> na voljo do 120 dni od <a style=\"color: #0073e6; text-decoration: underline\" href=\"${perfezionamentoURL}\" title=\"datuma dokon&#269;nosti\">datuma dokon&#269;nosti</a> obvestila za <strong>dostop do dokumentov</strong>. Rok za pla&#269;ilo, &#269;e je predvideno, in za morebitne prito&#382;be je naveden v dokumentih.",
+  "read_more":"To obvestilo prejemate kot <#if recipientType=='PF'>fizi&#269;na oseba<#else>pravna oseba</#if> z dav&#269;no &#353;tevilko ${recipient.taxId}. SEND je orodje, ki omogo&#269;a varnej&#353;e, bolj u&#269;inkovito in gospodarno po&#353;iljanje obvestil javne uprave. <a href=\"${pnFaqSendURL}\" title=\"Izvedite ve&#269;\">Izvedite ve&#269;</a>",
+  "button":"Dostop do dokumentov na SEND",
+  "greetings":"Lep pozdrav",
+  "footer":"Institucija po&#353;iljateljica pozna ta naslov PEC (certificirana e-po&#353;ta), ker <#if recipientType=='PF'>si ga<#else>ga je podjetje</#if> vnesel/o v <#if recipientType=='PF'>svoje<#else>svoje</#if> kontaktne podatke na SEND, ker je del enega od registrov, ki jih dolo&#269;a Kodeks za digitalno upravo, ali ker <#if recipientType=='PF'>si jim ga<#else>jim je bil</#if> sporo&#269;il/o v preteklosti. Za spremembo kontaktnih podatkov ali dodajanje drugih, <a title=\"Nadaljuj na platformi za obvestila\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">pojdi na svoje kontaktne podatke</a>."
 }
