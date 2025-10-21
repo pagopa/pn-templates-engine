@@ -2,14 +2,14 @@
   "language": "fr",
   "subject": "SEND - Nouvelle notification de ${notification.sender.paDenomination} - ${notification.iun}",
   "hello": "Bonjour",
-  "body1": "<#if recipientType=='PF'>Vous avez<#else>Votre entreprise a</#if> re&ccedil;u une notification sur SEND - Servizio Notifiche Digitali.",
-  "sender_label": "Exp&eacute;diteur",
+  "body1": "<#if recipientType=='PF'>Vous avez<#else>Votre entreprise a</#if> re&#xE7;u une notification sur SEND - Servizio Notifiche Digitali.",
+  "sender_label": "Exp&#xE9;diteur",
   "subject_label": "Objet",
   "iun_label": "Code IUN",
-  "body2": "Une notification est une <strong>communication &agrave; valeur juridique</strong> compos&eacute;e d&#39;un avis de r&eacute;ception et d&#39;un ou plusieurs documents.",
-  "body3": "<#if recipientType=='PF'>Vous avez<#else>L&#39;entreprise a</#if> jusqu&#39;&agrave; 120 jours &agrave; compter de la <a style=\"color: #0073e6; text-decoration: underline\" href=\"${perfezionamentoURL}\" title=\"date de finalisation\">date de finalisation</a> de la notification pour <strong>acc&eacute;der aux documents</strong>. Le d&eacute;lai de paiement, le cas &eacute;ch&eacute;ant, et pour tout recours est indiqu&eacute; dans les documents.",
-  "read_more": "Vous recevez cet avis de r&eacute;ception en tant que <#if recipientType=='PF'>personne physique<#else>personne morale</#if> avec Code Fiscal ${recipient.taxId}. SEND est un outil qui rend l&#39;envoi de notifications par l&#39;Administration Publique plus s&ucirc;r, efficace et &eacute;conomique. <a href=\"${pnFaqSendURL}\" title=\"En savoir plus\">En savoir plus</a>",
-  "button": "Acc&eacute;dez aux documents sur SEND",
-  "greetings": "&Agrave; bient&ocirc;t",
-  "footer": "L&#39;organisme &eacute;metteur conna&icirc;t cette adresse PEC (e-mail certifi&eacute;) car <#if recipientType=='PF'>vous l&#39;avez<#else>l&#39;entreprise l&#39;a</#if> saisie dans <#if recipientType=='PF'>vos<#else>ses</#if> coordonn&eacute;es sur SEND, parce qu&#39;elle fait partie de l&#39;un des registres pr&eacute;vus par le Code de l&#39;Administration Num&eacute;rique ou parce que <#if recipientType=='PF'>vous la lui avez<#else>elle lui a &eacute;t&eacute;</#if> communiqu&eacute;e par le pass&eacute;. Pour modifier les coordonn&eacute;es ou en ajouter d&#39;autres, <a title=\"Continuer sur Plateforme de Notification\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">allez &agrave; vos coordonn&eacute;es</a>."
+  "body2": "Une notification est une <strong>communication &#xE0; valeur juridique</strong> compos&#xE9;e d&#39;un avis de r&#xE9;ception et d&#39;un ou plusieurs documents.",
+  "body3": "<#if recipientType=='PF'>Vous avez<#else>L&#39;entreprise a</#if> jusqu&#39;&#xE0; 120 jours &#xE0; compter de la <a style=\"color: #0073e6; text-decoration: underline\" href=\"${perfezionamentoURL}\" title=\"date de finalisation\">date de finalisation</a> de la notification pour <strong>acc&#xE9;der aux documents</strong>. Le d&#xE9;lai de paiement, le cas &#xE9;ch&#xE9;ant, et pour tout recours est indiqu&#xE9; dans les documents.",
+  "read_more": "Vous recevez cet avis de r&#xE9;ception en tant que <#if recipientType=='PF'>personne physique<#else>personne morale</#if> avec Code Fiscal ${recipient.taxId}. SEND est un outil qui rend l&#39;envoi de notifications par l&#39;Administration Publique plus s&#xFB;r, efficace et &#xE9;conomique. <a href=\"${pnFaqSendURL}\" title=\"En savoir plus\">En savoir plus</a>",
+  "button": "Acc&#xE9;dez aux documents sur SEND",
+  "greetings": "&#xC0; bient&#xF4;t",
+  "footer": "L&#39;organisme &#xE9;metteur conna&icirc;t cette adresse PEC (e-mail certifi&#xE9;) car <#if recipientType=='PF'>vous l&#39;avez<#else>l&#39;entreprise l&#39;a</#if> saisie dans <#if recipientType=='PF'>vos<#else>ses</#if> coordonn&#xE9;es sur SEND, parce qu&#39;elle fait partie de l&#39;un des registres pr&#xE9;vus par le Code de l&#39;Administration Num&#xE9;rique ou parce que <#if recipientType=='PF'>vous la lui avez<#else>elle lui a &#xE9;t&#xE9;</#if> communiqu&#xE9;e par le pass&#xE9;. Pour modifier les coordonn&#xE9;es ou en ajouter d&#39;autres, <a title=\"Continuer sur Plateforme de Notification\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">allez &#xE0; vos coordonn&#xE9;es</a>."
 }
