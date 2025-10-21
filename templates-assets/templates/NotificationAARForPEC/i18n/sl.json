@@ -2,14 +2,14 @@
   "language": "sl",
   "subject": "SEND - Novo obvestilo od ${notification.sender.paDenomination} - ${notification.iun}",
   "hello": "Pozdravljeni",
-  "body1": "prejeli ste obvestilo prek storitve SEND - Servizio Notifiche Digitali.",
+  "body1": "<#if recipientType=='PF'>prejeli ste<#else>Va&#353;e podjetje je prejelo</#if> obvestilo prek storitve SEND - Servizio Notifiche Digitali.",
   "sender_label": "Po&#353;iljatelj",
   "subject_label": "Zadeva",
   "iun_label": "IUN (Edinstvena identifikacijska oznaka obvestila)",
   "body2": "Obvestilo je <strong>pravno veljavna komunikacija</strong> sestavljena iz potrdila o prejemu in enega ali ve&#269; dokumentov.",
-  "body3": "Za <strong>dostop do dokumentov</strong> imate na voljo do 120 dni od datuma <a style=\"color: #0073e6; text-decoration: underline\" href=\"${perfezionamentoURL}\" title=\"data di perfezionamento\">vro&#269;itve obvestila</a> &#268;e je predvideno, je rok za pla&#269;ilo in morebitne prito&#382;be naveden v dokumentih.",
-  "read_more": "To obvestilo prejemate kot <#if recipientType=='PF'>fizi&#269;na oseba<#else>pravna oseba</#if> z dav&#269;no &#353;tevilko ${recipient.taxId}. SEND je orodje, ki omogo&#269;a varnej&#353;e, bolj u&#269;inkovito in gospodarno po&#353;iljanje obvestil javne uprave. <a href=\"${pnFaqSendURL}\" title=\"Scopri di pi&ugrave;\">Izvedite ve&#269;</a>",
-  "button": "Dostop do dokumentov",
+  "body3": "Za <strong>dostop do dokumentov</strong> <#if recipientType=='PF'>imate<#else>ima podjetje</#if> na voljo do 120 dni od datuma <a style=\"color: #0073e6; text-decoration: underline\" href=\"${perfezionamentoURL}\" title=\"vro&#269;itve obvestila\">vro&#269;itve obvestila</a> &#268;e je predvideno, je rok za pla&#269;ilo in morebitne prito&#382;be naveden v dokumentih.",
+  "read_more": "To obvestilo prejemate kot <#if recipientType=='PF'>fizi&#269;na oseba<#else>pravna oseba</#if> z dav&#269;no &#353;tevilko ${recipient.taxId}. SEND je orodje, ki omogo&#269;a varnej&#353;e, bolj u&#269;inkovito in gospodarno po&#353;iljanje obvestil javne uprave. <a href=\"${pnFaqSendURL}\" title=\"Izvedite ve&#269;\">Izvedite ve&#269;</a>",
+  "button": "Dostop do dokumentov na SEND",
   "greetings": "Lep pozdrav",
-  "footer": "Organizacija po&#353;iljateljica pozna ta naslov PEC, ker ste ga vnesli v svoje kontaktne podatke SEND, ker je del enega od registrov, ki jih dolo&#269;a Kodeks o digitalni upravi, ali ker ste jim ga v preteklosti sporo&#269;ili. &#268;e &#382;elite spremeniti svoje kontaktne podatke ali dodati nove, <a title=\"Nadaljujte na platformo za obvestila\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">pojdite na svoje kontaktne podatke</a>."
+  "footer": "Organizacija po&#353;iljateljica pozna ta naslov PEC, ker <#if recipientType=='PF'>ga je podjetje vneslo<#else>ste ga vnesli</#if> v svoje kontaktne podatke SEND, ker je del enega od registrov, ki jih dolo&#269;a Kodeks o digitalni upravi, ali ker <#if recipientType=='PF'>ga je<#else>ste jim ga</#if> v preteklosti sporo&#269;ili. &#268;e &#382;elite spremeniti svoje kontaktne podatke ali dodati nove, <a title=\"Nadaljujte na platformo za obvestila\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">pojdite na svoje kontaktne podatke</a>."
 }
