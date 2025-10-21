@@ -7,7 +7,7 @@
   "subject_label":"Objet",
   "iun_label":"Code IUN",
   "body2":"Une notification est une <strong>communication ayant une valeur juridique</strong> compos&#xE9;e dun accus&#xE9; de r&#xE9;ception et d&#39;un ou plusieurs documents.",
-    "body3":"<#if recipientType=='PF'>Vous disposez<#else>L&#39;entreprise dispose</#if> d&#39;un d&#xE9;lai de 120 jours &#xE0; compter de la <a style=\"color: #0073e6; text-decoration: underline\" href=\"${perfezionamentoURL}\" title=\"data di perfezionamento\">date de finalisation</a> de la notification pour <strong>acc&#xE9;der aux documents</strong>. Le d&#xE9;lai &#xE9;ventuel pour le paiement et, le cas &#xE9;ch&#xE9;ant, pour toute contestation est indiqu&#xE9; dans les documents.",
+    "body3":"<#if recipientType=='PF'>Vous disposez<#else>L&#39;entreprise dispose</#if> d&#39;un d&#xE9;lai de 120 jours &#xE0; compter de la <a style=\"color: #0073e6; text-decoration: underline\" href=\"${perfezionamentoURL}\" title=\"date de finalisation\">date de finalisation</a> de la notification pour <strong>acc&#xE9;der aux documents</strong>. Le d&#xE9;lai &#xE9;ventuel pour le paiement et, le cas &#xE9;ch&#xE9;ant, pour toute contestation est indiqu&#xE9; dans les documents.",
   "read_more":"Vous recevez cet accus&#xE9; de r&#xE9;ception en tant que <#if recipientType=='PF'>personne physique<#else>personne morale</#if> avec Code Fiscal ${recipient.taxId}. SEND est un outil qui rend l&#39;envoi de notifications par l&#39;administration publique plus s&#xFB;r, plus efficace et plus &#xE9;conomique. <a href=\"${pnFaqSendURL}\" title=\"En savoir plus\">En savoir plus</a>",
   "button":"Acc&#xE9;der aux documents",
   "greetings":"&#xC0; bient&#xF4;t",

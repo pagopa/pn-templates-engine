@@ -7,7 +7,7 @@
   "subject_label":"Zadeva",
   "iun_label":"IUN (Edinstvena identifikacijska oznaka obvestila)",
   "body2":"Obvestilo je <strong>pravno veljavna komunikacija</strong> sestavljena iz potrdila o prejemu in enega ali ve&#269; dokumentov.",
-  "body3": "Za <strong>dostop do dokumentov</strong> <#if recipientType=='PF'>imate<#else>ima podjetje</#if> na voljo do 120 dni od datuma <a style=\"color: #0073e6; text-decoration: underline\" href=\"${perfezionamentoURL}\" title=\"data di perfezionamento\">vro&#269;itve obvestila</a> &#268;e je predvideno, je rok za pla&#269;ilo in morebitne prito&#382;be naveden v dokumentih.",
+  "body3": "Za <strong>dostop do dokumentov</strong> <#if recipientType=='PF'>imate<#else>ima podjetje</#if> na voljo do 120 dni od datuma <a style=\"color: #0073e6; text-decoration: underline\" href=\"${perfezionamentoURL}\" title=\"vro&#269;itve obvestila\">vro&#269;itve obvestila</a> &#268;e je predvideno, je rok za pla&#269;ilo in morebitne prito&#382;be naveden v dokumentih.",
   "read_more":"To obvestilo prejemate kot <#if recipientType=='PF'>fizi&#269;na oseba<#else>pravna oseba</#if> z dav&#269;no &#353;tevilko ${recipient.taxId}. SEND je orodje, ki omogo&#269;a varnej&#353;e, bolj u&#269;inkovito in gospodarno po&#353;iljanje obvestil javne uprave. <a href=\"${pnFaqSendURL}\" title=\"Izvedite ve&#269;\">Izvedite ve&#269;</a>",
   "button":"Dostop do dokumentov na SEND",
   "greetings":"Lep pozdrav",
