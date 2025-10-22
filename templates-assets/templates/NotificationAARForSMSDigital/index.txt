@@ -1,2 +1,2 @@
-Hai ricevuto una notifica SEND da ${notification.sender.paDenomination} con Codice IUN ${notification.iun}. Per leggerla, accedi a SEND - Servizio Notifiche Digitali. <br>
+Hai ricevuto una notifica SEND da ${notification.sender.paDenomination} con Codice IUN ${notification.iun}. Per leggerla, accedi a SEND - Servizio Notifiche Digitali.
 La notifica risulterà legalmente consegnata a te dopo 7 giorni dalla ricezione.
