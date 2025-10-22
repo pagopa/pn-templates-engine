@@ -81,7 +81,7 @@
               "
             >
               A partire da questo momento, lo useremo come
-              <strong>indirizzo principale</strong> per inviarti le notifiche.
+              <strong>indirizzo principale</strong> per inviarti le notifiche<#if recipientType == "PF"><#else> della tua impresa</#if>.
               <br />Per maggiori informazioni,
               <a
                 style="color: #0073e6; text-decoration: underline"
