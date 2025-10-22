@@ -2,13 +2,13 @@
   "language": "sl",
   "subject":"SEND - Novo obvestilo od ${notification.sender.paDenomination} - ${notification.iun}",
   "hello":"Pozdravljeni",
-  "body1":"Na va&scaron;e digitalno prebivali&scaron;&ccaron;e ste prejeli obvestilo s pravno veljavo s strani <strong>${notification.sender.paDenomination}</strong> z Edinstveno identifikacijsko oznako obvestila (IUN) ${notification.iun}. Dostopite do SEND, da ga preverite.",
-  "body2":"To obvestilo bo &scaron;telo kot pravno vro&ccaron;eno 7 dni&#42; po prejemu na va&scaron;e digitalno prebivali&scaron;&ccaron;e, tudi &ccaron;e ga ne odprete ali ne preberete.",
+  "body1":"Na va&#353;e digitalno prebivali&#353;&#269;e ste prejeli obvestilo s pravno veljavo s strani <strong>${notification.sender.paDenomination}</strong> z Edinstveno identifikacijsko oznako obvestila (IUN) ${notification.iun}. Dostopite do SEND, da ga preverite.",
+  "body2":"To obvestilo bo &#353;telo kot pravno vro&#269;eno 7 dni&#42; po prejemu na va&#353;e digitalno prebivali&#353;&#269;e, tudi &#269;e ga ne odprete ali ne preberete.",
   "button":"Dostop do dokumentov na SEND",
-  "perfection":"Od trenutka, ko se obvestilo &scaron;teje za vro&ccaron;eno, imate na voljo 120 dni za ogled dokumentov na spletu. Kasneje ne bodo ve&ccaron; na voljo na platformi SEND in se boste morali obrniti na organ, ki vam jih je poslal.",
-  "payment":"Rok za pla&ccaron;ilo, &ccaron;e je predvideno, in za morebitne pritožbe je naveden v dokumentih.",
-  "banner":"Z digitalnim prebivali&scaron;&ccaron;em ne boste prejemali papirnatih obvestil in ne boste ve&ccaron; nosili stro&scaron;kov po&scaron;iljanja priporo&ccaron;enih po&scaron;iljk.",
+  "perfection":"Od trenutka, ko se obvestilo &#353;teje za vro&#269;eno, imate na voljo 120 dni za ogled dokumentov na spletu. Kasneje ne bodo ve&#269; na voljo na platformi SEND in se boste morali obrniti na organ, ki vam jih je poslal.",
+  "payment":"Rok za pla&#269;ilo, &#269;e je predvideno, in za morebitne prito&#382;be je naveden v dokumentih.",
+  "banner":"Z digitalnim prebivali&#353;&#269;em ne boste prejemali papirnatih obvestil in ne boste ve&#269; nosili stro&#353;kov po&#353;iljanja priporo&#269;enih po&#353;iljk.",
   "greetings":"Lep pozdrav",
-  "footnote":"&#42;&Ccaron;e ste obvestilo prejeli po 21. uri, za&ccaron;ne 7-dnevni rok te&ccaron;i naslednji dan.",
-  "footer":"To sporo&ccaron;ilo prejemate, ker ste svoj e-po&scaron;tni naslov vnesli med kontakte za obvestila SEND. &Ccaron;e želite spremeniti ali dodati druge kontakte, <a title=\"Nadaljuj na platformi Obvestil\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">pojdite na svoje kontakte</a>."
+  "footnote":"&#42;&#268;e ste obvestilo prejeli po 21. uri, za&#269;ne 7-dnevni rok te&#269;i naslednji dan.",
+  "footer":"To sporo&#269;ilo prejemate, ker ste svoj e-po&#353;tni naslov vnesli med kontakte za obvestila SEND. &#268;e &#382;elite spremeniti ali dodati druge kontakte, <a title=\"Nadaljuj na platformi Obvestil\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">pojdite na svoje kontakte</a>."
 }

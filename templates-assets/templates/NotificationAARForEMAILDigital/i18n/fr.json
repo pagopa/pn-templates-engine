@@ -2,13 +2,13 @@
   "language": "fr",
   "subject":"SEND - Nouvelle notification de ${notification.sender.paDenomination} - ${notification.iun}",
   "hello":"Bonjour",
-  "body1":"Vous avez re&ccedil;u sur votre domicile num&eacute;rique une communication &agrave; valeur l&eacute;gale de la part de <strong>${notification.sender.paDenomination}</strong> avec Code IUN ${notification.iun}. Acc&eacute;dez &agrave; SEND pour la consulter.",
-  "body2":"Cette communication sera consid&eacute;r&eacute;e l&eacute;galement d&eacute;livr&eacute;e 7 jours&#42; apr&egrave;s sa r&eacute;ception sur votre domicile num&eacute;rique, m&ecirc;me si vous ne l&#39;ouvrez pas ou ne la lisez pas.",
-  "button":"Acc&eacute;der aux documents sur SEND",
-  "perfection":"Vous disposez de 120 jours &agrave; compter du moment où la communication est consid&eacute;r&eacute;e d&eacute;livr&eacute;e pour consulter les documents en ligne. Pass&eacute; ce d&eacute;lai, ils ne seront plus disponibles sur SEND et vous devrez vous adresser &agrave; l&#39;organisme qui vous les a envoy&eacute;s.",
-  "payment":"Le d&eacute;lai de paiement, le cas &eacute;ch&eacute;ant, et celui pour d&#39;&eacute;ventuels recours sont indiqu&eacute;s dans les documents.",
-  "banner":"Avec le domicile num&eacute;rique, vous ne recevrez plus d&#39;avis papier et n&#39;aurez plus &agrave; supporter les frais d&#39;exp&eacute;dition des courriers recommand&eacute;s.",
-  "greetings":"&Agrave; bient&ocirc;t",
-  "footnote":"&#42;Si vous avez re&ccedil;u la communication apr&egrave;s 21h00, les 7 jours courent &agrave; partir du jour suivant.",
-  "footer":"Vous recevez cette communication car vous avez ins&eacute;r&eacute; votre adresse e-mail parmi les coordonn&eacute;es de courtoisie de SEND. Pour modifier les coordonn&eacute;es ou en ajouter d&#39;autres, <a title=\"Continuer sur la Plateforme de Notifications\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">allez &agrave; vos coordonn&eacute;es</a>."
+  "body1":"Vous avez re&#xE7;u sur votre domicile num&#xE9;rique une communication &#xE0; valeur l&#xE9;gale de la part de <strong>${notification.sender.paDenomination}</strong> avec Code IUN ${notification.iun}. Acc&#xE9;dez &#xE0; SEND pour la consulter.",
+  "body2":"Cette communication sera consid&#xE9;r&#xE9;e l&#xE9;galement d&#xE9;livr&#xE9;e 7 jours&#42; apr&egrave;s sa r&#xE9;ception sur votre domicile num&#xE9;rique, m&ecirc;me si vous ne l&#39;ouvrez pas ou ne la lisez pas.",
+  "button":"Acc&#xE9;der aux documents sur SEND",
+  "perfection":"Vous disposez de 120 jours &#xE0; compter du moment où la communication est consid&#xE9;r&#xE9;e d&#xE9;livr&#xE9;e pour consulter les documents en ligne. Pass&#xE9; ce d&#xE9;lai, ils ne seront plus disponibles sur SEND et vous devrez vous adresser &#xE0; l&#39;organisme qui vous les a envoy&#xE9;s.",
+  "payment":"Le d&#xE9;lai de paiement, le cas &#xE9;ch&#xE9;ant, et celui pour d&#39;&#xE9;ventuels recours sont indiqu&#xE9;s dans les documents.",
+  "banner":"Avec le domicile num&#xE9;rique, vous ne recevrez plus d&#39;avis papier et n&#39;aurez plus &#xE0; supporter les frais d&#39;exp&#xE9;dition des courriers recommand&#xE9;s.",
+  "greetings":"&#xC0; bient&#xF4;t",
+  "footnote":"&#42;Si vous avez re&#xE7;u la communication apr&egrave;s 21h00, les 7 jours courent &#xE0; partir du jour suivant.",
+  "footer":"Vous recevez cette communication car vous avez ins&#xE9;r&#xE9; votre adresse e-mail parmi les coordonn&#xE9;es de courtoisie de SEND. Pour modifier les coordonn&#xE9;es ou en ajouter d&#39;autres, <a title=\"Continuer sur la Plateforme de Notifications\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">allez &#xE0; vos coordonn&#xE9;es</a>."
 }

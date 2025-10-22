@@ -3,7 +3,7 @@
   "it_subject":"SEND - Nuova notifica da ${notification.sender.paDenomination} - ${notification.iun}",
   "it_hello":"Ciao",
   "it_body1":"Hai ricevuto sul tuo domicilio digitale una comunicazione a valore legale da parte di <strong>${notification.sender.paDenomination}</strong> con Codice IUN ${notification.iun}, accedi a SEND per consultarla.",
-  "it_body2":"Questa comunicazione risulter&agrave; legalmente consegnata a te 7 giorni&#42; dopo la ricezione sul tuo domicilio digitale, anche se non la apri o non la leggi.",
+  "it_body2":"Questa comunicazione risulter&#xE0; legalmente consegnata a te 7 giorni&#42; dopo la ricezione sul tuo domicilio digitale, anche se non la apri o non la leggi.",
   "it_button":"Accedi ai documenti su SEND",
   "it_perfection":"Hai a disposizione 120 giorni dal momento in cui la comunicazione risulta consegnata per consultare i documenti online. Successivamente non saranno pi&ugrave; disponibili su SEND e dovrai rivolgerti all&#39;ente che te li ha inviati.",
   "it_payment":"ll termine per il pagamento, se previsto, e per eventuali impugnazioni &egrave; indicato nei documenti.",
