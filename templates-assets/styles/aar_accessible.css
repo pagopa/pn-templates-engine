@@ -26,13 +26,19 @@ body {
     font-family: "Titillium Pro", sans-serif;
     font-weight: 400;
     font-size: 14.3px; /*11px on Figma*/
-    color: #031344;
+    color: #000000;
     line-height: 18.6px;
     margin: 0;
     padding: 0
 }
 
-#first-page, #second-page {
+#first-page {
+    margin: 10mm 14mm 10mm 10mm;
+    height: 273mm;
+    width: 190mm;
+}
+
+#second-page {
     margin: 14mm 10mm;
     height: 269mm;
     width: 190mm;
@@ -53,6 +59,10 @@ body {
 
 .upper-section {
     height: 81mm;
+}
+
+#first-page .upper-section {
+    height: 85mm;
 }
 
 .lower-section {
@@ -159,6 +169,10 @@ a.black {
     margin-top: 0 !important;
 }
 
+.mt-8 {
+    margin-top: 8px;
+}
+
 .pb-0 {
     padding-bottom: 0 !important;
 }
@@ -177,6 +191,10 @@ a.black {
 
 .pb-12 {
     padding-bottom: 12px;
+}
+
+.pl-8 {
+    padding-left: 8px;
 }
 
 .pl-12 {
@@ -267,7 +285,7 @@ a.black {
 }
 
 .border-bottom {
-    border-bottom: solid 1.3px #ECECEC;
+    border-bottom: solid 1.3px #7C7C7B;
     margin-top: 4.2mm;
     padding-bottom: 5px;
     color: #595959;
@@ -306,19 +324,19 @@ a.black {
 }
 
 .blue-border-box {
-    border: solid #CED8F9 1px;
+    border: solid #7C7C7B 1px;
     padding: 11px;
     margin-top: 90px;
 }
 
 .blue-border-box-radd {
-    border: solid #CED8F9 1px;
+    border: solid #7C7C7B 1px;
     margin-top: 35px;
     margin-bottom: 30px;
 }
 
 .blue-border-iun {
-    border: solid #CED8F9 1px;
+    border: solid #7C7C7B 1px;
 }
 
 .read-more {
@@ -356,11 +374,12 @@ a.black {
 
 #legal_subtitle p {
     width: 67px;
-    line-height: 10px;
+    line-height: normal;
     border-top: solid 1px;
     padding-top: 7px;
     font-weight: 600;
     letter-spacing: 0.50px;
+    white-space: normal;
 }
 
 #send_box {
