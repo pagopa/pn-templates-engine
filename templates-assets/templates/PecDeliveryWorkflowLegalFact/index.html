@@ -65,7 +65,7 @@
         </p>
 
         <#list deliveries as delivery>
-        <div class="table margin-y-medium">
+        <div class="table margin-y-medium avoid-page-break">
             <div class="row">
                 <div class="cell width-50">
                     <p><% if (noIta) { %><span><%-denomination%> &bull; </span><% } %><%-it_denomination%></p>
@@ -163,7 +163,7 @@
             </div>
         </div>
         <% if (noIta) { %>
-        <div class="table">
+        <div class="table avoid-page-break">
             <div class="row">
                 <div class="cell width-40" aria-hidden="true"></div>
                 <div class="margin-top-large cell width-60 right">
