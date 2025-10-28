@@ -548,3 +548,7 @@ img.message-advantages_explanation {
 .icon-control {
     background-image: url("../images/control.jpg");
 }
+
+.avoid-page-break {
+  page-break-inside: avoid;
+}

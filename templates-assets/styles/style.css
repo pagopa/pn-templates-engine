@@ -147,3 +147,7 @@ h1 {
   }
 
 }
+
+.avoid-page-break {
+  page-break-inside: avoid;
+}
