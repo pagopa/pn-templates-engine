@@ -15,8 +15,6 @@ async function generateHtmlTemplate() {
   log.info("...generating html templates");
 
   try {
-    // clear the output directory
-    await fs.emptyDir(path.join(BASE_OUTPUT_DIR, "templates"));
 
     const entries = await fs.readdir(templatesDir, { withFileTypes: true });
 
@@ -28,20 +26,6 @@ async function generateHtmlTemplate() {
       }
 
       const templateDir = path.join(templatesDir, templateName);
-
-      // Copy index.txt if exists
-      if (fs.pathExistsSync(path.join(templateDir, "index.txt"))) {
-        const outputFile = path.join(
-          BASE_OUTPUT_DIR,
-          "templates",
-          templateName,
-          `${templateName}.txt`
-        );
-
-        log.debug(`Writing ${outputFile}`);
-        await fs.copy(path.join(templateDir, "index.txt"), outputFile);
-        continue;
-      }
 
       if (!fs.pathExistsSync(path.join(templateDir, "index.html"))) {
         continue;
