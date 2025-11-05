@@ -220,17 +220,20 @@ public class DocumentGeneratorTest {
     void generate_notificationAarForEmailAnalog() {
         var template = TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_ANALOG;
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
-        var sender = new AarForEmailSender()
+        var sender = new AarForEmailSenderAnalog()
                 .paDenomination("TEST_PaDenomination");
-        var notification = new AarForEmailNotification()
+        var recipient = new AarForEmailRecipientAnalog()
+                .recipientType("PG");
+        var notification = new AarForEmailNotificationAnalog()
                 .iun("TEST_iun")
                 .sender(sender);
-        var model = new NotificationAarForEmail()
+        var model = new NotificationAarForEmailAnalog()
                 .perfezionamentoURL("TEST_perfezionamentoURL")
                 .quickAccessLink("TEST_quickAccessLink")
                 .pnFaqSendURL("TEST_pnFaqSendURL")
                 .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
-                .notification(notification);
+                .notification(notification)
+                .recipient(recipient);
         generateAndSaveDocument(template, langs, model, FileType.HTML);
     }
 
@@ -239,17 +242,20 @@ public class DocumentGeneratorTest {
     void generate_notificationAarForEmailDigital() {
         var template = TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_DIGITAL;
         LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR };
-        var sender = new AarForEmailSender()
+        var sender = new AarForEmailSenderDigital()
                 .paDenomination("TEST_PaDenomination");
-        var notification = new AarForEmailNotification()
+        var recipient = new AarForEmailRecipientDigital()
+                .recipientType("PG");
+        var notification = new AarForEmailNotificationDigital()
                 .iun("TEST_iun")
                 .sender(sender);
-        var model = new NotificationAarForEmail()
+        var model = new NotificationAarForEmailDigital()
                 .perfezionamentoURL("TEST_perfezionamentoURL")
                 .quickAccessLink("TEST_quickAccessLink")
                 .pnFaqSendURL("TEST_pnFaqSendURL")
                 .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
-                .notification(notification);
+                .notification(notification)
+                .recipient(recipient);
         generateAndSaveDocument(template, langs, model, FileType.HTML);
     }
 
@@ -319,13 +325,16 @@ public class DocumentGeneratorTest {
     void generate_notificationAarForSmsAnalog() {
         var template = TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_ANALOG;
         LanguageEnum[] langs = { LanguageEnum.IT };
-        var sender = new AarForSmsSender()
+        var sender = new AarForSmsSenderAnalog()
                 .paDenomination("TEST_PaDenomination");
-        var notification = new AarForSmsNotification()
+        var recipient = new AarForSmsRecipientAnalog()
+                .recipientType("PG");
+        var notification = new AarForSmsNotificationAnalog()
                 .iun("TEST_iun")
                 .sender(sender);
-        var model = new NotificationAarForSms()
-                .notification(notification);
+        var model = new NotificationAarForSmsAnalog()
+                .notification(notification)
+                .recipient(recipient);
         generateAndSaveDocument(template, langs, model, FileType.TXT);
     }
 
@@ -334,13 +343,16 @@ public class DocumentGeneratorTest {
     void generate_notificationAarForSmsDigital() {
         var template = TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_DIGITAL;
         LanguageEnum[] langs = { LanguageEnum.IT };
-        var sender = new AarForSmsSender()
+        var sender = new AarForSmsSenderDigital()
                 .paDenomination("TEST_PaDenomination");
-        var notification = new AarForSmsNotification()
+        var recipient = new AarForSmsRecipientDigital()
+                .recipientType("PG");
+        var notification = new AarForSmsNotificationDigital()
                 .iun("TEST_iun")
                 .sender(sender);
-        var model = new NotificationAarForSms()
-                .notification(notification);
+        var model = new NotificationAarForSmsDigital()
+                .notification(notification)
+                .recipient(recipient);
         generateAndSaveDocument(template, langs, model, FileType.TXT);
     }
 
