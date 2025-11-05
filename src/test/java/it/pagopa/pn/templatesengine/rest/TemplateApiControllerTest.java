@@ -226,7 +226,7 @@ public class TemplateApiControllerTest {
                 Arguments.of(
                         NOTIFICATION_AAR_FOR_SMS_ANALOG,
                         TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_ANALOG,
-                        new NotificationAarForSms(),
+                        new NotificationAarForSmsAnalog(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.OK,
@@ -235,7 +235,7 @@ public class TemplateApiControllerTest {
                 Arguments.of(
                         NOTIFICATION_AAR_FOR_SMS_DIGITAL,
                         TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_DIGITAL,
-                        new NotificationAarForSms(),
+                        new NotificationAarForSmsDigital(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.OK,
@@ -253,7 +253,7 @@ public class TemplateApiControllerTest {
                 Arguments.of(
                         NOTIFICATION_AAR_FOR_EMAIL_ANALOG,
                         TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_ANALOG,
-                        new NotificationAarForEmail(),
+                        new NotificationAarForEmailAnalog(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.OK,
@@ -262,7 +262,7 @@ public class TemplateApiControllerTest {
                 Arguments.of(
                         NOTIFICATION_AAR_FOR_EMAIL_DIGITAL,
                         TemplatesEnum.NOTIFICATION_AAR_FOR_EMAIL_DIGITAL,
-                        new NotificationAarForEmail(),
+                        new NotificationAarForEmailDigital(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.OK,
