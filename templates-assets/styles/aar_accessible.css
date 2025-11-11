@@ -81,11 +81,11 @@ body {
 }
 
 .retrieve_info_box {
-    height: 103mm;
+    height: 90mm;
 }
 
 .mandate-section {
-    height: 87mm;
+    height: 78mm;
     display: table-cell;
 }
 /********************************* end sections ***********************************/
@@ -463,7 +463,7 @@ ul#square-list-mandate li {
     height: 45px;
 }
 
-#io_download h3 {
+#io_download h3, #voc_box h3 {
     padding-bottom: 4px;
 }
 
@@ -496,7 +496,7 @@ img.message-advantages_explanation {
 }
 
 #help_box {
-    height: 78mm;
+    height: 80mm;
 }
 /********************************* end advantages section *************************/
 
