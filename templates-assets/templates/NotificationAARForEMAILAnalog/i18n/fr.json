@@ -2,7 +2,7 @@
   "language": "fr",
   "subject":"SEND - Nouvelle notification de la part de ${notification.sender.paDenomination} - ${notification.iun}",
   "hello":"Bonjour",
-  "body1": "<#if recipient.recipientType=='PF'>Tu as<#else>Ton entreprise a</#if> re&#xE7;u une notification sur SEND - Service de Notifications Num&#xE9;riques de la part de <strong>${notification.sender.paDenomination}</strong> avec Code IUN ${notification.iun}.",
+  "body1": "<#if recipient.recipientType=='PF'>Tu as<#else>Ton entreprise a</#if> re&#xE7;u une notification sur SEND - Servizio Notifiche Digitali de la part de <strong>${notification.sender.paDenomination}</strong> avec Code IUN ${notification.iun}.",
   "body2": "<#if recipient.recipientType=='PF'>Tu as<#else>Ton entreprise a</#if> jusqu&#39;&agrave; 120 jours &agrave; partir de la <a href=\"${perfezionamentoURL}\" title=\"date de finalisation\">date de finalisation</a> de la notification pour <strong>acc&#xE9;der aux documents</strong>. Le d&#xE9;lai de paiement, s&#39;il est pr&#xE9;vu, et pour d&#39;&eacute;ventuels recours est indiqu&#xE9; dans les documents.",
   "body3":"Une notification est une <strong> communication &#xE0; valeur l&#xE9;gale </strong> compos&eacute;e d&#39;un avis de r&eacute;ception et d&#39;un ou plusieurs documents.",
   "perfection":"Si vous n&#39;avez pas d&#39;adresse de courrier &eacute;lectronique certifi&eacute; (PEC) et que vous consultez les documents dans les 5 jours (120 heures) suivant l&#39;envoi du message, vous ne recevrez pas la notification par courrier recommand&eacute;.",

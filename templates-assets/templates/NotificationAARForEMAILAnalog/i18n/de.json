@@ -2,7 +2,7 @@
   "language": "de",
   "subject":"SEND - Neue Zustellung von ${notification.sender.paDenomination} - ${notification.iun}",
   "hello":"Hallo",
-  "body1":"<#if recipient.recipientType=='PF'>Du hast<#else>Dein Unternehmen hat</#if> &#252;ber SEND - Digitaler Zustelldienst eine Benachrichtigung von <strong>${notification.sender.paDenomination}</strong> mit IUN-Code ${notification.iun} erhalten.",
+  "body1":"<#if recipient.recipientType=='PF'>Du hast<#else>Dein Unternehmen hat</#if> &#252;ber SEND - Servizio Notifiche Digitali eine Benachrichtigung von <strong>${notification.sender.paDenomination}</strong> mit IUN-Code ${notification.iun} erhalten.",
   "body2":"<#if recipient.recipientType=='PF'>Du hast<#else>Dein Unternehmen hat</#if> bis zu 120 Tage ab dem <a href=\"${perfezionamentoURL}\" title=\"Datum der Vervollst&#228;ndigung\">Datum der Vervollst&#228;ndigung</a> der Benachrichtigung Zeit, um <strong>auf die Dokumente zuzugreifen</strong>. Die Frist f&#252;r die Zahlung, falls vorgesehen, und f&#252;r eventuelle Anfechtungen ist in den Dokumenten angegeben.",
   "body3":"Eine Benachrichtigung ist eine <strong> rechtsg&#252;ltige Mitteilung </strong>, bestehend aus einer Benachrichtigung &#252;ber den erfolgten Empfang und einem oder mehreren Dokumenten.",
   "perfection":"Solltest du keine PEC-Adresse haben und die Dokumente innerhalb von 5 Tagen (120 Stunden) nach Versand der Nachricht einsehen, erh&#228;ltst du keine Zustellung mittels Einschreibebrief.",
