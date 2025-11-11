@@ -2,13 +2,13 @@
   "language": "de",
   "subject":"SEND - Neue Zustellung von ${notification.sender.paDenomination} - ${notification.iun}",
   "hello":"Hallo",
-  "body1":"Sie haben &#252;ber Ihren digitalen Wohnsitz eine rechtsg&#252;ltige Mitteilung von der K&#246;rperschaft <strong>${notification.sender.paDenomination}</strong> mit dem IUN-Code ${notification.iun} erhalten. Melden Sie sich bei SEND an, um diese einzusehen.",
-  "body2":"Diese Zustellung gilt 7 Tage&#42; nach dem Eingang an Ihrer digitalen Zustelladresse als rechtsg&#252;ltig zugestellt, auch wenn Sie sie nicht &#246;ffnen oder lesen.",
+  "body1": "<#if recipient.recipientType=='PF'>Du hast<#else>Dein Unternehmen hat</#if> eine rechtsg&#252;ltige Mitteilung von <strong>${notification.sender.paDenomination}</strong> mit der IUN-Nummer ${notification.iun} an <#if recipient.recipientType=='PF'>deine<#else>seine</#if> digitale Adresse erhalten. Melde dich bei SEND an, um sie einzusehen.",
+  "body2": "Diese Mitteilung gilt als rechtlich zugestellt <#if recipient.recipientType=='PF'>an dich</#if> 7 Tage&#42; nach dem Empfang an <#if recipient.recipientType=='PF'>deiner</#if> digitalen Adresse, auch wenn du sie nicht &#246;ffnest oder liest.",
   "button":"Auf die Dokumente auf SEND zugreifen",
-  "perfection":"Sie haben ab dem Zeitpunkt der Zustellung der Mitteilung 120 Tage Zeit, um die Dokumente online einzusehen. Danach stehen sie auf SEND nicht mehr zur Verf&#252;gung und Sie m&#252;ssen sich an die sendende K&#246;rperschaft wenden.",
+  "perfection": "<#if recipient.recipientType=='PF'>Du hast<#else>Das Unternehmen hat</#if> 120 Tage ab dem Zeitpunkt der Zustellung der Mitteilung Zeit, die Dokumente online einzusehen. Danach sind sie auf SEND nicht mehr verf&#252;gbar und <#if recipient.recipientType=='PF'>du musst dich<#else>es muss sich</#if> an das versendende Organ wenden.",
   "payment":"Die Frist f&#252;r die Zahlung, falls vorgesehen, und f&#252;r etwaige Einspr&#252;che ist in den Dokumenten angegeben.",
-  "banner":"Mit dem digitalen Wohnsitz erhalten Sie keine papierenen Bescheide mehr und m&#252;ssen nicht l&#228;nger die Versandkosten f&#252;r Einschreiben tragen.",
+  "banner": "Mit der digitalen Adresse <#if recipient.recipientType=='PF'>erh&#228;ltst du keine Benachrichtigungen in Papierform mehr und musst<#else>erh&#228;lt es keine Benachrichtigungen in Papierform mehr und muss</#if> nicht mehr die Versandkosten f&#252;r Einschreiben tragen.",
   "greetings":"Bis bald",
-  "footnote":"&#42;Wenn Sie die Zustellung nach 21:00 Uhr erhalten haben, beginnt die 7-Tage-Frist am darauffolgenden Tag.",
-  "footer":"Sie erhalten diese Mitteilung, weil Sie Ihre E-Mail-Adresse unter den H&#246;flichkeitskontakten von SEND angegeben haben. Um die Kontakte zu &#228;ndern oder weitere hinzuzuf&#252;gen, <a title=\"Weiter auf der Zustellplattform\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">gehen Sie zu Ihren Kontakten</a>."
+  "footnote": "&#42;Wenn <#if recipient.recipientType=='PF'>du<#else>das Unternehmen</#if> die Mitteilung nach 21:00 Uhr erhalten <#if recipient.recipientType=='PF'>hast</#if>, beginnen die 7 Tage am folgenden Tag.",
+  "footer": "Du erh&#228;ltst diese Mitteilung, weil du <#if recipient.recipientType=='PF'>deine E-Mail-Adresse<#else>die E-Mail-Adresse des Unternehmens</#if> unter den informellen Adressen von SEND eingegeben hast. Um Adressen zu &#228;ndern oder weitere hinzuzuf&#252;gen, <a title=\"Weiter zur Benachrichtigungsplattform\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">gehe zu deinen Adressen</a>."
 }
