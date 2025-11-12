@@ -341,7 +341,11 @@
             </div>
 
             <div class="read-more text-center">
-                <p>Configura SEND accedendo alla tua area personale su: <b><a href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">www.notifichedigitali.it</a></b></p>
+                <#if recipient.recipientType=="PF">
+                    <p>Configura SEND accedendo alla tua area personale su: <b><a href="https://cittadini.notifichedigitali.it/auth/login" title="Sito di SEND - Servizio Notifiche Digitali">cittadini.notifichedigitali.it</a></b></p>
+                    <#else>
+                    <p>Configura SEND accedendo alla tua area personale su: <b><a href="${piattaformaNotificheURL}auth/login" title="Sito di SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a></b></p>
+                </#if> 
             </div>
             <section id="voc_box" class="vertical-align-bottom blue-border-box-radd radius-8 eleven-pt pt-12 pb-12 pl-12">
                 <h3 class="twelwe-pt font-uppercase">Abbiamo bisogno della tua opinione per migliorare</h3>
