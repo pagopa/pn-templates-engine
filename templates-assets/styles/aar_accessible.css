@@ -157,6 +157,10 @@ a.black {
 .text-center {
     text-align: center;
 }
+
+.text-underline {
+    text-decoration: underline;
+}
 /********************************* end font and line-height utils *****************/
 
 
