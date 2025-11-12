@@ -177,6 +177,14 @@ a.black {
     margin-top: 8px;
 }
 
+.mb-11 {
+    margin-bottom: 11px;
+}
+
+.mt-11 {
+    margin-top: 11px;
+}
+
 .pb-0 {
     padding-bottom: 0 !important;
 }
@@ -445,7 +453,8 @@ a.black {
 }
 
 .number-list img {
-    width: 21px;
+    width: 16px;
+    padding-top: 4px;
 }
 
 ul#square-list-mandate {
@@ -484,7 +493,7 @@ ul#square-list-mandate li {
 }
 
 .advantages-table {
-    padding-top: 24px;
+    padding-top: 12px;
     margin: 0 auto;
     height: 35mm;
 }
@@ -500,7 +509,7 @@ img.message-advantages_explanation {
 }
 
 #help_box {
-    height: 80mm;
+    height: 102mm;
 }
 /********************************* end advantages section *************************/
 
@@ -510,7 +519,7 @@ img.message-advantages_explanation {
 }
 
 #access_yourself_box {
-    margin-top: 4mm;
+    margin-top: 2mm;
     width: auto;
 }
 
@@ -541,14 +550,14 @@ img.message-advantages_explanation {
     background-size: contain;
 }
 
-.icon-time {
-    background-image: url("../images/time.jpg");
+.icon-bell {
+    background-image: url("../images/bell-notification.jpg");
 }
 
-.icon-earth {
-    background-image: url("../images/earth.jpg");
+.icon-file {
+    background-image: url("../images/file-text.jpg");
 }
 
-.icon-control {
-    background-image: url("../images/control.jpg");
+.icon-euro {
+    background-image: url("../images/euro-circle.jpg");
 }

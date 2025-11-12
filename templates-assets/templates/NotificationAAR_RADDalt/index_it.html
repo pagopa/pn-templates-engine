@@ -109,7 +109,7 @@
                         -->
                         <div class="table">
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
+                                <div class="cell number-list"><img src="../../images/numero-1.jpg" alt="Numero 1"></div>
                                 <div class="cell vertical-align-top">
                                     <#if recipient.recipientType=="PF">
                                         <p>
@@ -127,21 +127,16 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
+                                <div class="cell number-list"><img src="../../images/numero-2.jpg" alt="Numero 2"></div>
                                 <div class="cell vertical-align-top">
                                     <p>Accedi e scarica i documenti: contengono informazioni importanti che ti riguardano</p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-3.png" alt="Numero 3"></div>
+                                <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
                                 <div class="cell vertical-align-top">
-                                    <p>Se previsto un pagamento, puoi pagare con tutti i canali abilitati a pagoPA. <strong class="text-underline">L’importo si aggiornerà con i costi di notifica</strong>, che variano in base alla modalità di invio (in Italia da 2 € per le notifiche digitali fino a 24 € per le raccomandate cartacee).</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-4.png" alt="Numero 4"></div>
-                                <div class="cell vertical-align-top">
-                                    <p>In fase di pagamento l'importo si aggiornerà con gli eventuali costi di notifica relativi alla spedizione della raccomandata (fino a 24,00€ in Italia)</p>
+                                    <p>Se previsto un pagamento, puoi pagare con tutti i canali abilitati a pagoPA.</p>
+                                    <p><strong class="text-underline">L’importo si aggiornerà con i costi di notifica</strong>, che variano in base alla modalità di invio (in Italia da 2 € per le notifiche digitali fino a 24 € per le raccomandate cartacee).</p>
                                 </div>
                             </div>
                         </div>
@@ -199,7 +194,7 @@
 
     <!--------------------------- PAGE 2 (297mm x 192mm) --------------------------->
     <section id="second-page">
-        <section class="retrieve_info_box" id="" style="background-color:red">
+        <section class="retrieve_info_box" id="">
             <div class="table">
                 <div class="row heading w-100 font-bold">
                     <div class="cell"><h2 class="font-uppercase twelve-pt">Opzione 2: Ritira i documenti di persona</h2></div>
@@ -212,14 +207,14 @@
                     <div class="cell width-60 vertical-align-top">
                         <div class="table access_yourself_list">
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
+                                <div class="cell number-list"><img src="../../images/numero-1.jpg" alt="Numero 1"></div>
                                 <div class="cell vertical-align-top">
                                     <p>Cerca il Punto di ritiro SEND più vicino a te su <br> <b><a href="https://www.notifichedigitali.it/punti-di-ritiro" title="Pagina dei Punti di ritiro SEND">www.notifichedigitali.it/punti-di-ritiro</a></b> oppure chiama il <br>numero <b>${raddPhoneNumber}</b>
                                 </p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
+                                <div class="cell number-list"><img src="../../images/numero-2.jpg" alt="Numero 2"></div>
                                 <div class="cell vertical-align-top">
                                     <p>Recati al punto di ritiro portando con te: 
                                         <ul id="square-list">
@@ -234,9 +229,9 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-3.png" alt="Numero 3"></div>
+                                <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
                                 <div class="cell vertical-align-top">
-                                    <p>Paga 1,40 € per il servizio di stampa e ritira i documenti</p>
+                                    <p>Paga 1,40 € (più IVA se prevista) per il servizio di stampa e ritira i documenti. Eventuali spese per servizi accessori resi dall’esercente non sono incluse nel costo SEND.ß</p>
                                 </div>
                             </div>
                         </div>
@@ -255,12 +250,12 @@
             </div>
             <div class="table">
                 <div class="row w-100">
-                    <p style="margin-top: 8mm;">Se presente un avviso pagoPA paga presso un canale abilitato oppure online. In fase di pagamento l'importo si aggiornerà con gli eventuali costi di notifica relativi alla spedizione della raccomandata (fino a 24,00€ in Italia).</p>
+                    <p style="margin-top: 4mm;">Se presente un avviso pagoPA, puoi pagare con tutti i canali abilitati. <strong class="text-underline">L’importo si aggiornerà con i costi di notifica</strong>, che variano in base alla modalità di invio (in Italia da 2 € per le notifiche digitali fino a 24 € per le raccomandate cartacee).</p>
                 </div>
             </div>
         </section>
 
-        <section class="mandate-section"  style="background-color:green">
+        <section class="mandate-section">
             <div id="mandate_box" class="blue-border-iun radius-8">
                 <p class="font-bold title">
                     Vuoi che qualcuno ritiri i documenti per te?
@@ -308,36 +303,37 @@
         </section>
 
         <#if recipient.recipientType=="PF">
-        <section id="help_box" class="vertical-align-bottom"  style="background-color:purple">
-            <h2 class="ten-pt font-uppercase text-center">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? PUOI FARTI AIUTARE DA UNA PERSONA DI FIDUCIA</h2>
-            <p class="advantages-explanation__content text-center width-85"> Con SEND puoi dare accesso alle tue comunicazioni a valore legale a una o più persone di fiducia: accedi a SEND per creare una delega digitale. SEND è il servizio digitale che semplifica l'invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
+        <section id="help_box" class="vertical-align-bottom">
+            <h2 class="ten-pt font-uppercase text-center">Come sfruttare tutti i vantaggi di send - Servizio notifiche digitali?</h2>
+            <p class="text-center width-95 mt-11">SEND è il servizio che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
+            <p class="text-center width-95 mb-11">Grazie a SEND puoi consultare le notifiche in digitale ed evitare le raccomandate e i relativi costi.</p>
 
             <div class="table advantages-table">
                 <div class="advantages-row nine-pt row">
                     <div class="advantage-col cell text-center">
-                        <div class="message-advantages_explanation icon-time"></div>
+                        <div class="message-advantages_explanation icon-bell"></div>
                         <div class="advantages-explanation__content">
                             <p>
-                                <b>Non perdi tempo</b><br>
-                                Non serve più ritirare fisicamente le raccomandate
+                                <b>Ti avvisiamo sui tuoi canali preferiti</b><br>
+                                Aggiungi i tuoi recapiti per ricevere un avviso quando c’è una notifica per te
                             </p>
                         </div>
                     </div>
                     <div class="advantage-col cell text-center">
-                        <div class="message-advantages_explanation icon-earth"></div>
+                        <div class="message-advantages_explanation icon-file"></div>
                         <div class="advantages-explanation__content">
                             <p>
-                                <b>Non importa dove sei</b><br>
-                                La persona delegata può accedere ai tuoi documenti online
+                                <b>Consulta i documenti online</b><br>
+                                Accedi ai documenti online comodamente dal tuo dispositivo
                             </p>
                         </div>
                     </div>
                     <div class="advantage-col cell text-center">
-                        <div class="message-advantages_explanation icon-control"></div>
+                        <div class="message-advantages_explanation icon-euro"></div>
                         <div class="advantages-explanation__content">
                             <p>
-                                <b>Hai sempre il controllo</b><br>
-                                Puoi revocare o modificare le deleghe in qualsiasi momento
+                                <b>Eviti i costi di raccomandata</b><br>
+                                Se accedi in tempo, eviti l’invio della raccomandata e i relativi costi
                             </p>
                         </div>
                     </div>
@@ -345,16 +341,14 @@
             </div>
 
             <div class="read-more text-center">
-                <p>Per saperne di più vai sul sito SEND <b><a href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">www.notifichedigitali.it</a></b></p>
+                <p>Configura SEND accedendo alla tua area personale su: <b><a href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">www.notifichedigitali.it</a></b></p>
             </div>
             <section id="voc_box" class="vertical-align-bottom blue-border-box-radd radius-8 eleven-pt pt-12 pb-12 pl-12">
                 <h3 class="twelwe-pt font-uppercase">Abbiamo bisogno della tua opinione per migliorare</h3>
-                <p>Condividendo con noi la tua opinione sulla ricezione della notifica e l’accesso ai documenti, ci aiuti a migliorare il servizio SEND: la compilazione richiede pochi istanti. Raccontaci la tua esperienza al link <a href="www.linkvoc.it" title="Sito per la raccolta delle opinioni dei cittadini">www.linkvoc.it</a></p>
+                <p>Condividendo con noi la tua opinione sulla ricezione della notifica e l’accesso ai documenti, ci aiuti a migliorare il servizio SEND: la compilazione richiede pochi istanti. Raccontaci la tua esperienza al link <a href="www.linkvoc.it" title="Sito per la raccolta delle opinioni dei cittadini"><b>www.linkvoc.it</b></a></p>
             </section>
         </section>
-        
         </#if>
-
     </section>
 </main>
 </body>
