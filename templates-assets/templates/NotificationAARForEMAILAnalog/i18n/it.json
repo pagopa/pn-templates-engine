@@ -3,7 +3,7 @@
   "it_subject":"SEND - Nuova notifica da ${notification.sender.paDenomination} - ${notification.iun}",
   "it_hello":"Ciao",
   "it_body1":"<#if recipient.recipientType=='PF'>Hai<#else>La tua impresa ha</#if> ricevuto su SEND - Servizio Notifiche Digitali una notifica da parte di <strong>${notification.sender.paDenomination}</strong> con Codice IUN ${notification.iun}.",
-  "it_body2":"<#if recipient.recipientType=='PF'>Hai<#else>La tua impresa ha</#if> fino a 120 giorni dalla <a href=\"${perfezionamentoURL}\" title=\"data di perfezionamento\">data di perfezionamento</a> della notifica per <strong>accedere ai documenti</strong>. Il termine per il pagamento, se previsto, e per eventuali impugnazioni &egrave; indicato nei documenti.",
+  "it_body2":"<#if recipient.recipientType=='PF'>Hai<#else>L&#39;impresa ha</#if> fino a 120 giorni dalla <a href=\"${perfezionamentoURL}\" title=\"data di perfezionamento\">data di perfezionamento</a> della notifica per <strong>accedere ai documenti</strong>. Il termine per il pagamento, se previsto, e per eventuali impugnazioni &egrave; indicato nei documenti.",
   "it_body3":"Una notifica &egrave; una <strong> comunicazione a valore legale </strong> composta da un avviso di avvenuta ricezione e da uno o pi&ugrave; documenti.",
   "it_perfection":"Se accedi alla comunicazione entro 5 giorni dall&#39;invio di questa email, eviterai una raccomandata cartacea e gli eventuali costi.",
   "it_read_more":"SEND &egrave; uno strumento che rende l&#39;invio di notifiche da parte della Pubblica Amministrazione pi&ugrave; sicuro, efficiente ed economico. <a href=\"${pnFaqSendURL}\" title=\"Scopri di pi&ugrave;\">Scopri di pi&ugrave;</a>",
