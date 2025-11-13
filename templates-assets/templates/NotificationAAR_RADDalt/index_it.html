@@ -79,9 +79,9 @@
         </div>
         <div id="view_online_box">
             <div class="table">
-                <div class="row heading w-100 font-bold">
-                    <div class="cell"><h2 class="font-uppercase twelve-pt">Opzione 1: Accedi ora ai documenti online</h2></div>
-                    <div class="cell text-right nine-pt">Consultazione online gratuita</div>
+                <div class="row heading w-100 font-bold twelve-lh">
+                    <div class="cell"><h2 class="font-uppercase twelve-pt twelve-lh">Opzione 1: Accedi ora ai documenti online</h2></div>
+                    <div class="cell text-right nine-pt twelve-lh">Consultazione online gratuita</div>
                 </div>
             </div>
         </div>
@@ -135,7 +135,7 @@
                             <div class="row">
                                 <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
                                 <div class="cell vertical-align-top">
-                                    <p>Se previsto un pagamento, puoi pagare con tutti i canali abilitati a pagoPA.</p>
+                                    <p>Se previsto un pagamento, puoi pagare con tutti i canali abilitati a pagoPA</p>
                                     <p><strong class="text-underline">L’importo si aggiornerà con i costi di notifica</strong>, che variano in base alla modalità di invio (in Italia da 2 € per le notifiche digitali fino a 24 € per le raccomandate cartacee).</p>
                                 </div>
                             </div>
@@ -148,9 +148,9 @@
 
     <section class="lower-section">
         <div class="table">
-          <div class="row heading w-100 font-bold">
-              <div class="cell"><h2 class="font-uppercase twelve-pt">Opzione 2: Ritira i documenti di persona</h2></div>
-              <div class="cell text-right nine-pt width-40">Servizio di stampa a pagamento</div>
+          <div class="row heading w-100 font-bold twelve-lh">
+              <div class="cell"><h2 class="font-uppercase twelve-pt twelve-lh">Opzione 2: Ritira i documenti di persona</h2></div>
+              <div class="cell text-right nine-pt twelve-lh width-40">Servizio di stampa a pagamento</div>
           </div>
         </div>
 
@@ -182,9 +182,9 @@
             </div>
         </div>
 
-        <footer id="footer_disclaimer" class="eight-pt">
+        <footer id="footer_disclaimer" class="eight-pt twelve-lh">
         <#else>
-        <footer id="footer_disclaimer" class="eight-pt" style="margin-top: 170px;">
+        <footer id="footer_disclaimer" class="eight-pt twelve-lh" style="margin-top: 170px;">
         </#if>
             <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l'importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell'eventuale raccomandata a te inviata e scelta dall'ente, dal numero di tentativi di recapito.  <br>
             Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online o ritirarli di persona. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">www.${perfezionamentoURLLabel}</a></b></p>
@@ -197,8 +197,8 @@
         <section class="retrieve_info_box" id="">
             <div class="table">
                 <div class="row heading w-100 font-bold">
-                    <div class="cell"><h2 class="font-uppercase twelve-pt">Opzione 2: Ritira i documenti di persona</h2></div>
-                    <div class="cell text-right nine-pt width-40">Servizio di stampa a pagamento</div>
+                    <div class="cell"><h2 class="font-uppercase twelve-pt twelve-lh">Opzione 2: Ritira i documenti di persona</h2></div>
+                    <div class="cell text-right nine-pt twelve-lh width-40">Servizio di stampa a pagamento</div>
                 </div>
             </div>
 
@@ -241,7 +241,7 @@
                             <div id="iun-code" class="eight-px">
                                 <p class="font-bold nine-pt">Identificativo Univoco Notifica:</p>
                                 <p>${notification.iun}</p>
-                                <p class="font-bold nine-pt">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </p>
+                                <p class="font-bold nine-pt mt-8">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </p>
                                 <p>${recipient.taxId}</p>
                             </div>
                         </div>
@@ -267,20 +267,20 @@
                             <p>Io, ${recipient.denomination} ${recipient.taxId}, delego</p>
                             <#else>
                                 <div>
-                                <p>Io,  <span class="nine-px eleven-lh form-field border-bottom mb-form mt-0">
+                                <p>Io,  <span class="nine-pt eleven-lh form-field border-bottom mb-form mt-0">
                                     Nome e Cognome
                                 </span></p>
                                 in qualità di legale rappresentante di ${recipient.denomination} ${recipient.taxId}, delego
                                 </div>
                             </#if>
-                            <div class="nine-px eleven-lh border-bottom mb-form">
+                            <div class="nine-pt eleven-lh border-bottom mb-form">
                             Nome e Cognome
                             </div>
-                            <div class="nine-px eleven-lh border-bottom mb-form">
+                            <div class="nine-pt eleven-lh border-bottom mb-form">
                             Codice Fiscale
                             </div>
                             a ritirare i documenti notificati.
-                            <div class="nine-px eleven-lh border-bottom mb-0">
+                            <div class="nine-pt eleven-lh border-bottom mb-0">
                             Firma
                             </div>
                         </div>
@@ -305,7 +305,7 @@
         <#if recipient.recipientType=="PF">
         <section id="help_box" class="vertical-align-bottom">
             <h2 class="ten-pt font-uppercase text-center">Come sfruttare tutti i vantaggi di send - Servizio notifiche digitali?</h2>
-            <p class="text-center width-95 mt-11">SEND è il servizio che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
+            <p class="text-center width-95 mt-0">SEND è il servizio che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
             <p class="text-center width-95 mb-11">Grazie a SEND puoi consultare le notifiche in digitale ed evitare le raccomandate e i relativi costi.</p>
 
             <div class="table advantages-table">
@@ -342,12 +342,12 @@
 
             <div class="read-more text-center">
                 <#if recipient.recipientType=="PF">
-                    <p>Configura SEND accedendo alla tua area personale su: <b><a href="https://cittadini.notifichedigitali.it/auth/login" title="Sito di SEND - Servizio Notifiche Digitali">cittadini.notifichedigitali.it</a></b></p>
+                    <p class="ten-pt">Configura SEND accedendo alla tua area personale su: <b><a href="https://cittadini.notifichedigitali.it/auth/login" title="Sito di SEND - Servizio Notifiche Digitali">cittadini.notifichedigitali.it</a></b></p>
                     <#else>
-                    <p>Configura SEND accedendo alla tua area personale su: <b><a href="${piattaformaNotificheURL}auth/login" title="Sito di SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a></b></p>
+                    <p class="ten-pt">Configura SEND accedendo alla tua area personale su: <b><a href="${piattaformaNotificheURL}auth/login" title="Sito di SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a></b></p>
                 </#if> 
             </div>
-            <section id="voc_box" class="vertical-align-bottom blue-border-box-radd radius-8 eleven-pt pt-12 pb-12 pl-12">
+            <section id="voc_box" class="vertical-align-bottom blue-border-box-radd radius-8 eleven-pt pt-8 pb-12 pl-12">
                 <h3 class="twelwe-pt font-uppercase">Abbiamo bisogno della tua opinione per migliorare</h3>
                 <p>Condividendo con noi la tua opinione sulla ricezione della notifica e l’accesso ai documenti, ci aiuti a migliorare il servizio SEND: la compilazione richiede pochi istanti. Raccontaci la tua esperienza al link <a href="www.linkvoc.it" title="Sito per la raccolta delle opinioni dei cittadini"><b>www.linkvoc.it</b></a></p>
             </section>

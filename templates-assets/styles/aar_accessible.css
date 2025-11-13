@@ -124,6 +124,10 @@ body {
     line-height: 14.667px; /* 11px on Figma */
 }
 
+.twelve-lh {
+    line-height: 16px; /* 12px on Figma */
+}
+
 .sixteen-lh {
     line-height: 21.333px; /* 16px on Figma */
 }
@@ -193,6 +197,14 @@ a.black {
     padding-top: 0 !important;
 }
 
+.pl-8 {
+    padding-left: 8px;
+}
+
+.pt-8 {
+    padding-top: 8px;
+}
+
 .pt-12 {
     padding-top: 12px;
 }
@@ -203,10 +215,6 @@ a.black {
 
 .pb-12 {
     padding-bottom: 12px;
-}
-
-.pl-8 {
-    padding-left: 8px;
 }
 
 .pl-12 {
@@ -320,7 +328,7 @@ a.black {
 }
 
 .heading .cell {
-    padding: 1.4mm 3.7mm;
+    padding: 0mm 1.4mm 1mm 3.7mm;
 }
 
 #arrow-img {
