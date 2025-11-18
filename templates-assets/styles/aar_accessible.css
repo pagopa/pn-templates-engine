@@ -81,7 +81,8 @@ body {
 }
 
 .retrieve_info_box {
-    height: 90mm;
+    height: 80mm;
+    margin-bottom: 10mm;
 }
 
 .mandate-section {
@@ -143,6 +144,7 @@ body {
 a {
     text-decoration: underline;
     color: #0B3EE3;
+    white-space: nowrap;
 }
 
 a.black {
@@ -517,7 +519,11 @@ img.message-advantages_explanation {
 }
 
 #help_box {
-    height: 100mm;
+    height: 90mm;
+}
+
+#help_box_pg {
+    height: 80mm;
 }
 /********************************* end advantages section *************************/
 

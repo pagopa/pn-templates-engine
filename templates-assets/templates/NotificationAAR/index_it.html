@@ -188,51 +188,65 @@
             </section>
         </section>
         
-        <#if recipient.recipientType=="PF">
         <!--------------------------- PAGE 2 (297mm x 192mm) --------------------------->
         <section id="second-page">
-            <h4 class="ten-pt font-uppercase text-center" id="mandate_infobox">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? PUOI FARTI AIUTARE DA UNA PERSONA DI FIDUCIA</h4>
-            <p class="advantages-explanation__content text-center width-85"> Con SEND puoi dare accesso alle tue comunicazioni a valore legale a una o più persone di fiducia: accedi a SEND per creare una delega digitale. SEND è il servizio digitale che semplifica l'invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
+            <div class="table" style="height: 100%;">
+                <div class="row">
+                    <h2 class="ten-pt font-uppercase text-center">Come sfruttare tutti i vantaggi di send - Servizio notifiche digitali?</h2>
+                    <p class="text-center width-95 mt-0">SEND è il servizio che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
+                    <p class="text-center width-95 mb-11">Grazie a SEND puoi consultare le notifiche in digitale ed evitare le raccomandate e i relativi costi.</p>
 
-            <div class="table advantages-table" id="advantages_infobox">
-                <div class="advantages-row nine-pt row">
-                    <div class="advantage-col cell text-center">
-                        <div class="message-advantages_explanation icon-time"></div>
-                        <div class="advantages-explanation__content">
-                            <p>
-                                <b>Non perdi tempo</b><br>
-                                Non serve più ritirare fisicamente le raccomandate
-                            </p>
+                    <div class="table advantages-table">
+                        <div class="advantages-row nine-pt row">
+                            <div class="advantage-col cell text-center">
+                                <div class="message-advantages_explanation icon-bell"></div>
+                                <div class="advantages-explanation__content">
+                                    <p>
+                                        <b>Ti avvisiamo sui tuoi canali preferiti</b><br>
+                                        Aggiungi i tuoi recapiti per ricevere un avviso quando c’è una notifica per te
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="advantage-col cell text-center">
+                                <div class="message-advantages_explanation icon-file"></div>
+                                <div class="advantages-explanation__content">
+                                    <p>
+                                        <b>Consulta i documenti online</b><br>
+                                        Accedi ai documenti online comodamente dal tuo dispositivo
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="advantage-col cell text-center">
+                                <div class="message-advantages_explanation icon-euro"></div>
+                                <div class="advantages-explanation__content">
+                                    <p>
+                                        <b>Eviti i costi di raccomandata</b><br>
+                                        Se accedi in tempo, eviti l’invio della raccomandata e i relativi costi
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="advantage-col cell text-center">
-                        <div class="message-advantages_explanation icon-earth"></div>
-                        <div class="advantages-explanation__content">
-                            <p>
-                                <b>Non importa dove sei</b><br>
-                                La persona delegata può accedere ai tuoi documenti online
-                            </p>
-                        </div>
+                    <div class="read-more text-center">
+                        <#if recipient.recipientType=="PF">
+                        <p class="ten-pt">Configura SEND accedendo alla tua area personale su: <b><a href="https://cittadini.notifichedigitali.it/auth/login" title="Sito di SEND - Servizio Notifiche Digitali">cittadini.notifichedigitali.it</a></b></p>
+                        <#else>
+                        <p class="ten-pt">Configura SEND accedendo alla tua area personale su: <b><a href="${piattaformaNotificheURL}auth/login" title="Sito di SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a></b></p>
+                        </#if> 
                     </div>
-                    <div class="advantage-col cell text-center">
-                        <div class="message-advantages_explanation icon-control"></div>
-                        <div class="advantages-explanation__content">
-                            <p>
-                                <b>Hai sempre il controllo</b><br>
-                                Puoi revocare o modificare le deleghe in qualsiasi momento
-                            </p>
+                </div>
+                <#if recipient.recipientType=="PF">
+                <div class="row">
+                    <div class="cell vertical-align-bottom" style="height: 32mm;">
+                        <div id="voc_box" class="blue-border-box-radd radius-8 eleven-pt pt-12 pb-12 pl-12 mb-0">
+                            <h3 class="twelwe-pt font-uppercase">Come valuti l’esperienza di accesso ai documenti?</h3>
+                            <p>Condividendo con noi la tua opinione ci aiuti a migliorare il servizio che offriamo: la compilazione richiede pochi istanti. Raccontaci la tua esperienza al link <a href="https://notifichedigitali.it/sondaggio" title="Sito per la raccolta delle opinioni dei cittadini"><b>notifichedigitali.it/sondaggio</b></a></p>
                         </div>
                     </div>
                 </div>
+                </#if>
             </div>
-
-
-            <div class="read-more text-center">
-                <p>Per saperne di più vai sul sito SEND <b><a href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">www.notifichedigitali.it</a></b></p>
-            </div>
-
         </section>
-        </#if>
 
     </main>
 
