@@ -19,6 +19,7 @@
         <bookmark name="Informazioni sulle deleghe su SEND" href="#mandate_infobox"/>
         <bookmark name="Note legali del documento" href="#footer_disclaimer"/>
         <bookmark name="Vantaggi dell'utilizzo di SEND" href="#advantages_infobox"/>
+        <bookmark name="Voice of Customer" href="#voc_box"/>
     </bookmarks>
 </head>
 
@@ -199,9 +200,9 @@
     <!--------------------------- PAGE 2 (297mm x 192mm) --------------------------->
     <section id="second-page">
         <#if recipient.recipientType=="PF">
-        <section class="retrieve_info_box" style="background-color: blueviolet;">
+        <section class="retrieve_info_box">
         <#else>
-        <section class="retrieve_info_box_pg" style="background-color: blueviolet;">
+        <section class="retrieve_info_box_pg">
         </#if>
             <div class="table">
                 <div class="row heading w-100 font-bold">
@@ -263,7 +264,7 @@
             </div>
         </section>
 
-        <section class="mandate-section" style="background-color: aquamarine;">
+        <section class="mandate-section">
             <div id="mandate_box" class="blue-border-iun radius-8">
                 <p class="font-bold title">
                     Vuoi che qualcuno ritiri i documenti per te?
@@ -310,8 +311,8 @@
             </div>
         </section>
 
-        <div class="wrapper table" style="background-color: red;">
-            <section id="help_box" class="vertical-align-bottom cell mb-0 pb-0" style="background-color: green;">
+        <div class="table"  id="help_box">
+            <section class="vertical-align-bottom cell mb-0 pb-0">
                 <h2 class="ten-pt font-uppercase text-center">Come sfruttare tutti i vantaggi di send - Servizio notifiche digitali?</h2>
                 <p class="text-center width-95 mt-0">SEND è il servizio che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
                 <p class="text-center width-95 mb-11">Grazie a SEND puoi consultare le notifiche in digitale ed evitare le raccomandate e i relativi costi.</p>
@@ -347,7 +348,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="table" style="background-color: purple;">
+                <div class="table">
                     <div class="row">
                         <div class="cell read-more text-center">
                         <#if recipient.recipientType=="PF">
@@ -359,7 +360,7 @@
                     </div>
                 </div>
                 <#if recipient.recipientType=="PF">
-                <div class="table pb-0 mb-0" style="background-color: rgb(255, 0, 191);">
+                <div class="table pb-0 mb-0">
                     <div class="row vertical-align-bottom" style="height: 32mm;">
                         <div id="voc_box" class="blue-border-box-radd radius-8 eleven-pt pt-12 pb-12 pl-12 mb-0">
                             <h3 class="twelwe-pt font-uppercase">Come valuti l’esperienza di accesso ai documenti?</h3>

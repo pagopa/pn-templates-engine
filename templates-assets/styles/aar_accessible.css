@@ -85,6 +85,11 @@ body {
     margin-bottom: 10mm;
 }
 
+.retrieve_info_box_pg {
+    height: 90mm;
+    margin-bottom: 10mm;
+}
+
 .mandate-section {
     height: 80mm;
     display: table-cell;
@@ -522,9 +527,6 @@ img.message-advantages_explanation {
     height: 90mm;
 }
 
-#help_box_pg {
-    height: 80mm;
-}
 /********************************* end advantages section *************************/
 
 .access_online_box {
