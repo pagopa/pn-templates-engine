@@ -1,1 +1,1 @@
-Hai ricevuto una notifica da ${notification.sender.paDenomination} con Codice IUN ${notification.iun}. Per leggerla, accedi con SPID o CIE al sito di SEND - Servizio Notifiche Digitali.
+<#if recipient.recipientType=='PF'>Hai<#else>La tua impresa ha</#if> ricevuto una notifica da ${notification.sender.paDenomination} con Codice IUN ${notification.iun}. Per leggerla, accedi con SPID o CIE al sito di SEND - Servizio Notifiche Digitali.

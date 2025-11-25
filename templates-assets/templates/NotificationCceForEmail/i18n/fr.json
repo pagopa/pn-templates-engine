@@ -2,7 +2,7 @@
   "language":"fr",
   "subject":"[fac-simile] SEND - E-mail avec document joint",
   "hello":"[fac-simile] Bonjour ${denomination}",
-  "body1":"[fac-simile] Le ${ticketDate}, vous avez demandé à recevoir les documents relatifs à la notification SEND portant le code ${iun}, via le centre d'appel de SEND - Service de notifications numériques.",
+  "body1":"[fac-simile] Le ${ticketDate}, vous avez demandé à recevoir les documents relatifs à la notification SEND portant le code ${iun}, via le centre d'appel de SEND - Servizio Notifiche Digitali.",
   "body2":"[fac-simile] Vous trouverez en pièce jointe à cet e-mail les documents relatifs à la notification.",
   "body3":"[fac-simile] Veuillez noter que la date d'envoi de cet e-mail ne correspond pas à la date de finalisation, c'est-à-dire la date à partir de laquelle les effets juridiques de l'acte notifié prennent effet. Pour plus d'informations sur la date de finalisation, consultez <a title=\" Lien vers la page de finalisation\" class=\" link\" style=\" text-decoration: underline\" href=\" https://notifichedigitali.it/perfezionamento\">https://notifichedigitali.it/perfezionamento</a",
   "body4":"[fac-simile] Les délais de paiement - le cas échéant - et d'éventuels recours sont indiqués dans les documents.",

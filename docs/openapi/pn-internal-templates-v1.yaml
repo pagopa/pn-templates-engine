@@ -332,7 +332,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/NotificationAarForEmail'
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAarForEmailAnalog'
 
       responses:
         '200':
@@ -362,7 +362,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/NotificationAarForEmail'
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAarForEmailDigital'
 
       responses:
         '200':
@@ -576,7 +576,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/NotificationAarForSms'
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAarForSmsAnalog'
 
       responses:
         '200':
@@ -606,7 +606,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/NotificationAarForSms'
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAarForSmsDigital'
 
       responses:
         '200':

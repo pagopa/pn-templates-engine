@@ -2,13 +2,13 @@
   "language": "sl",
   "subject":"SEND - Novo obvestilo od ${notification.sender.paDenomination} - ${notification.iun}",
   "hello":"Pozdravljeni",
-  "body1":"Na va&#353;e digitalno prebivali&#353;&#269;e ste prejeli obvestilo s pravno veljavo s strani <strong>${notification.sender.paDenomination}</strong> z Edinstveno identifikacijsko oznako obvestila (IUN) ${notification.iun}. Dostopite do SEND, da ga preverite.",
-  "body2":"To obvestilo bo &#353;telo kot pravno vro&#269;eno 7 dni&#42; po prejemu na va&#353;e digitalno prebivali&#353;&#269;e, tudi &#269;e ga ne odprete ali ne preberete.",
+  "body1": "<#if recipient.recipientType=='PF'>Prejel si<#else>Va&#353;e podjetje je prejelo</#if> na <#if recipient.recipientType=='PF'>svoj<#else>svoj</#if> digitalni naslov sporo&#269;ilo s pravno veljavnostjo od <strong>${notification.sender.paDenomination}</strong> s kodo IUN ${notification.iun}. Prijavite se v SEND za vpogled.",
+  "body2": "To sporo&#269;ilo se bo &#353;telo za pravno vro&#269;eno <#if recipient.recipientType=='PF'>tebi</#if> 7 dni&#42; po prejemu na <#if recipient.recipientType=='PF'>tvojem</#if> digitalnem naslovu, &#269;etudi ga ne odpre&#353; in ne prebere&#353;.",
   "button":"Dostop do dokumentov na SEND",
-  "perfection":"Od trenutka, ko se obvestilo &#353;teje za vro&#269;eno, imate na voljo 120 dni za ogled dokumentov na spletu. Kasneje ne bodo ve&#269; na voljo na platformi SEND in se boste morali obrniti na organ, ki vam jih je poslal.",
+  "perfection": "<#if recipient.recipientType=='PF'>Na voljo ima&#353;<#else>Podjetje ima na voljo</#if> 120 dni od trenutka, ko se sporo&#269;ilo &#353;teje za vro&#269;eno, za spletni vpogled v dokumente. Kasneje ne bodo ve&#269; na voljo na SEND in <#if recipient.recipientType=='PF'>se bo&#353; moral obrniti<#else>se bo moralo obrniti</#if> na organ, ki ti jih je poslal.",
   "payment":"Rok za pla&#269;ilo, &#269;e je predvideno, in za morebitne prito&#382;be je naveden v dokumentih.",
-  "banner":"Z digitalnim prebivali&#353;&#269;em ne boste prejemali papirnatih obvestil in ne boste ve&#269; nosili stro&#353;kov po&#353;iljanja priporo&#269;enih po&#353;iljk.",
+  "banner": "Z digitalnim naslovom <#if recipient.recipientType=='PF'>ne bo&#353; ve&#269; prejemal papirnatih obvestil in ne bo&#353; rabil<#else>ne bo ve&#269; prejelo papirnatih obvestil in ne bo rabilo</#if> nositi stro&#353;kov po&#353;iljanja priporo&#269;enih po&#353;iljk.",
   "greetings":"Lep pozdrav",
-  "footnote":"&#42;&#268;e ste obvestilo prejeli po 21. uri, za&#269;ne 7-dnevni rok te&#269;i naslednji dan.",
-  "footer":"To sporo&#269;ilo prejemate, ker ste svoj e-po&#353;tni naslov vnesli med kontakte za obvestila SEND. &#268;e &#382;elite spremeniti ali dodati druge kontakte, <a title=\"Nadaljuj na platformi Obvestil\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">pojdite na svoje kontakte</a>."
+  "footnote": "&#42;&#268;e <#if recipient.recipientType=='PF'>si<#else>je podjetje</#if> sporo&#269;ilo prejel <#if recipient.recipientType=='PF'>/a</#if> po 21:00, 7 dni za&#269;ne te&#269;i naslednji dan.",
+  "footer": "To sporo&#269;ilo prejema&#353;, ker si vnesel <#if recipient.recipientType=='PF'>svoj e-po&#353;tni naslov<#else>e-po&#353;tni naslov podjetja</#if> med kontaktne naslove za obvestila (recapiti di cortesia) na SEND. Za spremembo ali dodajanje kontaktnih naslovov, <a title=\"Nadaljujte na platformi za obve&#353;&#269;anje\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">pojdi na svoje naslove</a>."
 }
