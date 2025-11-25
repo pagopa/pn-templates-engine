@@ -153,6 +153,11 @@ a.faq-link-perfezionamento {
 .table {
     display: table;
     width: 100%;
+}
+
+.table-fixed {
+    display: table;
+    width: 100%;
     table-layout: fixed;
 }
 
@@ -162,6 +167,9 @@ a.faq-link-perfezionamento {
 
 .cell {
     display: table-cell;
+}
+
+.break-text {
     word-wrap: break-word;
     word-break: break-all;
     overflow-wrap: anywhere;
