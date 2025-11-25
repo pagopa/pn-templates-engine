@@ -2,13 +2,13 @@
   "it_language": "it",
   "it_subject":"SEND - Nuova notifica da ${notification.sender.paDenomination} - ${notification.iun}",
   "it_hello":"Ciao",
-  "it_body1":"Hai ricevuto sul tuo domicilio digitale una comunicazione a valore legale da parte di <strong>${notification.sender.paDenomination}</strong> con Codice IUN ${notification.iun}, accedi a SEND per consultarla.",
-  "it_body2":"Questa comunicazione risulter&#xE0; legalmente consegnata a te 7 giorni&#42; dopo la ricezione sul tuo domicilio digitale, anche se non la apri o non la leggi.",
+  "it_body1":"<#if recipient.recipientType=='PF'>Hai<#else>La tua impresa ha</#if> ricevuto sul <#if recipient.recipientType=='PF'>tuo<#else>suo</#if> domicilio digitale una comunicazione a valore legale da parte di <strong>${notification.sender.paDenomination}</strong> con Codice IUN ${notification.iun}, accedi a SEND per consultarla.",
+  "it_body2":"Questa comunicazione risulter&#xE0; legalmente consegnata <#if recipient.recipientType=='PF'>a te</#if> 7 giorni&#42; dopo la ricezione sul <#if recipient.recipientType=='PF'>tuo</#if> domicilio digitale, anche se non la apri o non la leggi.",
   "it_button":"Accedi ai documenti su SEND",
-  "it_perfection":"Hai a disposizione 120 giorni dal momento in cui la comunicazione risulta consegnata per consultare i documenti online. Successivamente non saranno pi&ugrave; disponibili su SEND e dovrai rivolgerti all&#39;ente che te li ha inviati.",
+  "it_perfection":"<#if recipient.recipientType=='PF'>Hai<#else>L&#39;impresa ha</#if> a disposizione 120 giorni dal momento in cui la comunicazione risulta consegnata per consultare i documenti online. Successivamente non saranno pi&ugrave; disponibili su SEND e <#if recipient.recipientType=='PF'>dovrai rivolgerti<#else>dovr&#xE0; rivolgersi</#if> all&#39;ente che <#if recipient.recipientType=='PF'>te</#if>li ha inviati.",
   "it_payment":"ll termine per il pagamento, se previsto, e per eventuali impugnazioni &egrave; indicato nei documenti.",
-  "it_banner":"Con il domicilio digitale non riceverai avvisi cartacei e non dovrai pi&ugrave; sostenere i costi di spedizione delle raccomandate.",
+  "it_banner":"Con il domicilio digitale <#if recipient.recipientType=='PF'>non riceverai avvisi cartacei e non dovrai<#else>la tua impresa non ricever&#xE0; avvisi cartacei e non dovr&#xE0;</#if> pi&ugrave; sostenere i costi di spedizione delle raccomandate.",
   "it_greetings":"A presto",
-  "it_footnote":"&#42;Se hai ricevuto la comunicazione dopo le ore 21, i 7 giorni decorrono dal giorno successivo.",
-  "it_footer":"Ricevi questa comunicazione perch&eacute; hai inserito il tuo indirizzo email tra i recapiti di cortesia di SEND. Per modificare i recapiti o aggiungerne altri, <a title=\"Continua su Piattaforma Notifiche\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">vai ai tuoi recapiti</a>."
+  "it_footnote":"&#42;Se <#if recipient.recipientType=='PF'>hai<#else>l&#39;impresa ha</#if> ricevuto la comunicazione dopo le ore 21, i 7 giorni decorrono dal giorno successivo.",
+  "it_footer":"Ricevi questa comunicazione perch&eacute; hai inserito <#if recipient.recipientType=='PF'>il tuo indirizzo email<#else>l&#39;indirizzo email aziendale</#if> tra i recapiti di cortesia di SEND. Per modificare i recapiti o aggiungerne altri, <a title=\"Continua su Piattaforma Notifiche\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">vai ai tuoi recapiti</a>."
 }

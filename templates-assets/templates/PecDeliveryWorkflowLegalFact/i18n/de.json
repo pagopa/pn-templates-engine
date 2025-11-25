@@ -13,5 +13,10 @@
   "digitaldomicile_type": "Art des digitalen Domizils",
   "address": "Physische Adresse",
   "signature": "Von PagoPA S.p.A. digital unterzeichnet",
-  "disclaimer_lang": "Der Originaltext dieser Dokumente ist auf Italienisch. Bei Abweichungen zwischen der italienischen Fassung und den &Uuml;bersetzungen in andere Sprachen sind die Bedeutung und die Bestimmungen der italienischen Sprache maßgebend."
+  "disclaimer_lang": "Der Originaltext dieser Dokumente ist auf Italienisch. Bei Abweichungen zwischen der italienischen Fassung und den &Uuml;bersetzungen in andere Sprachen sind die Bedeutung und die Bestimmungen der italienischen Sprache maßgebend.",
+  "address_source_platform": "Plattform-Zustelladresse gemäß Art. 26, Absatz 5 Buchstabe c des G.D. 76/2020",
+  "address_source_special": "Gewählte Zustelladresse bei der absendenden öffentlichen Verwaltung gemäß Art. 26, Absatz 5 Buchstabe b des G.D. 76/2020",
+  "address_source_general": "Allgemeine Zustelladresse in öffentlichen Registern gemäß Art. 26, Absatz 5 Buchstabe a des G.D. 76/2020",
+  "not_present": "nicht vorhanden"
 }
+
