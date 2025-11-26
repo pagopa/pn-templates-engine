@@ -65,12 +65,12 @@
         </p>
 
         <#list deliveries as delivery>
-        <div class="table margin-y-medium">
+        <div class="table-fixed margin-y-medium">
             <div class="row">
                 <div class="cell width-50">
                     <p><% if (noIta) { %><span><%-denomination%> &bull; </span><% } %><%-it_denomination%></p>
                 </div>
-                <div class="cell  width-50">
+                <div class="cell break-text  width-50">
                     <p><b>${delivery.denomination}</b></p>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                 <div class="cell width-50">
                     <p><% if (noIta) { %><span><%-fiscalcode%> &bull; </span><% } %><%-it_fiscalcode%></p>
                 </div>
-                <div class="cell width-50">
+                <div class="cell break-text width-50">
                     <p><b>${delivery.taxId}</b></p>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                 <div class="cell width-50">
                     <p><% if (noIta) { %><span><%-digitaldomicile%> &bull; </span><% } %><%-it_digitaldomicile%></p>
                 </div>
-                <div class="cell width-50">
+                <div class="cell break-text width-50">
                     <p>
                         <#if delivery.address??>
                             <#if delivery.type=="SERCQ">
@@ -107,7 +107,7 @@
                 <div class="cell width-50">
                     <p><% if (noIta) { %><span><%-digitaldomicile_type%> &bull; </span><% } %><%-it_digitaldomicile_type%></p>
                 </div>
-                <div class="cell width-50">
+                <div class="cell break-text width-50">
                     <p>
                         <#if delivery.addressSource??>
                             <#if delivery.addressSource=="PLATFORM">

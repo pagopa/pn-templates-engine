@@ -80,13 +80,13 @@
       </p>
       
       <#list notification.recipients as recipient>
-      <div class="table margin-y-medium">
+      <div class="table-fixed margin-y-medium">
 
         <div class="row">
           <div class="cell width-50">
             <p><% if (noIta) { %><span><%-denomination%> &bull; </span><% } %><%-it_denomination%></p>
           </div>
-          <div class="cell  width-50">
+          <div class="cell break-text width-50">
             <p><b>${recipient.denomination}</b></p>
           </div>
         </div>
@@ -95,7 +95,7 @@
           <div class="cell width-50">
             <p><% if (noIta) { %><span><%-fiscalcode%> &bull; </span><% } %><%-it_fiscalcode%></p>
           </div>
-          <div class="cell width-50">
+          <div class="cell break-text width-50">
             <p><b>${recipient.taxId}</b></p>
           </div>
         </div>
@@ -104,7 +104,7 @@
           <div class="cell width-50">
             <p><% if (noIta) { %><span><%-digitaldomicile%> &bull; </span><% } %><%-it_digitaldomicile%></p>
           </div>
-          <div class="cell width-50">
+          <div class="cell break-text width-50">
             <p><b><#if (recipient.digitalDomicile.address)??>
                   ${recipient.digitalDomicile.address}
                   <#else>
@@ -117,7 +117,7 @@
           <div class="cell width-50">
             <p><% if (noIta) { %><span><%-digitaldomicile_type%> &bull; </span><% } %><%-it_digitaldomicile_type%></p>
           </div>
-          <div class="cell width-50">
+          <div class="cell break-text width-50">
             <p><b><#if (recipient.digitalDomicile.address)??>
                   Domicilio eletto presso la Pubblica Amministrazione mittente ex art.26, comma 5 lettera b del D.L.
                   76/2020
@@ -130,7 +130,7 @@
           <div class="cell width-50">
             <p><% if (noIta) { %><span><%-address%> &bull; </span><% } %><%-it_address%></p>
           </div>
-          <div class="cell width-50">
+          <div class="cell break-text width-50">
             <p><b><#if (recipient.physicalAddressAndDenomination)??>${recipient.physicalAddressAndDenomination}<#else>non presente</#if></b></p>
           </div>
         </div>
