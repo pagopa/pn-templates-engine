@@ -55,7 +55,7 @@
                     <p class="nine-pt logo-prefix">Inviata tramite</p>
                     <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
                     <p id="send_box_site" class="eight-pt font-bold"><a class="black"
-                            href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">notifichedigitali.it</a></p>
+                            href="${sendURL}" title="Sito di SEND - Servizio Notifiche Digitali">${sendURLLAbel}</a></p>
                 </div>
             </div>
             <div class="row" id="recipient-addr-box">
@@ -114,10 +114,10 @@
                                 <div class="cell vertical-align-top">
                                     <#if recipient.recipientType=="PF">
                                         <p>
-                                            Inquadra il <b>codice QR</b> con l’app IO o con la fotocamera del tuo dispositivo.
+                                            Inquadra il <b>codice QR</b> con l’app IO o con la fotocamera del tuo dispositivo
                                             <br>
                                             In alternativa vai sul sito web <b>
-                                                <a href="https://login.notifichedigitali.it/auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">login.notifichedigitali.it</a>
+                                                <a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a>
                                             </b>
                                         </p>
                                         <#else>
@@ -220,7 +220,7 @@
                             <div class="row">
                                 <div class="cell number-list"><img src="../../images/numero-1.jpg" alt="Numero 1"></div>
                                 <div class="cell vertical-align-top">
-                                    <p>Cerca il Punto di ritiro SEND più vicino a te su <br> <b><a href="https://www.notifichedigitali.it/punti-di-ritiro" title="Pagina dei Punti di ritiro SEND">www.notifichedigitali.it/punti-di-ritiro</a></b> oppure chiama il <br>numero <b>${raddPhoneNumber}</b>
+                                    <p>Cerca il Punto di ritiro SEND più vicino a te su <br> <b><a href="${sendURL}punti-di-ritiro" title="Pagina dei Punti di ritiro SEND">www.${sendURLLAbel}/punti-di-ritiro</a></b> oppure chiama il <br>numero <b>${raddPhoneNumber}</b>
                                 </p>
                                 </div>
                             </div>
@@ -242,7 +242,7 @@
                             <div class="row">
                                 <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
                                 <div class="cell vertical-align-top">
-                                    <p>Paga 1,40 € (più IVA se prevista) per il servizio di stampa e ritira i documenti. Eventuali spese per servizi accessori resi dall’esercente non sono incluse nel costo SEND.</p>
+                                    <p>Paga 1,40 € (più IVA se prevista) per il servizio di stampa e ritira i documenti. Eventuali spese per servizi accessori resi dall'esercente non sono incluse nel costo SEND.</p>
                                 </div>
                             </div>
                         </div>
@@ -353,11 +353,7 @@
                 <div class="table">
                     <div class="row">
                         <div class="cell read-more text-center">
-                        <#if recipient.recipientType=="PF">
-                            <p class="ten-pt">Configura SEND accedendo alla tua area personale su: <b><a href="https://cittadini.notifichedigitali.it/auth/login" title="Sito di SEND - Servizio Notifiche Digitali">cittadini.notifichedigitali.it</a></b></p>
-                            <#else>
                             <p class="ten-pt">Configura SEND accedendo alla tua area personale su: <b><a href="${piattaformaNotificheURL}auth/login" title="Sito di SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a></b></p>
-                        </#if> 
                         </div>
                     </div>
                 </div>
@@ -366,8 +362,8 @@
                     <div class="row vertical-align-bottom" style="height: 32mm;">
                         <div id="voc_box" class="blue-border-box-radd radius-8 eleven-pt pt-12 pb-12 pl-12 mb-0">
                             <h3 class="twelwe-pt font-uppercase">Questo avviso è stato chiaro? Facci sapere cosa ne pensi</h3>
-                            <p>La tua opinione ci permette di migliorare continuamente ciò che offriamo. La compilazione richiede pochi istanti. Raccontaci la tua esperienza al link <a href="https://notifichedigitali.it/sondaggi" title="Sito per la raccolta delle opinioni dei cittadini"><b>notifichedigitali.it/sondaggi</b></a></p>
-                        </div>
+                            <p>La tua opinione ci permette di migliorare continuamente ciò che offriamo. La compilazione richiede pochi istanti. Raccontaci la tua esperienza al link <a href="${sendURL}sondaggi" title="Sito per la raccolta delle opinioni dei cittadini"><b>${sendURLLAbel}/sondaggi</b></a></p>
+                        </div>\
                     </div>
                 </div>
                 </#if>
