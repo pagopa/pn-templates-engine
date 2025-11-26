@@ -69,6 +69,10 @@ body {
     height: 85mm;
 }
 
+.lower-section-bilingual {
+    height: 50mm;
+}
+
 .center-section {
     height: 101mm;
     display: table-cell;
