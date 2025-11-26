@@ -158,10 +158,9 @@
               <%-footnote%> &bull; </span><% } %> <%-it_footnote%>
             </p>
 
-            <% if (noIta) { %><p style="margin-top: 20px; font-size: 14px">
-              <%-footer%>
-            </p><% } %>
-            <p style="margin-top: 0px; font-size: 14px">
+            <p style="margin-top: 20px; font-size: 14px">
+            <% if (noIta) { %>
+              <%-footer%><% } %>
               <%-it_footer%>
             </p>
           </mj-text>
