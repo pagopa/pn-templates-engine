@@ -65,12 +65,12 @@
         </p>
 
         <#list deliveries as delivery>
-        <div class="table margin-y-medium avoid-page-break">
+        <div class="table-fixed margin-y-medium avoid-page-break">
             <div class="row">
                 <div class="cell width-50">
                     <p><% if (noIta) { %><span><%-denomination%> &bull; </span><% } %><%-it_denomination%></p>
                 </div>
-                <div class="cell  width-50">
+                <div class="cell break-text  width-50">
                     <p><b>${delivery.denomination}</b></p>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                 <div class="cell width-50">
                     <p><% if (noIta) { %><span><%-fiscalcode%> &bull; </span><% } %><%-it_fiscalcode%></p>
                 </div>
-                <div class="cell width-50">
+                <div class="cell break-text width-50">
                     <p><b>${delivery.taxId}</b></p>
                 </div>
             </div>
@@ -88,16 +88,16 @@
                 <div class="cell width-50">
                     <p><% if (noIta) { %><span><%-digitaldomicile%> &bull; </span><% } %><%-it_digitaldomicile%></p>
                 </div>
-                <div class="cell width-50">
+                <div class="cell break-text width-50">
                     <p>
                         <#if delivery.address??>
                             <#if delivery.type=="SERCQ">
-                                <b>Domicilio Digitale SEND</b>
-                                <#else>
-                                    <b>${delivery.address}</b>
-                            </#if>
+                                <b><% if (noIta) { %><span><%-digitaldomicile%> SEND &bull; </span><% } %><%-it_digitaldomicile%> SEND</b>
                             <#else>
-                                non presente
+                                <b>${delivery.address}</b>
+                            </#if>
+                        <#else>
+                            <% if (noIta) { %><span><%-not_present%> &bull; </span><% } %><%-it_not_present%>
                         </#if>
                     </p>
                 </div>
@@ -107,21 +107,18 @@
                 <div class="cell width-50">
                     <p><% if (noIta) { %><span><%-digitaldomicile_type%> &bull; </span><% } %><%-it_digitaldomicile_type%></p>
                 </div>
-                <div class="cell width-50">
+                <div class="cell break-text width-50">
                     <p>
                         <#if delivery.addressSource??>
                             <#if delivery.addressSource=="PLATFORM">
-                                <strong>Domicilio di Piattaforma ex art.26, comma 5 lettera c del D.L.
-                                    76/2020</strong>
-                                <#elseif delivery.addressSource=="SPECIAL">
-                                    <strong>Domicilio eletto presso la Pubblica Amministrazione mittente ex art.26,
-                                        comma 5 lettera b del D.L. 76/2020</strong>
-                                    <#elseif delivery.addressSource=="GENERAL">
-                                        <strong>Domicilio generale inserito nei registri pubblici ex art.26, comma 5
-                                            lettera a del D.L. 76/2020</strong>
+                                <strong><% if (noIta) { %><span><%-address_source_platform%> &bull; </span><% } %><%-it_address_source_platform%></strong>
+                            <#elseif delivery.addressSource=="SPECIAL">
+                                <strong><% if (noIta) { %><span><%-address_source_special%> &bull; </span><% } %><%-it_address_source_special%></strong>
+                            <#elseif delivery.addressSource=="GENERAL">
+                                <strong><% if (noIta) { %><span><%-address_source_general%> &bull; </span><% } %><%-it_address_source_general%></strong>
                             </#if>
-                            <#else>
-                                non presente
+                        <#else>
+                            <% if (noIta) { %><span><%-not_present%> &bull; </span><% } %><%-it_not_present%>
                         </#if>
                     </p>
                 </div>

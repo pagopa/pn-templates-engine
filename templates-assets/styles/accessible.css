@@ -155,12 +155,24 @@ a.faq-link-perfezionamento {
     width: 100%;
 }
 
+.table-fixed {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
 .row {
     display: table-row;
 }
 
 .cell {
     display: table-cell;
+}
+
+.break-text {
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow-wrap: anywhere;
 }
 
 .width-50 {

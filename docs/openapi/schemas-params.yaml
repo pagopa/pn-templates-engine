@@ -269,7 +269,7 @@ components:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                   type: string
 
-    NotificationAarForEmail:
+    NotificationAarForEmailAnalog:
       type: object
       required:
         - perfezionamentoURL
@@ -277,6 +277,7 @@ components:
         - pnFaqSendURL
         - piattaformaNotificheURL
         - notification
+        - recipient
       properties:
         perfezionamentoURL:
           type: string
@@ -286,8 +287,16 @@ components:
           type: string
         piattaformaNotificheURL:
           type: string
+        recipient:
+          title: AarForEmailRecipientAnalog
+          type: object
+          required:
+            - recipientType
+          properties:
+            recipientType:
+              type: string
         notification:
-          title: AarForEmailNotification
+          title: AarForEmailNotificationAnalog
           type: object
           required:
             - iun
@@ -296,7 +305,52 @@ components:
             iun:
               type: string
             sender:
-              title: AarForEmailSender
+              title: AarForEmailSenderAnalog
+              type: object
+              required:
+                - paDenomination
+              properties:
+                paDenomination:
+                  x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                  type: string
+
+    NotificationAarForEmailDigital:
+      type: object
+      required:
+        - perfezionamentoURL
+        - quickAccessLink
+        - pnFaqSendURL
+        - piattaformaNotificheURL
+        - notification
+        - recipient
+      properties:
+        perfezionamentoURL:
+          type: string
+        quickAccessLink:
+          type: string
+        pnFaqSendURL:
+          type: string
+        piattaformaNotificheURL:
+          type: string
+        recipient:
+          title: AarForEmailRecipientDigital
+          type: object
+          required:
+            - recipientType
+          properties:
+            recipientType:
+              type: string
+        notification:
+          title: AarForEmailNotificationDigital
+          type: object
+          required:
+            - iun
+            - sender
+          properties:
+            iun:
+              type: string
+            sender:
+              title: AarForEmailSenderDigital
               type: object
               required:
                 - paDenomination
@@ -376,13 +430,22 @@ components:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
               type: string
 
-    NotificationAarForSms:
+    NotificationAarForSmsAnalog:
       type: object
       required:
         - notification
+        - recipient
       properties:
+        recipient:
+          title: AarForSmsRecipientAnalog
+          type: object
+          required:
+            - recipientType
+          properties:
+            recipientType:
+              type: string
         notification:
-          title: AarForSmsNotification
+          title: AarForSmsNotificationAnalog
           type: object
           required:
             - iun
@@ -391,7 +454,40 @@ components:
             iun:
               type: string
             sender:
-              title: AarForSmsSender
+              title: AarForSmsSenderAnalog
+              type: object
+              required:
+                - paDenomination
+              properties:
+                paDenomination:
+                  x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+                  type: string
+
+    NotificationAarForSmsDigital:
+      type: object
+      required:
+        - notification
+        - recipient
+      properties:
+        recipient:
+          title: AarForSmsRecipientDigital
+          type: object
+          required:
+            - recipientType
+          properties:
+            recipientType:
+              type: string
+        notification:
+          title: AarForSmsNotificationDigital
+          type: object
+          required:
+            - iun
+            - sender
+          properties:
+            iun:
+              type: string
+            sender:
+              title: AarForSmsSenderDigital
               type: object
               required:
                 - paDenomination
