@@ -36,17 +36,23 @@ body {
     margin: 10mm 14mm 10mm 10mm;
     height: 273mm;
     width: 190mm;
+
 }
 
-#second-page {
+#second-page, #second-page-bilingual {
     margin: 14mm 10mm;
     height: 269mm;
     width: 190mm;
 }
 
-#second-page {
+#second-page-bilingual > .table {
+    height: 100%;
+}
+
+#second-page, #second-page-bilingual {
     padding-top: 14mm;
 }
+
 
 
 /********************************* start sections *********************************/
@@ -73,12 +79,7 @@ body {
     height: 101mm;
     display: table-cell;
     vertical-align: bottom;
-}
 
-.center-section-bilingual {
-    height: 87mm;
-    display: table-cell;
-    vertical-align: bottom;
 }
 
 #footer_disclaimer {
@@ -142,6 +143,10 @@ body {
 
 .twelve-lh {
     line-height: 16px; /* 12px on Figma */
+}
+
+.fourteen-lh {
+    line-height: 18.667px; /* 14px on Figma */
 }
 
 .sixteen-lh {
@@ -321,6 +326,11 @@ a.black {
     width: 80mm;
 }
 
+.form-field-bilingual {
+    display: inline-block; 
+    width: 53mm;
+}
+
 .border-bottom {
     border-bottom: solid 1.3px #7C7C7B;
     margin-top: 4.2mm;
@@ -493,6 +503,14 @@ ul#square-list-mandate li {
     margin-left: 5mm;
     margin-top: 0.4mm;
     margin-bottom: 0;
+}
+
+.language-margin {
+    margin-top: 2mm;
+}
+
+.language-less-margin {
+    margin-top: 1.4mm;
 }
 /********************************* end lists **************************************/
 
