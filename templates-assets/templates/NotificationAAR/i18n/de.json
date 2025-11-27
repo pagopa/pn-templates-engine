@@ -1,10 +1,10 @@
 {
   "language": "de",
-  "aar_label": "BENACHRICHTIGUNG &Uuml;BER DEN ERFOLGTEN EMPFANG",
+  "aar_label": "Rechtsgültige Mitteilung",
   "iun": "Einheitlicher Kodex",
   "fiscal_code": "Steuernummer",
   "sent_by": "Gesendet von",
-  "recipient_type": "<#if recipient.recipientType==\"PF\">Nat&uuml;rliche <#else>Juristische </#if> Person",
+  "recipient_type": "Steuernummer - <#if recipient.recipientType==\"PF\">Nat&uuml;rliche <#else>Juristische </#if> Person",
   "notification_subject": "Du hast eine rechtsgültige Mitteilung von ${notification.sender.paDenomination} mit dem Betreff: ${notification.subject} erhalten.",
   "aar_subtitles_1": "<b>Nimm Kenntnis von der Kopie der beigefügten Dokumente oder greife online auf die Originaldokumente zu</b> gemäß den Anweisungen. Beachte, dass der Inhalt der Mitteilung Rechtswirkungen für dich entfaltet, auch ohne dass du die Dokumente zur Kenntnis nimmst.",
   "access_to_document_title": "GREIFE ONLINE AUF DIE DOKUMENTE ZU KOSTENLOS",
@@ -14,6 +14,6 @@
   "access_to_document_2": "Greife auf die Dokumente zu und lade sie herunter: sie enthalten wichtige Informationen für dich",  
   "access_to_document_3": "Ist eine Zahlung vorgesehen, kannst du über alle für pagoPA aktivierten Kanäle bezahlen",
   "access_to_document_4": "Während des Zahlungsvorgangs wird der Betrag um die Zustellungskosten ergänzt",
-  "send_refinement": "Dieses Dokument ist eine rechtsgültige Mitteilung, die dich dazu auffordert, die dir zugestellten Dokumente zur Kenntnis zu nehmen. Diese entfalten in jedem Fall Rechtswirkungen für dich. Ist eine Zahlung vorgesehen, hängt der zu zahlende Betrag von der Zugangsart ab, die du für die Zustellung wählst, der Art des dir möglicherweise zugesandten und von der Körperschaft gewählten Einschreibens sowie der Anzahl der Zustellversuche. <br> Du hast 120 Tage ab dem Datum, an dem die Zustellung Rechtsgültigkeit erlangt, um auf die Dokumente online zuzugreifen. Nach Ablauf dieser 120 Tage sind die Dokumente nicht mehr verfügbar, und du musst dich an die Körperschaft wenden, die sie dir zugesandt hat. Erfahre mehr darüber, wie du die Fristen berechnest unter",
+  "send_refinement": "Dieses Dokument ist eine rechtsgültige Mitteilung, die dich dazu auffordert, die dir zugestellten Dokumente zur Kenntnis zu nehmen. Diese entfalten in jedem Fall Rechtswirkungen für dich. Ist eine Zahlung vorgesehen, hängt der zu zahlende Betrag von der Zugangsart ab, die du für die Zustellung wählst, der Art des dir möglicherweise zugesandten und von der Körperschaft gewählten Einschreibens sowie der Anzahl der Zustellversuche. Du hast 120 Tage ab dem Datum, an dem die Zustellung Rechtsgültigkeit erlangt, um auf die Dokumente online zuzugreifen. Nach Ablauf dieser 120 Tage sind die Dokumente nicht mehr verfügbar, und du musst dich an die Körperschaft wenden, die sie dir zugesandt hat. Erfahre mehr darüber, wie du die Fristen berechnest unter",
   "send_refinement_link": "<a href=\"${perfezionamentoURL}\" title=\"FAQ: Vervollständigung der Zustellung SEND\">${perfezionamentoURLLabel}</a>"
 }

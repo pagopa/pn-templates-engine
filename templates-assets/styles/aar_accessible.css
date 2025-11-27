@@ -69,12 +69,14 @@ body {
     height: 85mm;
 }
 
-.lower-section-bilingual {
-    height: 50mm;
-}
-
 .center-section {
     height: 101mm;
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+.center-section-bilingual {
+    height: 87mm;
     display: table-cell;
     vertical-align: bottom;
 }
@@ -128,6 +130,10 @@ body {
 
 .eight-lh {
     line-height: 8px;
+}
+
+.ten-lh {
+    line-height: 13.333px; /* 10px on Figma */
 }
 
 .eleven-lh {
@@ -373,6 +379,7 @@ a.black {
 .read-more {
     padding-top: 21px;
 }
+
 /********************************* end components *********************************/
 
 
