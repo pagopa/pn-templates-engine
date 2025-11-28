@@ -121,7 +121,7 @@
             </div>
         </div>
         <% if (noIta) { %>
-        <div class="table">
+        <div class="table avoid-page-break">
             <div class="row">
                 <div class="cell width-40" aria-hidden="true"></div>
                 <div class="margin-top-large cell width-60 right">
@@ -131,7 +131,7 @@
             </div>
         </div>
         <% } %>
-        <div class="row pt-16" id="disclaimer">
+        <div class="row pt-16 avoid-page-break" id="disclaimer">
             <% if (noIta) { %><p class="caption my-8"><%-disclaimer%></p><% } %>
             <p class="caption <%= noIta ? 'mb-0' : 'my-8' %>"><%-it_disclaimer%></p>
         </div>

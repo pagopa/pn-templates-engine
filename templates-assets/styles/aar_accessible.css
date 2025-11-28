@@ -566,18 +566,6 @@ img.message-advantages_explanation {
     background-size: contain;
 }
 
-.icon-time {
-    background-image: url("../images/time.jpg");
-}
-
-.icon-control {
-    background-image: url("../images/control.jpg");
-}
-
-.icon-earth {
-    background-image: url("../images/earth.jpg");
-}
-
 .icon-bell {
     background-image: url("../images/bell-notification.jpg");
 }

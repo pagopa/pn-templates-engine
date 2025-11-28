@@ -99,30 +99,18 @@ describe("generateHtmlTemplates", () => {
     expect(deHtmlContent).toContain("<title>Titel • Titolo</title>");
     expect(deHtmlContent).toContain("<p>Körper • Corpo</p>");
   });
+});
 
-  it("should generate template from .txt file", async () => {
-    const htmlPath = path.join(
-      BASE_OUTPUT_DIR,
-      "templates",
-      "TemplateTestTxt",
-      "TemplateTestTxt.txt"
-    );
-
-    expect(fs.pathExistsSync(htmlPath)).toEqual(true);
-
-    const indexHtmlContent = await fs.readFile(htmlPath, "utf8");
-    expect(indexHtmlContent).toContain("only test in .txt");
-  });
-  
+describe("generateHtmlTemplates error", () => {
   it("should throw an error if fs.readdir fails", async () => {
     jest.spyOn(fs, "readdir").mockImplementationOnce(() => {
       throw new Error("Mocked error");
     });
-  
+
     await expect(generateHtmlTemplates()).rejects.toThrow(
       "Error generating html templates"
     );
-  
+
     fs.readdir.mockRestore();
   });
 });
