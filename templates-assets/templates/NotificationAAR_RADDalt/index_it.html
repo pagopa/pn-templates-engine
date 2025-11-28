@@ -19,6 +19,7 @@
         <bookmark name="Informazioni sulle deleghe su SEND" href="#mandate_infobox"/>
         <bookmark name="Note legali del documento" href="#footer_disclaimer"/>
         <bookmark name="Vantaggi dell'utilizzo di SEND" href="#advantages_infobox"/>
+        <bookmark name="Voice of Customer" href="#voc_box"/>
     </bookmarks>
 </head>
 
@@ -54,7 +55,7 @@
                     <p class="nine-pt logo-prefix">Inviata tramite</p>
                     <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
                     <p id="send_box_site" class="eight-pt font-bold"><a class="black"
-                            href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">notifichedigitali.it</a></p>
+                            href="${sendURL}" title="Sito di SEND - Servizio Notifiche Digitali">${sendURLLAbel}</a></p>
                 </div>
             </div>
             <div class="row" id="recipient-addr-box">
@@ -68,7 +69,7 @@
         </div>
     </section>
 
-    <section class="center-section" class="mb-0 vertical-align-bottom">
+    <section class="center-section mb-0 vertical-align-bottom">
         <h1 id="main_subject" class="twelve-pt sixteen-lh px-12 pt-0">Hai ricevuto una comunicazione a valore legale da ${notification.sender.paDenomination} con oggetto: ${notification.subject}</h1>
         <div id="main_disclaimer" class="eleven-pt sixteen-lh">
             <p><b>Accedi subito ai documenti online</b> seguendo le istruzioni, o se preferisci, ritira i documenti in
@@ -79,9 +80,9 @@
         </div>
         <div id="view_online_box">
             <div class="table">
-                <div class="row heading w-100 font-bold">
-                    <div class="cell"><h2 class="font-uppercase twelve-pt">Opzione 1: Accedi ora ai documenti online</h2></div>
-                    <div class="cell text-right nine-pt">Consultazione online gratuita</div>
+                <div class="row heading w-100 font-bold twelve-lh">
+                    <div class="cell"><h2 class="font-uppercase twelve-pt twelve-lh">Opzione 1: Accedi ora ai documenti online</h2></div>
+                    <div class="cell text-right nine-pt twelve-lh">Consultazione online gratuita</div>
                 </div>
             </div>
         </div>
@@ -109,14 +110,14 @@
                         -->
                         <div class="table">
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
+                                <div class="cell number-list"><img src="../../images/numero-1.jpg" alt="Numero 1"></div>
                                 <div class="cell vertical-align-top">
                                     <#if recipient.recipientType=="PF">
                                         <p>
-                                            Inquadra il <b>codice QR</b> con l’app IO o con la fotocamera del tuo dispositivo.
+                                            Inquadra il <b>codice QR</b> con l’app IO o con la fotocamera del tuo dispositivo
                                             <br>
                                             In alternativa vai sul sito web <b>
-                                                <a href="https://login.notifichedigitali.it/auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">login.notifichedigitali.it</a>
+                                                <a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a>
                                             </b>
                                         </p>
                                         <#else>
@@ -129,21 +130,16 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
+                                <div class="cell number-list"><img src="../../images/numero-2.jpg" alt="Numero 2"></div>
                                 <div class="cell vertical-align-top">
                                     <p>Accedi e scarica i documenti: contengono informazioni importanti che ti riguardano</p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-3.png" alt="Numero 3"></div>
+                                <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
                                 <div class="cell vertical-align-top">
-                                    <p>Se previsto un pagamento, potrai pagare online o presso i canali abilitati a pagoPA</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-4.png" alt="Numero 4"></div>
-                                <div class="cell vertical-align-top">
-                                    <p>In fase di pagamento l'importo si aggiornerà con i costi di notifica</p>
+                                    <p>Se previsto un pagamento, puoi pagare con tutti i canali abilitati a pagoPA</p>
+                                    <p><strong class="text-underline">L’importo si aggiornerà con i costi di notifica</strong>, che variano in base alla modalità di invio (in Italia da 2 € per il digitale fino a 13 € per una raccomandata cartacea)</p>
                                 </div>
                             </div>
                         </div>
@@ -153,59 +149,67 @@
         </div>
     </section>
 
-    <section class="lower-section">
-        <div class="table">
-          <div class="row heading w-100 font-bold">
-              <div class="cell"><h2 class="font-uppercase twelve-pt">Opzione 2: Ritira i documenti di persona</h2></div>
-              <div class="cell text-right nine-pt width-40">Servizio di stampa a pagamento</div>
-          </div>
+    <section class="lower-section table mb-0">
+        <div class="wrapper row vertical-align-top">
+            <div class="table">
+                <div class="row heading w-100 font-bold twelve-lh">
+                    <div class="cell"><h2 class="font-uppercase twelve-pt twelve-lh">Opzione 2: Ritira i documenti di persona</h2></div>
+                    <div class="cell text-right nine-pt twelve-lh width-40">Servizio di stampa a pagamento</div>
+                </div>
+                </div>
+
+                <div class="table">
+                    <div class="row">
+                    <div class="cell p-12">
+                        <p>Puoi farlo tu o delegare una persona di fiducia. Segui le istruzioni sul retro del foglio.</p>
+                    </div>
+                    <div class="cell p-12 text-right">
+                        <img id="arrow-img" src="../../images/arrow.jpg" alt="Freccia: istruzioni alla pagina seguente"/>
+                    </div>
+                    </div>
+                </div>
         </div>
 
-        <#if recipient.recipientType=="PF">
-        <div class="table">
-        <#else>
-        <div class="table" style="margin-bottom: 40mm;">
-        </#if>
-            <div class="row">
-              <div class="cell p-12">
-                <p>Puoi farlo tu o delegare una persona di fiducia. Segui le istruzioni sul retro del foglio.</p>
-              </div>
-              <div class="cell p-12 text-right">
-                <img id="arrow-img" src="../../images/arrow.jpg" alt="Freccia: istruzioni alla pagina seguente"/>
-              </div>
+        <div class="row">
+            <div class="cell vertical-align-bottom">
+                <#if recipient.recipientType=="PF">
+                <div class="blue-border-box-radd radius-8 my-24">
+                    <div class="row eleven-pt radius-8 w-100" id="io_download">
+                        <div class="cell pt-12 pb-12 pl-12 vertical-align-top width-85">
+                                <h3 class="twelwe-pt font-uppercase">Con l'app IO è ancora più semplice e risparmi</h3>
+                                <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo e risparmia sui costi della raccomandata: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
+                        </div>
+                        <div class="cell pr-12 width-15 text-right vertical-align-center" id="io_img">
+                            <img src="../../images/app-io.jpg" alt="Logo di app IO" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table">
+                    <footer id="footer_disclaimer" class="eight-pt twelve-lh">
+                    <#else>
+                    <footer id="footer_disclaimer" class="eight-pt twelve-lh">
+                    </#if>
+                        <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l'importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell'eventuale raccomandata a te inviata e scelta dall'ente, dal numero di tentativi di recapito.  <br>
+                        Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online o ritirarli di persona. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">www.${perfezionamentoURLLabel}</a></b></p>
+                    </footer>
+                </div>
             </div>
         </div>
-
-        <#if recipient.recipientType=="PF">
-        <div class="table blue-border-box-radd radius-8">
-            <div class="row eleven-pt radius-8 w-100" id="io_download">
-                <div class="cell pt-12 pb-12 pl-12 vertical-align-top width-85">
-                        <h3 class="twelwe-pt font-uppercase">Con l'app IO è ancora più semplice e risparmi</h3>
-                        <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo e risparmia sui costi della raccomandata: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
-                </div>
-                <div class="cell pr-12 width-15 text-right vertical-align-center" id="io_img">
-                    <img src="../../images/app-io.jpg" alt="Logo di app IO" />
-                </div>
-            </div>
-        </div>
-
-        <footer id="footer_disclaimer" class="eight-pt">
-        <#else>
-        <footer id="footer_disclaimer" class="eight-pt" style="margin-top: 170px;">
-        </#if>
-            <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l'importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell'eventuale raccomandata a te inviata e scelta dall'ente, dal numero di tentativi di recapito.  <br>
-            Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online o ritirarli di persona. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">www.${perfezionamentoURLLabel}</a></b></p>
-        </footer>
     </section>
   </section>
 
     <!--------------------------- PAGE 2 (297mm x 192mm) --------------------------->
     <section id="second-page">
-        <section class="retrieve_info_box" id="">
+        <#if recipient.recipientType=="PF">
+        <section class="retrieve_info_box">
+        <#else>
+        <section class="retrieve_info_box_pg">
+        </#if>
             <div class="table">
                 <div class="row heading w-100 font-bold">
-                    <div class="cell"><h2 class="font-uppercase twelve-pt">Opzione 2: Ritira i documenti di persona</h2></div>
-                    <div class="cell text-right nine-pt width-40">Servizio di stampa a pagamento</div>
+                    <div class="cell"><h2 class="font-uppercase twelve-pt twelve-lh">Opzione 2: Ritira i documenti di persona</h2></div>
+                    <div class="cell text-right nine-pt twelve-lh width-40">Servizio di stampa a pagamento</div>
                 </div>
             </div>
 
@@ -214,14 +218,14 @@
                     <div class="cell width-60 vertical-align-top">
                         <div class="table access_yourself_list">
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
+                                <div class="cell number-list"><img src="../../images/numero-1.jpg" alt="Numero 1"></div>
                                 <div class="cell vertical-align-top">
-                                    <p>Cerca il Punto di ritiro SEND più vicino a te su <br> <b><a href="https://www.notifichedigitali.it/punti-di-ritiro" title="Pagina dei Punti di ritiro SEND">www.notifichedigitali.it/punti-di-ritiro</a></b> oppure chiama il <br>numero <b>${raddPhoneNumber}</b>
+                                    <p>Cerca il Punto di ritiro SEND più vicino a te su <br> <b><a href="${sendURL}punti-di-ritiro" title="Pagina dei Punti di ritiro SEND">www.${sendURLLAbel}/punti-di-ritiro</a></b> oppure chiama il <br>numero <b>${raddPhoneNumber}</b>
                                 </p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
+                                <div class="cell number-list"><img src="../../images/numero-2.jpg" alt="Numero 2"></div>
                                 <div class="cell vertical-align-top">
                                     <p>Recati al punto di ritiro portando con te: 
                                         <ul id="square-list">
@@ -236,9 +240,9 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="cell number-list"><img src="../../images/numero-3.png" alt="Numero 3"></div>
+                                <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
                                 <div class="cell vertical-align-top">
-                                    <p>Paga 1,40 € per il servizio di stampa e ritira i documenti</p>
+                                    <p>Paga 1,40 € (più IVA se prevista) per il servizio di stampa e ritira i documenti. Eventuali spese per servizi accessori resi dall'esercente non sono incluse nel costo SEND.</p>
                                 </div>
                             </div>
                         </div>
@@ -248,14 +252,16 @@
                             <div id="iun-code" class="eight-px">
                                 <p class="font-bold nine-pt">Identificativo Univoco Notifica:</p>
                                 <p>${notification.iun}</p>
-                                <p class="font-bold nine-pt">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </p>
+                                <p class="font-bold nine-pt mt-8">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </p>
                                 <p>${recipient.taxId}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <p style="margin-top: 8mm;">Se presente un avviso pagoPA paga presso un canale abilitato oppure online. In fase di pagamento l'importo si aggiornerà con i costi di notifica.</p>
+            </div>
+            <div class="table">
+                <div class="row w-100">
+                    <p style="margin-top: 4mm;">Se presente un avviso pagoPA, puoi pagare con tutti i canali abilitati. <strong class="text-underline">L’importo si aggiornerà con i costi di notifica</strong>, che variano in base alla modalità di invio (in Italia da 2 € per il digitale fino a 13 € per una raccomandata cartacea).</p>
                 </div>
             </div>
         </section>
@@ -272,20 +278,20 @@
                             <p>Io, ${recipient.denomination} ${recipient.taxId}, delego</p>
                             <#else>
                                 <div>
-                                <p>Io,  <span class="nine-px eleven-lh form-field border-bottom mb-form mt-0">
+                                <p>Io,  <span class="nine-pt eleven-lh form-field border-bottom mb-form mt-0">
                                     Nome e Cognome
                                 </span></p>
                                 in qualità di legale rappresentante di ${recipient.denomination} ${recipient.taxId}, delego
                                 </div>
                             </#if>
-                            <div class="nine-px eleven-lh border-bottom mb-form">
+                            <div class="nine-pt eleven-lh border-bottom mb-form">
                             Nome e Cognome
                             </div>
-                            <div class="nine-px eleven-lh border-bottom mb-form">
+                            <div class="nine-pt eleven-lh border-bottom mb-form">
                             Codice Fiscale
                             </div>
                             a ritirare i documenti notificati.
-                            <div class="nine-px eleven-lh border-bottom mb-0">
+                            <div class="nine-pt eleven-lh border-bottom mb-0">
                             Firma
                             </div>
                         </div>
@@ -307,49 +313,62 @@
             </div>
         </section>
 
-        <#if recipient.recipientType=="PF">
-        <section id="help_box" class="vertical-align-bottom">
-            <h2 class="ten-pt font-uppercase text-center">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? PUOI FARTI AIUTARE DA UNA PERSONA DI FIDUCIA</h2>
-            <p class="advantages-explanation__content text-center width-85"> Con SEND puoi dare accesso alle tue comunicazioni a valore legale a una o più persone di fiducia: accedi a SEND per creare una delega digitale. SEND è il servizio digitale che semplifica l'invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
+        <div class="table"  id="help_box">
+            <section class="vertical-align-bottom cell mb-0 pb-0">
+                <h2 class="ten-pt font-uppercase text-center">Come sfruttare tutti i vantaggi di send - Servizio notifiche digitali?</h2>
+                <p class="text-center width-95 mt-0">SEND è il servizio che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
+                <p class="text-center width-95 mb-11">Grazie a SEND puoi consultare le notifiche in digitale ed evitare le raccomandate e i relativi costi.</p>
 
-            <div class="table advantages-table">
-                <div class="advantages-row nine-pt row">
-                    <div class="advantage-col cell text-center">
-                        <div class="message-advantages_explanation icon-time"></div>
-                        <div class="advantages-explanation__content">
-                            <p>
-                                <b>Non perdi tempo</b><br>
-                                Non serve più ritirare fisicamente le raccomandate
-                            </p>
+                <div class="table advantages-table">
+                    <div class="advantages-row nine-pt row">
+                        <div class="advantage-col cell text-center">
+                            <div class="message-advantages_explanation icon-bell"></div>
+                            <div class="advantages-explanation__content">
+                                <p>
+                                    <b>Ti avvisiamo sui tuoi canali preferiti</b><br>
+                                    Aggiungi i tuoi recapiti per ricevere un avviso quando c’è una notifica per te
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="advantage-col cell text-center">
-                        <div class="message-advantages_explanation icon-earth"></div>
-                        <div class="advantages-explanation__content">
-                            <p>
-                                <b>Non importa dove sei</b><br>
-                                La persona delegata può accedere ai tuoi documenti online
-                            </p>
+                        <div class="advantage-col cell text-center">
+                            <div class="message-advantages_explanation icon-file"></div>
+                            <div class="advantages-explanation__content">
+                                <p>
+                                    <b>Consulta i documenti online</b><br>
+                                    Accedi ai documenti online comodamente dal tuo dispositivo
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="advantage-col cell text-center">
-                        <div class="message-advantages_explanation icon-control"></div>
-                        <div class="advantages-explanation__content">
-                            <p>
-                                <b>Hai sempre il controllo</b><br>
-                                Puoi revocare o modificare le deleghe in qualsiasi momento
-                            </p>
+                        <div class="advantage-col cell text-center">
+                            <div class="message-advantages_explanation icon-euro"></div>
+                            <div class="advantages-explanation__content">
+                                <p>
+                                    <b>Eviti i costi di raccomandata</b><br>
+                                    Se accedi in tempo, eviti l’invio della raccomandata e i relativi costi
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="read-more text-center">
-                <p>Per saperne di più vai sul sito SEND <b><a href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">www.notifichedigitali.it</a></b></p>
-            </div>
-        </section>
-        </#if>
-
+                <div class="table">
+                    <div class="row">
+                        <div class="cell read-more text-center">
+                            <p class="ten-pt">Configura SEND accedendo alla tua area personale su: <b><a href="${piattaformaNotificheURL}auth/login" title="Sito di SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a></b></p>
+                        </div>
+                    </div>
+                </div>
+                <#if recipient.recipientType=="PF">
+                <div class="table pb-0 mb-0">
+                    <div class="row vertical-align-bottom" style="height: 32mm;">
+                        <div id="voc_box" class="blue-border-box-radd radius-8 eleven-pt pt-12 pb-12 pl-12 mb-0">
+                            <h3 class="twelwe-pt font-uppercase">Questo avviso è stato chiaro? Facci sapere cosa ne pensi</h3>
+                            <p>La tua opinione ci permette di migliorare continuamente ciò che offriamo. La compilazione richiede pochi istanti. Raccontaci la tua esperienza al link <a href="${sendURL}sondaggi" title="Sito per la raccolta delle opinioni dei cittadini"><b>${sendURLLAbel}/sondaggi</b></a></p>
+                        </div>
+                    </div>
+                </div>
+                </#if>
+            </section>
+        </div>
     </section>
 </main>
 </body>

@@ -19,6 +19,7 @@
         <bookmark name="Informazioni sulle deleghe su SEND" href="#mandate_infobox"/>
         <bookmark name="Note legali del documento" href="#footer_disclaimer"/>
         <bookmark name="Vantaggi dell'utilizzo di SEND" href="#advantages_infobox"/>
+        <bookmark name="Voice of Customer" href="#voc_box"/>
     </bookmarks>
 </head>
 
@@ -89,11 +90,11 @@
                 </div>
                 <div id="view_online_box">
                     <div class="table">
-                        <div class="row heading font-bold w-100">
+                        <div class="row heading font-bold w-100 twelve-lh">
                             <div class="cell">
-                                <h2 class="font-uppercase twelve-pt">Accedi ora ai documenti online</h2>
+                                <h2 class="font-uppercase twelve-pt twelve-lh">Accedi ora ai documenti online</h2>
                             </div>
-                            <div class="cell text-right nine-pt">
+                            <div class="cell text-right nine-pt twelve-lh">
                                 <p>Consultazione online gratuita</p>
                             </div>
                         </div>
@@ -123,14 +124,14 @@
                                 -->
                                 <div class="table" id="how_to_online">
                                     <div class="row">
-                                        <div class="cell number-list"><img src="../../images/numero-1.png" alt="Numero 1"></div>
+                                        <div class="cell number-list"><img src="../../images/numero-1.jpg" alt="Numero 1"></div>
                                         <div class="cell vertical-align-top">
                                             <#if recipient.recipientType=="PF">
                                                 <p>
-                                                    Inquadra il <b>codice QR</b> con l’app IO o con la fotocamera del tuo dispositivo.
+                                                    Inquadra il <b>codice QR</b> con l’app IO o con la fotocamera del tuo dispositivo
                                                     <br>
                                                     In alternativa vai sul sito web <b>
-                                                        <a href="https://login.notifichedigitali.it/auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">login.notifichedigitali.it</a>
+                                                        <a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a>
                                                     </b>
                                                 </p>
                                                 <#else>
@@ -143,21 +144,16 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="cell number-list"><img src="../../images/numero-2.png" alt="Numero 2"></div>
+                                        <div class="cell number-list"><img src="../../images/numero-2.jpg" alt="Numero 2"></div>
                                         <div class="cell vertical-align-top">
                                             <p>Accedi e scarica i documenti: contengono informazioni importanti che ti riguardano</p>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="cell number-list"><img src="../../images/numero-3.png" alt="Numero 3"></div>
+                                        <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
                                         <div class="cell vertical-align-top">
-                                            <p>Se previsto un pagamento, potrai pagare online o presso i canali abilitati a pagoPA</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="cell number-list"><img src="../../images/numero-4.png" alt="Numero 4"></div>
-                                        <div class="cell vertical-align-top">
-                                            <p>In fase di pagamento l'importo si aggiornerà con i costi di notifica</p>
+                                            <p>Se previsto un pagamento, puoi pagare con tutti i canali abilitati a pagoPA</p>
+                                            <p><strong class="text-underline">L’importo si aggiornerà con i costi di notifica</strong>, che variano in base alla modalità di invio (in Italia da 2 € per il digitale fino a 13 € per una raccomandata cartacea)</p>
                                         </div>
                                     </div>
                                 </div>
@@ -183,58 +179,68 @@
                         </div>
                     </div> 
                 </#if>
-                <footer id="footer_disclaimer" class="eight-pt">
+                <footer id="footer_disclaimer" class="eight-pt twelve-lh">
                     <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l'importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell'eventuale raccomandata a te inviata e scelta dall'ente, dal numero di tentativi di recapito.  <br>
                     Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">www.${perfezionamentoURLLabel}</a></b></p>
                 </footer>
             </section>
         </section>
         
-        <#if recipient.recipientType=="PF">
         <!--------------------------- PAGE 2 (297mm x 192mm) --------------------------->
         <section id="second-page">
-            <h4 class="ten-pt font-uppercase text-center" id="mandate_infobox">HAI DIFFICOLTÀ A USARE I CANALI DIGITALI? PUOI FARTI AIUTARE DA UNA PERSONA DI FIDUCIA</h4>
-            <p class="advantages-explanation__content text-center width-85"> Con SEND puoi dare accesso alle tue comunicazioni a valore legale a una o più persone di fiducia: accedi a SEND per creare una delega digitale. SEND è il servizio digitale che semplifica l'invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
+            <div class="table" style="height: 100%;">
+                <div class="row">
+                    <h2 class="ten-pt font-uppercase text-center">Come sfruttare tutti i vantaggi di send - Servizio notifiche digitali?</h2>
+                    <p class="text-center width-95 mt-0">SEND è il servizio che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
+                    <p class="text-center width-95 mb-11">Grazie a SEND puoi consultare le notifiche in digitale ed evitare le raccomandate e i relativi costi.</p>
 
-            <div class="table advantages-table" id="advantages_infobox">
-                <div class="advantages-row nine-pt row">
-                    <div class="advantage-col cell text-center">
-                        <div class="message-advantages_explanation icon-time"></div>
-                        <div class="advantages-explanation__content">
-                            <p>
-                                <b>Non perdi tempo</b><br>
-                                Non serve più ritirare fisicamente le raccomandate
-                            </p>
+                    <div class="table advantages-table">
+                        <div class="advantages-row nine-pt row">
+                            <div class="advantage-col cell text-center">
+                                <div class="message-advantages_explanation icon-bell"></div>
+                                <div class="advantages-explanation__content">
+                                    <p>
+                                        <b>Ti avvisiamo sui tuoi canali preferiti</b><br>
+                                        Aggiungi i tuoi recapiti per ricevere un avviso quando c’è una notifica per te
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="advantage-col cell text-center">
+                                <div class="message-advantages_explanation icon-file"></div>
+                                <div class="advantages-explanation__content">
+                                    <p>
+                                        <b>Consulta i documenti online</b><br>
+                                        Accedi ai documenti online comodamente dal tuo dispositivo
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="advantage-col cell text-center">
+                                <div class="message-advantages_explanation icon-euro"></div>
+                                <div class="advantages-explanation__content">
+                                    <p>
+                                        <b>Eviti i costi di raccomandata</b><br>
+                                        Se accedi in tempo, eviti l’invio della raccomandata e i relativi costi
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="advantage-col cell text-center">
-                        <div class="message-advantages_explanation icon-earth"></div>
-                        <div class="advantages-explanation__content">
-                            <p>
-                                <b>Non importa dove sei</b><br>
-                                La persona delegata può accedere ai tuoi documenti online
-                            </p>
-                        </div>
+                    <div class="read-more text-center">
+                        <p class="ten-pt">Configura SEND accedendo alla tua area personale su: <b><a href="${piattaformaNotificheURL}auth/login" title="Sito di SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a></b></p>
                     </div>
-                    <div class="advantage-col cell text-center">
-                        <div class="message-advantages_explanation icon-control"></div>
-                        <div class="advantages-explanation__content">
-                            <p>
-                                <b>Hai sempre il controllo</b><br>
-                                Puoi revocare o modificare le deleghe in qualsiasi momento
-                            </p>
+                </div>
+                <#if recipient.recipientType=="PF">
+                <div class="row">
+                    <div class="cell vertical-align-bottom" style="height: 32mm;">
+                        <div id="voc_box" class="blue-border-box-radd radius-8 eleven-pt pt-12 pb-12 pl-12 mb-0">
+                            <h3 class="twelwe-pt font-uppercase">Questo avviso è stato chiaro? Facci sapere cosa ne pensi</h3>
+                            <p>La tua opinione ci permette di migliorare continuamente ciò che offriamo. La compilazione richiede pochi istanti. Raccontaci la tua esperienza al link <a href="https://www.notifichedigitali.it/sondaggi" title="Sito per la raccolta delle opinioni dei cittadini"><b>notifichedigitali.it/sondaggi</b></a></p>
                         </div>
                     </div>
                 </div>
+                </#if>
             </div>
-
-
-            <div class="read-more text-center">
-                <p>Per saperne di più vai sul sito SEND <b><a href="https://www.notifichedigitali.it/" title="Sito di SEND - Servizio Notifiche Digitali">www.notifichedigitali.it</a></b></p>
-            </div>
-
         </section>
-        </#if>
 
     </main>
 

@@ -81,11 +81,17 @@ body {
 }
 
 .retrieve_info_box {
-    height: 103mm;
+    height: 80mm;
+    margin-bottom: 10mm;
+}
+
+.retrieve_info_box_pg {
+    height: 90mm;
+    margin-bottom: 10mm;
 }
 
 .mandate-section {
-    height: 87mm;
+    height: 80mm;
     display: table-cell;
 }
 /********************************* end sections ***********************************/
@@ -124,6 +130,10 @@ body {
     line-height: 14.667px; /* 11px on Figma */
 }
 
+.twelve-lh {
+    line-height: 16px; /* 12px on Figma */
+}
+
 .sixteen-lh {
     line-height: 21.333px; /* 16px on Figma */
 }
@@ -139,6 +149,7 @@ body {
 a {
     text-decoration: underline;
     color: #0B3EE3;
+    white-space: nowrap;
 }
 
 a.black {
@@ -157,6 +168,10 @@ a.black {
 .text-center {
     text-align: center;
 }
+
+.text-underline {
+    text-decoration: underline;
+}
 /********************************* end font and line-height utils *****************/
 
 
@@ -173,12 +188,28 @@ a.black {
     margin-top: 8px;
 }
 
+.mb-11 {
+    margin-bottom: 11px;
+}
+
+.mt-11 {
+    margin-top: 11px;
+}
+
 .pb-0 {
     padding-bottom: 0 !important;
 }
 
 .pt-0 {
     padding-top: 0 !important;
+}
+
+.pl-8 {
+    padding-left: 8px;
+}
+
+.pt-8 {
+    padding-top: 8px;
 }
 
 .pt-12 {
@@ -191,10 +222,6 @@ a.black {
 
 .pb-12 {
     padding-bottom: 12px;
-}
-
-.pl-8 {
-    padding-left: 8px;
 }
 
 .pl-12 {
@@ -308,7 +335,7 @@ a.black {
 }
 
 .heading .cell {
-    padding: 1.4mm 3.7mm;
+    padding: 0mm 1.4mm 1mm 3.7mm;
 }
 
 #arrow-img {
@@ -441,7 +468,8 @@ a.black {
 }
 
 .number-list img {
-    width: 21px;
+    width: 16px;
+    padding-top: 4px;
 }
 
 ul#square-list-mandate {
@@ -463,7 +491,7 @@ ul#square-list-mandate li {
     height: 45px;
 }
 
-#io_download h3 {
+#io_download h3, #voc_box h3 {
     padding-bottom: 4px;
 }
 
@@ -480,7 +508,7 @@ ul#square-list-mandate li {
 }
 
 .advantages-table {
-    padding-top: 24px;
+    padding-top: 12px;
     margin: 0 auto;
     height: 35mm;
 }
@@ -496,8 +524,9 @@ img.message-advantages_explanation {
 }
 
 #help_box {
-    height: 78mm;
+    height: 90mm;
 }
+
 /********************************* end advantages section *************************/
 
 .access_online_box {
@@ -506,7 +535,7 @@ img.message-advantages_explanation {
 }
 
 #access_yourself_box {
-    margin-top: 4mm;
+    margin-top: 2mm;
     width: auto;
 }
 
@@ -537,14 +566,14 @@ img.message-advantages_explanation {
     background-size: contain;
 }
 
-.icon-time {
-    background-image: url("../images/time.jpg");
+.icon-bell {
+    background-image: url("../images/bell-notification.jpg");
 }
 
-.icon-earth {
-    background-image: url("../images/earth.jpg");
+.icon-file {
+    background-image: url("../images/file-text.jpg");
 }
 
-.icon-control {
-    background-image: url("../images/control.jpg");
+.icon-euro {
+    background-image: url("../images/euro-circle.jpg");
 }
