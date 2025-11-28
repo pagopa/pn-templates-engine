@@ -210,3 +210,7 @@ a.faq-link-perfezionamento {
     width:81px;
     height:26.24px;
 }
+
+.avoid-page-break {
+  page-break-inside: avoid;
+}
