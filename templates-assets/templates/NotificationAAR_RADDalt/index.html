@@ -21,6 +21,20 @@
 <body>
     <main>
         <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
+        <!-- Dima postalizzatore -->
+        <div style="height: 96mm; width: 210mm; border-bottom: 1px dotted red; position:absolute; box-sizing: border-box">
+            <div style="height: 23mm; width: 65mm;  position:absolute; top: 14mm; left: 8mm;   border: 1px dotted blue;  box-sizing: border-box">
+                <div style="position: absolute; top: 3mm; left: 24mm; font-size: 12px; line-height: 1;">
+                    In caso di mancato recapito<br/>restituire a:<br/>POSTEL - PAGOPA<br/>VIA AUGUSTO ERBA 15<br/>20055 MELZO, MI
+                </div>
+            </div>
+            <div style="height: 32mm; width: 75mm;  position:absolute; top: 55mm; left: 10mm;  border: 1px dotted green; box-sizing: border-box"></div>
+            <div style="height: 43mm; width: 100mm; position:absolute; top: 44mm; left: 100mm; border: 1px dotted red;   box-sizing: border-box"></div>
+            <div style="height: 19mm; width: 100mm; position:absolute; top: 44mm; left: 100mm; box-sizing: border-box; border-bottom: 1px dotted red;"></div>
+        </div>
+
+        <!-- linee pieghe in 3 -->
+        <div style="height: 95mm; width:210mm; position: absolute; top: 96mm; border-bottom: 2px dotted purple; border-top: 2px dotted purple; box-sizing: border-box"></div>
         <section id="first-page">
             <section class="upper-section">
                 <div class="fixed-table">
@@ -66,7 +80,8 @@
             </section>
 
             <section class="center-section">
-                <h1 id="main_subject" class="twelve-pt sixteen-lh px-12 pt-0"><%-notification_subject%><br><%-it_notification_subject%></h1>
+                <h1 id="main_subject" class="twelve-pt sixteen-lh px-12 pt-0"><%-notification_subject_1%> &verbar; <%-it_notification_subject_1%> ${notification.sender.paDenomination} <%-notification_subject_2%> &verbar; <%-it_notification_subject_2%>: 
+                    <%-notification_subject_3%>.</h1>
                 <div id="main_disclaimer" class="eleven-pt sixteen-lh">
                     <p><%-aar_subtitles_1%></p>
                     <p class="language-margin"><%-it_aar_subtitles_1%></p>
@@ -80,63 +95,62 @@
                         </div>
                     </div>
                 </div>
-            </section>
+                <div class="table">
+                    <div class="row">
+                        <div class="cell vertical-align-top">
+                            <div class="list-box-height_qr_code_box table">
+                                <div class="row">
+                                    <div class="cell vertical-align-bottom qr_code_box">
+                                        <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
+                                    </div>
+                                    <div class="cell vertical-align-center access_online_box">
+                                        <div class="section-list px-12">
+                                            <!--
+                                                Related to https://pagopa.atlassian.net/browse/PN-14670
+                                                we use hard-coded link in order to fix this bug. Anyway this part is commented
+                                                because we will restore it as soon as we migrate configurations of templates
+                                                in pn-templates-engine
 
-            <section class="lower-section table">
-                <div class="row">
-                    <div class="cell vertical-align-top">
-                        <div class="list-box-height_qr_code_box table">
-                            <div class="row">
-                                <div class="cell vertical-align-top qr_code_box">
-                                    <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
-                                </div>
-                                <div class="cell vertical-align-center access_online_box">
-                                    <div class="section-list px-12">
-                                        <!--
-                                            Related to https://pagopa.atlassian.net/browse/PN-14670
-                                            we use hard-coded link in order to fix this bug. Anyway this part is commented
-                                            because we will restore it as soon as we migrate configurations of templates
-                                            in pn-templates-engine
+                                                #Sarah Donvito, 18/04/2025
 
-                                            #Sarah Donvito, 18/04/2025
-
-                                        <li class="list_element-one">
-                                            Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
-                                            vai sul sito web <b><a
-                                                    href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
-                                        </li>
-                                        -->
-                                        <div class="table ten-pt eleven-lh" id="how_to_online">
-                                            <div class="row">
-                                                <div class="cell number-list"><img src="../../images/numero-1.jpg" alt="Numero 1"></div>
-                                                <div class="cell vertical-align-top">
-                                                    <#if recipient.recipientType=="PF">
-                                                        <p><%-access_to_document_1_pf%> <b><%-access_to_document_1_link%></b> &verbar; <%-it_access_to_document_1_pf%>
-                                                            <b><%-it_access_to_document_1_link%></b>
-                                                        </p>
-                                                        <#else>
-                                                        <p><%-access_to_document_1_pg%> <b><%-access_to_document_1_link%></b> &verbar; <%-it_access_to_document_1_pg%>
-                                                            <b><%-it_access_to_document_1_link%></b>
-                                                        </p>
-                                                    </#if>
+                                            <li class="list_element-one">
+                                                Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
+                                                vai sul sito web <b><a
+                                                        href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                                            </li>
+                                            -->
+                                            <div class="table ten-pt eleven-lh" id="how_to_online">
+                                                <div class="row">
+                                                    <div class="cell number-list"><img src="../../images/numero-1.jpg" alt="Numero 1"></div>
+                                                    <div class="cell vertical-align-top">
+                                                        <#if recipient.recipientType=="PF">
+                                                            <p><%-access_to_document_1_pf%> <b><%-access_to_document_1_link%></b> &verbar; <%-it_access_to_document_1_pf%>
+                                                                <b><%-it_access_to_document_1_link%></b>
+                                                            </p>
+                                                            <#else>
+                                                            <p><%-access_to_document_1_pg%> <b><%-access_to_document_1_link%></b> &verbar; <%-it_access_to_document_1_pg%>
+                                                                <b><%-it_access_to_document_1_link%></b>
+                                                            </p>
+                                                        </#if>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="cell number-list"><img src="../../images/numero-2.jpg" alt="Numero 2"></div>
-                                                <div class="cell vertical-align-top">
-                                                    <p><%-access_to_document_2%> &verbar; <%-it_access_to_document_2%></p>
+                                                <div class="row">
+                                                    <div class="cell number-list"><img src="../../images/numero-2.jpg" alt="Numero 2"></div>
+                                                    <div class="cell vertical-align-top">
+                                                        <p><%-access_to_document_2%> &verbar; <%-it_access_to_document_2%></p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
-                                                <div class="cell vertical-align-top">
-                                                    <p><%-access_to_document_3%> &verbar; <%-it_access_to_document_3%></p>
+                                                <div class="row">
+                                                    <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
+                                                    <div class="cell vertical-align-top">
+                                                        <p><%-access_to_document_3%> &verbar; <%-it_access_to_document_3%></p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="cell number-list"><img src="../../images/numero-4.jpg" alt="Numero 4"></div>
-                                                <div class="cell vertical-align-top">
-                                                    <p><%-access_to_document_4%> &verbar; <%-it_access_to_document_4%></p>
+                                                <div class="row">
+                                                    <div class="cell number-list"><img src="../../images/numero-4.jpg" alt="Numero 4"></div>
+                                                    <div class="cell vertical-align-top">
+                                                        <p><%-access_to_document_4%> &verbar; <%-it_access_to_document_4%></p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -145,12 +159,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="cell vertical-align-bottom">
-                        <footer id="footer_disclaimer" class="eight-pt ten-lh">
-                            <p><%-send_refinement%> <b><%-send_refinement_link%></b> &verbar;&verbar; <%-it_send_refinement%> <b><%-it_send_refinement_link%></b></p>
-                        </footer>
+                    <div class="row">
+                        <div class="cell vertical-align-bottom">
+                            <footer id="footer_disclaimer" class="eight-pt ten-lh">
+                                <p><%-send_refinement%> <b><%-send_refinement_link%></b> &verbar;&verbar; <%-it_send_refinement%> <b><%-it_send_refinement_link%></b></p>
+                            </footer>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -185,20 +199,12 @@
                                         <div class="row">
                                             <div class="cell number-list"><img src="../../images/numero-2.jpg" alt="Numero 2"></div>
                                             <div class="cell vertical-align-top">
-                                                <p><%-retrieve_copy_title_list%>
+                                                <p><%-retrieve_copy_title_list%> &verbar; <%-it_retrieve_copy_title_list%>
                                                     <ul id="square-list">
-                                                        <li><%-retrieve_copy_list_1%></li>
-                                                        <li><%-retrieve_copy_list_2%></li>
-                                                        <li><%-retrieve_copy_list_3%></li>
-                                                        <#if recipient.recipientType=="PG"><li><%-retrieve_copy_list_4%></li></#if>
-                                                    </ul>
-                                                </p>
-                                                <p class="language-less-margin"><%-it_retrieve_copy_title_list%>
-                                                    <ul id="square-list">
-                                                        <li><%-it_retrieve_copy_list_1%></li>
-                                                        <li><%-it_retrieve_copy_list_2%></li>
-                                                        <li><%-it_retrieve_copy_list_3%></li>
-                                                        <#if recipient.recipientType=="PG"><li><%-it_retrieve_copy_list_4%></li></#if>
+                                                        <li><%-retrieve_copy_list_1%> &verbar; <%-it_retrieve_copy_list_1%></li>
+                                                        <li><%-retrieve_copy_list_2%> &verbar; <%-it_retrieve_copy_list_2%></li>
+                                                        <li><%-retrieve_copy_list_3%> &verbar; <%-it_retrieve_copy_list_3%></li>
+                                                        <#if recipient.recipientType=="PG"><li><%-retrieve_copy_list_4%> &verbar; <%-it_retrieve_copy_list_4%></li></#if>
                                                     </ul>
                                                 </p>
                                             </div>
@@ -246,49 +252,33 @@
                                         <#else>
                                             <div>
                                             <p><%-io%> &verbar; <%-it_io%>, <span class="nine-pt eleven-lh form-field-bilingual border-bottom mb-form mt-0">
-                                                <%-name%> <br> <%-it_name%>
+                                                <%-name%> &verbar; <%-it_name%>
                                             </span></p>
                                             <%-legal_representative%> &verbar; <%-it_legal_representative%> ${recipient.denomination} ${recipient.taxId}, <%-delego%> &verbar; <%-it_delego%>
                                             </div>
                                         </#if>
                                         <div class="nine-pt eleven-lh border-bottom mb-form">
-                                            <p><%-name%></p>
-                                            <p><%-it_name%></p>
+                                            <p><%-name%> &verbar; <%-it_name%></p>
                                         </div>
                                         <div class="nine-pt eleven-lh border-bottom mb-form">
-                                            <p><%-fiscalcode%></p>
-                                            <p><%-it_fiscalcode%></p>
+                                            <p><%-fiscalcode%> &verbar; <%-it_fiscalcode%></p>
                                         </div>
-                                        <p><%-delegate_body%></p>
-                                        <p><%-it_delegate_body%></p>
+                                        <p><%-delegate_body%> &verbar; <%-it_delegate_body%></p>
                                         <div class="nine-pt eleven-lh border-bottom mb-0">
-                                            <p><%-signature%></p>
-                                            <p><%-it_signature%></p>
+                                            <p><%-signature%> &verbar; <%-it_signature%></p>
                                         </div>
                                     </div>
                                     <div class="cell width-50 cell-large-spacing eleven-pt twelve-lh">
-                                        <p><%-delegate_title_list%></p>
+                                        <p><%-delegate_title_list%> &verbar; <%-it_delegate_title_list%></p>
                                         <ul id="square-list-mandate">
-                                            <li ><%-delegate_list_1%></li>
-                                            <li class="number-list"><%-delegate_list_2%></li>
-                                            <li class="number-list"><%-delegate_list_3%></li>
-                                            <li class="number-list"><%-delegate_list_4%><#if recipient.recipientType=="PF"></li>
+                                            <li ><%-delegate_list_1%> &verbar; <%-it_delegate_list_1%></li>
+                                            <li class="number-list"><%-delegate_list_2%> &verbar; <%-it_delegate_list_2%> </li>
+                                            <li class="number-list"><%-delegate_list_3%> &verbar; <%-it_delegate_list_3%></li>
+                                            <li class="number-list"><%-delegate_list_4%> &verbar; <%-it_delegate_list_4%><#if recipient.recipientType=="PF"></li>
                                             <#else></li>
-                                                <li><%-delegate_list_5%></li>
+                                                <li><%-delegate_list_5%>&verbar; <%-it_delegate_list_5%></li>
                                             </#if>
                                         </ul>
-
-                                        <p class="language-margin"><%-it_delegate_title_list%></p>
-                                        <ul id="square-list-mandate">
-                                            <li ><%-it_delegate_list_1%></li>
-                                            <li class="number-list"><%-it_delegate_list_2%></li>
-                                            <li class="number-list"><%-it_delegate_list_3%></li>
-                                            <li class="number-list"><%-it_delegate_list_4%><#if recipient.recipientType=="PF"></li>
-                                            <#else></li>
-                                                <li><%-it_delegate_list_5%></li>
-                                            </#if>
-                                        </ul>
-                                        
                                     </div>
                                 </div>
                             </div>
