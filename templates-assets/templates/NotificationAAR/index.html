@@ -78,8 +78,10 @@
                 </div>
             </section>
 
-            <section class="center-section">
-                <h1 id="main_subject" class="twelve-pt sixteen-lh px-12 pt-0"><%-notification_subject%><br><%-it_notification_subject%></h1>
+            <section class="center-section" style="height: 186mm;">
+                <h1 id="main_subject" class="twelve-pt sixteen-lh px-12 pt-0">
+                    <%-notification_subject_1%> &verbar; <%-it_notification_subject_1%> ${notification.sender.paDenomination} <%-notification_subject_2%> &verbar; <%-it_notification_subject_2%>: 
+                    <%-notification_subject_3%>.</h1>
                 <div id="main_disclaimer" class="eleven-pt sixteen-lh">
                     <p><%-aar_subtitles_1%></p>
                     <p class="language-margin"><%-it_aar_subtitles_1%></p>
@@ -93,63 +95,56 @@
                         </div>
                     </div>
                 </div>
-            </section>
+                <div class="table">
+                    <div class="row">
+                        <div class="cell vertical-align-top">
+                            <div class="list-box-height_qr_code_box table">
+                                <div class="row">
+                                    <div class="cell vertical-align-top qr_code_box">
+                                        <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
+                                    </div>
+                                    <div class="cell vertical-align-center access_online_box">
+                                        <div class="section-list px-12">
+                                            <!--
+                                                Related to https://pagopa.atlassian.net/browse/PN-14670
+                                                we use hard-coded link in order to fix this bug. Anyway this part is commented
+                                                because we will restore it as soon as we migrate configurations of templates
+                                                in pn-templates-engine
 
-            <section class="lower-section table">
-                <div class="row">
-                    <div class="cell vertical-align-top">
-                        <div class="list-box-height_qr_code_box table">
-                            <div class="row">
-                                <div class="cell vertical-align-top qr_code_box">
-                                    <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
-                                </div>
-                                <div class="cell vertical-align-center access_online_box">
-                                    <div class="section-list px-12">
-                                        <!--
-                                            Related to https://pagopa.atlassian.net/browse/PN-14670
-                                            we use hard-coded link in order to fix this bug. Anyway this part is commented
-                                            because we will restore it as soon as we migrate configurations of templates
-                                            in pn-templates-engine
+                                                #Sarah Donvito, 18/04/2025
 
-                                            #Sarah Donvito, 18/04/2025
-
-                                        <li class="list_element-one">
-                                            Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
-                                            vai sul sito web <b><a
-                                                    href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
-                                        </li>
-                                        -->
-                                        <div class="table ten-pt eleven-lh" id="how_to_online">
-                                            <div class="row">
-                                                <div class="cell number-list"><img src="../../images/numero-1.jpg" alt="Numero 1"></div>
-                                                <div class="cell vertical-align-top">
-                                                    <#if recipient.recipientType=="PF">
-                                                        <p><%-access_to_document_1_pf%> <b><%-access_to_document_1_link%></b> &verbar; <%-it_access_to_document_1_pf%>
-                                                            <b><%-it_access_to_document_1_link%></b>
-                                                        </p>
-                                                        <#else>
-                                                        <p><%-access_to_document_1_pg%> <b><%-access_to_document_1_link%></b> &verbar; <%-it_access_to_document_1_pg%>
-                                                            <b><%-it_access_to_document_1_link%></b>
-                                                        </p>
-                                                    </#if>
+                                            <li class="list_element-one">
+                                                Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure
+                                                vai sul sito web <b><a
+                                                        href="${piattaformaNotificheURL}auth/login">${piattaformaNotificheURLLabel}</a></b>
+                                            </li>
+                                            -->
+                                            <div class="table ten-pt" id="how_to_online">
+                                                <div class="row">
+                                                    <div class="cell number-list"><img src="../../images/numero-1.jpg" alt="Numero 1"></div>
+                                                    <div class="cell vertical-align-top">
+                                                        <#if recipient.recipientType=="PF">
+                                                            <p><%-access_to_document_1_pf%> <b><%-access_to_document_1_link%></b> &verbar; <%-it_access_to_document_1_pf%>
+                                                                <b><%-it_access_to_document_1_link%></b>
+                                                            </p>
+                                                            <#else>
+                                                            <p><%-access_to_document_1_pg%> <b><%-access_to_document_1_link%></b> &verbar; <%-it_access_to_document_1_pg%>
+                                                                <b><%-it_access_to_document_1_link%></b>
+                                                            </p>
+                                                        </#if>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="cell number-list"><img src="../../images/numero-2.jpg" alt="Numero 2"></div>
-                                                <div class="cell vertical-align-top">
-                                                    <p><%-access_to_document_2%> &verbar; <%-it_access_to_document_2%></p>
+                                                <div class="row">
+                                                    <div class="cell number-list"><img src="../../images/numero-2.jpg" alt="Numero 2"></div>
+                                                    <div class="cell vertical-align-top">
+                                                        <p><%-access_to_document_2%> &verbar; <%-it_access_to_document_2%></p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
-                                                <div class="cell vertical-align-top">
-                                                    <p><%-access_to_document_3%> &verbar; <%-it_access_to_document_3%></p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="cell number-list"><img src="../../images/numero-4.jpg" alt="Numero 4"></div>
-                                                <div class="cell vertical-align-top">
-                                                    <p><%-access_to_document_4%> &verbar; <%-it_access_to_document_4%></p>
+                                                <div class="row">
+                                                    <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
+                                                    <div class="cell vertical-align-top">
+                                                        <p><%-access_to_document_3%> &verbar; <%-it_access_to_document_3%></p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -158,12 +153,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="cell vertical-align-bottom">
-                        <footer id="footer_disclaimer" class="eight-pt ten-lh">
-                            <p><%-send_refinement%> <b><%-send_refinement_link%></b> &verbar;&verbar; <%-it_send_refinement%> <b><%-it_send_refinement_link%></b></p>
-                        </footer>
+                    <div class="row">
+                        <div class="cell vertical-align-bottom">
+                            <footer id="footer_disclaimer" class="eight-pt ten-lh">
+                                <p><%-send_refinement%> <b><%-send_refinement_link%></b> &verbar;&verbar; <%-it_send_refinement%> <b><%-it_send_refinement_link%></b></p>
+                            </footer>
+                        </div>
                     </div>
                 </div>
             </section>
