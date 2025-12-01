@@ -112,6 +112,9 @@ templates:
   notificationAarForSubject:
     input:
       IT: "NotificationAARFor_Subject/NotificationAARFor_Subject.txt"
+      DE: "NotificationAARFor_Subject/NotificationAARFor_Subject_de.txt"
+      SL: "NotificationAARFor_Subject/NotificationAARFor_Subject_sl.txt"
+      FR: "NotificationAARFor_Subject/NotificationAARFor_Subject_fr.txt"
   mailVerificationCodeBody:
     input:
       IT: "Mail_VerificationCodeBody/Mail_VerificationCodeBody.html"
