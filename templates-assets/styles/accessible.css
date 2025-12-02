@@ -175,6 +175,10 @@ a.faq-link-perfezionamento {
     overflow-wrap: anywhere;
 }
 
+.no-wrap {
+    white-space: nowrap;
+}
+
 .width-50 {
     width: 50%
 }
