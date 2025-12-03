@@ -408,7 +408,7 @@ a.black {
     width: 17mm;
 }
 
-#legal_subtitle, #sender_logo {
+#legal_subtitle, #sender_logo, #empty_logo_subtitle {
     margin-top: 8px;
 }
 
@@ -420,6 +420,12 @@ a.black {
     font-weight: 600;
     letter-spacing: 0.50px;
     white-space: normal;
+}
+
+#empty_logo_subtitle {
+    width: 67px;
+    border-top: solid 1px;
+    padding-top: 8px;
 }
 
 #send_box {
