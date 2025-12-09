@@ -233,11 +233,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cell width-40 pl-72 vertical-align-top">
+                    <div class="cell width-40 vertical-align-top" id="iun_cell_radd">
                         <div class="iun_box_radd ten-pt blue-border-iun radius-8">
                             <div id="iun-code" class="eight-px">
                                 <p class="font-bold nine-pt">Identificativo Univoco Notifica:</p>
-                                <p>${notification.iun}</p>
+                                <p class="nowrap">${notification.iun}</p>
                                 <p class="font-bold nine-pt mt-8">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </p>
                                 <p>${recipient.taxId}</p>
                             </div>

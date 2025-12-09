@@ -29,7 +29,7 @@
   "retrieve_copy_list_3":"votre code fiscal",
   "retrieve_copy_list_4":"un document attestant votre rôle de représentant légal",
   "retrieve_copy_3": "Payez 1,40 € (plus TVA si applicable) pour l'impression et le retrait des documents. Les frais éventuels pour des services supplémentaires fournis par le commerçant ne sont pas inclus dans le service d'impression et de retrait.",
-  "disclaimer_caf":"S'il y a un avis pagoPA, vous pouvez payer par tous les canaux agréés. <strong class=\"text-underline\">Le montant sera mis à jour avec les frais de notification</strong>, qui varient en fonction du mode d'envoi (en Italie de 2 € pour le numérique jusqu'à 13 € pour une lettre recommandée papier).",
+  "disclaimer_caf":"Si un avis pagoPA est inclus, vous pouvez payer via tous les canaux activés. <strong class=\"text-underline\">Le montant sera mis à jour avec les frais de notification</strong> : 2 € pour les notifications numériques, plus élevé pour la lettre recommandée papier, envoyée uniquement en l'absence de canaux numériques ou si vous n'ouvrez pas la communication à temps.",
   "fr_disclaimer_p": "Si un avis pagoPA est présent, vous pouvez payer par tous les canaux habilités.<strong class=\"text-underline\">Le montant sera mis à jour avec les frais de notification</strong>: 2 € pour les notifications numériques, plus élevés pour la lettre recommandée papier, envoyée uniquement en l'absence de canaux numériques ou si vous n'ouvrez pas la communication à temps",
   "delegate_title":"Voulez-vous que quelqu'un retire les documents pour vous ?",
   "io":"Je",
