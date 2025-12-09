@@ -11,7 +11,7 @@
   "notification_subject_3": "${notification.subject}",
   "aar_subtitles_1": "<b>Consultez la copie des documents joints ou accédez aux documents originaux en ligne</b> en suivant les instructions. Veuillez noter que le contenu de la communication produira des effets juridiques à votre égard, même sans que vous ayez consulté les documents.",
   "access_to_document_title": "ACCÉDER AUX DOCUMENTS EN LIGNE GRATUIT",
-  "access_to_document_1_pf": "Scannez le <b>code QR</b> avec l’appli IO ou l'appareil photo de votre appareil. Vous pouvez également vous rendre sur le site web",
+  "access_to_document_1_pf": "Scannez le <b>code QR</b> avec l'appli IO ou l'appareil photo de votre appareil. Vous pouvez également vous rendre sur le site web",
   "access_to_document_1_pg": "Scannez le <b>code QR</b> avec l'appareil photo de votre appareil ou rendez-vous sur le site web",
   "access_to_document_1_link":"<a href=\"${piattaformaNotificheURL}auth/login\">${piattaformaNotificheURLLabel}</a>",
   "access_to_document_2": "Accédez et téléchargez les documents : ils contiennent des informations importantes vous concernant",

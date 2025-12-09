@@ -56,8 +56,7 @@
                                 <div id="iun_box" class="iun_box nine-pt cell vertical-align-bottom pb-0">
                                     <p class="font-bold nine-pt">Identificativo Univoco Notifica:</p>
                                     <p>${notification.iun}</p>
-                                    <!-- <p class="font-bold nine-pt">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </p> -->
-                                    <p class="font-bold nine-pt">Codice fiscale - Persona giuridica: </p>
+                                    <p class="font-bold nine-pt">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </p>
                                     <p>${recipient.taxId}</p>
                                 </div>
                                 <div id="send_box" class="eight-pt cell vertical-align-bottom">
@@ -115,7 +114,7 @@
                                         <div class="cell vertical-align-top">
                                             <#if recipient.recipientType=="PF">
                                                 <p>
-                                                    Inquadra il <b>codice QR</b> con l’app IO o con la fotocamera del tuo dispositivo
+                                                    Inquadra il <b>codice QR</b> con l'app IO o con la fotocamera del tuo dispositivo
                                                     <br>
                                                     In alternativa vai sul sito web <b>
                                                         <a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a>
@@ -140,7 +139,7 @@
                                         <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
                                         <div class="cell vertical-align-top">
                                             <p>Se previsto un pagamento, puoi pagare con tutti i canali abilitati a pagoPA</p>
-                                            <p><strong class="text-underline">L’importo si aggiornerà con i costi di notifica</strong>: 2 € per le notifiche digitali, più elevati per la raccomandata cartacea, inviata solo in assenza di canali digitali o se non apri la comunicazione in tempo</p>
+                                            <p><strong class="text-underline">L'importo si aggiornerà con i costi di notifica</strong>: 2 € per le notifiche digitali, più elevati per la raccomandata cartacea, inviata solo in assenza di canali digitali o se non apri la comunicazione in tempo</p>
                                         </div>
                                     </div>
                                 </div>
@@ -168,7 +167,7 @@
                 </#if>
                 <footer id="footer_disclaimer" class="eight-pt twelve-lh">
                     <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l'importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell'eventuale raccomandata a te inviata e scelta dall'ente, dal numero di tentativi di recapito.  <br>
-                    Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">www.${perfezionamentoURLLabel}</a></b></p>
+                    Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">${perfezionamentoURLLabel}</a></b></p>
                 </footer>
             </section>
         </section>
@@ -178,7 +177,7 @@
             <div class="table" style="height: 100%;">
                 <div class="row">
                     <h2 class="ten-pt font-uppercase text-center">Come sfruttare tutti i vantaggi di send - Servizio notifiche digitali?</h2>
-                    <p class="text-center width-95 mt-0">SEND è il servizio che semplifica l’invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
+                    <p class="text-center width-95 mt-0">SEND è il servizio che semplifica l'invio delle comunicazioni a valore legale della Pubblica Amministrazione.</p>
                     <p class="text-center width-95 mb-11">Grazie a SEND puoi consultare le notifiche in digitale ed evitare le raccomandate e i relativi costi.</p>
 
                     <div class="table advantages-table">
@@ -188,7 +187,7 @@
                                 <div class="advantages-explanation__content">
                                     <p>
                                         <b>Ti avvisiamo sui tuoi canali preferiti</b><br>
-                                        Aggiungi i tuoi recapiti per ricevere un avviso quando c’è una notifica per te
+                                        Aggiungi i tuoi recapiti per ricevere un avviso quando c'è una notifica per te
                                     </p>
                                 </div>
                             </div>
@@ -206,7 +205,7 @@
                                 <div class="advantages-explanation__content">
                                     <p>
                                         <b>Eviti i costi di raccomandata</b><br>
-                                        Se accedi in tempo, eviti l’invio della raccomandata e i relativi costi
+                                        Se accedi in tempo, eviti l'invio della raccomandata e i relativi costi
                                     </p>
                                 </div>
                             </div>
