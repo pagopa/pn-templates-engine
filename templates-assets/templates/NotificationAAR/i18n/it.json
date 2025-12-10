@@ -11,11 +11,11 @@
   "it_notification_subject_3": "${notification.subject}",
   "it_aar_subtitles_1": "<b>Prendi visione della copia dei documenti allegati o accedi ai documenti originali online</b> seguendo le istruzioni. Tieni presente che il contenuto della comunicazione produrrà effetti giuridici nei tuoi confronti anche senza la tua presa visione dei documenti.",
   "it_access_to_document_title": "Accedi ai documenti online gratis",
-  "it_access_to_document_1_pf": "Inquadra il <b>codice QR</b> con l’app IO o con la fotocamera del tuo dispositivo. In alternativa vai sul sito web",
+  "it_access_to_document_1_pf": "Inquadra il <b>codice QR</b> con l'app IO o con la fotocamera del tuo dispositivo. In alternativa vai sul sito web",
   "it_access_to_document_1_pg": "Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web",
   "it_access_to_document_1_link":"<a href=\"${piattaformaNotificheURL}auth/login\">${piattaformaNotificheURLLabel}</a>",
   "it_access_to_document_2": "Accedi e scarica i documenti: contengono informazioni importanti che ti riguardano",
-  "it_access_to_document_3": "Se previsto un pagamento, potrai pagare online o presso i canali abilitati a pagoPA. <span class=\"text-underline\"><strong>L’importo si aggiornerà con i costi di notifica</strong></span>: 2 € per le notifiche digitali, più elevati per la raccomandata cartacea, inviata solo in assenza di canali digitali o se non apri la comunicazione in tempo",
+  "it_access_to_document_3": "Se previsto un pagamento, puoi pagare online o presso i canali abilitati a pagoPA. <span class=\"text-underline\"><strong>L'importo si aggiornerà con i costi di notifica</strong></span>: 2 € per le notifiche digitali, più elevati per la raccomandata cartacea, inviata solo in assenza di canali digitali o se non apri la comunicazione in tempo",
   "it_send_refinement": "Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l'importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell'eventuale raccomandata a te inviata e scelta dall'ente, dal numero di tentativi di recapito. Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su",
   "it_send_refinement_link": "<a href=\"${perfezionamentoURL}\" title=\"FAQ: perfezionamento notifica SEND\">${perfezionamentoURLLabel}</a>"
 }

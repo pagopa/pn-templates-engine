@@ -180,6 +180,10 @@ a.black {
 .text-underline {
     text-decoration: underline;
 }
+
+.nowrap {
+    white-space: nowrap;
+}
 /********************************* end font and line-height utils *****************/
 
 
@@ -406,6 +410,7 @@ a.black {
 
 #send_box__logo {
     width: 17mm;
+    text-align: left;
 }
 
 #legal_subtitle, #sender_logo, #empty_logo_subtitle {
@@ -567,13 +572,24 @@ img.message-advantages_explanation {
 }
 
 .iun_box {
-    padding: 0 40px 12px;
-    width: 47mm;
+    padding: 0 40px 0 0;
+    width: auto;
+    min-width: 47mm;
+    text-align: left;
+    margin-left: auto;
 }
 
 .iun_box_radd {
     padding: 9px;
-    width: 50mm;
+    width: auto;
+    display: inline-block;
+    min-width: 50mm;
+    text-align: left;
+    margin-left: auto;
+}
+
+#iun_cell_radd {
+    text-align: right;
 }
 
 #mandate_box {
