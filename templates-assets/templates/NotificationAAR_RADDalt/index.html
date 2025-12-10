@@ -66,7 +66,7 @@
 
             <section class="center-section" style="height: 188mm;">
                 <h1 id="main_subject" class="twelve-pt sixteen-lh px-12 pt-0"><%-notification_subject_1%> &verbar; <%-it_notification_subject_1%> ${notification.sender.paDenomination} <%-notification_subject_2%> &verbar; <%-it_notification_subject_2%>: 
-                    <%-notification_subject_3%>.</h1>
+                    <%-notification_subject_3%></h1>
                 <div id="main_disclaimer" class="eleven-pt sixteen-lh">
                     <p><%-aar_subtitles_1%></p>
                     <p class="language-margin"><%-it_aar_subtitles_1%></p>
@@ -75,7 +75,7 @@
                     <div class="table">
                         <div class="row heading font-bold w-100 twelve-lh">
                             <div class="cell">
-                                <h2 class="font-uppercase twelve-pt twelve-lh"><%-access_to_document_title%> &verbar; <%-it_access_to_document_title%></h2>
+                                <h2 class="font-uppercase twelve-pt twelve-lh">1: <%-access_to_document_title%> &verbar; <%-it_access_to_document_title%></h2>
                             </div>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                     <section class="retrieve_info_box_bilingual vertical-align-top cell">
                         <div class="table">
                             <div class="row heading w-100 font-bold">
-                                <div class="cell"><h2 class="font-uppercase twelve-pt twelve-lh"><%-retrieve_copy%> &verbar; <%-it_retrieve_copy%></h2></div>
+                                <div class="cell"><h2 class="font-uppercase twelve-pt twelve-lh">2: <%-retrieve_copy%> &verbar; <%-it_retrieve_copy%></h2></div>
                             </div>
                         </div>
 
@@ -182,12 +182,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="cell width-40 pl-72 vertical-align-top">
+                                <div class="cell width-40 vertical-align-top" id="iun_cell_radd">
                                     <div class="iun_box_radd ten-pt blue-border-iun radius-8">
                                         <div id="iun-code" class="eight-px">
                                             <p class="font-bold nine-pt"><%-iun%>:</p>
                                             <p class="font-bold nine-pt"><%-it_iun%>:</p>
-                                            <p>${notification.iun}</p>
+                                            <p class="nowrap">${notification.iun}</p>
                                             <p class="font-bold nine-pt"><%-recipient_type%>:</p>
                                             <p class="font-bold nine-pt"><%-it_recipient_type%>:</p>
                                             <p>${recipient.taxId}</p>
@@ -241,7 +241,7 @@
                                             <li class="number-list"><%-delegate_list_3%> &verbar; <%-it_delegate_list_3%></li>
                                             <li class="number-list"><%-delegate_list_4%> &verbar; <%-it_delegate_list_4%><#if recipient.recipientType=="PF"></li>
                                             <#else></li>
-                                                <li><%-delegate_list_5%>&verbar; <%-it_delegate_list_5%></li>
+                                                <li><%-delegate_list_5%> &verbar; <%-it_delegate_list_5%></li>
                                             </#if>
                                         </ul>
                                     </div>
