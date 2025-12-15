@@ -136,46 +136,43 @@
     </section>
 
     <section class="lower-section table mb-0">
+        <#if recipient.recipientType=="PF">
+        <div class="blue-border-box-radd radius-8 my-24">
+            <div class="row eleven-pt radius-8 w-100" id="io_download">
+                <div class="cell pt-12 pb-12 pl-12 vertical-align-top width-85">
+                    <h3 class="twelwe-pt">Vuoi che qualcuno acceda ai documenti online per te?</h3>
+                    <p>Se hai una Carta d’Identità Elettronica (CIE) puoi chiedere a una persona di fiducia di accedere ai documenti online per te. Non deve far altro che inquadrare il codice QR con IO e seguire le istruzioni sull’app per consultare i documenti per tuo conto.</p>
+                </div>
+                <div class="cell pr-12 width-15 text-right vertical-align-center" id="io_img">
+                    <img src="../../images/app-io.jpg" alt="Logo di app IO" />
+                </div>
+            </div>
+        </div>
+        </#if>
         <div class="wrapper row vertical-align-top">
             <div class="table">
                 <div class="row heading w-100 font-bold twelve-lh">
                     <div class="cell"><h2 class="font-uppercase twelve-pt twelve-lh">Opzione 2: Ritira i documenti di persona</h2></div>
                     <div class="cell text-right nine-pt twelve-lh width-40">Servizio di stampa a pagamento</div>
                 </div>
-                </div>
+            </div>
 
-                <div class="table">
-                    <div class="row">
+            <div class="table">
+                <div class="row">
                     <div class="cell p-12">
                         <p>Puoi farlo tu o delegare una persona di fiducia. Segui le istruzioni sul retro del foglio.</p>
                     </div>
                     <div class="cell p-12 text-right">
                         <img id="arrow-img" src="../../images/arrow.jpg" alt="Freccia: istruzioni alla pagina seguente"/>
                     </div>
-                    </div>
                 </div>
+            </div>
         </div>
 
         <div class="row">
             <div class="cell vertical-align-bottom">
-                <#if recipient.recipientType=="PF">
-                <div class="blue-border-box-radd radius-8 my-24">
-                    <div class="row eleven-pt radius-8 w-100" id="io_download">
-                        <div class="cell pt-12 pb-12 pl-12 vertical-align-top width-85">
-                                <h3 class="twelwe-pt font-uppercase">Con l'app IO è ancora più semplice e risparmi</h3>
-                                <p>Ricevi le prossime comunicazioni a valore legale sul tuo dispositivo e risparmia sui costi della raccomandata: scarica gratis l'app IO e attiva il servizio SEND - Notifiche Digitali.</p>
-                        </div>
-                        <div class="cell pr-12 width-15 text-right vertical-align-center" id="io_img">
-                            <img src="../../images/app-io.jpg" alt="Logo di app IO" />
-                        </div>
-                    </div>
-                </div>
-
                 <div class="table">
                     <footer id="footer_disclaimer" class="eight-pt twelve-lh">
-                    <#else>
-                    <footer id="footer_disclaimer" class="eight-pt twelve-lh">
-                    </#if>
                         <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l'importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell'eventuale raccomandata a te inviata e scelta dall'ente, dal numero di tentativi di recapito.  <br>
                         Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online o ritirarli di persona. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">${perfezionamentoURLLabel}</a></b></p>
                     </footer>
