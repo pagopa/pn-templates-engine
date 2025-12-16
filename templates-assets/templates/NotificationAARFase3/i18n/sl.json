@@ -1,0 +1,21 @@
+{
+  "language": "sl",
+  "title": "Obvestilo o prejemu",
+  "aar_label": "Obvestilo o prejemu",
+  "iun": "Edinstvena identifikacijska oznaka obvestila",
+  "fiscal_code": "Dav&#269;no &#352;tevilko",
+  "sent_by": "Poslano od",
+  "recipient_type": "Dav&#269;no &#352;tevilko - <#if recipient.recipientType=='PF'>fizi&#269;na<#else>pravna</#if> oseba",
+  "notification_subject_1": "Prejeli ste uradno sporo&#269;ilo od",
+  "notification_subject_2": "z zadevo",
+  "notification_subject_3": "${notification.subject}",
+  "aar_subtitles_1": "<b>Preglejte kopijo priloženih dokumentov ali dostopajte do izvirnih dokumentov na spletu</b> po navodilih. Upoštevajte, da bo vsebina sporo&#269;ila imela pravne u&#269;inke za vas, tudi &#269;e si dokumentov ne boste ogledali.",
+  "access_to_document_title": "DOSTOP DO DOKUMENTOV NA SPLETU BREZPLAČNO",
+  "access_to_document_1_pf": "Opti&#269;no preberite <b>kodo QR</b> z aplikacijo IO ali s kamero vaše naprave. Lahko pa obiš&#269;ete spletno stran",
+  "access_to_document_1_pg": "Opti&#269;no preberite <b>kodo QR</b> s kamero vaše naprave ali pojdite na spletno stran",
+  "access_to_document_1_link": "<a href=\"${piattaformaNotificheURL}auth/login\">${piattaformaNotificheURLLabel}</a>",
+  "access_to_document_2": "Dostopajte do dokumentov in jih prenesite: vsebujejo pomembne informacije, ki se nanašajo na vas",
+  "access_to_document_3": "Če je predvideno plačilo, lahko plačate na spletu ali prek kanalov, ki omogočajo pagoPA. <span class=\"text-underline\"><strong>Znesek se bo posodobil s stroški vročitve</strong></span>: 2 € za digitalna obvestila, višji za priporočeno pismo v papirni obliki, poslano le v primeru odsotnosti digitalnih kanalov ali če sporočila ne odprete pravočasno",
+  "send_refinement": "Ta dokument je uradno sporo&#269;ilo, ki vas vabi k pregledu dokumentov, ki so vam bili vro&#269;eni in ki bodo v vsakem primeru imeli pravne posledice za vas. Če je predvideno pla&#269;ilo, bo znesek pla&#269;ila odvisen od na&#269;ina, ki ga izberete za dostop do obvestila, od vrste morebitnega priporo&#269;enega pisma, ki vam ga pošlje in izbere organ, in od števila poskusov vro&#269;itve. Imate 120 dni od datuma, ko obvestilo postane pravno veljavno, za dostop do dokumentov na spletu. Po preteku 120 dni dokumenti ne bodo ve&#269; na voljo in se boste morali obrniti na organ, ki vam jih je poslal. Izvedite ve&#269; o tem, kako izra&#269;unati roke na",
+  "send_refinement_link": "<a href=\"${perfezionamentoURL}\" title=\"FAQ: zaklju&#269;ek vro&#269;itve SEND\">${perfezionamentoURLLabel}</a>"
+}

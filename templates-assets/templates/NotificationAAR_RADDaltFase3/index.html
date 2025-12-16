@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="SEND - Servizio Notifiche Digitali">
+    <title><%-title%> &verbar; <%-it_title%></title>
+    <link rel="stylesheet" href="../../styles/aar_accessible.css">
+    <bookmarks>
+        <bookmark name="Dati del mittente della notifica" href="#sender_box"/>
+        <bookmark name="Dati della notifica" href="#iun_box"/>
+        <bookmark name="Notifica inviata tramite SEND" href="#send_box"/>
+        <bookmark name="Oggetto e mittente della notifica" href="#main_subject"/>
+        <bookmark name="Codice QR della notifica" href="#qr-code"/>
+        <bookmark name="Step di accesso online alla notifica" href="#how_to_online"/>
+        <bookmark name="Note legali del documento" href="#footer_disclaimer"/>
+    </bookmarks>
+</head>
+
+<body>
+    <main>
+        <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
+        <section id="first-page">
+            <section class="upper-section">
+                <div class="fixed-table">
+                    <div class="row">
+                        <div class="cell vertical-align-top width-85 pl-8" id="sender_box">
+                            <#if senderLogoBase64??>
+            
+                                <div class="nine-pt">
+                                    <p class="six-pt eight-lh font-uppercase"><%-aar_label%> &verbar; <%-it_aar_label%></p>
+                                    <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
+                                    <div id="sender_logo">
+                                        <img src="${senderLogoBase64}" alt="Logo di ${notification.sender.paDenomination}">
+                                    </div>
+                                </div>
+                            <#else>
+                        
+                                <div class="nine-pt">
+                                    <p class="six-pt eight-lh font-uppercase"><%-aar_label%> &verbar; <%-it_aar_label%></p>
+                                    <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
+                                    <div id="empty_logo_subtitle"></div>
+                                </div>
+                            </#if>
+                        </div>
+                        
+                        <div class="cell width-15 pt-12 eight-pt vertical-align-bottom" id="send_box">
+                            <p class="nine-pt eleven-lh"><%-sent_by%></p>
+                            <p class="nine-pt eleven-lh mb-11"><%-it_sent_by%></p>
+                            <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
+                            <p id="send_box_site" class="eight-pt font-bold"><a class="black"
+                                    href="${sendURL}" title="Sito di SEND - Servizio Notifiche Digitali">${sendURLLAbel}</a></p>
+                        </div>
+                    </div>
+                    <div class="row" id="recipient-addr-box">
+                        <!-- Si lascia lo spazio per l'indirizzo che verra' inserito dal consolidatore -->
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                </div>
+            </section>
+
+            <section class="center-section" style="height: 188mm;">
+                <h1 id="main_subject" class="twelve-pt sixteen-lh px-12 pt-0"><%-notification_subject_1%> &verbar; <%-it_notification_subject_1%> ${notification.sender.paDenomination} <%-notification_subject_2%> &verbar; <%-it_notification_subject_2%>: 
+                    <%-notification_subject_3%></h1>
+                <div id="main_disclaimer" class="eleven-pt sixteen-lh">
+                    <p><%-aar_subtitles_1%></p>
+                    <p class="language-margin"><%-it_aar_subtitles_1%></p>
+                </div>
+                <div id="view_online_box">
+                    <div class="table">
+                        <div class="row heading font-bold w-100 twelve-lh">
+                            <div class="cell">
+                                <h2 class="font-uppercase twelve-pt twelve-lh">1: <%-access_to_document_title%> &verbar; <%-it_access_to_document_title%></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table">
+                    <div class="row">
+                        <div class="cell vertical-align-top">
+                            <div class="list-box-height_qr_code_box table">
+                                <div class="row">
+                                    <div class="cell vertical-align-bottom qr_code_box">
+                                        <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
+                                    </div>
+                                    <div class="cell vertical-align-center access_online_box">
+                                        <div class="section-list px-12">
+                                            <div class="table ten-pt" id="how_to_online">
+                                                <div class="row">
+                                                    <div class="cell number-list"><img src="../../images/numero-1.jpg" alt="Numero 1"></div>
+                                                    <div class="cell vertical-align-top">
+                                                        <#if recipient.recipientType=="PF">
+                                                            <p><%-access_to_document_1_pf%> <b><%-access_to_document_1_link%></b> &verbar; <%-it_access_to_document_1_pf%>
+                                                                <b><%-it_access_to_document_1_link%></b>
+                                                            </p>
+                                                            <#else>
+                                                            <p><%-access_to_document_1_pg%> <b><%-access_to_document_1_link%></b> &verbar; <%-it_access_to_document_1_pg%>
+                                                                <b><%-it_access_to_document_1_link%></b>
+                                                            </p>
+                                                        </#if>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="cell number-list"><img src="../../images/numero-2.jpg" alt="Numero 2"></div>
+                                                    <div class="cell vertical-align-top">
+                                                        <p><%-access_to_document_2%> &verbar; <%-it_access_to_document_2%></p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
+                                                    <div class="cell vertical-align-top">
+                                                        <p><%-access_to_document_3%> &verbar; <%-it_access_to_document_3%></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell vertical-align-bottom">
+                            <footer id="footer_disclaimer" class="eight-pt ten-lh">
+                                <p><%-send_refinement%> <b><%-send_refinement_link%></b> &verbar;&verbar; <%-it_send_refinement%> <b><%-it_send_refinement_link%></b></p>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!--------------------------- PAGE 2 (297mm x 192mm) --------------------------->
+        <section id="second-page-bilingual">
+            <div class="table">
+                <div class="row">
+                    <section class="retrieve_info_box_bilingual vertical-align-top cell">
+                        <div class="table">
+                            <div class="row heading w-100 font-bold">
+                                <div class="cell"><h2 class="font-uppercase twelve-pt twelve-lh">2: <%-retrieve_copy%> &verbar; <%-it_retrieve_copy%></h2></div>
+                            </div>
+                        </div>
+
+                        <div id="access_yourself_box" class="table section-list pl-12">
+                            <div class="row">
+                                <div class="cell width-60 vertical-align-top">
+                                    <div class="table access_yourself_list">
+                                        <div class="row">
+                                            <div class="cell number-list"><img src="../../images/numero-1.jpg" alt="Numero 1"></div>
+                                            <div class="cell vertical-align-top">
+                                                <p><%-retrieve_copy_1%> 
+                                                    <b><%-retrieve_copy_1_link%></b>
+                                                    <%-retrieve_copy_2%> &verbar; 
+                                                    <%-it_retrieve_copy_1%> 
+                                                    <b><%-it_retrieve_copy_1_link%></b>
+                                                    <%-it_retrieve_copy_2%></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="cell number-list"><img src="../../images/numero-2.jpg" alt="Numero 2"></div>
+                                            <div class="cell vertical-align-top">
+                                                <p><%-retrieve_copy_title_list%> &verbar; <%-it_retrieve_copy_title_list%>:
+                                                    <ul id="square-list">
+                                                        <li><%-retrieve_copy_list_1%> &verbar; <%-it_retrieve_copy_list_1%></li>
+                                                        <li><%-retrieve_copy_list_2%> &verbar; <%-it_retrieve_copy_list_2%></li>
+                                                        <li><%-retrieve_copy_list_3%> &verbar; <%-it_retrieve_copy_list_3%></li>
+                                                        <#if recipient.recipientType=="PG"><li><%-retrieve_copy_list_4%> &verbar; <%-it_retrieve_copy_list_4%></li></#if>
+                                                    </ul>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
+                                            <div class="cell vertical-align-top">
+                                                <p><%-retrieve_copy_3%> &verbar; <%-it_retrieve_copy_3%></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell width-40 vertical-align-top" id="iun_cell_radd">
+                                    <div class="iun_box_radd ten-pt blue-border-iun radius-8">
+                                        <div id="iun-code" class="eight-px">
+                                            <p class="font-bold nine-pt"><%-iun%>:</p>
+                                            <p class="font-bold nine-pt"><%-it_iun%>:</p>
+                                            <p class="nowrap">${notification.iun}</p>
+                                            <p class="font-bold nine-pt"><%-recipient_type%>:</p>
+                                            <p class="font-bold nine-pt"><%-it_recipient_type%>:</p>
+                                            <p>${recipient.taxId}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table">
+                            <div class="row w-100">
+                                <p style="margin-top: 4mm;"><%-disclaimer_caf%> &verbar; <%-it_disclaimer_caf%></p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="row">
+                    <section class="mandate-section_bilingual vertical-align-bottom cell">
+                        <div id="mandate_box" class="blue-border-iun radius-8">
+                            <p class="font-bold title">
+                                <%-delegate_title%> &verbar; <%-it_delegate_title%>
+                            </p>
+                            <div class="table">
+                                <div class="row">
+                                    <div class="cell width-50">
+                                        <#if recipient.recipientType=="PF">
+                                        <p><%-io%> &verbar; <%-it_io%>, ${recipient.denomination} ${recipient.taxId}, <%-delego%> &verbar; <%-it_delego%></p>
+                                        <#else>
+                                            <div>
+                                            <p><%-io%> &verbar; <%-it_io%>, <span class="nine-pt eleven-lh form-field-bilingual border-bottom mb-form mt-0">
+                                                <%-name%> &verbar; <%-it_name%>
+                                            </span></p>
+                                            <%-legal_representative%> &verbar; <%-it_legal_representative%> ${recipient.denomination} ${recipient.taxId}, <%-delego%> &verbar; <%-it_delego%>
+                                            </div>
+                                        </#if>
+                                        <div class="nine-pt eleven-lh border-bottom mb-form">
+                                            <p><%-name%> &verbar; <%-it_name%></p>
+                                        </div>
+                                        <div class="nine-pt eleven-lh border-bottom mb-form">
+                                            <p><%-fiscalcode%> &verbar; <%-it_fiscalcode%></p>
+                                        </div>
+                                        <p><%-delegate_body%> &verbar; <%-it_delegate_body%>.</p>
+                                        <div class="nine-pt eleven-lh border-bottom mb-0">
+                                            <p><%-signature%> &verbar; <%-it_signature%></p>
+                                        </div>
+                                    </div>
+                                    <div class="cell width-50 cell-large-spacing eleven-pt twelve-lh">
+                                        <p><%-delegate_title_list%> &verbar; <%-it_delegate_title_list%>:</p>
+                                        <ul id="square-list-mandate">
+                                            <li ><%-delegate_list_1%> &verbar; <%-it_delegate_list_1%></li>
+                                            <li class="number-list"><%-delegate_list_2%> &verbar; <%-it_delegate_list_2%> </li>
+                                            <li class="number-list"><%-delegate_list_3%> &verbar; <%-it_delegate_list_3%></li>
+                                            <li class="number-list"><%-delegate_list_4%> &verbar; <%-it_delegate_list_4%><#if recipient.recipientType=="PF"></li>
+                                            <#else></li>
+                                                <li><%-delegate_list_5%> &verbar; <%-it_delegate_list_5%></li>
+                                            </#if>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
