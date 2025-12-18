@@ -41,149 +41,163 @@
         <!-- linee pieghe in 3 -->
         <div style="height: 95mm; width:210mm; position: absolute; top: 96mm; border-bottom: 2px dotted purple; border-top: 2px dotted purple; box-sizing: border-box"></div>
         <section id="first-page">
-            <section class="upper-section vertical-align-top">
-                <div class="fixed-table">
-                    <div class="row">
-                        <div class="cell width-50 pl-8 vertical-align-top" id="sender_box">
-                            <#if senderLogoBase64??>
-            
-                                <div class="nine-pt">
-                                    <p class="six-pt eight-lh">AVVISO DI AVVENUTA RICEZIONE</p>
-                                    <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
-                                    <div id="sender_logo">
-                                        <img src="${senderLogoBase64}" alt="Logo di ${notification.sender.paDenomination}">
+            <div class="first-page-table">
+                <section class="upper-section vertical-align-top">
+                    <div class="first-page-rowcell">
+                        <div class="fixed-table">
+                            <div class="row">
+                                <div class="cell width-50 pl-8 vertical-align-top" id="sender_box">
+                                    <#if senderLogoBase64??>
+                    
+                                        <div class="nine-pt">
+                                            <p class="six-pt eight-lh">AVVISO DI AVVENUTA RICEZIONE</p>
+                                            <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
+                                            <div id="sender_logo">
+                                                <img src="${senderLogoBase64}" alt="Logo di ${notification.sender.paDenomination}">
+                                            </div>
+                                        </div>
+                                    <#else>
+                                
+                                        <div class="nine-pt mt-8">
+                                            <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
+                                            <div id="legal_subtitle">
+                                                <p class="six-pt">AVVISO DI AVVENUTA RICEZIONE</p>
+                                            </div>
+                                        </div>
+                                    </#if>
+                                </div>
+                                
+                                <div class="cell width-50 pt-12" id="iun_send">
+                                    <div>
+                                        <div id="iun_box" class="iun_box nine-pt cell vertical-align-bottom pb-0">
+                                            <p class="font-bold nine-pt">Identificativo Univoco Notifica:</p>
+                                            <p>${notification.iun}</p>
+                                            <p class="font-bold nine-pt">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </p>
+                                            <p>${recipient.taxId}</p>
+                                        </div>
+                                        <div id="send_box" class="eight-pt cell vertical-align-bottom">
+                                            <p class="nine-pt logo-prefix">Inviata tramite</p>
+                                            <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
+                                            <p id="send_box_site" class="eight-pt font-bold">
+                                                <a class="black"
+                                                    href="https://www.notifichedigitali.it/"  title="Sito di SEND - Servizio Notifiche Digitali">notifichedigitali.it</a></p>
+                                        </div>
                                     </div>
                                 </div>
-                            <#else>
-                        
-                                <div class="nine-pt mt-8">
-                                    <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
-                                    <div id="legal_subtitle">
-                                        <p class="six-pt">AVVISO DI AVVENUTA RICEZIONE</p>
+                            </div>
+                            <div class="row" id="recipient-addr-box">
+                                <!-- Si lascia lo spazio per l'indirizzo che verra' inserito dal consolidatore -->
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="center-section vertical-align-bottom">
+                    <div class="first-page-rowcell">
+                        <h1 id="main_subject" class="twelve-pt sixteen-lh px-12 pt-0">Hai ricevuto una comunicazione a valore legale da ${notification.sender.paDenomination} con oggetto: ${notification.subject}</h1>
+                        <div id="main_disclaimer" class="eleven-pt sixteen-lh">
+                            <p><b>Prendi visione della copia dei documenti allegati o accedi ai documenti originali online</b> seguendo
+                                le istruzioni. Tieni presente che il contenuto della comunicazione produrrà effetti giuridici
+                                nei tuoi confronti anche senza la tua presa visione dei documenti.
+                            </p>
+                        </div>
+                        <div id="view_online_box">
+                            <div class="table">
+                                <div class="row heading font-bold w-100 twelve-lh">
+                                    <div class="cell">
+                                        <h2 class="font-uppercase twelve-pt twelve-lh">Accedi ora ai documenti online</h2>
+                                    </div>
+                                    <div class="cell text-right nine-pt twelve-lh">
+                                        <p>Consultazione online gratuita</p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="table list-box-height_qr_code_box pb-12">
+                            <div class="row">
+                                <div class="cell vertical-align-center qr_code_box">
+                                    <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
+                                </div>
+                                <div class="cell vertical-align-center access_online_box">
+                                    <div class="section-list px-12">
+                                        <div class="table" id="how_to_online">
+                                            <div class="row">
+                                                <div class="cell number-list"><img src="../../images/numero-1.jpg" alt="Numero 1"></div>
+                                                <div class="cell vertical-align-top">
+                                                    <#if recipient.recipientType=="PF">
+                                                        <p>
+                                                            Inquadra il <b>codice QR</b> con l'app IO o con la fotocamera del tuo dispositivo
+                                                            <br>
+                                                            In alternativa vai sul sito web <b>
+                                                                <a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a>
+                                                            </b>
+                                                        </p>
+                                                        <#else>
+                                                        <p>
+                                                            Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b>
+                                                                <a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a>
+                                                            </b>
+                                                        </p>
+                                                    </#if>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="cell number-list"><img src="../../images/numero-2.jpg" alt="Numero 2"></div>
+                                                <div class="cell vertical-align-top">
+                                                    <p>Accedi e scarica i documenti: contengono informazioni importanti che ti riguardano</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
+                                                <div class="cell vertical-align-top">
+                                                    <p>Se previsto un pagamento, puoi pagare con tutti i canali abilitati a pagoPA</p>
+                                                    <p><strong class="text-underline">L'importo si aggiornerà con i costi di notifica</strong>: 2 € per le notifiche digitali, più elevati per la raccomandata cartacea, inviata solo in assenza di canali digitali o se non apri la comunicazione in tempo</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lower-section table vertical-align-bottom">
+                    <div class="first-page-rowcell">
+                        <div class="table" style="height: 100%; table-layout: fixed;">
+                            <#if recipient.recipientType=="PF">
+                                <div class="row">
+                                    <div class="table blue-border-box radius-8">
+                                        <div class="row eleven-pt radius-8 w-100" id="io_download">
+                                            <div class="cell vertical-align-top width-85">
+                                                    <h3 class="twelwe-pt">Vuoi che qualcuno acceda ai documenti online per te?</h3>
+                                                    <p>Se hai una Carta d'Identità Elettronica (CIE) puoi chiedere a una persona di fiducia di accedere ai documenti online per te. Non deve far altro che inquadrare il codice QR con IO e seguire le istruzioni sull'app per consultare i documenti per tuo conto.</p>
+                                            </div>
+                                            <div class="cell width-15 text-right vertical-align-center" id="io_img">
+                                                <img src="../../images/app-io.jpg" alt="Logo di app IO" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
                             </#if>
-                        </div>
-                        
-                        <div class="cell width-50 pt-12" id="iun_send">
-                            <div>
-                                <div id="iun_box" class="iun_box nine-pt cell vertical-align-bottom pb-0">
-                                    <p class="font-bold nine-pt">Identificativo Univoco Notifica:</p>
-                                    <p>${notification.iun}</p>
-                                    <p class="font-bold nine-pt">Codice fiscale - Persona <#if recipient.recipientType=="PF">fisica<#else>giuridica</#if>: </p>
-                                    <p>${recipient.taxId}</p>
-                                </div>
-                                <div id="send_box" class="eight-pt cell vertical-align-bottom">
-                                    <p class="nine-pt logo-prefix">Inviata tramite</p>
-                                    <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
-                                    <p id="send_box_site" class="eight-pt font-bold">
-                                        <a class="black"
-                                            href="https://www.notifichedigitali.it/"  title="Sito di SEND - Servizio Notifiche Digitali">notifichedigitali.it</a></p>
+                            <div class="row">
+                                <div class="cell">
+                                    <footer id="footer_disclaimer" class="eight-pt twelve-lh">
+                                        <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l'importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell'eventuale raccomandata a te inviata e scelta dall'ente, dal numero di tentativi di recapito.  <br>
+                                        Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">${perfezionamentoURLLabel}</a></b></p>
+                                    </footer>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row" id="recipient-addr-box">
-                        <!-- Si lascia lo spazio per l'indirizzo che verra' inserito dal consolidatore -->
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                    </div>
-                </div>
-            </section>
-
-            <section class="center-section vertical-align-bottom">
-                <h1 id="main_subject" class="twelve-pt sixteen-lh px-12 pt-0">Hai ricevuto una comunicazione a valore legale da ${notification.sender.paDenomination} con oggetto: ${notification.subject}</h1>
-                <div id="main_disclaimer" class="eleven-pt sixteen-lh">
-                    <p><b>Prendi visione della copia dei documenti allegati o accedi ai documenti originali online</b> seguendo
-                        le istruzioni. Tieni presente che il contenuto della comunicazione produrrà effetti giuridici
-                        nei tuoi confronti anche senza la tua presa visione dei documenti.
-                    </p>
-                </div>
-                <div id="view_online_box">
-                    <div class="table">
-                        <div class="row heading font-bold w-100 twelve-lh">
-                            <div class="cell">
-                                <h2 class="font-uppercase twelve-pt twelve-lh">Accedi ora ai documenti online</h2>
-                            </div>
-                            <div class="cell text-right nine-pt twelve-lh">
-                                <p>Consultazione online gratuita</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="table list-box-height_qr_code_box pb-12">
-                    <div class="row">
-                        <div class="cell vertical-align-center qr_code_box">
-                            <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
-                        </div>
-                        <div class="cell vertical-align-center access_online_box">
-                            <div class="section-list px-12">
-                                <div class="table" id="how_to_online">
-                                    <div class="row">
-                                        <div class="cell number-list"><img src="../../images/numero-1.jpg" alt="Numero 1"></div>
-                                        <div class="cell vertical-align-top">
-                                            <#if recipient.recipientType=="PF">
-                                                <p>
-                                                    Inquadra il <b>codice QR</b> con l'app IO o con la fotocamera del tuo dispositivo
-                                                    <br>
-                                                    In alternativa vai sul sito web <b>
-                                                        <a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a>
-                                                    </b>
-                                                </p>
-                                                <#else>
-                                                <p>
-                                                    Inquadra il <b>codice QR</b> con la fotocamera del tuo dispositivo oppure vai sul sito web <b>
-                                                        <a href="${piattaformaNotificheURL}auth/login" title="Piattaforma SEND - Servizio Notifiche Digitali">${piattaformaNotificheURLLabel}</a>
-                                                    </b>
-                                                </p>
-                                            </#if>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="cell number-list"><img src="../../images/numero-2.jpg" alt="Numero 2"></div>
-                                        <div class="cell vertical-align-top">
-                                            <p>Accedi e scarica i documenti: contengono informazioni importanti che ti riguardano</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="cell number-list"><img src="../../images/numero-3.jpg" alt="Numero 3"></div>
-                                        <div class="cell vertical-align-top">
-                                            <p>Se previsto un pagamento, puoi pagare con tutti i canali abilitati a pagoPA</p>
-                                            <p><strong class="text-underline">L'importo si aggiornerà con i costi di notifica</strong>: 2 € per le notifiche digitali, più elevati per la raccomandata cartacea, inviata solo in assenza di canali digitali o se non apri la comunicazione in tempo</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="lower-section table vertical-align-bottom">
-                <#if recipient.recipientType=="PF">
-                    <div class="row">
-                        <div class="table blue-border-box radius-8">
-                            <div class="row eleven-pt radius-8 w-100" id="io_download">
-                                <div class="cell vertical-align-top width-85">
-                                        <h3 class="twelwe-pt">Vuoi che qualcuno acceda ai documenti online per te?</h3>
-                                        <p>Se hai una Carta d'Identità Elettronica (CIE) puoi chiedere a una persona di fiducia di accedere ai documenti online per te. Non deve far altro che inquadrare il codice QR con IO e seguire le istruzioni sull'app per consultare i documenti per tuo conto.</p>
-                                </div>
-                                <div class="cell width-15 text-right vertical-align-center" id="io_img">
-                                    <img src="../../images/app-io.jpg" alt="Logo di app IO" />
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                </#if>
-                <footer id="footer_disclaimer" class="eight-pt twelve-lh">
-                    <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l'importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell'eventuale raccomandata a te inviata e scelta dall'ente, dal numero di tentativi di recapito.  <br>
-                    Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">${perfezionamentoURLLabel}</a></b></p>
-                </footer>
-            </section>
+                </section>
+            </div>
         </section>
         
         <!--------------------------- PAGE 2 (297mm x 192mm) --------------------------->
