@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="author" content="SEND - Servizio Notifiche Digitali">
     <title>Avviso di Avvenuta Ricezione</title>
-    <link rel="stylesheet" href="../../styles/aar_accessible.css">
+    <link rel="stylesheet" href="../../styles/aar_accessible_fase3.css">
     <bookmarks>
         <bookmark name="Dati del mittente della notifica" href="#sender_box"/>
         <bookmark name="Dati della notifica" href="#iun_box"/>
@@ -42,13 +42,13 @@
         <div style="height: 95mm; width:210mm; position: absolute; top: 96mm; border-bottom: 2px dotted purple; border-top: 2px dotted purple; box-sizing: border-box"></div>
         <section id="first-page">
             <div class="first-page-table">
-                <section class="upper-section vertical-align-top">
-                    <div class="first-page-rowcell">
+                <section class="upper-section row w-100 vertical-align-top">
+                    <div class="first-page-rowcell cell w-100 vertical-align-top">
                         <div class="fixed-table">
                             <div class="row">
                                 <div class="cell width-50 pl-8 vertical-align-top" id="sender_box">
                                     <#if senderLogoBase64??>
-                    
+            
                                         <div class="nine-pt">
                                             <p class="six-pt eight-lh">AVVISO DI AVVENUTA RICEZIONE</p>
                                             <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
@@ -57,7 +57,7 @@
                                             </div>
                                         </div>
                                     <#else>
-                                
+                        
                                         <div class="nine-pt mt-8">
                                             <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
                                             <div id="legal_subtitle">
@@ -97,8 +97,8 @@
                     </div>
                 </section>
 
-                <section class="center-section vertical-align-bottom">
-                    <div class="first-page-rowcell">
+                <section class="center-section row w-100 vertical-align-bottom">
+                    <div class="first-page-rowcell cell w-100 vertical-align-bottom">
                         <h1 id="main_subject" class="twelve-pt sixteen-lh px-12 pt-0">Hai ricevuto una comunicazione a valore legale da ${notification.sender.paDenomination} con oggetto: ${notification.subject}</h1>
                         <div id="main_disclaimer" class="eleven-pt sixteen-lh">
                             <p><b>Prendi visione della copia dei documenti allegati o accedi ai documenti originali online</b> seguendo
@@ -168,9 +168,9 @@
                     </div>
                 </section>
 
-                <section class="lower-section table vertical-align-bottom">
-                    <div class="first-page-rowcell">
-                        <div class="table" style="height: 100%; table-layout: fixed;">
+                <section class="lower-section table row w-100 vertical-align-bottom">
+                    <div class="first-page-rowcell cell w-100 vertical-align-top">
+                        <div class="fixed-table lower-table" style="height: 100%;">
                             <#if recipient.recipientType=="PF">
                                 <div class="row">
                                     <div class="table blue-border-box radius-8">
@@ -187,7 +187,7 @@
                                 </div> 
                             </#if>
                             <div class="row">
-                                <div class="cell">
+                                <div class="cell vertical-align-bottom">
                                     <footer id="footer_disclaimer" class="eight-pt twelve-lh">
                                         <p>Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l'importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell'eventuale raccomandata a te inviata e scelta dall'ente, dal numero di tentativi di recapito.  <br>
                                         Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su <b><a href="${perfezionamentoURL}" title="FAQ: perfezionamento notifica SEND">${perfezionamentoURLLabel}</a></b></p>
