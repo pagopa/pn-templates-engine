@@ -8,7 +8,7 @@
 		<relativePath />
 	</parent>
 	<artifactId>pn-templates-engine</artifactId>
-	<version>1.10.1</version>
+	<version>1.10.2-SNAPSHOT</version>
 	<name>pn-templates-engine</name>
 	<description>Template engine Microservice</description>
 
