@@ -5,7 +5,6 @@
   "it_iun": "Identificativo Univoco Notifica",
   "it_fiscal_code": "Codice fiscale",
   "it_sent_by": "Inviata tramite",
-  "it_recipient_type": "Codice fiscale - Persona <#if recipient.recipientType==\"PF\">fisica<#else>giuridica</#if>",
   "it_notification_subject_1": "Hai ricevuto una comunicazione a valore legale da",
   "it_notification_subject_2": "con oggetto",
   "it_notification_subject_3": "${notification.subject}",

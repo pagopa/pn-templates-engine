@@ -5,7 +5,6 @@
   "iun": "Einheitlicher Kodex",
   "fiscal_code": "Steuernummer",
   "sent_by": "Gesendet von",
-  "recipient_type": "Steuernummer - <#if recipient.recipientType==\"PF\">Nat&uuml;rliche <#else>Juristische </#if> Person",
   "notification_subject_1": "Du hast eine rechtsg&uuml;ltige Mitteilung von",
   "notification_subject_2": "mit dem Betreff",
   "notification_subject_3": "${notification.subject} erhalten",
@@ -17,5 +16,6 @@
   "access_to_document_2": "Greife auf die Dokumente zu und lade sie herunter: sie enthalten wichtige Informationen f&uuml;r dich",  
   "access_to_document_3": "Ist eine Zahlung vorgesehen, k&ouml;nnen Sie online oder &uuml;ber die f&uuml;r pagoPA aktivierten Kan&auml;le bezahlen. <span class=\"text-underline\"><strong>Der Betrag wird um die Zustellungskosten aktualisiert</strong></span>: 2 € f&uuml;r digitale Benachrichtigungen, h&ouml;her f&uuml;r das Papier-Einschreiben, das nur bei Fehlen digitaler Kan&auml;le versendet wird oder wenn Sie die Mitteilung nicht rechtzeitig &ouml;ffnen",
   "send_refinement": "Dieses Dokument ist eine rechtsg&uuml;ltige Mitteilung, die dich dazu auffordert, die dir zugestellten Dokumente zur Kenntnis zu nehmen. Diese entfalten in jedem Fall Rechtswirkungen f&uuml;r dich. Ist eine Zahlung vorgesehen, h&auml;ngt der zu zahlende Betrag von der Zugangsart ab, die du f&uuml;r die Zustellung w&auml;hlst, der Art des dir m&ouml;glicherweise zugesandten und von der K&ouml;rperschaft gew&auml;hlten Einschreibens sowie der Anzahl der Zustellversuche. Du hast 120 Tage ab dem Datum, an dem die Zustellung Rechtsg&uuml;ltigkeit erlangt, um auf die Dokumente online zuzugreifen. Nach Ablauf dieser 120 Tage sind die Dokumente nicht mehr verf&uuml;gbar, und du musst dich an die K&ouml;rperschaft wenden, die sie dir zugesandt hat. Erfahre mehr dar&uuml;ber, wie du die Fristen berechnest unter",
-  "send_refinement_link": "<a href=\"${perfezionamentoURL}\" title=\"FAQ: Vervollst&auml;ndigung der Zustellung SEND\">${perfezionamentoURLLabel}</a>"
+  "send_refinement_link": "<a href=\"${perfezionamentoURL}\" title=\"FAQ: Vervollst&auml;ndigung der Zustellung SEND\">${perfezionamentoURLLabel}</a>",
+  "io_content": "Wenn du einen elektronischen Personalausweis (CIE) hast, kannst du eine Vertrauensperson bitten, <strong>für dich online auf die Dokumente zuzugreifen</strong>. Sie muss lediglich den QR-Code mit IO scannen und den Anweisungen in der App folgen, um die Dokumente in deinem Namen einzusehen."
 }

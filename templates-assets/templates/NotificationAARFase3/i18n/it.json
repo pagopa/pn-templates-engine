@@ -5,7 +5,6 @@
   "it_iun": "Identificativo Univoco Notifica",
   "it_fiscal_code": "Codice fiscale",
   "it_sent_by": "Inviata tramite",
-  "it_recipient_type": "Codice fiscale - Persona <#if recipient.recipientType==\"PF\">fisica<#else>giuridica</#if>",
   "it_notification_subject_1": "Hai ricevuto una comunicazione a valore legale da",
   "it_notification_subject_2": "con oggetto",
   "it_notification_subject_3": "${notification.subject}",
@@ -17,5 +16,6 @@
   "it_access_to_document_2": "Accedi e scarica i documenti: contengono informazioni importanti che ti riguardano",
   "it_access_to_document_3": "Se previsto un pagamento, puoi pagare online o presso i canali abilitati a pagoPA. <span class=\"text-underline\"><strong>L'importo si aggiornerà con i costi di notifica</strong></span>: 2 € per le notifiche digitali, più elevati per la raccomandata cartacea, inviata solo in assenza di canali digitali o se non apri la comunicazione in tempo",
   "it_send_refinement": "Il presente documento è una comunicazione a valore legale che ti invita a prendere visione dei documenti a te notificati e che avranno conseguenze nei tuoi confronti in ogni caso. Se previsto un pagamento, l'importo da pagare dipenderà dalla modalità che scegli per accedere alla notifica, dalla tipologia dell'eventuale raccomandata a te inviata e scelta dall'ente, dal numero di tentativi di recapito. Hai 120 giorni dalla data in cui la notifica assume valore di legge per accedere ai documenti online. Trascorsi i 120 giorni, i documenti non saranno più disponibili e dovrai rivolgerti all'ente che te li ha inviati. Scopri di più su come calcolare i tempi su",
-  "it_send_refinement_link": "<a href=\"${perfezionamentoURL}\" title=\"FAQ: perfezionamento notifica SEND\">${perfezionamentoURLLabel}</a>"
+  "it_send_refinement_link": "<a href=\"${perfezionamentoURL}\" title=\"FAQ: perfezionamento notifica SEND\">${perfezionamentoURLLabel}</a>",
+  "it_io_content": "Se hai una Carta d’Identità Elettronica (CIE) puoi chiedere a una persona di fiducia di <strong> accedere ai documenti online per te</strong>. Non deve far altro che inquadrare il codice QR con IO e seguire le istruzioni sull’app per consultare i documenti per tuo conto."
 }

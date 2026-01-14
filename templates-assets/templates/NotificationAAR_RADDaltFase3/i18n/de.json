@@ -5,7 +5,6 @@
   "iun": "Einheitlicher Kodex",
   "fiscal_code": "Steuernummer",
   "sent_by": "Gesendet von",
-  "recipient_type": "Steuernummer - <#if recipient.recipientType==\"PF\">Nat&uuml;rliche <#else>Juristische </#if> Person",
   "notification_subject_1": "Du hast eine rechtsg&uuml;ltige Mitteilung von",
   "notification_subject_2": "mit dem Betreff",
   "notification_subject_3": "${notification.subject} erhalten",
@@ -44,5 +43,6 @@
   "delegate_list_3":"ihre Steuernummer",
   "delegate_list_4":"eine Kopie oder das Original der Steuernummer und eines Personalausweises des Bevollm&auml;chtigenden",
   "delegate_list_5":"ein Dokument, das die Funktion als gesetzlicher Vertreter des Bevollm&auml;chtigenden bescheinigt",
-  "legal_representative": "als gesetzlicher Vertreter von"
+  "legal_representative": "als gesetzlicher Vertreter von",
+  "io_content": "Wenn du einen elektronischen Personalausweis (CIE) hast, kannst du eine Vertrauensperson bitten, <strong>für dich online auf die Dokumente zuzugreifen</strong>. Sie muss lediglich den QR-Code mit IO scannen und den Anweisungen in der App folgen, um die Dokumente in deinem Namen einzusehen."
   }

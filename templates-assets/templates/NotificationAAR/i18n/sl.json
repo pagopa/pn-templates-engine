@@ -5,7 +5,6 @@
   "iun": "Edinstvena identifikacijska oznaka obvestila",
   "fiscal_code": "Dav&#269;no &#352;tevilko",
   "sent_by": "Poslano od",
-  "recipient_type": "Dav&#269;no &#352;tevilko - <#if recipient.recipientType=='PF'>fizi&#269;na<#else>pravna</#if> oseba",
   "notification_subject_1": "Prejeli ste uradno sporo&#269;ilo od",
   "notification_subject_2": "z zadevo",
   "notification_subject_3": "${notification.subject}",

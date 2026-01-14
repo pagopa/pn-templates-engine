@@ -5,7 +5,6 @@
   "iun": "Einheitlicher Kodex",
   "fiscal_code": "Steuernummer",
   "sent_by": "Gesendet von",
-  "recipient_type": "Steuernummer - <#if recipient.recipientType==\"PF\">Nat&uuml;rliche <#else>Juristische </#if> Person",
   "notification_subject_1": "Du hast eine rechtsg&uuml;ltige Mitteilung von",
   "notification_subject_2": "mit dem Betreff",
   "notification_subject_3": "${notification.subject} erhalten",
