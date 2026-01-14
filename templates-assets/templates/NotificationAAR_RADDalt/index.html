@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="author" content="SEND - Servizio Notifiche Digitali">
     <title><%-title%> &verbar; <%-it_title%></title>
-    <link rel="stylesheet" href="../../styles/aar_accessible.css">
+    <link rel="stylesheet" href="../../styles/aar_accessible_fase3.css">
     <bookmarks>
         <bookmark name="Dati del mittente della notifica" href="#sender_box"/>
         <bookmark name="Dati della notifica" href="#iun_box"/>
@@ -137,7 +137,25 @@
 
         <!--------------------------- PAGE 2 (297mm x 192mm) --------------------------->
         <section id="second-page-bilingual">
-            <div class="table">
+            <div class="second-page-table">
+                <#if recipient.recipientType=="PF">
+                <div class="row">
+                    <div class="cell vertical-align-top pb-33">
+                        <div class="blue-border-box radius-8 io-banner">
+                            <div class="table">
+                                <div class="row eleven-pt radius-8 w-100" id="io_download">
+                                    <div class="cell pt-12 pb-12 pl-12 vertical-align-top width-85">
+                                        <p><%-io_content%> &verbar; <%-it_io_content%></p>
+                                    </div>
+                                    <div class="cell pr-12 width-15 text-right vertical-align-center" id="io_img">
+                                        <img src="../../images/app-io.jpg" alt="Logo di app IO" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </#if>
                 <div class="row">
                     <section class="retrieve_info_box_bilingual vertical-align-top cell">
                         <div class="table">

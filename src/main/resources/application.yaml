@@ -47,10 +47,10 @@ templates:
       FR: "NotificationCancelledLegalFact/NotificationCancelledLegalFact_fr.html"
   notificationAar:
     input:
-      IT: "NotificationAARFase3/NotificationAARFase3.html"
-      DE: "NotificationAARFase3/NotificationAARFase3_de.html"
-      SL: "NotificationAARFase3/NotificationAARFase3_sl.html"
-      FR: "NotificationAARFase3/NotificationAARFase3_fr.html"
+      IT: "NotificationAAR/NotificationAAR.html"
+      DE: "NotificationAAR/NotificationAAR_de.html"
+      SL: "NotificationAAR/NotificationAAR_sl.html"
+      FR: "NotificationAAR/NotificationAAR_fr.html"
     resolvers:
       senderLogoBase64:
         enabled: true
@@ -62,10 +62,10 @@ templates:
 #          - /pn-templates-engine/Whitelist2
   notificationAarRaddAlt:
     input:
-      IT: "NotificationAAR_RADDaltFase3/NotificationAAR_RADDaltFase3.html"
-      DE: "NotificationAAR_RADDaltFase3/NotificationAAR_RADDaltFase3_de.html"
-      SL: "NotificationAAR_RADDaltFase3/NotificationAAR_RADDaltFase3_sl.html"
-      FR: "NotificationAAR_RADDaltFase3/NotificationAAR_RADDaltFase3_fr.html"
+      IT: "NotificationAAR_RADDalt/NotificationAAR_RADDalt.html"
+      DE: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_de.html"
+      SL: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_sl.html"
+      FR: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_fr.html"
     resolvers:
       senderLogoBase64:
         enabled: true
