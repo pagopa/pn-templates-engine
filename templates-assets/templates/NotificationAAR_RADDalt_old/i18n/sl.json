@@ -42,6 +42,5 @@
   "delegate_list_3":"svojo davčno številko",
   "delegate_list_4":"kopijo ali izvirnik davčne številke in identifikacijski dokument osebe, ki je podala pooblastilo",
   "delegate_list_5":"dokument, ki potrjuje vlogo pravnega zastopnika pooblastitelja",
-  "legal_representative": "ikot pravni zastopnik",
-  "io_content": "Če imaš elektronsko osebno izkaznico (CIE), lahko prosiš zaupno osebo, da <strong>namesto tebe dostopa do dokumentov na spletu</strong>. Vse, kar mora storiti, je, da z aplikacijo IO optično prebere kodo QR in sledi navodilom v aplikaciji za vpogled v dokumente v tvojem imenu."
+  "legal_representative": "ikot pravni zastopnik"
 }

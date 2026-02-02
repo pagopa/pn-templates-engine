@@ -43,6 +43,5 @@
   "delegate_list_3":"ihre Steuernummer",
   "delegate_list_4":"eine Kopie oder das Original der Steuernummer und eines Personalausweises des Bevollm&auml;chtigenden",
   "delegate_list_5":"ein Dokument, das die Funktion als gesetzlicher Vertreter des Bevollm&auml;chtigenden bescheinigt",
-  "legal_representative": "als gesetzlicher Vertreter von",
-  "io_content": "Wenn du einen elektronischen Personalausweis (CIE) hast, kannst du eine Vertrauensperson bitten, <strong>für dich online auf die Dokumente zuzugreifen</strong>. Sie muss lediglich den QR-Code mit IO scannen und den Anweisungen in der App folgen, um die Dokumente in deinem Namen einzusehen."
+  "legal_representative": "als gesetzlicher Vertreter von"
   }
