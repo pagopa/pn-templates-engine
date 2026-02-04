@@ -47,10 +47,10 @@ templates:
       FR: "NotificationCancelledLegalFact/NotificationCancelledLegalFact_fr.html"
   notificationAar:
     input:
-      IT: "NotificationAAR_old/NotificationAAR_old.html"
-      DE: "NotificationAAR_old/NotificationAAR_old_de.html"
-      SL: "NotificationAAR_old/NotificationAAR_old_sl.html"
-      FR: "NotificationAAR_old/NotificationAAR_old_fr.html"
+      IT: "NotificationAAR/NotificationAAR.html"
+      DE: "NotificationAAR/NotificationAAR_de.html"
+      SL: "NotificationAAR/NotificationAAR_sl.html"
+      FR: "NotificationAAR/NotificationAAR_fr.html"
     resolvers:
       senderLogoBase64:
         enabled: true
@@ -62,10 +62,10 @@ templates:
 #          - /pn-templates-engine/Whitelist2
   notificationAarRaddAlt:
     input:
-      IT: "NotificationAAR_RADDalt_old/NotificationAAR_RADDalt_old.html"
-      DE: "NotificationAAR_RADDalt_old/NotificationAAR_RADDalt_old_de.html"
-      SL: "NotificationAAR_RADDalt_old/NotificationAAR_RADDalt_old_sl.html"
-      FR: "NotificationAAR_RADDalt_old/NotificationAAR_RADDalt_old_fr.html"
+      IT: "NotificationAAR_RADDalt/NotificationAAR_RADDalt.html"
+      DE: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_de.html"
+      SL: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_sl.html"
+      FR: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_fr.html"
     resolvers:
       senderLogoBase64:
         enabled: true
@@ -108,9 +108,6 @@ templates:
   notificationAarForSubject:
     input:
       IT: "NotificationAARFor_Subject/NotificationAARFor_Subject.txt"
-      DE: "NotificationAARFor_Subject/NotificationAARFor_Subject_de.txt"
-      SL: "NotificationAARFor_Subject/NotificationAARFor_Subject_sl.txt"
-      FR: "NotificationAARFor_Subject/NotificationAARFor_Subject_fr.txt"
   mailVerificationCodeBody:
     input:
       IT: "Mail_VerificationCodeBody/Mail_VerificationCodeBody.html"
