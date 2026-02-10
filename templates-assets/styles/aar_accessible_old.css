@@ -240,6 +240,10 @@ a.black {
     padding-left: 12px;
 }
 
+.pb-15 {
+    padding-bottom: 15px !important;
+}
+
 .pl-72 {
     padding-left: 72px;
 }

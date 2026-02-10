@@ -280,6 +280,10 @@ a.black {
     padding-left: 12px;
 }
 
+.pb-15 {
+    padding-bottom: 15px !important;
+}
+
 .pb-33 {
     padding-bottom: 33px;
 }
