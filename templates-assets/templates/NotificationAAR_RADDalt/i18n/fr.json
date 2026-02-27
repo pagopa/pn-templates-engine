@@ -43,5 +43,5 @@
   "delegate_list_4":"une copie ou l'original du code fiscal et une pièce d'identité de la personne délégante",
   "delegate_list_5":"un document certifiant le rôle du délégant en tant que représentant légal",
   "legal_representative": "en tant que représentant légal de",
-  "io_content": "Si tu as une Carte d'Identité Électronique (CIE), tu peux demander à une personne de confiance d'<strong>accéder aux documents en ligne pour toi</strong>. Il lui suffit de scanner le code QR avec IO et de suivre les instructions sur l'application pour consulter les documents pour ton compte."
+  "io_content": "Si tu as une Carte d'Identité Électronique (CIE), tu peux demander à une personne de confiance <span class=\"inline-nowrap\">d'<strong>accéder aux documents en ligne pour toi</strong></span>. Il lui suffit de scanner le code QR avec IO et de suivre les instructions sur l'application pour consulter les documents pour ton compte."
 }
