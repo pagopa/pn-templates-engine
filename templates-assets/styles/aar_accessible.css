@@ -672,6 +672,10 @@ img.message-advantages_explanation {
 .icon-euro {
     background-image: url("../images/euro-circle.jpg");
 }
+.inline-nowrap {
+    display: inline-block;
+    white-space: nowrap;
+}
 
 .intro-block {
     height: 65mm;
