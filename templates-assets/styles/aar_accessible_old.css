@@ -580,9 +580,8 @@ img.message-advantages_explanation {
 }
 
 .iun_box {
-    padding: 0 40px 0 0;
-    width: auto;
-    min-width: 47mm;
+    padding: 0;
+    width: 75mm;
     text-align: left;
     margin-left: auto;
 }
