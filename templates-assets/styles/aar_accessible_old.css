@@ -142,6 +142,10 @@ body {
     line-height: 16px; /* 12px on Figma */
 }
 
+.fifteen-lh {
+    line-height: 20px; /* 15pt on Figma */
+}
+
 .sixteen-lh {
     line-height: 21.333px; /* 16px on Figma */
 }
@@ -576,9 +580,8 @@ img.message-advantages_explanation {
 }
 
 .iun_box {
-    padding: 0 40px 0 0;
-    width: auto;
-    min-width: 47mm;
+    padding: 0;
+    width: 75mm;
     text-align: left;
     margin-left: auto;
 }
@@ -623,4 +626,8 @@ img.message-advantages_explanation {
 
 .icon-euro {
     background-image: url("../images/euro-circle.jpg");
+}
+
+.intro-block {
+    height: 65mm;
 }
