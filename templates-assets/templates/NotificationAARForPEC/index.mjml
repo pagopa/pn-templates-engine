@@ -123,7 +123,7 @@
                   padding: 8px 20px;
                   border-radius: 4px;
                   text-decoration: none;
-                " title="Visualizza i documenti" class="button" href="${quickAccessLink}"><strong><% if (noIta) { %><span>
+                " title="Visualizza i documenti" class="button" href="${quickAccessLink}&utm_campaign=nuova_notifica&utm_source=pec_notifica&utm_medium=pec"><strong><% if (noIta) { %><span>
                     <%-button%> &bull; </span><% } %>
                   <%-it_button%></strong></a>
             </p>
