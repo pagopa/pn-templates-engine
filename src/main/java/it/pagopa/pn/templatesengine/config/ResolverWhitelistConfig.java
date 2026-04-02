@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import reactor.util.function.Tuple2;
 import reactor.util.function.Tuples;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.util.*;
 import java.util.stream.Collectors;
 

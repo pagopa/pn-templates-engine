@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
 
 import java.util.Map;
@@ -30,6 +31,7 @@ public class PnFreemarkerConfig {
      * @throws PnGenericException in caso di errore durante la configurazione del bean FreeMarker.
      */
     @Bean("freemarkerConfig")
+    @Primary
     public freemarker.template.Configuration freemarkerConfig(@Value("${templatesPath}") String templatesPath) {
         try {
             configuration.setDefaultEncoding("UTF-8");

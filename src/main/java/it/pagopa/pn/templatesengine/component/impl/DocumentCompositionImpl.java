@@ -1,6 +1,5 @@
 package it.pagopa.pn.templatesengine.component.impl;
 
-import com.openhtmltopdf.outputdevice.helper.BaseRendererBuilder;
 import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -20,7 +19,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 
