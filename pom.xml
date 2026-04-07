@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>it.pagopa.pn</groupId>
 		<artifactId>pn-parent</artifactId>
-		<version>2.1.4-SPRINGBOOT3</version>
+		<version>2.1.3-SPRINGBOOT3</version>
 		<relativePath />
 	</parent>
 	<artifactId>pn-templates-engine</artifactId>
@@ -167,7 +167,6 @@
 								<skipDefaultInterface>false</skipDefaultInterface>
 								<useTags>true</useTags>
 								<useSpringBoot3>true</useSpringBoot3>
-								<useJakartaEe>true</useJakartaEe>
 								<basePackage>${project.groupId}.templatesengine.generated.openapi.server.v1</basePackage>
 								<modelPackage>${project.groupId}.templatesengine.generated.openapi.server.v1.dto</modelPackage>
 								<apiPackage>${project.groupId}.templatesengine.generated.openapi.server.v1.api</apiPackage>
