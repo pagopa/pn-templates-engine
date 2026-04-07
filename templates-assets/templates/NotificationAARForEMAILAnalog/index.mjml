@@ -115,7 +115,7 @@
                 "
                 title="Accedi ai documenti"
                 class="button"
-                href="${quickAccessLink}"
+                href="${quickAccessLink}&utm_campaign=nuovo_messaggio&utm_source=email_notifica&utm_medium=email"
                 ><strong><% if (noIta) { %><span><%-button%> &bull; </span><% } %><%-it_button%></strong></a
               >
             </p>
