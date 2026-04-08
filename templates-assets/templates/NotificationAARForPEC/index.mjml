@@ -123,9 +123,10 @@
                   padding: 8px 20px;
                   border-radius: 4px;
                   text-decoration: none;
-                " title="Visualizza i documenti" class="button" href="${quickAccessLink}&utm_campaign=nuova_notifica&utm_source=pec_notifica&utm_medium=pec"><strong><% if (noIta) { %><span>
+                " title="Visualizza i documenti" class="button" href="${quickAccessLink}<#if recipientType == 'PF'><#if quickAccessLink?contains('?')>&amp;<#else>?</#if>utm_campaign=nuova_notifica&amp;utm_source=pec_notifica&amp;utm_medium=pec</#if>"><strong><% if (noIta) { %><span>
                     <%-button%> &bull; </span><% } %>
-                  <%-it_button%></strong></a>
+                  <%-it_button%></strong>
+              </a>
             </p>
 
             <!-- SEND -->
