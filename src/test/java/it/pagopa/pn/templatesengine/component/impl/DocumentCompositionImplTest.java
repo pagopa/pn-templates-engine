@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,7 +29,7 @@ class DocumentCompositionImplTest {
 
     @Autowired
     Configuration freemarkerConfig;
-    @MockBean
+    @MockitoBean
     TemplateConfig templateConfig;
 
     DocumentCompositionImpl documentComposition;
