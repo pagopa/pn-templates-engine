@@ -244,6 +244,14 @@ public class TemplateApiController implements TemplateApi {
         return processTextTemplate(TemplatesEnum.SMS_VERIFICATION_CODE_BODY, xLanguage);
     }
 
+    @Override
+    public Mono<ResponseEntity<Resource>> analogFeedbackAvailabilityStatement(
+            LanguageEnum xLanguage,
+            Mono<AnalogFeedbackAvailabilityStatement> request,
+            final ServerWebExchange exchange) {
+        return processPdfTemplate(TemplatesEnum.ANALOG_FEEDBACK_AVAILABILITY_STATEMENT, xLanguage, request);
+    }
+
     private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(
             TemplatesEnum template,
             LanguageEnum xLanguage,
