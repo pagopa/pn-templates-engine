@@ -8,10 +8,10 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import it.pagopa.pn.commons.exceptions.PnInternalException;
-import org.springframework.util.Base64Utils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Base64;
 import java.util.Map;
 
 import static it.pagopa.pn.commons.exceptions.PnExceptionsCodes.ERROR_CODE_PN_GENERIC_ERROR;
@@ -27,7 +27,7 @@ public class QrCodeUtils {
             BitMatrix bitMatrix = qrCodeWriter.encode(url, BarcodeFormat.QR_CODE, 180, 180, conf);
             ByteArrayOutputStream pngOutputStream = new ByteArrayOutputStream();
             MatrixToImageWriter.writeToStream(bitMatrix, "PNG", pngOutputStream);
-            return "data:image/png;base64, " .concat(Base64Utils.encodeToString(pngOutputStream.toByteArray()));
+            return "data:image/png;base64, " .concat(Base64.getEncoder().encodeToString(pngOutputStream.toByteArray()));
         } catch (IOException | WriterException e) {
             throw new PnInternalException(e.getMessage(), ERROR_CODE_PN_GENERIC_ERROR, e);
         }
