@@ -745,3 +745,22 @@ components:
                 type: string
               ok:
                 type: boolean
+
+    AnalogFeedbackAvailabilityStatement:
+      type: object
+      required:
+        - declarationDate
+        - iun
+        - senderDenomination
+        - registeredLetterCode
+      properties:
+        senderDenomination:
+          x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+          format: password #NO EXTERNAL
+          type: string
+        iun:
+          type: string
+        declarationDate:
+          type: string
+        registeredLetterCode:
+          type: string

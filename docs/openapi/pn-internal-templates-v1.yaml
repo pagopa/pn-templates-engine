@@ -308,6 +308,36 @@ paths:
         '500':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
+  /templates-engine-private/v1/templates/analog-feedback-availability-statement:
+    put:
+      summary: AnalogFeedbackAvailabilityStatement
+      description: Genera un documento PDF basato sul template AnalogFeedbackAvailabilityStatement.
+      operationId: analogFeedbackAvailabilityStatement
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: x-language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/AnalogFeedbackAvailabilityStatement'
+
+      responses:
+        '200':
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponsePDF'
+        '400':
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
   ############################################################################################
   ###                                    HTML Response                                     ###
   ############################################################################################
