@@ -223,7 +223,8 @@ public class DocumentGeneratorTest {
                 .iun("TEST_iun")
                 .declarationDate("TEST_declarationDate")
                 .senderDenomination("TEST_senderDenomination")
-                .registeredLetterCode("TEST_registeredLetterCode");
+                .registeredLetterCode("TEST_registeredLetterCode")
+                .senderTaxId("TEST_senderTaxId");
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
