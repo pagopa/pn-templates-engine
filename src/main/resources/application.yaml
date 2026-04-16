@@ -151,6 +151,5 @@ templates:
     input:
       IT: "NotificationCceFor_Subject/NotificationCceFor_Subject.txt"
   analogFeedbackAvailabilityStatement:
-    loadAsString: true
     input:
       IT: "AnalogFeedbackAvailabilityStatement/AnalogFeedbackAvailabilityStatement.html"
