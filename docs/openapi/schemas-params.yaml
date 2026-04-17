@@ -753,6 +753,7 @@ components:
         - iun
         - senderDenomination
         - registeredLetterCode
+        - senderTaxId
       properties:
         senderDenomination:
           x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
@@ -763,4 +764,8 @@ components:
         declarationDate:
           type: string
         registeredLetterCode:
+          type: string
+        senderTaxId:
+          x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+          format: password #NO EXTERNAL
           type: string

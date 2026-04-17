@@ -1,7 +1,7 @@
 {
   "it_language": "it",
-  "it_subject":"DICHIARAZIONE DATA DI MESSA A DISPOSIZIONE DELL’ESITO ANALOGICO\n",
-  "it_body1": "Si dichiara che, in data <b>${declarationDate}</b>, il Gestore di SEND ha messo a disposizione all’amministrazione mittente <b>${senderDenomination}</b>) l’esito relativo al tentativo di recapito della raccomandata n. <b>${registeredLetterCode}</b>, relativa alla notifica avente IUN <b>${iun}</b>. Da tale data, l’amministrazione mittente è posta in grado di conoscere l’esito effettivo della notificazione, e quindi da tale data l’amministrazione mittente è in grado di provvedere agli eventuali adempimenti successivi, salvo che la stessa amministrazione non abbia avuto in data antecedente contezza dell’esito della notificazione per altra modalità diversa da SEND.",
+  "it_subject":"Dichiarazione data di messa a disposizione dell'esito analogico",
+  "it_body1":"Si dichiara che, in data <b>${declarationDate}</b>, il Gestore di SEND ha messo a disposizione all’amministrazione mittente <b>${senderDenomination}</b> (C.F. <b>${senderTaxId}</b>) l’esito relativo al tentativo di recapito della raccomandata n. <b>${registeredLetterCode}</b>, relativa alla notifica avente IUN <b>${iun}</b>.<br><br>Da tale data, l’amministrazione mittente è posta in grado di conoscere l’esito effettivo della notificazione, e quindi da tale data l’amministrazione mittente è in grado di provvedere agli eventuali adempimenti successivi, salvo che la stessa amministrazione non abbia avuto in data antecedente contezza dell’esito della notificazione per altra modalità diversa da SEND.",
   "it_signature":"Firmato digitalmente da PagoPA S.p.A.",
   "it_disclaimer_lang":"Il testo originario di questi documenti è in lingua italiana. In caso di contrasto tra la versione italiana e le traduzioni in altre lingue, prevarranno il significato e le condizioni della lingua italiana."
 }
