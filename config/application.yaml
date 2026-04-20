@@ -153,3 +153,6 @@ templates:
   notificationCceForSubject:
     input:
       IT: "NotificationCceFor_Subject/NotificationCceFor_Subject.txt"
+  analogFeedbackAvailabilityStatement:
+    input:
+      IT: "AnalogFeedbackAvailabilityStatement/AnalogFeedbackAvailabilityStatement.html"

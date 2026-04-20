@@ -30,7 +30,8 @@ public enum TemplatesEnum {
     PEC_VALIDATION_CONTACTS_SUCCESS_BODY("pecValidationContactsSuccessBody"),
     PEC_VALIDATION_CONTACTS_SUCCESS_SUBJECT("pecValidationContactsSuccessSubject"),
     NOTIFICATION_CCE_FOR_EMAIL("notificationCceForEmail"),
-    NOTIFICATION_CCE_FOR_SUBJECT("notificationCceForSubject");
+    NOTIFICATION_CCE_FOR_SUBJECT("notificationCceForSubject"),
+    ANALOG_FEEDBACK_AVAILABILITY_STATEMENT("analogFeedbackAvailabilityStatement");
 
     private final String template;
 

@@ -215,6 +215,19 @@ public class DocumentGeneratorTest {
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
+    @Test
+    void generate_analogFeedbackAvailabilityStatement() {
+        var template = TemplatesEnum.ANALOG_FEEDBACK_AVAILABILITY_STATEMENT;
+        LanguageEnum[] langs = { LanguageEnum.IT };
+        var model = new AnalogFeedbackAvailabilityStatement()
+                .iun("TEST_iun")
+                .declarationDate("TEST_declarationDate")
+                .senderDenomination("TEST_senderDenomination")
+                .registeredLetterCode("TEST_registeredLetterCode")
+                .senderTaxId("TEST_senderTaxId");
+        generateAndSaveDocument(template, langs, model, FileType.PDF);
+    }
+
     /** HTML **/
     @Test
     void generate_notificationAarForEmailAnalog() {

@@ -53,6 +53,7 @@ public class TemplateApiControllerTest {
     public static final String NOTIFICATION_AAR_FOR_SMS_DIGITAL = "/templates-engine-private/v1/templates/notification-aar-for-sms-digital";
     public static final String SMS_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/sms-verification-code-body";
     public static final String NOTIFICATION_CCE_FOR_EMAIL = "/templates-engine-private/v1/templates/notification-cce-for-email";
+    public static final String ANALOG_FEEDBACK_AVAILABILITY_STATEMENT = "/templates-engine-private/v1/templates/analog-feedback-availability-statement";
 
     @Autowired
     WebTestClient webTestClient;
@@ -367,6 +368,15 @@ public class TemplateApiControllerTest {
                         NOTIFICATION_AAR,
                         TemplatesEnum.NOTIFICATION_AAR,
                         TemplatesExampleParameters.getNotificationAar(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        new byte[]{1, 2, 3}
+                ),
+                Arguments.of(
+                        ANALOG_FEEDBACK_AVAILABILITY_STATEMENT,
+                        TemplatesEnum.ANALOG_FEEDBACK_AVAILABILITY_STATEMENT,
+                        new AnalogFeedbackAvailabilityStatement(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.OK,
