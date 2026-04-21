@@ -172,7 +172,7 @@ curl -X GET 'http://localhost:8099/templates-engine-private/v1/qrcode-generator?
 # build solo templates macOS / Linux
 ./build-templates.sh
 
-# build solo templates Windows / Linux
+# build solo templates Windows
 build-templates.cmd
 
 # build microservice completo
