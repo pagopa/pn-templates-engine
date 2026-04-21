@@ -40,11 +40,11 @@ Il servizio esiste per centralizzare la logica di rendering, mantenere uniformit
 
 ### Riferimenti architetturali
 
-[Diagramma architetturale](https://excalidraw.com/#json=_Z3hgnsYaygwQBqMe2Dg-,WxWTOK_FWRgEZZIo008D1A):
+[Diagramma architetturale](docs/ms/diagrams/DiagrammaArchitetturale.excalidraw):
 ![Diagramma Architetturale](docs/ms/DiagrammaArchitetturale.png)
 
-[Vista di insieme](https://excalidraw.com/#json=TkqdLLUVY1XJs186yjwpa,jbblXVidEtUQD7e9L5lHUg):
-![Vista di insieme](docs/ms/VistaInsiemeSoluzione.png)
+[Vista di insieme](docs/ms/diagrams/VistaDiInsieme.excalidraw):
+![Vista di insieme](docs/ms/VistaDiInsieme.png)
 
 Guida estesa: [Come aggiungere un template](docs/ms/AggiuntaTemplate.md)
 
