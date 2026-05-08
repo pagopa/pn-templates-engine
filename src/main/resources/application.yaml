@@ -127,6 +127,9 @@ templates:
   pecValidationContactsRejectBody:
     input:
       IT: "PEC_ValidationContactsRejectBody/PEC_ValidationContactsRejectBody.html"
+      DE: "PEC_ValidationContactsRejectBody/PEC_ValidationContactsRejectBody_de.html"
+      SL: "PEC_ValidationContactsRejectBody/PEC_ValidationContactsRejectBody_sl.html"
+      FR: "PEC_ValidationContactsRejectBody/PEC_ValidationContactsRejectBody_fr.html"
   smsVerificationCodeBody:
     loadAsString: true
     input:
