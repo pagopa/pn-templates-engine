@@ -1,5 +1,8 @@
 {
   "language": "fr",
-  "subject":"SEND - La PEC che hai inserito non &egrave; valida",
-  "hello":"Ciao"
+  "subject": "SEND - L'adresse PEC que vous avez saisie n'est pas valide",
+  "hello": "Bonjour",
+  "body1": "L'adresse PEC que vous avez saisie sur SEND comme domicile numérique de plateforme <strong>n'est pas formellement valide</strong>.",
+  "body2": "Pour recevoir les notifications en format numérique et économiser du temps et de l'argent, <a style=\"color: #0073e6; text-decoration: underline\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if>>consultez vos adresses numériques</a> et saisissez à nouveau l'adresse en vous assurant qu'il s'agit d'une PEC et non d'une adresse e-mail ordinaire et qu'il n'y a pas d'erreurs de frappe.",
+  "signature": "À bientôt"
 }

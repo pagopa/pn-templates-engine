@@ -1,5 +1,8 @@
 {
   "language": "sl",
-  "subject":"SEND - La PEC che hai inserito non &egrave; valida",
-  "hello":"Ciao"
+  "subject": "SEND - Vneseni naslov PEC ni veljaven",
+  "hello": "Pozdravljeni",
+  "body1": "Naslov PEC, ki ste ga vnesli v SEND kot digitalno prebivališče platforme, <strong>ni formalno veljaven</strong>.",
+  "body2": "Če želite prejemati obvestila v digitalni obliki ter prihraniti čas in denar, <a style=\"color: #0073e6; text-decoration: underline\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if>>obiščite svoje kontaktne podatke</a> in ponovno vnesite naslov ter se prepričajte, da gre za naslov PEC in ne za običajen e-poštni naslov ter da ni tipkarskih napak.",
+  "signature": "Se vidimo kmalu"
 }

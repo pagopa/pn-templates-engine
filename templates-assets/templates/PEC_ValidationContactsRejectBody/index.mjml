@@ -72,7 +72,8 @@
             color="#17324D"
           >
             <p style="margin-top: 0px; padding-bottom: 0; padding-top: 16px"><% if (noIta) { %><span><%-hello%> &bull; </span><% } %><%-it_hello%>,</p>
-            <p
+
+            <% if (noIta) { %><p
               style="
                 font-size: 18px;
                 mso-line-height-rule: exactly;
@@ -80,9 +81,9 @@
                 padding-bottom: 0;
               "
             >
-              L&#39;indirizzo PEC che hai inserito su SEND come domicilio digitale di
-              piattaforma <strong>non &egrave; formalmente valido</strong>.
+              <%-body1%>
             </p>
+            <% } %>
             <p
               style="
                 font-size: 18px;
@@ -91,21 +92,54 @@
                 padding-bottom: 0;
               "
             >
-              Per ricevere le notifiche in digitale e risparmiare tempo e denaro,
-              <a
-                style="color: #0073e6; text-decoration: underline"
-                <#if recipientType == "PF">
-                  href="https://cittadini.notifichedigitali.it/recapiti"
-                <#else>
-                  href="https://imprese.notifichedigitali.it/recapiti"
-                </#if>
-                >vai ai tuoi recapiti</a>
-              e inserisci nuovamente l&#39;indirizzo assicurandoti che si tratti di
-              una PEC e non di un indirizzo email ordinario e che non siano
-              presenti errori di digitazione.
+              <%-it_body1%>
+            </p>
+            <% if (noIta) { %><p
+              style="
+                font-size: 18px;
+                mso-line-height-rule: exactly;
+                line-height: 28px;
+                padding-bottom: 0;
+              "
+            >
+              <%-body2%>
+            </p>
+            <% } %>
+            <p
+              style="
+                font-size: 18px;
+                mso-line-height-rule: exactly;
+                line-height: 28px;
+                padding-bottom: 0;
+              "
+            >
+              <%-it_body2%>
             </p>
           </mj-text>
-          <mj-include path="../partials/signature.mjml" />
+          <% if (noIta) { %>
+            <mj-text
+              css-class="text"
+              font-size="18px"
+              line-height="20px"
+              padding-bottom="0px"
+            >
+              <p style="margin-top: 0px; margin-bottom: 14px; padding-bottom: 0px">
+                <%-signature%>
+              </p>
+              <p style="margin: 0px; padding: 0px">SEND - Servizio Notifiche Digitali</p>
+            </mj-text>
+            <% } %>
+          <mj-text
+            css-class="text"
+            font-size="18px"
+            line-height="20px"
+            padding-bottom="0px"
+          >
+            <p style="margin-top: 0px; margin-bottom: 14px; padding-bottom: 0px">
+              <%-it_signature%>
+            </p>
+            <p style="margin: 0px; padding: 0px">SEND - Servizio Notifiche Digitali</p>
+          </mj-text>
         </mj-column>
       </mj-section>
       <!-- Divider e footer-->
