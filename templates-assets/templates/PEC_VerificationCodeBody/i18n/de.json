@@ -1,7 +1,8 @@
 {
   "language": "de",
-  "subject": "Digitales PEC-Domizil best&#228;tigt",
+  "subject": "Best&#228;tige deine PEC",
   "hello": "Hallo",
   "body1": "Um diese PEC-Adresse als digitales Plattform-Domizil zu best&#228;tigen, das SEND als Hauptadresse f&#252;r den Versand von Zustellungen verwenden wird, gib den Code auf SEND - Servizio Notifiche Digitali ein",
+  "signature": "Bis bald",
   "footer": "Du erh&#228;ltst diese Mitteilung, weil du deine PEC-Adresse als rechtsg&#252;ltige Adresse f&#252;r SEND eingegeben hast. Um die Adressen zu &#228;ndern oder weitere hinzuzuf&#252;gen, <a title=\"Weiter zur Plattform f&#252;r digitale Zustellungen\" class=\"link\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">gehe zu deinen Adressen</a>."
 }

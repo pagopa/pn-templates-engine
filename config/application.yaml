@@ -131,7 +131,6 @@ templates:
     loadAsString: true
     input:
       IT: "PEC_VerificationCodeSubject/PEC_VerificationCodeSubject.txt"
-      IT: "PEC_VerificationCodeSubject/PEC_VerificationCodeSubject.txt"
       DE: "PEC_VerificationCodeSubject/PEC_VerificationCodeSubject_de.txt"
       SL: "PEC_VerificationCodeSubject/PEC_VerificationCodeSubject_sl.txt"
       FR: "PEC_VerificationCodeSubject/PEC_VerificationCodeSubject_fr.txt"

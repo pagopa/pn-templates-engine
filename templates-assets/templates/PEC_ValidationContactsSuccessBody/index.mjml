@@ -89,7 +89,7 @@
                 padding-bottom: 0;
               "
             >
-              <%-it_body2%>
+              <%-body2%>
             </p>
             <% } %>
             <p
