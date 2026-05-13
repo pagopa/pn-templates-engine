@@ -1,9 +1,9 @@
 {
   "language": "fr",
-  "subject": "SEND - Domicile numérique PEC confirmé",
+  "subject": "SEND - Domicile num&#xE9;rique PEC confirm&#xE9;",
   "hello": "Salut",
-  "body1": "L'adresse PEC que tu as indiquée sur SEND comme domicile numérique de plateforme <strong>est confirmée</strong>.",
-  "body2": "À partir de maintenant, nous l'utiliserons comme <strong>adresse principale</strong> pour <#if recipientType == \"PF\">t'envoyer les notifications<#else>envoyer les notifications de ton entreprise</#if>. <br />Pour plus d'informations, <a style=\"color: #0073e6; text-decoration: underline\" href=\"https://notifichedigitali.pagopa.it/faq\">lis les FAQ</a>.",
-  "signature": "À bientôt",
-  "footer": "Tu reçois cette communication car tu as saisi ton adresse PEC comme adresse légale sur SEND. Pour modifier les coordonnées ou en ajouter d'autres, <a title=\"Continuer sur la Plateforme de Notifications\" class=\"link\"<#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if>style=\"color: #0073e6; text-decoration: underline\">accède à tes coordonnées</a>."
+  "body1": "L&#39;adresse PEC que tu as indiqu&#xE9;e sur SEND comme domicile num&#xE9;rique de plateforme <strong>est confirm&#xE9;e</strong>.",
+  "body2": "&#xC0; partir de maintenant, nous l&#39;utiliserons comme <strong>adresse principale</strong> pour <#if recipientType == \"PF\">t&#39;envoyer les notifications<#else>envoyer les notifications de ton entreprise</#if>. <br />Pour plus d&#39;informations, <a style=\"color: #0073e6; text-decoration: underline\" href=\"https://notifichedigitali.pagopa.it/faq\">lis les FAQ</a>.",
+  "signature": "&#xC0; bient&#xF4;t",
+  "footer": "Tu re&#xE7;ois cette communication car tu as saisi ton adresse PEC comme adresse l&#xE9;gale sur SEND. Pour modifier les coordonn&#xE9;es ou en ajouter d&#39;autres, <a title=\"Continuer sur la Plateforme de Notifications\" class=\"link\"<#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if>style=\"color: #0073e6; text-decoration: underline\">acc&#232;de &#xE0; tes coordonn&#xE9;es</a>."
 }
