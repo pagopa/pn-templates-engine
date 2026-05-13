@@ -1,1 +1,1 @@
-SEND - Nouvelle notification de • Nuova notifica da ${notification.sender.paDenomination} - ${notification.iun}
+SEND - L'adresse PEC que tu as saisie n'est pas valide

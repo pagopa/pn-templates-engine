@@ -1,1 +1,1 @@
-SEND - Nova obvestila od • Nuova notifica da ${notification.sender.paDenomination} - ${notification.iun}
+SEND - Naslov PEC, ki si ga vnesel, ni veljaven

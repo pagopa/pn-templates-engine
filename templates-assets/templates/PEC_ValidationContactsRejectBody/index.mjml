@@ -117,17 +117,17 @@
             </p>
           </mj-text>
           
-            <mj-text
-              css-class="text"
-              font-size="18px"
-              line-height="20px"
-              padding-bottom="0px"
-            >
-              <p style="margin-top: 0px; margin-bottom: 14px; padding-bottom: 0px">
-                <% if (noIta) { %><%-signature%> &bull; <% } %><%-it_signature%>,
-              </p>
-              <p style="margin: 0px; padding: 0px">SEND - Servizio Notifiche Digitali</p>
-            </mj-text>
+          <mj-text
+            css-class="text"
+            font-size="18px"
+            line-height="20px"
+            padding-bottom="0px"
+          >
+            <p style="margin-top: 0px; margin-bottom: 14px; padding-bottom: 0px">
+              <% if (noIta) { %><%-signature%> &bull; <% } %><%-it_signature%>,
+            </p>
+            <p style="margin: 0px; padding: 0px">SEND - Servizio Notifiche Digitali</p>
+          </mj-text>
         </mj-column>
       </mj-section>
       <!-- Divider e footer-->
