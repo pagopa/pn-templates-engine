@@ -25,6 +25,7 @@ templates:
       DE: "NotificationReceivedLegalFact/NotificationReceivedLegalFact_de.html"
       SL: "NotificationReceivedLegalFact/NotificationReceivedLegalFact_sl.html"
       FR: "NotificationReceivedLegalFact/NotificationReceivedLegalFact_fr.html"
+      EN: "NotificationReceivedLegalFact/NotificationReceivedLegalFact_en.html"
   pecDeliveryWorkflowLegalFact:
     input:
       IT: "PecDeliveryWorkflowLegalFact/PecDeliveryWorkflowLegalFact.html"
