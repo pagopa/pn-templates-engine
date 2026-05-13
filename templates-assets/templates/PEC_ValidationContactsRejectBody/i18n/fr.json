@@ -4,5 +4,6 @@
   "hello": "Bonjour",
   "body1": "L'adresse PEC que vous avez saisie sur SEND comme domicile numérique de plateforme <strong>n'est pas formellement valide</strong>.",
   "body2": "Pour recevoir les notifications en format numérique et économiser du temps et de l'argent, <a style=\"color: #0073e6; text-decoration: underline\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if>>consultez vos adresses numériques</a> et saisissez à nouveau l'adresse en vous assurant qu'il s'agit d'une PEC et non d'une adresse e-mail ordinaire et qu'il n'y a pas d'erreurs de frappe.",
-  "signature": "À bientôt"
+  "signature": "À bientôt",
+  "footer":"Tu reçois cette communication car tu as renseigné cette adresse e-mail come adresse de courtoisie pour SEND. Pour modifier tes coordonnées ou en ajouter d'autres, <a title=\"Continuer sur Piattaforma Notifiche\" class=\"link\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if>style=\"color: #0073e6; text-decoration: underline\">accède à tes coordonnées</a>."
 }

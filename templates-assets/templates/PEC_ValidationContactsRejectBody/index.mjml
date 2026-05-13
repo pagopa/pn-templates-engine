@@ -116,7 +116,7 @@
               <%-it_body2%>
             </p>
           </mj-text>
-          <% if (noIta) { %>
+          
             <mj-text
               css-class="text"
               font-size="18px"
@@ -124,27 +124,27 @@
               padding-bottom="0px"
             >
               <p style="margin-top: 0px; margin-bottom: 14px; padding-bottom: 0px">
-                <%-signature%>
+                <% if (noIta) { %><%-signature%> &bull; <% } %><%-it_signature%>,
               </p>
               <p style="margin: 0px; padding: 0px">SEND - Servizio Notifiche Digitali</p>
             </mj-text>
-            <% } %>
-          <mj-text
-            css-class="text"
-            font-size="18px"
-            line-height="20px"
-            padding-bottom="0px"
-          >
-            <p style="margin-top: 0px; margin-bottom: 14px; padding-bottom: 0px">
-              <%-it_signature%>
-            </p>
-            <p style="margin: 0px; padding: 0px">SEND - Servizio Notifiche Digitali</p>
-          </mj-text>
         </mj-column>
       </mj-section>
       <!-- Divider e footer-->
       <mj-include path="../partials/divider.mjml" />
-      <mj-include path="../partials/footer-mail-verification.mjml" />
+      <mj-section css-class="section" padding-bottom="16px" padding-top="0px">
+        <mj-column>
+          <mj-text
+            css-class="footer-text"
+            font-size="14px"
+            line-height="20px"
+            color="#17324D"
+          >
+            <% if (noIta) { %><p style="margin-top: 0px; font-size: 14px"><%-footer%></p><% } %>
+            <p style="margin-top: 0px; font-size: 14px"><%-it_footer%></p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
     </mj-wrapper>
   </mj-body>
 </mjml>
