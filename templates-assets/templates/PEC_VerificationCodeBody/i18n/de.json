@@ -1,9 +1,7 @@
 {
   "language": "de",
-  "subject": "SEND - Digitales PEC-Domizil best&#228;tigt",
+  "subject": "Digitales PEC-Domizil bestätigt",
   "hello": "Hallo",
-  "body1": "Die PEC-Adresse, die du auf SEND als digitales Plattform-Domizil angegeben hast, <strong>ist best&#228;tigt</strong>.",
-  "body2": "Ab sofort werden wir diese als <strong>Hauptadresse</strong> verwenden, um <#if recipientType == \"PF\">dir Zustellungen zu senden<#else>Zustellungen f&#252;r dein Unternehmen zu senden</#if>. <br />Weitere Informationen findest du in den <a style=\"color: #0073e6; text-decoration: underline\" href=\"https://notifichedigitali.pagopa.it/faq\">FAQs</a>.",
-  "signature": "Bis bald",
-  "footer": "Du erh&#228;ltst diese Mitteilung, weil du deine PEC-Adresse als rechtsg&#252;ltige Adresse f&#252;r SEND eingegeben hast. Um die Adressen zu &#228;ndern oder weitere hinzuzuf&#252;gen, <a title=\"Weiter zur Plattform f&#252;r digitale Zustellungen\" class=\"link\"<#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if>style=\"color: #0073e6; text-decoration: underline\">gehe zu deinen Adressen</a>."
+  "body1": "Um diese PEC-Adresse als digitales Plattform-Domizil zu bestätigen, das SEND als Hauptadresse für den Versand von Zustellungen verwenden wird, gib den Code auf SEND - Servizio Notifiche Digitali ein[cite: 2, 4]",
+  "footer": "Du erhältst diese Mitteilung, weil du deine PEC-Adresse als rechtsgültige Adresse für SEND eingegeben hast[cite: 2, 4]. Um die Adressen zu ändern oder weitere hinzuzufügen, <a title=\"Weiter zur Plattform für digitale Zustellungen\" class=\"link\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">gehe zu deinen Adressen</a>."
 }

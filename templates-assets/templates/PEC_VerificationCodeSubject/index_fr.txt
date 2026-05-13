@@ -1,1 +1,1 @@
-SEND - Nouvelle notification de • Nuova notifica da ${notification.sender.paDenomination} - ${notification.iun}
+SEND - Confirme ta PEC • Conferma la tua PEC

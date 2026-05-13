@@ -38,17 +38,6 @@
             line-height="40px"
           >
             <!-- H1 Desktop (from MUI Italia)-->
-            <% if (noIta) { %><h1
-              style="
-                font-size: 32px;
-                font-weight: 700;
-                mso-line-height-rule: exactly;
-                line-height: 40px;
-                margin: 0;
-              "
-            >
-              <%-subject%>
-            </h1><% } %>
             <h1
               style="
                 font-size: 32px;
@@ -58,7 +47,7 @@
                 margin: 0;
               "
             >
-              <%-it_subject%>
+              <% if (noIta) { %><%-subject%> &bull; <% } %><%-it_subject%>
             </h1>
           </mj-text>
 
@@ -73,9 +62,18 @@
             padding-top="0px"
           >
             <p style="margin-top: 0px; padding-bottom: 0; padding-top: 16px">
-              Ciao,
+              <% if (noIta) { %><span><%-hello%> &bull; </span><% } %><%-it_hello%>,
             </p>
-
+            <% if (noIta) { %><p
+              style="
+                margin-top: 0px;
+                font-size: 18px;
+                mso-line-height-rule: exactly;
+                line-height: 28px;
+              "
+            >
+              <%-body1%>
+            </p><% } %>
             <p
               style="
                 margin-top: 0px;
@@ -84,9 +82,7 @@
                 line-height: 28px;
               "
             >
-              Per confermare questo indirizzo PEC come domicilio digitale di
-              piattaforma che SEND user&agrave; come indirizzo principale per l&#39;invio di
-              notifiche, inserisci su SEND - Servizio Notifiche Digitali il codice
+              <%-it_body1%>
             </p>
             <h5 style="font-size: 28px; line-heigth: 42px; margin-top: 50px">
               ${verificationCode}
@@ -98,7 +94,25 @@
 
       <!-- Divider e Footer -->
       <mj-include path="../partials/divider.mjml" />
-      <mj-include path="../partials/footer-pec-verification.mjml" />
+      <mj-section css-class="section" padding-bottom="16px" padding-top="0px">
+        <mj-column>
+          <mj-text
+            css-class="footer-text"
+            font-size="14px"
+            line-height="20px"
+            color="#17324D"
+          >
+          <% if (noIta) { %>
+            <p style="margin-top: 0px; font-size: 14px">
+              <%-footer%>
+            </p>
+            <% } %>
+            <p style="margin-top: 0px; font-size: 14px">
+              <%-it_footer%>
+            </p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
     </mj-wrapper>
   </mj-body>
 </mjml>
