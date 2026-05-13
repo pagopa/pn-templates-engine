@@ -1,0 +1,15 @@
+{
+  "language": "en",
+  "subject": "SEND - New notification from ${notification.sender.paDenomination} - ${notification.iun}",
+  "hello": "Hi",
+  "body1": "<#if recipientType=='PF'>You have<#else>Your company has</#if> received a notification on SEND - Servizio Notifiche Digitali.",
+  "sender_label": "Sender",
+  "subject_label": "Subject",
+  "iun_label": "IUN Code",
+  "body2": "A notification is a <strong>legally-binding communication</strong> consisting of a notice of receipt and one or more documents.",
+  "body3": "<#if recipientType=='PF'>You have<#else>The company has</#if> up to 120 days from the notification <a style=\"color: #0073e6; text-decoration: underline\" href=\"${perfezionamentoURL}\" title=\"completion date\">completion date</a> to <strong>access the documents</strong>. The deadline for payment, if required, and for any appeals is indicated in the documents.",
+  "read_more": "You are receiving this notice of receipt as a <#if recipientType=='PF'>natural person<#else>legal person</#if> with Fiscal Code ${recipient.taxId}. SEND is a tool that makes the sending of notifications by the Public Administration safer, more efficient and cheaper. <a href=\"${pnFaqSendURL}\" title=\"Find out more\">Find out more</a>",
+  "button": "Access documents on SEND",
+  "greetings": "See you soon",
+  "footer": "The sending institution knows this PEC address because <#if recipientType=='PF'>you<#else>the company</#if> entered it in <#if recipientType=='PF'>your<#else>its</#if> SEND contact details, because it is part of one of the registries provided for by the Digital Administration Code, or because it was communicated to <#if recipientType=='PF'>them</#if> in the past. To change your contact details or add new ones, <a title=\"Continue to Piattaforma Notifiche\" class=\"link\" href=\"${piattaformaNotificheURL}recapiti\" style=\"color: #0073e6; text-decoration: underline\">go to your contact details</a>."
+}

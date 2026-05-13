@@ -1,0 +1,8 @@
+{
+  "en_language": "en",
+  "en_subject": "Confirm your PEC",
+  "en_hello": "Hi",
+  "en_body1": "To confirm this PEC address as the platform digital domicile that SEND will use as the main address for sending notifications, enter the code on SEND - Servizio Notifiche Digitali",
+  "en_signature": "See you soon",
+  "en_footer": "You are receiving this communication because you entered your PEC address as a SEND legal address. To change your contact details or add new ones, <a title=\"Continue to Piattaforma Notifiche\" class=\"link\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">go to your contact details</a>."
+}

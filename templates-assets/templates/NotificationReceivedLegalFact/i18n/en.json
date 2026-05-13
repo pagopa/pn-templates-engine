@@ -1,0 +1,15 @@
+{
+  "language": "en",
+  "subject": "Certificate enforceable against third parties: notification accepted",
+  "body1": "Pursuant to Art. 26, paragraph 11, of Decree-Law 76/2020 as amended, PagoPA S.p.A. in its capacity as the statutory manager of the Piattaforma Notifiche Digitali referred to in the same Art. 26 (also known as SEND - Servizio Notifiche Digitali), with full legal value for enforceability against third parties, HEREBY CERTIFIES THAT:",
+  "body2": "on <b>${sendDate}</b> the sender <b>${notification.sender.paDenomination}</b>, Fiscal Code <b>${notification.sender.paTaxId}</b>, made available to the manager the electronic documents referred to in IUN <b>${notification.iun}</b> and uniquely identified with the following hashes:",
+  "body3": "the sender has requested that the notification of these documents report ${subject} as the subject and that it be performed against the recipients listed below together with any special digital domicile and their physical address, as provided by the sender themselves.",
+  "body4": "It is also certified that for the purposes of identifying the digital domicile to be used as a priority for notification, the results of the checks referred to in Art. 7, paragraphs 1 and 2, of the Decree of the Minister for Digital Transformation 58/2022 remain valid.",
+  "denomination": "First and Last Name / Company Name",
+  "fiscalcode": "Fiscal Code",
+  "digitaldomicile": "Digital domicile",
+  "digitaldomicile_type": "Digital domicile type",
+  "address": "Physical address",
+  "signature": "Digitally signed by PagoPA S.p.A.",
+  "disclaimer_lang": "The original text of these documents is in Italian. In the event of any conflict between the Italian version and the translations into other languages, the Italian language meaning and conditions shall prevail."
+}

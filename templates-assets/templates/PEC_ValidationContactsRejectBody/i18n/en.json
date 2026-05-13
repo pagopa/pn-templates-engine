@@ -1,0 +1,9 @@
+{
+  "language": "en",
+  "subject": "The PEC address you entered is invalid",
+  "hello": "Hi",
+  "body1": "The PEC address you entered on SEND as your platform digital domicile <strong>is not formally valid</strong>.",
+  "body2": "To receive digital notifications and save time and money, <a style=\"color: #0073e6; text-decoration: underline\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if>>go to your contact details</a> and re-enter the address, making sure it is a PEC and not an ordinary email address and that there are no typing errors.",
+  "signature": "See you soon",
+  "footer": "You are receiving this communication because you entered this email address as a SEND courtesy contact detail. To change your contact details or add others, <a title=\"Continue to Piattaforma Notifiche\" class=\"link\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if>style=\"color: #0073e6; text-decoration: underline\">go to your contact details</a>."
+}

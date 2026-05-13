@@ -1,0 +1,8 @@
+{
+  "language": "en",
+  "subject": "Confirm your email address",
+  "hello": "Hi",
+  "body1": "To confirm this email address as the digital contact detail for receiving courtesy notices, enter the code on SEND - Servizio Notifiche Digitali",
+  "signature": "See you soon",
+  "footer": "You are receiving this communication because you entered this email address as a courtesy contact detail for SEND. To change your contact details or add new ones, <a title=\"Continue to Piattaforma Notifiche\" class=\"link\"<#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">go to your contact details</a>."
+}
