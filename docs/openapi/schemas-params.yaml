@@ -9,6 +9,7 @@ components:
         - DE
         - SL
         - FR
+        - EN
       default: IT
     ErrorResponse:
       type: object
