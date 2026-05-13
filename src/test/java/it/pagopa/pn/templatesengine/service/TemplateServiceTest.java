@@ -88,7 +88,7 @@ class TemplateServiceTest {
     void executeTextTemplateAsString_Success() {
         // Act & Assert
         StepVerifier.create(templateService.executeTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_SUBJECT, LANGUAGE))
-                .expectNext("SEND - Conferma la tua e-mail")
+                .expectNext("SEND - Conferma la tua email")
                 .verifyComplete();
     }
 

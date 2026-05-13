@@ -1,0 +1,8 @@
+{
+  "language": "fr",
+  "subject": "Confirme ton adresse e-mail",
+  "hello": "Salut",
+  "body1": "Pour confirmer cette adresse e-mail comme contact numérique afin de recevoir les avis de courtoisie, saisis le code sur SEND - Servizio Notifiche Digitali",
+  "signature": "À bientôt",
+  "footer": "Tu reçois cette communication car tu as ajouté cette adresse e-mail comme contact de courtoisie sur SEND. Pour modifier tes contacts ou en ajouter d'autres, <a title=\"Continuer sur SEND\" class=\"link\"<#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">accède à tes contacts</a>."
+}
