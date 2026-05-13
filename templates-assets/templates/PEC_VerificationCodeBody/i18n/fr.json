@@ -1,7 +1,7 @@
 {
   "language": "fr",
-  "subject": "Domicile numérique PEC confirmé",
+  "subject": "Domicile num&#xE9;rique PEC confirm&#xE9;",
   "hello": "Salut",
-  "body1": "Pour confirmer cette adresse PEC comme domicile numérique de plateforme que SEND utilisera comme adresse principale pour l'envoi de notifications, saisis le code sur SEND - Servizio Notifiche Digitali",
-  "footer": "Tu reçois cette communication car tu as saisi ton adresse PEC comme adresse légale sur SEND[cite: 2, 4]. Pour modifier les coordonnées ou en ajouter d'autres, <a title=\"Continuer sur la Plateforme de Notifications\" class=\"link\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">accède à tes coordonnées</a>."
+  "body1": "Pour confirmer cette adresse PEC comme domicile num&#xE9;rique de plateforme que SEND utilisera comme adresse principale pour l&#39;envoi de notifications, saisis le code sur SEND - Servizio Notifiche Digitali",
+  "footer": "Tu re&#xE7;ois cette communication car tu as saisi ton adresse PEC comme adresse l&#xE9;gale sur SEND. Pour modifier les coordonn&#xE9;es ou en ajouter d&#39;autres, <a title=\"Continuer sur la Plateforme de Notifications\" class=\"link\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">acc&#232;de &#xE0; tes coordonn&#xE9;es</a>."
 }

@@ -1,8 +1,8 @@
 {
   "language": "de",
-  "subject": "Bestätige deine E-Mail-Adresse",
+  "subject": "Best&#228;tige deine E-Mail-Adresse",
   "hello": "Hallo",
-  "body1": "Um diese E-Mail-Adresse als digitale Adresse für den Erhalt von informellen Benachrichtigungen zu bestätigen, gib den Code auf SEND - Servizio Notifiche Digitali ein",
+  "body1": "Um diese E-Mail-Adresse als digitale Adresse f&#252;r den Erhalt von informellen Benachrichtigungen zu best&#228;tigen, gib den Code auf SEND - Servizio Notifiche Digitali ein",
   "signature": "Bis bald",
-  "footer": "Du erhältst diese Mitteilung, weil du diese E-Mail-Adresse als informelle Adresse bei SEND angegeben hast. Um deine Adressen zu ändern oder weitere hinzuzufügen, <a title=\"Weiter auf SEND\" class=\"link\"<#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">gehe zu deinen Adressen</a>."
+  "footer": "Du erh&#228;ltst diese Mitteilung, weil du diese E-Mail-Adresse als informelle Adresse bei SEND angegeben hast. Um deine Adressen zu &#228;ndern oder weitere hinzuzuf&#252;gen, <a title=\"Weiter auf SEND\" class=\"link\"<#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">gehe zu deinen Adressen</a>."
 }

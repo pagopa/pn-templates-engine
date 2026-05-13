@@ -1,8 +1,8 @@
 {
   "language": "sl",
-  "subject": "Potrdi svoj e-poštni naslov",
-  "hello": "Živijo",
-  "body1": "Da potrdiš ta e-poštni naslov kot digitalni kontaktni podatek za prejemanje vljudnostnih obvestil, vnesi kodo na SEND - Servizio Notifiche Digitali",
+  "subject": "Potrdi svoj e-po&#353;tni naslov",
+  "hello": "&#381;ivijo",
+  "body1": "Da potrdi&#353; ta e-po&#353;tni naslov kot digitalni kontaktni podatek za prejemanje vljudnostnih obvestil, vnesi kodo na SEND - Servizio Notifiche Digitali",
   "signature": "Lep pozdrav",
-  "footer": "To obvestilo prejemaš, ker si ta e-poštni naslov vnesel kot vljudnostni kontaktni podatek na SEND. Za spremembo svojih kontaktnih podatkov ali dodajanje novih, <a title=\"Nadaljuj na SEND\" class=\"link\"<#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">pojdi na svoje kontaktne podatke</a>."
+  "footer": "To obvestilo prejema&#353;, ker si ta e-po&#353;tni naslov vnesel kot vljudnostni kontaktni podatek na SEND. Za spremembo svojih kontaktnih podatkov ali dodajanje novih, <a title=\"Nadaljuj na SEND\" class=\"link\"<#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">pojdi na svoje kontaktne podatke</a>."
 }

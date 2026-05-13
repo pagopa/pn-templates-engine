@@ -118,16 +118,29 @@ templates:
   mailVerificationCodeBody:
     input:
       IT: "Mail_VerificationCodeBody/Mail_VerificationCodeBody.html"
+      DE: "Mail_VerificationCodeBody/Mail_VerificationCodeBody_de.html"
+      SL: "Mail_VerificationCodeBody/Mail_VerificationCodeBody_sl.html"
+      FR: "Mail_VerificationCodeBody/Mail_VerificationCodeBody_fr.html"
   pecVerificationCodeBody:
     input:
       IT: "PEC_VerificationCodeBody/PEC_VerificationCodeBody.html"
+      DE: "PEC_VerificationCodeBody/PEC_VerificationCodeBody_de.html"
+      SL: "PEC_VerificationCodeBody/PEC_VerificationCodeBody_sl.html"
+      FR: "PEC_VerificationCodeBody/PEC_VerificationCodeBody_fr.html"
   pecVerificationCodeSubject:
     loadAsString: true
     input:
       IT: "PEC_VerificationCodeSubject/PEC_VerificationCodeSubject.txt"
+      IT: "PEC_VerificationCodeSubject/PEC_VerificationCodeSubject.txt"
+      DE: "PEC_VerificationCodeSubject/PEC_VerificationCodeSubject_de.txt"
+      SL: "PEC_VerificationCodeSubject/PEC_VerificationCodeSubject_sl.txt"
+      FR: "PEC_VerificationCodeSubject/PEC_VerificationCodeSubject_fr.txt"
   pecValidationContactsSuccessBody:
     input:
       IT: "PEC_ValidationContactsSuccessBody/PEC_ValidationContactsSuccessBody.html"
+      DE: "PEC_ValidationContactsSuccessBody/PEC_ValidationContactsSuccessBody_de.html"
+      SL: "PEC_ValidationContactsSuccessBody/PEC_ValidationContactsSuccessBody_sl.html"
+      FR: "PEC_ValidationContactsSuccessBody/PEC_ValidationContactsSuccessBody_fr.html"
   pecValidationContactsRejectBody:
     input:
       IT: "PEC_ValidationContactsRejectBody/PEC_ValidationContactsRejectBody.html"
@@ -142,14 +155,23 @@ templates:
     loadAsString: true
     input:
       IT: "Mail_VerificationCodeSubject/Mail_VerificationCodeSubject.txt"
+      DE: "Mail_VerificationCodeSubject/Mail_VerificationCodeSubject_de.txt"
+      SL: "Mail_VerificationCodeSubject/Mail_VerificationCodeSubject_sl.txt"
+      FR: "Mail_VerificationCodeSubject/Mail_VerificationCodeSubject_fr.txt"
   pecValidationContactsSuccessSubject:
     loadAsString: true
     input:
       IT: "PEC_ValidationContactsSuccessSubject/PEC_ValidationContactsSuccessSubject.txt"
+      DE: "PEC_ValidationContactsSuccessSubject/PEC_ValidationContactsSuccessSubject_de.txt"
+      SL: "PEC_ValidationContactsSuccessSubject/PEC_ValidationContactsSuccessSubject_sl.txt"
+      FR: "PEC_ValidationContactsSuccessSubject/PEC_ValidationContactsSuccessSubject_fr.txt"
   pecValidationContactsRejectSubject:
     loadAsString: true
     input:
       IT: "PEC_ValidationContactsRejectSubject/PEC_ValidationContactsRejectSubject.txt"
+      DE: "PEC_ValidationContactsRejectSubject/PEC_ValidationContactsRejectSubject_de.txt"
+      SL: "PEC_ValidationContactsRejectSubject/PEC_ValidationContactsRejectSubject_sl.txt"
+      FR: "PEC_ValidationContactsRejectSubject/PEC_ValidationContactsRejectSubject_fr.txt"
   notificationCceForEmail:
     input:
       IT: "NotificationCceForEmail/NotificationCceForEmail.html"
