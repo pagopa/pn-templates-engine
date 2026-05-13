@@ -41,23 +41,14 @@
             line-height="40px"
           >
             <!-- H1 Desktop (from MUI Italia)-->
-                        <% if (noIta) { %><h1 style="
+              <h1 style="
                 font-size: 32px;
                 font-weight: 700;
                 mso-line-height-rule: exactly;
                 line-height: 40px;
                 margin: 0;
               ">
-              <%-subject%>
-            </h1><% } %>
-            <h1 style="
-                font-size: 32px;
-                font-weight: 700;
-                mso-line-height-rule: exactly;
-                line-height: 40px;
-                margin: 0;
-              ">
-              <%-it_subject%>
+              SEND - <% if (noIta) { %><%-subject%> &bull; <% } %><%-it_subject%>
             </h1>
           </mj-text>
 

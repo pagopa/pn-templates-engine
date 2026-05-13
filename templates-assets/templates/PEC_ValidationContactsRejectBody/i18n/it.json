@@ -1,6 +1,6 @@
 {
   "it_language": "it",
-  "it_subject":"SEND - La PEC che hai inserito non &egrave; valida",
+  "it_subject":"La PEC che hai inserito non &egrave; valida",
   "it_hello":"Ciao",
   "it_body1":"L&#39;indirizzo PEC che hai inserito su SEND come domicilio digitale di piattaforma <strong>non &egrave; formalmente valido</strong>.",
   "it_body2":"Per ricevere le notifiche in digitale e risparmiare tempo e denaro, <a style=\"color: #0073e6; text-decoration: underline\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if>>vai ai tuoi recapiti</a> e inserisci nuovamente l&#39;indirizzo assicurandoti che si tratti di una PEC e non di un indirizzo email ordinario e che non siano presenti errori di digitazione.",

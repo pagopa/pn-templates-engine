@@ -1,6 +1,6 @@
 {
   "language": "sl",
-  "subject": "Digitalno prebivali&#353;&#269;e PEC potrjeno",
+  "subject": "SEND - Digitalno prebivali&#353;&#269;e PEC potrjeno",
   "hello": "&#381;ivijo",
   "body1": "Naslov PEC, ki si ga navedel v SEND kot digitalno prebivali&#353;&#269;e platforme, <strong>je potrjen</strong>.",
   "body2": "Od tega trenutka ga bomo uporabljali kot <strong>glavni naslov</strong> za <#if recipientType == \"PF\">po&#353;iljanje obvestil tebi<#else>po&#353;iljanje obvestil tvojega podjetja</#if>.<br />Za ve&#269; informacij <a style=\"color: #0073e6; text-decoration: underline\" href=\"https://notifichedigitali.pagopa.it/faq\">preberi pogosta vpra&#353;anja</a>.",
