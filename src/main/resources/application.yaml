@@ -135,7 +135,7 @@ templates:
       IT: "PEC_ValidationContactsSuccessBody/PEC_ValidationContactsSuccessBody.html"
       DE: "PEC_ValidationContactsSuccessBody/PEC_ValidationContactsSuccessBody_de.html"
       SL: "PEC_ValidationContactsSuccessBody/PEC_ValidationContactsSuccessBody_sl.html"
-      FR: "PEC_ValidationContactsSuccessBody/PEC_ValidationContactsSuccessBody_fr.html
+      FR: "PEC_ValidationContactsSuccessBody/PEC_ValidationContactsSuccessBody_fr.html"
   pecValidationContactsRejectBody:
     input:
       IT: "PEC_ValidationContactsRejectBody/PEC_ValidationContactsRejectBody.html"
