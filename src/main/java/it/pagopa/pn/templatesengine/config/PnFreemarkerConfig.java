@@ -55,6 +55,7 @@ public class PnFreemarkerConfig {
             DefaultObjectWrapperBuilder owb = new DefaultObjectWrapperBuilder(freemarker.template.Configuration.VERSION_2_3_31);
             owb.setMethodAppearanceFineTuner((in, out) -> out.setMethodShadowsProperty(false));
             configuration.setObjectWrapper(owb.build());
+            configuration.setSharedVariable("ENV", templateConfig.getTemplatesStaticParams());
 
             return configuration;
         } catch (Exception exception) {
