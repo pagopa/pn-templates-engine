@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 public class TemplateConfig {
 
     private String templatesPath;
-    private Map<String, String> templatesStaticParams = new HashMap<>();;
+    private Map<String, String> templatesStaticParams = new HashMap<>();
     private Map<TemplatesEnum, Template> templatesAsString = new EnumMap<>(TemplatesEnum.class);
     private Map<TemplatesEnum, Template> templates;
     private LanguageEnum defaultLanguage;
