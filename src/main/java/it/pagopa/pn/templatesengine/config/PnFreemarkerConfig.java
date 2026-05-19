@@ -20,6 +20,8 @@ import static it.pagopa.pn.templatesengine.utils.TemplateUtils.loadTemplateConte
 @AllArgsConstructor
 public class PnFreemarkerConfig {
 
+    static final String STATIC_PARAM_PREFIX = "ENV";
+
     private final freemarker.template.Configuration configuration;
     private final TemplateConfig templateConfig;
 
@@ -55,7 +57,7 @@ public class PnFreemarkerConfig {
             DefaultObjectWrapperBuilder owb = new DefaultObjectWrapperBuilder(freemarker.template.Configuration.VERSION_2_3_31);
             owb.setMethodAppearanceFineTuner((in, out) -> out.setMethodShadowsProperty(false));
             configuration.setObjectWrapper(owb.build());
-            configuration.setSharedVariable("ENV", templateConfig.getTemplatesStaticParams());
+            configuration.setSharedVariable(STATIC_PARAM_PREFIX, templateConfig.getTemplatesStaticParams());
 
             return configuration;
         } catch (Exception exception) {

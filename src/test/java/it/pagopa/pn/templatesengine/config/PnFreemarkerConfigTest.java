@@ -54,7 +54,7 @@ class PnFreemarkerConfigTest {
         // Assert
         assertNotNull(result);
         verify(configuration).setTemplateLoader(any(StringTemplateLoader.class));
-        verify(configuration).setSharedVariable("ENV", templatesStaticParams);
+        verify(configuration).setSharedVariable(PnFreemarkerConfig.STATIC_PARAM_PREFIX, templatesStaticParams);
     }
 
     @Test
