@@ -13,7 +13,7 @@
         <a
           title="Continua su Piattaforma Notifiche"
           class="link"
-          href="${piattaformaNotificheURL}recapiti"
+          href="${ENV[(recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti"
           style="color: #0073e6; text-decoration: underline"
           >vai ai tuoi recapiti</a
         >.
