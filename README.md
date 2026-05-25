@@ -2,15 +2,22 @@
 
 ## Indice
 - [Descrizione](#descrizione)
+- [How to: aggiungere un template](#how-to-aggiungere-un-template)
 - [Tecnologie Utilizzate](#tecnologie-utilizzate)
 - [Architettura](#architettura)
 - [Interfacce del Servizio](#interfacce-del-servizio)
 - [Configurazioni](#configurazioni)
 - [Allarmi e Monitoraggio](#allarmi-e-monitoraggio)
 - [Esecuzione](#esecuzione)
+- [Design of dima Postel](#design-of-dima-postel)
 
 ## Descrizione
-Il servizio pn-templates-engine genera documenti e contenuti testuali multilingua della piattaforma SEND a partire da template versionati nel repository ed espone API REST interne che ricevono il payload applicativo e la lingua richiesta tramite header `x-language`. Il servizio viene chiamato da altri microservizi SEND che richiedono la composizione di PDF, HTML e TXT relativi a legal fact, AAR, contenuti email, PEC, SMS e OTP, e chiama URL esterni solo nei casi in cui un template attivi la risoluzione di una risorsa remota da convertire in Base64. Il dominio gestito è la composizione documentale centralizzata, con fallback automatico sulla lingua di default e con gestione configurabile dei resolver associati ai template.
+`pn-templates-engine` è il microservizio SEND che genera contenuti documentali a runtime (PDF, HTML, TXT) a partire da template versionati nel repository. È usato dai servizi interni della piattaforma che richiedono la composizione del documento finale, passando payload applicativo e lingua (`x-language`).
+
+Il servizio esiste per centralizzare la logica di rendering, mantenere uniformità multilingua e ridurre duplicazioni nei servizi chiamanti. Il dominio gestito è la composizione documentale per notifiche SEND (atti, AAR, contenuti email/PEC/SMS, OTP), con supporto opzionale alla risoluzione di risorse remote (es. logo mittente) via resolver configurabile.
+
+## How to: aggiungere un template
+Guida estesa: [Come aggiungere un template](docs/ms/AggiuntaTemplate.md)
 
 ## Tecnologie Utilizzate
 
@@ -40,6 +47,10 @@ Il servizio pn-templates-engine genera documenti e contenuti testuali multilingu
 Il flusso principale parte dalle API REST implementate da `TemplateApiController`, `QrCodeApiController` e `HealthCheckApiController`, che realizzano le interfacce generate dalla specifica OpenAPI in `docs/openapi/pn-internal-templates-v1.yaml`. Le richieste di generazione vengono instradate verso `TemplateService`, che seleziona il file corretto in base al template e alla lingua, applica il fallback su `defaultLanguage` quando la traduzione richiesta non è disponibile e delega a `DocumentCompositionImpl` il rendering con FreeMarker; per i documenti PDF il contenuto HTML risultante viene poi convertito tramite OpenHTMLtoPDF e Jsoup.
 
 Per i template che configurano campi risolvibili, come `senderLogoBase64`, il flusso passa da `TemplateValueResolver`, che applica le regole del resolver, verifica opzionalmente la whitelist caricata da `ResolverWhitelistConfig` tramite Parameter Store e usa `ToBase64Resolver` e `UrlResolver` per scaricare la risorsa remota e trasformarla in Data URL Base64. La pipeline di build dei template parte dagli asset in `templates-assets/templates`, genera gli artefatti in `src/main/resources/generated-templates-assets` tramite gli script Node del builder e replica gli stessi asset in `src/test/resources/generated-templates-assets` durante la build dei template.
+
+![Vista di insieme](docs/ms/diagrams/VistaDiInsieme.png)
+> [Vista di insieme](docs/ms/diagrams/VistaDiInsieme.excalidraw)
+
 
 [**Architettura interna**](docs/ms/architettura_interna.md)
 
@@ -73,7 +84,6 @@ Il servizio non consuma né produce eventi.
 | `TEMPLATES_NOTIFICATIONAARRADDALT_RESOLVERS_SENDERLOGOBASE64_BYPASSALLWITHNULL`        | ENV             | `true`, `false`                        | Per `NotificationAarRaddAlt` consente di annullare il campo `senderLogoBase64` senza eseguire la risoluzione remota. |
 | `TEMPLATES_NOTIFICATIONAARRADDALT_RESOLVERS_SENDERLOGOBASE64_WHITELISTENABLED`         | ENV             | `true`, `false`                        | Per `NotificationAarRaddAlt` abilita il controllo della whitelist prima del download della risorsa remota.           |
 | `TEMPLATES_NOTIFICATIONAARRADDALT_RESOLVERS_SENDERLOGOBASE64_WHITELISTPARAMETERSTORES` | ENV             | `/pn-templates-engine/whitelist1`      | Per `NotificationAarRaddAlt` indica il parametro da cui leggere gli URL consentiti al resolver.                      |
-| `/pn-templates-engine/whitelist1`                                                      | Parameter Store | elenco di URL consentiti               | Contiene gli URL ammessi quando il controllo whitelist del resolver è attivo.                                        |
 
 ## Allarmi e Monitoraggio
 
@@ -85,34 +95,39 @@ Il servizio non consuma né produce eventi.
 
 ## Esecuzione
 
-Prerequisiti:
+**Prerequisiti**
+- Java 21
+- Maven 3.8+
+- Node.js 16.x
+
+**Build**
 
 ```bash
-java -version
-./mvnw -version
-node -v
-```
-
-Build:
-
-```bash
+# build solo templates macOS / Linux
 ./build-templates.sh
+
+# build solo templates Windows
+build-templates.cmd
+
+# build microservice completo
 ./mvnw clean package
 ```
 
-Test:
+**Test**
 
 ```bash
 ./mvnw test
-(
-  cd scripts/templates-builder
-  npm ci
-  npm test
-)
+
+cd scripts/templates-builder
+npm ci
+npm test
 ```
 
-Avvio locale:
+**Avvio locale**
 
 ```bash
 ./mvnw spring-boot:run
 ```
+## Design of dima Postel
+
+[Design of dima Postel](docs/ms/DimaPostel.md)
