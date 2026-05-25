@@ -90,9 +90,9 @@
               <a
                 style="color: #0073e6; text-decoration: underline"
                 <#if recipientType == "PF">
-                  href="https://cittadini.notifichedigitali.it/recapiti"
+                  href="${ENV.sendLoginUrlPF}recapiti"
                 <#else>
-                  href="https://imprese.notifichedigitali.it/recapiti"
+                  href="${ENV.sendLoginUrlPG}recapiti"
                 </#if>
                 >vai ai tuoi recapiti</a>
               e inserisci nuovamente l&#39;indirizzo assicurandoti che si tratti di
