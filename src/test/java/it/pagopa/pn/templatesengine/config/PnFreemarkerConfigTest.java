@@ -37,14 +37,16 @@ class PnFreemarkerConfigTest {
     private PnFreemarkerConfig pnFreemarkerConfig;
 
     @Test
-    void testFreemarkerConfig_Success() {
+    void testFreemarkerConfig_Success() throws Exception {
         // Arrange
         TemplateConfig.Template template = mock(TemplateConfig.Template.class);
+        Map<String, String> templatesStaticParams = Map.of("sendLoginUrlPF", "https://cittadini.notifichedigitali.it/");
         when(template.isLoadAsString()).thenReturn(false);
         Map<LanguageEnum, String> templateInputs = new HashMap<>();
         templateInputs.put(LANGUAGE, TEMPLATE_NAME);
         when(template.getInput()).thenReturn(templateInputs);
         when(templateConfig.getTemplates()).thenReturn(Map.of(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, template));
+        when(templateConfig.getTemplatesStaticParams()).thenReturn(templatesStaticParams);
 
         // Act
         freemarker.template.Configuration result = pnFreemarkerConfig.freemarkerConfig(TEMPLATES_ASSETS);
@@ -52,11 +54,14 @@ class PnFreemarkerConfigTest {
         // Assert
         assertNotNull(result);
         verify(configuration).setTemplateLoader(any(StringTemplateLoader.class));
+        verify(configuration).setSharedVariable(PnFreemarkerConfig.STATIC_PARAM_PREFIX, templatesStaticParams);
     }
 
     @Test
     void freemarkerConfig_ShouldThrowPnGenericException_WhenConfigurationFails() {
         // Arrange
+        when(templateConfig.getTemplates()).thenReturn(Map.of());
+        when(templateConfig.getTemplatesStaticParams()).thenReturn(Map.of());
 
         doThrow(new RuntimeException("Errore di configurazione"))
                 .when(configuration).setTemplateLoader(any(StringTemplateLoader.class));
