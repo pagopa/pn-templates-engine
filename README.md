@@ -17,7 +17,7 @@
 Il servizio esiste per centralizzare la logica di rendering, mantenere uniformità multilingua e ridurre duplicazioni nei servizi chiamanti. Il dominio gestito è la composizione documentale per notifiche SEND (atti, AAR, contenuti email/PEC/SMS, OTP), con supporto opzionale alla risoluzione di risorse remote (es. logo mittente) via resolver configurabile.
 
 ## How to: aggiungere un template
-Guida estesa: [Come aggiungere un template](docs/ms/AggiuntaTemplate.md)
+Guida estesa: [Come aggiungere un template](docs/ms/aggiunta_template.md)
 
 ## Tecnologie Utilizzate
 
@@ -130,4 +130,4 @@ npm test
 ```
 ## Design of dima Postel
 
-[Design of dima Postel](docs/ms/DimaPostel.md)
+[Design of dima Postel](docs/ms/dima_postel.md)

@@ -10,7 +10,7 @@ Quando il resolver è attivo, `ToBase64Resolver` usa `UrlResolver` per scaricare
 
 I sorgenti dei template risiedono in `templates-assets/templates`. La pipeline Node contenuta in `scripts/templates-builder` genera gli asset compilati in `src/main/resources/generated-templates-assets`, mentre `build-templates.sh` rigenera gli stessi asset e li copia anche in `src/test/resources/generated-templates-assets` per l'esecuzione dei test. Durante la build Maven, il plugin OpenAPI rigenera inoltre le interfacce server a partire da `docs/openapi/pn-internal-templates-v1.yaml` nella fase `generate-resources`.
 
-- [Come aggiungere un template](AggiuntaTemplate.md)
+- [Come aggiungere un template](aggiunta_template.md)
 - [Diagramma architetturale](diagrams/DiagrammaArchitetturale.png)
 - [Sorgente del diagramma](diagrams/DiagrammaArchitetturale.excalidraw)
 
