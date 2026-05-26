@@ -22,6 +22,19 @@
 
 <body>
     <main>
+        <div style="
+            font-size: 105px;
+            font-weight: 900;
+            color: #FFD1D0;
+            position: fixed;
+            width: 100%;
+            top: 128mm;
+            line-height: 105px;
+            transform: rotate(-45deg);
+            z-index: 0;
+            text-align: center;" title="Fac simile">
+                <% if (noIta) { %><%-watermark%><br><% } %>  <%-it_watermark%>
+        </div>
                 <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
         <section id="first-page">
             <section class="upper-section">
@@ -34,7 +47,8 @@
                                     <p class="six-pt eight-lh font-uppercase"><%-aar_label%> &verbar; <%-it_aar_label%></p>
                                     <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
                                     <div id="sender_logo">
-                                        <img src="${senderLogoBase64}" alt="Logo di ${notification.sender.paDenomination}">
+                                        <!-- <img src="${senderLogoBase64}" alt="Logo di ${notification.sender.paDenomination}"> -->
+                                        <img src="../../images/placeholder-ente.jpg" alt="Logo di ${notification.sender.paDenomination}">
                                     </div>
                                 </div>
                             <#else>
@@ -94,7 +108,8 @@
                                         <div class="list-box-height_qr_code_box table">
                                             <div class="row">
                                                 <div class="cell vertical-align-bottom qr_code_box">
-                                                    <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
+                                                    <!-- <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" /> -->
+                                                    <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="../../images/placeholder-qrcode.jpg" />
                                                 </div>
                                                 <div class="cell vertical-align-center access_online_box">
                                                     <div class="section-list px-12">
