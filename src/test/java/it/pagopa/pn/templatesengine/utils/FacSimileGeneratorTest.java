@@ -75,16 +75,13 @@ public class FacSimileGeneratorTest {
     private Map<TemplatesEnum, Object> buildTemplateModelMap() {
         Map<TemplatesEnum, Object> map = new LinkedHashMap<>();
 
-        map.put(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT, buildNotificationReceivedLegalFact());
-        map.put(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT, buildPecDeliveryWorkflowLegalFact());
-        map.put(TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT, buildNotificationViewedLegalFact());
-        map.put(TemplatesEnum.MALFUNCTION_LEGAL_FACT, buildMalfunctionLegalFact());
-        map.put(TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT, buildNotificationCancelledLegalFact());
         map.put(TemplatesEnum.NOTIFICATION_AAR, buildNotificationAar());
         map.put(TemplatesEnum.NOTIFICATION_AAR_RADDALT, buildNotificationAarRaddAlt());
+        map.put(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT, buildNotificationReceivedLegalFact());
+        map.put(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT, buildPecDeliveryWorkflowLegalFactSuccess());
+        map.put(TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT, buildNotificationViewedLegalFact());
+        map.put(TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT, buildNotificationCancelledLegalFact());
         map.put(TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT, buildAnalogDeliveryWorkflowFailureLegalFact());
-        map.put(TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_TIMEOUT_LEGAL_FACT, buildAnalogDeliveryWorkflowTimeoutLegalFact());
-        map.put(TemplatesEnum.ANALOG_FEEDBACK_AVAILABILITY_STATEMENT, buildAnalogFeedbackAvailabilityStatement());
 
         return map;
     }
@@ -123,7 +120,7 @@ public class FacSimileGeneratorTest {
                 .subject("TEST_subject");
     }
 
-    private Object buildPecDeliveryWorkflowLegalFact() {
+    private Object buildPecDeliveryWorkflowLegalFactSuccess() {
         var delivery = new PecDeliveryWorkflowDelivery()
                 .denomination("TEST_denomination")
                 .taxId("TEST_taxId")
@@ -132,6 +129,21 @@ public class FacSimileGeneratorTest {
                 .addressSource("PLATFORM")
                 .responseDate("TEST_responseDate")
                 .ok(true);
+        return new PecDeliveryWorkflowLegalFact()
+                .iun("TEST_iun")
+                .endWorkflowDate("TEST_endWorkflowDate")
+                .endWorkflowStatus("TEST_endWorkflowStatus")
+                .deliveries(Collections.singletonList(delivery));
+    }
+    private Object buildPecDeliveryWorkflowLegalFactFailure() {
+        var delivery = new PecDeliveryWorkflowDelivery()
+                .denomination("TEST_denomination")
+                .taxId("TEST_taxId")
+                .address("TEST_address")
+                .type("TEST_type")
+                .addressSource("PLATFORM")
+                .responseDate("TEST_responseDate")
+                .ok(false);
         return new PecDeliveryWorkflowLegalFact()
                 .iun("TEST_iun")
                 .endWorkflowDate("TEST_endWorkflowDate")
