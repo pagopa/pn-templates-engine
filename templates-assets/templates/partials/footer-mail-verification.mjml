@@ -14,9 +14,9 @@
           title="Continua su Piattaforma Notifiche"
           class="link"
           <#if recipientType == "PF">
-            href="https://cittadini.notifichedigitali.it/recapiti"
+            href="${ENV.sendLoginUrlPF}recapiti"
           <#else>
-            href="https://imprese.notifichedigitali.it/recapiti"
+            href="${ENV.sendLoginUrlPG}recapiti"
           </#if>
           style="color: #0073e6; text-decoration: underline"
           >vai ai tuoi recapiti</a>.

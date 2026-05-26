@@ -9,9 +9,7 @@
           style="color: #0073e6; text-decoration: underline"
           title="vai ai tuoi recapiti"
           class="link"
-          href="${piattaformaNotificheURL}recapiti"
-          >vai ai tuoi recapiti</a
-        >.
+          href="${ENV[(recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti">vai ai tuoi recapiti</a>.
       </p>
     </mj-text>
   </mj-column>

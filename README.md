@@ -2,162 +2,96 @@
 
 ## Indice
 - [Descrizione](#descrizione)
+- [How to: aggiungere un template](#how-to-aggiungere-un-template)
 - [Tecnologie Utilizzate](#tecnologie-utilizzate)
 - [Architettura](#architettura)
 - [Interfacce del Servizio](#interfacce-del-servizio)
 - [Configurazioni](#configurazioni)
 - [Allarmi e Monitoraggio](#allarmi-e-monitoraggio)
 - [Esecuzione](#esecuzione)
+- [Design of dima Postel](#design-of-dima-postel)
 
 ## Descrizione
 `pn-templates-engine` è il microservizio SEND che genera contenuti documentali a runtime (PDF, HTML, TXT) a partire da template versionati nel repository. È usato dai servizi interni della piattaforma che richiedono la composizione del documento finale, passando payload applicativo e lingua (`x-language`).
 
 Il servizio esiste per centralizzare la logica di rendering, mantenere uniformità multilingua e ridurre duplicazioni nei servizi chiamanti. Il dominio gestito è la composizione documentale per notifiche SEND (atti, AAR, contenuti email/PEC/SMS, OTP), con supporto opzionale alla risoluzione di risorse remote (es. logo mittente) via resolver configurabile.
 
+## How to: aggiungere un template
+Guida estesa: [Come aggiungere un template](docs/ms/aggiunta_template.md)
+
 ## Tecnologie Utilizzate
 
-**Linguaggi e Framework**
-- Java 21 con Spring Boot WebFlux
-- FreeMarker per rendering template
-- OpenHTMLtoPDF + Jsoup per conversione HTML -> PDF
-- ZXing per generazione QR code
-- Apache Tika per MIME detection nel resolver Base64
-- OpenAPI 3 con codice server generato (`openapi-generator-maven-plugin`)
-- Node.js 16 per pipeline di build template (`scripts/templates-builder`)
+### Stack Tecnologico
+- Java 21
+- Spring Boot WebFlux
+- FreeMarker
+- OpenHTMLtoPDF
+- Jsoup
+- ZXing
+- Apache Tika
+- OpenAPI 3 con generazione delle interfacce server tramite `openapi-generator-maven-plugin`
+- Node.js 16 per la pipeline di build dei template in `scripts/templates-builder`
 
-**Infrastruttura**
-- AWS ECS/Fargate (deploy del microservizio)
-- Application Load Balancer con path `/templates-engine-private/*`
-- AWS Systems Manager Parameter Store per whitelist resolver
-- AWS CloudWatch Logs e allarmi via CloudFormation
-
-**Storage**
-- File system applicativo (`generated-templates-assets/templates`) per template compilati
-- AWS Parameter Store per configurazioni whitelist URL resolver
-- Nessun database relazionale/NoSQL nel codice applicativo analizzato
+### Infrastruttura
+- AWS ECS Fargate
+- AWS Systems Manager Parameter Store
+- AWS CloudFormation
+- AWS CloudWatch Logs
 
 ## Architettura
 
-### Riferimenti architetturali
-
-[Diagramma architetturale](docs/ms/diagrams/DiagrammaArchitetturale.excalidraw):
 ![Diagramma Architetturale](docs/ms/diagrams/DiagrammaArchitetturale.png)
 
-[Vista di insieme](docs/ms/diagrams/VistaDiInsieme.excalidraw):
+> [Sorgente Diagramma](docs/ms/diagrams/DiagrammaArchitetturale.excalidraw)
+
+Il flusso principale parte dalle API REST implementate da `TemplateApiController`, `QrCodeApiController` e `HealthCheckApiController`, che realizzano le interfacce generate dalla specifica OpenAPI in `docs/openapi/pn-internal-templates-v1.yaml`. Le richieste di generazione vengono instradate verso `TemplateService`, che seleziona il file corretto in base al template e alla lingua, applica il fallback su `defaultLanguage` quando la traduzione richiesta non è disponibile e delega a `DocumentCompositionImpl` il rendering con FreeMarker; per i documenti PDF il contenuto HTML risultante viene poi convertito tramite OpenHTMLtoPDF e Jsoup.
+
+Per i template che configurano campi risolvibili, come `senderLogoBase64`, il flusso passa da `TemplateValueResolver`, che applica le regole del resolver, verifica opzionalmente la whitelist caricata da `ResolverWhitelistConfig` tramite Parameter Store e usa `ToBase64Resolver` e `UrlResolver` per scaricare la risorsa remota e trasformarla in Data URL Base64. La pipeline di build dei template parte dagli asset in `templates-assets/templates`, genera gli artefatti in `src/main/resources/generated-templates-assets` tramite gli script Node del builder e replica gli stessi asset in `src/test/resources/generated-templates-assets` durante la build dei template.
+
 ![Vista di insieme](docs/ms/diagrams/VistaDiInsieme.png)
+> [Vista di insieme](docs/ms/diagrams/VistaDiInsieme.excalidraw)
 
-Guida estesa: [Come aggiungere un template](docs/ms/AggiuntaTemplate.md)
 
-### Descrizione architetturale
-Il layer REST è implementato da `TemplateApiController`, `QrCodeApiController` e `HealthCheckApiController`, che realizzano interfacce generate dalla specifica OpenAPI (`docs/openapi/pn-internal-templates-v1.yaml`).
-
-`TemplateService` seleziona il file template in base a template e lingua (`TemplateConfig`) con fallback su `defaultLanguage`, poi delega a `DocumentComposition` il rendering:
-- PDF: FreeMarker -> HTML -> PDF
-- HTML/TXT: rendering testuale o template pre-caricato come stringa (`loadAsString`)
-
-Per i campi risolvibili (es. `senderLogoBase64`) è presente una pipeline `TemplateValueResolver -> ToBase64Resolver -> UrlResolver` con controllo whitelist opzionale (`ResolverWhitelistConfig`) alimentato da Parameter Store.
-
-Dipendenze esterne principali: API REST in ingresso dai servizi SEND chiamanti, chiamate HTTP in uscita verso URL del payload (resolver) e lettura parametri SSM per whitelist.
-
-### Flussi principali
-1. Chiamata `PUT /templates-engine-private/v1/templates/...` con body JSON e header `x-language`.
-2. Risoluzione file template da configurazione e fallback lingua.
-3. Eventuale risoluzione campi dinamici (es. logo remoto in Base64).
-4. Rendering template e conversione (PDF/HTML/TXT) in base all'endpoint.
-5. Restituzione risposta con payload del documento generato.
-6. Flusso QR separato: `GET /templates-engine-private/v1/qrcode-generator` con output JSON base64.
-
-### Flussi secondari o di test
-- Pipeline Node (`build-templates.sh` + `scripts/templates-builder`) che genera template compilati in `src/main/resources/generated-templates-assets` e li replica in `src/test/resources/generated-templates-assets`.
-- Build Maven con generazione sorgenti OpenAPI in fase `generate-resources`.
-- Test Java (`spring-boot-starter-test`, `reactor-test`) e test builder template (`jest`).
-- Health check API su `/status`; health check infrastrutturale ALB su `/actuator/health` (CloudFormation).
+[**Architettura interna**](docs/ms/architettura_interna.md)
 
 ## Interfacce del Servizio
 
 Specifica OpenAPI: [pn-internal-templates-v1.yaml](docs/openapi/pn-internal-templates-v1.yaml)
 
-| Tipo | Dir | Risorsa             | Protocollo | Metodo | Route                                           | Descrizione                                                |
-|------|-----|---------------------|------------|--------|-------------------------------------------------|------------------------------------------------------------|
-| API  | IN  | Template API        | REST       | PUT    | `/templates-engine-private/v1/templates/*`      | Generazione documenti PDF/HTML/TXT da template SEND        |
-| API  | IN  | QR Code API         | REST       | GET    | `/templates-engine-private/v1/qrcode-generator` | Generazione QR code in Base64 da URL                       |
-| API  | IN  | HealthCheck API     | REST       | GET    | `/status`                                       | Stato logico del microservizio (200/500)                   |
-| API  | OUT | URL resolver remoto | REST       | GET    | URL nel payload                                 | Download risorsa remota (es. logo) da convertire in Base64 |
+Il servizio non consuma né produce eventi.
 
-**Endpoint principali** (tutti con header `x-language: IT|DE|SL|FR`, tranne dove indicato)
-
-| Metodo | Path                                                                      | Output                      | Template                        |
-|--------|---------------------------------------------------------------------------|-----------------------------|---------------------------------|
-| PUT    | `/templates-engine-private/v1/templates/notification-received-legal-fact` | PDF                         | `NotificationReceivedLegalFact` |
-| PUT    | `/templates-engine-private/v1/templates/notification-aar`                 | PDF                         | `NotificationAAR`               |
-| PUT    | `/templates-engine-private/v1/templates/notification-aar-radd-alt`        | PDF                         | `NotificationAAR_RADDalt`       |
-| PUT    | `/templates-engine-private/v1/templates/notification-aar-for-email`       | HTML                        | `NotificationAARForEMAILAnalog` |
-| PUT    | `/templates-engine-private/v1/templates/notification-aar-for-sms`         | TXT                         | `NotificationAARForSMSAnalog`   |
-| PUT    | `/templates-engine-private/v1/templates/notification-aar-for-subject`     | TXT                         | `NotificationAARFor_Subject`    |
-| PUT    | `/templates-engine-private/v1/templates/mail-verification-code-subject`   | TXT                         | `Mail_VerificationCodeSubject`  |
-| GET    | `/templates-engine-private/v1/qrcode-generator?url=...`                   | JSON Base64 (`base64value`) | `-`                             |
-| GET    | `/status`                                                                 | 200/500 (body vuoto)        | `-`                             |
-
-**Esempi d'uso**
-
-```bash
-# Generazione PDF atto di ricezione notifica (lingua italiana)
-curl -X PUT 'http://localhost:8099/templates-engine-private/v1/templates/notification-received-legal-fact' \
-  --header 'x-language: IT' \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: application/pdf' \
-  --data '{
-    "sendDate": "GG/MM/AAAA HH:MM",
-    "notification": {
-      "iun": "AAAA-AAAA-AAAA-000000-A-0",
-      "sender": {
-        "paDenomination": "Ente_Mittente",
-        "paTaxId": "00000000000"
-      },
-      "recipients": [
-        {
-          "denomination": "Nome_Cognome",
-          "taxId": "AAAAAA00A00A000A",
-          "physicalAddressAndDenomination": "Viale_Esempio_1",
-          "digitalDomicile": {
-            "address": null
-          }
-        }
-      ]
-    },
-    "subject": "Lorem Ipsum",
-    "digests": [
-      "910CD898B166E3E3E394584EB0AB1A7D445992D04BADBCA62FAEE9488B4A117A"
-    ]
-  }'
-
-# Generazione QR Code
-curl -X GET 'http://localhost:8099/templates-engine-private/v1/qrcode-generator?url=https://notifiche.pagopa.it/abc123'
-```
+| Tipo | Dir | Risorsa                       | Protocollo | Metodo | Route                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Descrizione                                                                              |
+|------|-----|-------------------------------|------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| API  | IN  | Health check                  | REST       | GET    | `/status`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Restituisce lo stato logico del microservizio con esito `200` o `500`.                   |
+| API  | IN  | Generazione PDF               | REST       | PUT    | `/templates-engine-private/v1/templates/notification-received-legal-fact`<br>`/templates-engine-private/v1/templates/pec-delivery-workflow-legal-fact`<br>`/templates-engine-private/v1/templates/notification-viewed-legal-fact`<br>`/templates-engine-private/v1/templates/malfunction-legal-fact`<br>`/templates-engine-private/v1/templates/notification-cancelled-legal-fact`<br>`/templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact`<br>`/templates-engine-private/v1/templates/analog-delivery-workflow-timeout-legal-fact`<br>`/templates-engine-private/v1/templates/notification-aar-radd-alt`<br>`/templates-engine-private/v1/templates/notification-aar`<br>`/templates-engine-private/v1/templates/analog-feedback-availability-statement` | Genera documenti PDF a partire da payload JSON e lingua richiesta.                       |
+| API  | IN  | Generazione HTML              | REST       | PUT    | `/templates-engine-private/v1/templates/notification-aar-for-email`<br>`/templates-engine-private/v1/templates/notification-aar-for-email-digital`<br>`/templates-engine-private/v1/templates/notification-aar-for-pec`<br>`/templates-engine-private/v1/templates/mail-verification-code-body`<br>`/templates-engine-private/v1/templates/pec-verification-code-body`<br>`/templates-engine-private/v1/templates/pec-validation-contacts-success-body`<br>`/templates-engine-private/v1/templates/pec-validation-contacts-reject-body`<br>`/templates-engine-private/v1/templates/notification-cce-for-email`                                                                                                                                                                           | Genera contenuti HTML destinati ai canali email e PEC.                                   |
+| API  | IN  | Generazione TXT con payload   | REST       | PUT    | `/templates-engine-private/v1/templates/notification-aar-for-sms`<br>`/templates-engine-private/v1/templates/notification-aar-for-sms-digital`<br>`/templates-engine-private/v1/templates/notification-aar-for-subject`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Genera contenuti testuali a partire da un payload JSON.                                  |
+| API  | IN  | Generazione TXT senza payload | REST       | PUT    | `/templates-engine-private/v1/templates/sms-verification-code-body`<br>`/templates-engine-private/v1/templates/mail-verification-code-subject`<br>`/templates-engine-private/v1/templates/pec-verification-code-subject`<br>`/templates-engine-private/v1/templates/pec-validation-contacts-success-subject`<br>`/templates-engine-private/v1/templates/pec-validation-contacts-reject-subject`                                                                                                                                                                                                                                                                                                                                                                                          | Restituisce contenuti testuali precaricati o generati senza request body applicativo.    |
+| API  | IN  | Generazione QR code           | REST       | GET    | `/templates-engine-private/v1/qrcode-generator`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Restituisce un QR code in Base64 per l'URL passato come query parameter.                 |
+| API  | OUT | Download risorse remote       | REST       | GET    | URL presenti nei campi del payload gestiti dai resolver, ad esempio `senderLogoBase64`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Recupera risorse remote da convertire in Base64 per i template che attivano il resolver. |
 
 ## Configurazioni
 
-| Nome                                                                       | Tipo       | Sorgente        | Valori                                | Descrizione                                                                          |
-|----------------------------------------------------------------------------|------------|-----------------|---------------------------------------|--------------------------------------------------------------------------------------|
-| `pn.templates-engine.parameterStoreCacheTTL`                               | duration   | ENV             | es. `10m`                             | TTL cache dei parametri whitelist letti da Parameter Store                           |
-| `pn.templates-engine.urlResolverTimeout`                                   | duration   | ENV             | es. `5s`                              | Timeout delle chiamate HTTP outbound usate dal resolver URL                          |
-| `templatesPath`                                                            | string     | ENV             | path relativo                         | Root path dei template compilati usati a runtime                                     |
-| `defaultLanguage`                                                          | enum       | ENV             | `IT`, `DE`, `SL`, `FR`                | Lingua di fallback quando il template non è disponibile nella lingua richiesta       |
-| `templates.<template>.input.<lang>`                                        | mappa      | ENV             | path file template                    | Mappa template/lingua -> file da renderizzare                                        |
-| `templates.<template>.loadAsString`                                        | boolean    | ENV             | `true/false`                          | Se `true`, il contenuto è pre-caricato come stringa e restituito senza model binding |
-| `templates.<template>.resolvers.senderLogoBase64.enabled`                  | boolean    | ENV             | `true/false`                          | Abilita la pipeline di risoluzione del campo `senderLogoBase64`                      |
-| `templates.<template>.resolvers.senderLogoBase64.bypassAllWithNull`        | boolean    | ENV             | `true/false`                          | Forza `null` sul campo, bypassando ogni resolver                                     |
-| `templates.<template>.resolvers.senderLogoBase64.returnNullOnError`        | boolean    | ENV             | `true/false`                          | In caso di errore resolver restituisce `null` invece del valore originale            |
-| `templates.<template>.resolvers.senderLogoBase64.whitelistEnabled`         | boolean    | ENV             | `true/false`                          | Abilita la validazione whitelist URL prima del download remoto                       |
-| `templates.<template>.resolvers.senderLogoBase64.whitelistParameterStores` | lista path | Parameter Store | es. `/pn-templates-engine/whitelist1` | Elenco parametri SSM da cui leggere gli URL consentiti                               |
+| Nome                                                                                   | Sorgente        | Valori                                 | Descrizione                                                                                                          |
+|----------------------------------------------------------------------------------------|-----------------|----------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| `PN_TEMPLATESENGINE_PARAMETERSTORECACHETTL`                                            | ENV             | `10m`                                  | Definisce il tempo di cache con cui vengono riletti i parametri di whitelist dal Parameter Store.                    |
+| `PN_TEMPLATESENGINE_URLRESOLVERTIMEOUT`                                                | ENV             | `5s`                                   | Imposta il timeout delle chiamate HTTP eseguite dal resolver verso URL esterni.                                      |
+| `DEFAULTLANGUAGE`                                                                      | ENV             | `IT`, `DE`, `SL`, `FR`                 | Definisce la lingua di fallback usata quando il template richiesto non è disponibile nella lingua ricevuta.          |
+| `TEMPLATESPATH`                                                                        | ENV             | `generated-templates-assets/templates` | Indica il percorso radice dei template compilati usati a runtime dal microservizio.                                  |
+| `TEMPLATES_NOTIFICATIONAAR_RESOLVERS_SENDERLOGOBASE64_BYPASSALLWITHNULL`               | ENV             | `true`, `false`                        | Per `NotificationAar` consente di annullare il campo `senderLogoBase64` senza eseguire la risoluzione remota.        |
+| `TEMPLATES_NOTIFICATIONAAR_RESOLVERS_SENDERLOGOBASE64_WHITELISTENABLED`                | ENV             | `true`, `false`                        | Per `NotificationAar` abilita il controllo della whitelist prima del download della risorsa remota.                  |
+| `TEMPLATES_NOTIFICATIONAAR_RESOLVERS_SENDERLOGOBASE64_WHITELISTPARAMETERSTORES`        | ENV             | `/pn-templates-engine/whitelist1`      | Per `NotificationAar` indica il parametro da cui leggere gli URL consentiti al resolver.                             |
+| `TEMPLATES_NOTIFICATIONAARRADDALT_RESOLVERS_SENDERLOGOBASE64_BYPASSALLWITHNULL`        | ENV             | `true`, `false`                        | Per `NotificationAarRaddAlt` consente di annullare il campo `senderLogoBase64` senza eseguire la risoluzione remota. |
+| `TEMPLATES_NOTIFICATIONAARRADDALT_RESOLVERS_SENDERLOGOBASE64_WHITELISTENABLED`         | ENV             | `true`, `false`                        | Per `NotificationAarRaddAlt` abilita il controllo della whitelist prima del download della risorsa remota.           |
+| `TEMPLATES_NOTIFICATIONAARRADDALT_RESOLVERS_SENDERLOGOBASE64_WHITELISTPARAMETERSTORES` | ENV             | `/pn-templates-engine/whitelist1`      | Per `NotificationAarRaddAlt` indica il parametro da cui leggere gli URL consentiti al resolver.                      |
 
 ## Allarmi e Monitoraggio
 
-| Tipo      | Nome                                      | Descrizione                                                                              |
-|-----------|-------------------------------------------|------------------------------------------------------------------------------------------|
-| LOG       | `pn-templates-engine`                     | Log group CloudWatch del microservizio ECS, usato per troubleshooting operativo          |
-| ALARM     | `LogAlarmStrategyV1`                      | Strategia di allarme su pattern log (default `FATAL`) con notifica su `AlarmSNSTopicArn` |
-| ALARM     | Health check target su `/actuator/health` | Evidenzia indisponibilità istanza dietro ALB e impatto sulla raggiungibilità API         |
+| Tipo  | Nome                 | Descrizione                                                                                                                             |
+|-------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| LOG   | `EcsLogGroup`        | Identifica il gruppo CloudWatch Logs associato alle task del microservizio e usato per il troubleshooting operativo.                    |
+| ALARM | `LogAlarmStrategyV1` | Applica una strategia di allarme basata sui log, con valore di default `FATAL`, per segnalare errori applicativi con impatto operativo. |
+| ALARM | `HealthCheckPath`    | Monitora il path `/actuator/health` per rilevare istanze non raggiungibili o non sane dietro il load balancer.                          |
 
 ## Esecuzione
 
@@ -194,56 +128,14 @@ npm test
 ```bash
 ./mvnw spring-boot:run
 ```
-## Design of dima Postel
 
-Put this html in <main> tag of aar document
-
-```html
-<!-- Dima postalizzatore -->
-<div style="height: 96mm; width: 210mm; border-bottom: 1px dotted red; position:absolute; box-sizing: border-box">
-    <div style="height: 23mm; width: 65mm;  position:absolute; top: 14mm; left: 8mm;   border: 1px dotted blue;  box-sizing: border-box">
-        <div style="position: absolute; top: 3mm; left: 24mm; font-size: 12px; line-height: 1;">
-            In caso di mancato recapito<br/>restituire a:<br/>POSTEL - PAGOPA<br/>VIA AUGUSTO ERBA 15<br/>20055 MELZO, MI
-        </div>
-    </div>
-    <div style="height: 32mm; width: 75mm;  position:absolute; top: 55mm; left: 10mm;  border: 1px dotted green; box-sizing: border-box"></div>
-    <div style="height: 43mm; width: 100mm; position:absolute; top: 44mm; left: 100mm; border: 1px dotted red;   box-sizing: border-box"></div>
-    <div style="height: 19mm; width: 100mm; position:absolute; top: 44mm; left: 100mm; box-sizing: border-box; border-bottom: 1px dotted red;"></div>
-</div>
-
-<!-- linee pieghe in 3 -->
-<div style="height: 95mm; width:210mm; position: absolute; top: 96mm; border-bottom: 2px dotted purple; border-top: 2px dotted purple; box-sizing: border-box"></div>
-
-<!-- watermark -->
-Put this html in <main> tag of AO3
-  <div style="
-      font-size: 105px;
-      font-weight: 900;
-      color: #FFD1D0;
-      position: fixed;
-      width: 100%;
-      top: 128mm;
-      transform: rotate(-45deg);
-      z-index: 0;
-      text-align: center;" title="Fac simile">
-          <% if (noIta) { %><%-watermark%><br><% } %>  <%-it_watermark%>
-  </div>
-
+## Helpers
+Put this html in <main> to show lines and dima
+[Design of dima Postel](docs/ms/dima_postel.md)
 
 Put this html replacing <main> opening tag in AAR and AAR RADD alt
-      <div style="
-            font-size: 105px;
-            font-weight: 900;
-            color: #FFD1D0;
-            position: fixed;
-            width: 100%;
-            top: 128mm;
-            line-height: 105px;
-            transform: rotate(-45deg);
-            z-index: 0;
-            text-align: center; line-height: 105px;" title="Fac simile">
-                <% if (noIta) { %><%-watermark%><br><% } %>  <%-it_watermark%>
-        </div>
-    <main style="position: relative;  z-index: 999;">
+[Design of FACSIMILE in AAR](docs/ms/dima_postel.md) 
 
-```
+Put this html in <main> tag of AO3
+[Design of FACSIMILE in AO3](docs/ms/dima_postel.md)
+

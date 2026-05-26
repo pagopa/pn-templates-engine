@@ -145,11 +145,7 @@ public class DocumentGeneratorTest {
         var model = new NotificationAar()
                 .notification(notification)
                 .qrCodeQuickAccessLink(getQrCodeQuickAccessUrlAarDetail(CITTADINI_NOTIFICHEDIGITALI_IT_AAR_TEST))
-                .recipient(recepient)
-                .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
-                .piattaformaNotificheURLLabel("TEST_piattaformaNotificheURLLabel")
-                .perfezionamentoURL("TEST_perfezionamentoURL")
-                .perfezionamentoURLLabel("TEST_perfezionamentoURLLabel");
+                .recipient(recepient);
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
 
@@ -171,13 +167,6 @@ public class DocumentGeneratorTest {
                 .notification(notification)
                 .qrCodeQuickAccessLink(getQrCodeQuickAccessUrlAarDetail(CITTADINI_NOTIFICHEDIGITALI_IT_AAR_TEST))
                 .recipient(recepient)
-                .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
-                .piattaformaNotificheURLLabel("TEST_piattaformaNotificheURLLabel")
-                .perfezionamentoURL("TEST_perfezionamentoURL")
-                .perfezionamentoURLLabel("TEST_perfezionamentoURLLabel")
-                .sendURL("TEST_sendURL")
-                .sendURLLAbel("TEST_sendURLLAbel")
-                .raddPhoneNumber("TEST_raddPhoneNumber")
                 .senderLogoBase64(null);
         generateAndSaveDocument(template, langs, model, FileType.PDF);
     }
@@ -241,10 +230,7 @@ public class DocumentGeneratorTest {
                 .iun("TEST_iun")
                 .sender(sender);
         var model = new NotificationAarForEmailAnalog()
-                .perfezionamentoURL("TEST_perfezionamentoURL")
                 .quickAccessLink("TEST_quickAccessLink")
-                .pnFaqSendURL("TEST_pnFaqSendURL")
-                .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
                 .notification(notification)
                 .recipient(recipient);
         generateAndSaveDocument(template, langs, model, FileType.HTML);
@@ -263,10 +249,7 @@ public class DocumentGeneratorTest {
                 .iun("TEST_iun")
                 .sender(sender);
         var model = new NotificationAarForEmailDigital()
-                .perfezionamentoURL("TEST_perfezionamentoURL")
                 .quickAccessLink("TEST_quickAccessLink")
-                .pnFaqSendURL("TEST_pnFaqSendURL")
-                .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
                 .notification(notification)
                 .recipient(recipient);
         generateAndSaveDocument(template, langs, model, FileType.HTML);
@@ -286,10 +269,7 @@ public class DocumentGeneratorTest {
                 .taxId("CDCFSC11R99X001Z");
         var model = new NotificationAarForPec()
                 .notification(notification)
-                .perfezionamentoURL("TEST_perfezionamentoURL")
                 .quickAccessLink("TEST_quickAccessLink")
-                .pnFaqSendURL("TEST_pnFaqSendURL")
-                .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
                 .recipientType("PF")
                 .recipient(recepient);
         generateAndSaveDocument(template, langs, model, FileType.HTML);
