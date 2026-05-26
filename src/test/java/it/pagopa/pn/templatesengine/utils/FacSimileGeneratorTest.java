@@ -19,6 +19,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.service.TemplateService;
 import reactor.core.publisher.Mono;
+import reactor.util.function.Tuple2;
+import reactor.util.function.Tuples;
 
 import static it.pagopa.pn.templatesengine.utils.QrCodeUtils.getQrCodeQuickAccessUrlAarDetail;
 
@@ -43,14 +45,14 @@ public class FacSimileGeneratorTest {
         LanguageEnum[] langs = {LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR};
 
         // Build the map of all PDF templates with their test models
-        Map<TemplatesEnum, Object> templateModelMap = buildTemplateModelMap();
+        List<Tuple2<TemplatesEnum, Object>> templateModelList = buildTemplateModelList();
 
         for (LanguageEnum lang : langs) {
             List<byte[]> pdfDocuments = new ArrayList<>();
 
-            for (Map.Entry<TemplatesEnum, Object> entry : templateModelMap.entrySet()) {
-                TemplatesEnum template = entry.getKey();
-                Object model = entry.getValue();
+            for (Tuple2<TemplatesEnum, Object> entry : templateModelList) {
+                Object model = entry.getT2();
+                TemplatesEnum template = entry.getT1();
 
                 try {
                     byte[] pdfBytes = templateService.executePdfTemplate(template, lang, Mono.just(model)).block();
@@ -72,18 +74,19 @@ public class FacSimileGeneratorTest {
         }
     }
 
-    private Map<TemplatesEnum, Object> buildTemplateModelMap() {
-        Map<TemplatesEnum, Object> map = new LinkedHashMap<>();
+    private List<Tuple2<TemplatesEnum, Object>> buildTemplateModelList() {
+        List<Tuple2<TemplatesEnum, Object>> list = new ArrayList<>();
 
-        map.put(TemplatesEnum.NOTIFICATION_AAR, buildNotificationAar());
-        map.put(TemplatesEnum.NOTIFICATION_AAR_RADDALT, buildNotificationAarRaddAlt());
-        map.put(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT, buildNotificationReceivedLegalFact());
-        map.put(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT, buildPecDeliveryWorkflowLegalFactSuccess());
-        map.put(TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT, buildNotificationViewedLegalFact());
-        map.put(TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT, buildNotificationCancelledLegalFact());
-        map.put(TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT, buildAnalogDeliveryWorkflowFailureLegalFact());
+        list.add(Tuples.of(TemplatesEnum.NOTIFICATION_AAR, buildNotificationAar()));
+        list.add(Tuples.of(TemplatesEnum.NOTIFICATION_AAR_RADDALT, buildNotificationAarRaddAlt()));
+        list.add(Tuples.of(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT, buildNotificationReceivedLegalFact()));
+        list.add(Tuples.of(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT, buildPecDeliveryWorkflowLegalFactSuccess()));
+        list.add(Tuples.of(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT, buildPecDeliveryWorkflowLegalFactFailure()));
+        list.add(Tuples.of(TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT, buildNotificationViewedLegalFact()));
+        list.add(Tuples.of(TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT, buildNotificationCancelledLegalFact()));
+        list.add(Tuples.of(TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT, buildAnalogDeliveryWorkflowFailureLegalFact()));
 
-        return map;
+        return list;
     }
 
     private byte[] mergePdfs(List<byte[]> pdfDocuments) throws IOException {
@@ -103,168 +106,137 @@ public class FacSimileGeneratorTest {
 
     private Object buildNotificationReceivedLegalFact() {
         var recipient = new NotificationReceivedRecipient()
-                .denomination("Galileo Bruno")
+                .denomination("Cleopatra Tea Filopatore")
                 .digitalDomicile(new NotificationReceivedDigitalDomicile().address("test@dominioPec.it"))
-                .taxId("CDCFSC11R99X001Z")
-                .physicalAddressAndDenomination("TEST_PhysicalAddressAndDenomination");
+                .taxId("FLPCPT69A65Z336P")
+                .physicalAddressAndDenomination("Via di Test 123, Ipazia");
         var notification = new NotificationReceivedNotification()
-                .iun("TEST")
+                .iun("AAAA-AAAA-AAAA-000000-A-0")
                 .recipients(Collections.singletonList(recipient))
                 .sender(new NotificationReceivedSender()
-                        .paDenomination("TEST_paDenomination")
-                        .paTaxId("TEST_paTaxId"));
+                        .paDenomination("Comune di Ipazia")
+                        .paTaxId("0000000000"));
         return new NotificationReceivedLegalFact()
                 .notification(notification)
                 .digests(new ArrayList<>())
-                .sendDate("TEST_sendDate")
-                .subject("TEST_subject");
+                .sendDate("01/01/1970")
+                .subject("Titolo di test - FACSIMILE");
     }
 
     private Object buildPecDeliveryWorkflowLegalFactSuccess() {
         var delivery = new PecDeliveryWorkflowDelivery()
-                .denomination("TEST_denomination")
-                .taxId("TEST_taxId")
-                .address("TEST_address")
+                .denomination("Cleopatra Tea Filopatore")
+                .taxId("FLPCPT69A65Z336P")
+                .address("Via di Test 123, Ipazia")
                 .type("TEST_type")
                 .addressSource("PLATFORM")
-                .responseDate("TEST_responseDate")
+                .responseDate("01/01/1970")
                 .ok(true);
         return new PecDeliveryWorkflowLegalFact()
-                .iun("TEST_iun")
-                .endWorkflowDate("TEST_endWorkflowDate")
+                .iun("AAAA-AAAA-AAAA-000000-A-0")
+                .endWorkflowDate("01/01/1970")
                 .endWorkflowStatus("TEST_endWorkflowStatus")
                 .deliveries(Collections.singletonList(delivery));
     }
     private Object buildPecDeliveryWorkflowLegalFactFailure() {
         var delivery = new PecDeliveryWorkflowDelivery()
-                .denomination("TEST_denomination")
-                .taxId("TEST_taxId")
-                .address("TEST_address")
+                .denomination("Cleopatra Tea Filopatore")
+                .taxId("FLPCPT69A65Z336P")
+                .address("Via di Test 123, Ipazia")
                 .type("TEST_type")
                 .addressSource("PLATFORM")
-                .responseDate("TEST_responseDate")
+                .responseDate("01/01/1970")
                 .ok(false);
         return new PecDeliveryWorkflowLegalFact()
-                .iun("TEST_iun")
-                .endWorkflowDate("TEST_endWorkflowDate")
+                .iun("AAAA-AAAA-AAAA-000000-A-0")
+                .endWorkflowDate("01/01/1970")
                 .endWorkflowStatus("TEST_endWorkflowStatus")
                 .deliveries(Collections.singletonList(delivery));
     }
 
     private Object buildNotificationViewedLegalFact() {
         var recipient = new NotificationViewedRecipient()
+                .denomination("Cleopatra Tea Filopatore")
+                .taxId("FLPCPT69A65Z336P");
+        var delegate = new NotificationViewedDelegate()
                 .denomination("Galileo Bruno")
                 .taxId("CDCFSC11R99X001Z");
-        var delegate = new NotificationViewedDelegate()
-                .denomination("Mario Rossi")
-                .taxId("MRRSSC11R99X001Z");
         return new NotificationViewedLegalFact()
-                .iun("TEST_iun")
-                .when("TEST_when")
+                .iun("AAAA-AAAA-AAAA-000000-A-0")
+                .when("01/01/1970")
                 .recipient(recipient)
                 .delegate(delegate);
     }
 
-    private Object buildMalfunctionLegalFact() {
-        return new MalfunctionLegalFact()
-                .startDate("TEST_startDate")
-                .timeReferenceStartDate("TEST_timeReferenceStartDate")
-                .endDate("TEST_endDate")
-                .timeReferenceEndDate("TEST_timeReferenceEndDate")
-                .htmlDescription("<p>Sample <b>TEST_description</b></p>");
-    }
-
     private Object buildNotificationCancelledLegalFact() {
         var recipient = new NotificationCancelledRecipient()
-                .denomination("Galileo Bruno")
-                .taxId("CDCFSC11R99X001Z");
+                .denomination("Cleopatra Tea Filopatore")
+                .taxId("FLPCPT69A65Z336P");
         var sender = new NotificationCancelledSender()
-                .paDenomination("TEST_PaDenomination");
+                .paDenomination("Comune di Ipazia");
         var notification = new NotificationCancelledNotification()
-                .iun("TEST")
+                .iun("AAAA-AAAA-AAAA-000000-A-0")
                 .recipients(Collections.singletonList(recipient))
                 .sender(sender);
         return new NotificationCancelledLegalFact()
-                .notificationCancelledDate("TEST_startDate")
+                .notificationCancelledDate("01/01/1970")
                 .notification(notification);
     }
 
     private Object buildNotificationAar() {
         var sender = new AarSender()
-                .paDenomination("TEST_PaDenomination");
+                .paDenomination("Comune di Ipazia");
         var notification = new AarNotification()
-                .iun("TEST_iun")
+                .iun("AAAA-AAAA-AAAA-000000-A-0")
                 .sender(sender)
-                .subject("notification Titolo di 134 caratteri massimi spazi compresi. Aid olotielit, sed eiusmod tempora incidunt ue et et dolore magna aliqua aliqua aliqua");
+                .subject("Titolo di Esempio - FACSIMILE");
         var recipient = new AarRecipient()
                 .recipientType("PF")
-                .taxId("CDCFSC11R99X001Z");
+                .taxId("FLPCPT69A65Z336P");
         return new NotificationAar()
                 .notification(notification)
                 .qrCodeQuickAccessLink(getQrCodeQuickAccessUrlAarDetail(CITTADINI_NOTIFICHEDIGITALI_IT_AAR_TEST))
                 .recipient(recipient)
-                .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
-                .piattaformaNotificheURLLabel("TEST_piattaformaNotificheURLLabel")
-                .perfezionamentoURL("TEST_perfezionamentoURL")
-                .perfezionamentoURLLabel("TEST_perfezionamentoURLLabel");
+                .piattaformaNotificheURL("cittadini.notifichedigitali.it")
+                .piattaformaNotificheURLLabel("cittadini.notifichedigitali.it")
+                .perfezionamentoURL("notifichedigitali.it/perfezionamento")
+                .perfezionamentoURLLabel("notifichedigitali.it/perfezionamento");
     }
 
     private Object buildNotificationAarRaddAlt() {
         var sender = new AarRaddAltSender()
-                .paDenomination("TEST_PaDenomination");
+                .paDenomination("Comune di Ipazia");
         var notification = new AarRaddAltNotification()
-                .iun("TEST_iun")
+                .iun("AAAA-AAAA-AAAA-000000-A-0")
                 .sender(sender)
-                .subject("notification Titolo di 134 caratteri massimi spazi compresi. Aid olotielit, sed eiusmod tempora incidunt ue et et dolore magna aliqua aliqua aliqua");
+                .subject("Titolo di Esempio - FACSIMILE");
         var recipient = new AarRaddAltRecipient()
-                .denomination("Galileo Bruno")
+                .denomination("Cleopatra Tea Filopatore")
                 .recipientType("PF")
-                .taxId("CDCFSC11R99X001Z");
+                .taxId("FLPCPT69A65Z336P");
         return new NotificationAarRaddAlt()
                 .notification(notification)
                 .qrCodeQuickAccessLink(getQrCodeQuickAccessUrlAarDetail(CITTADINI_NOTIFICHEDIGITALI_IT_AAR_TEST))
                 .recipient(recipient)
-                .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
-                .piattaformaNotificheURLLabel("TEST_piattaformaNotificheURLLabel")
-                .perfezionamentoURL("TEST_perfezionamentoURL")
-                .perfezionamentoURLLabel("TEST_perfezionamentoURLLabel")
-                .sendURL("TEST_sendURL")
-                .sendURLLAbel("TEST_sendURLLAbel")
-                .raddPhoneNumber("TEST_raddPhoneNumber")
+                .piattaformaNotificheURL("cittadini.notifichedigitali.it")
+                .piattaformaNotificheURLLabel("cittadini.notifichedigitali.it")
+                .perfezionamentoURL("notifichedigitali.it/perfezionamento")
+                .perfezionamentoURLLabel("notifichedigitali.it/perfezionamento")
+                .sendURL("notifichedigitali.it")
+                .sendURLLAbel("notifichedigitali.it")
+                .raddPhoneNumber("06.9318.95.55")
                 .senderLogoBase64(null);
     }
 
     private Object buildAnalogDeliveryWorkflowFailureLegalFact() {
         var recipient = new AnalogDeliveryWorkflowFailureRecipient()
-                .denomination("Galileo Bruno")
-                .taxId("CDCFSC11R99X001Z");
+                .denomination("Cleopatra Tea Filopatore")
+                .taxId("FLPCPT69A65Z336P");
         return new AnalogDeliveryWorkflowFailureLegalFact()
-                .iun("TEST_iun")
-                .endWorkflowDate("TEST_endWorkflowDate")
-                .endWorkflowTime("TEST_endWorkflowTime")
+                .iun("AAAA-AAAA-AAAA-000000-A-0")
+                .endWorkflowDate("01/01/1970")
+                .endWorkflowTime("00:00")
                 .recipient(recipient);
-    }
-
-    private Object buildAnalogDeliveryWorkflowTimeoutLegalFact() {
-        var recipient = new AnalogDeliveryWorkflowTimeoutRecipient()
-                .denomination("Galileo Bruno")
-                .taxId("CDCFSC11R99X001Z")
-                .physicalAddress("TEST_PhysicalAddressAndDenomination");
-        return new AnalogDeliveryWorkflowTimeoutLegalFact()
-                .iun("TEST_iun")
-                .endWorkflowDate("TEST_endWorkflowDate")
-                .endWorkflowTime("TEST_endWorkflowTime")
-                .attempt("0")
-                .recipient(recipient);
-    }
-
-    private Object buildAnalogFeedbackAvailabilityStatement() {
-        return new AnalogFeedbackAvailabilityStatement()
-                .iun("TEST_iun")
-                .declarationDate("TEST_declarationDate")
-                .senderDenomination("TEST_senderDenomination")
-                .registeredLetterCode("TEST_registeredLetterCode")
-                .senderTaxId("TEST_senderTaxId");
     }
 
 }
