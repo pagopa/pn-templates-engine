@@ -1,5 +1,6 @@
 {
   "language": "fr",
+  "watermark":"SPÉCIMEN",
   "subject": "Déclaration d'annulation de la notification sur la plate-forme SEND",
   "body1": "Il est déclaré par la présente, mise à la disposition du destinataire exclusivement sur la plate-forme SEND, que la notification comportant IUN <b>${notification.iun}</b>, exécutée à l'encontre de:",
   "denomination":"Prénom et Nom / Raison Sociale",

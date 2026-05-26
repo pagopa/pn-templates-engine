@@ -1,5 +1,6 @@
 {
     "language": "de",
+    "watermark":"MUSTER",
     "subject": "Erkl&auml;rung &uuml;ber die Annullierung der Zustellung auf der SEND-Plattform",
     "body1": "Mit diesem Dokument, das dem Empf&auml;nger ausschließlich auf der SEND-Plattform zur Verf&uuml;gung steht, wird erkl&auml;rt, dass die Zustellung mit IUN <b>${notification.iun}</b> durchgef&uuml;hrt an den Empf&auml;nger:",
     "denomination": "Vor- und Nachname / Firmenbezeichnung",
