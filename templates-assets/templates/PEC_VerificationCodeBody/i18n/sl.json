@@ -4,5 +4,5 @@
   "hello": "&#381;ivijo",
   "body1": "&#268;e &#382;eli&#353; potrditi ta naslov PEC kot digitalno prebivali&#353;&#269;e platforme, ki ga bo SEND uporabljal kot glavni naslov za po&#353;iljanje obvestil, v SEND - Servizio Notifiche Digitali vnesi kodo",
   "signature": "Se vidimo kmalu",
-  "footer": "To sporo&#269;ilo prejema&#353;, ker si vnesel svoj naslov PEC kot pravni naslov za SEND. &#268;e &#382;eli&#353; spremeniti kontaktne podatke ali dodati nove, <a title=\"Nadaljuj na platformo za digitalna obvestila\" class=\"link\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">pojdi na svoje kontaktne podatke</a>."
+  "footer": "To sporo&#269;ilo prejema&#353;, ker si vnesel svoj naslov PEC kot pravni naslov za SEND. &#268;e &#382;eli&#353; spremeniti kontaktne podatke ali dodati nove, <a title=\"Nadaljuj na platformo za digitalna obvestila\" class=\"link\" <#if recipientType == \"PF\">href=\"${ENV.sendLoginUrlPF}recapiti\"<#else>href=\"${ENV.sendLoginUrlPG}recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">pojdi na svoje kontaktne podatke</a>."
 }

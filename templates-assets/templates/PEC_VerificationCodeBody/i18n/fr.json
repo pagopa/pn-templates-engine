@@ -4,5 +4,5 @@
   "hello": "Salut",
   "body1": "Pour confirmer cette adresse PEC comme domicile num&#xE9;rique de plateforme que SEND utilisera comme adresse principale pour l&#39;envoi de notifications, saisis le code sur SEND - Servizio Notifiche Digitali",
   "signature": "&#xC0; bient&#xF4;t",
-  "footer": "Tu re&#xE7;ois cette communication car tu as saisi ton adresse PEC comme adresse l&#xE9;gale sur SEND. Pour modifier les coordonn&#xE9;es ou en ajouter d&#39;autres, <a title=\"Continuer sur la Plateforme de Notifications\" class=\"link\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">acc&#232;de &#xE0; tes coordonn&#xE9;es</a>."
+  "footer": "Tu re&#xE7;ois cette communication car tu as saisi ton adresse PEC comme adresse l&#xE9;gale sur SEND. Pour modifier les coordonn&#xE9;es ou en ajouter d&#39;autres, <a title=\"Continuer sur la Plateforme de Notifications\" class=\"link\" <#if recipientType == \"PF\">href=\"${ENV.sendLoginUrlPF}recapiti\"<#else>href=\"${ENV.sendLoginUrlPG}recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">acc&#232;de &#xE0; tes coordonn&#xE9;es</a>."
 }
