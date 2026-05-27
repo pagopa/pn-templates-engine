@@ -1,0 +1,13 @@
+{
+  "language": "de",
+  "watermark":"MUSTER",
+  "subject":"Index der Vorlagen",
+  "list1":"Benachrichtigung über den erfolgten Empfang",
+  "list2":"Benachrichtigung über den erfolgten Empfang für PLZ, die vom RADD-Dienst abgedeckt sind",
+  "list3":"Gegen Dritte durchsetzbare Bescheinigung: Benachrichtigung übernommen",
+  "list4":"Attestazione opponibile a terzi: notifica digitale",
+  "list5":"Attestazione opponibile a terzi: mancato recapito",
+  "list6":"Attestazione opponibile a terzi: avvenuto accesso",
+  "list7":"Dichiarazione di annullamento notifica sulla piattaforma SEND",
+  "list8":"Einreichung der Empfangsbestätigung"
+}

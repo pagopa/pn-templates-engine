@@ -92,6 +92,12 @@ templates:
   analogDeliveryWorkflowTimeoutLegalFact:
     input:
       IT: "AnalogDeliveryWorkflowTimeoutLegalFact/AnalogDeliveryWorkflowTimeoutLegalFact.html"
+  indexFacsimile:
+    input:
+        IT: "IndexFacsimile/IndexFacsimile.html"
+        DE: "IndexFacsimile/IndexFacsimile_de.html"
+        SL: "IndexFacsimile/IndexFacsimile_sl.html"
+        FR: "IndexFacsimile/IndexFacsimile_fr.html"
   notificationAarForEmailAnalog:
     input:
       IT: "NotificationAARForEMAILAnalog/NotificationAARForEMAILAnalog.html"

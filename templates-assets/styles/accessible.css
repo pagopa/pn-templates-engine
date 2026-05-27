@@ -218,3 +218,16 @@ a.faq-link-perfezionamento {
 .avoid-page-break {
   page-break-inside: avoid;
 }
+
+/* index page */
+
+.vertical-align-bottom {
+    vertical-align: bottom;
+}
+.text-right {
+    text-align: right;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #000000;
+}

@@ -709,3 +709,6 @@ components:
           x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
           format: password #NO EXTERNAL
           type: string
+
+    IndexFacsimile:
+      type: object
