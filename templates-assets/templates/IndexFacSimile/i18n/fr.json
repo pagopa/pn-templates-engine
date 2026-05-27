@@ -2,12 +2,12 @@
   "language": "fr",
   "watermark":"SPÉCIMEN",
   "subject":"Index des modèles",
-  "list1":"Avis de réception",
-  "list2":"Avis de réception pour les codes postaux couverts par le service RADD",
+  "list1":"Avis de réception (avec acte joint)",
+  "list2":"Avis de réception (sans acte joint)",
   "list3":"Attestation opposable aux tiers : notification prise en charge",
-  "list4":"Attestazione opponibile a terzi: notifica digitale",
-  "list5":"Attestazione opponibile a terzi: mancato recapito",
-  "list6":"Attestazione opponibile a terzi: avvenuto accesso",
-  "list7":"Dichiarazione di annullamento notifica sulla piattaforma SEND",
-  "list8":"Einreichung der Empfangsbestätigung"
+  "list4":"Attestation opposable aux tiers: notification numérique",
+  "list5":"Attestation opposable aux tiers : échec de remise numérique",
+  "list6":"Attestation opposable aux tiers: accès survenu",
+  "list7":"Déclaration d'annulation de la notification sur la plate-forme SEND",
+  "list8":"Dépôt de l’avis de réception"
 }
