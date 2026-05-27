@@ -106,9 +106,9 @@ public class FacSimileGeneratorTest {
 
     private Object buildNotificationReceivedLegalFact() {
         var recipient = new NotificationReceivedRecipient()
-                .denomination("Cleopatra Tea Filopatore")
+                .denomination("Nome Cognome")
                 .digitalDomicile(new NotificationReceivedDigitalDomicile().address("test@dominioPec.it"))
-                .taxId("FLPCPT69A65Z336P")
+                .taxId("AAAAAA00A00A000A")
                 .physicalAddressAndDenomination("Via di Test 123, Ipazia");
         var notification = new NotificationReceivedNotification()
                 .iun("AAAA-AAAA-AAAA-000000-A-0")
@@ -119,59 +119,59 @@ public class FacSimileGeneratorTest {
         return new NotificationReceivedLegalFact()
                 .notification(notification)
                 .digests(new ArrayList<>())
-                .sendDate("01/01/1970")
+                .sendDate("GG/MM/AAAA")
                 .subject("Titolo di test - FACSIMILE");
     }
 
     private Object buildPecDeliveryWorkflowLegalFactSuccess() {
         var delivery = new PecDeliveryWorkflowDelivery()
-                .denomination("Cleopatra Tea Filopatore")
-                .taxId("FLPCPT69A65Z336P")
+                .denomination("Nome Cognome")
+                .taxId("AAAAAA00A00A000A")
                 .address("Via di Test 123, Ipazia")
                 .type("TEST_type")
                 .addressSource("PLATFORM")
-                .responseDate("01/01/1970")
+                .responseDate("GG/MM/AAAA")
                 .ok(true);
         return new PecDeliveryWorkflowLegalFact()
                 .iun("AAAA-AAAA-AAAA-000000-A-0")
-                .endWorkflowDate("01/01/1970")
+                .endWorkflowDate("GG/MM/AAAA")
                 .endWorkflowStatus("TEST_endWorkflowStatus")
                 .deliveries(Collections.singletonList(delivery));
     }
     private Object buildPecDeliveryWorkflowLegalFactFailure() {
         var delivery = new PecDeliveryWorkflowDelivery()
-                .denomination("Cleopatra Tea Filopatore")
-                .taxId("FLPCPT69A65Z336P")
+                .denomination("Nome Cognome")
+                .taxId("AAAAAA00A00A000A")
                 .address("Via di Test 123, Ipazia")
                 .type("TEST_type")
                 .addressSource("PLATFORM")
-                .responseDate("01/01/1970")
+                .responseDate("GG/MM/AAAA")
                 .ok(false);
         return new PecDeliveryWorkflowLegalFact()
                 .iun("AAAA-AAAA-AAAA-000000-A-0")
-                .endWorkflowDate("01/01/1970")
+                .endWorkflowDate("GG/MM/AAAA")
                 .endWorkflowStatus("TEST_endWorkflowStatus")
                 .deliveries(Collections.singletonList(delivery));
     }
 
     private Object buildNotificationViewedLegalFact() {
         var recipient = new NotificationViewedRecipient()
-                .denomination("Cleopatra Tea Filopatore")
-                .taxId("FLPCPT69A65Z336P");
+                .denomination("Nome Cognome")
+                .taxId("AAAAAA00A00A000A");
         var delegate = new NotificationViewedDelegate()
-                .denomination("Galileo Bruno")
-                .taxId("CDCFSC11R99X001Z");
+                .denomination("Nome Cognome Delegato")
+                .taxId("AAAAAA00A00A000A");
         return new NotificationViewedLegalFact()
                 .iun("AAAA-AAAA-AAAA-000000-A-0")
-                .when("01/01/1970")
+                .when("GG/MM/AAAA")
                 .recipient(recipient)
                 .delegate(delegate);
     }
 
     private Object buildNotificationCancelledLegalFact() {
         var recipient = new NotificationCancelledRecipient()
-                .denomination("Cleopatra Tea Filopatore")
-                .taxId("FLPCPT69A65Z336P");
+                .denomination("Nome Cognome")
+                .taxId("AAAAAA00A00A000A");
         var sender = new NotificationCancelledSender()
                 .paDenomination("Comune di Ipazia");
         var notification = new NotificationCancelledNotification()
@@ -179,7 +179,7 @@ public class FacSimileGeneratorTest {
                 .recipients(Collections.singletonList(recipient))
                 .sender(sender);
         return new NotificationCancelledLegalFact()
-                .notificationCancelledDate("01/01/1970")
+                .notificationCancelledDate("GG/MM/AAAA")
                 .notification(notification);
     }
 
@@ -192,15 +192,11 @@ public class FacSimileGeneratorTest {
                 .subject("Titolo di Esempio - FACSIMILE");
         var recipient = new AarRecipient()
                 .recipientType("PF")
-                .taxId("FLPCPT69A65Z336P");
+                .taxId("AAAAAA00A00A000A");
         return new NotificationAar()
                 .notification(notification)
                 .qrCodeQuickAccessLink(getQrCodeQuickAccessUrlAarDetail(CITTADINI_NOTIFICHEDIGITALI_IT_AAR_TEST))
-                .recipient(recipient)
-                .piattaformaNotificheURL("cittadini.notifichedigitali.it")
-                .piattaformaNotificheURLLabel("cittadini.notifichedigitali.it")
-                .perfezionamentoURL("notifichedigitali.it/perfezionamento")
-                .perfezionamentoURLLabel("notifichedigitali.it/perfezionamento");
+                .recipient(recipient);
     }
 
     private Object buildNotificationAarRaddAlt() {
@@ -211,30 +207,23 @@ public class FacSimileGeneratorTest {
                 .sender(sender)
                 .subject("Titolo di Esempio - FACSIMILE");
         var recipient = new AarRaddAltRecipient()
-                .denomination("Cleopatra Tea Filopatore")
+                .denomination("Nome Cognome")
                 .recipientType("PF")
-                .taxId("FLPCPT69A65Z336P");
+                .taxId("AAAAAA00A00A000A");
         return new NotificationAarRaddAlt()
                 .notification(notification)
                 .qrCodeQuickAccessLink(getQrCodeQuickAccessUrlAarDetail(CITTADINI_NOTIFICHEDIGITALI_IT_AAR_TEST))
                 .recipient(recipient)
-                .piattaformaNotificheURL("cittadini.notifichedigitali.it")
-                .piattaformaNotificheURLLabel("cittadini.notifichedigitali.it")
-                .perfezionamentoURL("notifichedigitali.it/perfezionamento")
-                .perfezionamentoURLLabel("notifichedigitali.it/perfezionamento")
-                .sendURL("notifichedigitali.it")
-                .sendURLLAbel("notifichedigitali.it")
-                .raddPhoneNumber("06.9318.95.55")
                 .senderLogoBase64(null);
     }
 
     private Object buildAnalogDeliveryWorkflowFailureLegalFact() {
         var recipient = new AnalogDeliveryWorkflowFailureRecipient()
-                .denomination("Cleopatra Tea Filopatore")
-                .taxId("FLPCPT69A65Z336P");
+                .denomination("Nome Cognome")
+                .taxId("AAAAAA00A00A000A");
         return new AnalogDeliveryWorkflowFailureLegalFact()
                 .iun("AAAA-AAAA-AAAA-000000-A-0")
-                .endWorkflowDate("01/01/1970")
+                .endWorkflowDate("GG/MM/AAAA")
                 .endWorkflowTime("00:00")
                 .recipient(recipient);
     }

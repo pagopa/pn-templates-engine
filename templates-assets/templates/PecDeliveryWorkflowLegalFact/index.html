@@ -16,7 +16,11 @@
     </bookmarks>
 </head>
 
-<body>
+<#if endWorkflowStatus=="SUCCESS">
+    <body id="pecDeliveryWorkflowLegalFactSuccess">
+<#else>
+    <body id="pecDeliveryWorkflowLegalFactFailure">
+</#if>
     <header id="header" class="table">
         <div class="row">
             <div class="width-50 cell">
