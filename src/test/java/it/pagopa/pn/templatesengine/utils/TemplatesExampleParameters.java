@@ -19,10 +19,6 @@ public class TemplatesExampleParameters {
                 .notification(notification)
                 .qrCodeQuickAccessLink("TEST_QR")
                 .recipient(recipient)
-                .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
-                .piattaformaNotificheURLLabel("TEST_piattaformaNotificheURLLabel")
-                .perfezionamentoURL("TEST_perfezionamentoURL")
-                .perfezionamentoURLLabel("TEST_perfezionamentoURLLabel")
                 .senderLogoBase64(null);
     }
 
@@ -41,13 +37,6 @@ public class TemplatesExampleParameters {
                 .notification(notification)
                 .qrCodeQuickAccessLink("TEST_QR")
                 .recipient(recipient)
-                .piattaformaNotificheURL("TEST_piattaformaNotificheURL")
-                .piattaformaNotificheURLLabel("TEST_piattaformaNotificheURLLabel")
-                .perfezionamentoURL("TEST_perfezionamentoURL")
-                .perfezionamentoURLLabel("TEST_perfezionamentoURLLabel")
-                .sendURL("TEST_sendURL")
-                .sendURLLAbel("TEST_sendURLLAbel")
-                .raddPhoneNumber("TEST_raddPhoneNumber")
                 .senderLogoBase64(null);
     }
 }

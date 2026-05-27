@@ -4,5 +4,5 @@
   "it_hello":"Ciao",
   "it_body1":"Per confermare questo indirizzo PEC come domicilio digitale di piattaforma che SEND user&agrave; come indirizzo principale per l&#39;invio di notifiche, inserisci su SEND - Servizio Notifiche Digitali il codice",
   "it_signature":"A presto",
-  "it_footer":"Ricevi questa comunicazione perch&eacute; hai inserito il tuo indirizzo PEC come recapito legale di SEND. Per modificare i recapiti o aggiungerne altri, <a title=\"Continua su Piattaforma Notifiche\" class=\"link\" <#if recipientType == \"PF\">href=\"https://cittadini.notifichedigitali.it/recapiti\"<#else>href=\"https://imprese.notifichedigitali.it/recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">vai ai tuoi recapiti</a>."
+  "it_footer":"Ricevi questa comunicazione perch&eacute; hai inserito il tuo indirizzo PEC come recapito legale di SEND. Per modificare i recapiti o aggiungerne altri, <a title=\"Continua su Piattaforma Notifiche\" class=\"link\" <#if recipientType == \"PF\">href=\"${ENV.sendLoginUrlPF}recapiti\"<#else>href=\"${ENV.sendLoginUrlPG}recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">vai ai tuoi recapiti</a>."
 }

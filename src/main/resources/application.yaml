@@ -14,6 +14,17 @@ pn:
 
 templatesPath: "generated-templates-assets/templates"
 defaultLanguage: IT
+templatesStaticParams:
+  sendLoginUrlPF: "https://cittadini.notifichedigitali.it/"
+  sendLoginLabelPF: "cittadini.notifichedigitali.it"
+  sendLoginUrlPG: "https://imprese.notifichedigitali.it/"
+  sendLoginLabelPG: "imprese.notifichedigitali.it"
+  perfezionamentoUrl: "https://notifichedigitali.it/perfezionamento"
+  perfezionamentoLabel: "notifichedigitali.it/perfezionamento"
+  landingSendUrl: "https://www.notifichedigitali.it/"
+  landingSendLabel: "notifichedigitali.it"
+  raddPhoneNumber: "06.9318.95.55"
+  faqSendUrl: "https://www.notifichedigitali.it/faq#send-cosa-e"
 templates:
   notificationReceivedLegalFact:
     input:

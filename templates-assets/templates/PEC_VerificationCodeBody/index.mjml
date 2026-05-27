@@ -47,7 +47,11 @@
                 margin: 0;
               "
             >
-              SEND - <% if (noIta) { %><%-subject%> &bull; <% } %><%-it_subject%>
+              SEND - <% if (noIta) { %>
+            <span lang="<%-language%>"><%-subject%></span>
+            <span aria-hidden="true"> &bull; </span>
+            <% } %>
+            <%-it_subject%>
             </h1>
           </mj-text>
 
@@ -62,7 +66,11 @@
             padding-top="0px"
           >
             <p style="margin-top: 0px; padding-bottom: 0; padding-top: 16px">
-              <% if (noIta) { %><span><%-hello%> &bull; </span><% } %><%-it_hello%>,
+              <% if (noIta) { %>
+              <span lang="<%-language%>"><%-hello%></span>
+              <span aria-hidden="true"> &bull; </span>
+              <% } %>
+              <%-it_hello%>,
             </p>
             <% if (noIta) { %><p
               style="
@@ -71,6 +79,7 @@
                 mso-line-height-rule: exactly;
                 line-height: 28px;
               "
+              lang="<%-language%>"
             >
               <%-body1%>
             </p><% } %>
@@ -95,7 +104,11 @@
             padding-bottom="0px"
           >
             <p style="margin-top: 0px; margin-bottom: 14px; padding-bottom: 0px">
-              <% if (noIta) { %><%-signature%> &bull; <% } %><%-it_signature%>,
+              <% if (noIta) { %>
+              <span lang="<%-language%>"><%-signature%></span>
+              <span aria-hidden="true"> &bull; </span>
+              <% } %>
+              <%-it_signature%>,
             </p>
             <p style="margin: 0px; padding: 0px">SEND - Servizio Notifiche Digitali</p>
           </mj-text>
@@ -113,7 +126,7 @@
             color="#17324D"
           >
           <% if (noIta) { %>
-            <p style="margin-top: 0px; font-size: 14px">
+            <p style="margin-top: 0px; font-size: 14px" lang="<%-language%>">
               <%-footer%>
             </p>
             <% } %>
