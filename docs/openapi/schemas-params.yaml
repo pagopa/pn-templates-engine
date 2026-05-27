@@ -713,14 +713,28 @@ components:
     IndexFacsimile:
       type: object
       required:
-        - templates
+        - notificationAarPageNumber
+        - notificationAarRaddPageNumber
+        - notificationReceivedLegalFactPageNumber
+        - pecDeliveryWorkflowLegalFactSuccessPageNumber
+        - pecDeliveryWorkflowLegalFactFailurePageNumber
+        - notificationViewedLegalFactPageNumber
+        - notificationCancelledLegalFactPageNumber
+        - analogDeliveryWorkflowFailureLegalFactPageNumber
       properties:
-        templates:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              pageNumber:
-                type: string
+        notificationAarPageNumber:
+          type: string
+        notificationAarRaddPageNumber:
+          type: string
+        notificationReceivedLegalFactPageNumber:
+          type: string
+        pecDeliveryWorkflowLegalFactSuccessPageNumber:
+          type: string
+        pecDeliveryWorkflowLegalFactFailurePageNumber:
+          type: string
+        notificationViewedLegalFactPageNumber:
+          type: string
+        notificationCancelledLegalFactPageNumber:
+          type: string
+        analogDeliveryWorkflowFailureLegalFactPageNumber:
+          type: string

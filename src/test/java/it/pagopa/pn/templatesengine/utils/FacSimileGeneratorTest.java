@@ -21,13 +21,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.service.TemplateService;
 import reactor.core.publisher.Mono;
-import reactor.util.function.Tuple2;
-import reactor.util.function.Tuples;
 
 import static it.pagopa.pn.templatesengine.config.TemplatesEnum.*;
 import static it.pagopa.pn.templatesengine.utils.QrCodeUtils.getQrCodeQuickAccessUrlAarDetail;
 
-@SpringBootTest
+/**
+ * Represents a template entry with its enum, a unique key for the index, and the model object.
+ */
+record TemplateEntry(TemplatesEnum template, String key, Object model) {}
+
+@SpringBootTest(properties = {"templatesStaticParams.facSimileMode=true"})
 public class FacSimileGeneratorTest {
     private static final String TEST_DIR_NAME = "target" + File.separator + "generated-test-documents" + File.separator + "fac-simile";
     private static final Path TEST_DIR_PATH = Paths.get(TEST_DIR_NAME);
@@ -48,34 +51,35 @@ public class FacSimileGeneratorTest {
         LanguageEnum[] langs = {LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR};
 
         // Build the list of PDF templates (without the index)
-        List<Tuple2<TemplatesEnum, Object>> templateModelList = buildTemplateModelList();
+        List<TemplateEntry> templateEntries = buildTemplateEntries();
 
         for (LanguageEnum lang : langs) {
             List<byte[]> pdfDocuments = new ArrayList<>();
             List<String> generatedNames = new ArrayList<>();
 
             // 1. Generate all content PDFs
-            for (Tuple2<TemplatesEnum, Object> entry : templateModelList) {
-                Object model = entry.getT2();
-                TemplatesEnum template = entry.getT1();
-
+            for (TemplateEntry entry : templateEntries) {
                 try {
-                    byte[] pdfBytes = templateService.executePdfTemplate(template, lang, Mono.just(model)).block();
+                    byte[] pdfBytes = templateService.executePdfTemplate(entry.template(), lang, Mono.just(entry.model())).block();
                     if (pdfBytes != null && pdfBytes.length > 0) {
                         pdfDocuments.add(pdfBytes);
-                        generatedNames.add(template.getTemplate());
-                        System.out.println("Generated " + template.getTemplate() + " for language " + lang.getValue());
+                        generatedNames.add(entry.key());
+                        System.out.println("Generated " + entry.key() + " for language " + lang.getValue());
                     }
                 } catch (Exception e) {
-                    System.err.println("Skipping template " + template.getTemplate() + " for language " + lang.getValue() + ": " + e.getMessage());
+                    System.err.println("Skipping template " + entry.key() + " for language " + lang.getValue() + ": " + e.getMessage());
                 }
             }
 
             if (!pdfDocuments.isEmpty()) {
-                // 2. Build the index model with document names and page numbers
-                IndexFacsimile indexModel = buildIndexFromGeneratedPdfs(pdfDocuments, generatedNames);
+                // 2. Generate a preliminary index to determine its page count
+                IndexFacsimile preliminaryIndex = buildIndexModel(pdfDocuments, generatedNames, 1);
+                byte[] preliminaryIndexPdf = templateService.executePdfTemplate(INDEX_FACSIMILE, lang, Mono.just(preliminaryIndex)).block();
+                int indexPageCount = (preliminaryIndexPdf != null && preliminaryIndexPdf.length > 0)
+                        ? countPages(preliminaryIndexPdf) : 1;
 
-                // 3. Generate the index PDF
+                // 3. Rebuild the index with correct page offset
+                IndexFacsimile indexModel = buildIndexModel(pdfDocuments, generatedNames, indexPageCount);
                 byte[] indexPdf = templateService.executePdfTemplate(INDEX_FACSIMILE, lang, Mono.just(indexModel)).block();
 
                 // 4. Prepend index to all documents
@@ -93,20 +97,25 @@ public class FacSimileGeneratorTest {
         }
     }
 
-    private IndexFacsimile buildIndexFromGeneratedPdfs(List<byte[]> pdfDocuments, List<String> names) throws IOException {
-        List<IndexFacsimileTemplatesInner> indexEntries = new ArrayList<>();
-        // Page 1 is the index itself, so content starts at page 2
-        int currentPage = 2;
+    private IndexFacsimile buildIndexModel(List<byte[]> pdfDocuments, List<String> names, int indexPageCount) throws IOException {
+        Map<String, String> pageNumberMap = new LinkedHashMap<>();
+        int currentPage = indexPageCount + 1;
 
         for (int i = 0; i < pdfDocuments.size(); i++) {
             int pageCount = countPages(pdfDocuments.get(i));
-            indexEntries.add(new IndexFacsimileTemplatesInner()
-                    .name(names.get(i))
-                    .pageNumber(String.valueOf(currentPage)));
+            pageNumberMap.put(names.get(i), String.valueOf(currentPage));
             currentPage += pageCount;
         }
 
-        return new IndexFacsimile().templates(indexEntries);
+        return new IndexFacsimile()
+                .notificationAarPageNumber(pageNumberMap.getOrDefault("notificationAar", "0"))
+                .notificationAarRaddPageNumber(pageNumberMap.getOrDefault("notificationAarRaddAlt", "0"))
+                .notificationReceivedLegalFactPageNumber(pageNumberMap.getOrDefault("notificationReceivedLegalFact", "0"))
+                .pecDeliveryWorkflowLegalFactSuccessPageNumber(pageNumberMap.getOrDefault("pecDeliveryWorkflowLegalFact_success", "0"))
+                .pecDeliveryWorkflowLegalFactFailurePageNumber(pageNumberMap.getOrDefault("pecDeliveryWorkflowLegalFact_failure", "0"))
+                .notificationViewedLegalFactPageNumber(pageNumberMap.getOrDefault("notificationViewedLegalFact", "0"))
+                .notificationCancelledLegalFactPageNumber(pageNumberMap.getOrDefault("notificationCancelledLegalFact", "0"))
+                .analogDeliveryWorkflowFailureLegalFactPageNumber(pageNumberMap.getOrDefault("analogDeliveryWorkflowFailureLegalFact", "0"));
     }
 
     private int countPages(byte[] pdfBytes) throws IOException {
@@ -115,19 +124,17 @@ public class FacSimileGeneratorTest {
         }
     }
 
-    private List<Tuple2<TemplatesEnum, Object>> buildTemplateModelList() {
-        List<Tuple2<TemplatesEnum, Object>> list = new ArrayList<>();
-
-        list.add(Tuples.of(NOTIFICATION_AAR, buildNotificationAar()));
-        list.add(Tuples.of(NOTIFICATION_AAR_RADDALT, buildNotificationAarRaddAlt()));
-        list.add(Tuples.of(NOTIFICATION_RECEIVED_LEGAL_FACT, buildNotificationReceivedLegalFact()));
-        list.add(Tuples.of(PEC_DELIVERY_WORKFLOW_LEGAL_FACT, buildPecDeliveryWorkflowLegalFactSuccess()));
-        list.add(Tuples.of(PEC_DELIVERY_WORKFLOW_LEGAL_FACT, buildPecDeliveryWorkflowLegalFactFailure()));
-        list.add(Tuples.of(NOTIFICATION_VIEWED_LEGAL_FACT, buildNotificationViewedLegalFact()));
-        list.add(Tuples.of(NOTIFICATION_CANCELLED_LEGAL_FACT, buildNotificationCancelledLegalFact()));
-        list.add(Tuples.of(ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT, buildAnalogDeliveryWorkflowFailureLegalFact()));
-
-        return list;
+    private List<TemplateEntry> buildTemplateEntries() {
+        return List.of(
+                new TemplateEntry(NOTIFICATION_AAR, "notificationAar", buildNotificationAar()),
+                new TemplateEntry(NOTIFICATION_AAR_RADDALT, "notificationAarRaddAlt", buildNotificationAarRaddAlt()),
+                new TemplateEntry(NOTIFICATION_RECEIVED_LEGAL_FACT, "notificationReceivedLegalFact", buildNotificationReceivedLegalFact()),
+                new TemplateEntry(PEC_DELIVERY_WORKFLOW_LEGAL_FACT, "pecDeliveryWorkflowLegalFact_success", buildPecDeliveryWorkflowLegalFactSuccess()),
+                new TemplateEntry(PEC_DELIVERY_WORKFLOW_LEGAL_FACT, "pecDeliveryWorkflowLegalFact_failure", buildPecDeliveryWorkflowLegalFactFailure()),
+                new TemplateEntry(NOTIFICATION_VIEWED_LEGAL_FACT, "notificationViewedLegalFact", buildNotificationViewedLegalFact()),
+                new TemplateEntry(NOTIFICATION_CANCELLED_LEGAL_FACT, "notificationCancelledLegalFact", buildNotificationCancelledLegalFact()),
+                new TemplateEntry(ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT, "analogDeliveryWorkflowFailureLegalFact", buildAnalogDeliveryWorkflowFailureLegalFact())
+        );
     }
 
     private byte[] mergePdfs(List<byte[]> pdfDocuments) throws IOException {
