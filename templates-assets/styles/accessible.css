@@ -231,3 +231,7 @@ a.faq-link-perfezionamento {
 .border-bottom {
     border-bottom: 1px solid #000000;
 }
+
+.no-decoration {
+    text-decoration: none;
+}
