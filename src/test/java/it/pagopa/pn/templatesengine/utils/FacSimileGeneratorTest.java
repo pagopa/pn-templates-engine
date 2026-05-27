@@ -176,7 +176,7 @@ public class FacSimileGeneratorTest {
         return new PecDeliveryWorkflowLegalFact()
                 .iun("AAAA-AAAA-AAAA-000000-A-0")
                 .endWorkflowDate("GG/MM/AAAA")
-                .endWorkflowStatus("TEST_endWorkflowStatus")
+                .endWorkflowStatus("SUCCESS")
                 .deliveries(Collections.singletonList(delivery));
     }
     private Object buildPecDeliveryWorkflowLegalFactFailure() {
@@ -191,7 +191,7 @@ public class FacSimileGeneratorTest {
         return new PecDeliveryWorkflowLegalFact()
                 .iun("AAAA-AAAA-AAAA-000000-A-0")
                 .endWorkflowDate("GG/MM/AAAA")
-                .endWorkflowStatus("TEST_endWorkflowStatus")
+                .endWorkflowStatus("FAILURE")
                 .deliveries(Collections.singletonList(delivery));
     }
 
