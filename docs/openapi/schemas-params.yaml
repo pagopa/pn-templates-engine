@@ -148,22 +148,10 @@ components:
       type: object
       required:
         - qrCodeQuickAccessLink
-        - piattaformaNotificheURL
-        - piattaformaNotificheURLLabel
-        - perfezionamentoURL
-        - perfezionamentoURLLabel
         - notification
         - recipient
       properties:
         qrCodeQuickAccessLink:
-          type: string
-        piattaformaNotificheURL:
-          type: string
-        piattaformaNotificheURLLabel:
-          type: string
-        perfezionamentoURL:
-          type: string
-        perfezionamentoURLLabel:
           type: string
         notification:
           title: AarNotification
@@ -222,31 +210,10 @@ components:
       type: object
       required:
         - qrCodeQuickAccessLink
-        - sendURL
-        - sendURLLAbel
-        - raddPhoneNumber
-        - piattaformaNotificheURL
-        - piattaformaNotificheURLLabel
-        - perfezionamentoURL
-        - perfezionamentoURLLabel
         - notification
         - recipient
       properties:
         qrCodeQuickAccessLink:
-          type: string
-        sendURL:
-          type: string
-        sendURLLAbel:
-          type: string
-        raddPhoneNumber:
-          type: string
-        piattaformaNotificheURL:
-          type: string
-        piattaformaNotificheURLLabel:
-          type: string
-        perfezionamentoURL:
-          type: string
-        perfezionamentoURLLabel:
           type: string
         notification:
           title: AarRaddAltNotification
@@ -346,20 +313,11 @@ components:
     NotificationAarForEmailAnalog:
       type: object
       required:
-        - perfezionamentoURL
         - quickAccessLink
-        - pnFaqSendURL
-        - piattaformaNotificheURL
         - notification
         - recipient
       properties:
-        perfezionamentoURL:
-          type: string
         quickAccessLink:
-          type: string
-        pnFaqSendURL:
-          type: string
-        piattaformaNotificheURL:
           type: string
         recipient:
           title: AarForEmailRecipientAnalog
@@ -403,20 +361,11 @@ components:
     NotificationAarForEmailDigital:
       type: object
       required:
-        - perfezionamentoURL
         - quickAccessLink
-        - pnFaqSendURL
-        - piattaformaNotificheURL
         - notification
         - recipient
       properties:
-        perfezionamentoURL:
-          type: string
         quickAccessLink:
-          type: string
-        pnFaqSendURL:
-          type: string
-        piattaformaNotificheURL:
           type: string
         recipient:
           title: AarForEmailRecipientDigital
@@ -484,21 +433,12 @@ components:
     NotificationAarForPec:
       type: object
       required:
-        - perfezionamentoURL
         - quickAccessLink
-        - pnFaqSendURL
-        - piattaformaNotificheURL
         - recipientType
         - notification
         - recipient
       properties:
-        perfezionamentoURL:
-          type: string
         quickAccessLink:
-          type: string
-        pnFaqSendURL:
-          type: string
-        piattaformaNotificheURL:
           type: string
         recipientType:
           type: string
