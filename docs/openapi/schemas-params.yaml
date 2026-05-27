@@ -712,3 +712,15 @@ components:
 
     IndexFacsimile:
       type: object
+      required:
+        - templates
+      properties:
+        templates:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              pageNumber:
+                type: string

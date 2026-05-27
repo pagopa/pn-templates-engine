@@ -9,8 +9,10 @@ import java.nio.file.Paths;
 import java.util.*;
 
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.*;
+import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.io.RandomAccessReadBuffer;
 import org.apache.pdfbox.multipdf.PDFMergerUtility;
+import org.apache.pdfbox.pdmodel.PDDocument;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ import reactor.core.publisher.Mono;
 import reactor.util.function.Tuple2;
 import reactor.util.function.Tuples;
 
+import static it.pagopa.pn.templatesengine.config.TemplatesEnum.*;
 import static it.pagopa.pn.templatesengine.utils.QrCodeUtils.getQrCodeQuickAccessUrlAarDetail;
 
 @SpringBootTest
@@ -44,12 +47,14 @@ public class FacSimileGeneratorTest {
     void generateFacSimilePerLanguage() throws IOException {
         LanguageEnum[] langs = {LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR};
 
-        // Build the map of all PDF templates with their test models
+        // Build the list of PDF templates (without the index)
         List<Tuple2<TemplatesEnum, Object>> templateModelList = buildTemplateModelList();
 
         for (LanguageEnum lang : langs) {
             List<byte[]> pdfDocuments = new ArrayList<>();
+            List<String> generatedNames = new ArrayList<>();
 
+            // 1. Generate all content PDFs
             for (Tuple2<TemplatesEnum, Object> entry : templateModelList) {
                 Object model = entry.getT2();
                 TemplatesEnum template = entry.getT1();
@@ -58,6 +63,7 @@ public class FacSimileGeneratorTest {
                     byte[] pdfBytes = templateService.executePdfTemplate(template, lang, Mono.just(model)).block();
                     if (pdfBytes != null && pdfBytes.length > 0) {
                         pdfDocuments.add(pdfBytes);
+                        generatedNames.add(template.getTemplate());
                         System.out.println("Generated " + template.getTemplate() + " for language " + lang.getValue());
                     }
                 } catch (Exception e) {
@@ -66,25 +72,60 @@ public class FacSimileGeneratorTest {
             }
 
             if (!pdfDocuments.isEmpty()) {
-                byte[] mergedPdf = mergePdfs(pdfDocuments);
+                // 2. Build the index model with document names and page numbers
+                IndexFacsimile indexModel = buildIndexFromGeneratedPdfs(pdfDocuments, generatedNames);
+
+                // 3. Generate the index PDF
+                byte[] indexPdf = templateService.executePdfTemplate(INDEX_FACSIMILE, lang, Mono.just(indexModel)).block();
+
+                // 4. Prepend index to all documents
+                List<byte[]> allDocuments = new ArrayList<>();
+                if (indexPdf != null && indexPdf.length > 0) {
+                    allDocuments.add(indexPdf);
+                }
+                allDocuments.addAll(pdfDocuments);
+
+                byte[] mergedPdf = mergePdfs(allDocuments);
                 Path outputPath = TEST_DIR_PATH.resolve("ALL_" + lang.getValue() + ".pdf");
                 Files.write(outputPath, mergedPdf);
-                System.out.println("Merged " + pdfDocuments.size() + " PDFs for language " + lang.getValue() + " into: " + outputPath);
+                System.out.println("Merged " + allDocuments.size() + " PDFs (including index) for language " + lang.getValue() + " into: " + outputPath);
             }
+        }
+    }
+
+    private IndexFacsimile buildIndexFromGeneratedPdfs(List<byte[]> pdfDocuments, List<String> names) throws IOException {
+        List<IndexFacsimileTemplatesInner> indexEntries = new ArrayList<>();
+        // Page 1 is the index itself, so content starts at page 2
+        int currentPage = 2;
+
+        for (int i = 0; i < pdfDocuments.size(); i++) {
+            int pageCount = countPages(pdfDocuments.get(i));
+            indexEntries.add(new IndexFacsimileTemplatesInner()
+                    .name(names.get(i))
+                    .pageNumber(String.valueOf(currentPage)));
+            currentPage += pageCount;
+        }
+
+        return new IndexFacsimile().templates(indexEntries);
+    }
+
+    private int countPages(byte[] pdfBytes) throws IOException {
+        try (PDDocument document = Loader.loadPDF(new RandomAccessReadBuffer(pdfBytes))) {
+            return document.getNumberOfPages();
         }
     }
 
     private List<Tuple2<TemplatesEnum, Object>> buildTemplateModelList() {
         List<Tuple2<TemplatesEnum, Object>> list = new ArrayList<>();
 
-        list.add(Tuples.of(TemplatesEnum.NOTIFICATION_AAR, buildNotificationAar()));
-        list.add(Tuples.of(TemplatesEnum.NOTIFICATION_AAR_RADDALT, buildNotificationAarRaddAlt()));
-        list.add(Tuples.of(TemplatesEnum.NOTIFICATION_RECEIVED_LEGAL_FACT, buildNotificationReceivedLegalFact()));
-        list.add(Tuples.of(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT, buildPecDeliveryWorkflowLegalFactSuccess()));
-        list.add(Tuples.of(TemplatesEnum.PEC_DELIVERY_WORKFLOW_LEGAL_FACT, buildPecDeliveryWorkflowLegalFactFailure()));
-        list.add(Tuples.of(TemplatesEnum.NOTIFICATION_VIEWED_LEGAL_FACT, buildNotificationViewedLegalFact()));
-        list.add(Tuples.of(TemplatesEnum.NOTIFICATION_CANCELLED_LEGAL_FACT, buildNotificationCancelledLegalFact()));
-        list.add(Tuples.of(TemplatesEnum.ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT, buildAnalogDeliveryWorkflowFailureLegalFact()));
+        list.add(Tuples.of(NOTIFICATION_AAR, buildNotificationAar()));
+        list.add(Tuples.of(NOTIFICATION_AAR_RADDALT, buildNotificationAarRaddAlt()));
+        list.add(Tuples.of(NOTIFICATION_RECEIVED_LEGAL_FACT, buildNotificationReceivedLegalFact()));
+        list.add(Tuples.of(PEC_DELIVERY_WORKFLOW_LEGAL_FACT, buildPecDeliveryWorkflowLegalFactSuccess()));
+        list.add(Tuples.of(PEC_DELIVERY_WORKFLOW_LEGAL_FACT, buildPecDeliveryWorkflowLegalFactFailure()));
+        list.add(Tuples.of(NOTIFICATION_VIEWED_LEGAL_FACT, buildNotificationViewedLegalFact()));
+        list.add(Tuples.of(NOTIFICATION_CANCELLED_LEGAL_FACT, buildNotificationCancelledLegalFact()));
+        list.add(Tuples.of(ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT, buildAnalogDeliveryWorkflowFailureLegalFact()));
 
         return list;
     }
@@ -196,11 +237,7 @@ public class FacSimileGeneratorTest {
         return new NotificationAar()
                 .notification(notification)
                 .qrCodeQuickAccessLink(getQrCodeQuickAccessUrlAarDetail(CITTADINI_NOTIFICHEDIGITALI_IT_AAR_TEST))
-                .recipient(recipient)
-                .piattaformaNotificheURL("cittadini.notifichedigitali.it")
-                .piattaformaNotificheURLLabel("cittadini.notifichedigitali.it")
-                .perfezionamentoURL("notifichedigitali.it/perfezionamento")
-                .perfezionamentoURLLabel("notifichedigitali.it/perfezionamento");
+                .recipient(recipient);
     }
 
     private Object buildNotificationAarRaddAlt() {
@@ -218,13 +255,6 @@ public class FacSimileGeneratorTest {
                 .notification(notification)
                 .qrCodeQuickAccessLink(getQrCodeQuickAccessUrlAarDetail(CITTADINI_NOTIFICHEDIGITALI_IT_AAR_TEST))
                 .recipient(recipient)
-                .piattaformaNotificheURL("cittadini.notifichedigitali.it")
-                .piattaformaNotificheURLLabel("cittadini.notifichedigitali.it")
-                .perfezionamentoURL("notifichedigitali.it/perfezionamento")
-                .perfezionamentoURLLabel("notifichedigitali.it/perfezionamento")
-                .sendURL("notifichedigitali.it")
-                .sendURLLAbel("notifichedigitali.it")
-                .raddPhoneNumber("06.9318.95.55")
                 .senderLogoBase64(null);
     }
 
@@ -238,5 +268,6 @@ public class FacSimileGeneratorTest {
                 .endWorkflowTime("00:00")
                 .recipient(recipient);
     }
+
 
 }
