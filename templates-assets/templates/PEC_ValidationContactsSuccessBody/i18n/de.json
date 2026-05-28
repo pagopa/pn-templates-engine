@@ -1,0 +1,9 @@
+{
+  "language": "de",
+  "subject": "Digitales PEC-Domizil best&#228;tigt",
+  "hello": "Hallo",
+  "body1": "Die PEC-Adresse, die du auf SEND als digitales Plattform-Domizil angegeben hast, <strong>ist best&#228;tigt</strong>.",
+  "body2": "Ab sofort werden wir diese als <strong>Hauptadresse</strong> verwenden, um <#if recipientType == \"PF\">dir Zustellungen zu senden<#else>Zustellungen f&#252;r dein Unternehmen zu senden</#if>. <br />Weitere Informationen findest du in den <a style=\"color: #0073e6; text-decoration: underline\" href=\"https://notifichedigitali.pagopa.it/faq\">FAQs</a>.",
+  "signature": "Bis bald",
+  "footer": "Du erh&#228;ltst diese Mitteilung, weil du deine PEC-Adresse als rechtsg&#252;ltige Adresse f&#252;r SEND eingegeben hast. Um die Adressen zu &#228;ndern oder weitere hinzuzuf&#252;gen, <a title=\"Weiter zur Plattform f&#252;r digitale Zustellungen\" class=\"link\"<#if recipientType == \"PF\">href=\"${ENV.sendLoginUrlPF}recapiti\"<#else>href=\"${ENV.sendLoginUrlPG}recapiti\"</#if>style=\"color: #0073e6; text-decoration: underline\">gehe zu deinen Adressen</a>."
+}

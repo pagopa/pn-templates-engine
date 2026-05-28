@@ -1,0 +1,9 @@
+{
+  "language": "sl",
+  "subject": "Vneseni naslov PEC ni veljaven",
+  "hello": "Pozdravljeni",
+  "body1": "Naslov PEC, ki ste ga vnesli v SEND kot digitalno prebivali&#353;&#269;e platforme, <strong>ni formalno veljaven</strong>.",
+  "body2": "&#268;e &#382;elite prejemati obvestila v digitalni obliki ter prihraniti &#269;as in denar, <a style=\"color: #0073e6; text-decoration: underline\" <#if recipientType == \"PF\">href=\"${ENV.sendLoginUrlPF}recapiti\"<#else>href=\"${ENV.sendLoginUrlPG}recapiti\"</#if>>obi&#353;&#269;ite svoje kontaktne podatke</a> in ponovno vnesite naslov ter se prepri&#269;ajte, da gre za naslov PEC in ne za obi&#269;ajen e-po&#353;tni naslov ter da ni tipkarskih napak.",
+  "signature": "Se vidimo kmalu",
+  "footer":"To sporo&#269;ilo prejema&#353;, ker si ta e-po&#353;tni naslov vnesel kot kontakt za obve&#353;&#269;anje za SEND. &#268;e &#382;eli&#353; spremeniti svoje kontaktne podatke ali dodati nove, <a title=\"Nadaljuj na Piattaforma Notifiche\" class=\"link\" <#if recipientType == \"PF\">href=\"${ENV.sendLoginUrlPF}recapiti\"<#else>href=\"${ENV.sendLoginUrlPG}recapiti\"</#if>style=\"color: #0073e6; text-decoration: underline\">pojdi na svoje kontaktne podatke</a>."
+}

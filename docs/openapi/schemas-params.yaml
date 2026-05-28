@@ -49,7 +49,13 @@ components:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
               format: password #NO EXTERNAL
               type: string
-
+      example:
+        iun: "AAAA-AAAA-AAAA-000000-A-0"
+        endWorkflowDate: "GG/MM/AAAA"
+        endWorkflowTime: "HH:MM"
+        recipient:
+          denomination: "Nome_Cognome"
+          taxId: "AAAAAA00A00A000A"
 
     AnalogDeliveryWorkflowTimeoutLegalFact:
       type: object
@@ -87,7 +93,15 @@ components:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
               format: password #NO EXTERNAL
               type: string
-
+      example:
+        iun: "AAAA-AAAA-AAAA-000000-A-0"
+        endWorkflowDate: "GG/MM/AAAA"
+        endWorkflowTime: "HH:MM"
+        attempt: "1"
+        recipient:
+          denomination: "Nome_Cognome"
+          taxId: "AAAAAA00A00A000A"
+          physicalAddress: "Viale_Esempio_1"
 
     MailVerificationCodeBody:
       type: object
@@ -99,6 +113,9 @@ components:
           type: string
         recipientType:
           type: string
+      example:
+        verificationCode: "TEST"
+        recipientType: "PF"
 
     MalfunctionLegalFact:
       type: object
@@ -120,6 +137,12 @@ components:
         htmlDescription:
           type: string
           description: Description in html format. It must be contained in parent tag <p></p>
+      example:
+        startDate: "GG/MM/AAAA"
+        timeReferenceStartDate: "HH:MM"
+        endDate: "GG/MM/AAAA"
+        timeReferenceEndDate: "HH:MM"
+        htmlDescription: "<p>Lorem ipsum</p>"
 
     NotificationAar:
       type: object
@@ -167,6 +190,21 @@ components:
               type: string
         senderLogoBase64:
           type: string
+      example:
+        qrCodeQuickAccessLink: "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAALQ..."
+        piattaformaNotificheURL: "https://login.notifichedigitali.it/"
+        piattaformaNotificheURLLabel: "login.notifichedigitali.it"
+        perfezionamentoURL: "https://notifichedigitali.it/perfezionamento"
+        perfezionamentoURLLabel: "notifichedigitali.it/perfezionamento"
+        notification:
+          iun: "AAAA-AAAA-AAAA-000000-A-0"
+          subject: "Lorem_Ipsum_Lorem Ipsum_Lorem_Ipsum Lorem_Ipsum_Lorem Lorem_Ipsum_Lorem"
+          sender:
+            paDenomination: "Ente_Mittente"
+        recipient:
+          recipientType: "PF"
+          taxId: "AAAAAA00A00A000A"
+        senderLogoBase64: "TO_BASE64_RESOLVER:https://selcpcheckoutsa.z6.web.core.windows.net/..."
 
     NotificationAarRaddAlt:
       type: object
@@ -221,6 +259,25 @@ components:
               type: string
         senderLogoBase64:
           type: string
+      example:
+        qrCodeQuickAccessLink: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+        sendURL: "https://www.notifichedigitali.it"
+        sendURLLAbel: "notifichedigitali.it"
+        raddPhoneNumber: "06.9318.9500"
+        piattaformaNotificheURL: "https://login.notifichedigitali.it/"
+        piattaformaNotificheURLLabel: "login.notifichedigitali.it"
+        perfezionamentoURL: "https://notifichedigitali.it/perfezionamento"
+        perfezionamentoURLLabel: "notifichedigitali.it/perfezionamento"
+        notification:
+          iun: "AAAA-AAAA-AAAA-000000-A-0"
+          subject: "Lorem_Ipsum_Lorem Ipsum_Lorem_Ipsum Lorem_Ipsum_Lorem Ipsum_Lorem_Ipsum"
+          sender:
+            paDenomination: "Ente_Mittente"
+        recipient:
+          recipientType: "PF"
+          denomination: "Nome_Cognome"
+          taxId: "AAAAAA00A00A000A"
+        senderLogoBase64: "TO_BASE64_RESOLVER:https://selfcare.pagopa.it/logo.png"
 
     NotificationAarForSubject:
       type: object
@@ -247,7 +304,12 @@ components:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                   format: password #NO EXTERNAL
                   type: string
-
+      example:
+        notification:
+          iun: "AAAA-AAAA-AAAA-000000-A-0"
+          sender:
+            paDenomination: "TEST_paDenomination"
+            
     NotificationAarForEmailAnalog:
       type: object
       required:
@@ -284,6 +346,17 @@ components:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                   format: password #NO EXTERNAL
                   type: string
+      example:
+        perfezionamentoURL: "https://www.notifichedigitali.it/perfezionamento/"
+        quickAccessLink: "TEST_quickAccessLink"
+        pnFaqSendURL: "https://www.notifichedigitali.it/it/faq/"
+        piattaformaNotificheURL: "https://cittadini.notifichedigitali.it/auth/login"
+        notification:
+          iun: "111"
+          sender:
+            paDenomination: "Comune di Palermo"
+        recipient:
+          recipientType: "PF"
 
     NotificationAarForEmailDigital:
       type: object
@@ -321,7 +394,18 @@ components:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                   format: password #NO EXTERNAL
                   type: string
-
+      example:
+        perfezionamentoURL: "https://www.notifichedigitali.it/perfezionamento/"
+        quickAccessLink: "TEST_quickAccessLink"
+        pnFaqSendURL: "https://www.notifichedigitali.it/it/faq/"
+        piattaformaNotificheURL: "https://cittadini.notifichedigitali.it/auth/login"
+        notification:
+          iun: "111"
+          sender:
+            paDenomination: "Comune di Palermo"
+        recipient:
+          recipientType: "PF"
+          
     NotificationCceForEmail:
       type: object
       required:
@@ -340,6 +424,11 @@ components:
           type: string
         vrDate:
           type: string
+      example:
+        denomination: "Mario Rossi"
+        ticketDate: "01/01/0001"
+        iun: "AAA-AAAA-AAAA-AAAA"
+        vrDate: "01/01/0001"
 
     NotificationAarForPec:
       type: object
@@ -387,6 +476,19 @@ components:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
               format: password #NO EXTERNAL
               type: string
+      example:
+        perfezionamentoURL: "https://www.notifichedigitali.it/it/perfezionamento/"
+        quickAccessLink: "TEST"
+        pnFaqSendURL: "https://www.notifichedigitali.it/it/faq/"
+        piattaformaNotificheURL: "https://cittadini.notifichedigitali.it/auth/login"
+        recipientType: "PF"
+        notification:
+          iun: "TEST"
+          subject: "Notifica digitale"
+          sender:
+            paDenomination: "Comune di Palermo"
+        recipient:
+          taxId: "LVLDAA85T50G702B"
 
     NotificationAarForSmsAnalog:
       type: object
@@ -421,6 +523,13 @@ components:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                   format: password #NO EXTERNAL
                   type: string
+      example:
+        notification:
+          iun: "TEST"
+          sender:
+            paDenomination: "Comune di Palermo"
+        recipient:
+          recipientType: "PF"
 
     NotificationAarForSmsDigital:
       type: object
@@ -455,6 +564,13 @@ components:
                   x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                   format: password #NO EXTERNAL
                   type: string
+      example:
+        notification:
+          iun: "TEST"
+          sender:
+            paDenomination: "Comune di Palermo"
+        recipient:
+          recipientType: "PF"
 
     NotificationCancelledLegalFact:
       type: object
@@ -502,7 +618,16 @@ components:
                     x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                     format: password #NO EXTERNAL
                     type: string
-
+      example:
+        notificationCancelledDate: "GG/MM/AAAA HH:MM"
+        notification:
+          iun: "AAAA-AAAA-AAAA-000000-A-0"
+          sender:
+            paDenomination: "Ente_Mittente"
+          recipients:
+            - denomination: "Nome_Cognome"
+              taxId: "AAAAAA00A00A000A"
+              
     NotificationReceivedLegalFact:
       type: object
       required:
@@ -576,7 +701,23 @@ components:
                     x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
                     format: password #NO EXTERNAL
                     type: string
-
+      example:
+        sendDate: "GG/MM/AAAA HH:MM"
+        subject: "Lorem_Ipsum_Lorem Ipsum_Lorem_Ipsum"
+        digests:
+          - "910CD898B166E3E3E394584EB0AB1A7D445992D04BADBCA62FAEE9488B4A117A"
+        notification:
+          iun: "AAAA-AAAA-AAAA-000000-A-0"
+          sender:
+            paDenomination: "Ente_Mittente"
+            paTaxId: "00000000000"
+          recipients:
+            - denomination: "Nome_Cognome"
+              taxId: "AAAAAA00A00A000A"
+              physicalAddressAndDenomination: "Viale_Esempio_1"
+              digitalDomicile:
+                address: null
+          
     NotificationViewedLegalFact:
       type: object
       required:
@@ -618,6 +759,15 @@ components:
               x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
               format: password #NO EXTERNAL
               type: string
+      example:
+        iun: "AAAA-AAAA-AAAA-000000-A-0"
+        when: "GG/MM/AAAA HH:MM"
+        recipient:
+          denomination: "Nome_Cognome"
+          taxId: "AAAAAA00A00A000A"
+        delegate:
+          denomination: "Nome_Cognome"
+          taxId: "AAAAAA00A00A000A"
 
     PecValidationContactsBody:
       type: object
@@ -626,6 +776,8 @@ components:
       properties:
         recipientType:
           type: string
+      example:
+        recipientType: "PF"
 
     PecVerificationCodeBody:
       type: object
@@ -637,6 +789,9 @@ components:
           type: string
         recipientType:
           type: string
+      example:
+        verificationCode: "TEST"
+        recipientType: "PF"
 
     PecDeliveryWorkflowLegalFact:
       type: object
@@ -685,6 +840,18 @@ components:
                 type: string
               ok:
                 type: boolean
+      example:
+        iun: "AAAA-AAAA-AAAA-000000-A-0"
+        endWorkflowDate: "GG/MM/AAAA HH:MM"
+        endWorkflowStatus: "FAILED"
+        deliveries:
+          - denomination: "Nome_Cognome"
+            taxId: "AAAAAA00A00A000A"
+            type: "TEST_NO_SERCQ"
+            responseDate: "GG/MM/AAAA HH:MM"
+            ok: true
+            address: "Viale_Esempio_1"
+            addressSource: "PLATFORM"
 
     AnalogFeedbackAvailabilityStatement:
       type: object
@@ -709,3 +876,9 @@ components:
           x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
           format: password #NO EXTERNAL
           type: string
+      example:
+        declarationDate: "GG/MM/AAAA"
+        iun: "AAAA-AAAA-AAAA-000000-A-0"
+        senderDenomination: "Ente_Mittente"
+        registeredLetterCode: "12345678901-2"
+        senderTaxId: "00000000000"

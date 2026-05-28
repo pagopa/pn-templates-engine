@@ -5,7 +5,6 @@
       <mj-all font-family="system-ui, sans-serif" />
     </mj-attributes>
     <mj-raw>
-      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
       <meta name="color-scheme" content="light dark" />
       <meta name="supported-color-schemes" content="light dark" />
       <!-- MSO fallback per compatibilità con Outlook -->
@@ -37,7 +36,7 @@
             line-height="40px"
           >
             <!-- H1 Desktop (from MUI Italia)-->
-            <h1
+             <h1
               style="
                 font-size: 32px;
                 font-weight: 700;
@@ -45,8 +44,12 @@
                 line-height: 40px;
                 margin: 0;
               "
-            >
-              SEND - Domicilio digitale PEC confermato
+            >SEND - 
+            <% if (noIta) { %>
+            <span lang="<%-language%>"><%-subject%></span>
+            <span aria-hidden="true"> &bull; </span>
+            <% } %>
+            <%-it_subject%>
             </h1>
           </mj-text>
 
@@ -60,8 +63,23 @@
             padding-top="0px"
           >
             <p style="margin-top: 0px; padding-bottom: 0; padding-top: 16px">
-              Ciao,
+              <% if (noIta) { %>
+              <span lang="<%-language%>"><%-hello%></span>
+              <span aria-hidden="true"> &bull; </span>
+              <% } %>
+              <%-it_hello%>,
             </p>
+            <%if (noIta) { %>
+            <p
+              style="
+                font-size: 18px;
+                mso-line-height-rule: exactly;
+                line-height: 28px;
+              "
+              lang="<%-language%>"
+            >
+              <%-body1%>
+            </p><% } %>
             <p
               style="
                 font-size: 18px;
@@ -69,9 +87,21 @@
                 line-height: 28px;
               "
             >
-              L&#39;indirizzo PEC che hai indicato su SEND come domicilio digitale di
-              piattaforma <strong>&egrave; confermato</strong>.
+              <%-it_body1%>
             </p>
+            <%if (noIta) { %>
+            <p
+              style="
+                font-size: 18px;
+                mso-line-height-rule: exactly;
+                line-height: 28px;
+                padding-bottom: 0;
+              "
+              lang="<%-language%>"
+            >
+              <%-body2%>
+            </p>
+            <% } %>
             <p
               style="
                 font-size: 18px;
@@ -80,23 +110,48 @@
                 padding-bottom: 0;
               "
             >
-              A partire da questo momento, lo useremo come
-              <strong>indirizzo principale</strong> per <#if recipientType == "PF">inviarti le notifiche<#else>inviare le notifiche della tua impresa</#if>.
-              <br />Per maggiori informazioni,
-              <a
-                style="color: #0073e6; text-decoration: underline"
-                href="https://notifichedigitali.pagopa.it/faq"
-                >leggi le FAQ</a
-              >.
+              <%-it_body2%>
             </p>
           </mj-text>
-
-          <mj-include path="../partials/signature.mjml" />
+          <mj-text
+            css-class="text"
+            font-size="18px"
+            line-height="20px"
+            padding-bottom="0px"
+          >
+            <p style="margin-top: 0px; margin-bottom: 14px; padding-bottom: 0px">
+              <% if (noIta) { %>
+              <span lang="<%-language%>"><%-signature%></span>
+              <span aria-hidden="true"> &bull; </span>
+              <% } %>
+              <%-it_signature%>,
+            </p>
+            <p style="margin: 0px; padding: 0px">SEND - Servizio Notifiche Digitali</p>
+          </mj-text>
         </mj-column>
       </mj-section>
       <!-- Divider e disclaimer-->
       <mj-include path="../partials/divider.mjml" />
-      <mj-include path="../partials/footer-pec-verification.mjml" />
+      <mj-section css-class="section" padding-bottom="16px" padding-top="0px">
+  <mj-column>
+    <mj-text
+      css-class="footer-text"
+      font-size="14px"
+      line-height="20px"
+      color="#17324D"
+    >
+      <% if (noIta) { %>
+      <p style="margin-top: 0px; font-size: 14px" 
+      lang="<%-language%>">
+        <%-footer%>
+      </p>
+      <% } %>
+      <p style="margin-top: 0px; font-size: 14px">
+        <%-it_footer%>
+      </p>
+    </mj-text>
+  </mj-column>
+</mj-section>
     </mj-wrapper>
   </mj-body>
 </mjml>
