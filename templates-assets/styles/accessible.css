@@ -239,3 +239,10 @@ a.faq-link-perfezionamento {
 .text-uppercase {
     text-transform: uppercase;
 }
+
+@font-face {
+    font-family: "Titillium Pro Black";
+    font-style: normal;
+    font-weight: 900;
+    src: url(../fonts/Titillium_Pro/TitilliumSansPro-Black.ttf) format('truetype');
+}
