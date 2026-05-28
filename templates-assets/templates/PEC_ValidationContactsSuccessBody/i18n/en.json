@@ -1,0 +1,9 @@
+{
+  "language": "en",
+  "subject": "PEC digital domicile confirmed",
+  "hello": "Hi",
+  "body1": "The PEC address you specified on SEND as the platform digital domicile <strong>is confirmed</strong>.",
+  "body2": "From now on, we will use it as the <strong>main address</strong> to <#if recipientType == \"PF\">send you notifications<#else>send your company&#39;s notifications</#if>. <br />For more information, <a style=\"color: #0073e6; text-decoration: underline\" href=\"https://notifichedigitali.pagopa.it/faq\">read the FAQs</a>.",
+  "signature": "See you soon",
+  "footer": "You are receiving this communication because you entered your PEC address as a SEND legal address. To change your contact details or add others, <a title=\"Continue to Piattaforma Notifiche\" class=\"link\"<#if recipientType == \"PF\">href=\"${ENV.sendLoginUrlPF}recapiti\"<#else>href=\"${ENV.sendLoginUrlPG}recapiti\"</#if>style=\"color: #0073e6; text-decoration: underline\">go to your contact details</a>."
+}

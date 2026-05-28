@@ -1,0 +1,8 @@
+{
+  "language": "fr",
+  "subject": "Confirme ton adresse e-mail",
+  "hello": "Salut",
+  "body1": "Pour confirmer cette adresse e-mail comme contact num&#xE9;rique afin de recevoir les avis de courtoisie, saisis le code sur SEND - Servizio Notifiche Digitali",
+  "signature": "&#xC0; bient&#xF4;t",
+  "footer": "Tu re&#xE7;ois cette communication car tu as ajout&#xE9; cette adresse e-mail comme contact de courtoisie sur SEND. Pour modifier tes contacts ou en ajouter d&#39;autres, <a title=\"Continuer sur SEND\" class=\"link\"<#if recipientType == \"PF\">href=\"${ENV.sendLoginUrlPF}recapiti\"<#else>href=\"${ENV.sendLoginUrlPG}recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">acc&#232;de &#xE0; tes contacts</a>."
+}

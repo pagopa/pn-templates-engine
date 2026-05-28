@@ -5,7 +5,6 @@
       <mj-all font-family="system-ui, sans-serif" />
     </mj-attributes>
     <mj-raw>
-      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
       <meta name="color-scheme" content="light dark" />
       <meta name="supported-color-schemes" content="light dark" />
       <!-- MSO fallback per compatibilità con Outlook -->
@@ -47,7 +46,11 @@
                 margin: 0;
               "
             >
-              SEND - Conferma la tua PEC
+              SEND - <% if (noIta) { %>
+            <span lang="<%-language%>"><%-subject%></span>
+            <span aria-hidden="true"> &bull; </span>
+            <% } %>
+            <%-it_subject%>
             </h1>
           </mj-text>
 
@@ -62,9 +65,23 @@
             padding-top="0px"
           >
             <p style="margin-top: 0px; padding-bottom: 0; padding-top: 16px">
-              Ciao,
+              <% if (noIta) { %>
+              <span lang="<%-language%>"><%-hello%></span>
+              <span aria-hidden="true"> &bull; </span>
+              <% } %>
+              <%-it_hello%>,
             </p>
-
+            <% if (noIta) { %><p
+              style="
+                margin-top: 0px;
+                font-size: 18px;
+                mso-line-height-rule: exactly;
+                line-height: 28px;
+              "
+              lang="<%-language%>"
+            >
+              <%-body1%>
+            </p><% } %>
             <p
               style="
                 margin-top: 0px;
@@ -73,21 +90,51 @@
                 line-height: 28px;
               "
             >
-              Per confermare questo indirizzo PEC come domicilio digitale di
-              piattaforma che SEND user&agrave; come indirizzo principale per l&#39;invio di
-              notifiche, inserisci su SEND - Servizio Notifiche Digitali il codice
+              <%-it_body1%>
             </p>
             <h5 style="font-size: 28px; line-heigth: 42px; margin-top: 50px">
               ${verificationCode}
             </h5>
           </mj-text>
-          <mj-include path="../partials/signature.mjml" />
+          <mj-text
+            css-class="text"
+            font-size="18px"
+            line-height="20px"
+            padding-bottom="0px"
+          >
+            <p style="margin-top: 0px; margin-bottom: 14px; padding-bottom: 0px">
+              <% if (noIta) { %>
+              <span lang="<%-language%>"><%-signature%></span>
+              <span aria-hidden="true"> &bull; </span>
+              <% } %>
+              <%-it_signature%>,
+            </p>
+            <p style="margin: 0px; padding: 0px">SEND - Servizio Notifiche Digitali</p>
+          </mj-text>
         </mj-column>
       </mj-section>
 
       <!-- Divider e Footer -->
       <mj-include path="../partials/divider.mjml" />
-      <mj-include path="../partials/footer-pec-verification.mjml" />
+      <mj-section css-class="section" padding-bottom="16px" padding-top="0px">
+        <mj-column>
+          <mj-text
+            css-class="footer-text"
+            font-size="14px"
+            line-height="20px"
+            color="#17324D"
+          >
+          <% if (noIta) { %>
+            <p style="margin-top: 0px; font-size: 14px" lang="<%-language%>">
+              <%-footer%>
+            </p>
+            <% } %>
+            <p style="margin-top: 0px; font-size: 14px">
+              <%-it_footer%>
+            </p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
     </mj-wrapper>
   </mj-body>
 </mjml>

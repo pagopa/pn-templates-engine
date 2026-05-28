@@ -1,0 +1,14 @@
+{
+  "language": "en",
+  "subject": "Certificate enforceable against third parties: access occurred",
+  "body1": "Pursuant to Art. 26, paragraph 11, of Decree-Law 76/2020 as amended, PagoPA S.p.A. in its capacity as the statutory manager of the Piattaforma Notifiche Digitali referred to in the same Art. 26 (also known as SEND - Servizio Notifiche Digitali), with full legal value for enforceability against third parties, HEREBY CERTIFIES THAT:",
+  "body2": "the documents relating to the notification identified with IUN <b>${iun}</b> have been managed as follows:",
+  "recipient": "Recipient",
+  "delegate": "Delegate",
+  "denomination": "Name and Surname / Company Name",
+  "fiscalcode": "Fiscal Code",
+  "body3": "on <b>${when}</b> the <#if delegate??> delegate <#else> recipient </#if> accessed the electronic documents subject to notification and associated with the IUN already indicated.",
+  "signature": "Digitally signed by PagoPA S.p.A.",
+  "disclaimer_lang": "The original text of these documents is in Italian. In the event of any conflict between the Italian version and the translations into other languages, the Italian language meaning and conditions shall prevail.",
+  "disclaimer": "The certificate indicates the date on which the recipient (or their delegate) first accessed the document subject to notification via the platform. This date does not necessarily correspond to the notification completion date, which may also be earlier due to the expiry of the time limits. In order to identify the correct notification completion date, the recipient (or their delegate) is invited to check <b><a class=\"faq-link-perfezionamento\" title=\"Link to FAQ page\" href=\"https://notifichedigitali.pagopa.it/faq#perfezionamento-come-posso-sapere\">in this FAQ</a></b> how the completion date must be calculated."
+}
