@@ -235,3 +235,7 @@ a.faq-link-perfezionamento {
 .no-decoration {
     text-decoration: none;
 }
+
+.text-uppercase {
+    text-transform: uppercase;
+}

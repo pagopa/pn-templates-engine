@@ -1,7 +1,7 @@
 <div style="
       font-size: 105px;
       font-weight: 900;
-      color: #FFD1D0;
+      color: #EE0000;
       position: fixed;
       width: 100%;
       top: 128mm;
