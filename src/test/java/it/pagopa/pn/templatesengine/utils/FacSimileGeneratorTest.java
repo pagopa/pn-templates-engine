@@ -48,7 +48,7 @@ public class FacSimileGeneratorTest {
 
     @Test
     void generateFacSimilePerLanguage() throws IOException {
-        LanguageEnum[] langs = {LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR};
+        LanguageEnum[] langs = {LanguageEnum.IT, LanguageEnum.DE, LanguageEnum.SL, LanguageEnum.FR, LanguageEnum.EN};
 
         // Build the list of PDF templates (without the index)
         List<TemplateEntry> templateEntries = buildTemplateEntries();
