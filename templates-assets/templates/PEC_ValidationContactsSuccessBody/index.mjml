@@ -5,7 +5,6 @@
       <mj-all font-family="system-ui, sans-serif" />
     </mj-attributes>
     <mj-raw>
-      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
       <meta name="color-scheme" content="light dark" />
       <meta name="supported-color-schemes" content="light dark" />
       <!-- MSO fallback per compatibilità con Outlook -->
