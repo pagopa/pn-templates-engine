@@ -110,6 +110,7 @@ templates:
       DE: "IndexFacsimile/IndexFacsimile_de.html"
       SL: "IndexFacsimile/IndexFacsimile_sl.html"
       FR: "IndexFacsimile/IndexFacsimile_fr.html"
+      EN: "IndexFacsimile/IndexFacsimile_en.html"
   notificationAarForEmailAnalog:
     input:
       IT: "NotificationAARForEMAILAnalog/NotificationAARForEMAILAnalog.html"
