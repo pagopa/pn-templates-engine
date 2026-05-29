@@ -3,7 +3,7 @@ const fs = require("fs-extra");
 const { BASE_SOURCE_DIR, BASE_OUTPUT_DIR } = require("./utils");
 const log = require("./logger");
 
-const LANGUAGES = ["de", "fr", "sl"];
+const LANGUAGES = ["de", "fr", "sl", "en"];
 const templatesDir = path.join(BASE_SOURCE_DIR, "templates");
 
 async function generateTextTemplates() {

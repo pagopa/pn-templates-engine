@@ -1,0 +1,11 @@
+{
+  "language": "en",
+  "subject": "SEND - Documents relating to notification ${iun}",
+  "hello": "Hi ${denomination}",
+  "body1": "On ${ticketDate} you requested to receive, through the SEND - Servizio Notifiche Digitali call center, the documents relating to SEND notification with code ${iun}.",
+  "body2": "Attached to this email, you will find the <b>requested documents</b>.",
+  "body3": "It is important to remember that the sending date of this email does not coincide with the completion date, i.e. the date from which the legal effects of the notified act take effect. For more information on the completion date visit <a title=\"Link to completion page\" class=\"link\" style=\"text-decoration: underline\" href=\"https://notifichedigitali.it/perfezionamento\">https://notifichedigitali.it/perfezionamento</a>",
+  "body4": "The terms for payment - if any - and for any appeals are indicated in the documents.",
+  "greetings": "Best regards",
+  "footer": "You are receiving this email because you provided your contact details to the SEND call center on ${vrDate}."
+}

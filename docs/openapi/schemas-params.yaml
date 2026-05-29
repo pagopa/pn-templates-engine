@@ -9,6 +9,7 @@ components:
         - DE
         - SL
         - FR
+        - EN
       default: IT
     ErrorResponse:
       type: object
@@ -18,7 +19,7 @@ components:
           example: 400
         message:
           type: string
-          example: "Lingua non supportata. Usa uno dei seguenti valori: IT, DE, SL, FR."
+          example: "Lingua non supportata. Usa uno dei seguenti valori: IT, DE, SL, FR, EN."
 
     AnalogDeliveryWorkflowFailureLegalFact:
       type: object

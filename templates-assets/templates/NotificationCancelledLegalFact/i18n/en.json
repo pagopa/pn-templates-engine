@@ -1,0 +1,12 @@
+{
+  "language": "en",
+  "subject": "Declaration of cancellation of notification on the SEND platform",
+  "body1": "With this document, made available to the recipient exclusively on the SEND Platform, it is declared that the notification with IUN <b>${notification.iun}</b>, performed against:",
+  "denomination": "Name and Surname / Company Name",
+  "fiscalcode": "Fiscal Code",
+  "body2": "has been cancelled upon specific request of the Sender <b>${notification.sender.paDenomination}</b> on <b>${notificationCancelledDate}</b>.",
+  "disclaimer1": "The cancellation on SEND that is the subject of this declaration does not necessarily imply that the prerequisite for the notification has ceased to exist or that notifications concerning the same acts performed on channels other than the SEND Platform are likewise cancelled.",
+  "disclaimer2": "For any information on the reasons for the cancellation referred to in this declaration, and on the management of any relative payment if already made prior to the cancellation, the recipient must contact the Sender exclusively.",
+  "signature": "Digitally signed by PagoPA S.p.A.",
+  "disclaimer_lang": "The original text of these documents is in Italian. In the event of any conflict between the Italian version and the translations into other languages, the Italian language meaning and conditions shall prevail."
+}

@@ -1,0 +1,21 @@
+{
+  "language": "en",
+  "subject_success": "Certificate enforceable against third parties: digital notification",
+  "subject_failure": "Certificate enforceable against third parties: digital non-delivery",
+  "body1": "Pursuant to Art. 26, paragraph 11, of Decree-Law 76/2020 as amended, PagoPA S.p.A. in its capacity as the statutory manager of the Piattaforma Notifiche Digitali referred to in the same Art. 26 (also known as SEND - Servizio Notifiche Digitali), with full legal value for enforceability against third parties, HEREBY CERTIFIES THAT:",
+  "body2": "the acts referred to in the notification identified with IUN <b>${iun}</b> have been managed as follows:",
+  "body3_success": "the relevant notice of receipt in electronic format was delivered on <strong>${delivery.responseDate}</strong> to the digital domicile indicated immediately above this date.",
+  "body3_failure": "on <strong>${delivery.responseDate}</strong>, the relevant non-delivery message was received at the digital domicile indicated immediately above this date.",
+  "body4_failure": "On <strong>${endWorkflowDate}</strong>, the platform manager made available the non-delivery notice of the message pursuant to Art. 26, paragraph 6 of Decree-Law 76 of 16 July 2020.",
+  "denomination": "First and Last Name / Company Name",
+  "fiscalcode": "Fiscal Code",
+  "digitaldomicile": "Digital domicile",
+  "digitaldomicile_type": "Digital domicile type",
+  "address": "Physical address",
+  "signature": "Digitally signed by PagoPA S.p.A.",
+  "disclaimer_lang": "The original text of these documents is in Italian. In the event of any conflict between the Italian version and the translations into other languages, the Italian language meaning and conditions shall prevail.",
+  "address_source_platform": "Platform Domicile pursuant to Art. 26, paragraph 5, letter c of Decree-Law 76/2020",
+  "address_source_special": "Domicile elected with the sending Public Administration pursuant to Art. 26, paragraph 5, letter b of Decree-Law 76/2020",
+  "address_source_general": "General domicile entered in public registries pursuant to Art. 26, paragraph 5, letter a of Decree-Law 76/2020",
+  "not_present": "not present"
+}
