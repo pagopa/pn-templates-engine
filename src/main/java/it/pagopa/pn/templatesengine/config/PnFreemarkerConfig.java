@@ -39,6 +39,7 @@ public class PnFreemarkerConfig {
             configuration.setDefaultEncoding("UTF-8");
             configuration.setLogTemplateExceptions(false);
             configuration.setWrapUncheckedExceptions(true);
+            configuration.setLocalizedLookup(false);
 
             // Carica i template come string dal file system
             StringTemplateLoader stringLoader = new StringTemplateLoader();
@@ -51,6 +52,8 @@ public class PnFreemarkerConfig {
                     });
                 }
             });
+
+            stringLoader.getReader("test.ftl", null); // Verifica che il template "test.ftl" sia presente e leggibile, altrimenti solleva un'eccezione
 
             configuration.setTemplateLoader(stringLoader);
             // Configura un ObjectWrapper per gestire i metodi non setter nei model

@@ -45,7 +45,6 @@ public class DocumentCompositionImpl implements DocumentComposition {
     @Override
     public String executeTextTemplate(String templateFile, Object templateModel) {
         String htmlContent = processTemplate(templateFile, templateModel);
-        log.info("Generating HTML, templateFile={}, templateModel={}, htmlContent={}", templateFile, templateModel, htmlContent);
         log.info("Conversion on Text, templateFile={} - COMPLETED", templateFile);
         return htmlContent;
     }
@@ -78,6 +77,8 @@ public class DocumentCompositionImpl implements DocumentComposition {
         log.info("Conversion on Text, templateFile={} - START", templateFile);
         try (StringWriter stringWriter = new StringWriter()) {
             Template template = freemarkerConfig.getTemplate(templateFile);
+            log.info("Template {} loaded successfully", templateFile);
+            log.info("TemplateNae={}, TemplateToString={}", template.getName(), template.toString());
             template.process(templateModel, stringWriter);
             return stringWriter.toString();
         } catch (TemplateException | IOException ex) {
