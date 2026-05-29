@@ -7,6 +7,7 @@
     top: 128mm;
     transform: rotate(-45deg);
     z-index: 0;
-    text-align: center;" title="Fac simile">
+    text-align: center;
+    line-height: 105px;" title="Fac simile">
     <% if (noIta) { %><%-watermark%><br><% } %>  <%-it_watermark%>
 </div>
