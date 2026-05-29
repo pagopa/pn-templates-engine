@@ -53,8 +53,6 @@ public class PnFreemarkerConfig {
                 }
             });
 
-            stringLoader.getReader("test.ftl", null); // Verifica che il template "test.ftl" sia presente e leggibile, altrimenti solleva un'eccezione
-
             configuration.setTemplateLoader(stringLoader);
             // Configura un ObjectWrapper per gestire i metodi non setter nei model
             DefaultObjectWrapperBuilder owb = new DefaultObjectWrapperBuilder(freemarker.template.Configuration.VERSION_2_3_31);
