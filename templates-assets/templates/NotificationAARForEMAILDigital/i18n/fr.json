@@ -1,14 +1,14 @@
 {
   "language": "fr",
-  "subject":"SEND - Nouvelle notification de ${notification.sender.paDenomination} - ${notification.iun}",
-  "hello":"Bonjour",
-  "body1": "<#if recipient.recipientType=='PF'>Tu as<#else>Ton entreprise a</#if> re&#xE7;u sur <#if recipient.recipientType=='PF'>ton<#else>son</#if> domicile num&#xE9;rique une communication ayant valeur l&#xE9;gale de la part de <strong>${notification.sender.paDenomination}</strong> avec le Code IUN ${notification.iun}, acc&egrave;de &#xE0; SEND pour la consulter.",
-  "body2": "Cette communication sera consid&#xE9;r&#xE9;e comme l&#xE9;galement remise <#if recipient.recipientType=='PF'>pour toi</#if> 7 jours&#42; apr&egrave;s la r&#xE9;ception sur <#if recipient.recipientType=='PF'>ton</#if> domicile num&#xE9;rique, m&ecirc;me si tu ne l&#39;ouvres pas ou ne la lis pas.",
-  "button":"Acc&#xE9;der aux documents sur SEND",
-  "perfection": "<#if recipient.recipientType=='PF'>Tu disposes<#else>L&#39;entreprise dispose</#if> de 120 jours &#xE0; compter de la date de remise effective de la communication pour consulter les documents en ligne. Pass&#xE9; ce d&#xE9;lai, ils ne seront plus disponibles sur SEND et <#if recipient.recipientType=='PF'>tu devras t&#39;adresser<#else>elle devra s&#39;adresser</#if> &#xE0; l&#39;entit&#xE9; qui te les a envoy&#xE9;s.",
-  "payment":"Le d&#xE9;lai de paiement, le cas &#xE9;ch&#xE9;ant, et celui pour d&#39;&#xE9;ventuels recours sont indiqu&#xE9;s dans les documents.",
-  "banner": "Grâce au domicile num&#xE9;rique, <#if recipient.recipientType=='PF'>tu ne recevras plus d&#39;avis papier et tu ne devras<#else>elle ne recevra plus d&#39;avis papier et ne devra</#if> plus supporter les frais d&#39;exp&#xE9;dition des lettres recommand&#xE9;es.",
-  "greetings":"&#xC0; bient&#xF4;t",
-  "footnote": "&#42;Si <#if recipient.recipientType=='PF'>tu as<#else>l&#39;entreprise a</#if> re&#xE7;u la communication apr&egrave;s 21h00, les 7 jours courent &#xE0; partir du jour suivant.",
-  "footer": "Tu re&#xE7;ois cette communication parce que tu as ins&#xE9;r&#xE9; <#if recipient.recipientType=='PF'>ton adresse e-mail<#else>l&#39;adresse e-mail de l&#39;entreprise</#if> parmi les adresses de courtoisie de SEND. Pour modifier ou ajouter des adresses, <a title=\"Continuer sur la Plateforme de Notifications\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">va &#xE0; tes adresses</a>."
+  "subject": "SEND - Nouvelle notification de ${notification.sender.paDenomination} - ${notification.iun}",
+  "hello": "Bonjour",
+  "body1": "<#if recipient.recipientType=='PF'>Vous avez<#else>Votre entreprise a</#if> re&#xE7;u sur <#if recipient.recipientType=='PF'>votre<#else>son</#if> domicile num&#xE9;rique une communication &#xE0; valeur juridique de la part de <strong>${notification.sender.paDenomination}</strong> avec le Code IUN ${notification.iun}, acc&#xE9;dez &#xE0; SEND pour la consulter.",
+  "body2": "Cette communication sera consid&#xE9;r&#xE9;e comme l&#xE9;galement d&#xE9;livr&#xE9;e <#if recipient.recipientType=='PF'>&#xE0; vous</#if> 7 jours&#42; apr&#232;s sa r&#xE9;ception sur <#if recipient.recipientType=='PF'>votre</#if> domicile num&#xE9;rique, m&ecirc;me si vous ne l&#39;ouvrez pas ou ne la lisez pas.",
+  "button": "Acc&#xE9;der aux documents sur SEND",
+  "perfection": "<#if recipient.recipientType=='PF'>Vous avez<#else>L&#39;entreprise a</#if> &#xE0; disposition 120 jours &#xE0; compter du moment o&#xF9; la communication est d&#xE9;livr&#xE9;e pour consulter les documents en ligne. Par la suite, ils ne seront plus disponibles sur SEND et <#if recipient.recipientType=='PF'>vous devrez vous adresser<#else>elle devra s&#39;adresser</#if> &#xE0; l&#39;organisme qui <#if recipient.recipientType=='PF'>vous </#if>les a envoy&#xE9;s.",
+  "payment": "Le d&#xE9;lai de paiement, le cas &#xE9;ch&#xE9;ant, et pour d&#39;&#xE9;ventuels recours est indiqu&#xE9; dans les documents.",
+  "banner": "Avec le domicile num&#xE9;rique, <#if recipient.recipientType=='PF'>vous ne recevrez pas d&#39;avis papier et vous n&#39;aurez plus &#xE0;<#else>votre entreprise ne recevra pas d&#39;avis papier et n&#39;aura plus &#xE0;</#if> supporter les frais d&#39;envoi des lettres recommand&#xE9;es.",
+  "greetings": "&#xC0; bient&#xF4;t",
+  "footnote": "&#42;Si <#if recipient.recipientType=='PF'>vous avez<#else>l&#39;entreprise a</#if> re&#xE7;u la communication apr&#232;s 21 heures, les 7 jours courent &#xE0; compter du lendemain.",
+  "footer": "Vous recevez cette communication car vous avez renseign&#xE9; <#if recipient.recipientType=='PF'>votre adresse e-mail<#else>l&#39;adresse e-mail de l&#39;entreprise</#if> parmi les coordonn&#xE9;es de courtoisie de SEND. Pour modifier vos coordonn&#xE9;es ou en ajouter d&#39;autres, <a title=\"Continuer sur la Plateforme de Notification\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">acc&#xE9;dez &#xE0; vos coordonn&#xE9;es</a>."  
 }

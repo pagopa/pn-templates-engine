@@ -1,15 +1,15 @@
 {
   "language": "de",
-  "subject": "SEND - Neue Mitteilung von ${notification.sender.paDenomination} - ${notification.iun}",
+  "subject": "SEND - Neue Benachrichtigung von ${notification.sender.paDenomination} - ${notification.iun}",
   "hello": "Hallo",
-  "body1": "Ein Dokument auf der Plattform f&uuml;r digitale Benachrichtigungen SEND wurde <#if recipientType=='PF'>dir<#else>Ihrem Unternehmen</#if> zugestellt.",
+  "body1": "<#if recipientType=='PF'>Sie haben<#else>Ihr Unternehmen hat</#if> eine Benachrichtigung auf SEND - Servizio Notifiche Digitali erhalten.",
   "sender_label": "Absender",
   "subject_label": "Betreff",
   "iun_label": "IUN-Code",
-  "body2": "Eine Zustellung ist eine <strong>rechtsg&uuml;ltige Mitteilung</strong> die aus einer Empfangsbest&#228;tigung und einem oder mehreren Dokumenten besteht.",
-  "body3": "<#if recipientType=='PF'>Du hast<#else>Das Unternehmen hat</#if> bis zu 120 Tage ab dem <a style=\"color: #0073e6; text-decoration: underline\" href=\"${ENV.perfezionamentoUrl}\" title=\"Datum der Vervollst&#228;ndigung\">Datum der Vervollst&#228;ndigung</a> der Zustellung Zeit, um <strong>auf die Dokumente zuzugreifen</strong>. Die Frist f&uuml;r eine etwaige Zahlung und f&uuml;r die Einlegung von Rechtsmitteln ist in den Dokumenten vermerkt.",
-  "read_more": "Du erh&#228;ltst diese Empfangsbest&#228;tigung in deiner Eigenschaft als <#if recipientType=='PF'>nat&uuml;rliche Person<#else>juristische Person</#if> mit der Steuernummer ${recipient.taxId}. SEND ist ein Tool, das den Versand von Zustellungen durch die &#246;ffentliche Verwaltung sicherer, effizienter und kosteng&uuml;nstiger macht. <a href=\"${ENV.faqSendUrl}\" title=\"Mehr hierzu\">Mehr hierzu</a>",
-  "button": "Zugang zu den Dokumenten auf SEND",
+  "body2": "Eine Benachrichtigung ist eine <strong>rechtliche Mitteilung</strong>, die aus einer Empfangsbest&#228;tigung und einem oder mehreren Dokumenten besteht.",
+  "body3": "<#if recipientType=='PF'>Sie haben<#else>Das Unternehmen hat</#if> bis zu 120 Tage ab dem <a style=\"color: #0073e6; text-decoration: underline\" href=\"${ENV.perfezionamentoUrl}\" title=\"Datum der Finalisierung\">Datum der Finalisierung</a> der Benachrichtigung Zeit, um <strong>auf die Dokumente zuzugreifen</strong>. Die Frist f&#252;r die Zahlung, falls vorgesehen, und f&#252;r eventuelle Anfechtungen ist in den Dokumenten angegeben.",
+  "read_more": "Sie erhalten diese Empfangsbest&#228;tigung als <#if recipientType=='PF'>nat&#252;rliche Person<#else>juristische Person</#if> mit der Steuernummer ${recipient.taxId}. SEND ist ein Tool, das den Versand von Benachrichtigungen durch die &#246;ffentliche Verwaltung sicherer, effizienter und kosteng&#252;nstiger macht. <a href=\"${ENV.faqSendUrl}\" title=\"Mehr erfahren\">Mehr erfahren</a>",
+  "button": "Auf Dokumente &#252;ber SEND zugreifen",
   "greetings": "Bis bald",
-  "footer": "Die ausgebende K&#246;rperschaft kennt diese PEC-Adresse, weil <#if recipientType=='PF'>du<#else>Ihr Unternehmen</#if> sie in deine SEND-Adressen aufgenommen <#if recipientType=='PF'>hast<#else>hat</#if>, weil sie Teil eines der im Kodex der digitalen Verwaltung vorgesehenen Register ist oder weil <#if recipientType=='PF'>du<#else></#if> sie ihr fr&uuml;her mitgeteilt <#if recipientType=='PF'>hast<#else>wurde</#if>. Um Adressen zu bearbeiten oder weitere hinzuzuf&uuml;gen, <a title=\"Weiter auf der Plattform Benachrichtigungen\" class=\"link\" href=\"${ENV[(recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">gehe bitte zu deinen Adressen</a>."
+  "footer": "Die sendende Entit&#228;t kennt diese PEC-Adresse, weil <#if recipientType=='PF'>Sie diese in Ihren Kontaktdaten von SEND hinterlegt haben<#else>das Unternehmen diese in seinen Kontaktdaten von SEND hinterlegt hat</#if>, weil sie Teil eines der im Kodex f&#252;r die digitale Verwaltung vorgesehenen Register ist oder weil sie ihr in der Vergangenheit <#if recipientType=='PF'>von Ihnen mitgeteilt wurde<#else>mitgeteilt wurde</#if>. Um die Kontaktdaten zu &#228;ndern oder andere hinzuzuf&#252;gen, <a title=\"Weiter auf der Benachrichtigungsplattform\" class=\"link\" href=\"${ENV[(recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">gehen Sie zu Ihren Kontaktdaten</a>."
 }

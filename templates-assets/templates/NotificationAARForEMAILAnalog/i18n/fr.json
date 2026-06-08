@@ -1,13 +1,13 @@
 {
   "language": "fr",
-  "subject":"SEND - Nouvelle notification de la part de ${notification.sender.paDenomination} - ${notification.iun}",
-  "hello":"Bonjour",
-  "body1": "<#if recipient.recipientType=='PF'>Tu as<#else>Ton entreprise a</#if> re&#xE7;u une notification sur SEND - Servizio Notifiche Digitali de la part de <strong>${notification.sender.paDenomination}</strong> avec Code IUN ${notification.iun}.",
-  "body2": "<#if recipient.recipientType=='PF'>Tu as<#else>Ton entreprise a</#if> jusqu&#39;&agrave; 120 jours &agrave; partir de la <a href=\"${ENV.perfezionamentoUrl}\" title=\"date de finalisation\">date de finalisation</a> de la notification pour <strong>acc&#xE9;der aux documents</strong>. Le d&#xE9;lai de paiement, s&#39;il est pr&#xE9;vu, et pour d&#39;&eacute;ventuels recours est indiqu&#xE9; dans les documents.",
-  "body3":"Une notification est une <strong> communication &#xE0; valeur l&#xE9;gale </strong> compos&eacute;e d&#39;un avis de r&eacute;ception et d&#39;un ou plusieurs documents.",
-  "perfection":"Si vous n&#39;avez pas d&#39;adresse de courrier &eacute;lectronique certifi&eacute; (PEC) et que vous consultez les documents dans les 5 jours (120 heures) suivant l&#39;envoi du message, vous ne recevrez pas la notification par courrier recommand&eacute;.",
-  "read_more":"SEND est un outil qui rend l&#39;envoi de notifications par l&#39;administration publique plus s&#xFB;r, plus efficace et plus &eacute;conomique. <a href=\"${ENV.faqSendUrl}\" title=\"En savoir plus\">En savoir plus</a>",
-  "button":"Acc&eacute;der aux documents",
-  "greetings":"&#xC0; bient&ocirc;t",
-  "footer": "Tu re&#xE7;ois cette communication parce que tu as saisi <#if recipient.recipientType=='PF'>ton adresse email<#else>l&#39;adresse email de l&#39;entreprise</#if> parmi les adresses de courtoisie de SEND. Pour modifier ou ajouter d&#39;autres adresses, <a title=\"Continuer sur la Plateforme de Notifications\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">va &agrave; tes adresses</a>."
+  "subject": "SEND - Nouvelle notification de ${notification.sender.paDenomination} - ${notification.iun}",
+  "hello": "Bonjour",
+  "body1": "<#if recipient.recipientType=='PF'>Vous avez<#else>Votre entreprise a</#if> re&#xE7;u sur SEND - Servizio Notifiche Digitali une notification de la part de <strong>${notification.sender.paDenomination}</strong> avec le Code IUN ${notification.iun}.",
+  "body2": "<#if recipient.recipientType=='PF'>Vous avez<#else>L&#39;entreprise a</#if> jusqu&#39;&#xE0; 120 jours &#xE0; compter de la <a href=\"${ENV.perfezionamentoUrl}\" title=\"date de finalisation\">date de finalisation</a> de la notification pour <strong>acc&#xE9;der aux documents</strong>. Le d&#xE9;lai de paiement, le cas &#xE9;ch&#xE9;ant, et pour d&#39;&#xE9;ventuels recours est indiqu&#xE9; dans les documents.",
+  "body3": "Une notification est une <strong>communication &#xE0; valeur juridique</strong> compos&#xE9;e d&#39;un avis de r&#xE9;ception et d&#39;un ou plusieurs documents.",
+  "perfection": "Si vous acc&#xE9;dez &#xE0; la communication dans les 5 jours suivant l&#39;envoi de cet e-mail, vous &#xE9;viterez une lettre recommand&#xE9;e papier et les frais &#xE9;ventuels.",
+  "read_more": "SEND est un outil qui rend l&#39;envoi de notifications par l&#39;Administration Publique plus s&#xFB;r, plus efficace et plus &#xE9;conomique. <a href=\"${ENV.faqSendUrl}\" title=\"En savoir plus\">En savoir plus</a>",
+  "button": "Acc&#xE9;der aux documents sur SEND",
+  "greetings": "&#xC0; bient&#xF4;t",
+  "footer": "Vous recevez cette communication car vous avez renseign&#xE9; <#if recipient.recipientType=='PF'>votre adresse e-mail<#else>l&#39;adresse e-mail de l&#39;entreprise</#if> parmi les coordonn&#xE9;es de courtoisie de SEND. Pour modifier vos coordonn&#xE9;es ou en ajouter d&#39;autres, <a title=\"Continuer sur la Plateforme de Notification\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">acc&#xE9;dez &#xE0; vos coordonn&#xE9;es</a>."
 }
