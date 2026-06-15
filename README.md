@@ -128,6 +128,14 @@ npm test
 ```bash
 ./mvnw spring-boot:run
 ```
-## Design of dima Postel
 
+## Helpers
+Put this html in <main> to show lines and dima
 [Design of dima Postel](docs/ms/dima_postel.md)
+
+Put this html replacing <main> opening tag in AAR and AAR RADD alt
+[Design of FACSIMILE in AAR](docs/ms/facsimile-aar.md) 
+
+Put this html in <main> tag of AO3
+[Design of FACSIMILE in AO3](docs/ms/facsimile-ao3.md)
+

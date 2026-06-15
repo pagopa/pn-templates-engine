@@ -113,6 +113,14 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
+    public Mono<ResponseEntity<Resource>> indexFacsimile(
+            LanguageEnum xLanguage,
+            Mono<IndexFacsimile> request,
+            final ServerWebExchange exchange) {
+        return processPdfTemplate(TemplatesEnum.INDEX_FACSIMILE, xLanguage, request);
+    }
+
+    @Override
     public Mono<ResponseEntity<Resource>> analogDeliveryWorkflowTimeoutLegalFact(
             LanguageEnum xLanguage,
             Mono<AnalogDeliveryWorkflowTimeoutLegalFact> request,

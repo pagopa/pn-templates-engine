@@ -883,3 +883,32 @@ components:
         senderDenomination: "Ente_Mittente"
         registeredLetterCode: "12345678901-2"
         senderTaxId: "00000000000"
+
+    IndexFacsimile:
+      type: object
+      required:
+        - notificationAarPageNumber
+        - notificationAarRaddPageNumber
+        - notificationReceivedLegalFactPageNumber
+        - pecDeliveryWorkflowLegalFactSuccessPageNumber
+        - pecDeliveryWorkflowLegalFactFailurePageNumber
+        - notificationViewedLegalFactPageNumber
+        - notificationCancelledLegalFactPageNumber
+        - analogDeliveryWorkflowFailureLegalFactPageNumber
+      properties:
+        notificationAarPageNumber:
+          type: string
+        notificationAarRaddPageNumber:
+          type: string
+        notificationReceivedLegalFactPageNumber:
+          type: string
+        pecDeliveryWorkflowLegalFactSuccessPageNumber:
+          type: string
+        pecDeliveryWorkflowLegalFactFailurePageNumber:
+          type: string
+        notificationViewedLegalFactPageNumber:
+          type: string
+        notificationCancelledLegalFactPageNumber:
+          type: string
+        analogDeliveryWorkflowFailureLegalFactPageNumber:
+          type: string

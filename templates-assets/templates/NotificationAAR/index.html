@@ -19,7 +19,7 @@
     </bookmarks>
 </head>
 
-<body>
+<body id="aar">
     <main>
         <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
         <section id="first-page">
@@ -33,7 +33,8 @@
                                     <p class="six-pt eight-lh font-uppercase"><%-aar_label%> &verbar; <%-it_aar_label%></p>
                                     <p class="font-bold ten-pt">${notification.sender.paDenomination}</p>
                                     <div id="sender_logo">
-                                        <img src="${senderLogoBase64}" alt="Logo di ${notification.sender.paDenomination}">
+                                        <!-- <img src="${senderLogoBase64}" alt="Logo di ${notification.sender.paDenomination}"> -->
+                                        <img src="../../images/placeholder-ente.jpg" alt="Logo di ${notification.sender.paDenomination}">
                                     </div>
                                 </div>
                             <#else>
@@ -106,7 +107,8 @@
                                         <div class="list-box-height_qr_code_box table">
                                             <div class="row">
                                                 <div class="cell vertical-align-bottom qr_code_box">
-                                                    <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" />
+                                                    <!-- <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="${qrCodeQuickAccessLink}" /> -->
+                                                    <img alt="Il codice QR per accedere alla notifica SEND" id="qr-code" src="../../images/placeholder-qrcode.jpg" />
                                                 </div>
                                                 <div class="cell vertical-align-center access_online_box">
                                                     <div class="section-list px-12">

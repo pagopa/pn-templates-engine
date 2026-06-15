@@ -1,5 +1,6 @@
 {
   "it_language": "it",
+  "it_watermark":"FACSIMILE",
   "it_subject": "Dichiarazione annullamento notifica sulla piattaforma SEND",
   "it_body1": "Con il presente documento, reso disponibile al destinatario esclusivamente sulla Piattaforma SEND, si dichiara che la notifica avente IUN <b>${notification.iun}</b>, eseguita nei confronti di:",
   "it_denomination": "Nome e Cognome / Ragione Sociale",
