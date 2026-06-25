@@ -883,3 +883,97 @@ components:
         senderDenomination: "Ente_Mittente"
         registeredLetterCode: "12345678901-2"
         senderTaxId: "00000000000"
+
+    InformalCommunicationBody:
+      type: object
+      required:
+        - primaryContent
+      properties:
+        primaryContent:
+          description: Body in lingua principale.
+          type: string
+        secondaryContent:
+          description: Body in lingua alternativa.
+          type: string
+
+    InformalCommunication:
+      type: object
+      required:
+        - subject
+        - body
+        - sender
+        - recipient
+        - hasAttachment
+        - hasPayment
+      properties:
+        iun:
+          type: string
+        subject:
+          type: string
+        hasAttachment:
+          type: boolean
+          description: "Indica se la comunicazione contiene uno o più allegati"
+        hasPayment:
+          type: boolean
+          description: "Indica se alla comunicazione è associato un avviso di pagamento"
+        body:
+          $ref: '#/components/schemas/InformalCommunicationBody'
+        sender:
+          title: InformalCommunicationSender
+          type: object
+          required:
+            - paDenomination
+          properties:
+            paDenomination:
+              type: string
+              format: password
+        recipient:
+          title: SharedInformalCommunicationRecipient
+          type: object
+          required:
+            - denomination
+            - taxId
+            - recipientType
+            - isIoUser
+          properties:
+            denomination:
+              type: string
+              format: password
+            taxId:
+              type: string
+              format: password
+              description: "Codice Fiscale"
+            recipientType:
+              type: string
+              enum:
+                - PF
+                - PG
+              description: "Tipo di destinatario: Persona Fisica o Persona Giuridica"
+            isIoUser:
+              type: boolean
+              description: "Indica se l'utente è attivo su IO"
+      example:
+        iun: "AAAA-AAAA-AAAA-000000-A-0"
+        subject: "Oggetto"
+        hasAttachment: false
+        hasPayment: true
+        body:
+          primaryContent: "Corpo della comunicazione"
+        sender:
+          paDenomination: "Ente_Mittente"
+        recipient:
+          denomination: "Nome"
+          taxId: "AAAAAA00A00A000A"
+          recipientType: "PF"
+          isIoUser: true
+
+    InformalSmsCommunication:
+      type: object
+      required:
+        - senderPaDenomination
+      properties:
+        senderPaDenomination:
+          format: password
+          type: string
+      example:
+        senderPaDenomination: "Ente_Mittente"
