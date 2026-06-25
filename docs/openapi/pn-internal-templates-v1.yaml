@@ -818,7 +818,7 @@ paths:
           description: Internal Server Error
 
 ### API TO GENERATE INFORMAL COMMUNICATION TEMPLATE ####
-  /templates-engine-private/v1/templates/informal-analog-communication:
+  /templates-engine-private/v1/templates/informal/analog-communication:
     put:
       summary: InformalAnalogCommunication
       description: Genera un documento PDF per il canale anlogico delle comunicazioni bonarie.
@@ -847,7 +847,7 @@ paths:
         '500':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/informal-email-communication:
+  /templates-engine-private/v1/templates/informal/email-communication:
     put:
       summary: InformalEmailCommunication
       description: Genera un documento HTML per il canale Email delle comunicazioni bonarie.
@@ -876,7 +876,7 @@ paths:
         '500':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/informal-pec-communication:
+  /templates-engine-private/v1/templates/informal/pec-communication:
     put:
       summary: InformalPecCommunication
       description: Genera un documento HTML per il canale PEC delle comunicazioni bonarie.
@@ -905,7 +905,7 @@ paths:
         '500':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/informal-io-communication:
+  /templates-engine-private/v1/templates/informal/io-communication:
     put:
       summary: InformalIoCommunication
       description: Genera un documento Markdown per il canale IO delle comunicazioni bonarie.
@@ -934,7 +934,7 @@ paths:
         '500':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/informal-sms-communication:
+  /templates-engine-private/v1/templates/informal/sms-communication:
     put:
       summary: InformalSmsCommunication
       description: Genera un messaggio di testo per il canale SMS delle comunicazioni bonarie.
