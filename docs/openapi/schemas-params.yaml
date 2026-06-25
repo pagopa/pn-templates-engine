@@ -896,88 +896,39 @@ components:
           description: Body in lingua alternativa.
           type: string
 
-    InformalAnalogCommunication:
+    InformalCommunication:
       type: object
       required:
-        - iun
         - subject
         - body
         - sender
         - recipient
+        - hasAttachment
+        - hasPayment
       properties:
         iun:
           type: string
         subject:
           type: string
+        hasAttachment:
+          type: boolean
+          description: "Indica se la comunicazione contiene uno o più allegati"
+        hasPayment:
+          type: boolean
+          description: "Indica se alla comunicazione è associato un avviso di pagamento"
         body:
           $ref: '#/components/schemas/InformalCommunicationBody'
         sender:
-          title: InformalAnalogCommunicationSender
+          title: InformalCommunicationSender
           type: object
           required:
             - paDenomination
           properties:
             paDenomination:
-              format: password
               type: string
+              format: password
         recipient:
-          title: InformalAnalogCommunicationRecipient
-          type: object
-          required:
-            - denomination
-            - taxId
-            - recipientType
-          properties:
-            denomination:
-              format: password
-              type: string
-            taxId:
-              format: password
-              type: string
-            recipientType:
-              type: string
-              enum:
-                - PF
-                - PG
-      example:
-        iun: "AAAA-AAAA-AAAA-000000-A-0"
-        subject: "Oggetto"
-        body:
-          primaryContent: "Corpo della comunicazione"
-          params:
-        sender:
-          paDenomination: "Ente_Mittente"
-        recipient:
-          denomination: "Nome"
-          taxId: "AAAAAA00A00A000A"
-          recipientType: "PF"
-
-    InformalEmailCommunication:
-      type: object
-      required:
-        - iun
-        - subject
-        - body
-        - sender
-        - recipient
-      properties:
-        iun:
-          type: string
-        subject:
-          type: string
-        body:
-          $ref: '#/components/schemas/InformalCommunicationBody'
-        sender:
-          title: InformalEmailCommunicationSender
-          type: object
-          required:
-            - paDenomination
-          properties:
-            paDenomination:
-              format: password
-              type: string
-        recipient:
-          title: InformalEmailCommunicationRecipient
+          title: SharedInformalCommunicationRecipient
           type: object
           required:
             - denomination
@@ -986,24 +937,28 @@ components:
             - isIoUser
           properties:
             denomination:
-              format: password
               type: string
+              format: password
             taxId:
-              format: password
               type: string
+              format: password
+              description: "Codice Fiscale"
             recipientType:
               type: string
               enum:
                 - PF
                 - PG
+              description: "Tipo di destinatario: Persona Fisica o Persona Giuridica"
             isIoUser:
               type: boolean
+              description: "Indica se l'utente è attivo su IO"
       example:
         iun: "AAAA-AAAA-AAAA-000000-A-0"
         subject: "Oggetto"
+        hasAttachment: false
+        hasPayment: true
         body:
           primaryContent: "Corpo della comunicazione"
-          params:
         sender:
           paDenomination: "Ente_Mittente"
         recipient:
@@ -1011,145 +966,14 @@ components:
           taxId: "AAAAAA00A00A000A"
           recipientType: "PF"
           isIoUser: true
-
-    InformalPecCommunication:
-      type: object
-      required:
-        - iun
-        - subject
-        - body
-        - sender
-        - recipient
-      properties:
-        iun:
-          type: string
-        subject:
-          type: string
-        body:
-          $ref: '#/components/schemas/InformalCommunicationBody'
-        sender:
-          title: InformalPecCommunicationSender
-          type: object
-          required:
-            - paDenomination
-          properties:
-            paDenomination:
-              format: password
-              type: string
-        recipient:
-          title: InformalPecCommunicationRecipient
-          type: object
-          required:
-            - denomination
-            - taxId
-            - recipientType
-            - isIoUser
-          properties:
-            denomination:
-              format: password
-              type: string
-            taxId:
-              format: password
-              type: string
-            recipientType:
-              type: string
-              enum:
-                - PF
-                - PG
-            isIoUser:
-              type: boolean
-      example:
-        iun: "AAAA-AAAA-AAAA-000000-A-0"
-        subject: "Oggetto"
-        body:
-          primaryContent: "Corpo della comunicazione"
-          params:
-        sender:
-          paDenomination: "Ente_Mittente"
-        recipient:
-          denomination: "Nome"
-          taxId: "AAAAAA00A00A000A"
-          recipientType: "PF"
-          isIoUser: true
-
-    InformalIoCommunication:
-      type: object
-      required:
-        - subject
-        - body
-        - sender
-        - recipient
-      properties:
-        subject:
-          type: string
-        body:
-          $ref: '#/components/schemas/InformalCommunicationBody'
-        sender:
-          title: InformalIoCommunicationSender
-          type: object
-          required:
-            - paDenomination
-        properties:
-          paDenomination:
-            format: password
-            type: string
-        recipient:
-          title: InformalIoCommunicationRecipient
-          type: object
-          required:
-            - denomination
-          properties:
-            denomination:
-              format: password
-              type: string
-      example:
-        subject: "Oggetto"
-        body:
-          primaryContent: "Corpo della comunicazione"
-          params:
-        sender:
-          paDenomination: "Ente_Mittente"
-        recipient:
-          denomination: "Nome"
 
     InformalSmsCommunication:
       type: object
       required:
-        - paDenomination
-        - recipient
+        - senderPaDenomination
       properties:
-        sender:
-          title: InformalSmsCommunicationSender
-          type: object
-          required:
-            - paDenomination
-            - serviceName
-          properties:
-            paDenomination:
-              format: password
-              type: string
-            serviceName:
-              format: password
-              type: string
-        recipient:
-          title: InformalSmsCommunicationRecipient
-          type: object
-          required:
-            - denomination
-            - recipientType
-          properties:
-            denomination:
-              format: password
-              type: string
-            recipientType:
-              type: string
-              enum:
-                - PF
-                - PG
+        senderPaDenomination:
+          format: password
+          type: string
       example:
-        sender:
-          paDenomination: "Ente_Mittente"
-          serviceName: "Nome_Servizio"
-        recipient:
-          denomination: "Nome_Destinatario"
-          recipientType: "PF"
+        senderPaDenomination: "Ente_Mittente"

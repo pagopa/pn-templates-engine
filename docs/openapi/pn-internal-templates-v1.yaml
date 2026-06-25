@@ -838,7 +838,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/InformalAnalogCommunication'
+              $ref: 'schemas-params.yaml#/components/schemas/InformalCommunication'
       responses:
         '200':
           $ref: 'schemas-responses.yaml#/components/responses/SuccessResponsePDF'
@@ -867,7 +867,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/InformalEmailCommunication'
+              $ref: 'schemas-params.yaml#/components/schemas/InformalCommunication'
       responses:
         '200':
           $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseHTML'
@@ -896,7 +896,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/InformalPecCommunication'
+              $ref: 'schemas-params.yaml#/components/schemas/InformalCommunication'
       responses:
         '200':
           $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseHTML'
@@ -925,7 +925,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas-params.yaml#/components/schemas/InformalIoCommunication'
+              $ref: 'schemas-params.yaml#/components/schemas/InformalCommunication'
       responses:
         '200':
           $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseText'
