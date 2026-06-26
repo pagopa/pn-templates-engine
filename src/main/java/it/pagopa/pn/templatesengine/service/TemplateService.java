@@ -6,10 +6,13 @@ import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.TemplateNotFoundException;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
+import it.pagopa.pn.templatesengine.processor.TemplateProcessorRegistry;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
+import java.util.Map;
+
 
 /**
  * Service per l'esecuzione e la gestione dei template, supportando sia i formati di testo che PDF.
@@ -23,6 +26,7 @@ public class TemplateService {
 
     private final DocumentComposition documentComposition;
     private final TemplateConfig templateConfig;
+    private final TemplateProcessorRegistry processorRegistry;
 
     /**
      * Esegue un template di testo utilizzando `DocumentComposition` e un modello di dati fornito, basandosi sul
@@ -38,7 +42,8 @@ public class TemplateService {
         return objectModel.doOnNext(model -> log.info("Execute TXT for template={},  language={} - START", template, language))
                 .flatMap(model -> {
                     String fileName = getFileName(template, language);
-                    return Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model));
+                    Object processed = executeProcessing(template, model);
+                    return Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model, processed));
                 })
                 .doOnSuccess(result -> log.info("Execute TXT for templateName={}, language={} - COMPLETED", template, language))
                 .doOnError(error -> log.error("Execute TXT for templateName={}, language={} - FAILED", template, language, error));
@@ -58,7 +63,8 @@ public class TemplateService {
         return objectModel.doOnNext(model -> log.info("Execute Pdf for templateName={},  language={} - START", template, language))
                 .flatMap(model -> {
                     String fileName = getFileName(template, language);
-                    return Mono.fromCallable(() -> documentComposition.executePdfTemplate(fileName, model));
+                    Object processed = executeProcessing(template, model);
+                    return Mono.fromCallable(() -> documentComposition.executePdfTemplate(fileName, model, processed));
                 })
                 .doOnSuccess(result -> log.info("Execute Pdf for templateName={}, language={} - COMPLETED", template, language))
                 .doOnError(error -> log.error("Execute Pdf for templateName={}, language={} - FAILED", template, language, error));
@@ -117,5 +123,18 @@ public class TemplateService {
                 ExceptionTypeEnum.TEMPLATE_NOT_FOUND_FOR_LANGUAGE,
                 template,
                 "Template not found: " + template.getTemplate());
+    }
+
+    /**
+     * Istanzia l'oggetto output dalla factory dell'enum, esegue i processori
+     * e restituisce l'oggetto popolato (null se il template non ha processing).
+     */
+    private Object executeProcessing(TemplatesEnum template, Object model) {
+        Object processedModel = template.createProcessedModel();
+        if (processedModel == null) {
+            return null;
+        }
+        processorRegistry.executeProcessors(template, model, processedModel);
+        return processedModel;
     }
 }

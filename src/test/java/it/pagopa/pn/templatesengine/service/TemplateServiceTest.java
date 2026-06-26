@@ -10,11 +10,11 @@ import it.pagopa.pn.templatesengine.exceptions.PnGenericException;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.MailVerificationCodeBody;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.MalfunctionLegalFact;
-import lombok.Getter;
-import lombok.Setter;
+import it.pagopa.pn.templatesengine.processor.TemplateProcessorRegistry;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,13 +32,15 @@ class TemplateServiceTest {
     TemplateConfig templateConfig;
     TemplateService templateService;
     DocumentComposition documentComposition;
+    TemplateProcessorRegistry processorRegistry;
 
     private static final LanguageEnum LANGUAGE = LanguageEnum.IT;
 
     @BeforeEach
     public void setup() {
+        processorRegistry = new TemplateProcessorRegistry();
         documentComposition = new DocumentCompositionImpl(freemarkerConfig, templateConfig);
-        templateService = new TemplateService(documentComposition, templateConfig);
+        templateService = new TemplateService(documentComposition, templateConfig, processorRegistry);
     }
 
     @Test
@@ -96,11 +98,12 @@ class TemplateServiceTest {
     void executePdfTemplate_ShouldFailWhenDocumentCompositionThrowsException() {
         // Arrange
         documentComposition = Mockito.mock(DocumentComposition.class);
-        templateService = new TemplateService(documentComposition, templateConfig);
+        processorRegistry = Mockito.mock(TemplateProcessorRegistry.class);
+        templateService = new TemplateService(documentComposition, templateConfig, processorRegistry);
         MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
-        Mockito.when(documentComposition.executePdfTemplate(Mockito.anyString(), Mockito.any()))
+        Mockito.when(documentComposition.executePdfTemplate(Mockito.anyString(), Mockito.any(), ArgumentMatchers.isNull()))
                 .thenThrow(new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION,
                         "Non è stato possibile elaborare il pdf", HttpStatus.INTERNAL_SERVER_ERROR));
 
@@ -114,17 +117,20 @@ class TemplateServiceTest {
                                 throwable.getMessage().contains("Non è stato possibile elaborare il pdf")
                 )
                 .verify();
+
+        Mockito.verify(documentComposition).executePdfTemplate(Mockito.anyString(), Mockito.eq(emailbody), ArgumentMatchers.isNull());
     }
 
     @Test
     void executeTxtTemplate_EmptyResult() {
         // Arrange
         documentComposition = Mockito.mock(DocumentComposition.class);
-        templateService = new TemplateService(documentComposition, templateConfig);
+        processorRegistry = Mockito.mock(TemplateProcessorRegistry.class);
+        templateService = new TemplateService(documentComposition, templateConfig, processorRegistry);
         MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
-        Mockito.when(documentComposition.executeTextTemplate(Mockito.anyString(), Mockito.any()))
+        Mockito.when(documentComposition.executeTextTemplate(Mockito.anyString(), Mockito.any(), ArgumentMatchers.isNull()))
                 .thenThrow(new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION,
                         "Non è stato possibile elaborare il template", HttpStatus.INTERNAL_SERVER_ERROR));
 
@@ -139,11 +145,50 @@ class TemplateServiceTest {
                         && ((PnGenericException) throwable).getExceptionType().equals(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION)
                 )
                 .verify();
+
+        Mockito.verify(documentComposition).executeTextTemplate(Mockito.anyString(), Mockito.eq(emailbody), ArgumentMatchers.isNull());
     }
 
-    @Getter
-    @Setter
-    public static class TestModel {
-        public String name;
+    @Test
+    void executeTextTemplate_ShouldForwardNullProcessedParams() {
+        // Arrange
+        documentComposition = Mockito.mock(DocumentComposition.class);
+        processorRegistry = Mockito.mock(TemplateProcessorRegistry.class);
+        templateService = new TemplateService(documentComposition, templateConfig, processorRegistry);
+        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
+        emailbody.setVerificationCode("VerificationCode");
+
+        Mockito.when(documentComposition.executeTextTemplate(Mockito.anyString(), Mockito.any(), ArgumentMatchers.isNull()))
+                .thenReturn("OK");
+
+        // Act + Assert
+        StepVerifier.create(templateService.executeTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE, Mono.just(emailbody)))
+                .expectNext("OK")
+                .verifyComplete();
+
+        Mockito.verify(documentComposition).executeTextTemplate(Mockito.anyString(), Mockito.eq(emailbody), ArgumentMatchers.isNull());
+        Mockito.verifyNoInteractions(processorRegistry);
+    }
+
+    @Test
+    void executePdfTemplate_ShouldNotInvokeProcessorRegistryWhenTemplateHasNoProcessedModel() {
+        // Arrange
+        documentComposition = Mockito.mock(DocumentComposition.class);
+        processorRegistry = Mockito.mock(TemplateProcessorRegistry.class);
+        templateService = new TemplateService(documentComposition, templateConfig, processorRegistry);
+        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
+        emailbody.setVerificationCode("VerificationCode");
+        byte[] expectedPdf = "PDF".getBytes();
+
+        Mockito.when(documentComposition.executePdfTemplate(Mockito.anyString(), Mockito.any(), ArgumentMatchers.isNull()))
+                .thenReturn(expectedPdf);
+
+        // Act + Assert
+        StepVerifier.create(templateService.executePdfTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE, Mono.just(emailbody)))
+                .assertNext(actualPdf -> Assertions.assertArrayEquals(expectedPdf, actualPdf))
+                .verifyComplete();
+
+        Mockito.verify(documentComposition).executePdfTemplate(Mockito.anyString(), Mockito.eq(emailbody), ArgumentMatchers.isNull());
+        Mockito.verifyNoInteractions(processorRegistry);
     }
 }
