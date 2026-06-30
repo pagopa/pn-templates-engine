@@ -9,7 +9,7 @@ package it.pagopa.pn.templatesengine.processor;
  * associando mapper diversi per estrarre il campo target dal model.</p>
  *
  * @param <M> tipo dell'oggetto su cui il processore opera (es. CommunicationBody)
- * @param <O> tipo dell'oggetto output processato (es. InformalAnalogCommunicationProcessedParams.java)
+ * @param <O> tipo dell'oggetto output processato (es. InformalAnalogCommunicationProcessed.java)
  */
 @FunctionalInterface
 public interface TemplateModelProcessor<M, O> {
