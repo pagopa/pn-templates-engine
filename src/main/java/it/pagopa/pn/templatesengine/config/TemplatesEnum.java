@@ -33,7 +33,7 @@ public enum TemplatesEnum {
     NOTIFICATION_CCE_FOR_EMAIL("notificationCceForEmail"),
     NOTIFICATION_CCE_FOR_SUBJECT("notificationCceForSubject"),
     ANALOG_FEEDBACK_AVAILABILITY_STATEMENT("analogFeedbackAvailabilityStatement");
-    //INFORMAL_ANALOG_COMMUNICATION("informalAnalogCommunication", InformalAnalogCommunicationProcessedParams::new);
+    //INFORMAL_ANALOG_COMMUNICATION("informalAnalogCommunication",InformalCommunicationGeneratedParams::new);
 
     private final String template;
     private final Supplier<?> processedFactory;

@@ -14,6 +14,6 @@ import org.springframework.context.annotation.Configuration;
 public class TemplateProcessorRegistryConfig {
 
     public TemplateProcessorRegistryConfig(TemplateProcessorRegistry registry) {
-
+        //registry.register(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, markdownToHtmlProcessor, InformalCommunicationBody::getBody);
     }
 }
