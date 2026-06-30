@@ -4,7 +4,7 @@ import java.util.Map;
 
 public interface DocumentComposition {
 
-    String executeTextTemplate(String templateFileName, Object model, Map<String, String> processedParams);
+    String executeTextTemplate(String templateFileName, Object model, Object processedParams);
 
-    byte[] executePdfTemplate(String templateFileName, Object model, Map<String, String> processedParams);
+    byte[] executePdfTemplate(String templateFileName, Object model, Object processedParams);
 }

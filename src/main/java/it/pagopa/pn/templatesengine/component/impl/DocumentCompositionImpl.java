@@ -46,7 +46,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
      * @return risultato del template processato
      */
     @Override
-    public String executeTextTemplate(String templateFile, Object templateModel, Map<String, String> processedParams) {
+    public String executeTextTemplate(String templateFile, Object templateModel, Object processedParams) {
         String htmlContent = processTemplate(templateFile, templateModel, processedParams);
         log.info("Conversion on Text, templateFile={} - COMPLETED", templateFile);
         return htmlContent;
@@ -62,7 +62,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
      * @return Un array di byte contenente il PDF generato.
      */
     @Override
-    public byte[] executePdfTemplate(String templateFile, Object templateModel, Map<String, String> processedParams) {
+    public byte[] executePdfTemplate(String templateFile, Object templateModel, Object processedParams) {
         String htmlContent = executeTextTemplate(templateFile, templateModel, processedParams);
         return generatePdf(htmlContent, templateFile);
     }
