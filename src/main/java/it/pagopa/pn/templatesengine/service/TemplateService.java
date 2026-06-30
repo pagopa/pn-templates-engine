@@ -38,7 +38,7 @@ public class TemplateService {
         return objectModel.doOnNext(model -> log.info("Execute TXT for template={},  language={} - START", template, language))
                 .flatMap(model -> {
                     String fileName = getFileName(template, language);
-                    return Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model));
+                    return Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model, null));
                 })
                 .doOnSuccess(result -> log.info("Execute TXT for templateName={}, language={} - COMPLETED", template, language))
                 .doOnError(error -> log.error("Execute TXT for templateName={}, language={} - FAILED", template, language, error));
@@ -58,7 +58,7 @@ public class TemplateService {
         return objectModel.doOnNext(model -> log.info("Execute Pdf for templateName={},  language={} - START", template, language))
                 .flatMap(model -> {
                     String fileName = getFileName(template, language);
-                    return Mono.fromCallable(() -> documentComposition.executePdfTemplate(fileName, model));
+                    return Mono.fromCallable(() -> documentComposition.executePdfTemplate(fileName, model, null));
                 })
                 .doOnSuccess(result -> log.info("Execute Pdf for templateName={}, language={} - COMPLETED", template, language))
                 .doOnError(error -> log.error("Execute Pdf for templateName={}, language={} - FAILED", template, language, error));

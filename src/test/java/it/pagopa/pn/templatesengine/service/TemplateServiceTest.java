@@ -15,6 +15,7 @@ import lombok.Setter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -100,7 +101,7 @@ class TemplateServiceTest {
         MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
-        Mockito.when(documentComposition.executePdfTemplate(Mockito.anyString(), Mockito.any()))
+        Mockito.when(documentComposition.executePdfTemplate(Mockito.anyString(), Mockito.any(), ArgumentMatchers.isNull()))
                 .thenThrow(new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION,
                         "Non è stato possibile elaborare il pdf", HttpStatus.INTERNAL_SERVER_ERROR));
 
@@ -114,6 +115,8 @@ class TemplateServiceTest {
                                 throwable.getMessage().contains("Non è stato possibile elaborare il pdf")
                 )
                 .verify();
+
+        Mockito.verify(documentComposition).executePdfTemplate(Mockito.anyString(), Mockito.eq(emailbody), ArgumentMatchers.isNull());
     }
 
     @Test
@@ -124,7 +127,7 @@ class TemplateServiceTest {
         MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
-        Mockito.when(documentComposition.executeTextTemplate(Mockito.anyString(), Mockito.any()))
+        Mockito.when(documentComposition.executeTextTemplate(Mockito.anyString(), Mockito.any(), ArgumentMatchers.isNull()))
                 .thenThrow(new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION,
                         "Non è stato possibile elaborare il template", HttpStatus.INTERNAL_SERVER_ERROR));
 
@@ -139,6 +142,27 @@ class TemplateServiceTest {
                         && ((PnGenericException) throwable).getExceptionType().equals(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION)
                 )
                 .verify();
+
+        Mockito.verify(documentComposition).executeTextTemplate(Mockito.anyString(), Mockito.eq(emailbody), ArgumentMatchers.isNull());
+    }
+
+    @Test
+    void executeTextTemplate_ShouldForwardNullProcessedParams() {
+        // Arrange
+        documentComposition = Mockito.mock(DocumentComposition.class);
+        templateService = new TemplateService(documentComposition, templateConfig);
+        MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
+        emailbody.setVerificationCode("VerificationCode");
+
+        Mockito.when(documentComposition.executeTextTemplate(Mockito.anyString(), Mockito.any(), ArgumentMatchers.isNull()))
+                .thenReturn("OK");
+
+        // Act + Assert
+        StepVerifier.create(templateService.executeTextTemplate(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, LANGUAGE, Mono.just(emailbody)))
+                .expectNext("OK")
+                .verifyComplete();
+
+        Mockito.verify(documentComposition).executeTextTemplate(Mockito.anyString(), Mockito.eq(emailbody), ArgumentMatchers.isNull());
     }
 
     @Getter
