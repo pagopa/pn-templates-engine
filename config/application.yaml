@@ -9,6 +9,7 @@ pn:
   templates-engine:
     parameterStoreCacheTTL: 10m
     urlResolverTimeout: 5s
+    senderLogoUrlTemplate: "https://selcpcheckoutsa.z6.web.core.windows.net/institutions/<PA_ID>/logo.png"
 
 # AWS specific configurations
 aws:
@@ -211,3 +212,10 @@ templates:
   analogFeedbackAvailabilityStatement:
     input:
       IT: "AnalogFeedbackAvailabilityStatement/AnalogFeedbackAvailabilityStatement.html"
+  informalAnalogCommunication:
+    resolvers:
+      senderLogoBase64:
+        enabled: true
+        bypassAllWithNull: false
+        returnNullOnError: true
+        whitelistEnabled: false

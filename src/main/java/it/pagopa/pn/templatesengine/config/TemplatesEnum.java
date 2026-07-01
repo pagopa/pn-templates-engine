@@ -1,7 +1,6 @@
 package it.pagopa.pn.templatesengine.config;
 
 import lombok.Getter;
-import java.util.function.Supplier;
 
 @Getter
 public enum TemplatesEnum {
@@ -32,27 +31,12 @@ public enum TemplatesEnum {
     PEC_VALIDATION_CONTACTS_SUCCESS_SUBJECT("pecValidationContactsSuccessSubject"),
     NOTIFICATION_CCE_FOR_EMAIL("notificationCceForEmail"),
     NOTIFICATION_CCE_FOR_SUBJECT("notificationCceForSubject"),
-    ANALOG_FEEDBACK_AVAILABILITY_STATEMENT("analogFeedbackAvailabilityStatement");
-    //INFORMAL_ANALOG_COMMUNICATION("informalAnalogCommunication",InformalCommunicationGeneratedParams::new);
+    ANALOG_FEEDBACK_AVAILABILITY_STATEMENT("analogFeedbackAvailabilityStatement"),
+    INFORMAL_ANALOG_COMMUNICATION("informalAnalogCommunication");
 
     private final String template;
-    private final Supplier<?> processedFactory;
 
     TemplatesEnum(String template) {
-        this(template, null);
-    }
-
-    TemplatesEnum(String template, Supplier<?> processedFactory) {
         this.template = template;
-        this.processedFactory = processedFactory;
-    }
-
-    /**
-     * Crea una nuova istanza dell'oggetto output processato.
-     *
-     * @return l'istanza, o null se il template non ha processing
-     */
-    public Object createProcessedModel() {
-        return processedFactory != null ? processedFactory.get() : null;
     }
 }
