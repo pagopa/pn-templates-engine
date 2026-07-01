@@ -4,68 +4,54 @@ import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
-import java.util.function.Function;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Supplier;
 
 /**
- * Registry che associa ogni template (TemplatesEnum) a una lista ordinata di processori.
- * Ogni entry contiene un processore e un mapper per estrarre dal model l'oggetto target.
+ * Registry che associa ogni template (TemplatesEnum) a una {@link TemplateProcessorChain} tipizzata.
  *
- * <p>I processori vengono eseguiti in sequenza nell'ordine di registrazione,
- * operando sull'oggetto estratto dal mapper e popolando l'output tipizzato (PROCESSED).</p>
+ * <p>Ogni chain contiene la factory per creare l'oggetto output e la lista ordinata di processori.
+ * L'esecuzione è completamente type-safe: nessun cast esplicito né {@code @SuppressWarnings}.</p>
  */
 @Slf4j
 @Component
 public class TemplateProcessorRegistry {
-    private final Map<TemplatesEnum, List<ProcessorEntry<?, ?, ?>>> registry = new HashMap<>();
+
+    private final Map<TemplatesEnum, TemplateProcessorChain<?, ?>> chains = new HashMap<>();
+
     /**
-     * Registra un processore per un template specifico, con un mapper per estrarre
-     * il campo target dal model.
+     * Registra una nuova chain per il template specificato.
      *
-     * @param template  il template a cui associare il processore
-     * @param processor il processore da eseguire
-     * @param mapper    funzione che estrae l'oggetto target dal model
-     * @param <MODEL>   tipo del model completo
-     * @param <M>       tipo dell'oggetto target su cui opera il processore
-     * @param <O>       tipo dell'oggetto output processato
+     * @param template      il template a cui associare la chain
+     * @param modelClass    la classe del model in input
+     * @param outputFactory supplier che crea una nuova istanza dell'oggetto output
+     * @param <MODEL>       tipo del model in input
+     * @param <O>           tipo dell'oggetto output generato
+     * @return la chain appena creata, per registrazioni fluenti con {@link TemplateProcessorChain#add}
      */
-    public <MODEL, M, O> void register(TemplatesEnum template,
-                                       TemplateModelProcessor<M, O> processor,
-                                       Function<MODEL, M> mapper) {
-        registry.computeIfAbsent(template, k -> new ArrayList<>())
-                .add(new ProcessorEntry<>(processor, mapper));
-        log.info("Registered processor {} for template {}", processor.getClass().getSimpleName(), template);
+    public <MODEL, O> TemplateProcessorChain<MODEL, O> registerChain(TemplatesEnum template,
+                                                                     Class<MODEL> modelClass,
+                                                                     Supplier<O> outputFactory) {
+        var chain = new TemplateProcessorChain<>(modelClass, outputFactory);
+        chains.put(template, chain);
+        log.info("Registered processor chain for template {}", template);
+        return chain;
     }
+
     /**
-     * Esegue tutti i processori registrati per il template.
-     * Ogni processore riceve l'oggetto estratto dal model e l'oggetto output da popolare.
+     * Esegue la chain registrata per il template: crea l'output, esegue i processori
+     * e restituisce l'oggetto output popolato.
      *
-     * @param template       il template in fase di elaborazione
-     * @param model          il model in input
-     * @param processedModel l'oggetto output tipizzato da popolare (PROCESSED)
-     * @param <MODEL>        tipo del model completo
-     * @param <O>            tipo dell'oggetto output processato
+     * @param template il template in fase di elaborazione
+     * @param model    il model in input
+     * @return l'oggetto output popolato, oppure {@code null} se nessuna chain è registrata
      */
-    @SuppressWarnings("unchecked")
-    public <MODEL, O> void executeProcessors(TemplatesEnum template, MODEL model, O processedModel) {
-        List<ProcessorEntry<?, ?, ?>> entries = registry.getOrDefault(template, Collections.emptyList());
-        for (ProcessorEntry<?, ?, ?> entry : entries) {
-            ((ProcessorEntry<MODEL, ?, O>) entry).execute(model, processedModel);
+    public Object executeProcessors(TemplatesEnum template, Object model) {
+        TemplateProcessorChain<?, ?> chain = chains.get(template);
+        if (chain == null) {
+            return null;
         }
-    }
-    /**
-     * Entry interna che associa un processore al suo mapper.
-     *
-     * @param <MODEL> tipo del model completo
-     * @param <M>     tipo dell'oggetto target estratto dal mapper
-     * @param <O>     tipo dell'oggetto output processato
-     */
-    private record ProcessorEntry<MODEL, M, O>(TemplateModelProcessor<M, O> processor, Function<MODEL, M> mapper) {
-        void execute(MODEL model, O outParams) {
-            M target = mapper.apply(model);
-            if (target != null) {
-                processor.process(target, outParams);
-            }
-        }
+        return chain.execute(model);
     }
 }

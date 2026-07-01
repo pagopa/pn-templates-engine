@@ -895,7 +895,6 @@ components:
         secondaryContent:
           description: Body in lingua alternativa.
           type: string
-
     InformalCommunication:
       type: object
       required:
@@ -923,10 +922,13 @@ components:
           type: object
           required:
             - paDenomination
+            - paId
           properties:
             paDenomination:
               type: string
               format: password
+            paId:
+              type: string
         recipient:
           title: SharedInformalCommunicationRecipient
           type: object
@@ -961,12 +963,12 @@ components:
           primaryContent: "Corpo della comunicazione"
         sender:
           paDenomination: "Ente_Mittente"
+          paId: "Ente_Mittente_Id"
         recipient:
           denomination: "Nome"
           taxId: "AAAAAA00A00A000A"
           recipientType: "PF"
           isIoUser: true
-
     InformalSmsCommunication:
       type: object
       required:
