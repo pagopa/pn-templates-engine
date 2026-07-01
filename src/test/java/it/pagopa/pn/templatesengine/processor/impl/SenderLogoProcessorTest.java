@@ -3,7 +3,7 @@ package it.pagopa.pn.templatesengine.processor.impl;
 import it.pagopa.pn.templatesengine.config.PnTemplatesEngineConfig;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.config.TemplatesParamsEnum;
-import it.pagopa.pn.templatesengine.model.params.InformalAnalogCommunicationGeneratedParams;
+import it.pagopa.pn.templatesengine.model.InformalAnalogCommunicationGeneratedParams;
 import it.pagopa.pn.templatesengine.resolver.TemplateValueResolver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,7 +21,7 @@ import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class InformalSenderLogoProcessorTest {
+class SenderLogoProcessorTest {
 
 	@Mock
 	private TemplateValueResolver templateValueResolver;
@@ -29,11 +29,11 @@ class InformalSenderLogoProcessorTest {
 	@Mock
 	private PnTemplatesEngineConfig pnTemplatesEngineConfig;
 
-	private InformalSenderLogoProcessor processor;
+	private SenderLogoProcessor processor;
 
 	@BeforeEach
 	void setUp() {
-		processor = new InformalSenderLogoProcessor(templateValueResolver, pnTemplatesEngineConfig);
+		processor = new SenderLogoProcessor(templateValueResolver, pnTemplatesEngineConfig);
 	}
 
 	@Test
@@ -53,7 +53,7 @@ class InformalSenderLogoProcessorTest {
 
 		InformalAnalogCommunicationGeneratedParams outParams = new InformalAnalogCommunicationGeneratedParams();
 
-		processor.process(paId, outParams);
+		processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, paId, outParams);
 
 		assertEquals(expectedBase64, outParams.getSenderLogoBase64());
 		verify(templateValueResolver).resolve(
@@ -67,7 +67,7 @@ class InformalSenderLogoProcessorTest {
 	void process_ShouldSetSenderLogoBase64ToNullWhenPaIdIsBlank() {
 		InformalAnalogCommunicationGeneratedParams outParams = new InformalAnalogCommunicationGeneratedParams();
 
-		processor.process("   ", outParams);
+		processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION,"   ", outParams);
 
 		assertNull(outParams.getSenderLogoBase64());
 		verifyNoInteractions(templateValueResolver);
@@ -89,7 +89,7 @@ class InformalSenderLogoProcessorTest {
 
 		InformalAnalogCommunicationGeneratedParams outParams = new InformalAnalogCommunicationGeneratedParams();
 
-		processor.process(paId, outParams);
+		processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, paId, outParams);
 
 		assertNull(outParams.getSenderLogoBase64());
 		verify(templateValueResolver).resolve(
@@ -105,7 +105,7 @@ class InformalSenderLogoProcessorTest {
 
 		InformalAnalogCommunicationGeneratedParams outParams = new InformalAnalogCommunicationGeneratedParams();
 
-		processor.process("9a7c1b23-46a3-489b-8ed4-398ffb32b45a", outParams);
+		processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, "9a7c1b23-46a3-489b-8ed4-398ffb32b45a", outParams);
 
 		assertNull(outParams.getSenderLogoBase64());
 		verifyNoInteractions(templateValueResolver);

@@ -12,6 +12,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verifyNoInteractions;
@@ -39,18 +42,18 @@ class TemplateProcessorRegistryTest {
     void executeProcessors_ShouldRunRegisteredProcessorsInOrder() {
         // Arrange
         doAnswer(invocation -> {
-            String target = invocation.getArgument(0);
-            StringBuilder out = invocation.getArgument(1);
+            String target = invocation.getArgument(1);
+            StringBuilder out = invocation.getArgument(2);
             out.append(target.toUpperCase());
             return null;
-        }).when(firstProcessor).process(org.mockito.ArgumentMatchers.anyString(), org.mockito.ArgumentMatchers.any(StringBuilder.class));
+        }).when(firstProcessor).process(any(TemplatesEnum.class), anyString(), any(StringBuilder.class));
 
         doAnswer(invocation -> {
-            String target = invocation.getArgument(0);
-            StringBuilder out = invocation.getArgument(1);
+            String target = invocation.getArgument(1);
+            StringBuilder out = invocation.getArgument(2);
             out.append("-").append(target.length());
             return null;
-        }).when(secondProcessor).process(org.mockito.ArgumentMatchers.anyString(), org.mockito.ArgumentMatchers.any(StringBuilder.class));
+        }).when(secondProcessor).process(any(TemplatesEnum.class), anyString(), any(StringBuilder.class));
 
         registry.registerChain(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, TestModel.class, StringBuilder::new)
                 .add(firstProcessor, TestModel::value)
@@ -63,8 +66,8 @@ class TemplateProcessorRegistryTest {
         assertEquals("CIAO-4", out.toString());
 
         InOrder inOrder = inOrder(firstProcessor, secondProcessor);
-        inOrder.verify(firstProcessor).process("ciao", out);
-        inOrder.verify(secondProcessor).process("ciao", out);
+        inOrder.verify(firstProcessor).process(eq(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY), eq("ciao"), eq(out));
+        inOrder.verify(secondProcessor).process(eq(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY), eq("ciao"), eq(out));
     }
 
     @Test

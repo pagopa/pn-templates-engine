@@ -1,10 +1,11 @@
 package it.pagopa.pn.templatesengine.processor;
 
+import it.pagopa.pn.templatesengine.config.TemplateProcessorRegistryConfig;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunication;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunicationSender;
-import it.pagopa.pn.templatesengine.model.params.InformalAnalogCommunicationGeneratedParams;
-import it.pagopa.pn.templatesengine.processor.impl.InformalSenderLogoProcessor;
+import it.pagopa.pn.templatesengine.model.InformalAnalogCommunicationGeneratedParams;
+import it.pagopa.pn.templatesengine.processor.impl.SenderLogoProcessor;
 import it.pagopa.pn.templatesengine.processor.impl.MarkdownToHtmlProcessor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,7 @@ class TemplateProcessorRegistryConfigTest {
     private MarkdownToHtmlProcessor markdownToHtmlProcessor;
 
     @Mock
-    private InformalSenderLogoProcessor informalSenderLogoProcessor;
+    private SenderLogoProcessor senderLogoProcessor;
 
     private TemplateProcessorRegistry registry;
     private TemplateProcessorRegistryConfig registryConfig;
@@ -33,7 +34,7 @@ class TemplateProcessorRegistryConfigTest {
         registryConfig = new TemplateProcessorRegistryConfig(
                 registry,
                 markdownToHtmlProcessor,
-                informalSenderLogoProcessor
+                senderLogoProcessor
         );
     }
 

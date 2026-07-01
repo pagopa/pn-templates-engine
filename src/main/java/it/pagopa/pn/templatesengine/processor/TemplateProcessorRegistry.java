@@ -52,6 +52,6 @@ public class TemplateProcessorRegistry {
         if (chain == null) {
             return null;
         }
-        return chain.execute(model);
+        return chain.execute(template, model);
     }
 }

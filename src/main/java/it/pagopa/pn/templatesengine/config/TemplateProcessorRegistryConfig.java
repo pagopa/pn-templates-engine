@@ -1,11 +1,11 @@
-package it.pagopa.pn.templatesengine.processor;
-import it.pagopa.pn.templatesengine.config.TemplatesEnum;
+package it.pagopa.pn.templatesengine.config;
+import it.pagopa.pn.templatesengine.processor.TemplateProcessorRegistry;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunication;
-import it.pagopa.pn.templatesengine.processor.impl.InformalSenderLogoProcessor;
+import it.pagopa.pn.templatesengine.processor.impl.SenderLogoProcessor;
 import it.pagopa.pn.templatesengine.processor.impl.MarkdownToHtmlProcessor;
-import it.pagopa.pn.templatesengine.model.params.InformalAnalogCommunicationGeneratedParams;
+import it.pagopa.pn.templatesengine.model.InformalAnalogCommunicationGeneratedParams;
 import jakarta.annotation.PostConstruct;
 
 
@@ -22,12 +22,12 @@ public class TemplateProcessorRegistryConfig {
 
     private final TemplateProcessorRegistry registry;
     private final MarkdownToHtmlProcessor markdownToHtmlProcessor;
-    private final InformalSenderLogoProcessor informalSenderLogoProcessor;
+    private final SenderLogoProcessor senderLogoProcessor;
 
     @PostConstruct
     public void init() {
         registry.registerChain(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
                 .add(markdownToHtmlProcessor, InformalCommunication::getBody)
-                .add(informalSenderLogoProcessor, model -> model.getSender().getPaId());
+                .add(senderLogoProcessor, model -> model.getSender().getPaId());
     }
 }

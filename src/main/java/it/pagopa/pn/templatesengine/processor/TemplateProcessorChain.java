@@ -1,10 +1,10 @@
 package it.pagopa.pn.templatesengine.processor;
 
+import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -24,7 +24,7 @@ public class TemplateProcessorChain<MODEL, O> {
 
     private final Class<MODEL> modelClass;
     private final Supplier<O> outputFactory;
-    private final List<BiConsumer<MODEL, O>> steps = new ArrayList<>();
+    private final List<Step<MODEL, O>> steps = new ArrayList<>();
 
     public TemplateProcessorChain(Class<MODEL> modelClass, Supplier<O> outputFactory) {
         this.modelClass = modelClass;
@@ -42,10 +42,10 @@ public class TemplateProcessorChain<MODEL, O> {
      */
     public <M> TemplateProcessorChain<MODEL, O> add(TemplateModelProcessor<M, ? super O> processor,
                                                     Function<MODEL, M> mapper) {
-        steps.add((model, output) -> {
+        steps.add((template, model, output) -> {
             M target = mapper.apply(model);
             if (target != null) {
-                processor.process(target, output);
+                processor.process(template, target, output);
             }
         });
         log.info("Added processor {} to chain", processor.getClass().getSimpleName());
@@ -56,15 +56,21 @@ public class TemplateProcessorChain<MODEL, O> {
      * Esegue la chain: crea l'output tramite la factory, esegue tutti gli step in ordine,
      * e restituisce l'output popolato.
      *
-     * @param model il model in input (viene castato in modo sicuro via {@code Class.cast})
+     * @param template il template in fase di elaborazione
+     * @param model    il model in input (viene castato in modo sicuro via {@code Class.cast})
      * @return l'oggetto output popolato dai processori
      */
-    Object execute(Object model) {
+    Object execute(TemplatesEnum template, Object model) {
         MODEL typedModel = modelClass.cast(model);
         O output = outputFactory.get();
-        for (BiConsumer<MODEL, O> step : steps) {
-            step.accept(typedModel, output);
+        for (Step<MODEL, O> step : steps) {
+            step.execute(template, typedModel, output);
         }
         return output;
+    }
+
+    @FunctionalInterface
+    private interface Step<MODEL, O> {
+        void execute(TemplatesEnum template, MODEL model, O output);
     }
 }

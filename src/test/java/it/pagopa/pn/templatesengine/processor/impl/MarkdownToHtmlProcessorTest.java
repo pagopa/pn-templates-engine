@@ -1,7 +1,8 @@
 package it.pagopa.pn.templatesengine.processor.impl;
 
+import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunicationBody;
-import it.pagopa.pn.templatesengine.model.params.InformalCommunicationGeneratedParams;
+import it.pagopa.pn.templatesengine.model.InformalCommunicationGeneratedParams;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,7 +27,7 @@ class MarkdownToHtmlProcessorTest {
                 .secondaryContent("Second *content*");
 
         // Act
-        markdownToHtmlProcessor.process(body, outParams);
+        markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams);
 
         // Assert
         assertEquals("<p>Hello <strong>world</strong></p>\n", outParams.getPrimaryContentHtml());
@@ -39,7 +40,7 @@ class MarkdownToHtmlProcessorTest {
         InformalCommunicationBody body = new InformalCommunicationBody("# Titolo");
 
         // Act
-        markdownToHtmlProcessor.process(body, outParams);
+        markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams);
 
         // Assert
         assertEquals("<h1>Titolo</h1>\n", outParams.getPrimaryContentHtml());
@@ -54,7 +55,7 @@ class MarkdownToHtmlProcessorTest {
         body.setSecondaryContent(null);
 
         // Act
-        markdownToHtmlProcessor.process(body, outParams);
+        markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams);
 
         // Assert
         assertNull(outParams.getPrimaryContentHtml());

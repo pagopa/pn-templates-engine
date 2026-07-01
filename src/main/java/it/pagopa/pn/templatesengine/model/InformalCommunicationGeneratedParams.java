@@ -1,4 +1,4 @@
-package it.pagopa.pn.templatesengine.model.params;
+package it.pagopa.pn.templatesengine.model;
 
 import it.pagopa.pn.templatesengine.processor.impl.MarkdownToHtmlProcessor;
 import lombok.Getter;
