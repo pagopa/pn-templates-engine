@@ -5,6 +5,7 @@ import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunication;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunicationSender;
 import it.pagopa.pn.templatesengine.model.InformalAnalogCommunicationGeneratedParams;
+import it.pagopa.pn.templatesengine.model.InformalCommunicationGeneratedParams;
 import it.pagopa.pn.templatesengine.processor.impl.SenderLogoProcessor;
 import it.pagopa.pn.templatesengine.processor.impl.MarkdownToHtmlProcessor;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,15 +40,24 @@ class TemplateProcessorRegistryConfigTest {
     }
 
     @Test
-    void init_ShouldRegisterInformalAnalogCommunicationChain() {
+    void init_ShouldRegisterInformalCommunicationChains() {
         registryConfig.init();
 
         var model = new InformalCommunication();
         model.setSender(new InformalCommunicationSender().paId("9a7c1b23-46a3-489b-8ed4-398ffb32b45a"));
 
-        Object out = registry.executeProcessors(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, model);
+        for (TemplatesEnum template : new TemplatesEnum[]{
+                TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION
+        }) {
+            Object out = registry.executeProcessors(template, model);
 
-        assertNotNull(out);
-        assertInstanceOf(InformalAnalogCommunicationGeneratedParams.class, out);
+            assertNotNull(out);
+            assertInstanceOf(InformalAnalogCommunicationGeneratedParams.class, out);
+        }
+
+        Object ioOut = registry.executeProcessors(TemplatesEnum.INFORMAL_IO_COMMUNICATION, model);
+
+        assertNotNull(ioOut);
+        assertInstanceOf(InformalCommunicationGeneratedParams.class, ioOut);
     }
 }

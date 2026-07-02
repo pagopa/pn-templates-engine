@@ -252,6 +252,46 @@ public class TemplateApiController implements TemplateApi {
         return processPdfTemplate(TemplatesEnum.ANALOG_FEEDBACK_AVAILABILITY_STATEMENT, xLanguage, request);
     }
 
+    @Override
+    public Mono<ResponseEntity<Resource>> informalAnalogCommunication(
+            LanguageEnum xLanguage,
+            Mono<InformalCommunication> request,
+            final ServerWebExchange exchange) {
+        return processPdfTemplate(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> informalEmailCommunication(
+            LanguageEnum xLanguage,
+            Mono<InformalCommunication> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> informalIoCommunication(
+            LanguageEnum xLanguage,
+            Mono<InformalCommunication> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.INFORMAL_IO_COMMUNICATION, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> informalPecCommunication(
+            LanguageEnum xLanguage,
+            Mono<InformalCommunication> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.INFORMAL_PEC_COMMUNICATION, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> informalSmsCommunication(
+            LanguageEnum xLanguage,
+            Mono<InformalSmsCommunication> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.INFORMAL_SMS_COMMUNICATION, xLanguage, request);
+    }
+
     private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(
             TemplatesEnum template,
             LanguageEnum xLanguage,
