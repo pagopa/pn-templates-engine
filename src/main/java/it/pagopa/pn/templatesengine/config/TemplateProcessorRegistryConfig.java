@@ -31,9 +31,9 @@ public class TemplateProcessorRegistryConfig {
                 .add(markdownToHtmlProcessor, InformalCommunication::getBody)
                 .add(senderLogoProcessor, model -> model.getSender().getPaId());
 
-        registry.registerChain(TemplatesEnum.INFORMAL_IO_COMMUNICATION, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
-                .add(markdownToHtmlProcessor, InformalCommunication::getBody)
-                .add(senderLogoProcessor, model -> model.getSender().getPaId());
+//        registry.registerChain(TemplatesEnum.INFORMAL_IO_COMMUNICATION, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
+//                .add(markdownToHtmlProcessor, InformalCommunication::getBody)
+//                .add(senderLogoProcessor, model -> model.getSender().getPaId());
 
         registry.registerChain(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
                 .add(markdownToHtmlProcessor, InformalCommunication::getBody)

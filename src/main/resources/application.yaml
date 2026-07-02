@@ -212,10 +212,6 @@ templates:
   informalAnalogCommunication:
     input:
       IT: "InformalAnalogCommunication/InformalAnalogCommunication.html"
-#      DE: "InformalAnalogCommunication/InformalAnalogCommunication_de.html"
-#      SL: "InformalAnalogCommunication/InformalAnalogCommunication_sl.html"
-#      FR: "InformalAnalogCommunication/InformalAnalogCommunication_fr.html"
-#      EN: "InformalAnalogCommunication/InformalAnalogCommunication_en.html"
     resolvers:
       senderLogoBase64:
         enabled: true
@@ -225,24 +221,12 @@ templates:
   informalEmailCommunication:
     input:
       IT: "InformalEMAILCommunication/InformalEMAILCommunication.html"
-#      DE: "InformalEMAILCommunication/InformalEMAILCommunication_de.html"
-#      SL: "InformalEMAILCommunication/InformalEMAILCommunication_sl.html"
-#      FR: "InformalEMAILCommunication/InformalEMAILCommunication_de.html"
-#      EN: "InformalEMAILCommunication/InformalEMAILCommunication_en.html"
   informalIoCommunication:
     input:
       IT: "InformalIoCommunication/InformalIoCommunication.md"
-#      DE: "InformalIoCommunication/InformalIoCommunication_de.md"
-#      SL: "InformalIoCommunication/InformalIoCommunication_sl.md"
-#      FR: "InformalIoCommunication/InformalIoCommunication_fr.md"
-#      EN: "InformalIoCommunication/InformalIoCommunication_en.md"
   informalPecCommunication:
     input:
       IT: "InformalPECCommunication/InformalPECCommunication.html"
-#      DE: "InformalAnalogCommunication/InformalAnalogCommunication_de.html"
-#      SL: "InformalAnalogCommunication/InformalAnalogCommunication_sl.html"
-#      FR: "InformalAnalogCommunication/InformalAnalogCommunication_fr.html"
-#      EN: "InformalAnalogCommunication/InformalAnalogCommunication_en.html"
   informalSmsCommunication:
     input:
       IT: "InformalSMSCommunication/InformalSMSCommunication.txt"

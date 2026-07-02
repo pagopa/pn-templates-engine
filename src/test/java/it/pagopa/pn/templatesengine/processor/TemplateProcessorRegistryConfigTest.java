@@ -54,10 +54,5 @@ class TemplateProcessorRegistryConfigTest {
             assertNotNull(out);
             assertInstanceOf(InformalAnalogCommunicationGeneratedParams.class, out);
         }
-
-        Object ioOut = registry.executeProcessors(TemplatesEnum.INFORMAL_IO_COMMUNICATION, model);
-
-        assertNotNull(ioOut);
-        assertInstanceOf(InformalCommunicationGeneratedParams.class, ioOut);
     }
 }
