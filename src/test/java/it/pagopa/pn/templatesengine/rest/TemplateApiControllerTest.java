@@ -55,7 +55,11 @@ public class TemplateApiControllerTest {
     public static final String NOTIFICATION_CCE_FOR_EMAIL = "/templates-engine-private/v1/templates/notification-cce-for-email";
     public static final String ANALOG_FEEDBACK_AVAILABILITY_STATEMENT = "/templates-engine-private/v1/templates/analog-feedback-availability-statement";
     public static final String INFORMAL_ANALOG_COMMUNICATION = "/templates-engine-private/v1/templates/informal/analog-communication";
+    public static final String INFORMAL_EMAIL_COMMUNICATION = "/templates-engine-private/v1/templates/informal/email-communication-body";
+    public static final String INFORMAL_EMAIL_COMMUNICATION_SUBJECT = "/templates-engine-private/v1/templates/informal/email-communication-subject";
     public static final String INFORMAL_IO_COMMUNICATION = "/templates-engine-private/v1/templates/informal/io-communication";
+    public static final String INFORMAL_PEC_COMMUNICATION = "/templates-engine-private/v1/templates/informal/pec-communication-body";
+    public static final String INFORMAL_PEC_COMMUNICATION_SUBJECT = "/templates-engine-private/v1/templates/informal/pec-communication-subject";
 
     @Autowired
     WebTestClient webTestClient;
@@ -281,9 +285,45 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
+                        INFORMAL_EMAIL_COMMUNICATION,
+                        TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY,
+                        new InformalCommunication(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        INFORMAL_EMAIL_COMMUNICATION_SUBJECT,
+                        TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_SUBJECT,
+                        new InformalEmailCommunicationSubject(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
                         INFORMAL_IO_COMMUNICATION,
                         TemplatesEnum.INFORMAL_IO_COMMUNICATION,
                         new InformalCommunication(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        INFORMAL_PEC_COMMUNICATION,
+                        TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY,
+                        new InformalCommunication(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        INFORMAL_PEC_COMMUNICATION_SUBJECT,
+                        TemplatesEnum.INFORMAL_PEC_COMMUNICATION_SUBJECT,
+                        new InformalEmailCommunicationSubject(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.OK,

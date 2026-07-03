@@ -44,7 +44,7 @@ class TemplateProcessorRegistryConfigTest {
         registryConfig.init();
 
         var model = new InformalCommunication();
-        model.setSender(new InformalCommunicationSender().paId("9a7c1b23-46a3-489b-8ed4-398ffb32b45a"));
+        model.setSender(new InformalCommunicationSender().id("9a7c1b23-46a3-489b-8ed4-398ffb32b45a"));
 
         for (TemplatesEnum template : new TemplatesEnum[]{
                 TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION

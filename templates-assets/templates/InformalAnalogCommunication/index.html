@@ -51,9 +51,7 @@
         <bookmark name="Comunicazione inviata tramite SEND" href="#send_box"/>
         <bookmark name="Oggetto della comunicazione" href="#communication-title"/>
         <bookmark name="Contenuto della comunicazione" href="#body-content"/>
-        <#if recipient.isIoUser == false>
         <bookmark name="Scarica l'app IO" href="#io_download"/>
-        </#if>
     </bookmarks>
 </head>
 
@@ -68,7 +66,7 @@
                             <#if GENERATED.senderLogoBase64?? && GENERATED.senderLogoBase64?has_content>
                                 <div class="nine-pt">
                                     <p class="six-pt eight-lh font-uppercase">Comunicazione da parte di</p>
-                                    <p class="font-bold ten-pt">[${sender.paDenomination}]</p>
+                                    <p class="font-bold ten-pt">[${sender.denomination}]</p>
                                     <div id="sender_logo">
                                         <img src="${GENERATED.senderLogoBase64}" alt="Logo di ${sender.paDenomination}">
                                     </div>
@@ -76,7 +74,7 @@
                             <#else>
                                 <div class="nine-pt">
                                     <p class="six-pt eight-lh font-uppercase">Comunicazione da parte di</p>
-                                    <p class="font-bold ten-pt">[${sender.paDenomination}]</p>
+                                    <p class="font-bold ten-pt">[${sender.denomination}]</p>
                                     <div id="empty_logo_subtitle"></div>
                                 </div>
                             </#if>
@@ -115,7 +113,7 @@
                     <div class="row">
                         <div class="cell">
                             <div id="content-section">
-                                <h1 id="communication-title">Hai ricevuto una comunicazione da [${sender.paDenomination}] con oggetto: [${subject}]</h1>
+                                <h1 id="communication-title">Hai ricevuto una comunicazione da [${sender.denomination}] con oggetto: [${subject}]</h1>
 
                                 <p id="greeting">Ciao ${recipient.denomination},</p>
 
@@ -131,7 +129,6 @@
                             </div>
                         </div>
                     </div>
-                    <#if recipient.isIoUser == false>
                     <div class="row">
                         <div class="cell vertical-align-bottom">
                             <div class="blue-border-box radius-8 io-banner" style="margin-top: 20px;">
@@ -149,7 +146,6 @@
                             </div>
                         </div>
                     </div>
-                    </#if>
                 </div>
             </section>
         </section>

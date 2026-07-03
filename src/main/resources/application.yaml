@@ -218,15 +218,21 @@ templates:
         bypassAllWithNull: false
         returnNullOnError: true
         whitelistEnabled: false
-  informalEmailCommunication:
+  informalEmailCommunicationBody:
     input:
-      IT: "InformalEMAILCommunication/InformalEMAILCommunication.html"
+      IT: "InformalEMAILCommunicationBody/InformalEMAILCommunicationBody.html"
+  informalEmailCommunicationSubject:
+    input:
+      IT: "InformalEMAILCommunicationSubject/InformalEMAILCommunicationSubject.txt"
   informalIoCommunication:
     input:
       IT: "InformalIoCommunication/InformalIoCommunication.md"
-  informalPecCommunication:
+  informalPecCommunicationBody:
     input:
-      IT: "InformalPECCommunication/InformalPECCommunication.html"
+      IT: "InformalPECCommunicationBody/InformalPECCommunicationBody.html"
+  informalPecCommunicationSubject:
+    input:
+      IT: "InformalPECCommunicationSubject/InformalPECCommunicationSubject.txt"
   informalSmsCommunication:
     input:
       IT: "InformalSMSCommunication/InformalSMSCommunication.txt"

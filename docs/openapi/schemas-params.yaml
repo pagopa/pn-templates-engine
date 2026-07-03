@@ -898,6 +898,7 @@ components:
     InformalCommunication:
       type: object
       required:
+        - iun
         - subject
         - body
         - sender
@@ -909,25 +910,22 @@ components:
           type: string
         subject:
           type: string
-        hasAttachment:
-          type: boolean
-          description: "Indica se la comunicazione contiene uno o più allegati"
-        hasPayment:
-          type: boolean
-          description: "Indica se alla comunicazione è associato un avviso di pagamento"
         body:
           $ref: '#/components/schemas/InformalCommunicationBody'
         sender:
           title: InformalCommunicationSender
           type: object
           required:
-            - paDenomination
-            - paId
+            - denomination
+            - id
+            - service
           properties:
-            paDenomination:
+            denomination:
               type: string
               format: password
-            paId:
+            id:
+              type: string
+            service:
               type: string
         recipient:
           title: SharedInformalCommunicationRecipient
@@ -936,7 +934,6 @@ components:
             - denomination
             - taxId
             - recipientType
-            - isIoUser
           properties:
             denomination:
               type: string
@@ -951,24 +948,31 @@ components:
                 - PF
                 - PG
               description: "Tipo di destinatario: Persona Fisica o Persona Giuridica"
-            isIoUser:
-              type: boolean
-              description: "Indica se l'utente è attivo su IO"
+        hasAttachment:
+          type: boolean
+          description: "Indica se la comunicazione contiene uno o più allegati"
+        hasPayment:
+          type: boolean
+          description: "Indica se alla comunicazione è associato un avviso di pagamento"
+        checkoutUrl:
+          type: string
+          description: "Url checkout pagamento per PEC ed Email"
       example:
         iun: "AAAA-AAAA-AAAA-000000-A-0"
         subject: "Oggetto"
-        hasAttachment: false
-        hasPayment: true
         body:
           primaryContent: "Corpo della comunicazione"
         sender:
-          paDenomination: "Ente_Mittente"
-          paId: "Ente_Mittente_Id"
+          denomination: "Ente_Mittente"
+          id: "Ente_Mittente_Id"
+          service: "Service"
         recipient:
-          denomination: "Nome"
+          denomination: "Nome Cognome"
           taxId: "AAAAAA00A00A000A"
           recipientType: "PF"
-          isIoUser: true
+        hasAttachment: false
+        hasPayment: true
+        checkoutUrl: "https://test.url"
     InformalSmsCommunication:
       type: object
       required:
@@ -979,3 +983,23 @@ components:
           type: string
       example:
         senderPaDenomination: "Ente_Mittente"
+    InformalEmailCommunicationSubject:
+      type: object
+      required:
+        - senderDenomination
+        - recipientDenomination
+        - subject
+      properties:
+        senderDenomination:
+          format: password
+          type: string
+        recipientDenomination:
+          format: password
+          type: string
+        subject:
+          format: password
+          type: string
+      example:
+        senderDenomination: "Ente_Mittente"
+        recipientDenomination: "Nome Cognome"
+        subject: "Subject"

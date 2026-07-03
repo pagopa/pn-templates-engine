@@ -261,11 +261,19 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<String>> informalEmailCommunication(
+    public Mono<ResponseEntity<String>> informalEmailCommunicationBody(
             LanguageEnum xLanguage,
             Mono<InformalCommunication> request,
             final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION, xLanguage, request);
+        return processTextTemplate(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> informalEmailCommunicationSubject(
+            LanguageEnum xLanguage,
+            Mono<InformalEmailCommunicationSubject> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_SUBJECT, xLanguage, request);
     }
 
     @Override
@@ -277,11 +285,19 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
-    public Mono<ResponseEntity<String>> informalPecCommunication(
+    public Mono<ResponseEntity<String>> informalPecCommunicationBody(
             LanguageEnum xLanguage,
             Mono<InformalCommunication> request,
             final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.INFORMAL_PEC_COMMUNICATION, xLanguage, request);
+        return processTextTemplate(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> informalPecCommunicationSubject(
+            LanguageEnum xLanguage,
+            Mono<InformalEmailCommunicationSubject> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_SUBJECT, xLanguage, request);
     }
 
     @Override

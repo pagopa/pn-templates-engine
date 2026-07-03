@@ -33,9 +33,11 @@ public enum TemplatesEnum {
     NOTIFICATION_CCE_FOR_SUBJECT("notificationCceForSubject"),
     ANALOG_FEEDBACK_AVAILABILITY_STATEMENT("analogFeedbackAvailabilityStatement"),
     INFORMAL_ANALOG_COMMUNICATION("informalAnalogCommunication"),
-    INFORMAL_EMAIL_COMMUNICATION("informalEmailCommunication"),
+    INFORMAL_EMAIL_COMMUNICATION_BODY("informalEmailCommunicationBody"),
+    INFORMAL_EMAIL_COMMUNICATION_SUBJECT("informalEmailCommunicationSubject"),
     INFORMAL_IO_COMMUNICATION("informalIoCommunication"),
-    INFORMAL_PEC_COMMUNICATION("informalPecCommunication"),
+    INFORMAL_PEC_COMMUNICATION_BODY("informalPecCommunicationBody"),
+    INFORMAL_PEC_COMMUNICATION_SUBJECT("informalPecCommunicationSubject"),
     INFORMAL_SMS_COMMUNICATION("informalSmsCommunication");
 
     private final String template;
