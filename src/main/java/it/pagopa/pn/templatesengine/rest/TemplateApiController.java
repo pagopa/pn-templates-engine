@@ -252,6 +252,62 @@ public class TemplateApiController implements TemplateApi {
         return processPdfTemplate(TemplatesEnum.ANALOG_FEEDBACK_AVAILABILITY_STATEMENT, xLanguage, request);
     }
 
+    @Override
+    public Mono<ResponseEntity<Resource>> informalAnalogCommunication(
+            LanguageEnum xLanguage,
+            Mono<InformalCommunication> request,
+            final ServerWebExchange exchange) {
+        return processPdfTemplate(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> informalEmailCommunicationBody(
+            LanguageEnum xLanguage,
+            Mono<InformalCommunication> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> informalEmailCommunicationSubject(
+            LanguageEnum xLanguage,
+            Mono<InformalEmailCommunicationSubject> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_SUBJECT, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> informalIoCommunication(
+            LanguageEnum xLanguage,
+            Mono<InformalCommunication> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.INFORMAL_IO_COMMUNICATION, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> informalPecCommunicationBody(
+            LanguageEnum xLanguage,
+            Mono<InformalCommunication> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> informalPecCommunicationSubject(
+            LanguageEnum xLanguage,
+            Mono<InformalEmailCommunicationSubject> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_SUBJECT, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> informalSmsCommunication(
+            LanguageEnum xLanguage,
+            Mono<InformalSmsCommunication> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.INFORMAL_SMS_COMMUNICATION, xLanguage, request);
+    }
+
     private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(
             TemplatesEnum template,
             LanguageEnum xLanguage,

@@ -210,9 +210,29 @@ templates:
     input:
       IT: "AnalogFeedbackAvailabilityStatement/AnalogFeedbackAvailabilityStatement.html"
   informalAnalogCommunication:
+    input:
+      IT: "InformalAnalogCommunication/InformalAnalogCommunication.html"
     resolvers:
       senderLogoBase64:
         enabled: true
         bypassAllWithNull: false
         returnNullOnError: true
         whitelistEnabled: false
+  informalEmailCommunicationBody:
+    input:
+      IT: "InformalEMAILCommunicationBody/InformalEMAILCommunicationBody.html"
+  informalEmailCommunicationSubject:
+    input:
+      IT: "InformalEMAILCommunicationSubject/InformalEMAILCommunicationSubject.txt"
+  informalIoCommunication:
+    input:
+      IT: "InformalIoCommunication/InformalIoCommunication.md"
+  informalPecCommunicationBody:
+    input:
+      IT: "InformalPECCommunicationBody/InformalPECCommunicationBody.html"
+  informalPecCommunicationSubject:
+    input:
+      IT: "InformalPECCommunicationSubject/InformalPECCommunicationSubject.txt"
+  informalSmsCommunication:
+    input:
+      IT: "InformalSMSCommunication/InformalSMSCommunication.txt"

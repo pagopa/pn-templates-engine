@@ -313,6 +313,20 @@ public class DocumentGeneratorTest {
         generateAndSaveDocument(template, langs, model, FileType.HTML);
     }
 
+    @Test
+    void generate_informalEmailCommunicationBody() {
+        var template = TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY;
+        LanguageEnum[] langs = { LanguageEnum.IT };
+        generateAndSaveDocument(template, langs, getInformalCommunication(), FileType.HTML);
+    }
+
+    @Test
+    void generate_informalPecCommunicationBody() {
+        var template = TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY;
+        LanguageEnum[] langs = { LanguageEnum.IT };
+        generateAndSaveDocument(template, langs, getInformalCommunication(), FileType.HTML);
+    }
+
     /** TXT **/
     @Test
     void generate_notificationAarForSmsAnalog() {
@@ -396,6 +410,51 @@ public class DocumentGeneratorTest {
         var template = TemplatesEnum.PEC_VALIDATION_CONTACTS_REJECT_SUBJECT;
         LanguageEnum[] langs = { LanguageEnum.IT };
         generateAndSaveDocument(template, langs, null, FileType.TXT_NO_INPUT);
+    }
+
+    @Test
+    void generate_informalEmailCommunicationSubject() {
+        var template = TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_SUBJECT;
+        LanguageEnum[] langs = { LanguageEnum.IT };
+        generateAndSaveDocument(template, langs, getInformalCommunicationSubject(), FileType.TXT);
+    }
+
+    @Test
+    void generate_informalPecCommunicationSubject() {
+        var template = TemplatesEnum.INFORMAL_PEC_COMMUNICATION_SUBJECT;
+        LanguageEnum[] langs = { LanguageEnum.IT };
+        generateAndSaveDocument(template, langs, getInformalCommunicationSubject(), FileType.TXT);
+    }
+
+    private InformalCommunication getInformalCommunication() {
+        var body = new InformalCommunicationBody()
+                .primaryContent("Corpo della comunicazione **in markdown**")
+                .secondaryContent("Contenuto secondario");
+        var sender = new InformalCommunicationSender()
+                .denomination("Ente Mittente")
+                .id("")
+                .service("Servizio test");
+        var recipient = new SharedInformalCommunicationRecipient()
+                .denomination("Nome Cognome")
+                .taxId("AAAAAA00A00A000A")
+                .recipientType(SharedInformalCommunicationRecipient.RecipientTypeEnum.PF);
+
+        return new InformalCommunication()
+                .iun("AAAA-AAAA-AAAA-000000-A-0")
+                .subject("Oggetto comunicazione")
+                .body(body)
+                .sender(sender)
+                .recipient(recipient)
+                .hasAttachment(false)
+                .hasPayment(true)
+                .checkoutUrl("https://checkout.example.test");
+    }
+
+    private InformalEmailCommunicationSubject getInformalCommunicationSubject() {
+        return new InformalEmailCommunicationSubject()
+                .senderDenomination("Ente Mittente")
+                .recipientDenomination("Nome Cognome")
+                .subject("Oggetto comunicazione");
     }
 
     private void generateAndSaveDocument(TemplatesEnum template, LanguageEnum[] langs, Object model, FileType ext){
