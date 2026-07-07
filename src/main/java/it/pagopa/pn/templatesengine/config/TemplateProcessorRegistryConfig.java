@@ -26,17 +26,17 @@ public class TemplateProcessorRegistryConfig {
 
     @PostConstruct
     public void init() {
-//        registry.registerChain(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
-//                .add(markdownToHtmlProcessor, InformalCommunication::getBody)
-//                .add(senderLogoProcessor, model -> model.getSender().getId());
-//
-//        registry.registerChain(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
-//                .add(markdownToHtmlProcessor, InformalCommunication::getBody)
-//                .add(senderLogoProcessor, model -> model.getSender().getId());
-//
-//        registry.registerChain(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
-//                .add(markdownToHtmlProcessor, InformalCommunication::getBody)
-//                .add(senderLogoProcessor, model -> model.getSender().getId());
+        registry.registerChain(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
+                .add(markdownToHtmlProcessor, InformalCommunication::getBody)
+                .add(senderLogoProcessor, model -> model.getSender().getId());
+
+        registry.registerChain(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
+                .add(markdownToHtmlProcessor, InformalCommunication::getBody)
+                .add(senderLogoProcessor, model -> model.getSender().getId());
+
+        registry.registerChain(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
+                .add(markdownToHtmlProcessor, InformalCommunication::getBody)
+                .add(senderLogoProcessor, model -> model.getSender().getId());
 
     }
 }

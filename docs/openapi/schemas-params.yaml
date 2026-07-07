@@ -986,3 +986,23 @@ components:
           type: string
       example:
         senderPaDenomination: "Ente_Mittente"
+    InformalEmailCommunicationSubject:
+      type: object
+      required:
+        - senderDenomination
+        - recipientDenomination
+        - subject
+      properties:
+        senderDenomination:
+          format: password
+          type: string
+        recipientDenomination:
+          format: password
+          type: string
+        subject:
+          format: password
+          type: string
+      example:
+        senderDenomination: "Ente_Mittente"
+        recipientDenomination: "Nome Cognome"
+        subject: "Subject"
