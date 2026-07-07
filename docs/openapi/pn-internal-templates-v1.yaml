@@ -799,7 +799,7 @@ paths:
   /templates-engine-private/v1/templates/informal/analog-communication:
     put:
       summary: InformalAnalogCommunication
-      description: Genera un documento PDF per il canale anlogico delle comunicazioni bonarie.
+      description: Genera un documento PDF per il canale analogico delle comunicazioni bonarie.
       operationId: informalAnalogCommunication
       tags:
         - Template
@@ -825,11 +825,11 @@ paths:
         '500':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/informal/email-communication:
+  /templates-engine-private/v1/templates/informal/email-communication-body:
     put:
-      summary: InformalEmailCommunication
+      summary: InformalEmailCommunicationBody
       description: Genera un documento HTML per il canale Email delle comunicazioni bonarie.
-      operationId: informalEmailCommunication
+      operationId: informalEmailCommunicationBody
       tags:
         - Template
       parameters:
@@ -854,11 +854,40 @@ paths:
         '500':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/informal/pec-communication:
+  /templates-engine-private/v1/templates/informal/email-communication-subject:
     put:
-      summary: InformalPecCommunication
+      summary: InformalEmailCommunicationSubject
+      description: Genera l'oggetto per il canale Email delle comunicazioni bonarie.
+      operationId: informalEmailCommunicationSubject
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: x-language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/InformalEmailCommunicationSubject'
+      responses:
+        '200':
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/informal/pec-communication-body:
+    put:
+      summary: InformalPecCommunicationBody
       description: Genera un documento HTML per il canale PEC delle comunicazioni bonarie.
-      operationId: informalPecCommunication
+      operationId: informalPecCommunicationBody
       tags:
         - Template
       parameters:
@@ -878,6 +907,35 @@ paths:
       responses:
         '200':
           $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseHTML'
+        '400':
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/informal/pec-communication-subject:
+    put:
+      summary: InformalPecCommunicationSubject
+      description: Genera l'oggetto per il canale PEC delle comunicazioni bonarie.
+      operationId: informalPecCommunicationSubject
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: x-language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/InformalEmailCommunicationSubject'
+      responses:
+        '200':
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseText'
         '400':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
