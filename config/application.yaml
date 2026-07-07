@@ -224,6 +224,12 @@ templates:
   informalEmailCommunicationBody:
     input:
       IT: "InformalEMAILCommunicationBody/InformalEMAILCommunicationBody.html"
+    resolvers:
+      senderLogoBase64:
+        enabled: true
+        bypassAllWithNull: false
+        returnNullOnError: true
+        whitelistEnabled: false
   informalEmailCommunicationSubject:
     input:
       IT: "InformalEMAILCommunicationSubject/InformalEMAILCommunicationSubject.txt"
@@ -233,6 +239,12 @@ templates:
   informalPecCommunicationBody:
     input:
       IT: "InformalPECCommunicationBody/InformalPECCommunicationBody.html"
+    resolvers:
+      senderLogoBase64:
+        enabled: true
+        bypassAllWithNull: false
+        returnNullOnError: true
+        whitelistEnabled: false
   informalPecCommunicationSubject:
     input:
       IT: "InformalPECCommunicationSubject/InformalPECCommunicationSubject.txt"

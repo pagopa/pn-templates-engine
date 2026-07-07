@@ -33,7 +33,7 @@ public class MarkdownToHtmlProcessor
     }
 
     private final Parser parser = Parser.builder().build();
-    private final HtmlRenderer renderer = HtmlRenderer.builder().build();
+    private final HtmlRenderer renderer = HtmlRenderer.builder().escapeHtml(true).build();
 
     /**
      * Converte il contenuto Markdown del body in HTML e lo imposta nell'output.

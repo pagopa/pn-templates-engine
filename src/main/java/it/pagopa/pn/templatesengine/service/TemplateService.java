@@ -11,8 +11,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
-import java.util.Map;
-
 
 /**
  * Service per l'esecuzione e la gestione dei template, supportando sia i formati di testo che PDF.

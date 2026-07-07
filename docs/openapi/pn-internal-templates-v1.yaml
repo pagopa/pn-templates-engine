@@ -799,7 +799,7 @@ paths:
   /templates-engine-private/v1/templates/informal/analog-communication:
     put:
       summary: InformalAnalogCommunication
-      description: Genera un documento PDF per il canale anlogico delle comunicazioni bonarie.
+      description: Genera un documento PDF per il canale analogico delle comunicazioni bonarie.
       operationId: informalAnalogCommunication
       tags:
         - Template

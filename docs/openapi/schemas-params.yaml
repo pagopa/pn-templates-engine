@@ -921,8 +921,9 @@ components:
             - service
           properties:
             denomination:
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password #NO EXTERNAL
               type: string
-              format: password
             id:
               type: string
             service:
@@ -936,11 +937,13 @@ components:
             - recipientType
           properties:
             denomination:
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password #NO EXTERNAL
               type: string
-              format: password
             taxId:
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password #NO EXTERNAL
               type: string
-              format: password
               description: "Codice Fiscale"
             recipientType:
               type: string
