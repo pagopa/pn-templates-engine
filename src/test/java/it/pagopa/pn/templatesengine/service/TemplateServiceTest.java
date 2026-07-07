@@ -166,8 +166,8 @@ class TemplateServiceTest {
                 .expectNext("OK")
                 .verifyComplete();
 
+        Mockito.verify(processorRegistry).executeProcessors(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, emailbody);
         Mockito.verify(documentComposition).executeTextTemplate(Mockito.anyString(), Mockito.eq(emailbody), ArgumentMatchers.isNull());
-        Mockito.verifyNoInteractions(processorRegistry);
     }
 
     @Test
@@ -188,7 +188,7 @@ class TemplateServiceTest {
                 .assertNext(actualPdf -> Assertions.assertArrayEquals(expectedPdf, actualPdf))
                 .verifyComplete();
 
+        Mockito.verify(processorRegistry).executeProcessors(TemplatesEnum.MAIL_VERIFICATION_CODE_BODY, emailbody);
         Mockito.verify(documentComposition).executePdfTemplate(Mockito.anyString(), Mockito.eq(emailbody), ArgumentMatchers.isNull());
-        Mockito.verifyNoInteractions(processorRegistry);
     }
 }

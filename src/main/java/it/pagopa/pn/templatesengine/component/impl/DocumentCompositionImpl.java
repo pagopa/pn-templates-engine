@@ -82,7 +82,7 @@ public class DocumentCompositionImpl implements DocumentComposition {
         try (StringWriter stringWriter = new StringWriter()) {
             Template template = freemarkerConfig.getTemplate(templateFile);
             if (processedParams != null) {
-                // Usa Environment per iniettare PROCESSED (thread-safe, per-esecuzione)
+                // Usa Environment per iniettare GENERATED (thread-safe, per-esecuzione)
                 Environment env = template.createProcessingEnvironment(templateModel, stringWriter);
                 env.setVariable(GENERATED_PREFIX, freemarkerConfig.getObjectWrapper().wrap(processedParams));
                 env.process();
