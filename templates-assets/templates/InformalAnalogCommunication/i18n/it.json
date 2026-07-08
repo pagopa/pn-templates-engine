@@ -1,0 +1,16 @@
+{
+  "it_language": "it",
+  "it_title": "Frontespizio",
+  "it_aar_label": "Comunicazione da parte di",
+  "it_iun": "Identificativo Univoco Notifica",
+  "it_fiscal_code": "Codice fiscale",
+  "it_sent_by": "Comunicazione inviata tramite",
+  "it_notification_subject_1": "Hai ricevuto una comunicazione da",
+  "it_notification_subject_2": "con oggetto",
+  "it_notification_subject_3": "${subject}",
+  "it_hello": "Ciao ${recipient.denomination},",
+  "it_body1":"Per avere maggiori informazioni <strong>prendi visione degli allegati</strong>, che possono fornirti dettagli importanti. Per saldare l’importo tramite tutti i canali abilitati a pagoPA, fai riferimento all’avviso di pagamento allegato.",
+  "it_body2":"In ogni caso, qualora avessi bisogno di assistenza, <strong>contatta ${sender.denomination}</strong> attraverso i suoi canali ufficiali.",
+  "it_io_title": "Con l'app IO è ancora più semplice!",
+  "it_io_content": "Ricevi le prossime comunicazioni dagli enti pubblici, aggiungi i tuoi documenti personali, ottieni bonus e sconti. E in più, paghi in digitale. Scarica gratis l'app IO!"
+}

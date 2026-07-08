@@ -252,6 +252,10 @@ a.black {
     margin-top: 11px;
 }
 
+.p-0 {
+    padding: 0;
+}
+
 .pb-0 {
     padding-bottom: 0 !important;
 }
@@ -288,6 +292,10 @@ a.black {
     padding-bottom: 15px !important;
 }
 
+.pb-16 {
+    padding-bottom: 16px;
+}
+
 .pb-33 {
     padding-bottom: 33px;
 }
@@ -302,6 +310,10 @@ a.black {
 
 .py-12 {
     padding: 12px 0;
+}
+
+.py-16 {
+    padding: 16px 0;
 }
 
 .p-12 {
