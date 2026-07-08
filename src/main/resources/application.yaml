@@ -77,7 +77,6 @@ templates:
         whitelistEnabled: false
 #        whitelistParameterStores:
 #          - /pn-templates-engine/Whitelist1
-#          - /pn-templates-engine/Whitelist2
   notificationAarRaddAlt:
     input:
       IT: "NotificationAAR_RADDalt/NotificationAAR_RADDalt.html"
