@@ -27,13 +27,13 @@
                 <div class="fixed-table">
                     <div class="row">
                         <div class="cell width-50 pl-8 vertical-align-top" id="sender_box">
-                            <#if senderLogoBase64??>
+                            <#if GENERATED.senderLogoBase64??>
             
                                 <div class="nine-pt">
                                     <p class="six-pt eight-lh font-uppercase"><%-it_aar_label%></p>
                                     <p class="font-bold ten-pt">${sender.denomination}</p>
                                     <div id="sender_logo">
-                                        <img src="${senderLogoBase64}" alt="Logo di ${sender.denomination}">
+                                        <img src="${GENERATED.senderLogoBase64}" alt="Logo di ${sender.denomination}">
                                     </div>
                                 </div>
                             <#else>
@@ -81,8 +81,10 @@
                         <div class="cell">
                             <h1 id="main_subject" class="twelve-pt sixteen-lh pt-0 pb-16"><%-it_notification_subject_1%> ${sender.denomination} <%-it_notification_subject_2%>: <%-it_notification_subject_3%></h1>
                             <p class="pb-16"><%-it_hello%></p>
-                            <!-- GENERATED content is in <p></p>: don't embedd variable in  -->
-                            ${GENERATED.primaryContentHtml}
+                            <!-- GENERATED content is in <p></p>: don't embedd variable in other <p> -->
+                            <div class="generated-content">
+                                ${GENERATED.primaryContentHtml}
+                            </div>
                             <p class="py-16"><%-it_body1%></p>
                             <p class="pb-16"><%-it_body2%></p>
                         </div>

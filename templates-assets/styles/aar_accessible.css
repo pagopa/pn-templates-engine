@@ -253,7 +253,7 @@ a.black {
 }
 
 .p-0 {
-    padding: 0;
+    padding: 0 !important;
 }
 
 .pb-0 {
@@ -570,6 +570,22 @@ ul#square-list-mandate li {
     margin-left: 5mm;
     margin-top: 0.4mm;
     margin-bottom: 0;
+}
+
+.generated-content {
+    padding-left: 0;
+}
+
+.generated-content ul,
+.generated-content ol {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.generated-content ul li,
+.generated-content ol li {
+    padding-left: 20px;
+    margin-left: 0;
 }
 
 .language-margin {
