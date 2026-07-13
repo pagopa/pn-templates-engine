@@ -6,6 +6,7 @@ import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.exceptions.ExceptionTypeEnum;
 import it.pagopa.pn.templatesengine.exceptions.TemplateNotFoundException;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.LanguageEnum;
+import it.pagopa.pn.templatesengine.processor.TemplateProcessorRegistry;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ public class TemplateService {
 
     private final DocumentComposition documentComposition;
     private final TemplateConfig templateConfig;
+    private final TemplateProcessorRegistry processorRegistry;
 
     /**
      * Esegue un template di testo utilizzando `DocumentComposition` e un modello di dati fornito, basandosi sul
@@ -38,7 +40,8 @@ public class TemplateService {
         return objectModel.doOnNext(model -> log.info("Execute TXT for template={},  language={} - START", template, language))
                 .flatMap(model -> {
                     String fileName = getFileName(template, language);
-                    return Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model));
+                    Object processed = processorRegistry.executeProcessors(template, model);
+                    return Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model, processed));
                 })
                 .doOnSuccess(result -> log.info("Execute TXT for templateName={}, language={} - COMPLETED", template, language))
                 .doOnError(error -> log.error("Execute TXT for templateName={}, language={} - FAILED", template, language, error));
@@ -58,7 +61,8 @@ public class TemplateService {
         return objectModel.doOnNext(model -> log.info("Execute Pdf for templateName={},  language={} - START", template, language))
                 .flatMap(model -> {
                     String fileName = getFileName(template, language);
-                    return Mono.fromCallable(() -> documentComposition.executePdfTemplate(fileName, model));
+                    Object processed = processorRegistry.executeProcessors(template, model);
+                    return Mono.fromCallable(() -> documentComposition.executePdfTemplate(fileName, model, processed));
                 })
                 .doOnSuccess(result -> log.info("Execute Pdf for templateName={}, language={} - COMPLETED", template, language))
                 .doOnError(error -> log.error("Execute Pdf for templateName={}, language={} - FAILED", template, language, error));

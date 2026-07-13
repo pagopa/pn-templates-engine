@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="SEND - Servizio Notifiche Digitali">
+    <title>Comunicazione informale</title>
+    <link rel="stylesheet" href="../../styles/aar_accessible.css">
+    <style>
+        #content-section {
+            padding: 0 12px;
+        }
+        #content-section p {
+            margin-bottom: 10px;
+        }
+        #greeting {
+            margin-bottom: 14px;
+            font-size: 14.3px;
+            line-height: 20px;
+        }
+        #communication-title {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 21.333px;
+            margin-bottom: 10px;
+            color: #0B3EE3;
+        }
+        #body-content {
+            font-size: 14.3px;
+            line-height: 20px;
+        }
+        #body-content strong, #body-content b {
+            font-weight: 700;
+        }
+        #secondary-content {
+            font-size: 14.3px;
+            line-height: 20px;
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid #7C7C7B;
+        }
+        .io-banner-bottom {
+            position: relative;
+            margin-top: auto;
+        }
+    </style>
+    <bookmarks>
+        <bookmark name="Dati del mittente della comunicazione" href="#sender_box"/>
+        <bookmark name="Dati della comunicazione" href="#iun_box"/>
+        <bookmark name="Comunicazione inviata tramite SEND" href="#send_box"/>
+        <bookmark name="Oggetto della comunicazione" href="#communication-title"/>
+        <bookmark name="Contenuto della comunicazione" href="#body-content"/>
+        <bookmark name="Scarica l'app IO" href="#io_download"/>
+    </bookmarks>
+</head>
+
+<body>
+    <main>
+        <!--------------------------- PAGE 1 --------------------------->
+        <section id="first-page">
+            <section class="upper-section vertical-align-top">
+                <div class="fixed-table">
+                    <div class="row">
+                        <div class="cell width-50 pl-8 vertical-align-top" id="sender_box">
+                            <#if GENERATED.senderLogoBase64?? && GENERATED.senderLogoBase64?has_content>
+                                <div class="nine-pt">
+                                    <p class="six-pt eight-lh font-uppercase">Comunicazione da parte di</p>
+                                    <p class="font-bold ten-pt">[${sender.denomination}]</p>
+                                    <div id="sender_logo">
+                                        <img src="${GENERATED.senderLogoBase64}" alt="Logo di ${sender.denomination}">
+                                    </div>
+                                </div>
+                            <#else>
+                                <div class="nine-pt">
+                                    <p class="six-pt eight-lh font-uppercase">Comunicazione da parte di</p>
+                                    <p class="font-bold ten-pt">[${sender.denomination}]</p>
+                                    <div id="empty_logo_subtitle"></div>
+                                </div>
+                            </#if>
+                        </div>
+
+                        <div class="cell width-50 pt-12" id="iun_send">
+                            <div class="row">
+                                <div id="iun_box" class="iun_box nine-pt cell vertical-align-bottom pb-15">
+                                    <p class="font-bold nine-pt ten-lh">Identificativo Univoco Notifica:</p>
+                                    <p>${iun}</p>
+                                    <p class="font-bold nine-pt">Codice fiscale:</p>
+                                    <p>${recipient.taxId}</p>
+                                </div>
+                                <div id="send_box" class="eight-pt cell vertical-align-bottom">
+                                    <p class="nine-pt eleven-lh">Comunicazione</p>
+                                    <p class="nine-pt eleven-lh mb-11">inviata tramite</p>
+                                    <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
+                                    <p id="send_box_site" class="eight-pt font-bold">
+                                        <a class="black" href="${ENV.landingSendUrl}" title="Sito di SEND - Servizio Notifiche Digitali">${ENV.landingSendLabel}</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="recipient-addr-box">
+                        <!-- Spazio per l'indirizzo inserito dal consolidatore -->
+                        <div class="cell pl-8" style="padding-top: 12mm;">
+                            <p class="font-bold">${recipient.denomination}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="center-section" style="height: 175mm;">
+                <div class="table" style="height: 100%;">
+                    <div class="row">
+                        <div class="cell">
+                            <div id="content-section">
+                                <h1 id="communication-title">Hai ricevuto una comunicazione da [${sender.denomination}] con oggetto: [${subject}]</h1>
+
+                                <p id="greeting">Ciao ${recipient.denomination},</p>
+
+                                <div id="body-content">
+                                    ${GENERATED.primaryContentHtml}
+                                </div>
+
+                                <#if GENERATED.secondaryContentHtml?? && GENERATED.secondaryContentHtml?has_content>
+                                <div id="secondary-content">
+                                    ${GENERATED.secondaryContentHtml}
+                                </div>
+                                </#if>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell vertical-align-bottom">
+                            <div class="blue-border-box radius-8 io-banner" style="margin-top: 20px;">
+                                <div class="table">
+                                    <div class="row eleven-pt radius-8 w-100" id="io_download">
+                                        <div class="cell pt-12 pb-12 pl-12 vertical-align-top width-85">
+                                            <p class="font-bold" style="color: #0B3EE3;">CON L'APP IO È ANCORA PIÙ SEMPLICE!</p>
+                                            <p>Ricevi le prossime comunicazioni dagli enti pubblici, aggiungi i tuoi documenti personali, ottieni bonus e sconti. E in più, paghi e firmi in digitale. Scarica gratis l'app IO!</p>
+                                        </div>
+                                        <div class="cell pr-12 width-15 text-right vertical-align-center" id="io_img">
+                                            <img src="../../images/app-io.jpg" alt="Logo di app IO" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
+

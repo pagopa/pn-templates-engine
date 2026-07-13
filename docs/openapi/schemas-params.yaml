@@ -883,3 +883,126 @@ components:
         senderDenomination: "Ente_Mittente"
         registeredLetterCode: "12345678901-2"
         senderTaxId: "00000000000"
+
+    InformalCommunicationBody:
+      type: object
+      required:
+        - primaryContent
+      properties:
+        primaryContent:
+          description: Body in lingua principale.
+          type: string
+        secondaryContent:
+          description: Body in lingua alternativa.
+          type: string
+    InformalCommunication:
+      type: object
+      required:
+        - iun
+        - subject
+        - body
+        - sender
+        - recipient
+        - hasAttachment
+        - hasPayment
+      properties:
+        iun:
+          type: string
+        subject:
+          type: string
+        body:
+          $ref: '#/components/schemas/InformalCommunicationBody'
+        sender:
+          title: InformalCommunicationSender
+          type: object
+          required:
+            - denomination
+            - id
+            - service
+          properties:
+            denomination:
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password #NO EXTERNAL
+              type: string
+            id:
+              type: string
+            service:
+              type: string
+        recipient:
+          title: SharedInformalCommunicationRecipient
+          type: object
+          required:
+            - denomination
+            - taxId
+            - recipientType
+          properties:
+            denomination:
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password #NO EXTERNAL
+              type: string
+            taxId:
+              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
+              format: password #NO EXTERNAL
+              type: string
+              description: "Codice Fiscale"
+            recipientType:
+              type: string
+              enum:
+                - PF
+                - PG
+              description: "Tipo di destinatario: Persona Fisica o Persona Giuridica"
+        hasAttachment:
+          type: boolean
+          description: "Indica se la comunicazione contiene uno o più allegati"
+        hasPayment:
+          type: boolean
+          description: "Indica se alla comunicazione è associato un avviso di pagamento"
+        checkoutUrl:
+          type: string
+          description: "Url checkout pagamento per PEC ed Email"
+      example:
+        iun: "AAAA-AAAA-AAAA-000000-A-0"
+        subject: "Oggetto"
+        body:
+          primaryContent: "Corpo della comunicazione"
+        sender:
+          denomination: "Ente_Mittente"
+          id: "Ente_Mittente_Id"
+          service: "Service"
+        recipient:
+          denomination: "Nome Cognome"
+          taxId: "AAAAAA00A00A000A"
+          recipientType: "PF"
+        hasAttachment: false
+        hasPayment: true
+        checkoutUrl: "https://test.url"
+    InformalSmsCommunication:
+      type: object
+      required:
+        - senderPaDenomination
+      properties:
+        senderPaDenomination:
+          format: password
+          type: string
+      example:
+        senderPaDenomination: "Ente_Mittente"
+    InformalEmailCommunicationSubject:
+      type: object
+      required:
+        - senderDenomination
+        - recipientDenomination
+        - subject
+      properties:
+        senderDenomination:
+          format: password
+          type: string
+        recipientDenomination:
+          format: password
+          type: string
+        subject:
+          format: password
+          type: string
+      example:
+        senderDenomination: "Ente_Mittente"
+        recipientDenomination: "Nome Cognome"
+        subject: "Subject"

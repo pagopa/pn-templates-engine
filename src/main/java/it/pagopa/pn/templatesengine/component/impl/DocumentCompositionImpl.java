@@ -1,6 +1,7 @@
 package it.pagopa.pn.templatesengine.component.impl;
 
 import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
+import freemarker.core.Environment;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -31,6 +32,7 @@ import java.io.StringWriter;
 @AllArgsConstructor
 public class DocumentCompositionImpl implements DocumentComposition {
 
+    static final String GENERATED_PREFIX = "GENERATED";
     private final Configuration freemarkerConfig;
     private final TemplateConfig templateConfig;
 
@@ -43,8 +45,8 @@ public class DocumentCompositionImpl implements DocumentComposition {
      * @return risultato del template processato
      */
     @Override
-    public String executeTextTemplate(String templateFile, Object templateModel) {
-        String htmlContent = processTemplate(templateFile, templateModel);
+    public String executeTextTemplate(String templateFile, Object templateModel, Object processedParams) {
+        String htmlContent = processTemplate(templateFile, templateModel, processedParams);
         log.info("Conversion on Text, templateFile={} - COMPLETED", templateFile);
         return htmlContent;
     }
@@ -59,25 +61,34 @@ public class DocumentCompositionImpl implements DocumentComposition {
      * @return Un array di byte contenente il PDF generato.
      */
     @Override
-    public byte[] executePdfTemplate(String templateFile, Object templateModel) {
-        String htmlContent = executeTextTemplate(templateFile, templateModel);
+    public byte[] executePdfTemplate(String templateFile, Object templateModel, Object processedParams) {
+        String htmlContent = executeTextTemplate(templateFile, templateModel, processedParams);
         return generatePdf(htmlContent, templateFile);
     }
 
     /**
      * Elabora un template FreeMarker utilizzando il modello di dati fornito,
      * restituendo il risultato come stringa.
+     * I parametri processedParams vengono resi disponibili nel template sotto la variabile "GENERATED".
      *
-     * @param templateFile  FileName del template da caricare.
-     * @param templateModel Dati per il rendering.
+     * @param templateFile    FileName del template da caricare.
+     * @param templateModel   Dati per il rendering.
+     * @param processedParams Parametri aggiuntivi calcolati dai processori, iniettati sotto "GENERATED".
      * @return Una String contenente l'output del template processato.
      * @throws PnGenericException In caso di errori durante il rendering del template.
      */
-    private String processTemplate(String templateFile, Object templateModel) {
+    private String processTemplate(String templateFile, Object templateModel, Object processedParams) {
         log.info("Conversion on Text, templateFile={} - START", templateFile);
         try (StringWriter stringWriter = new StringWriter()) {
             Template template = freemarkerConfig.getTemplate(templateFile);
-            template.process(templateModel, stringWriter);
+            if (processedParams != null) {
+                // Usa Environment per iniettare GENERATED (thread-safe, per-esecuzione)
+                Environment env = template.createProcessingEnvironment(templateModel, stringWriter);
+                env.setVariable(GENERATED_PREFIX, freemarkerConfig.getObjectWrapper().wrap(processedParams));
+                env.process();
+            } else {
+                template.process(templateModel, stringWriter);
+            }
             return stringWriter.toString();
         } catch (TemplateException | IOException ex) {
             throw new DocumentCompositionException(
