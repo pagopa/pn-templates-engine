@@ -2,6 +2,7 @@ info:
   version: v1.0
 components:
   schemas:
+
     LanguageEnum:
       type: string
       enum:
@@ -11,6 +12,14 @@ components:
         - FR
         - EN
       default: IT
+
+    RecipientTypeEnum:
+      type: string
+      enum:
+        - PF
+        - PG
+      description: "Tipo di destinatario: Persona Fisica o Persona Giuridica"
+
     ErrorResponse:
       type: object
       properties:
@@ -895,6 +904,7 @@ components:
         secondaryContent:
           description: Body in lingua alternativa.
           type: string
+
     InformalCommunication:
       type: object
       required:
@@ -946,11 +956,7 @@ components:
               type: string
               description: "Codice Fiscale"
             recipientType:
-              type: string
-              enum:
-                - PF
-                - PG
-              description: "Tipo di destinatario: Persona Fisica o Persona Giuridica"
+              $ref: '#/components/schemas/RecipientTypeEnum'
         hasAttachment:
           type: boolean
           description: "Indica se la comunicazione contiene uno o più allegati"
@@ -976,16 +982,22 @@ components:
         hasAttachment: false
         hasPayment: true
         checkoutUrl: "https://test.url"
+
     InformalSmsCommunication:
       type: object
       required:
         - senderPaDenomination
+        - recipientType
       properties:
         senderPaDenomination:
           format: password
           type: string
+        recipientType:
+          $ref: '#/components/schemas/RecipientTypeEnum'
       example:
         senderPaDenomination: "Ente_Mittente"
+        recipientType: "PF"
+
     InformalEmailCommunicationSubject:
       type: object
       required:
