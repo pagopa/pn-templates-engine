@@ -10,8 +10,7 @@
     </mj-raw>
     <mj-style>
       @media screen and (max-width: 600px) {
-        .sender-column { width: auto !important; }
-        .sender-logo-column { width: 110px !important; }
+        .sender-logo-cell { width: 110px !important; }
 
         .section > table > tbody > tr > td {
           padding-left: 8px !important;
@@ -65,41 +64,41 @@
     <mj-wrapper padding="0">
       <!-- Sender header -->
       <mj-section css-class="section" padding="32px 24px 0">
-        <mj-group vertical-align="middle">
-          <mj-column
-            css-class="sender-column"
-            width="70%"
+        <mj-column padding="0">
+          <mj-text
+            css-class="text"
+            color="#17324D"
             padding="0"
-            vertical-align="middle"
           >
-            <mj-text
-              css-class="text"
-              align="left"
-              color="#17324D"
-              padding="0"
+            <table
+              role="presentation"
+              width="100%"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              style="border-collapse: collapse"
             >
-              <p style="font-weight: 700; margin: 0">${sender.denomination}</p>
-              <p style="font-size: 16px; margin: 8px 0 0">${sender.service}</p>
-            </mj-text>
-          </mj-column>
-
-          <mj-column
-            css-class="sender-logo-column"
-            width="30%"
-            padding="0"
-            vertical-align="middle"
-          >
-            <mj-text align="right" padding="0">
-              <#if GENERATED.senderLogoBase64?? && GENERATED.senderLogoBase64?has_content>
-              <img
-                src="${GENERATED.senderLogoBase64}"
-                alt="Logo di ${sender.denomination}"
-                style="display: inline-block; max-height: 44px; max-width: 140px; width: auto"
-              />
-              </#if>
-            </mj-text>
-          </mj-column>
-        </mj-group>
+              <tr>
+                <td style="vertical-align: middle; text-align: left">
+                  <p style="font-weight: 700; margin: 0">${sender.denomination}</p>
+                  <p style="font-size: 16px; margin: 8px 0 0">${sender.service}</p>
+                </td>
+                <#if GENERATED.senderLogoBase64?? && GENERATED.senderLogoBase64?has_content>
+                <td
+                  class="sender-logo-cell"
+                  style="vertical-align: middle; text-align: right; width: 140px; padding-left: 16px"
+                >
+                  <img
+                    src="${GENERATED.senderLogoBase64}"
+                    alt="Logo di ${sender.denomination}"
+                    style="display: inline-block; max-height: 44px; max-width: 140px; width: auto"
+                  />
+                </td>
+                </#if>
+              </tr>
+            </table>
+          </mj-text>
+        </mj-column>
       </mj-section>
 
       <mj-section css-class="section" padding="0 24px">
