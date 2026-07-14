@@ -437,7 +437,7 @@ public class DocumentGeneratorTest {
         var recipient = new SharedInformalCommunicationRecipient()
                 .denomination("Nome Cognome")
                 .taxId("AAAAAA00A00A000A")
-                .recipientType(SharedInformalCommunicationRecipient.RecipientTypeEnum.PF);
+                .recipientType(RecipientTypeEnum.PF);
 
         return new InformalCommunication()
                 .iun("AAAA-AAAA-AAAA-000000-A-0")

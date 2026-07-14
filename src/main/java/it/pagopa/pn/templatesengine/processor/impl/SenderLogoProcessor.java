@@ -8,6 +8,7 @@ import it.pagopa.pn.templatesengine.resolver.TemplateValueResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Mono;
 
 import static it.pagopa.pn.templatesengine.resolver.ResolverEnum.TO_BASE64_RESOLVER;
 import static it.pagopa.pn.templatesengine.resolver.TemplateValueResolver.DIVIDER;
@@ -49,28 +50,28 @@ public class SenderLogoProcessor
      * @param template  il template in fase di elaborazione (usato dal resolver per applicare la configurazione)
      * @param paId      l'identificativo della PA mittente
      * @param outParams l'oggetto output in cui impostare il logo
+     * @return un Mono che completa quando l'elaborazione è terminata
      */
     @Override
-    public void process(TemplatesEnum template, String paId, OutputModel outParams) {
+    public Mono<Void> process(TemplatesEnum template, String paId, OutputModel outParams) {
         String url = buildSenderLogoUrl(paId);
 
         if (url == null) {
             outParams.setSenderLogoBase64(null);
-            return;
+            return Mono.empty();
         }
 
-        try {
-            outParams.setSenderLogoBase64(
-                            templateValueResolver
-                                    .resolve(TO_BASE64_RESOLVER + DIVIDER + url,
-                                            template,
-                                            TemplatesParamsEnum.SENDER_LOGO_BASE64)
-                                    .block()
-            );
-        } catch (Exception e) {
-            log.warn("Unable to resolve sender logo as Base64 for paId={}", paId, e);
-            outParams.setSenderLogoBase64(null);
-        }
+        return templateValueResolver
+                .resolve(TO_BASE64_RESOLVER + DIVIDER + url,
+                        template,
+                        TemplatesParamsEnum.SENDER_LOGO_BASE64)
+                .doOnNext(outParams::setSenderLogoBase64)
+                .onErrorResume(e -> {
+                    log.warn("Unable to resolve sender logo as Base64 for paId={}", paId, e);
+                    outParams.setSenderLogoBase64(null);
+                    return Mono.empty();
+                })
+                .then();
     }
 
     /**

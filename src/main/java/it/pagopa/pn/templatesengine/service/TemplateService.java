@@ -22,6 +22,8 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class TemplateService {
 
+    private static final Object NULL_MARKER = new Object();
+
     private final DocumentComposition documentComposition;
     private final TemplateConfig templateConfig;
     private final TemplateProcessorRegistry processorRegistry;
@@ -40,8 +42,12 @@ public class TemplateService {
         return objectModel.doOnNext(model -> log.info("Execute TXT for template={},  language={} - START", template, language))
                 .flatMap(model -> {
                     String fileName = getFileName(template, language);
-                    Object processed = processorRegistry.executeProcessors(template, model);
-                    return Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model, processed));
+                    return processorRegistry.executeProcessors(template, model)
+                            .defaultIfEmpty(NULL_MARKER)
+                            .flatMap(processed -> {
+                                Object processedParam = processed == NULL_MARKER ? null : processed;
+                                return Mono.fromCallable(() -> documentComposition.executeTextTemplate(fileName, model, processedParam));
+                            });
                 })
                 .doOnSuccess(result -> log.info("Execute TXT for templateName={}, language={} - COMPLETED", template, language))
                 .doOnError(error -> log.error("Execute TXT for templateName={}, language={} - FAILED", template, language, error));
@@ -61,8 +67,12 @@ public class TemplateService {
         return objectModel.doOnNext(model -> log.info("Execute Pdf for templateName={},  language={} - START", template, language))
                 .flatMap(model -> {
                     String fileName = getFileName(template, language);
-                    Object processed = processorRegistry.executeProcessors(template, model);
-                    return Mono.fromCallable(() -> documentComposition.executePdfTemplate(fileName, model, processed));
+                    return processorRegistry.executeProcessors(template, model)
+                            .defaultIfEmpty(NULL_MARKER)
+                            .flatMap(processed -> {
+                                Object processedParam = processed == NULL_MARKER ? null : processed;
+                                return Mono.fromCallable(() -> documentComposition.executePdfTemplate(fileName, model, processedParam));
+                            });
                 })
                 .doOnSuccess(result -> log.info("Execute Pdf for templateName={}, language={} - COMPLETED", template, language))
                 .doOnError(error -> log.error("Execute Pdf for templateName={}, language={} - FAILED", template, language, error));

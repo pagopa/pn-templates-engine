@@ -1,6 +1,7 @@
 package it.pagopa.pn.templatesengine.processor;
 
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
+import reactor.core.publisher.Mono;
 
 /**
  * Interfaccia funzionale per i processori di template.
@@ -28,6 +29,7 @@ public interface TemplateModelProcessor<M, O> {
      * @param template  il template in fase di elaborazione
      * @param model     l'oggetto estratto dal model tramite il mapper
      * @param outParams l'oggetto output tipizzato da popolare (accessibile nel template come {@code GENERATED})
+     * @return un Mono che completa quando l'elaborazione è terminata
      */
-    void process(TemplatesEnum template, M model, O outParams);
+    Mono<Void> process(TemplatesEnum template, M model, O outParams);
 }
