@@ -901,9 +901,13 @@ components:
         primaryContent:
           description: Body in lingua principale.
           type: string
+          x-field-extra-annotation: "@lombok.ToString.Exclude"
+          format: password
         secondaryContent:
           description: Body in lingua alternativa.
           type: string
+          x-field-extra-annotation: "@lombok.ToString.Exclude"
+          format: password
 
     InformalCommunication:
       type: object
@@ -920,6 +924,8 @@ components:
           type: string
         subject:
           type: string
+          x-field-extra-annotation: "@lombok.ToString.Exclude"
+          format: password
         body:
           $ref: '#/components/schemas/InformalCommunicationBody'
         sender:
@@ -931,13 +937,15 @@ components:
             - service
           properties:
             denomination:
-              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
-              format: password #NO EXTERNAL
               type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude"
+              format: password
             id:
               type: string
             service:
               type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude"
+              format: password
         recipient:
           title: SharedInformalCommunicationRecipient
           type: object
@@ -947,14 +955,14 @@ components:
             - recipientType
           properties:
             denomination:
-              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
-              format: password #NO EXTERNAL
               type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude"
+              format: password
             taxId:
-              x-field-extra-annotation: "@lombok.ToString.Exclude" # NO EXTERNAL
-              format: password #NO EXTERNAL
               type: string
               description: "Codice Fiscale"
+              x-field-extra-annotation: "@lombok.ToString.Exclude"
+              format: password
             recipientType:
               $ref: '#/components/schemas/RecipientTypeEnum'
         hasAttachment:
@@ -990,8 +998,9 @@ components:
         - recipientType
       properties:
         senderPaDenomination:
-          format: password
           type: string
+          x-field-extra-annotation: "@lombok.ToString.Exclude"
+          format: password
         recipientType:
           $ref: '#/components/schemas/RecipientTypeEnum'
       example:
@@ -1006,14 +1015,17 @@ components:
         - subject
       properties:
         senderDenomination:
-          format: password
           type: string
+          x-field-extra-annotation: "@lombok.ToString.Exclude"
+          format: password
         recipientDenomination:
-          format: password
           type: string
+          x-field-extra-annotation: "@lombok.ToString.Exclude"
+          format: password
         subject:
-          format: password
           type: string
+          x-field-extra-annotation: "@lombok.ToString.Exclude"
+          format: password
       example:
         senderDenomination: "Ente_Mittente"
         recipientDenomination: "Nome Cognome"
