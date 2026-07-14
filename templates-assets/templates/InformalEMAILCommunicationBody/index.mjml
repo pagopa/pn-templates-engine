@@ -214,21 +214,36 @@
             padding="0 0 24px"
           >
             <tr>
-              <td
-                class="send-communication-text"
-                style="line-height: 24px; vertical-align: middle; white-space: nowrap"
-              >
-                <%-it_send_communication%>
+              <td>
+                <table
+                  align="left"
+                  border="0"
+                  cellpadding="0"
+                  cellspacing="0"
+                  role="presentation"
+                  style="border-collapse: collapse; width: auto"
+                >
+                  <tr>
+                    <td
+                      class="send-communication-text"
+                      style="line-height: 24px; vertical-align: middle; white-space: nowrap"
+                    >
+                      <%-it_send_communication%>
+                    </td>
+                    <td
+                      width="75"
+                      style="padding-left: 10px; vertical-align: middle; width: 75px"
+                    >
+                      <img
+                        src="https://www.notifichedigitali.it/static/generic_assets/aar-logo-short-small.png"
+                        alt="SEND - Servizio Notifiche Digitali"
+                        width="75"
+                        style="display: block; height: auto; max-width: 75px; width: 75px"
+                      />
+                    </td>
+                  </tr>
+                </table>
               </td>
-              <td style="padding-left: 10px; vertical-align: middle; width: 75px">
-                <img
-                  src="https://www.notifichedigitali.it/static/generic_assets/aar-logo-short-small.png"
-                  alt="SEND - Servizio Notifiche Digitali"
-                  width="75"
-                  style="display: block; height: auto; max-width: 75px; width: 75px"
-                />
-              </td>
-              <td aria-hidden="true" style="width: 100%"></td>
             </tr>
           </mj-table>
 
