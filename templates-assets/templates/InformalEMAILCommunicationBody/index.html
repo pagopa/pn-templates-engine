@@ -369,11 +369,13 @@ h1 {
                   
       <div
          style="font-family:system-ui, sans-serif;font-size:13px;line-height:1;text-align:right;color:#000000;"
-      ><img
+      ><#if GENERATED.senderLogoBase64?? && GENERATED.senderLogoBase64?has_content>
+              <img
                 src="${GENERATED.senderLogoBase64}"
                 alt="Logo di ${sender.denomination}"
                 style="display: inline-block; max-height: 44px; max-width: 140px; width: auto"
-              /></div>
+              />
+              </#if></div>
     
                 </td>
               </tr>

@@ -63,13 +63,12 @@
     <mj-include path="../../styles/style.css" type="css" />
 
     <mj-wrapper padding="0">
-      <#assign hasSenderLogo = GENERATED.senderLogoBase64?? && GENERATED.senderLogoBase64?has_content>
       <!-- Sender header -->
       <mj-section css-class="section" padding="32px 24px 0">
         <mj-group vertical-align="middle">
           <mj-column
             css-class="sender-column"
-            width="<#if hasSenderLogo>70%<#else>100%</#if>"
+            width="70%"
             padding="0"
             vertical-align="middle"
           >
@@ -84,7 +83,6 @@
             </mj-text>
           </mj-column>
 
-          <#if hasSenderLogo>
           <mj-column
             css-class="sender-logo-column"
             width="30%"
@@ -92,14 +90,15 @@
             vertical-align="middle"
           >
             <mj-text align="right" padding="0">
+              <#if GENERATED.senderLogoBase64?? && GENERATED.senderLogoBase64?has_content>
               <img
                 src="${GENERATED.senderLogoBase64}"
                 alt="Logo di ${sender.denomination}"
                 style="display: inline-block; max-height: 44px; max-width: 140px; width: auto"
               />
+              </#if>
             </mj-text>
           </mj-column>
-          </#if>
         </mj-group>
       </mj-section>
 
