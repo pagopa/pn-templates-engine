@@ -3,6 +3,7 @@ package it.pagopa.pn.templatesengine.processor;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Mono;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,12 +46,12 @@ public class TemplateProcessorRegistry {
      *
      * @param template il template in fase di elaborazione
      * @param model    il model in input
-     * @return l'oggetto output popolato, oppure {@code null} se nessuna chain è registrata
+     * @return un Mono con l'oggetto output popolato, oppure {@code Mono.empty()} se nessuna chain è registrata
      */
-    public Object executeProcessors(TemplatesEnum template, Object model) {
+    public Mono<Object> executeProcessors(TemplatesEnum template, Object model) {
         TemplateProcessorChain<?, ?> chain = chains.get(template);
         if (chain == null) {
-            return null;
+            return Mono.empty();
         }
         return chain.execute(template, model);
     }

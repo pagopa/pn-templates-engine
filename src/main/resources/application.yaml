@@ -11,7 +11,7 @@ pn:
   templates-engine:
     parameterStoreCacheTTL: 10m
     urlResolverTimeout: 5s
-    senderLogoUrlTemplate: "https://selcpcheckoutsa.z6.web.core.windows.net/institutions/<PA_ID>/logo.png"
+    senderLogoUrlTemplate: "https://selfcare.pagopa.it/institutions/<PA_ID>/logo.png"
 
 templatesPath: "generated-templates-assets/templates"
 defaultLanguage: IT

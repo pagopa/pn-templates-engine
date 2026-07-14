@@ -9,7 +9,7 @@ pn:
   templates-engine:
     parameterStoreCacheTTL: 10m
     urlResolverTimeout: 5s
-    senderLogoUrlTemplate: "https://selcpcheckoutsa.z6.web.core.windows.net/institutions/<PA_ID>/logo.png"
+    senderLogoUrlTemplate: "https://uat.selfcare.pagopa.it/institutions/<PA_ID>/logo.png"
 
 # AWS specific configurations
 aws:

@@ -5,7 +5,6 @@ import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunication;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunicationSender;
 import it.pagopa.pn.templatesengine.model.InformalAnalogCommunicationGeneratedParams;
-import it.pagopa.pn.templatesengine.model.InformalCommunicationGeneratedParams;
 import it.pagopa.pn.templatesengine.processor.impl.SenderLogoProcessor;
 import it.pagopa.pn.templatesengine.processor.impl.MarkdownToHtmlProcessor;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,9 +12,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import reactor.core.publisher.Mono;
+import reactor.test.StepVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.lenient;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class TemplateProcessorRegistryConfigTest {
@@ -41,6 +45,9 @@ class TemplateProcessorRegistryConfigTest {
 
     @Test
     void init_ShouldRegisterInformalCommunicationChains() {
+        lenient().when(markdownToHtmlProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
+        when(senderLogoProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
+
         registryConfig.init();
 
         var model = new InformalCommunication();
@@ -49,10 +56,12 @@ class TemplateProcessorRegistryConfigTest {
         for (TemplatesEnum template : new TemplatesEnum[]{
                 TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION
         }) {
-            Object out = registry.executeProcessors(template, model);
-
-            assertNotNull(out);
-            assertInstanceOf(InformalAnalogCommunicationGeneratedParams.class, out);
+            StepVerifier.create(registry.executeProcessors(template, model))
+                    .assertNext(out -> {
+                        assertNotNull(out);
+                        assertInstanceOf(InformalAnalogCommunicationGeneratedParams.class, out);
+                    })
+                    .verifyComplete();
         }
     }
 }

@@ -11,6 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import reactor.core.publisher.Mono;
+import reactor.test.StepVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -53,7 +54,8 @@ class SenderLogoProcessorTest {
 
 		InformalAnalogCommunicationGeneratedParams outParams = new InformalAnalogCommunicationGeneratedParams();
 
-		processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, paId, outParams);
+		StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, paId, outParams))
+				.verifyComplete();
 
 		assertEquals(expectedBase64, outParams.getSenderLogoBase64());
 		verify(templateValueResolver).resolve(
@@ -67,7 +69,8 @@ class SenderLogoProcessorTest {
 	void process_ShouldSetSenderLogoBase64ToNullWhenPaIdIsBlank() {
 		InformalAnalogCommunicationGeneratedParams outParams = new InformalAnalogCommunicationGeneratedParams();
 
-		processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION,"   ", outParams);
+		StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION,"   ", outParams))
+				.verifyComplete();
 
 		assertNull(outParams.getSenderLogoBase64());
 		verifyNoInteractions(templateValueResolver);
@@ -89,7 +92,8 @@ class SenderLogoProcessorTest {
 
 		InformalAnalogCommunicationGeneratedParams outParams = new InformalAnalogCommunicationGeneratedParams();
 
-		processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, paId, outParams);
+		StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, paId, outParams))
+				.verifyComplete();
 
 		assertNull(outParams.getSenderLogoBase64());
 		verify(templateValueResolver).resolve(
@@ -105,7 +109,8 @@ class SenderLogoProcessorTest {
 
 		InformalAnalogCommunicationGeneratedParams outParams = new InformalAnalogCommunicationGeneratedParams();
 
-		processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, "9a7c1b23-46a3-489b-8ed4-398ffb32b45a", outParams);
+		StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, "9a7c1b23-46a3-489b-8ed4-398ffb32b45a", outParams))
+				.verifyComplete();
 
 		assertNull(outParams.getSenderLogoBase64());
 		verifyNoInteractions(templateValueResolver);

@@ -5,6 +5,7 @@ import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalComm
 import it.pagopa.pn.templatesengine.model.InformalCommunicationGeneratedParams;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import reactor.test.StepVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -26,10 +27,10 @@ class MarkdownToHtmlProcessorTest {
         InformalCommunicationBody body = new InformalCommunicationBody("Hello **world**")
                 .secondaryContent("Second *content*");
 
-        // Act
-        markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams);
+        // Act & Assert
+        StepVerifier.create(markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams))
+                .verifyComplete();
 
-        // Assert
         assertEquals("<p>Hello <strong>world</strong></p>\n", outParams.getPrimaryContentHtml());
         assertEquals("<p>Second <em>content</em></p>\n", outParams.getSecondaryContentHtml());
     }
@@ -39,10 +40,10 @@ class MarkdownToHtmlProcessorTest {
         // Arrange
         InformalCommunicationBody body = new InformalCommunicationBody("# Titolo");
 
-        // Act
-        markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams);
+        // Act & Assert
+        StepVerifier.create(markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams))
+                .verifyComplete();
 
-        // Assert
         assertEquals("<h1>Titolo</h1>\n", outParams.getPrimaryContentHtml());
         assertNull(outParams.getSecondaryContentHtml());
     }
@@ -54,10 +55,10 @@ class MarkdownToHtmlProcessorTest {
         body.setPrimaryContent(null);
         body.setSecondaryContent(null);
 
-        // Act
-        markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams);
+        // Act & Assert
+        StepVerifier.create(markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams))
+                .verifyComplete();
 
-        // Assert
         assertNull(outParams.getPrimaryContentHtml());
         assertNull(outParams.getSecondaryContentHtml());
     }
