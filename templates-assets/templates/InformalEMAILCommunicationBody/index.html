@@ -1,253 +1,786 @@
 <!doctype html>
 <html lang="it" dir="auto" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
-<head>
-    <title>SEND - Comunicazione da ${sender.denomination}</title>
+  <head>
+    <title><%-it_subject%></title>
     <!--[if !mso]><!-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--<![endif]-->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="light dark" />
-    <meta name="supported-color-schemes" content="light dark" />
     <style type="text/css">
-        #outlook a { padding: 0; }
-        body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-        table, td { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
-        img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
-        p { display: block; margin: 13px 0; }
-
-        :root {
-            color-scheme: light dark;
-            supported-color-schemes: light dark;
-        }
-
-        body, .mail-body {
-            background-color: #FFFFFF;
-            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-        }
-
-        .content-wrapper {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        h1 {
-            font-size: 28px;
-            line-height: 36px;
-            font-weight: 700;
-            color: #17324D;
-            margin: 0 0 16px 0;
-        }
-
-        .text-body {
-            font-size: 16px;
-            line-height: 24px;
-            color: #17324D;
-        }
-
-        .text-body p {
-            margin: 0 0 16px 0;
-        }
-
-        .text-body strong, .text-body b {
-            font-weight: 700;
-        }
-
-        .text-body a {
-            color: #0073E6;
-            text-decoration: underline;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background-color: #17324D;
-            color: #FFFFFF !important;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 4px;
-            letter-spacing: 0.3px;
-        }
-
-        .io-banner {
-            background-color: #EBF7F8;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 32px 0;
-        }
-
-        .io-banner-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #0073E6;
-            margin: 0 0 8px 0;
-        }
-
-        .io-banner-text {
-            font-size: 14px;
-            line-height: 20px;
-            color: #17324D;
-            margin: 0 0 12px 0;
-        }
-
-        .io-banner-link {
-            font-size: 14px;
-            font-weight: 600;
-            color: #0073E6;
-            text-decoration: none;
-        }
-
-        .footer-section {
-            border-top: 1px solid #E3E7EB;
-            padding-top: 24px;
-            margin-top: 24px;
-        }
-
-        .footer-send {
-            font-size: 14px;
-            color: #17324D;
-            margin: 0 0 24px 0;
-        }
-
-        .footer-disclaimer {
-            font-size: 12px;
-            line-height: 18px;
-            color: #5C6F82;
-            border-top: 1px solid #E3E7EB;
-            padding-top: 16px;
-        }
-
-        .header-divider {
-            border: none;
-            border-top: 1px solid #E3E7EB;
-            margin: 16px 0 24px 0;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            body, .mail-body { background-color: #323232; }
-            h1 { color: #FFFFFF; }
-            .text-body, .text-body p { color: #EEEEEE; }
-            .text-body a { color: #94C4F4; }
-            .footer-send { color: #EEEEEE; }
-            .footer-disclaimer { color: #CCD4DC; border-top-color: #555555; }
-            .header-divider { border-top-color: #555555; }
-            .io-banner { background-color: #1A3A4A; }
-            .io-banner-title { color: #94C4F4; }
-            .io-banner-text { color: #EEEEEE; }
-            .io-banner-link { color: #94C4F4; }
-        }
-
-        @media only screen and (max-width: 479px) {
-            .content-wrapper { padding: 0 16px; }
-            h1 { font-size: 24px; line-height: 32px; }
-            .header-logo img { max-width: 100px !important; }
-        }
+      #outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decoration:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }
     </style>
-</head>
-<body style="word-spacing: normal; margin: 0; padding: 0;">
-    <div class="mail-body" style="background-color: #FFFFFF;">
-        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width: 600px; margin: 0 auto; width: 100%;">
-            <tbody>
-                <tr>
-                    <td style="padding: 32px 24px 0 24px;">
+    <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+    <!--[if lte mso 11]>
+    <style type="text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]-->
+    
+    
+    <style type="text/css">
+      @media only screen and (min-width:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.mj-column-per-70 { width:70% !important; max-width: 70%; }
+.mj-column-per-30 { width:30% !important; max-width: 30%; }
+.mj-column-per-75 { width:75% !important; max-width: 75%; }
+.mj-column-per-25 { width:25% !important; max-width: 25%; }
+      }
+    </style>
+    <style media="screen and (min-width:480px)">
+      .moz-text-html .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.moz-text-html .mj-column-per-70 { width:70% !important; max-width: 70%; }
+.moz-text-html .mj-column-per-30 { width:30% !important; max-width: 30%; }
+.moz-text-html .mj-column-per-75 { width:75% !important; max-width: 75%; }
+.moz-text-html .mj-column-per-25 { width:25% !important; max-width: 25%; }
+    </style>
+    
+    
+  
+    
+    <style type="text/css">
 
-                        <!-- Header: Sender info + Logo -->
-                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%;">
-                            <tr>
-                                <td style="vertical-align: middle;">
-                                    <p style="margin: 0; font-size: 16px; font-weight: 700; color: #17324D;">${sender.denomination}</p>
-                                </td>
-                                <#if GENERATED.senderLogoBase64?? && GENERATED.senderLogoBase64?has_content>
-                                <td style="vertical-align: middle; text-align: right;" class="header-logo">
-                                    <img src="${GENERATED.senderLogoBase64}" alt="Logo di ${sender.denomination}" style="max-height: 48px; max-width: 140px;" />
-                                </td>
-                                </#if>
-                            </tr>
-                        </table>
+    @media only screen and (max-width:479px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }
+  
+    </style>
+     
+    <style type="text/css">
+@media screen and (max-width: 600px) {
+        .sender-column { width: auto !important; }
+        .sender-logo-column { width: 110px !important; }
 
-                        <!-- Divider -->
-                        <hr class="header-divider" style="border: none; border-top: 1px solid #E3E7EB; margin: 16px 0 24px 0;" />
+        .section > table > tbody > tr > td {
+          padding-left: 8px !important;
+          padding-right: 8px !important;
+        }
+      }
 
-                        <!-- Title -->
-                        <h1>Hai ricevuto una comunicazione da ${sender.denomination} con oggetto: ${subject}</h1>
+      @media screen and (max-width: 340px) {
+        .send-communication-text {
+          white-space: normal !important;
+        }
+      }
 
-                        <!-- Greeting -->
-                        <p class="text-body" style="font-size: 16px; line-height: 24px; color: #17324D; margin: 0 0 16px 0;">
-                            Ciao ${recipient.denomination},
-                        </p>
+      .primary-content,
+      .secondary-content {
+        width: 100% !important;
+      }
 
-                        <!-- Body content (from MarkdownToHtmlProcessor) -->
-                        <div class="text-body" style="font-size: 16px; line-height: 24px; color: #17324D;">
-                            ${GENERATED.primaryContentHtml}
-                        </div>
+      .primary-content p,
+      .secondary-content p {
+        margin: 0 0 16px !important;
+        width: 100% !important;
+      }
 
-                        <#if GENERATED.secondaryContentHtml?? && GENERATED.secondaryContentHtml?has_content>
-                        <!-- Secondary content -->
-                        <div class="text-body" style="font-size: 16px; line-height: 24px; color: #17324D; margin-top: 24px; padding-top: 16px; border-top: 1px solid #E3E7EB;">
-                            ${GENERATED.secondaryContentHtml}
-                        </div>
-                        </#if>
+      .primary-content p:last-child,
+      .secondary-content p:last-child {
+        margin-bottom: 0 !important;
+      }
 
-                        <#if hasPayment>
-                        <!-- CTA Button: Paga ora -->
-                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin: 32px 0;">
-                            <tr>
-                                <td align="left">
-                                    <a href="${ENV.landingSendUrl}" class="btn-primary"
-                                       style="display: inline-block; background-color: #17324D; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none; padding: 12px 24px; border-radius: 4px; letter-spacing: 0.3px;">
-                                        Paga ora
-                                    </a>
-                                </td>
-                            </tr>
-                        </table>
-                        </#if>
+      .banner-box {
+        border-radius: 8px;
+        overflow: hidden;
+      }
 
-                        <!-- IO App Banner -->
-                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; margin: 32px 0;">
-                            <tr>
-                                <td style="background-color: #EBF7F8; border-radius: 8px; padding: 20px;">
-                                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%;">
-                                        <tr>
-                                            <td style="vertical-align: top; width: 85%;">
-                                                <p class="io-banner-title" style="font-size: 16px; font-weight: 700; color: #0073E6; margin: 0 0 8px 0;">Con l'app IO è ancora più semplice!</p>
-                                                <p class="io-banner-text" style="font-size: 14px; line-height: 20px; color: #17324D; margin: 0 0 12px 0;">Ricevi le prossime comunicazioni dagli enti pubblici, aggiungi i tuoi documenti personali, ottieni bonus e sconti. E in più, paghi in digitale. Tutto sull'app IO!</p>
-                                                <a href="https://io.italia.it/" class="io-banner-link" style="font-size: 14px; font-weight: 600; color: #0073E6; text-decoration: none;">Scarica l'app IO</a>
-                                            </td>
-                                            <td style="vertical-align: middle; text-align: right; width: 15%; padding-left: 16px;">
-                                                <img src="https://www.notifichedigitali.it/static/generic_assets/io-icon.png" alt="Logo di app IO" style="width: 56px; height: 56px;" width="56" height="56" />
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
+      @media (prefers-color-scheme: dark) {
+        .banner-box div,
+        .banner-box p {
+          color: #17324D !important;
+        }
 
-                        <!-- Footer: SEND branding -->
-                        <div class="footer-section" style="border-top: 1px solid #E3E7EB; padding-top: 24px; margin-top: 24px;">
-                            <table border="0" cellpadding="0" cellspacing="0" role="presentation">
-                                <tr>
-                                    <td style="vertical-align: middle; padding-right: 8px;">
-                                        <p class="footer-send" style="font-size: 14px; color: #17324D; margin: 0;">Comunicazione inviata tramite</p>
-                                    </td>
-                                    <td style="vertical-align: middle;">
-                                        <img src="https://www.notifichedigitali.it/static/generic_assets/aar-logo-short-small.png" alt="SEND - Servizio Notifiche Digitali" style="height: 24px;" height="24" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
+        .banner-box a {
+          color: #0073E6 !important;
+        }
+      }
+:root {
+  color-scheme: light dark;
+  supported-color-schemes: light dark;
+}
+p {
+  font-size: 18px;
+  margin-top: 0px;
+}
+body,
+.mail-body {
+  background-color: #FFFFFF;
+}
 
-                        <!-- Disclaimer -->
-                        <div class="footer-disclaimer" style="font-size: 12px; line-height: 18px; color: #5C6F82; border-top: 1px solid #E3E7EB; padding-top: 16px; margin-top: 24px; padding-bottom: 32px;">
-                            <p style="margin: 0;">Ricevi questa comunicazione perché il tuo indirizzo email è stato registrato come canale di contatto da ${sender.denomination}. Per non ricevere più questo tipo di comunicazioni, contatta l'ente.</p>
-                        </div>
+.header {
+  background-color: #FFFFFF;
+  /* border-top: 8px solid #0073E6; */
+}
 
-                    </td>
-                </tr>
-            </tbody>
+.section {
+  background-color: #FFFFFF;
+}
+
+.title div {
+  /* Text Primary */
+  color: #17324D !important;
+}
+
+
+.text div {
+  color: #17324D !important;
+}
+
+.footer-text,
+.footer-text div {
+  color: #5C6F82 !important;
+}
+.footer-pec-text {
+  color: #17324D !important;
+  font-size: 14px !important;
+  line-height: 20px !important
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 40px;
+}
+.link {
+  color: #0073E6 !important;
+}
+
+.footer-text a,
+.text a {
+  color: #0073E6 !important;
+}
+
+.info-list {
+  list-style-type:none; 
+  margin: 40px 0;
+}
+.section-logo-pec {
+  max-width: 116px;
+}
+
+@media (prefers-color-scheme: light) {
+
+  .dark-img,
+  [data-ogsc] .dark-img {
+    display: none !important;
+    mso-hide: all !important;
+  }
+
+  .light-img,
+  [data-ogsc] .light-img {
+    display: block;
+    display: block !important;
+  }
+  .column-logo {
+    min-width: 116px;
+    width: auto !important;
+  }
+  .column-text {
+    width: auto !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+
+  body,
+  .mail-body {
+    background-color: #323232;
+  }
+
+  .header {
+    background-color: #323232;
+    /* border-top: 8px solid #3da2ff; */
+  }
+
+  .section {
+    background-color: #323232;
+  }
+
+  .title div {
+    color: #ffffff !important;
+  }
+
+  .text div {
+    color: #eeeeee !important;
+  }
+
+  .footer-text,
+  .footer-text div {
+    color: #CCD4DC !important;
+  }
+
+  .footer-text a,
+  .text a {
+    color: #94C4F4 !important;
+    /* Primary Light in HSL - L = +25 */
+  }
+
+  /* IMAGES */
+  /* Source: https://www.litmus.com/blog/the-ultimate-guide-to-dark-mode-for-email-marketers/ */
+
+  .dark-img,
+  [data-ogsc] .dark-img {
+    display: block !important;
+    overflow: visible !important;
+    float: none !important;
+    line-height: auto !important;
+    margin-top: 0px !important;
+    visibility: inherit !important;
+  }
+  .footer-pec-text,  .footer-pec-text p{
+    color: #ffffff !important;
+  }
+
+  .column-logo {
+    min-width: 116px;
+    width: auto !important;
+  }
+  .column-text {
+    width: auto !important;
+  }
+
+  .banner-box {
+    color: #17324D !important;
+  }
+
+}
+    </style>
+    <meta name="color-scheme" content="light dark" />
+      <meta name="supported-color-schemes" content="light dark" />
+  </head>
+  <body style="word-spacing:normal;">
+    
+    
+      <div
+         class="mail-body" style="" lang="it" dir="auto"
+      >
+        
+      
+      <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    
+      
+      <div  style="margin:0px auto;max-width:600px;">
+        
+        <table
+           align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style="direction:ltr;font-size:0px;padding:0;text-align:center;"
+              >
+                <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><![endif]-->
+                  
+      <!-- Sender header -->
+          <!--[if mso | IE]><tr><td class="section-outlook" width="600px" ><table align="center" border="0" cellpadding="0" cellspacing="0" class="section-outlook" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    
+      
+      <div  class="section" style="margin:0px auto;max-width:600px;">
+        
+        <table
+           align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style="direction:ltr;font-size:0px;padding:32px 24px 0;text-align:center;"
+              >
+                <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:middle;width:552px;" ><![endif]-->
+            
+      <div
+         class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0;line-height:0;text-align:left;display:inline-block;width:100%;direction:ltr;vertical-align:middle;"
+      >
+        <!--[if mso | IE]><table border="0" cellpadding="0" cellspacing="0" role="presentation" ><tr><td style="vertical-align:middle;width:386px;" ><![endif]-->
+                
+      <div
+         class="mj-column-per-70 mj-outlook-group-fix sender-column" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:70%;"
+      >
+        
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%"
+      >
+        <tbody>
+          <tr>
+            <td  style="vertical-align:middle;padding:0;">
+              
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%"
+      >
+        <tbody>
+          
+              <tr>
+                <td
+                   align="left" class="text" style="font-size:0px;padding:0;word-break:break-word;"
+                >
+                  
+      <div
+         style="font-family:system-ui, sans-serif;font-size:13px;line-height:1;text-align:left;color:#17324D;"
+      ><p style="font-weight: 700; margin: 0">${sender.denomination}</p>
+              <p style="font-size: 16px; margin: 8px 0 0">${sender.service}</p></div>
+    
+                </td>
+              </tr>
+            
+        </tbody>
+      </table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+              <!--[if mso | IE]></td><td style="vertical-align:middle;width:165px;" ><![endif]-->
+                
+      <div
+         class="mj-column-per-30 mj-outlook-group-fix sender-logo-column" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:30%;"
+      >
+        
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%"
+      >
+        <tbody>
+          <tr>
+            <td  style="vertical-align:middle;padding:0;">
+              
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%"
+      >
+        <tbody>
+          
+              <tr>
+                <td
+                   align="right" style="font-size:0px;padding:0;word-break:break-word;"
+                >
+                  
+      <div
+         style="font-family:system-ui, sans-serif;font-size:13px;line-height:1;text-align:right;color:#000000;"
+      ><img
+                src="${GENERATED.senderLogoBase64}"
+                alt="Logo di ${sender.denomination}"
+                style="display: inline-block; max-height: 44px; max-width: 140px; width: auto"
+              /></div>
+    
+                </td>
+              </tr>
+            
+        </tbody>
+      </table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+              <!--[if mso | IE]></td></tr></table><![endif]-->
+      </div>
+    
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
         </table>
-    </div>
-</body>
-</html>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]></td></tr></table></td></tr><tr><td class="section-outlook" width="600px" ><table align="center" border="0" cellpadding="0" cellspacing="0" class="section-outlook" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    
+      
+      <div  class="section" style="margin:0px auto;max-width:600px;">
+        
+        <table
+           align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style="direction:ltr;font-size:0px;padding:0 24px;text-align:center;"
+              >
+                <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:552px;" ><![endif]-->
+            
+      <div
+         class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"
+      >
+        
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%"
+      >
+        <tbody>
+          
+              <tr>
+                <td
+                   align="center" style="font-size:0px;padding:18px 0 26px;word-break:break-word;"
+                >
+                  
+      <p
+         style="border-top:solid 1px #E3E7EB;font-size:1px;margin:0px auto;width:100%;"
+      >
+      </p>
+      
+      <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 1px #E3E7EB;font-size:1px;margin:0px auto;width:552px;" role="presentation" width="552px" ><tr><td style="height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+    
+    
+                </td>
+              </tr>
+            
+              <tr>
+                <td
+                   align="left" class="title" style="font-size:0px;padding:0 0 24px;word-break:break-word;"
+                >
+                  
+      <div
+         style="font-family:system-ui, sans-serif;font-size:24px;font-weight:600;line-height:40px;text-align:left;color:#17324D;"
+      ><h1 style="font-size: 24px; font-weight: 600; line-height: 40px; margin: 0">${subject}</h1></div>
+    
+                </td>
+              </tr>
+            
+              <tr>
+                <td
+                   align="left" class="text" style="font-size:0px;padding:0 0 24px;word-break:break-word;"
+                >
+                  
+      <div
+         style="font-family:system-ui, sans-serif;font-size:16px;line-height:24px;text-align:left;color:#17324D;"
+      ><p style="margin: 0"><%-it_hello%></p></div>
+    
+                </td>
+              </tr>
+            
+              <tr>
+                <td
+                   align="left" class="text" style="font-size:0px;padding:0;word-break:break-word;"
+                >
+                  
+      <div
+         style="font-family:system-ui, sans-serif;font-size:16px;line-height:24px;text-align:left;color:#17324D;"
+      ><div class="primary-content">${GENERATED.primaryContentHtml}</div>
 
+            <#if GENERATED.secondaryContentHtml?? && GENERATED.secondaryContentHtml?has_content>
+            <div class="secondary-content" style="margin-top: 28px">
+              ${GENERATED.secondaryContentHtml}
+            </div>
+            </#if>
+
+            <#if hasAttachment>
+            <p style="margin: 32px 0 0"><%-it_attachments_section%></p>
+            </#if>
+
+            <#if hasPayment>
+            <p style="margin: 20px 0 0"><%-it_payment_section%></p>
+            </#if>
+
+            <p style="margin: 28px 0 0"><%-it_contact_sender%></p></div>
+    
+                </td>
+              </tr>
+            
+              <tr>
+                <td
+                   align="left" style="font-size:0px;padding:0 0 24px;word-break:break-word;"
+                >
+                  
+      <div
+         style="font-family:system-ui, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;"
+      ><#if hasPayment>
+            <p style="margin: 24px 0 0">
+              <a
+                href="${ENV['sendLoginUrlPF']}"
+                title="<%-it_pay_button_cta%>"
+                style="background-color: #0B3EE3; border-radius: 8px; color: #FFFFFF; display: inline-block; font-size: 16px; font-weight: 600; line-height: 20px; padding: 14px 24px; text-decoration: none"
+              ><%-it_pay_button_cta%></a>
+            </p>
+            </#if></div>
+    
+                </td>
+              </tr>
+            
+        </tbody>
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]></td></tr></table></td></tr><![endif]-->
+        <!-- IO app banner -->
+          <!--[if mso | IE]><tr><td class="section-outlook" width="600px" ><table align="center" border="0" cellpadding="0" cellspacing="0" class="section-outlook" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    
+      
+      <div  class="section" style="margin:0px auto;max-width:600px;">
+        
+        <table
+           align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style="direction:ltr;font-size:0px;padding:0 24px;text-align:center;"
+              >
+                <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="banner-box-outlook" style="vertical-align:middle;width:552px;" ><![endif]-->
+            
+      <div
+         class="mj-column-per-100 mj-outlook-group-fix banner-box" style="font-size:0;line-height:0;text-align:left;display:inline-block;width:100%;direction:ltr;vertical-align:middle;background-color:#D9F6F8;"
+      >
+        <!--[if mso | IE]><table bgcolor="#D9F6F8" border="0" cellpadding="0" cellspacing="0" role="presentation" ><tr><td style="vertical-align:middle;width:414px;" ><![endif]-->
+                
+      <div
+         class="mj-column-per-75 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:75%;"
+      >
+        
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%"
+      >
+        <tbody>
+          <tr>
+            <td  style="vertical-align:middle;padding:16px 0 16px 16px;">
+              
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%"
+      >
+        <tbody>
+          
+              <tr>
+                <td
+                   align="left" style="font-size:0px;padding:0;word-break:break-word;"
+                >
+                  
+      <div
+         style="font-family:system-ui, sans-serif;font-size:14px;line-height:21px;text-align:left;color:#000000;"
+      ><p style="font-size: 16px; font-weight: 700; line-height: 23px; margin: 0 0 6px; color: #031344">Con l'app IO è ancora più semplice!</p>
+              <p style="margin: 0 0 12px; color: #555C70">Ricevi le prossime comunicazioni dagli enti pubblici, aggiungi i tuoi documenti personali, ottieni bonus e sconti. E in più, paghi in digitale. Tutto sull'app IO!</p>
+              <a href="https://io.italia.it/" title="Scarica l'app IO" style="color: #0073E6; font-size: 15px; font-weight: 700; line-height: 22px; text-decoration: none">Scarica l'app IO</a></div>
+    
+                </td>
+              </tr>
+            
+        </tbody>
+      </table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+              <!--[if mso | IE]></td><td style="vertical-align:middle;width:138px;" ><![endif]-->
+                
+      <div
+         class="mj-column-per-25 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:25%;"
+      >
+        
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%"
+      >
+        <tbody>
+          <tr>
+            <td  style="vertical-align:middle;padding:16px 16px 16px 8px;">
+              
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%"
+      >
+        <tbody>
+          
+              <tr>
+                <td
+                   align="right" style="font-size:0px;padding:0;word-break:break-word;"
+                >
+                  
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;"
+      >
+        <tbody>
+          <tr>
+            <td  style="width:74px;">
+              
+      <img
+         alt="Logo di app IO" src="https://notifichedigitali.it/assets/IO_Icon_4x_d10ecf1838.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="74" height="auto"
+      />
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+                </td>
+              </tr>
+            
+        </tbody>
+      </table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+              <!--[if mso | IE]></td></tr></table><![endif]-->
+      </div>
+    
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]></td></tr></table></td></tr><tr><td class="section-outlook" width="600px" ><table align="center" border="0" cellpadding="0" cellspacing="0" class="section-outlook" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    
+      
+      <div  class="section" style="margin:0px auto;max-width:600px;">
+        
+        <table
+           align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style="direction:ltr;font-size:0px;padding:38px 24px 0;text-align:center;"
+              >
+                <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:552px;" ><![endif]-->
+            
+      <div
+         class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"
+      >
+        
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%"
+      >
+        <tbody>
+          
+              <tr>
+                <td
+                   align="left" class="text" style="font-size:0px;padding:0 0 24px;word-break:break-word;"
+                >
+                  
+      <table
+         cellpadding="0" cellspacing="0" width="100%" border="0" style="color:#17324D;font-family:system-ui, sans-serif;font-size:16px;line-height:22px;table-layout:auto;width:100%;border:none;"
+      >
+        <tr>
+              <td
+                class="send-communication-text"
+                style="line-height: 24px; vertical-align: middle; white-space: nowrap"
+              >
+                <%-it_send_communication%>
+              </td>
+              <td style="padding-left: 10px; vertical-align: middle; width: 75px">
+                <img
+                  src="https://www.notifichedigitali.it/static/generic_assets/aar-logo-short-small.png"
+                  alt="SEND - Servizio Notifiche Digitali"
+                  width="75"
+                  style="display: block; height: auto; max-width: 75px; width: 75px"
+                />
+              </td>
+              <td aria-hidden="true" style="width: 100%"></td>
+            </tr>
+      </table>
+    
+                </td>
+              </tr>
+            
+              <tr>
+                <td
+                   align="center" style="font-size:0px;padding:0;word-break:break-word;"
+                >
+                  
+      <p
+         style="border-top:solid 1px #E3E7EB;font-size:1px;margin:0px auto;width:100%;"
+      >
+      </p>
+      
+      <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 1px #E3E7EB;font-size:1px;margin:0px auto;width:552px;" role="presentation" width="552px" ><tr><td style="height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+    
+    
+                </td>
+              </tr>
+            
+              <tr>
+                <td
+                   align="left" class="footer-text" style="font-size:0px;padding:24px 0;word-break:break-word;"
+                >
+                  
+      <div
+         style="font-family:system-ui, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;"
+      ><p style="margin: 0; font-size: 14px; line-height: 18px; color: #5C6F82"><%-it_footer%></p></div>
+    
+                </td>
+              </tr>
+            
+              <tr>
+                <td
+                   align="center" style="font-size:0px;padding:0 0 24px;word-break:break-word;"
+                >
+                  
+      <p
+         style="border-top:solid 1px #E3E7EB;font-size:1px;margin:0px auto;width:100%;"
+      >
+      </p>
+      
+      <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 1px #E3E7EB;font-size:1px;margin:0px auto;width:552px;" role="presentation" width="552px" ><tr><td style="height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+    
+    
+                </td>
+              </tr>
+            
+        </tbody>
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+    
+    
+      </div>
+    
+  </body>
+</html>
+  
