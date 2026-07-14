@@ -189,9 +189,9 @@
               line-height="21px"
               padding="0"
             >
-              <p style="font-size: 16px; font-weight: 700; line-height: 23px; margin: 0 0 6px; color: #031344">Con l'app IO è ancora più semplice!</p>
-              <p style="margin: 0 0 12px; color: #555C70">Ricevi le prossime comunicazioni dagli enti pubblici, aggiungi i tuoi documenti personali, ottieni bonus e sconti. E in più, paghi in digitale. Tutto sull'app IO!</p>
-              <a href="https://io.italia.it/" title="Scarica l'app IO" style="color: #0073E6; font-size: 15px; font-weight: 700; line-height: 22px; text-decoration: none">Scarica l'app IO</a>
+              <p style="font-size: 16px; font-weight: 700; line-height: 23px; margin: 0 0 6px; color: #031344"><%-it_io_banner_title%></p>
+              <p style="margin: 0 0 12px; color: #555C70"><%-it_io_banner_text%></p>
+              <a href="https://io.italia.it/" title="<%-it_io_banner_cta%>" style="color: #0073E6; font-size: 15px; font-weight: 700; line-height: 22px; text-decoration: none"><%-it_io_banner_cta%></a>
             </mj-text>
           </mj-column>
           <mj-column width="25%" padding="16px 16px 16px 8px" vertical-align="middle">
