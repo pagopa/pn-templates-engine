@@ -117,6 +117,45 @@ h1 {
   max-width: 116px;
 }
 
+/* Shared styles for informal email and PEC communication templates. */
+.primary-content,
+.secondary-content {
+  width: 100% !important;
+}
+
+.primary-content p,
+.secondary-content p {
+  margin: 0 0 16px !important;
+  width: 100% !important;
+}
+
+.primary-content p:last-child,
+.secondary-content p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.informal-io-banner {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  .sender-logo-cell {
+    width: 110px !important;
+  }
+
+  .informal-section > table > tbody > tr > td {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .send-communication-text {
+    white-space: normal !important;
+  }
+}
+
 @media (prefers-color-scheme: light) {
 
   .dark-img,
@@ -200,6 +239,15 @@ h1 {
 
   .banner-box {
     color: #17324D !important;
+  }
+
+  .informal-io-banner div,
+  .informal-io-banner p {
+    color: #17324D !important;
+  }
+
+  .informal-io-banner a {
+    color: #0073E6 !important;
   }
 
 }
