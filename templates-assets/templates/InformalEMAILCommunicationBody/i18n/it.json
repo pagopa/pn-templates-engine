@@ -1,0 +1,14 @@
+{
+  "it_language": "it",
+  "it_subject":"Hai ricevuto una comunicazione da ${sender.denomination} con oggetto: ${subject}",
+  "it_hello":"Ciao ${recipient.denomination},",
+  "it_attachments_section": "Per avere maggiori informazioni <strong>prendi visione degli allegati</strong>, che possono fornirti dettagli importanti. ",
+  "it_payment_section": "Puoi <strong>effettuare il pagamento</strong> direttamente tramite l&#39;app IO o <a title=\"Continua su Piattaforma Notifiche\" class=\"link\" href=\"${ENV['sendLoginUrlPF']}\" style=\"color: #0073e6; text-decoration: underline\">SEND</a>, il servizio di notifiche digitali della pubblica amministrazione. <br />In alternativa, puoi utilizzare l&#39;avviso allegato per saldare l&#39;importo tramite tutti i canali abilitati a pagoPA.",
+  "it_contact_sender": "In ogni caso, qualora avessi bisogno di assistenza, <strong>contatta ${sender.denomination}</strong> attraverso i suoi canali ufficiali.",
+  "it_pay_button_cta": "Paga ora",
+  "it_io_banner_title": "Con l&#39;app IO &egrave; ancora pi&ugrave; semplice!",
+  "it_io_banner_text": "Ricevi le prossime comunicazioni dagli enti pubblici, aggiungi i tuoi documenti personali, ottieni bonus e sconti. E in pi&ugrave;, paghi in digitale. Tutto sull&#39;app IO!",
+  "it_io_banner_cta": "Scarica l&#39;app IO",
+  "it_send_communication": "Comunicazione inviata tramite",
+  "it_footer":"Ricevi questa comunicazione perch&eacute; il tuo indirizzo email &egrave; stato registrato come canale di contatto da ${sender.denomination}. Per non ricevere pi&ugrave; questo tipo di comunicazioni, contatta l&#39;ente."
+}
