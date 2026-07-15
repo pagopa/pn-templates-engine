@@ -8,54 +8,6 @@
       <meta name="color-scheme" content="light dark" />
       <meta name="supported-color-schemes" content="light dark" />
     </mj-raw>
-    <mj-style>
-      @media screen and (max-width: 600px) {
-        .sender-logo-cell { width: 110px !important; }
-
-        .section > table > tbody > tr > td {
-          padding-left: 8px !important;
-          padding-right: 8px !important;
-        }
-      }
-
-      @media screen and (max-width: 340px) {
-        .send-communication-text {
-          white-space: normal !important;
-        }
-      }
-
-      .primary-content,
-      .secondary-content {
-        width: 100% !important;
-      }
-
-      .primary-content p,
-      .secondary-content p {
-        margin: 0 0 16px !important;
-        width: 100% !important;
-      }
-
-      .primary-content p:last-child,
-      .secondary-content p:last-child {
-        margin-bottom: 0 !important;
-      }
-
-      .banner-box {
-        border-radius: 8px;
-        overflow: hidden;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        .banner-box div,
-        .banner-box p {
-          color: #17324D !important;
-        }
-
-        .banner-box a {
-          color: #0073E6 !important;
-        }
-      }
-    </mj-style>
   </mj-head>
 
   <mj-body css-class="mail-body">
@@ -63,7 +15,7 @@
 
     <mj-wrapper padding="0">
       <!-- Sender header -->
-      <mj-section css-class="section" padding="32px 24px 0">
+      <mj-section css-class="section informal-section" padding="32px 24px 0">
         <mj-column padding="0">
           <mj-text
             css-class="text"
@@ -101,7 +53,7 @@
         </mj-column>
       </mj-section>
 
-      <mj-section css-class="section" padding="0 24px">
+      <mj-section css-class="section informal-section" padding="0 24px">
         <mj-column>
           <mj-divider
             border-color="#E3E7EB"
@@ -175,10 +127,10 @@
       </mj-section>
 
       <!-- IO app banner -->
-      <mj-section css-class="section" padding="0 24px">
+      <mj-section css-class="section informal-section" padding="0 24px">
         <mj-group
           background-color="#D9F6F8"
-          css-class="banner-box"
+          css-class="informal-io-banner"
           vertical-align="middle"
         >
           <mj-column width="75%" padding="16px 0 16px 16px" vertical-align="middle">
@@ -205,7 +157,7 @@
         </mj-group>
       </mj-section>
 
-      <mj-section css-class="section" padding="38px 24px 0">
+      <mj-section css-class="section informal-section" padding="38px 24px 0">
         <mj-column>
           <mj-table
             css-class="text"
