@@ -1,1 +1,1 @@
-Hai ricevuto una comunicazione da ${senderDenomination} con oggetto: ${subject}
+${recipient.denomination} ha ricevuto una comunicazione da ${sender.denomination} con oggetto: ${subject}
