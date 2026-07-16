@@ -2,6 +2,7 @@ package it.pagopa.pn.templatesengine.processor;
 
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import lombok.extern.slf4j.Slf4j;
+import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,8 +46,9 @@ public class TemplateProcessorChain<MODEL, O> {
         steps.add((template, model, output) -> {
             M target = mapper.apply(model);
             if (target != null) {
-                processor.process(template, target, output);
+                return processor.process(template, target, output);
             }
+            return Mono.empty();
         });
         log.info("Added processor {} to chain", processor.getClass().getSimpleName());
         return this;
@@ -58,19 +60,20 @@ public class TemplateProcessorChain<MODEL, O> {
      *
      * @param template il template in fase di elaborazione
      * @param model    il model in input (viene castato in modo sicuro via {@code Class.cast})
-     * @return l'oggetto output popolato dai processori
+     * @return un Mono con l'oggetto output popolato dai processori
      */
-    Object execute(TemplatesEnum template, Object model) {
+    Mono<Object> execute(TemplatesEnum template, Object model) {
         MODEL typedModel = modelClass.cast(model);
         O output = outputFactory.get();
+        Mono<Void> chain = Mono.empty();
         for (Step<MODEL, O> step : steps) {
-            step.execute(template, typedModel, output);
+            chain = chain.then(step.execute(template, typedModel, output));
         }
-        return output;
+        return chain.thenReturn(output);
     }
 
     @FunctionalInterface
     private interface Step<MODEL, O> {
-        void execute(TemplatesEnum template, MODEL model, O output);
+        Mono<Void> execute(TemplatesEnum template, MODEL model, O output);
     }
 }

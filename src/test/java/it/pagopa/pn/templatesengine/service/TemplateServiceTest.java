@@ -103,6 +103,8 @@ class TemplateServiceTest {
         MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
+        Mockito.when(processorRegistry.executeProcessors(Mockito.any(), Mockito.any()))
+                .thenReturn(Mono.empty());
         Mockito.when(documentComposition.executePdfTemplate(Mockito.anyString(), Mockito.any(), ArgumentMatchers.isNull()))
                 .thenThrow(new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION,
                         "Non è stato possibile elaborare il pdf", HttpStatus.INTERNAL_SERVER_ERROR));
@@ -130,6 +132,8 @@ class TemplateServiceTest {
         MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
+        Mockito.when(processorRegistry.executeProcessors(Mockito.any(), Mockito.any()))
+                .thenReturn(Mono.empty());
         Mockito.when(documentComposition.executeTextTemplate(Mockito.anyString(), Mockito.any(), ArgumentMatchers.isNull()))
                 .thenThrow(new PnGenericException(ExceptionTypeEnum.ERROR_TEMPLATES_DOCUMENT_COMPOSITION,
                         "Non è stato possibile elaborare il template", HttpStatus.INTERNAL_SERVER_ERROR));
@@ -158,6 +162,8 @@ class TemplateServiceTest {
         MailVerificationCodeBody emailbody = new MailVerificationCodeBody();
         emailbody.setVerificationCode("VerificationCode");
 
+        Mockito.when(processorRegistry.executeProcessors(Mockito.any(), Mockito.any()))
+                .thenReturn(Mono.empty());
         Mockito.when(documentComposition.executeTextTemplate(Mockito.anyString(), Mockito.any(), ArgumentMatchers.isNull()))
                 .thenReturn("OK");
 
@@ -180,6 +186,8 @@ class TemplateServiceTest {
         emailbody.setVerificationCode("VerificationCode");
         byte[] expectedPdf = "PDF".getBytes();
 
+        Mockito.when(processorRegistry.executeProcessors(Mockito.any(), Mockito.any()))
+                .thenReturn(Mono.empty());
         Mockito.when(documentComposition.executePdfTemplate(Mockito.anyString(), Mockito.any(), ArgumentMatchers.isNull()))
                 .thenReturn(expectedPdf);
 

@@ -4,6 +4,7 @@ import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunicationBody;
 import it.pagopa.pn.templatesengine.processor.TemplateModelProcessor;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Mono;
 
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
@@ -41,11 +42,13 @@ public class MarkdownToHtmlProcessor
      * @param template  il template in fase di elaborazione (non utilizzato direttamente)
      * @param body      il body della comunicazione contenente {@code primaryContent} e {@code secondaryContent}
      * @param outParams l'oggetto output in cui impostare i campi HTML
+     * @return un Mono che completa immediatamente dopo aver popolato l'output
      */
     @Override
-    public void process(TemplatesEnum template, InformalCommunicationBody body, OutputModel outParams) {
+    public Mono<Void> process(TemplatesEnum template, InformalCommunicationBody body, OutputModel outParams) {
         outParams.setPrimaryContentHtml(toHtml(body.getPrimaryContent()));
         outParams.setSecondaryContentHtml(toHtml(body.getSecondaryContent()));
+        return Mono.empty();
     }
 
     private String toHtml(String markdown) {
