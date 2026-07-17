@@ -1,1 +1,5 @@
+<#if recipientType == "PF">
 SEND, il servizio di notifiche digitali, ti informa che hai ricevuto una comunicazione da ${senderPaDenomination}. Per leggerla, accedi con SPID o CIE al sito di SEND.
+<#elseif recipientType == "PG">
+SEND, il servizio di notifiche digitali, ti informa che la tua impresa ha ricevuto una comunicazione da ${senderPaDenomination}. Per leggerla, accedi al sito di SEND.
+</#if>
