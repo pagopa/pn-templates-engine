@@ -8,7 +8,7 @@ Per avere maggiori informazioni **prendi visione degli allegati**, che possono f
 </#if>
 <#if hasPayment>
 
-Puoi effettuare il pagamento direttamente sull'app IO premendo **Paga**. In alternativa, puoi utilizzare l'**avviso allegato** per saldare l'importo tramite tutti i canali abilitati a pagoPA.
+Puoi effettuare il pagamento direttamente sull'app IO premendo **Paga**.
 </#if>
 
 In ogni caso, qualora avessi bisogno di assistenza, **contatta ${sender.denomination} attraverso i suoi canali ufficiali**.
