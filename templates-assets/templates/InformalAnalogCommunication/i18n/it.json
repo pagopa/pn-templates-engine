@@ -9,8 +9,9 @@
   "it_notification_subject_2": "con oggetto",
   "it_notification_subject_3": "${subject}",
   "it_hello": "<#if recipient.recipientType=='PF'>Ciao<#else>All'attenzione di</#if> ${recipient.denomination},",
-  "it_body1":"Per avere maggiori informazioni <strong><#if recipient.recipientType=='PF'>prendi<#else>si consiglia di prendere</#if> visione degli allegati</strong>, che possono <#if recipient.recipientType=='PF'>fornirti<#else>fornire</#if> dettagli importanti. Per saldare l’importo tramite tutti i canali abilitati a pagoPA, <#if recipient.recipientType=='PF'>fai<#else>si può far</#if> riferimento all’avviso di pagamento allegato.",
-  "it_body2":"In ogni caso, qualora <#if recipient.recipientType=='PF'>avessi<#else>si avesse</#if> bisogno di assistenza, <#if recipient.recipientType!='PF'>è possibile</#if><strong><#if recipient.recipientType=='PF'>contatta<#else> contattare</#if> ${sender.denomination}</strong> attraverso i suoi canali ufficiali.",
+  "it_body1":"Per avere maggiori informazioni <strong><#if recipient.recipientType=='PF'>prendi<#else>si consiglia di prendere</#if> visione degli allegati</strong>, che possono <#if recipient.recipientType=='PF'>fornirti<#else>fornire</#if> dettagli importanti.",
+  "it_body2":"Per saldare l’importo tramite tutti i canali abilitati a pagoPA, <#if recipient.recipientType=='PF'>fai<#else>si può far</#if> riferimento all’avviso di pagamento allegato.",
+  "it_body3":"In ogni caso, qualora <#if recipient.recipientType=='PF'>avessi<#else>si avesse</#if> bisogno di assistenza, <#if recipient.recipientType!='PF'>è possibile</#if><strong><#if recipient.recipientType=='PF'>contatta<#else> contattare</#if> ${sender.denomination}</strong> attraverso i suoi canali ufficiali.",
   "it_io_title": "Con l'app IO è ancora più semplice!",
   "it_io_content": "Ricevi le prossime comunicazioni dagli enti pubblici, aggiungi i tuoi documenti personali, ottieni bonus e sconti. E in più, paghi in digitale. Scarica gratis l'app IO!"
 }

@@ -85,8 +85,8 @@
                             <div class="generated-content">
                                 ${GENERATED.primaryContentHtml}
                             </div>
-                            <p class="py-16"><%-it_body1%></p>
-                            <p class="pb-16"><%-it_body2%></p>
+                            <p class="py-16"><#if hasAttachment><%-it_body1%></#if><#if hasPayment> <%-it_body2%></#if></p>
+                            <p class="pb-16"><%-it_body3%></p>
                         </div>
                     </div>
                     <#if recipient.recipientType=='PF'>
