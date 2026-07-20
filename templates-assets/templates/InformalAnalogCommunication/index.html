@@ -12,10 +12,10 @@
         <bookmark name="Dati della notifica" href="#iun_box"/>
         <bookmark name="Notifica inviata tramite SEND" href="#send_box"/>
         <bookmark name="Oggetto e mittente della notifica" href="#main_subject"/>
-        <bookmark name="Codice QR della notifica" href="#qr-code"/>
-        <bookmark name="Step di accesso online alla notifica" href="#how_to_online"/>
+        <#if recipient.recipientType=='PF'>
         <bookmark name="Note legali del documento" href="#footer_disclaimer"/>
         <bookmark name="Vantaggi dell'utilizzo di SEND tramite app IO" href="#io_download"/>
+        </#if>
     </bookmarks>
 </head>
 
@@ -93,7 +93,7 @@
                     <div class="row">
                         <div class="cell vertical-align-bottom">
                             <footer id="footer_disclaimer" class="eight-pt ten-lh">
-                                <div class="blue-border-box p-0 radius-8 io-banner">
+                                <div class="blue-border-box-combo p-0 radius-8 io-banner">
                                     <div class="table">
                                         <div class="row eleven-pt radius-8 w-100" id="io_download">
                                             <div class="cell pt-12 pb-12 pl-12 vertical-align-top width-85">

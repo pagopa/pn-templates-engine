@@ -453,6 +453,12 @@ a.black {
 
 .blue-border-box {
     border: solid #7C7C7B 1px;
+}
+.blue-border-box-combo {
+    border: solid #ced8f9 1px;
+}
+
+.blue-border-box, .blue-border-box-combo {
     padding: 11px;
     margin-top: 90px;
 }
