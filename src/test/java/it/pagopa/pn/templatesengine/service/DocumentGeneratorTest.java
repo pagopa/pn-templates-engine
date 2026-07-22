@@ -428,7 +428,7 @@ public class DocumentGeneratorTest {
 
     private InformalCommunication getInformalCommunication() {
         var body = new InformalCommunicationBody()
-                .primaryContent("Corpo della comunicazione **in markdown**")
+                .primaryContent("Corpo della comunicazione **in markdown** `in monospace`")
                 .secondaryContent("Contenuto secondario");
         var sender = new InformalCommunicationSender()
                 .denomination("Ente Mittente")
