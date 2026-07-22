@@ -12,6 +12,38 @@
     src: url(../fonts/Titillium_Pro/TitilliumSansPro-Bold.ttf) format('truetype');
 }
 
+@font-face {
+    font-family: "DM Mono";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../fonts/DM_Mono/DMMono-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: italic;
+    font-weight: normal;
+    src: url(../fonts/DM_Mono/DMMono-Italic.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: normal;
+    font-weight: bold;
+    src: url(../fonts/DM_Mono/DMMono-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: italic;
+    font-weight: bold;
+    src: url(../fonts/DM_Mono/DMMono-MediumItalic.ttf) format('truetype');
+}
+
+code {
+    font-family: "DM Mono", "Titillium Pro";
+}
+
 @page {
     size: A4;
     margin: 0mm;
