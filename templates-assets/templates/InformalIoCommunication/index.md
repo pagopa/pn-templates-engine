@@ -4,7 +4,7 @@ Ciao ${recipient.denomination},
 ${body.primaryContent}
 <#if hasAttachment>
 
-Per avere maggiori informazioni **prendi visione degli allegati**, che possono fornirti dettagli importanti. Ma ricorda: saranno disponibili online per un periodo limitato, quindi salvali sul tuo dispositivo.
+Per avere maggiori informazioni **prendi visione degli allegati**, che possono fornirti dettagli importanti. Ma ricorda: saranno disponibili online per 180 giorni, quindi salvali sul tuo dispositivo.
 </#if>
 <#if hasPayment>
 
