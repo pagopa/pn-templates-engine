@@ -1,0 +1,39 @@
+name: Push locales to Lokalise
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+      # TODO: RIMUOVERE PRIMA DEL MERGE IN develop - serve solo per testare sul branch di feature
+      - feature/PN-19913
+    paths:
+      - 'templates-assets/locales/it/**'
+concurrency:
+  group: lokalise-push-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  push-locale:
+    runs-on: ubuntu-latest
+    # TODO: RIPRISTINARE PRIMA DEL MERGE - usa i secret di repository durante il test.
+    #       Riallineare a io-app con "environment: lokalise" quando l'environment sara' disponibile.
+    # environment: lokalise
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+    - name: Push to Lokalise
+      uses: lokalise/lokalise-push-action@bb67ba45a739acf22e3c00f05dc50a55737fa5c8 #v5.3.1
+      with:
+        api_token: ${{ secrets.LOKALISE_API_TOKEN }}
+        project_id: ${{ secrets.LOKALISE_PROJECT_ID }}
+        base_lang: it
+        translations_path: |
+          templates-assets/locales
+        file_ext: json
+        additional_params: |
+          cleanup_mode: true
+          # NB: i template usano placeholder FreeMarker ${...} (non {{...}} come io-app).
+          # Verificare al primo push che Lokalise non li interpreti/alteri.
+          # Se necessario rimuovere/cambiare placeholder_format.
+          placeholder_format: i18n
