@@ -646,6 +646,14 @@ ul#square-list-mandate li {
     margin-left: 0;
 }
 
+.generated-content h1, .generated-content h2, .generated-content h3, .generated-content h4, .generated-content h5, .generated-content h6 {
+    padding-bottom: 10px;
+}
+
+.generated-content h2 {
+    line-height: 30px;
+}
+
 .language-margin {
     margin-top: 2mm;
 }
@@ -764,4 +772,8 @@ img.message-advantages_explanation {
 
 .intro-block {
     height: 65mm;
+}
+
+.avoid-page-break {
+  page-break-inside: avoid;
 }
