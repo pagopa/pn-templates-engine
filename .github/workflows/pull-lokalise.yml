@@ -36,7 +36,8 @@ jobs:
         always_pull_base: true
         pr_title: "chore: Update translations from Lokalise"
         pr_draft: true
-        pr_labels: experimental
+        pr_labels: experimental,lokalise
+        override_branch_name: lokalise-sync
         git_user_name: "github-actions[bot]"
         git_user_email: "github-actions[bot]@users.noreply.github.com"
         additional_params: |
