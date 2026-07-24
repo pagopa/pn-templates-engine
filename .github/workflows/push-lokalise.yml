@@ -12,7 +12,9 @@ concurrency:
   group: lokalise-push-${{ github.head_ref || github.run_id }}
   cancel-in-progress: false
 permissions:
-  contents: read
+  # write serve al primo run per creare/pushare il tag 'lokalise-upload-complete'.
+  # Dopo che il tag esiste si puo' tornare a 'contents: read' (come io-app).
+  contents: write
 jobs:
   push-locale:
     runs-on: ubuntu-latest
