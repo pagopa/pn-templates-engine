@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   # TODO: RIMUOVERE PRIMA DEL MERGE IN develop - il pull di norma e' solo workflow_dispatch,
   # ma workflow_dispatch non e' lanciabile finche' il file non e' sul branch di default.
-  # Questo trigger push serve solo per testare la action sul branch di feature.
+  # Questo trigger push serve solo per testare la action sul branch di feature..
   push:
     branches:
       - feature/PN-19913
