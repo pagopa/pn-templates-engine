@@ -35,6 +35,8 @@ jobs:
         file_format: json
         always_pull_base: true
         pr_title: "chore: Update translations from Lokalise"
+        pr_draft: true
+        pr_labels: experimental
         git_user_name: "github-actions[bot]"
         git_user_email: "github-actions[bot]@users.noreply.github.com"
         additional_params: |
