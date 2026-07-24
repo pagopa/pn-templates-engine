@@ -4,6 +4,9 @@ const fs = require("fs-extra");
 const {
   BASE_SOURCE_DIR,
   loadTranslations,
+  hasLocales,
+  getLocalesLanguages,
+  loadLocalesTranslations,
   BASE_OUTPUT_DIR,
   getOutputFileName,
 } = require("./utils");
@@ -11,11 +14,12 @@ const log = require("./logger");
 
 const templatesDir = path.join(BASE_SOURCE_DIR, "templates");
 
-async function generateHtmlTemplate() {
-  log.info("...generating html templates");
+async function generateHtmlTemplate(useLocales = false) {
+  log.info(
+    `...generating html templates${useLocales ? " (folder locales mode)" : ""}`,
+  );
 
   try {
-
     const entries = await fs.readdir(templatesDir, { withFileTypes: true });
 
     for (const entry of entries) {
@@ -35,10 +39,12 @@ async function generateHtmlTemplate() {
 
       const templateContent = await fs.readFile(
         path.join(templateDir, "index.html"),
-        "utf8"
+        "utf8",
       );
 
-      const hasLanguages = fs.existsSync(i18nDir);
+      const useLocalesForTemplate = useLocales && hasLocales(templateName);
+
+      const hasLanguages = useLocalesForTemplate || fs.existsSync(i18nDir);
 
       if (!hasLanguages) {
         const outputFileName = getOutputFileName(templateName);
@@ -50,9 +56,9 @@ async function generateHtmlTemplate() {
         continue;
       }
 
-      const languages = (await fs.readdir(i18nDir)).map(
-        (entry) => entry.split(".")[0]
-      );
+      const languages = useLocalesForTemplate
+        ? getLocalesLanguages(templateName)
+        : (await fs.readdir(i18nDir)).map((entry) => entry.split(".")[0]);
 
       for (const lang of languages) {
         const outputFileName = getOutputFileName(templateName, lang);
@@ -64,7 +70,7 @@ async function generateHtmlTemplate() {
         ) {
           const langContent = await fs.readFile(
             path.join(templateDir, "index_it.html"),
-            "utf8"
+            "utf8",
           );
           await renderAndWriteFile({
             templateName,
@@ -74,7 +80,9 @@ async function generateHtmlTemplate() {
           continue;
         }
 
-        const translations = await loadTranslations(lang, templateDir);
+        const translations = useLocalesForTemplate
+          ? await loadLocalesTranslations(lang, templateName)
+          : await loadTranslations(lang, templateDir);
 
         await renderAndWriteFile({
           templateName,

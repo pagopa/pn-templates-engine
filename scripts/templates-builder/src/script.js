@@ -6,14 +6,14 @@ const copyMarkdownTemplates = require("./copyMarkdownTemplates.js");
 const { BASE_OUTPUT_DIR } = require("./utils.js");
 const fs = require("fs-extra");
 
-async function build() {
+async function build({ useLocales = false } = {}) {
   await fs.emptyDir(BASE_OUTPUT_DIR);
 
   await copyAssets();
   await buildMjml();
   await copyTextTemplates();
   await copyMarkdownTemplates();
-  await generateHtmlTemplate();
+  await generateHtmlTemplate(useLocales);
 }
 
 module.exports = build;

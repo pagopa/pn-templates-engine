@@ -1,7 +1,9 @@
 const build = require("./script");
 const log = require("./logger");
 
-build()
+const useLocales = process.argv.slice(2).includes("locales");
+
+build({ useLocales })
   .then(() => {
     log.info("Build completed successfully!");
   })

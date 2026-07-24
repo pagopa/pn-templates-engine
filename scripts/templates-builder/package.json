@@ -4,6 +4,7 @@
   "main": "src/index.js",
   "scripts": {
     "generate": "node src/index.js",
+    "generate-locales": "node src/index.js locales",
     "test": "jest -i --verbose --coverage"
   },
   "author": "",
