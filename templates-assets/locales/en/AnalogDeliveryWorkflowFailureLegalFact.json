@@ -1,8 +1,9 @@
 {
+  "body1": "With reference to the notification with IUN <span class=\"no-wrap\">${iun}<\/span>, pursuant to Art. 26, paragraph 7 of D.L. 76\/2020, as the recipient ${recipient.denomination} <br>Fiscal Code: ${recipient.taxId} was unreachable for reasons other than temporary absence or refusal by the recipient or other persons to whom the package containing <br>the notice of receipt of the relevant notification can be delivered, on ${endWorkflowDate} at ${endWorkflowTime} <br> the notice of receipt was filed by the Manager on the Platform and made available to the recipient.",
+  "body2": "Pursuant to Art. 26, paragraph 7 of D.L. 76\/2020, the notification is completed on the tenth day following the date of filing on the platform as reported above, unless the recipient or their delegate accessed the notification via the platform on a date and time prior to the expiry of this term.",
+  "disclaimer_lang": "The original text of these documents is in Italian. In the event of any conflict between the Italian version and the translations into other languages, the Italian language meaning and conditions shall prevail.",
   "language": "en",
-  "subject": "Filing of notice of receipt",
-  "body1": "With reference to the notification with IUN <span class=\"no-wrap\">${iun}</span>, pursuant to Art. 26, paragraph 7 of D.L. 76/2020, as the recipient ${recipient.denomination} <br>Fiscal Code: ${recipient.taxId} was unreachable for reasons other than temporary absence or refusal by the recipient or other persons to whom the package containing <br>the notice of receipt of the relevant notification can be delivered, on ${endWorkflowDate} at ${endWorkflowTime} <br> the notice of receipt was filed by the Manager on the Platform and made available to the recipient.",
-  "body2": "Pursuant to Art. 26, paragraph 7 of D.L. 76/2020, the notification is completed on the tenth day following the date of filing on the platform as reported above, unless the recipient or their delegate accessed the notification via the platform on a date and time prior to the expiry of this term.",
   "signature": "Digitally signed by PagoPA S.p.A.",
-  "disclaimer_lang": "The original text of these documents is in Italian. In the event of any conflict between the Italian version and the translations into other languages, the Italian language meaning and conditions shall prevail."
+  "subject": "Filing of notice of receipt",
+  "test_lokalise_key": "test key - Lokalise push verification"
 }
