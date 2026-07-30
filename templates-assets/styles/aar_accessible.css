@@ -488,9 +488,11 @@ a.black {
 }
 .blue-border-box-combo {
     border: solid #ced8f9 1px;
+    padding: 11px;
+    margin: 10mm 14mm 10mm 10mm;
 }
 
-.blue-border-box, .blue-border-box-combo {
+.blue-border-box {
     padding: 11px;
     margin-top: 90px;
 }

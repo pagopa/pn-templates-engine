@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="author" content="SEND - Servizio Notifiche Digitali">
     <title><%-it_title%></title>
-    <link rel="stylesheet" href="../../styles/aar_accessible.css">
+    <link rel="stylesheet" href="../../styles/analog_accessible.css">
     <bookmarks>
         <bookmark name="Dati del mittente della notifica" href="#sender_box"/>
         <bookmark name="Dati della notifica" href="#iun_box"/>
@@ -22,8 +22,8 @@
 <body>
     <main class="thirteen-pt">
         <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
-        <section id="first-page">
-            <section class="upper-section vertical-align-top">
+        <section id="first-page" style="background-color: red;">
+            <section class="upper-section vertical-align-top" style="background-color: green;">
                 <div class="fixed-table">
                     <div class="row">
                         <div class="cell width-50 pl-8 vertical-align-top" id="sender_box">
@@ -75,11 +75,11 @@
                 </div>
             </section>
 
-            <section class="center-section" style="height: 188mm;">
+            <section class="center-section">
                 <div class="table" style="height: 100%;">
                     <div class="row">
                         <div class="cell">
-                            <h1 id="main_subject" class="fourteen-pt sixteen-lh pt-0 pb-25"><%-it_notification_subject_1%> ${sender.denomination} <%-it_notification_subject_2%>: <%-it_notification_subject_3%></h1>
+                            <h1 id="main_subject" class="sixteen-pt eighteen-lh pt-0 pb-25"><%-it_notification_subject_1%> ${sender.denomination} <%-it_notification_subject_2%>: <%-it_notification_subject_3%></h1>
                             <p class="pb-16"><%-it_hello%></p>
                             <!-- GENERATED content is in <p></p>: don't embedd variable in other <p> -->
                             <div class="generated-content">
@@ -92,7 +92,7 @@
                     <#if recipient.recipientType=='PF'>
                     <div class="row">
                         <div class="cell vertical-align-bottom">
-                            <footer id="footer_disclaimer" class="eight-pt ten-lh">
+                            <footer id="footer" class="eight-pt ten-lh">
                                 <div class="blue-border-box-combo p-0 radius-8 io-banner avoid-page-break">
                                     <div class="table">
                                         <div class="row eleven-pt radius-8 w-100" id="io_download">
@@ -114,7 +114,6 @@
             </section>
         </section>
     </main>
-
 </body>
 
 </html>
