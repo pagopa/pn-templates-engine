@@ -49,6 +49,20 @@ class MarkdownToHtmlProcessorTest {
     }
 
     @Test
+    void process_ShouldRenderSingleNewlineAsLineBreak() {
+        // Arrange: un singolo \n deve diventare <br />, due \n restano paragrafi distinti
+        InformalCommunicationBody body = new InformalCommunicationBody("Prima riga\nSeconda riga")
+                .secondaryContent("Paragrafo uno\n\nParagrafo due");
+
+        // Act & Assert
+        StepVerifier.create(markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams))
+                .verifyComplete();
+
+        assertEquals("<p>Prima riga<br />\nSeconda riga</p>\n", outParams.getPrimaryContentHtml());
+        assertEquals("<p>Paragrafo uno</p>\n<p>Paragrafo due</p>\n", outParams.getSecondaryContentHtml());
+    }
+
+    @Test
     void process_ShouldSetHtmlFieldsToNull_WhenBodyContentsAreNull() {
         // Arrange
         InformalCommunicationBody body = new InformalCommunicationBody();
