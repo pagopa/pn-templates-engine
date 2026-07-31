@@ -7,78 +7,70 @@
     <meta name="author" content="SEND - Servizio Notifiche Digitali">
     <title><%-it_title%></title>
     <link rel="stylesheet" href="../../styles/analog_accessible.css">
-    <bookmarks>
-        <bookmark name="Dati del mittente della notifica" href="#sender_box"/>
-        <bookmark name="Dati della notifica" href="#iun_box"/>
-        <bookmark name="Notifica inviata tramite SEND" href="#send_box"/>
-        <bookmark name="Oggetto e mittente della notifica" href="#main_subject"/>
-        <#if recipient.recipientType=='PF'>
-        <bookmark name="Note legali del documento" href="#footer_disclaimer"/>
-        <bookmark name="Vantaggi dell'utilizzo di SEND tramite app IO" href="#io_download"/>
-        </#if>
-    </bookmarks>
 </head>
 
 <body>
     <main class="thirteen-pt">
         <!--------------------------- PAGE 1 (297mm x 192mm) --------------------------->
-        <section id="first-page" style="background-color: red;">
-            <section class="upper-section vertical-align-top" style="background-color: green;">
-                <div class="fixed-table">
-                    <div class="row">
-                        <div class="cell width-50 pl-8 vertical-align-top" id="sender_box">
-                            <#if GENERATED.senderLogoBase64??>
-            
-                                <div class="nine-pt">
-                                    <p class="six-pt eight-lh font-uppercase"><%-it_aar_label%></p>
-                                    <p class="font-bold ten-pt">${sender.denomination}</p>
-                                    <div id="sender_logo">
-                                        <img src="${GENERATED.senderLogoBase64}" alt="Logo di ${sender.denomination}">
+        <section id="first-page">
+            <section class="upper-section vertical-align-top">
+                <div class="first-page-rowcell cell w-100 vertical-align-top">
+                    <div class="fixed-table">
+                        <div class="row">
+                            <div class="cell width-50 pl-8 vertical-align-top" id="sender_box">
+                                <#if GENERATED.senderLogoBase64??>
+                
+                                    <div class="nine-pt">
+                                        <p class="six-pt eight-lh font-uppercase"><%-it_aar_label%></p>
+                                        <p class="font-bold ten-pt">${sender.denomination}</p>
+                                        <div id="sender_logo">
+                                            <img src="${GENERATED.senderLogoBase64}" alt="Logo di ${sender.denomination}">
+                                        </div>
                                     </div>
-                                </div>
-                            <#else>
-                        
-                                <div class="nine-pt">
-                                    <p class="six-pt eight-lh font-uppercase"><%-it_aar_label%></p>
-                                    <p class="font-bold ten-pt">${sender.denomination}</p>
-                                    <div id="empty_logo_subtitle"></div>
-                                </div>
-                            </#if>
-                        </div>
-                        
-                        <div class="cell width-50 pt-12" id="iun_send">
-                            <div class="row">
-                                <div id="iun_box" class="iun_box nine-pt cell vertical-align-bottom pb-15">
-                                    <p class="font-bold nine-pt"><%-it_iun%>:</p>
-                                    <p>${iun}</p>
-                                    <p class="font-bold nine-pt"><%-it_fiscal_code%>:</p>
-                                    <p>${recipient.taxId}</p>
-                                </div>
-                                <div id="send_box" class="eight-pt cell vertical-align-bottom">
-                                    <p class="nine-pt eleven-lh mb-11"><%-it_sent_by%></p>
-                                    <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
-                                    <p id="send_box_site" class="eight-pt font-bold">
-                                        <a class="black"
-                                            href="${ENV.landingSendUrl}"  title="Sito di SEND - Servizio Notifiche Digitali">${ENV.landingSendLabel}</a></p>
+                                <#else>
+                            
+                                    <div class="nine-pt">
+                                        <p class="six-pt eight-lh font-uppercase"><%-it_aar_label%></p>
+                                        <p class="font-bold ten-pt">${sender.denomination}</p>
+                                        <div id="empty_logo_subtitle"></div>
+                                    </div>
+                                </#if>
+                            </div>
+                            
+                            <div class="cell width-50 pt-12" id="iun_send">
+                                <div>
+                                    <div id="iun_box" class="iun_box nine-pt cell vertical-align-bottom pb-15">
+                                        <p class="font-bold nine-pt"><%-it_iun%>:</p>
+                                        <p>${iun}</p>
+                                        <p class="font-bold nine-pt"><%-it_fiscal_code%>:</p>
+                                        <p>${recipient.taxId}</p>
+                                    </div>
+                                    <div id="send_box" class="eight-pt cell vertical-align-bottom">
+                                        <p class="nine-pt eleven-lh mb-11"><%-it_sent_by%></p>
+                                        <img id="send_box__logo" src="../../images/aar-logo.gif" alt="Logo di SEND - Servizio Notifiche Digitali"/>
+                                        <p id="send_box_site" class="eight-pt font-bold">
+                                            <a class="black"
+                                                href="${ENV.landingSendUrl}"  title="Sito di SEND - Servizio Notifiche Digitali">${ENV.landingSendLabel}</a></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row" id="recipient-addr-box">
-                        <!-- Si lascia lo spazio per l'indirizzo che verra' inserito dal consolidatore -->
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
+                        <div class="row" id="recipient-addr-box">
+                            <!-- Si lascia lo spazio per l'indirizzo che verra' inserito dal consolidatore -->
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section class="center-section">
-                <div class="table" style="height: 100%;">
+            <section class="dynamic-section">
+                <div class="table">
                     <div class="row">
-                        <div class="cell">
+                        <div class="cell vertical-align-top dynamic-content" >
                             <h1 id="main_subject" class="sixteen-pt eighteen-lh pt-0 pb-25"><%-it_notification_subject_1%> ${sender.denomination} <%-it_notification_subject_2%>: <%-it_notification_subject_3%></h1>
                             <p class="pb-16"><%-it_hello%></p>
                             <!-- GENERATED content is in <p></p>: don't embedd variable in other <p> -->
@@ -93,7 +85,7 @@
                     <div class="row">
                         <div class="cell vertical-align-bottom">
                             <footer id="footer" class="eight-pt ten-lh">
-                                <div class="blue-border-box-combo p-0 radius-8 io-banner avoid-page-break">
+                                <div class="blue-border-box-combo p-0 radius-8 avoid-page-break">
                                     <div class="table">
                                         <div class="row eleven-pt radius-8 w-100" id="io_download">
                                             <div class="cell pt-12 pb-12 pl-12 vertical-align-top width-85">

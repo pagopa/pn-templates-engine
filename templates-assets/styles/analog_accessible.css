@@ -46,13 +46,7 @@ code {
 
 @page {
     size: A4;
-    margin: 10mm 10mm 32mm 10mm;
-}
-
-#footer {
-    /* Il footer resta nel normale flusso del documento: essendo l'ultimo elemento
-       del body, viene renderizzato in fondo al contenuto e quindi sull'ultima pagina. */
-    margin-bottom: 4mm;
+    margin: 10mm 10mm 10mm 10mm;
 }
 
 * {
@@ -71,24 +65,38 @@ body {
 
 /********************************* start sections *********************************/
 .upper-section,
-.center-section {
+.dynamic-section {
     width: 100%;
     margin: 0mm;
 }
 
 #first-page .upper-section {
     height: 85mm;
+    display: table-row;
+    width: 100%;
 }
 
-/* Stesso meccanismo di NotificationAAR_RADDalt: la center-section ha altezza piena
-   e la tabella interna (height:100%) contiene il contenuto in alto e il footer in una
-   riga con vertical-align-bottom, così il footer resta ancorato in fondo e appare una
-   sola volta. Area utile A4 = 297 - 10 (top) - 32 (bottom) = 255mm; meno la upper-section
-   (85mm) restano 170mm. Usiamo min-height così, con contenuto lungo, la sezione può
-   crescere su piu' pagine. */
-#first-page .center-section {
-    min-height: 170mm;
+#first-page > .first-page-table .first-page-rowcell {
+  display: table-cell;
+  width: 100%;
 }
+
+#first-page .dynamic-section {
+    /* sebbene la differenza delle altezze (margine superiore, margine inferiore,
+    upper-section) sia 192mm, per evitare che il box di IO finisca nell'altra pagina
+    si preferisce ridurre l'altezza del blocco di qualche millimetro e stare in uno
+    spazio sicuro */
+    height: 188mm;
+}
+
+.dynamic-section .table{
+    height: 100%;
+}
+
+#first-page .dynamic-section .dynamic-content {
+    height: 164mm;
+}
+ 
 
 /********************************* end sections ***********************************/
 
@@ -386,7 +394,7 @@ a.black {
 }
 
 #send_box__logo {
-    width: 17mm;
+    width: 19mm;
     text-align: left;
 }
 
@@ -426,7 +434,7 @@ a.black {
 /********************************* end io box *************************************/
 .iun_box {
     padding: 0;
-    width: 75mm;
+    width: 73mm;
     text-align: left;
     margin-left: auto;
 }
