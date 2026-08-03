@@ -3,7 +3,7 @@
   "it_subject": "${recipient.denomination} ha ricevuto una comunicazione da ${sender.denomination} con oggetto: ${subject}",
   "it_hello": "All&#39;attenzione di ${recipient.denomination},",
   "it_attachments_section": "Per avere maggiori informazioni <strong>si consiglia di prendere visione degli allegati</strong>, che possono fornire dettagli importanti. ",
-  "it_payment_section": "&Egrave; possibile <strong>effettuare il pagamento</strong> direttamente tramite <a title=\"Continua su Piattaforma Notifiche\" class=\"link\" href=\"${ENV['sendLoginUrlPF']}\" style=\"color: #0073e6; text-decoration: underline\">SEND</a>, il servizio di notifiche digitali della pubblica amministrazione. <br />In alternativa, si pu&ograve; utilizzare l&#39;<strong>avviso allegato</strong> per saldare l&#39;importo tramite tutti i canali abilitati a pagoPA.",
+  "it_payment_section": "&Egrave; possibile <strong>effettuare il pagamento</strong> direttamente tramite <a title=\"Continua su Piattaforma Notifiche\" class=\"link\" href=\"<#if recipient.recipientType == 'PG'>${ENV['sendLoginUrlPG']}<#else>${ENV['sendLoginUrlPF']}</#if>\" style=\"color: #0073e6; text-decoration: underline\">SEND</a>, il servizio di notifiche digitali della pubblica amministrazione.<#if hasAttachment>  <br />In alternativa, si pu&ograve; utilizzare l&#39;<strong>avviso allegato</strong> per saldare l&#39;importo tramite tutti i canali abilitati a pagoPA.</#if>",
   "it_contact_sender": "In ogni caso, qualora si avesse bisogno di assistenza, &egrave; possibile <strong>contattare ${sender.denomination}</strong> attraverso i suoi canali ufficiali.",
   "it_pay_button_cta": "Paga su SEND",
   "it_send_communication": "Comunicazione inviata tramite",

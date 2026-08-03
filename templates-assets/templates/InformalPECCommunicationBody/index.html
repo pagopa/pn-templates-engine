@@ -252,7 +252,11 @@ h1 {
       <div
          class="mail-body" style="" lang="it" dir="auto"
       >
-        
+        <#if recipient.recipientType == "PG">
+        <#assign sendLoginUrl = ENV["sendLoginUrlPG"]>
+      <#else>
+        <#assign sendLoginUrl = ENV["sendLoginUrlPF"]>
+      </#if>
       
       <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
     
@@ -454,7 +458,7 @@ h1 {
       ><#if hasPayment>
             <p style="margin: 24px 0 0">
               <a
-                href="${ENV['sendLoginUrlPF']}"
+                href="${sendLoginUrl}"
                 title="<%-it_pay_button_cta%>"
                 style="background-color: #0B3EE3; border-radius: 8px; color: #FFFFFF; display: inline-block; font-size: 16px; font-weight: 600; line-height: 20px; padding: 14px 24px; text-decoration: none"
               ><%-it_pay_button_cta%></a>
