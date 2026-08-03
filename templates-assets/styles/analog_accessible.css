@@ -166,6 +166,10 @@ body {
     line-height: 24px;
 }
 
+.twenty-lh {
+    line-height: 26.667px; /* 20px on Figma */
+}
+
 .font-bold {
     font-weight: 700;
 }
@@ -453,31 +457,35 @@ a.black {
 .generated-content ol {
     padding-left: 0;
     margin-left: 0;
-    margin-top: 10px;
+    margin-top: 7px;
     margin-bottom: 10px;
 }
 
 .generated-content ul li,
 .generated-content ol li {
+    font-size: 16px; /* 12px on Figma */
     padding-left: 20px;
     margin-left: 0;
+    line-height: normal;
 }
 
 .generated-content h1 {
-    font-size: 21px;
-    line-height: 25px;
-    padding-bottom: 10px;
+    font-size: 21.333px; /* 16px on Figma */
+    line-height: 42.666px;
 }
 
 .generated-content h2 {
     font-size: 19px;
-    line-height: 21px;
-    padding-bottom: 5px;
+    line-height: 42.666px;
 }
 
 .generated-content h3, .generated-content h4, .generated-content h5, .generated-content h6 {
-    font-size: 14px;
-    line-height: 19px;
+    font-size: 16px;
+    line-height: 37.333px;
+}
 
+.generated-content p {
+    font-size: 16px; /* 12px on Figma */
+    line-height: normal;
 }
 /********************************* end generated content *************************************/
