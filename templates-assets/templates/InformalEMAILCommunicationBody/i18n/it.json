@@ -3,7 +3,7 @@
   "it_subject": "Hai ricevuto una comunicazione da ${sender.denomination} con oggetto: ${subject}",
   "it_hello": "Ciao ${recipient.denomination},",
   "it_attachments_section": "Per avere maggiori informazioni <strong>prendi visione degli allegati</strong>, che possono fornirti dettagli importanti. ",
-  "it_payment_section": "Puoi <strong>effettuare il pagamento</strong> direttamente tramite l&#39;app IO o <a title=\"Continua su Piattaforma Notifiche\" class=\"link\" href=\"<#if recipient.recipientType == 'PG'>${ENV['sendLoginUrlPG']}<#else>${ENV['sendLoginUrlPF']}</#if>\" style=\"color: #0073e6; text-decoration: underline\">SEND</a>, il servizio di notifiche digitali della pubblica amministrazione.<#if hasAttachment> <br />In alternativa, puoi utilizzare l&#39;avviso allegato per saldare l&#39;importo tramite tutti i canali abilitati a pagoPA.</#if>",
+  "it_payment_section": "Puoi <strong>effettuare il pagamento</strong> direttamente tramite l&#39;app IO o <a title=\"Continua su Piattaforma Notifiche\" class=\"link\" href=\"<#if recipient.recipientType == 'PG'>${ENV['sendLoginUrlPG']}<#else>${ENV['sendLoginUrlPF']}</#if>\" style=\"color: #0073e6; text-decoration: underline\">SEND</a>, il servizio di notifiche digitali della pubblica amministrazione.<br />In alternativa, puoi utilizzare l&#39;avviso allegato per saldare l&#39;importo tramite tutti i canali abilitati a pagoPA.",
   "it_contact_sender": "In ogni caso, qualora avessi bisogno di assistenza, <strong>contatta ${sender.denomination}</strong> attraverso i suoi canali ufficiali.",
   "it_pay_button_cta": "Paga su SEND",
   "it_io_banner_title": "Con l&#39;app IO &egrave; ancora pi&ugrave; semplice!",
