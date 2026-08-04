@@ -24,7 +24,7 @@ public class TemplateProcessorRegistryConfig {
     private final TemplateProcessorRegistry registry;
     private final MarkdownToHtmlProcessor markdownToHtmlProcessor;
     private final SenderLogoProcessor senderLogoProcessor;
-    private final CharNormalizerProcessor charSanitizerProcessor;
+    private final CharNormalizerProcessor charNormalizerProcessor;
 
     @PostConstruct
     public void init() {
@@ -33,12 +33,12 @@ public class TemplateProcessorRegistryConfig {
                 .add(senderLogoProcessor, model -> model.getSender().getId());
 
         registry.registerChain(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
-                .add(charSanitizerProcessor, model -> model)
+                .add(charNormalizerProcessor, model -> model)
                 .add(markdownToHtmlProcessor, InformalCommunication::getBody)
                 .add(senderLogoProcessor, model -> model.getSender().getId());
 
         registry.registerChain(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
-                .add(charSanitizerProcessor, model -> model)
+                .add(charNormalizerProcessor, model -> model)
                 .add(markdownToHtmlProcessor, InformalCommunication::getBody)
                 .add(senderLogoProcessor, model -> model.getSender().getId());
 

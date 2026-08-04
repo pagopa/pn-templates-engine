@@ -50,27 +50,20 @@ class CharNormalizerProcessorTest {
         StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY, model, outParams))
                 .verifyComplete();
 
-        assertEquals(expectedByMap("Città d'Italia *"), outParams.getSubjectNormalized());
-        assertEquals(expectedByMap("Perché è già così: à è ç"), outParams.getPrimaryContentNormalized());
-        assertEquals(expectedByMap("Š? no, ma š e ž"), outParams.getSecondaryContentNormalized());
-        assertEquals(expectedByMap("Comune di Česena"), outParams.getSenderDenominationNormalized());
-        assertEquals(expectedByMap("Servizio èlite"), outParams.getSenderServiceNormalized());
-        assertEquals(expectedByMap("Mario Dall'Ò"), outParams.getRecipientDenominationNormalized());
+        assertEquals(expectedByMap("Città d'Italia *"), model.getSubject());
+        assertEquals(expectedByMap("Perché è già così: à è ç"), model.getBody().getPrimaryContent());
+        assertEquals(expectedByMap("Š? no, ma š e ž"), model.getBody().getSecondaryContent());
+        assertEquals(expectedByMap("Comune di Česena"), model.getSender().getDenomination());
+        assertEquals(expectedByMap("Servizio èlite"), model.getSender().getService());
+        assertEquals(expectedByMap("Mario Dall'Ò"), model.getRecipient().getDenomination());
     }
 
     @Test
-    void process_ShouldSetAllOutputFieldsToNull_WhenModelIsNull() {
+    void process_ShouldHandleNullModel() {
         StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY, null, outParams))
                 .verifyComplete();
         StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY, null, outParams))
                 .verifyComplete();
-
-        assertNull(outParams.getSubjectNormalized());
-        assertNull(outParams.getPrimaryContentNormalized());
-        assertNull(outParams.getSecondaryContentNormalized());
-        assertNull(outParams.getSenderDenominationNormalized());
-        assertNull(outParams.getSenderServiceNormalized());
-        assertNull(outParams.getRecipientDenominationNormalized());
     }
 
     @Test
@@ -78,17 +71,36 @@ class CharNormalizerProcessorTest {
         InformalCommunication model = new InformalCommunication();
         model.setSubject("Solo subject");
 
+        StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY, model, outParams))
+                .verifyComplete();
+
+        StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY, model, outParams))
+                .verifyComplete();
+
+        assertEquals("Solo subject", model.getSubject());
+        assertNull(model.getBody());
+        assertNull(model.getSender());
+        assertNull(model.getRecipient());
+    }
+
+    @Test
+    void process_ShouldNormalizeNullStringsAsNull() {
+        InformalCommunication model = new InformalCommunication();
+        model.setSubject(null);
+
+        InformalCommunicationBody body = new InformalCommunicationBody();
+        body.setPrimaryContent(null);
+        body.setSecondaryContent(null);
+        model.setBody(body);
+
         StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY, model, outParams))
                 .verifyComplete();
         StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY, model, outParams))
                 .verifyComplete();
 
-        assertEquals("Solo subject", outParams.getSubjectNormalized());
-        assertNull(outParams.getPrimaryContentNormalized());
-        assertNull(outParams.getSecondaryContentNormalized());
-        assertNull(outParams.getSenderDenominationNormalized());
-        assertNull(outParams.getSenderServiceNormalized());
-        assertNull(outParams.getRecipientDenominationNormalized());
+        assertNull(model.getSubject());
+        assertNull(model.getBody().getPrimaryContent());
+        assertNull(model.getBody().getSecondaryContent());
     }
 
     private String expectedByMap(String input) {

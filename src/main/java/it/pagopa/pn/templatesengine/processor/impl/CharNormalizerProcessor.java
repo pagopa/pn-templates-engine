@@ -15,14 +15,7 @@ public class CharNormalizerProcessor
     /**
      * * Interfaccia per l'output del processore che definisce i metodi per impostare i campi normalizzati.
      * */
-    public interface OutputModel {
-        void setSubjectNormalized(String value);
-        void setPrimaryContentNormalized(String value);
-        void setSecondaryContentNormalized(String value);
-        void setSenderDenominationNormalized(String value);
-        void setSenderServiceNormalized(String value);
-        void setRecipientDenominationNormalized(String value);
-    }
+    public interface OutputModel {}
 
     /**
      * * Mapping caratteri speciali
@@ -64,44 +57,26 @@ public class CharNormalizerProcessor
     @Override
     public Mono<Void> process(TemplatesEnum template, InformalCommunication model, OutputModel outParams) {
         if (model == null) {
-            clearOutput(outParams);
             return Mono.empty();
         }
 
-        outParams.setSubjectNormalized(normalize(model.getSubject()));
+        model.setSubject(normalize(model.getSubject()));
 
         if (model.getBody() != null) {
-            outParams.setPrimaryContentNormalized(normalize(model.getBody().getPrimaryContent()));
-            outParams.setSecondaryContentNormalized(normalize(model.getBody().getSecondaryContent()));
-        } else {
-            outParams.setPrimaryContentNormalized(null);
-            outParams.setSecondaryContentNormalized(null);
+            model.getBody().setPrimaryContent(normalize(model.getBody().getPrimaryContent()));
+            model.getBody().setSecondaryContent(normalize(model.getBody().getSecondaryContent()));
         }
 
         if (model.getSender() != null) {
-            outParams.setSenderDenominationNormalized(normalize(model.getSender().getDenomination()));
-            outParams.setSenderServiceNormalized(normalize(model.getSender().getService()));
-        } else {
-            outParams.setSenderDenominationNormalized(null);
-            outParams.setSenderServiceNormalized(null);
+            model.getSender().setDenomination(normalize(model.getSender().getDenomination()));
+            model.getSender().setService(normalize(model.getSender().getService()));
         }
 
         if (model.getRecipient() != null) {
-            outParams.setRecipientDenominationNormalized(normalize(model.getRecipient().getDenomination()));
-        } else {
-            outParams.setRecipientDenominationNormalized(null);
+            model.getRecipient().setDenomination(normalize(model.getRecipient().getDenomination()));
         }
 
         return Mono.empty();
-    }
-
-    private void clearOutput(OutputModel outParams) {
-        outParams.setSubjectNormalized(null);
-        outParams.setPrimaryContentNormalized(null);
-        outParams.setSecondaryContentNormalized(null);
-        outParams.setSenderDenominationNormalized(null);
-        outParams.setSenderServiceNormalized(null);
-        outParams.setRecipientDenominationNormalized(null);
     }
 
     private String normalize(String input) {
