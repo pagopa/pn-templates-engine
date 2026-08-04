@@ -40,7 +40,7 @@ class TemplateValueResolverTest {
     void whenNoResolverConfigured_thenReturnOriginalValue() {
         // Arrange
         TemplatesEnum template = TemplatesEnum.NOTIFICATION_AAR_RADDALT;
-        TemplatesParamsEnum param = TemplatesParamsEnum.SENDER_LOGO_BASE64;
+        TemplatesParamsEnum param = TemplatesParamsEnum.SENDER_LOGO;
         String input = "value";
 
         when(templateConfig.getTemplates()).thenReturn(Map.of(template, new TemplateConfig.Template()));
@@ -55,7 +55,7 @@ class TemplateValueResolverTest {
     void shouldResolveUsingBase64Resolver() {
         // Arrange
         TemplatesEnum template = TemplatesEnum.NOTIFICATION_AAR;
-        TemplatesParamsEnum param = TemplatesParamsEnum.SENDER_LOGO_BASE64;
+        TemplatesParamsEnum param = TemplatesParamsEnum.SENDER_LOGO;
         String input = "TO_BASE64_RESOLVER:hello";
         String expectedOutput = "aGVsbG8=";
 
@@ -80,7 +80,7 @@ class TemplateValueResolverTest {
     void whenWhitelistFails_shouldReturnEmpty() {
         // Arrange
         TemplatesEnum template = TemplatesEnum.NOTIFICATION_AAR_RADDALT;
-        TemplatesParamsEnum param = TemplatesParamsEnum.SENDER_LOGO_BASE64;
+        TemplatesParamsEnum param = TemplatesParamsEnum.SENDER_LOGO;
         String input = "TO_BASE64:hello";
 
         var resolverConfig = new TemplateConfig.Resolver();
@@ -103,7 +103,7 @@ class TemplateValueResolverTest {
     void shouldHandleResolverErrorGracefully() {
         // Arrange
         TemplatesEnum template = TemplatesEnum.NOTIFICATION_AAR;
-        TemplatesParamsEnum param = TemplatesParamsEnum.SENDER_LOGO_BASE64;
+        TemplatesParamsEnum param = TemplatesParamsEnum.SENDER_LOGO;
         String input = "TO_BASE64_RESOLVER:hello";
 
         var resolverConfig = new TemplateConfig.Resolver();
@@ -126,7 +126,7 @@ class TemplateValueResolverTest {
     void onResolverErrorIfReturnNullOnErrorIsFalse_thenReturnOriginalValue() {
         // Arrange
         TemplatesEnum template = TemplatesEnum.NOTIFICATION_AAR;
-        TemplatesParamsEnum param = TemplatesParamsEnum.SENDER_LOGO_BASE64;
+        TemplatesParamsEnum param = TemplatesParamsEnum.SENDER_LOGO;
         String input = "TO_BASE64_RESOLVER:hello";
 
         var resolverConfig = new TemplateConfig.Resolver();
