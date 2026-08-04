@@ -45,6 +45,8 @@ templates-assets/templates/NotificationAARForEMAILAnalog/index.html
 templates-assets/templates/NotificationAARForEMAILDigital/index.html
 templates-assets/templates/NotificationAARForPEC/index.html
 templates-assets/templates/InformalEMAILCommunicationBody/index.html
+templates-assets/templates/InformalPECCommunicationBody/index.html
+templates-assets/templates/NotificationCceForEmail/index.html
 /src/main/resources/generated-templates-assets
 /src/test/resources/generated-templates-assets
 templates-assets/templates/.DS_Store
