@@ -7,6 +7,7 @@ import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalComm
 import it.pagopa.pn.templatesengine.model.InformalAnalogCommunicationGeneratedParams;
 import it.pagopa.pn.templatesengine.processor.impl.SenderLogoProcessor;
 import it.pagopa.pn.templatesengine.processor.impl.MarkdownToHtmlProcessor;
+import it.pagopa.pn.templatesengine.processor.impl.CharNormalizerProcessor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,6 +31,9 @@ class TemplateProcessorRegistryConfigTest {
     @Mock
     private SenderLogoProcessor senderLogoProcessor;
 
+    @Mock
+    private CharNormalizerProcessor charNormalizerProcessor;
+
     private TemplateProcessorRegistry registry;
     private TemplateProcessorRegistryConfig registryConfig;
 
@@ -39,7 +43,9 @@ class TemplateProcessorRegistryConfigTest {
         registryConfig = new TemplateProcessorRegistryConfig(
                 registry,
                 markdownToHtmlProcessor,
-                senderLogoProcessor
+                senderLogoProcessor,
+                charNormalizerProcessor
+
         );
     }
 
@@ -47,6 +53,7 @@ class TemplateProcessorRegistryConfigTest {
     void init_ShouldRegisterInformalCommunicationChains() {
         lenient().when(markdownToHtmlProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
         when(senderLogoProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
+        when(charNormalizerProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
 
         registryConfig.init();
 
@@ -54,7 +61,9 @@ class TemplateProcessorRegistryConfigTest {
         model.setSender(new InformalCommunicationSender().id("9a7c1b23-46a3-489b-8ed4-398ffb32b45a"));
 
         for (TemplatesEnum template : new TemplatesEnum[]{
-                TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION
+                TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION,
+                TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY,
+                TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY
         }) {
             StepVerifier.create(registry.executeProcessors(template, model))
                     .assertNext(out -> {

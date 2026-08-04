@@ -1,5 +1,6 @@
 package it.pagopa.pn.templatesengine.config;
 import it.pagopa.pn.templatesengine.processor.TemplateProcessorRegistry;
+import it.pagopa.pn.templatesengine.processor.impl.CharNormalizerProcessor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunication;
@@ -23,6 +24,7 @@ public class TemplateProcessorRegistryConfig {
     private final TemplateProcessorRegistry registry;
     private final MarkdownToHtmlProcessor markdownToHtmlProcessor;
     private final SenderLogoProcessor senderLogoProcessor;
+    private final CharNormalizerProcessor charSanitizerProcessor;
 
     @PostConstruct
     public void init() {
@@ -31,10 +33,12 @@ public class TemplateProcessorRegistryConfig {
                 .add(senderLogoProcessor, model -> model.getSender().getId());
 
         registry.registerChain(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
+                .add(charSanitizerProcessor, model -> model)
                 .add(markdownToHtmlProcessor, InformalCommunication::getBody)
                 .add(senderLogoProcessor, model -> model.getSender().getId());
 
         registry.registerChain(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
+                .add(charSanitizerProcessor, model -> model)
                 .add(markdownToHtmlProcessor, InformalCommunication::getBody)
                 .add(senderLogoProcessor, model -> model.getSender().getId());
 
