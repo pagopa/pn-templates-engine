@@ -1,10 +1,14 @@
 package it.pagopa.pn.templatesengine.config;
+import it.pagopa.pn.templatesengine.model.InformalCommunicationGeneratedParams;
+import it.pagopa.pn.templatesengine.model.InformalCommunicationGeneratedParams;
 import it.pagopa.pn.templatesengine.processor.TemplateProcessorRegistry;
+import it.pagopa.pn.templatesengine.processor.impl.SenderLogoUrlProcessor;
+import it.pagopa.pn.templatesengine.processor.impl.CharNormalizerProcessor;
 import it.pagopa.pn.templatesengine.processor.impl.CharNormalizerProcessor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunication;
-import it.pagopa.pn.templatesengine.processor.impl.SenderLogoProcessor;
+import it.pagopa.pn.templatesengine.processor.impl.SenderLogoBase64Processor;
 import it.pagopa.pn.templatesengine.processor.impl.MarkdownToHtmlProcessor;
 import it.pagopa.pn.templatesengine.model.InformalAnalogCommunicationGeneratedParams;
 import jakarta.annotation.PostConstruct;
@@ -23,24 +27,25 @@ public class TemplateProcessorRegistryConfig {
 
     private final TemplateProcessorRegistry registry;
     private final MarkdownToHtmlProcessor markdownToHtmlProcessor;
-    private final SenderLogoProcessor senderLogoProcessor;
+    private final SenderLogoUrlProcessor senderLogoUrlProcessor;
+    private final SenderLogoBase64Processor senderLogoBase64Processor;
     private final CharNormalizerProcessor charNormalizerProcessor;
 
     @PostConstruct
     public void init() {
-        registry.registerChain(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
+        registry.registerChain(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, InformalCommunication.class, InformalCommunicationGeneratedParams::new)
                 .add(markdownToHtmlProcessor, InformalCommunication::getBody)
-                .add(senderLogoProcessor, model -> model.getSender().getId());
+                .add(senderLogoBase64Processor, model -> model.getSender().getId());
 
-        registry.registerChain(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
+        registry.registerChain(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY, InformalCommunication.class, InformalCommunicationGeneratedParams::new)
                 .add(charNormalizerProcessor, model -> model)
                 .add(markdownToHtmlProcessor, InformalCommunication::getBody)
-                .add(senderLogoProcessor, model -> model.getSender().getId());
+                .add(senderLogoUrlProcessor, model -> model.getSender().getId());
 
-        registry.registerChain(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY, InformalCommunication.class, InformalAnalogCommunicationGeneratedParams::new)
+        registry.registerChain(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY, InformalCommunication.class, InformalCommunicationGeneratedParams::new)
                 .add(charNormalizerProcessor, model -> model)
                 .add(markdownToHtmlProcessor, InformalCommunication::getBody)
-                .add(senderLogoProcessor, model -> model.getSender().getId());
+                .add(senderLogoBase64Processor, model -> model.getSender().getId());
 
     }
 }
