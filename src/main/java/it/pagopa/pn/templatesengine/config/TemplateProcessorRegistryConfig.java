@@ -35,13 +35,13 @@ public class TemplateProcessorRegistryConfig {
                 .add(senderLogoBase64Processor, model -> model.getSender().getId());
 
         registry.registerChain(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY, InformalCommunication.class, InformalCommunicationGeneratedParams::new)
-                .add(charNormalizerProcessor, model -> model)
                 .add(markdownToHtmlProcessor, InformalCommunication::getBody)
+                .add(charNormalizerProcessor, model -> model)
                 .add(senderLogoUrlProcessor, model -> model.getSender().getId());
 
         registry.registerChain(TemplatesEnum.INFORMAL_PEC_COMMUNICATION_BODY, InformalCommunication.class, InformalCommunicationGeneratedParams::new)
-                .add(charNormalizerProcessor, model -> model)
                 .add(markdownToHtmlProcessor, InformalCommunication::getBody)
+                .add(charNormalizerProcessor, model -> model)
                 .add(senderLogoBase64Processor, model -> model.getSender().getId());
     }
 }

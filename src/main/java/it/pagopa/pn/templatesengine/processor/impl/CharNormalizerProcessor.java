@@ -15,7 +15,12 @@ public class CharNormalizerProcessor
     /**
      * * Interfaccia per l'output del processore che definisce i metodi per impostare i campi normalizzati.
      * */
-    public interface OutputModel {}
+    public interface OutputModel {
+        void setPrimaryContentHtml(String html);
+        void setSecondaryContentHtml(String html);
+        String getPrimaryContentHtml();
+        String getSecondaryContentHtml();
+    }
 
     /**
      * * Mapping caratteri speciali
@@ -62,9 +67,12 @@ public class CharNormalizerProcessor
 
         model.setSubject(normalize(model.getSubject()));
 
-        if (model.getBody() != null) {
-            model.getBody().setPrimaryContent(normalize(model.getBody().getPrimaryContent()));
-            model.getBody().setSecondaryContent(normalize(model.getBody().getSecondaryContent()));
+        if (outParams.getPrimaryContentHtml() != null) {
+            outParams.setPrimaryContentHtml(normalize(outParams.getPrimaryContentHtml()));
+        }
+
+        if (outParams.getSecondaryContentHtml() != null) {
+            outParams.setSecondaryContentHtml(normalize(outParams.getSecondaryContentHtml()));
         }
 
         if (model.getSender() != null) {

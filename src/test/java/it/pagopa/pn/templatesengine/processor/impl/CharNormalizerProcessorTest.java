@@ -34,6 +34,8 @@ class CharNormalizerProcessorTest {
         InformalCommunicationBody body = new InformalCommunicationBody();
         body.setPrimaryContent("Perché è già così: à è ç");
         body.setSecondaryContent("Š? no, ma š e ž");
+        outParams.setPrimaryContentHtml(body.getPrimaryContent());
+        outParams.setSecondaryContentHtml(body.getSecondaryContent());
         model.setBody(body);
 
         InformalCommunicationSender sender = new InformalCommunicationSender();
@@ -51,8 +53,8 @@ class CharNormalizerProcessorTest {
                 .verifyComplete();
 
         assertEquals(expectedByMap("Città d'Italia *"), model.getSubject());
-        assertEquals(expectedByMap("Perché è già così: à è ç"), model.getBody().getPrimaryContent());
-        assertEquals(expectedByMap("Š? no, ma š e ž"), model.getBody().getSecondaryContent());
+        assertEquals(expectedByMap("Perché è già così: à è ç"), outParams.getPrimaryContentHtml());
+        assertEquals(expectedByMap("Š? no, ma š e ž"), outParams.getSecondaryContentHtml());
         assertEquals(expectedByMap("Comune di Česena"), model.getSender().getDenomination());
         assertEquals(expectedByMap("Servizio èlite"), model.getSender().getService());
         assertEquals(expectedByMap("Mario Dall'Ò"), model.getRecipient().getDenomination());
