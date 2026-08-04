@@ -1,16 +1,13 @@
 package it.pagopa.pn.templatesengine.config;
 import it.pagopa.pn.templatesengine.model.InformalCommunicationGeneratedParams;
-import it.pagopa.pn.templatesengine.model.InformalCommunicationGeneratedParams;
 import it.pagopa.pn.templatesengine.processor.TemplateProcessorRegistry;
 import it.pagopa.pn.templatesengine.processor.impl.SenderLogoUrlProcessor;
-import it.pagopa.pn.templatesengine.processor.impl.CharNormalizerProcessor;
 import it.pagopa.pn.templatesengine.processor.impl.CharNormalizerProcessor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunication;
 import it.pagopa.pn.templatesengine.processor.impl.SenderLogoBase64Processor;
 import it.pagopa.pn.templatesengine.processor.impl.MarkdownToHtmlProcessor;
-import it.pagopa.pn.templatesengine.model.InformalAnalogCommunicationGeneratedParams;
 import jakarta.annotation.PostConstruct;
 
 
@@ -46,6 +43,5 @@ public class TemplateProcessorRegistryConfig {
                 .add(charNormalizerProcessor, model -> model)
                 .add(markdownToHtmlProcessor, InformalCommunication::getBody)
                 .add(senderLogoBase64Processor, model -> model.getSender().getId());
-
     }
 }

@@ -5,7 +5,7 @@ import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalComm
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunicationBody;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunicationSender;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.SharedInformalCommunicationRecipient;
-import it.pagopa.pn.templatesengine.model.InformalAnalogCommunicationGeneratedParams;
+import it.pagopa.pn.templatesengine.model.InformalCommunicationGeneratedParams;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import reactor.test.StepVerifier;
@@ -18,12 +18,12 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 class CharNormalizerProcessorTest {
 
     private CharNormalizerProcessor processor;
-    private InformalAnalogCommunicationGeneratedParams outParams;
+    private InformalCommunicationGeneratedParams outParams;
 
     @BeforeEach
     void setUp() {
         processor = new CharNormalizerProcessor();
-        outParams = new InformalAnalogCommunicationGeneratedParams();
+        outParams = new InformalCommunicationGeneratedParams();
     }
 
     @Test

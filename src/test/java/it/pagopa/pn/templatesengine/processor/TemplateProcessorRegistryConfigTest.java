@@ -47,18 +47,18 @@ class TemplateProcessorRegistryConfigTest {
         registryConfig = new TemplateProcessorRegistryConfig(
                 registry,
                 markdownToHtmlProcessor,
-                charNormalizerProcessor
                 senderLogoUrlProcessor,
-                senderLogoBase64Processor
+                senderLogoBase64Processor,
+                charNormalizerProcessor
         );
     }
 
     @Test
     void init_ShouldRegisterInformalCommunicationChains() {
         lenient().when(markdownToHtmlProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
-        when(senderLogoProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
-        when(charNormalizerProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
-        when(senderLogoBase64Processor.process(any(), any(), any())).thenReturn(Mono.empty());
+        lenient().when(senderLogoUrlProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
+        lenient().when(charNormalizerProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
+        lenient().when(senderLogoBase64Processor.process(any(), any(), any())).thenReturn(Mono.empty());
 
         registryConfig.init();
 
