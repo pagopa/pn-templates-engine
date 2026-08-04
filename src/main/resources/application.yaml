@@ -70,7 +70,7 @@ templates:
       FR: "NotificationAAR/NotificationAAR_fr.html"
       EN: "NotificationAAR/NotificationAAR_en.html"
     resolvers:
-      senderLogoBase64:
+      senderLogo:
         enabled: true
         bypassAllWithNull: true
         returnNullOnError: true
@@ -85,7 +85,7 @@ templates:
       FR: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_fr.html"
       EN: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_en.html"
     resolvers:
-      senderLogoBase64:
+      senderLogo:
         enabled: true
         bypassAllWithNull: true
         returnNullOnError: true
@@ -212,7 +212,7 @@ templates:
     input:
       IT: "InformalAnalogCommunication/InformalAnalogCommunication.html"
     resolvers:
-      senderLogoBase64:
+      senderLogo:
         enabled: true
         bypassAllWithNull: false
         returnNullOnError: true
@@ -221,7 +221,7 @@ templates:
     input:
       IT: "InformalEMAILCommunicationBody/InformalEMAILCommunicationBody.html"
     resolvers:
-      senderLogoBase64:
+      senderLogo:
         enabled: true
         bypassAllWithNull: false
         returnNullOnError: true
@@ -236,7 +236,7 @@ templates:
     input:
       IT: "InformalPECCommunicationBody/InformalPECCommunicationBody.html"
     resolvers:
-      senderLogoBase64:
+      senderLogo:
         enabled: true
         bypassAllWithNull: false
         returnNullOnError: true
