@@ -10,6 +10,9 @@ pn:
     parameterStoreCacheTTL: 10m
     urlResolverTimeout: 5s
     senderLogoUrlTemplate: "https://uat.selfcare.pagopa.it/institutions/<PA_ID>/logo.png"
+    # To test templates with Ipazia logo, uncomment the following line and comment the previous one
+    # senderLogoUrlTemplate: "https://raw.githubusercontent.com/pagopa/pn-templates-engine/refs/heads/develop/templates-assets/images/ipazia-logo.png"
+
 
 # AWS specific configurations
 aws:

@@ -1,0 +1,491 @@
+@font-face {
+    font-family: "Titillium Pro";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../fonts/Titillium_Pro/TitilliumSansPro-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Titillium Pro";
+    font-style: normal;
+    font-weight: bold;
+    src: url(../fonts/Titillium_Pro/TitilliumSansPro-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../fonts/DM_Mono/DMMono-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: italic;
+    font-weight: normal;
+    src: url(../fonts/DM_Mono/DMMono-Italic.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: normal;
+    font-weight: bold;
+    src: url(../fonts/DM_Mono/DMMono-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: italic;
+    font-weight: bold;
+    src: url(../fonts/DM_Mono/DMMono-MediumItalic.ttf) format('truetype');
+}
+
+code {
+    font-family: "DM Mono", "Titillium Pro";
+}
+
+@page {
+    size: A4;
+    margin: 10mm 10mm 10mm 10mm;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Titillium Pro", sans-serif;
+    font-weight: 400;
+    color: #000000;
+    margin: 0;
+    padding: 0
+}
+
+/********************************* start sections *********************************/
+.upper-section,
+.dynamic-section {
+    width: 100%;
+    margin: 0mm;
+}
+
+#first-page .upper-section {
+    height: 85mm;
+    display: table-row;
+    width: 100%;
+}
+
+#first-page > .first-page-table .first-page-rowcell {
+  display: table-cell;
+  width: 100%;
+}
+
+#first-page .dynamic-section {
+    /* sebbene la differenza delle altezze (margine superiore, margine inferiore,
+    upper-section) sia 192mm, per evitare che il box di IO finisca nell'altra pagina
+    si preferisce ridurre l'altezza del blocco di qualche millimetro e stare in uno
+    spazio sicuro */
+    height: 188mm;
+}
+
+.dynamic-section .table{
+    height: 100%;
+}
+
+#first-page .dynamic-section .dynamic-content {
+    height: 164mm;
+}
+ 
+
+/********************************* end sections ***********************************/
+
+
+/********************************* start font and line-height utils ***************/
+.six-pt {
+    font-size: 8px; /* 6px on Figma */
+}
+
+.eight-pt {
+    font-size: 10.667px; /* 8px on Figma */
+}
+
+.nine-pt {
+    font-size: 12px; /* 9px on Figma */
+}
+
+.ten-pt {
+    font-size: 13.333px; /* 10px on Figma */
+}
+
+.eleven-pt {
+    font-size: 14.3px; /* 11px on Figma */
+}
+
+.twelve-pt {
+    font-size: 16px; /* 12px on Figma */
+}
+
+.thirteen-pt {
+    font-size: 17px; /* 13px on Figma */
+}
+
+.fourteen-pt {
+    font-size: 19px; /* 14px on Figma */
+}
+
+.sixteen-pt {
+    font-size: 21.333px; /* 16px on Figma */
+}
+
+.eight-lh {
+    line-height: 8px;
+}
+
+.ten-lh {
+    line-height: 13.333px; /* 10px on Figma */
+}
+
+.eleven-lh {
+    line-height: 14.667px; /* 11px on Figma */
+}
+
+.twelve-lh {
+    line-height: 16px; /* 12px on Figma */
+}
+
+.fifteen-lh {
+    line-height: 20px; /* 15pt on Figma */
+}
+
+.sixteen-lh {
+    line-height: 21.333px; /* 16px on Figma */
+}
+
+.eighteen-lh {
+    line-height: 24px;
+}
+
+.twenty-lh {
+    line-height: 26.667px; /* 20px on Figma */
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.weight-400 {
+    font-weight: 400 !important;
+}
+
+.font-uppercase {
+    text-transform: uppercase;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+a.black {
+    text-decoration: none;
+    color: inherit;
+}
+/********************************* end font and line-height utils *****************/
+
+
+/********************************* start space utils ******************************/
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+.mt-8 {
+    margin-top: 8px;
+}
+
+.mb-8 {
+    margin-bottom: 8px;
+}
+
+.mb-11 {
+    margin-bottom: 11px;
+}
+
+.mt-11 {
+    margin-top: 11px;
+}
+
+.p-0 {
+    padding: 0 !important;
+}
+
+.pb-0 {
+    padding-bottom: 0 !important;
+}
+
+.pt-0 {
+    padding-top: 0 !important;
+}
+
+.pl-8 {
+    padding-left: 8px;
+}
+
+.pt-8 {
+    padding-top: 8px;
+}
+
+.pb-8 {
+    padding-bottom: 8px;
+}
+
+.pt-12 {
+    padding-top: 12px;
+}
+
+.pr-12 {
+    padding-right: 12px;
+}
+
+.pb-12 {
+    padding-bottom: 12px;
+}
+
+.pl-12 {
+    padding-left: 12px;
+}
+
+.pb-15 {
+    padding-bottom: 15px !important;
+}
+
+.pb-16 {
+    padding-bottom: 16px;
+}
+
+.pb-25 {
+    padding-bottom: 25px;
+}
+
+.pb-33 {
+    padding-bottom: 33px;
+}
+
+.pl-72 {
+    padding-left: 72px;
+}
+
+.px-12 {
+    padding: 0 12px;
+}
+
+.py-12 {
+    padding: 12px 0;
+}
+
+.py-16 {
+    padding: 16px 0;
+}
+
+.p-12 {
+    padding: 12px;
+}
+
+.table {
+    display: table;
+    width: 100%;
+}
+
+.fixed-table {
+    table-layout: fixed;
+    display: table;
+    width: 100%;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+}
+
+.vertical-align-bottom {
+    vertical-align: bottom;
+}
+
+.vertical-align-top {
+    vertical-align: top;
+}
+
+.vertical-align-center {
+    vertical-align: middle;
+}
+
+.width-15 {
+    width: 15%;
+}
+
+.width-40 {
+    width: 40%;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.width-60 {
+    width: 60%;
+}
+
+.width-85 {
+    width: 85%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.radius-8 {
+    border-radius: 8px;
+}
+/********************************* end space utils ********************************/
+
+/********************************* start components *******************************/
+
+#main_subject {
+    word-wrap: break-word;
+}
+
+.blue-border-box-combo {
+    border: solid #ced8f9 1px;
+    padding: 11px;
+}
+/********************************* end components *********************************/
+
+
+/********************************* start sender box *******************************/
+#sender_logo img {
+    height: 53px; /* 40pt on Figma */
+}
+
+#sender_box {
+    height: 23mm;
+}
+
+#sender_box_radd {
+    width: 159mm;
+    height: 23mm;
+}
+
+#sender_box p {
+    white-space: nowrap;
+    overflow: visible;
+}
+
+#send_box__logo {
+    width: 19mm;
+    text-align: left;
+}
+
+#sender_logo, #empty_logo_subtitle {
+    margin-top: 8px;
+}
+
+#empty_logo_subtitle {
+    width: 67px;
+    border-top: solid 1px;
+    padding-top: 8px;
+}
+
+#send_box {
+    height: 26mm;
+    line-height: 8px;
+}
+
+.logo-prefix, #send_box_site {
+    line-height: 6mm;
+}
+/********************************* end sender box *********************************/
+
+
+/********************************* start io box ***********************************/
+#io_download {
+    height: 45px;
+}
+
+#io_download h3 {
+    padding-bottom: 4px;
+}
+
+#io_img img {
+    width: 45px;
+}
+/********************************* end io box *************************************/
+.iun_box {
+    padding: 0;
+    width: 73mm;
+    text-align: left;
+    margin-left: auto;
+}
+
+.avoid-page-break {
+  page-break-inside: avoid;
+}
+
+/********************************* start generated content *************************************/
+
+.generated-content {
+    padding-left: 0;
+}
+
+.generated-content ul,
+.generated-content ol {
+    padding-left: 0;
+    margin-left: 0;
+    margin-top: 7px;
+    margin-bottom: 10px;
+}
+
+.generated-content ul li,
+.generated-content ol li {
+    font-size: 16px; /* 12px on Figma */
+    padding-left: 20px;
+    margin-left: 0;
+    line-height: normal;
+}
+
+.generated-content h1 {
+    font-size: 21.333px; /* 16px on Figma */
+    line-height: 42.666px;
+}
+
+.generated-content h2 {
+    font-size: 19px;
+    line-height: 42.666px;
+}
+
+.generated-content h3, .generated-content h4, .generated-content h5, .generated-content h6 {
+    font-size: 16px;
+    line-height: 37.333px;
+}
+
+.generated-content p {
+    font-size: 16px; /* 12px on Figma */
+    line-height: normal;
+}
+/********************************* end generated content *************************************/
