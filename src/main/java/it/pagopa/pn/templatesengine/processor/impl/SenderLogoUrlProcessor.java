@@ -1,6 +1,7 @@
 package it.pagopa.pn.templatesengine.processor.impl;
 
 import it.pagopa.pn.templatesengine.config.PnTemplatesEngineConfig;
+import it.pagopa.pn.templatesengine.config.ResolverWhitelistConfig;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.config.TemplatesParamsEnum;
 import it.pagopa.pn.templatesengine.processor.TemplateModelProcessor;
@@ -14,38 +15,34 @@ import static it.pagopa.pn.templatesengine.resolver.ResolverEnum.TO_BASE64_RESOL
 import static it.pagopa.pn.templatesengine.resolver.TemplateValueResolver.DIVIDER;
 
 /**
- * Processore che risolve il logo dell'ente mittente come stringa Base64.
+ * Processore che risolve il logo dell'ente mittente come stringa url dell'immagine.
  *
  * <p>A partire dal {@code paId}, costruisce l'URL del logo utilizzando il template
- * configurato in {@link PnTemplatesEngineConfig#getSenderLogoUrlTemplate()}, quindi
- * lo risolve in Base64 tramite il {@link TemplateValueResolver}.</p>
- *
- * <p>Qualsiasi model di output che implementi {@link OutputModel} può essere
- * popolato da questo processore, indipendentemente dalla classe concreta.</p>
+ * configurato in {@link PnTemplatesEngineConfig#getSenderLogoUrlTemplate()}.</p>
  */
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class SenderLogoProcessor
-        implements TemplateModelProcessor<String, SenderLogoProcessor.OutputModel> {
+public class SenderLogoUrlProcessor
+        implements TemplateModelProcessor<String, SenderLogoUrlProcessor.OutputModel> {
 
-    private final TemplateValueResolver templateValueResolver;
     private final PnTemplatesEngineConfig pnTemplatesEngineConfig;
+    private final ResolverWhitelistConfig resolverWhitelistConfig;
 
     /**
-     * Contratto di output per i model che supportano il logo del mittente in Base64.
-     * Implementato dai Generated Params che espongono {@code senderLogoBase64} nel template FreeMarker.
+     * Contratto di output per i model che supportano il logo del mittente come URL.
+     * Implementato dai Generated Params che espongono {@code senderLogoUrl} nel template FreeMarker.
      */
     public interface OutputModel {
-        void setSenderLogoBase64(String logoBase64);
+        void setSenderLogoUrl(String logoUrl);
     }
 
     /**
-     * Risolve il logo del mittente in Base64 e lo imposta nell'output.
+     * Risolve il logo del mittente come URL e lo imposta nell'output.
      *
      * <p>Se il {@code paId} è nullo/vuoto o l'URL template non è configurato,
      * imposta {@code null}. In caso di errore durante la risoluzione,
-     * logga un warning e imposta {@code null} senza propagare l'eccezione.</p>
+     * logga un debug e imposta {@code null} senza propagare l'eccezione.</p>
      *
      * @param template  il template in fase di elaborazione (usato dal resolver per applicare la configurazione)
      * @param paId      l'identificativo della PA mittente
@@ -55,23 +52,13 @@ public class SenderLogoProcessor
     @Override
     public Mono<Void> process(TemplatesEnum template, String paId, OutputModel outParams) {
         String url = buildSenderLogoUrl(paId);
-
-        if (url == null) {
-            outParams.setSenderLogoBase64(null);
-            return Mono.empty();
+        if (url != null && resolverWhitelistConfig.isWhitelistEnabled(template, TemplatesParamsEnum.SENDER_LOGO)
+                && !resolverWhitelistConfig.isInWhitelist(template, TemplatesParamsEnum.SENDER_LOGO, url)) {
+            log.debug("URL not allowed by resolver whitelist: {}", url);
+            url = null;
         }
-
-        return templateValueResolver
-                .resolve(TO_BASE64_RESOLVER + DIVIDER + url,
-                        template,
-                        TemplatesParamsEnum.SENDER_LOGO_BASE64)
-                .doOnNext(outParams::setSenderLogoBase64)
-                .onErrorResume(e -> {
-                    log.warn("Unable to resolve sender logo as Base64 for paId={}", paId, e);
-                    outParams.setSenderLogoBase64(null);
-                    return Mono.empty();
-                })
-                .then();
+        outParams.setSenderLogoUrl(url);
+        return Mono.empty();
     }
 
     /**
@@ -80,7 +67,7 @@ public class SenderLogoProcessor
      * @param paId l'identificativo della PA da inserire nell'URL
      * @return l'URL completo, oppure {@code null} se {@code paId} o il template URL sono assenti
      */
-    private String buildSenderLogoUrl(String paId) {
+    public String buildSenderLogoUrl(String paId) {
         if (paId == null || paId.isBlank()) {
             return null;
         }

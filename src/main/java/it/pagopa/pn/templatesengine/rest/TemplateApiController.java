@@ -79,7 +79,7 @@ public class TemplateApiController implements TemplateApi {
                                 NotificationAar::getSenderLogoBase64,
                                 NotificationAar::setSenderLogoBase64,
                                 TemplatesEnum.NOTIFICATION_AAR,
-                                TemplatesParamsEnum.SENDER_LOGO_BASE64
+                                TemplatesParamsEnum.SENDER_LOGO
                         ))
                 .flatMap(r ->
                         processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR, xLanguage, Mono.just(r)));
@@ -98,7 +98,7 @@ public class TemplateApiController implements TemplateApi {
                                 NotificationAarRaddAlt::getSenderLogoBase64,
                                 NotificationAarRaddAlt::setSenderLogoBase64,
                                 TemplatesEnum.NOTIFICATION_AAR_RADDALT,
-                                TemplatesParamsEnum.SENDER_LOGO_BASE64
+                                TemplatesParamsEnum.SENDER_LOGO
                         ))
                 .flatMap(r ->
                         processPdfTemplate(TemplatesEnum.NOTIFICATION_AAR_RADDALT, xLanguage, Mono.just(r)));

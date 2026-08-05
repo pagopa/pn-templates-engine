@@ -1,9 +1,8 @@
 package it.pagopa.pn.templatesengine.processor.impl;
 
-import it.pagopa.pn.templatesengine.config.PnTemplatesEngineConfig;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.config.TemplatesParamsEnum;
-import it.pagopa.pn.templatesengine.model.InformalAnalogCommunicationGeneratedParams;
+import it.pagopa.pn.templatesengine.model.InformalCommunicationGeneratedParams;
 import it.pagopa.pn.templatesengine.resolver.TemplateValueResolver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,37 +21,36 @@ import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class SenderLogoProcessorTest {
+class SenderLogoBase64ProcessorTest {
 
 	@Mock
 	private TemplateValueResolver templateValueResolver;
 
 	@Mock
-	private PnTemplatesEngineConfig pnTemplatesEngineConfig;
+	private SenderLogoUrlProcessor senderLogoUrlProcessor;
 
-	private SenderLogoProcessor processor;
+	private SenderLogoBase64Processor processor;
 
 	@BeforeEach
 	void setUp() {
-		processor = new SenderLogoProcessor(templateValueResolver, pnTemplatesEngineConfig);
+		processor = new SenderLogoBase64Processor(templateValueResolver, senderLogoUrlProcessor);
 	}
 
 	@Test
 	void process_ShouldResolveLogoUrlAndPopulateSenderLogoBase64() {
 		String paId = "9a7c1b23-46a3-489b-8ed4-398ffb32b45a";
-		String urlTemplate = "https://selcpcheckoutsa.z6.web.core.windows.net/institutions/<PA_ID>/logo.png";
 		String expectedUrl = "https://selcpcheckoutsa.z6.web.core.windows.net/institutions/" + paId + "/logo.png";
 		String expectedBase64 = "aGVsbG8=";
 
-		when(pnTemplatesEngineConfig.getSenderLogoUrlTemplate()).thenReturn(urlTemplate);
+		when(senderLogoUrlProcessor.buildSenderLogoUrl(paId)).thenReturn(expectedUrl);
 
 		when(templateValueResolver.resolve(
 				anyString(),
 				eq(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION),
-				eq(TemplatesParamsEnum.SENDER_LOGO_BASE64)
+				eq(TemplatesParamsEnum.SENDER_LOGO)
 		)).thenReturn(Mono.just(expectedBase64));
 
-		InformalAnalogCommunicationGeneratedParams outParams = new InformalAnalogCommunicationGeneratedParams();
+		InformalCommunicationGeneratedParams outParams = new InformalCommunicationGeneratedParams();
 
 		StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, paId, outParams))
 				.verifyComplete();
@@ -61,13 +59,15 @@ class SenderLogoProcessorTest {
 		verify(templateValueResolver).resolve(
 				"TO_BASE64_RESOLVER:" + expectedUrl,
 				TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION,
-				TemplatesParamsEnum.SENDER_LOGO_BASE64
+				TemplatesParamsEnum.SENDER_LOGO
 		);
 	}
 
 	@Test
 	void process_ShouldSetSenderLogoBase64ToNullWhenPaIdIsBlank() {
-		InformalAnalogCommunicationGeneratedParams outParams = new InformalAnalogCommunicationGeneratedParams();
+		when(senderLogoUrlProcessor.buildSenderLogoUrl("   ")).thenReturn(null);
+
+		InformalCommunicationGeneratedParams outParams = new InformalCommunicationGeneratedParams();
 
 		StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION,"   ", outParams))
 				.verifyComplete();
@@ -79,18 +79,17 @@ class SenderLogoProcessorTest {
 	@Test
 	void process_ShouldSetSenderLogoBase64ToNullWhenResolverFails() {
 		String paId = "9a7c1b23-46a3-489b-8ed4-398ffb32b45a";
-		String urlTemplate = "https://selcpcheckoutsa.z6.web.core.windows.net/institutions/<PA_ID>/logo.png";
 		String expectedUrl = "https://selcpcheckoutsa.z6.web.core.windows.net/institutions/" + paId + "/logo.png";
 
-		when(pnTemplatesEngineConfig.getSenderLogoUrlTemplate()).thenReturn(urlTemplate);
+		when(senderLogoUrlProcessor.buildSenderLogoUrl(paId)).thenReturn(expectedUrl);
 
 		when(templateValueResolver.resolve(
 				anyString(),
 				eq(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION),
-				eq(TemplatesParamsEnum.SENDER_LOGO_BASE64)
+				eq(TemplatesParamsEnum.SENDER_LOGO)
 		)).thenReturn(Mono.error(new RuntimeException("boom")));
 
-		InformalAnalogCommunicationGeneratedParams outParams = new InformalAnalogCommunicationGeneratedParams();
+		InformalCommunicationGeneratedParams outParams = new InformalCommunicationGeneratedParams();
 
 		StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, paId, outParams))
 				.verifyComplete();
@@ -99,17 +98,18 @@ class SenderLogoProcessorTest {
 		verify(templateValueResolver).resolve(
 				"TO_BASE64_RESOLVER:" + expectedUrl,
 				TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION,
-				TemplatesParamsEnum.SENDER_LOGO_BASE64
+				TemplatesParamsEnum.SENDER_LOGO
 		);
 	}
 
 	@Test
 	void process_ShouldSetSenderLogoBase64ToNullWhenUrlTemplateIsMissing() {
-		when(pnTemplatesEngineConfig.getSenderLogoUrlTemplate()).thenReturn(null);
+		String paId = "9a7c1b23-46a3-489b-8ed4-398ffb32b45a";
+		when(senderLogoUrlProcessor.buildSenderLogoUrl(paId)).thenReturn(null);
 
-		InformalAnalogCommunicationGeneratedParams outParams = new InformalAnalogCommunicationGeneratedParams();
+		InformalCommunicationGeneratedParams outParams = new InformalCommunicationGeneratedParams();
 
-		StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, "9a7c1b23-46a3-489b-8ed4-398ffb32b45a", outParams))
+		StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, paId, outParams))
 				.verifyComplete();
 
 		assertNull(outParams.getSenderLogoBase64());

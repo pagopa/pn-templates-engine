@@ -1,6 +1,9 @@
 package it.pagopa.pn.templatesengine.model;
 
+import it.pagopa.pn.templatesengine.processor.impl.CharNormalizerProcessor;
 import it.pagopa.pn.templatesengine.processor.impl.MarkdownToHtmlProcessor;
+import it.pagopa.pn.templatesengine.processor.impl.SenderLogoBase64Processor;
+import it.pagopa.pn.templatesengine.processor.impl.SenderLogoUrlProcessor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +13,13 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class InformalCommunicationGeneratedParams implements MarkdownToHtmlProcessor.OutputModel {
+public class InformalCommunicationGeneratedParams
+        implements MarkdownToHtmlProcessor.OutputModel,
+                    SenderLogoBase64Processor.OutputModel,
+                    SenderLogoUrlProcessor.OutputModel,
+                    CharNormalizerProcessor.OutputModel {
     private String primaryContentHtml;
     private String secondaryContentHtml;
+    private String senderLogoBase64;
+    private String senderLogoUrl;
 }

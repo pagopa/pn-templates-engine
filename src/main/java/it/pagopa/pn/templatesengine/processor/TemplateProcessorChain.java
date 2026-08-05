@@ -18,7 +18,7 @@ import java.util.function.Supplier;
  * eliminando la necessità di cast o {@code @SuppressWarnings} nel codice chiamante.</p>
  *
  * @param <MODEL> tipo del model in input (es. InformalCommunication)
- * @param <O>     tipo dell'oggetto output generato (es. InformalAnalogCommunicationGeneratedParams)
+ * @param <O>     tipo dell'oggetto output generato (es. InformalCommunicationGeneratedParams)
  */
 @Slf4j
 public class TemplateProcessorChain<MODEL, O> {

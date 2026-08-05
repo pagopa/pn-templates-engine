@@ -4,9 +4,11 @@ import it.pagopa.pn.templatesengine.config.TemplateProcessorRegistryConfig;
 import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunication;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.InformalCommunicationSender;
-import it.pagopa.pn.templatesengine.model.InformalAnalogCommunicationGeneratedParams;
-import it.pagopa.pn.templatesengine.processor.impl.SenderLogoProcessor;
+import it.pagopa.pn.templatesengine.model.InformalCommunicationGeneratedParams;
+import it.pagopa.pn.templatesengine.processor.impl.SenderLogoBase64Processor;
+import it.pagopa.pn.templatesengine.processor.impl.SenderLogoUrlProcessor;
 import it.pagopa.pn.templatesengine.processor.impl.MarkdownToHtmlProcessor;
+import it.pagopa.pn.templatesengine.processor.impl.CharNormalizerProcessor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,7 +30,13 @@ class TemplateProcessorRegistryConfigTest {
     private MarkdownToHtmlProcessor markdownToHtmlProcessor;
 
     @Mock
-    private SenderLogoProcessor senderLogoProcessor;
+    private SenderLogoBase64Processor senderLogoBase64Processor;
+
+    @Mock
+    private SenderLogoUrlProcessor senderLogoUrlProcessor;
+
+    @Mock
+    private CharNormalizerProcessor charNormalizerProcessor;
 
     private TemplateProcessorRegistry registry;
     private TemplateProcessorRegistryConfig registryConfig;
@@ -39,14 +47,18 @@ class TemplateProcessorRegistryConfigTest {
         registryConfig = new TemplateProcessorRegistryConfig(
                 registry,
                 markdownToHtmlProcessor,
-                senderLogoProcessor
+                senderLogoUrlProcessor,
+                senderLogoBase64Processor,
+                charNormalizerProcessor
         );
     }
 
     @Test
     void init_ShouldRegisterInformalCommunicationChains() {
         lenient().when(markdownToHtmlProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
-        when(senderLogoProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
+        lenient().when(senderLogoUrlProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
+        lenient().when(charNormalizerProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
+        lenient().when(senderLogoBase64Processor.process(any(), any(), any())).thenReturn(Mono.empty());
 
         registryConfig.init();
 
@@ -59,7 +71,7 @@ class TemplateProcessorRegistryConfigTest {
             StepVerifier.create(registry.executeProcessors(template, model))
                     .assertNext(out -> {
                         assertNotNull(out);
-                        assertInstanceOf(InformalAnalogCommunicationGeneratedParams.class, out);
+                        assertInstanceOf(InformalCommunicationGeneratedParams.class, out);
                     })
                     .verifyComplete();
         }
