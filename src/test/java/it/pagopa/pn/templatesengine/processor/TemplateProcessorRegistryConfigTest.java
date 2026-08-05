@@ -8,6 +8,7 @@ import it.pagopa.pn.templatesengine.model.InformalCommunicationGeneratedParams;
 import it.pagopa.pn.templatesengine.processor.impl.SenderLogoBase64Processor;
 import it.pagopa.pn.templatesengine.processor.impl.SenderLogoUrlProcessor;
 import it.pagopa.pn.templatesengine.processor.impl.MarkdownToHtmlProcessor;
+import it.pagopa.pn.templatesengine.processor.impl.CharNormalizerProcessor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -34,6 +35,9 @@ class TemplateProcessorRegistryConfigTest {
     @Mock
     private SenderLogoUrlProcessor senderLogoUrlProcessor;
 
+    @Mock
+    private CharNormalizerProcessor charNormalizerProcessor;
+
     private TemplateProcessorRegistry registry;
     private TemplateProcessorRegistryConfig registryConfig;
 
@@ -44,14 +48,17 @@ class TemplateProcessorRegistryConfigTest {
                 registry,
                 markdownToHtmlProcessor,
                 senderLogoUrlProcessor,
-                senderLogoBase64Processor
+                senderLogoBase64Processor,
+                charNormalizerProcessor
         );
     }
 
     @Test
     void init_ShouldRegisterInformalCommunicationChains() {
         lenient().when(markdownToHtmlProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
-        when(senderLogoBase64Processor.process(any(), any(), any())).thenReturn(Mono.empty());
+        lenient().when(senderLogoUrlProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
+        lenient().when(charNormalizerProcessor.process(any(), any(), any())).thenReturn(Mono.empty());
+        lenient().when(senderLogoBase64Processor.process(any(), any(), any())).thenReturn(Mono.empty());
 
         registryConfig.init();
 
