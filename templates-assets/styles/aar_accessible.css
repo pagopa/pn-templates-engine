@@ -12,6 +12,38 @@
     src: url(../fonts/Titillium_Pro/TitilliumSansPro-Bold.ttf) format('truetype');
 }
 
+@font-face {
+    font-family: "DM Mono";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../fonts/DM_Mono/DMMono-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: italic;
+    font-weight: normal;
+    src: url(../fonts/DM_Mono/DMMono-Italic.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: normal;
+    font-weight: bold;
+    src: url(../fonts/DM_Mono/DMMono-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: italic;
+    font-weight: bold;
+    src: url(../fonts/DM_Mono/DMMono-MediumItalic.ttf) format('truetype');
+}
+
+code {
+    font-family: "DM Mono", "Titillium Pro";
+}
+
 @page {
     size: A4;
     margin: 0mm;
@@ -456,9 +488,11 @@ a.black {
 }
 .blue-border-box-combo {
     border: solid #ced8f9 1px;
+    padding: 11px;
+    margin: 10mm 14mm 10mm 10mm;
 }
 
-.blue-border-box, .blue-border-box-combo {
+.blue-border-box {
     padding: 11px;
     margin-top: 90px;
 }
@@ -598,22 +632,6 @@ ul#square-list-mandate li {
     margin-bottom: 0;
 }
 
-.generated-content {
-    padding-left: 0;
-}
-
-.generated-content ul,
-.generated-content ol {
-    padding-left: 0;
-    margin-left: 0;
-}
-
-.generated-content ul li,
-.generated-content ol li {
-    padding-left: 20px;
-    margin-left: 0;
-}
-
 .language-margin {
     margin-top: 2mm;
 }
@@ -732,4 +750,8 @@ img.message-advantages_explanation {
 
 .intro-block {
     height: 65mm;
+}
+
+.avoid-page-break {
+  page-break-inside: avoid;
 }
