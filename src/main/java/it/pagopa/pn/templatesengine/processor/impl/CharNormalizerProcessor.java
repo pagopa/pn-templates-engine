@@ -8,13 +8,18 @@ import reactor.core.publisher.Mono;
 
 import java.util.Map;
 
+/**
+ * Processore che normalizza i caratteri speciali e non-ASCII presenti nei campi testuali
+ * di una {@link InformalCommunication} e nei contenuti HTML dell'output, sostituendoli
+ * con le corrispondenti entity HTML.
+ */
 @Component
 public class CharNormalizerProcessor
         implements TemplateModelProcessor<InformalCommunication, CharNormalizerProcessor.OutputModel> {
 
     /**
-     * * Interfaccia per l'output del processore che definisce i metodi per impostare i campi normalizzati.
-     * */
+     * Interfaccia per l'output del processore che definisce i metodi per impostare i campi normalizzati.
+     */
     public interface OutputModel {
         void setPrimaryContentHtml(String html);
         void setSecondaryContentHtml(String html);
@@ -23,34 +28,20 @@ public class CharNormalizerProcessor
     }
 
     /**
-     * * Mapping caratteri speciali
-     * */
+     * Mapping caratteri speciali che non sono diacritici ma vanno comunque sostituiti con la relativa entity.
+     * Tutti gli altri caratteri non-ASCII vengono convertiti automaticamente in entity esadecimali (&#xHH;)
+     * tramite {@link #normalize(String)}, senza bisogno di elencarli manualmente.
+     */
     private static final Map<String, String> CHAR_MAP = Map.ofEntries(
-            Map.entry("č", "&#269;"),
-            Map.entry("Č", "&#268;"),
-            Map.entry("š", "&#353;"),
-            Map.entry("ž", "&#382;"),
-            Map.entry("Ž", "&#381;"),
             Map.entry("'", "&#39;"),
-            Map.entry("é", "&#xE9;"),
-            Map.entry("è", "&egrave;"),
-            Map.entry("ê", "&ecirc;"),
-            Map.entry("È", "&Egrave;"),
-            Map.entry("ç", "&#xE7;"),
-            Map.entry("à", "&#xE0;"),
-            Map.entry("À", "&#xC0;"),
-            Map.entry("ù", "&#xF9;"),
-            Map.entry("û", "&#xFB;"),
-            Map.entry("ô", "&#xF4;"),
-            Map.entry("î", "&icirc;"),
-            Map.entry("ü", "&#252;"),
-            Map.entry("ö", "&#246;"),
-            Map.entry("Ö", "&#214;"),
-            Map.entry("ä", "&#228;"),
-            Map.entry("Ä", "&#196;"),
             Map.entry("*", "&#42;")
     );
 
+    /**
+     * Restituisce la mappa dei caratteri speciali con la relativa entity HTML sostitutiva.
+     *
+     * @return la mappa immutabile dei caratteri e delle rispettive entity
+     */
     static Map<String, String> getCharMap() {
         return CHAR_MAP;
     }
@@ -91,15 +82,32 @@ public class CharNormalizerProcessor
         return Mono.empty();
     }
 
+
+    /**
+     * Normalizza la stringa in input sostituendo i caratteri presenti in {@link #CHAR_MAP}
+     * con la relativa entity HTML e convertendo ogni altro carattere non-ASCII (code point
+     * maggiore di 0x7F) nella sua entity esadecimale (&#x HH;).
+     *
+     * @param input la stringa da normalizzare
+     * @return la stringa normalizzata, oppure l'input invariato se {@code null} o vuoto
+     */
     private String normalize(String input) {
         if (input == null || input.isEmpty()) {
             return input;
         }
 
-        String result = input;
-        for (Map.Entry<String, String> entry : CHAR_MAP.entrySet()) {
-            result = result.replace(entry.getKey(), entry.getValue());
-        }
-        return result;
+        StringBuilder result = new StringBuilder(input.length());
+        input.codePoints().forEach(codePoint -> {
+            String character = new String(Character.toChars(codePoint));
+            String mapped = CHAR_MAP.get(character);
+            if (mapped != null) {
+                result.append(mapped);
+            } else if (codePoint > 0x7F) {
+                result.append("&#x").append(Integer.toHexString(codePoint).toUpperCase()).append(";");
+            } else {
+                result.appendCodePoint(codePoint);
+            }
+        });
+        return result.toString();
     }
 }
