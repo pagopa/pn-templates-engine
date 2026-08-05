@@ -30,6 +30,7 @@ public class CharNormalizerProcessor
             Map.entry("Č", "&#268;"),
             Map.entry("š", "&#353;"),
             Map.entry("ž", "&#382;"),
+            Map.entry("Ž", "&#381;"),
             Map.entry("'", "&#39;"),
             Map.entry("é", "&#xE9;"),
             Map.entry("è", "&egrave;"),
@@ -38,12 +39,15 @@ public class CharNormalizerProcessor
             Map.entry("ç", "&#xE7;"),
             Map.entry("à", "&#xE0;"),
             Map.entry("À", "&#xC0;"),
+            Map.entry("ù", "&#xF9;"),
             Map.entry("û", "&#xFB;"),
             Map.entry("ô", "&#xF4;"),
+            Map.entry("î", "&icirc;"),
             Map.entry("ü", "&#252;"),
             Map.entry("ö", "&#246;"),
             Map.entry("Ö", "&#214;"),
             Map.entry("ä", "&#228;"),
+            Map.entry("Ä", "&#196;"),
             Map.entry("*", "&#42;")
     );
 
