@@ -83,6 +83,18 @@ h1 {
   overflow: hidden;
 }
 
+.primary-content h1, .secondary-content h1 {
+  font-size: 22px;
+}
+
+.primary-content h2, .secondary-content h2 {
+  font-size: 18px;
+}
+
+.primary-content h3, .primary-content h4, .primary-content h5, .primary-content h6, .secondary-content h3, .secondary-content h4, .secondary-content h5, .secondary-content h6 {
+  font-size: 16px;
+}
+
 @media screen and (max-width: 600px) {
   .sender-logo-cell {
     width: 110px !important;
