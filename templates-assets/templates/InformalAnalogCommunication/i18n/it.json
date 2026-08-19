@@ -2,7 +2,7 @@
   "it_language": "it",
   "it_title": "Frontespizio",
   "it_aar_label": "Comunicazione da parte di",
-  "it_iun": "Identificativo Univoco Notifica",
+  "it_iun": "Identificativo Univoco",
   "it_fiscal_code": "Codice fiscale",
   "it_sent_by": "Comunicazione inviata tramite",
   "it_notification_subject_1": "<#if recipient.recipientType=='PF'>Hai<#else>${recipient.denomination} ha</#if> ricevuto una comunicazione da",
