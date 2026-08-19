@@ -172,6 +172,10 @@ h1 {
     /* Primary Light in HSL - L = +25 */
   }
 
+  p, h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+  }
+
   /* IMAGES */
   /* Source: https://www.litmus.com/blog/the-ultimate-guide-to-dark-mode-for-email-marketers/ */
 
