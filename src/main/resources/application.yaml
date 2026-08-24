@@ -26,6 +26,7 @@ templatesStaticParams:
   landingSendLabel: "notifichedigitali.it"
   raddPhoneNumber: "06.9318.95.55"
   faqSendUrl: "https://www.notifichedigitali.it/faq#send-cosa-e"
+  ioAppUrl: "https://ioapp.it"
 templates:
   notificationReceivedLegalFact:
     input:
