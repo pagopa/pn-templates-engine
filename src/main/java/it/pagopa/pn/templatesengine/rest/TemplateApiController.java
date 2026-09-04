@@ -308,6 +308,30 @@ public class TemplateApiController implements TemplateApi {
         return processTextTemplate(TemplatesEnum.INFORMAL_SMS_COMMUNICATION, xLanguage, request);
     }
 
+    @Override
+    public Mono<ResponseEntity<String>> courtesySmsCommunication(
+            LanguageEnum xLanguage,
+            Mono<InformalSmsCommunication> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.COURTESY_SMS_COMMUNICATION, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> courtesyEmailCommunicationBody(
+            LanguageEnum xLanguage,
+            Mono<InformalCommunication> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.COURTESY_EMAIL_COMMUNICATION_BODY, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> courtesyEmailCommunicationSubject(
+            LanguageEnum xLanguage,
+            Mono<InformalEmailCommunicationSubject> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.COURTESY_EMAIL_COMMUNICATION_SUBJECT, xLanguage, request);
+    }
+
     private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(
             TemplatesEnum template,
             LanguageEnum xLanguage,

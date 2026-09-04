@@ -60,6 +60,9 @@ public class TemplateApiControllerTest {
     public static final String INFORMAL_IO_COMMUNICATION = "/templates-engine-private/v1/templates/informal/io-communication";
     public static final String INFORMAL_PEC_COMMUNICATION = "/templates-engine-private/v1/templates/informal/pec-communication-body";
     public static final String INFORMAL_PEC_COMMUNICATION_SUBJECT = "/templates-engine-private/v1/templates/informal/pec-communication-subject";
+    public static final String COURTESY_SMS_COMMUNICATION = "/templates-engine-private/v1/templates/courtesy/sms-communication";
+    public static final String COURTESY_EMAIL_COMMUNICATION = "/templates-engine-private/v1/templates/courtesy/email-communication-body";
+    public static final String COURTESY_EMAIL_COMMUNICATION_SUBJECT = "/templates-engine-private/v1/templates/courtesy/email-communication-subject";
 
     @Autowired
     WebTestClient webTestClient;
@@ -323,6 +326,33 @@ public class TemplateApiControllerTest {
                 Arguments.of(
                         INFORMAL_PEC_COMMUNICATION_SUBJECT,
                         TemplatesEnum.INFORMAL_PEC_COMMUNICATION_SUBJECT,
+                        new InformalEmailCommunicationSubject(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        COURTESY_SMS_COMMUNICATION,
+                        TemplatesEnum.COURTESY_SMS_COMMUNICATION,
+                        new InformalSmsCommunication(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        COURTESY_EMAIL_COMMUNICATION,
+                        TemplatesEnum.COURTESY_EMAIL_COMMUNICATION_BODY,
+                        new InformalCommunication(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        COURTESY_EMAIL_COMMUNICATION_SUBJECT,
+                        TemplatesEnum.COURTESY_EMAIL_COMMUNICATION_SUBJECT,
                         new InformalEmailCommunicationSubject(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,

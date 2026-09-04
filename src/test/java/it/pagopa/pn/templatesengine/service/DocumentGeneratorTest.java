@@ -327,6 +327,13 @@ public class DocumentGeneratorTest {
         generateAndSaveDocument(template, langs, getInformalCommunication(), FileType.HTML);
     }
 
+    @Test
+    void generate_courtesyEmailCommunicationBody() {
+        var template = TemplatesEnum.COURTESY_EMAIL_COMMUNICATION_BODY;
+        LanguageEnum[] langs = { LanguageEnum.IT };
+        generateAndSaveDocument(template, langs, getInformalCommunication(), FileType.HTML);
+    }
+
     /** TXT **/
     @Test
     void generate_notificationAarForSmsAnalog() {
@@ -426,6 +433,20 @@ public class DocumentGeneratorTest {
         generateAndSaveDocument(template, langs, getInformalCommunicationSubject(), FileType.TXT);
     }
 
+    @Test
+    void generate_courtesySmsCommunication() {
+        var template = TemplatesEnum.COURTESY_SMS_COMMUNICATION;
+        LanguageEnum[] langs = { LanguageEnum.IT };
+        generateAndSaveDocument(template, langs, getInformalSmsCommunication(), FileType.TXT);
+    }
+
+    @Test
+    void generate_courtesyEmailCommunicationSubject() {
+        var template = TemplatesEnum.COURTESY_EMAIL_COMMUNICATION_SUBJECT;
+        LanguageEnum[] langs = { LanguageEnum.IT };
+        generateAndSaveDocument(template, langs, getInformalCommunicationSubject(), FileType.TXT);
+    }
+
     private InformalCommunication getInformalCommunication() {
         var body = new InformalCommunicationBody()
                 .primaryContent("Corpo della comunicazione **in markdown** `in monospace`")
@@ -455,6 +476,12 @@ public class DocumentGeneratorTest {
                 .senderDenomination("Ente Mittente")
                 .recipientDenomination("Nome Cognome")
                 .subject("Oggetto comunicazione");
+    }
+
+    private InformalSmsCommunication getInformalSmsCommunication() {
+        return new InformalSmsCommunication()
+                .senderPaDenomination("Ente Mittente")
+                .recipientType(RecipientTypeEnum.PF);
     }
 
     private void generateAndSaveDocument(TemplatesEnum template, LanguageEnum[] langs, Object model, FileType ext){

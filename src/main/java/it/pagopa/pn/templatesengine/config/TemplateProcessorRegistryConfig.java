@@ -43,5 +43,11 @@ public class TemplateProcessorRegistryConfig {
                 .add(markdownToHtmlProcessor, InformalCommunication::getBody)
                 .add(charNormalizerProcessor, model -> model)
                 .add(senderLogoBase64Processor, model -> model.getSender().getId());
+
+        registry.registerChain(TemplatesEnum.COURTESY_EMAIL_COMMUNICATION_BODY, InformalCommunication.class, InformalCommunicationGeneratedParams::new)
+                .add(markdownToHtmlProcessor, InformalCommunication::getBody)
+                .add(charNormalizerProcessor, model -> model)
+                .add(senderLogoUrlProcessor, model -> model.getSender().getId());
+
     }
 }

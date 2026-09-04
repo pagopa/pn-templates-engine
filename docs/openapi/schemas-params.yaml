@@ -1030,3 +1030,125 @@ components:
         senderDenomination: "Ente_Mittente"
         recipientDenomination: "Nome Cognome"
         subject: "Subject"
+
+    CourtesyEmailCommunicationSubject:
+      type: object
+      required:
+        - senderDenomination
+        - recipientDenomination
+        - subject
+      properties:
+        senderDenomination:
+          type: string
+          x-field-extra-annotation: "@lombok.ToString.Exclude"
+          format: password
+        recipientDenomination:
+          type: string
+          x-field-extra-annotation: "@lombok.ToString.Exclude"
+          format: password
+        subject:
+          type: string
+          x-field-extra-annotation: "@lombok.ToString.Exclude"
+          format: password
+      example:
+        senderDenomination: "Ente_Mittente"
+        recipientDenomination: "Nome Cognome"
+        subject: "Subject"
+
+    CourtesySmsCommunication:
+      type: object
+      required:
+        - senderPaDenomination
+        - recipientType
+      properties:
+        senderPaDenomination:
+          type: string
+          x-field-extra-annotation: "@lombok.ToString.Exclude"
+          format: password
+        recipientType:
+          $ref: '#/components/schemas/RecipientTypeEnum'
+      example:
+        senderPaDenomination: "Ente_Mittente"
+        recipientType: "PF"
+
+    CourtesyCommunication:
+      type: object
+      required:
+        - iun
+        - subject
+        - body
+        - sender
+        - recipient
+        - hasAttachment
+        - hasPayment
+      properties:
+        iun:
+          type: string
+        subject:
+          type: string
+          x-field-extra-annotation: "@lombok.ToString.Exclude"
+          format: password
+        body:
+          $ref: '#/components/schemas/InformalCommunicationBody'
+        sender:
+          title: InformalCommunicationSender
+          type: object
+          required:
+            - denomination
+            - id
+            - service
+          properties:
+            denomination:
+              type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude"
+              format: password
+            id:
+              type: string
+            service:
+              type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude"
+              format: password
+        recipient:
+          title: SharedInformalCommunicationRecipient
+          type: object
+          required:
+            - denomination
+            - taxId
+            - recipientType
+          properties:
+            denomination:
+              type: string
+              x-field-extra-annotation: "@lombok.ToString.Exclude"
+              format: password
+            taxId:
+              type: string
+              description: "Codice Fiscale"
+              x-field-extra-annotation: "@lombok.ToString.Exclude"
+              format: password
+            recipientType:
+              $ref: '#/components/schemas/RecipientTypeEnum'
+        hasAttachment:
+          type: boolean
+          description: "Indica se la comunicazione contiene uno o più allegati"
+        hasPayment:
+          type: boolean
+          description: "Indica se alla comunicazione è associato un avviso di pagamento"
+        checkoutUrl:
+          type: string
+          description: "Url checkout pagamento per PEC ed Email"
+      example:
+        iun: "AAAA-AAAA-AAAA-000000-A-0"
+        subject: "Oggetto"
+        body:
+          primaryContent: "Corpo della comunicazione"
+        sender:
+          denomination: "Ente_Mittente"
+          id: "Ente_Mittente_Id"
+          service: "Service"
+        recipient:
+          denomination: "Nome Cognome"
+          taxId: "AAAAAA00A00A000A"
+          recipientType: "PF"
+        hasAttachment: false
+        hasPayment: true
+        checkoutUrl: "https://test.url"
