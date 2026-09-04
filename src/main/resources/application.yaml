@@ -248,3 +248,19 @@ templates:
   informalSmsCommunication:
     input:
       IT: "InformalSMSCommunication/InformalSMSCommunication.txt"
+
+  courtesySmsCommunication:
+    input:
+      IT: "CourtesySMSCommunication/CourtesySMSCommunication.txt"
+  courtesyEmailCommunicationBody:
+    input:
+      IT: "CourtesyEMAILCommunicationBody/CourtesyEMAILCommunicationBody.html"
+    resolvers:
+      senderLogo:
+        enabled: true
+        bypassAllWithNull: false
+        returnNullOnError: true
+        whitelistEnabled: false
+  courtesyEmailCommunicationSubject:
+    input:
+      IT: "CourtesyEMAILCommunicationSubject/CourtesyEMAILCommunicationSubject.txt"
