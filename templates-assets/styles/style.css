@@ -2,10 +2,12 @@
   color-scheme: light dark;
   supported-color-schemes: light dark;
 }
+
 p {
   font-size: 18px;
   margin-top: 0px;
 }
+
 body,
 .mail-body {
   background-color: #FFFFFF;
@@ -24,7 +26,6 @@ body,
   /* Text Primary */
   color: #17324D !important;
 }
-
 
 .text div {
   color: #17324D !important;
@@ -161,6 +162,30 @@ h1 {
     color: #eeeeee !important;
   }
 
+  /* Il testo renderizzato da <mj-table> non e' contenuto in un div: senza questi
+     selettori resterebbe con il colore inline #17324D, illeggibile su
+     sfondo scuro. */
+  .title,
+  .title table,
+  .title td,
+  .title p,
+  .title span,
+  [data-ogsc] .title,
+  [data-ogsc] .title p {
+    color: #ffffff !important;
+  }
+
+  .text,
+  .text table,
+  .text td,
+  .text p,
+  .text span,
+  .text li,
+  [data-ogsc] .text,
+  [data-ogsc] .text p {
+    color: #eeeeee !important;
+  }
+
   .footer-text,
   .footer-text div {
     color: #CCD4DC !important;
@@ -204,12 +229,35 @@ h1 {
     color: #17324D !important;
   }
 
+  /* Il banner ha sfondo chiaro anche in dark mode: va protetto dagli
+     override generici su .text (che ora coprono anche p/span/td). */
+  .text .banner-box,
+  .text .banner-box p,
+  .text .banner-box span,
+  .text .banner-box a,
+  .banner-box p,
+  .banner-box span {
+    color: #17324D !important;
+  }
+
   .informal-io-banner div,
   .informal-io-banner p {
     color: #17324D !important;
   }
 
+  .text .informal-io-banner,
+  .text .informal-io-banner p,
+  .text .informal-io-banner span,
+  .informal-io-banner span,
+  .informal-io-banner td {
+    color: #17324D !important;
+  }
+
   .informal-io-banner a {
+    color: #0073E6 !important;
+  }
+
+  .text .informal-io-banner a {
     color: #0073E6 !important;
   }
 
