@@ -46,7 +46,7 @@ code {
 
 @page {
     size: A4;
-    margin: 10mm 10mm 10mm 10mm;
+    margin: 8mm 10mm 10mm 10mm;
 }
 
 * {
@@ -385,6 +385,7 @@ a.black {
 
 #sender_box {
     height: 23mm;
+    padding-top: 2mm;
 }
 
 #sender_box_radd {
