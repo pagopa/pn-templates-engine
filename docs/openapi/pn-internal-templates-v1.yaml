@@ -999,30 +999,8 @@ paths:
         '500':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-### API TO GENERATE BASE64 QRCODE ####
-  /templates-engine-private/v1/qrcode-generator:
-    get:
-      summary: generate base64 qrcode
-      description: generazione del qrcode in base64
-      tags:
-        - QrCodeGenerator
-      operationId: qrcodegenerator
-      parameters:
-        - name: url
-          in: query
-          required: true
-          description: url
-          schema:
-            type: string
-      responses:
-        '200':
-          $ref: 'schemas-responses.yaml#/components/responses/ResponseQrCode'
-        '500':
-          description: Internal Server Error
-
-### API TO GENERATE COURTESY COMMUNICATION TEMPLATE ####
-
-  /templates-engine-private/v1/templates/courtesy/sms-communication:
+  ### API TO GENERATE COURTESY COMMUNICATION TEMPLATE ####
+  /templates-engine-private/v1/templates/informal/courtesy-sms-communication:
     put:
       summary: CourtesySmsCommunication
       description: Genera un messaggio di testo per il canale SMS delle comunicazioni di cortesia.
@@ -1051,7 +1029,7 @@ paths:
         '500':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/courtesy/email-communication-body:
+  /templates-engine-private/v1/templates/informal/courtesy-email-communication-body:
     put:
       summary: CourtesyEmailCommunicationBody
       description: Genera un documento HTML per il canale Email delle comunicazioni di cortesia.
@@ -1080,7 +1058,7 @@ paths:
         '500':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
-  /templates-engine-private/v1/templates/courtesy/email-communication-subject:
+  /templates-engine-private/v1/templates/informal/courtesy-email-communication-subject:
     put:
       summary: CourtesyEmailCommunicationSubject
       description: Genera l'oggetto per il canale Email delle comunicazioni di cortesia.
@@ -1108,3 +1086,24 @@ paths:
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
         '500':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+### API TO GENERATE BASE64 QRCODE ####
+  /templates-engine-private/v1/qrcode-generator:
+    get:
+      summary: generate base64 qrcode
+      description: generazione del qrcode in base64
+      tags:
+        - QrCodeGenerator
+      operationId: qrcodegenerator
+      parameters:
+        - name: url
+          in: query
+          required: true
+          description: url
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: 'schemas-responses.yaml#/components/responses/ResponseQrCode'
+        '500':
+          description: Internal Server Error

@@ -329,7 +329,7 @@ public class DocumentGeneratorTest {
 
     @Test
     void generate_courtesyEmailCommunicationBody() {
-        var template = TemplatesEnum.COURTESY_EMAIL_COMMUNICATION_BODY;
+        var template = TemplatesEnum.INFORMAL_COURTESY_EMAIL_COMMUNICATION_BODY;
         LanguageEnum[] langs = { LanguageEnum.IT };
         generateAndSaveDocument(template, langs, getInformalCommunication(), FileType.HTML);
     }
@@ -435,14 +435,14 @@ public class DocumentGeneratorTest {
 
     @Test
     void generate_courtesySmsCommunication() {
-        var template = TemplatesEnum.COURTESY_SMS_COMMUNICATION;
+        var template = TemplatesEnum.INFORMAL_COURTESY_SMS_COMMUNICATION;
         LanguageEnum[] langs = { LanguageEnum.IT };
         generateAndSaveDocument(template, langs, getInformalSmsCommunication(), FileType.TXT);
     }
 
     @Test
     void generate_courtesyEmailCommunicationSubject() {
-        var template = TemplatesEnum.COURTESY_EMAIL_COMMUNICATION_SUBJECT;
+        var template = TemplatesEnum.INFORMAL_COURTESY_EMAIL_COMMUNICATION_SUBJECT;
         LanguageEnum[] langs = { LanguageEnum.IT };
         generateAndSaveDocument(template, langs, getInformalCommunicationSubject(), FileType.TXT);
     }

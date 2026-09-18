@@ -313,7 +313,7 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<InformalSmsCommunication> request,
             final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.COURTESY_SMS_COMMUNICATION, xLanguage, request);
+        return processTextTemplate(TemplatesEnum.INFORMAL_COURTESY_SMS_COMMUNICATION, xLanguage, request);
     }
 
     @Override
@@ -321,7 +321,7 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<InformalCommunication> request,
             final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.COURTESY_EMAIL_COMMUNICATION_BODY, xLanguage, request);
+        return processTextTemplate(TemplatesEnum.INFORMAL_COURTESY_EMAIL_COMMUNICATION_BODY, xLanguage, request);
     }
 
     @Override
@@ -329,7 +329,7 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             Mono<InformalEmailCommunicationSubject> request,
             final ServerWebExchange exchange) {
-        return processTextTemplate(TemplatesEnum.COURTESY_EMAIL_COMMUNICATION_SUBJECT, xLanguage, request);
+        return processTextTemplate(TemplatesEnum.INFORMAL_COURTESY_EMAIL_COMMUNICATION_SUBJECT, xLanguage, request);
     }
 
     private <T> Mono<ResponseEntity<Resource>> processPdfTemplate(

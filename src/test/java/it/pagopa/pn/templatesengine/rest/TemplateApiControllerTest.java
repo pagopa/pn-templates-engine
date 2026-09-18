@@ -60,9 +60,9 @@ public class TemplateApiControllerTest {
     public static final String INFORMAL_IO_COMMUNICATION = "/templates-engine-private/v1/templates/informal/io-communication";
     public static final String INFORMAL_PEC_COMMUNICATION = "/templates-engine-private/v1/templates/informal/pec-communication-body";
     public static final String INFORMAL_PEC_COMMUNICATION_SUBJECT = "/templates-engine-private/v1/templates/informal/pec-communication-subject";
-    public static final String COURTESY_SMS_COMMUNICATION = "/templates-engine-private/v1/templates/courtesy/sms-communication";
-    public static final String COURTESY_EMAIL_COMMUNICATION = "/templates-engine-private/v1/templates/courtesy/email-communication-body";
-    public static final String COURTESY_EMAIL_COMMUNICATION_SUBJECT = "/templates-engine-private/v1/templates/courtesy/email-communication-subject";
+    public static final String INFORMAL_COURTESY_SMS_COMMUNICATION = "/templates-engine-private/v1/templates/informal/courtesy-sms-communication";
+    public static final String INFORMAL_COURTESY_EMAIL_COMMUNICATION = "/templates-engine-private/v1/templates/informal/courtesy-email-communication-body";
+    public static final String INFORMAL_COURTESY_EMAIL_COMMUNICATION_SUBJECT = "/templates-engine-private/v1/templates/informal/courtesy-email-communication-subject";
 
     @Autowired
     WebTestClient webTestClient;
@@ -333,8 +333,8 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        COURTESY_SMS_COMMUNICATION,
-                        TemplatesEnum.COURTESY_SMS_COMMUNICATION,
+                        INFORMAL_COURTESY_SMS_COMMUNICATION,
+                        TemplatesEnum.INFORMAL_COURTESY_SMS_COMMUNICATION,
                         new InformalSmsCommunication(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -342,8 +342,8 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        COURTESY_EMAIL_COMMUNICATION,
-                        TemplatesEnum.COURTESY_EMAIL_COMMUNICATION_BODY,
+                        INFORMAL_COURTESY_EMAIL_COMMUNICATION,
+                        TemplatesEnum.INFORMAL_COURTESY_EMAIL_COMMUNICATION_BODY,
                         new InformalCommunication(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
@@ -351,8 +351,8 @@ public class TemplateApiControllerTest {
                         EXPECTED_RESULT
                 ),
                 Arguments.of(
-                        COURTESY_EMAIL_COMMUNICATION_SUBJECT,
-                        TemplatesEnum.COURTESY_EMAIL_COMMUNICATION_SUBJECT,
+                        INFORMAL_COURTESY_EMAIL_COMMUNICATION_SUBJECT,
+                        TemplatesEnum.INFORMAL_COURTESY_EMAIL_COMMUNICATION_SUBJECT,
                         new InformalEmailCommunicationSubject(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
