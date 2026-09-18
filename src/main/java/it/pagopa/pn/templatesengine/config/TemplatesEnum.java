@@ -38,7 +38,10 @@ public enum TemplatesEnum {
     INFORMAL_IO_COMMUNICATION("informalIoCommunication"),
     INFORMAL_PEC_COMMUNICATION_BODY("informalPecCommunicationBody"),
     INFORMAL_PEC_COMMUNICATION_SUBJECT("informalPecCommunicationSubject"),
-    INFORMAL_SMS_COMMUNICATION("informalSmsCommunication");
+    INFORMAL_SMS_COMMUNICATION("informalSmsCommunication"),
+    INFORMAL_COURTESY_SMS_COMMUNICATION("informalCourtesySmsCommunication"),
+    INFORMAL_COURTESY_EMAIL_COMMUNICATION_BODY("informalCourtesyEmailCommunicationBody"),
+    INFORMAL_COURTESY_EMAIL_COMMUNICATION_SUBJECT("informalCourtesyEmailCommunicationSubject");
 
     private final String template;
 
