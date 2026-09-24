@@ -971,6 +971,10 @@ components:
         hasPayment:
           type: boolean
           description: "Indica se alla comunicazione è associato un avviso di pagamento"
+        paymentHasAttachment:
+          type: boolean
+          default: true
+          description: "Indica se il pagamento associato alla comunicazione include un allegato"
         checkoutUrl:
           type: string
           description: "Url checkout pagamento per PEC ed Email"
