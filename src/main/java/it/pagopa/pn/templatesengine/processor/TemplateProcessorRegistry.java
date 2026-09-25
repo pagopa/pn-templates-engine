@@ -41,6 +41,20 @@ public class TemplateProcessorRegistry {
     }
 
     /**
+     * Registra una nuova chain per un template che non produce parametri generati:
+     * i processori operano in-place sul model (es. l'HTML escaping dei campi testuali).
+     *
+     * @param template   il template a cui associare la chain
+     * @param modelClass la classe del model in input
+     * @param <MODEL>    tipo del model in input
+     * @return la chain appena creata, per registrazioni fluenti con {@link TemplateProcessorChain#add}
+     */
+    public <MODEL> TemplateProcessorChain<MODEL, Void> registerChain(TemplatesEnum template,
+                                                                     Class<MODEL> modelClass) {
+        return registerChain(template, modelClass, null);
+    }
+
+    /**
      * Esegue la chain registrata per il template: crea l'output, esegue i processori
      * e restituisce l'oggetto output popolato.
      *
