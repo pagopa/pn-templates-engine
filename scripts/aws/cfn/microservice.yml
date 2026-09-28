@@ -194,6 +194,11 @@ Parameters:
     Default: ''
     Description: 'Applicative environment variable file checksum'
 
+  CpuArchitecture:
+    Type: String
+    Default: 'ARM'
+    Description: CPU architecture for the Fargate tasks
+
 Resources:
   # PN-Templates-Engine microservice
   TemplatesEngineMicroservice:
@@ -235,6 +240,7 @@ Resources:
         LogAlarmStrategyV1: !Ref LogAlarmStrategy
         WireTapLogActivation: !Ref WireTapLogActivation
         JavaToolOptions: !Ref JavaToolOptions
+        CpuArchitecture: !Ref CpuArchitecture
 
   TemplatesEngineTaskManagedPolicy:
     Type: AWS::IAM::ManagedPolicy
