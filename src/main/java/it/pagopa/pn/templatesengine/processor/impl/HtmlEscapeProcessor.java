@@ -5,6 +5,7 @@ import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.*;
 import it.pagopa.pn.templatesengine.processor.TemplateModelProcessor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
@@ -29,6 +30,9 @@ import java.util.function.Function;
 @Component
 public class HtmlEscapeProcessor implements TemplateModelProcessor<Object, Object> {
 
+    @Value("${pn.templates-engine.html-escape-processor.enabled:true}")
+    private boolean enabled = true;
+
     /**
      * Applica l'escaping in-place sui campi previsti per il tipo di model ricevuto.
      *
@@ -39,6 +43,9 @@ public class HtmlEscapeProcessor implements TemplateModelProcessor<Object, Objec
      */
     @Override
     public Mono<Void> process(TemplatesEnum template, Object model, Object outParams) {
+        if (!enabled) {
+            return Mono.empty();
+        }
         switch (model) {
             case NotificationAar m -> {
                 escape(m.getNotification(), AarNotification::getSubject, AarNotification::setSubject);

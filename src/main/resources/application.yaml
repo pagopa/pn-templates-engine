@@ -12,6 +12,8 @@ pn:
     parameterStoreCacheTTL: 10m
     urlResolverTimeout: 5s
     senderLogoUrlTemplate: "https://selfcare.pagopa.it/institutions/<PA_ID>/logo.png"
+    html-escape-processor:
+      enabled: true
 
 templatesPath: "generated-templates-assets/templates"
 defaultLanguage: IT

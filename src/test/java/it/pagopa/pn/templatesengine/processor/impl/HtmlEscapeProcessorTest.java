@@ -4,9 +4,12 @@ import it.pagopa.pn.templatesengine.config.TemplatesEnum;
 import it.pagopa.pn.templatesengine.generated.openapi.server.v1.dto.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.MapPropertySource;
 import reactor.test.StepVerifier;
 
 import java.util.List;
+import java.util.Map;
 
 class HtmlEscapeProcessorTest {
 
@@ -16,6 +19,10 @@ class HtmlEscapeProcessorTest {
     private final HtmlEscapeProcessor processor = new HtmlEscapeProcessor();
 
     private void run(TemplatesEnum template, Object model) {
+        run(processor, template, model);
+    }
+
+    private void run(HtmlEscapeProcessor processor, TemplatesEnum template, Object model) {
         StepVerifier.create(processor.process(template, model, null)).verifyComplete();
     }
 
@@ -284,5 +291,26 @@ class HtmlEscapeProcessorTest {
         Assertions.assertNull(HtmlEscapeProcessor.escapeHtml(null));
         Assertions.assertEquals("", HtmlEscapeProcessor.escapeHtml(""));
         Assertions.assertEquals("nessun carattere speciale", HtmlEscapeProcessor.escapeHtml("nessun carattere speciale"));
+    }
+
+    @Test
+    void shouldSkipEscapingWhenFeatureFlagIsDisabled() {
+        try (var context = new AnnotationConfigApplicationContext()) {
+            context.getEnvironment().getPropertySources().addFirst(new MapPropertySource(
+                    "testProperties",
+                    Map.of("pn.templates-engine.html-escape-processor.enabled", false)
+            ));
+            context.register(HtmlEscapeProcessor.class);
+            context.refresh();
+
+            AarNotification notification = new AarNotification();
+            notification.setSubject(RAW_SUBJECT);
+            NotificationAar model = new NotificationAar();
+            model.setNotification(notification);
+
+            run(context.getBean(HtmlEscapeProcessor.class), TemplatesEnum.NOTIFICATION_AAR, model);
+
+            Assertions.assertEquals(RAW_SUBJECT, model.getNotification().getSubject());
+        }
     }
 }
