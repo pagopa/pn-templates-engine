@@ -282,7 +282,7 @@ a.black {
 }
 
 .pb-33 {
-    padding-bottom: 33px;
+    padding-bottom: 33px !important;
 }
 
 .pl-72 {
