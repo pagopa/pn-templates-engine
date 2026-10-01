@@ -137,6 +137,34 @@ class CharNormalizerProcessorTest {
             Map.entry("*", "&#42;")
     );
 
+    @Test
+    void process_ShouldLeaveAlreadyEscapedEntitiesUntouched() {
+        // Le entity HTML prodotte a monte da HtmlEscapeProcessor devono attraversare intatte
+        // la normalizzazione: CHAR_MAP non mappa '&', quindi non si produce doppio escaping.
+        String alreadyEscaped = "&lt;&lt;pratica 2252434&gt;&gt; &#39; &quot; &amp; &#xE0;";
+
+        InformalCommunication model = new InformalCommunication();
+        model.setSubject(alreadyEscaped);
+
+        InformalCommunicationSender sender = new InformalCommunicationSender();
+        sender.setDenomination(alreadyEscaped);
+        model.setSender(sender);
+
+        SharedInformalCommunicationRecipient recipient = new SharedInformalCommunicationRecipient();
+        recipient.setDenomination(alreadyEscaped);
+        model.setRecipient(recipient);
+
+        outParams.setPrimaryContentHtml(alreadyEscaped);
+
+        StepVerifier.create(processor.process(TemplatesEnum.INFORMAL_EMAIL_COMMUNICATION_BODY, model, outParams))
+                .verifyComplete();
+
+        assertEquals(alreadyEscaped, model.getSubject());
+        assertEquals(alreadyEscaped, model.getSender().getDenomination());
+        assertEquals(alreadyEscaped, model.getRecipient().getDenomination());
+        assertEquals(alreadyEscaped, outParams.getPrimaryContentHtml());
+    }
+
     private String expectedByMap(String input) {
         if (input == null || input.isEmpty()) {
             return input;
