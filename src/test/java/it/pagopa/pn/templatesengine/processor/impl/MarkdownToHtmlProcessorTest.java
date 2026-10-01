@@ -8,7 +8,9 @@ import org.junit.jupiter.api.Test;
 import reactor.test.StepVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MarkdownToHtmlProcessorTest {
 
@@ -145,5 +147,101 @@ class MarkdownToHtmlProcessorTest {
 
         assertNull(outParams.getPrimaryContentHtml());
         assertNull(outParams.getSecondaryContentHtml());
+    }
+
+    @Test
+    void process_ShouldDropUrlsWithNotAllowedScheme() {
+        InformalCommunicationBody body = new InformalCommunicationBody("[clicca](javascript:alert(1))")
+                .secondaryContent("![logo](vbscript:msgbox)");
+
+        StepVerifier.create(markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams))
+                .verifyComplete();
+
+        assertEquals("<p><a rel=\"nofollow\" href=\"\">clicca</a></p>\n", outParams.getPrimaryContentHtml());
+        assertEquals("<p><img src=\"\" alt=\"logo\" /></p>\n", outParams.getSecondaryContentHtml());
+    }
+
+    @Test
+    void process_ShouldRenderMarkdownLinkAndImage() {
+        InformalCommunicationBody body = new InformalCommunicationBody(
+                "Vai al [portale](https://www.notifichedigitali.it/ \"Titolo\")")
+                .secondaryContent("![logo PN](https://cdn.pagopa.it/logo.png \"Logo\")");
+
+        StepVerifier.create(markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams))
+                .verifyComplete();
+
+        assertEquals("<p>Vai al <a rel=\"nofollow\" href=\"https://www.notifichedigitali.it/\" title=\"Titolo\">portale</a></p>\n",
+                outParams.getPrimaryContentHtml());
+        assertEquals("<p><img src=\"https://cdn.pagopa.it/logo.png\" alt=\"logo PN\" title=\"Logo\" /></p>\n",
+                outParams.getSecondaryContentHtml());
+    }
+
+    @Test
+    void process_ShouldEscapeRawAnchorAndImgTags() {
+        InformalCommunicationBody body = new InformalCommunicationBody(
+                "<a href=\"javascript:alert(1)\">clicca</a>")
+                .secondaryContent("<img src=\"x\" onerror=\"alert(1)\" />");
+
+        StepVerifier.create(markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams))
+                .verifyComplete();
+
+        assertEquals("<p>&lt;a href=&quot;javascript:alert(1)&quot;&gt;clicca&lt;/a&gt;</p>\n",
+                outParams.getPrimaryContentHtml());
+        assertEquals("<p>&lt;img src=&quot;x&quot; onerror=&quot;alert(1)&quot; /&gt;</p>\n",
+                outParams.getSecondaryContentHtml());
+    }
+
+    @Test
+    void process_ShouldDropDataUriImageAndAutolinkWithNotAllowedScheme() {
+        InformalCommunicationBody body = new InformalCommunicationBody(
+                "![x](data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==)")
+                .secondaryContent("[apri](file:///etc/passwd)");
+
+        StepVerifier.create(markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams))
+                .verifyComplete();
+
+        assertEquals("<p><img src=\"\" alt=\"x\" /></p>\n", outParams.getPrimaryContentHtml());
+        assertEquals("<p><a rel=\"nofollow\" href=\"\">apri</a></p>\n", outParams.getSecondaryContentHtml());
+    }
+
+    @Test
+    void process_ShouldDropJavascriptUrlsInAllObfuscatedForms() {
+        InformalCommunicationBody body = new InformalCommunicationBody(
+                "[a](javascript:alert(1)) [b](JaVaScRiPt:alert(1)) [c](  javascript:alert(1))")
+                .secondaryContent("![d](java\tscript:alert(1)) [e](&#106;avascript:alert(1))");
+
+        StepVerifier.create(markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams))
+                .verifyComplete();
+
+        String primary = outParams.getPrimaryContentHtml();
+        String secondary = outParams.getSecondaryContentHtml();
+        assertFalse(primary.toLowerCase().contains("javascript"), primary);
+        assertFalse(secondary.toLowerCase().contains("javascript"), secondary);
+        assertEquals("<p><a rel=\"nofollow\" href=\"\">a</a> <a rel=\"nofollow\" href=\"\">b</a> <a rel=\"nofollow\" href=\"\">c</a></p>\n", primary);
+    }
+
+    @Test
+    void process_ShouldKeepUrlsWithAllowedScheme() {
+        InformalCommunicationBody body = new InformalCommunicationBody(
+                "[sito](https://www.notifichedigitali.it/) [scrivi](mailto:info@pagopa.it) [relativo](/faq)");
+
+        StepVerifier.create(markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams))
+                .verifyComplete();
+
+        String html = outParams.getPrimaryContentHtml();
+        assertTrue(html.contains("href=\"https://www.notifichedigitali.it/\""), html);
+        assertTrue(html.contains("href=\"mailto:info@pagopa.it\""), html);
+        assertTrue(html.contains("href=\"/faq\""), html);
+    }
+
+    @Test
+    void process_ShouldKeepTelUrls() {
+        InformalCommunicationBody body = new InformalCommunicationBody("[chiama](tel:+390612345678)");
+
+        StepVerifier.create(markdownToHtmlProcessor.process(TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION, body, outParams))
+                .verifyComplete();
+
+        assertEquals("<p><a rel=\"nofollow\" href=\"tel:+390612345678\">chiama</a></p>\n",
+                outParams.getPrimaryContentHtml());
     }
 }

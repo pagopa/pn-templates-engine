@@ -9,6 +9,9 @@ import reactor.core.publisher.Mono;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
+import org.commonmark.renderer.html.DefaultUrlSanitizer;
+
+import java.util.List;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -42,6 +45,9 @@ import java.util.regex.Pattern;
  * <p>Restano valide tutte le altre costruzioni Markdown (titoli, elenchi puntati e numerati,
  * formattazione inline), mentre l'HTML presente nel contenuto viene escapato per non esporre
  * l'output a injection: l'unica eccezione e' il tag {@code <br>}, ammesso come a capo esplicito.</p>
+ *
+ * <p>Gli URL di link e immagini vengono inoltre sanificati ammettendo solo gli schemi previsti
+ * ({@link #ALLOWED_URL_SCHEMES}), scartando ad esempio i riferimenti {@code javascript:}.</p>
  */
 @Component
 public class MarkdownToHtmlProcessor
@@ -64,10 +70,14 @@ public class MarkdownToHtmlProcessor
     private static final String PARAGRAPH_BREAK = "\n\n";
     private static final Pattern EXTRA_NEW_LINES = Pattern.compile("\n{3,}");
     private static final Pattern BR_TAG = Pattern.compile("<br\\s*/?>", Pattern.CASE_INSENSITIVE);
+    /** Schemi ammessi negli URL di link e immagini: gli altri vengono scartati. */
+    private static final List<String> ALLOWED_URL_SCHEMES = List.of("http", "https", "mailto", "tel");
 
     private final Parser parser = Parser.builder().build();
     private final HtmlRenderer renderer = HtmlRenderer.builder()
             .escapeHtml(true)
+            .sanitizeUrls(true)
+            .urlSanitizer(new DefaultUrlSanitizer(ALLOWED_URL_SCHEMES))
             .softbreak(LINE_BREAK_HTML)
             .build();
 

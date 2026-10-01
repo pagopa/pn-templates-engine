@@ -56,20 +56,21 @@ public class TemplateProcessorChain<MODEL, O> {
 
     /**
      * Esegue la chain: crea l'output tramite la factory, esegue tutti gli step in ordine,
-     * e restituisce l'output popolato.
+     * e restituisce l'output popolato. Se la chain non dichiara una factory
+     * (processori che operano in-place sul model), non viene emesso alcun output.
      *
      * @param template il template in fase di elaborazione
      * @param model    il model in input (viene castato in modo sicuro via {@code Class.cast})
-     * @return un Mono con l'oggetto output popolato dai processori
+     * @return un Mono con l'oggetto output popolato dai processori, vuoto se non c'è output generato
      */
     Mono<Object> execute(TemplatesEnum template, Object model) {
         MODEL typedModel = modelClass.cast(model);
-        O output = outputFactory.get();
+        O output = outputFactory == null ? null : outputFactory.get();
         Mono<Void> chain = Mono.empty();
         for (Step<MODEL, O> step : steps) {
             chain = chain.then(step.execute(template, typedModel, output));
         }
-        return chain.thenReturn(output);
+        return chain.then(Mono.justOrEmpty(output));
     }
 
     @FunctionalInterface
