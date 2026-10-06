@@ -114,7 +114,7 @@ class HtmlEscapeProcessorTest {
         Assertions.assertEquals(ESCAPED_SUBJECT, model.getSubject());
         Assertions.assertEquals("Comune &lt;Z&gt;", model.getNotification().getSender().getPaDenomination());
         Assertions.assertEquals("Mario &lt;Rossi&gt;", model.getNotification().getRecipients().get(0).getDenomination());
-        Assertions.assertEquals("Via Roma 1 &lt;interno 2&gt;", model.getNotification().getRecipients().get(0).getPhysicalAddressAndDenomination());
+        Assertions.assertEquals("Via Roma 1 <interno 2>", model.getNotification().getRecipients().get(0).getPhysicalAddressAndDenomination());
         Assertions.assertEquals("Anna &amp; Co", model.getNotification().getRecipients().get(1).getDenomination());
     }
 
