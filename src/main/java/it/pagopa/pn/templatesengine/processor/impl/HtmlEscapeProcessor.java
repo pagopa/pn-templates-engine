@@ -76,7 +76,8 @@ public class HtmlEscapeProcessor implements TemplateModelProcessor<Object, Objec
                 if (recipients != null) {
                     recipients.forEach(recipient -> {
                         escape(recipient, NotificationReceivedRecipient::getDenomination, NotificationReceivedRecipient::setDenomination);
-                        escape(recipient, NotificationReceivedRecipient::getPhysicalAddressAndDenomination, NotificationReceivedRecipient::setPhysicalAddressAndDenomination);
+                        // Aad oggi PhysicalAddressAndDenomination non può essere pulito perché contiene HTML (es <br>)
+                        // escape(recipient, NotificationReceivedRecipient::getPhysicalAddressAndDenomination, NotificationReceivedRecipient::setPhysicalAddressAndDenomination);
                         escape(nav(recipient, NotificationReceivedRecipient::getDigitalDomicile),
                                 NotificationReceivedDigitalDomicile::getAddress, NotificationReceivedDigitalDomicile::setAddress);
                     });
