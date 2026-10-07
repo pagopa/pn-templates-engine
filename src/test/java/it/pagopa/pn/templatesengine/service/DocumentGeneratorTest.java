@@ -138,7 +138,7 @@ public class DocumentGeneratorTest {
         var notification = new AarNotification()
                 .iun("TEST_iun")
                 .sender(sender)
-                .subject("0020589/2025 &Avviso di accertamento esecutivo - Servizio mensa anno 2021/2022");
+                .subject("notification Titolo di 134 caratteri massimi spazi compresi. Aid olotielit, sed eiusmod tempora incidunt ue et et dolore magna aliqua aliqua aliqua");
         var recepient = new AarRecipient()
                 .recipientType("PF")
                 .taxId("CDCFSC11R99X001Z");
@@ -293,13 +293,6 @@ public class DocumentGeneratorTest {
                 .verificationCode("TEST_verificationCode")
                 .recipientType("PG");
         generateAndSaveDocument(template, langs, model, FileType.HTML);
-    }
-
-    @Test
-    void generate_informalAnaalogCommunicationBody() {
-        var template = TemplatesEnum.INFORMAL_ANALOG_COMMUNICATION;
-        LanguageEnum[] langs = { LanguageEnum.IT };
-        generateAndSaveDocument(template, langs, getInformalCommunication(), FileType.PDF);
     }
 
     @Test

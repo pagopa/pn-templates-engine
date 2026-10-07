@@ -9,7 +9,6 @@ import it.pagopa.pn.templatesengine.processor.impl.SenderLogoBase64Processor;
 import it.pagopa.pn.templatesengine.processor.impl.SenderLogoUrlProcessor;
 import it.pagopa.pn.templatesengine.processor.impl.MarkdownToHtmlProcessor;
 import it.pagopa.pn.templatesengine.processor.impl.CharNormalizerProcessor;
-import it.pagopa.pn.templatesengine.processor.impl.HtmlEscapeProcessor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -50,8 +49,7 @@ class TemplateProcessorRegistryConfigTest {
                 markdownToHtmlProcessor,
                 senderLogoUrlProcessor,
                 senderLogoBase64Processor,
-                charNormalizerProcessor,
-                new HtmlEscapeProcessor()
+                charNormalizerProcessor
         );
     }
 
