@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="it">
+
+<head>
+    <title><% if (noIta) { %><%-watermark%> &bull; <% } %><%-it_watermark%></title>
+  <meta name="author" content="SEND - Servizio Notifiche Digitali" />
+  <link rel="stylesheet" href="../../styles/accessible.css">
+  <bookmarks>
+    <bookmark name="Facsimile - Avviso di avvenuta ricezione (con atto allegato)" href="#aar"/>
+    <bookmark name="Facsimile - Avviso di avvenuta ricezione (senza atto allegato)" href="#aarRadd"/>
+    <bookmark name="Facsimile - Attestazione opponibile a terzi: notifica presa in carico" href="#notificationReceivedLegalFact"/>
+    <bookmark name="Facsimile - Attestazione opponibile a terzi: notifica digitale" href="#pecDeliveryWorkflowLegalFactSuccess"/>
+    <bookmark name="Facsimile - Attestazione opponibile a terzi: mancato recapito digitale" href="#pecDeliveryWorkflowLegalFactFailure"/>
+    <bookmark name="Facsimile - Attestazione opponibile a terzi: avvenuto accesso" href="#notificationViewedLegalFact"/>
+    <bookmark name="Facsimile - Dichiarazione di annullamento notifica sulla piattaforma SEND" href="#notificationCancelledLegalFact"/>
+    <bookmark name="Facsimile - Deposito avviso di avvenuta ricezione" href="#analogDeliveryWorkflowFailureLegalFact"/>
+  </bookmarks>
+</head>
+
+<body>
+  <header id="header" class="table">
+    <div class="row">
+      <div class="width-50 cell">
+        <img src="../../images/pn-logo-header.png" class="pagopa-logo-header" alt="Logo di PagoPA S.p.A."/>
+      </div>
+      <div class="width-50 cell right">
+        <img src="../../images/send-logo.png" class="send-logo-header" alt="Logo di SEND - Servizio Notifiche Digitali"/>
+      </div>
+    </div>
+  </header>
+  <!-- Se il footer viene messo in fondo al documento compare solo nell'ultima pagina -->
+  <footer id="footer" class="table">
+    <div class="row">
+      <div class="cell width-50 left-footer-col">
+        <p>PagoPA S.p.A.</p>
+        <p>società per azioni con socio unico</p>
+        <p>capitale sociale di euro 1000000 interamente versato</p>
+        <p>sede legale in Roma, Piazza Colonna 370, CAP 00187</p>
+        <p>n. di iscrizione a Registro Imprese di Roma, CF e P.IVA 15376371009</p>
+      </div>
+      <div class="cell right width-50">
+        <img src="../../images/pn-logo-footer.png" alt="Logo PagoPA S.p.A."/>
+      </div>
+    </div>
+  </footer>
+
+  <main>
+    <h1 class="document-type subject mb-0 text-uppercase" id="subject"><% if (noIta) { %><%-subject%><br><% } %>  <span style="font-weight: 300;"><%-it_subject%></span></h1>
+
+    <ul style="margin-top: 3em;">
+      <li style="margin-top: 3em;" class="border-bottom">
+        <a href="#aar" class="no-decoration">
+          <div class="table">
+            <div class="row my-8 vertical-align-bottom" >
+              <div class="cell  width-90 ">
+                <p><b><% if (noIta) { %><%-list1%><br><% } %></b><%-it_list1%></p>
+              </div>
+              <div class="cell  width-10 vertical-align-bottom text-right">
+                ${notificationAarPageNumber}
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li style="margin-top: 3em;" class="border-bottom">
+        <a href="#aarRadd" class="no-decoration">
+          <div class="table">
+            <div class="row my-8 vertical-align-bottom" >
+              <div class="cell  width-90 ">
+                <p><b><% if (noIta) { %><%-list2%><br><% } %></b><%-it_list2%></p>
+              </div>
+              <div class="cell  width-10 vertical-align-bottom text-right">
+                ${notificationAarRaddPageNumber}
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li style="margin-top: 3em;" class="border-bottom">
+        <a href="#notificationReceivedLegalFact" class="no-decoration">
+          <div class="table">
+            <div class="row my-8 vertical-align-bottom" >
+              <div class="cell  width-90 ">
+                <p><b><% if (noIta) { %><%-list3%><br><% } %></b><%-it_list3%></p>
+              </div>
+              <div class="cell  width-10 vertical-align-bottom text-right">
+                ${notificationReceivedLegalFactPageNumber}
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li style="margin-top: 3em;" class="border-bottom">
+        <a href="#pecDeliveryWorkflowLegalFactSuccess" class="no-decoration">
+          <div class="table">
+            <div class="row my-8 vertical-align-bottom" >
+              <div class="cell  width-90 ">
+                <p><b><% if (noIta) { %><%-list4%><br><% } %></b><%-it_list4%></p>
+              </div>
+              <div class="cell  width-10 vertical-align-bottom text-right">
+                ${pecDeliveryWorkflowLegalFactSuccessPageNumber}
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li style="margin-top: 3em;" class="border-bottom">
+        <a href="#pecDeliveryWorkflowLegalFactFailure" class="no-decoration">
+          <div class="table">
+            <div class="row my-8 vertical-align-bottom" >
+              <div class="cell  width-90 ">
+                <p><b><% if (noIta) { %><%-list5%><br><% } %></b><%-it_list5%></p>
+              </div>
+              <div class="cell  width-10 vertical-align-bottom text-right">
+                ${pecDeliveryWorkflowLegalFactFailurePageNumber}
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li style="margin-top: 3em;" class="border-bottom">
+        <a href="#notificationViewedLegalFact" class="no-decoration">
+          <div class="table">
+            <div class="row my-8 vertical-align-bottom" >
+              <div class="cell  width-90 ">
+                <p><b><% if (noIta) { %><%-list6%><br><% } %></b><%-it_list6%></p>
+              </div>
+              <div class="cell  width-10 vertical-align-bottom text-right">
+                ${notificationViewedLegalFactPageNumber}
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li style="margin-top: 3em;" class="border-bottom">
+        <a href="#notificationCancelledLegalFact" class="no-decoration">
+          <div class="table">
+            <div class="row my-8 vertical-align-bottom" >
+              <div class="cell  width-90 ">
+                <p><b><% if (noIta) { %><%-list7%><br><% } %></b><%-it_list7%></p>
+              </div>
+              <div class="cell  width-10 vertical-align-bottom text-right">
+                ${notificationCancelledLegalFactPageNumber}
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li style="margin-top: 3em;" class="border-bottom">
+        <a href="#analogDeliveryWorkflowFailureLegalFact" class="no-decoration">
+          <div class="table">
+            <div class="row my-8 vertical-align-bottom" >
+              <div class="cell  width-90 ">
+                <p><b><% if (noIta) { %><%-list8%><br><% } %></b><%-it_list8%></p>
+              </div>
+              <div class="cell  width-10 vertical-align-bottom text-right">
+                ${analogDeliveryWorkflowFailureLegalFactPageNumber}
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </main>
+</body>
+
+</html>

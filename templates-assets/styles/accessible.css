@@ -218,3 +218,31 @@ a.faq-link-perfezionamento {
 .avoid-page-break {
   page-break-inside: avoid;
 }
+
+/* index page */
+
+.vertical-align-bottom {
+    vertical-align: bottom;
+}
+.text-right {
+    text-align: right;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #000000;
+}
+
+.no-decoration {
+    text-decoration: none;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+@font-face {
+    font-family: "Titillium Pro";
+    font-style: normal;
+    font-weight: 900;
+    src: url(../fonts/Titillium_Pro/TitilliumSansPro-Black.ttf) format('truetype');
+}

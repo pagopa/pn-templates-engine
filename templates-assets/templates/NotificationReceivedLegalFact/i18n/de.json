@@ -1,5 +1,6 @@
 {
     "language": "de",
+    "watermark":"MUSTER",
     "subject": "Bescheinigung die Dritten entgegengehalten werden kann: &Uuml;bernahme der Zustellung",
     "body1": "Gem&auml;ß Artikel 26, Absatz 11 des Gesetzesdekrets 76/2020 in geltender Fassung BESCHEINIGT PagoPA S.p.A. als rechtm&auml;ßiger Betreiber der im selben Artikel 26 genannten Plattform f&uuml;r digitale Zustellungen (auch bekannt als SEND - Servizio Notifiche Digitali), mit jeglicher Rechtskr&auml;ftigkeit f&uuml;r die Entgegenhaltung gegen&uuml;ber Dritten, HIERMIT, dass:",
     "body2": "am <b>${sendDate}</b> der Absender <b>${notification.sender.paDenomination}</b>, Steuernummer <b>${notification.sender.paTaxId}</b> dem Betreiber die elektronischen Dokumente, die mittels IUN <b>${notification.iun}</b> und nachfolgenden Hashes eindeutig identifizierbar sind zur Verf&uuml;gung gestellt hat:",

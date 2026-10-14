@@ -41,7 +41,9 @@ public enum TemplatesEnum {
     INFORMAL_SMS_COMMUNICATION("informalSmsCommunication"),
     INFORMAL_COURTESY_SMS_COMMUNICATION("informalCourtesySmsCommunication"),
     INFORMAL_COURTESY_EMAIL_COMMUNICATION_BODY("informalCourtesyEmailCommunicationBody"),
-    INFORMAL_COURTESY_EMAIL_COMMUNICATION_SUBJECT("informalCourtesyEmailCommunicationSubject");
+    INFORMAL_COURTESY_EMAIL_COMMUNICATION_SUBJECT("informalCourtesyEmailCommunicationSubject"),
+    INDEX_FACSIMILE("indexFacsimile");
+
 
     private final String template;
 

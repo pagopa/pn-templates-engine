@@ -1,5 +1,6 @@
 {
   "language": "en",
+  "watermark":"SAMPLE",
   "subject": "Certificate enforceable against third parties: access occurred",
   "body1": "Pursuant to Art. 26, paragraph 11, of Decree-Law 76/2020 as amended, PagoPA S.p.A. in its capacity as the statutory manager of the Piattaforma Notifiche Digitali referred to in the same Art. 26 (also known as SEND - Servizio Notifiche Digitali), with full legal value for enforceability against third parties, HEREBY CERTIFIES THAT:",
   "body2": "the documents relating to the notification identified with IUN <b>${iun}</b> have been managed as follows:",

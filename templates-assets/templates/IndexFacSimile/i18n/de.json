@@ -1,0 +1,13 @@
+{
+  "language": "de",
+  "watermark":"MUSTER",
+  "subject":"Index der Vorlagen",
+  "list1":"Empfangsbest&auml;tigung (mit beigef&uuml;gtem Bescheid)",
+  "list2":"Empfangsbest&auml;tigung (ohne beigef&uuml;gtem Bescheid)",
+  "list3":"Bescheinigung die Dritten entgegengehalten werden kann: &Uuml;bernahme der Zustellung",
+  "list4":"Bescheinigung die Dritten entgegengehalten werden kann: digitale Zustellung",
+  "list5":"Bescheinigung die Dritten entgegengehalten werden kann: digitale Unzustellbarkeit",
+  "list6":"Bescheinigung die Dritten entgegengehalten werden kann: erfolgter Zugang",
+  "list7":"Erkl&auml;rung &uuml;ber die Annullierung der Zustellung auf der SEND-Plattform",
+  "list8":"Hinterlegung der Benachrichtigung &uuml;ber den erfolgten Empfang"
+}

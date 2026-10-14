@@ -1,0 +1,13 @@
+{
+  "language": "sl",
+  "watermark":"VZOREC",
+  "subject":"Indeks predlog",
+  "list1":"Obvestilo o prejemu (s priloženim aktom)",
+  "list2":"Obvestilo o prejemu (brez priloženega akta)",
+  "list3":"Zavezujoče potrdilo za tretje osebe: prevzem obvestila",
+  "list4":"Zavezujoče potrdilo za tretje osebe: digitalno obvestilo",
+  "list5":"Zavezujoče potrdilo za tretje osebe: neuspešna digitalna dostava",
+  "list6":"Zavezujoče potrdilo za tretje osebe: opravljen dostop",
+  "list7":"Obvestilo o preklicu obvestila na platformi SEND",
+  "list8":"Vložitev obvestila o prejemu"
+}
