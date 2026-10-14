@@ -1,0 +1,5 @@
+<#if recipientType == "PF">
+Una comunicazione inviata da ${senderPaDenomination} richiede la tua attenzione. Per leggerla, accedi con SPID o CIE al sito di SEND - Servizio Notifiche Digitali.
+<#elseif recipientType == "PG">
+Una comunicazione inviata alla tua impresa da ${senderPaDenomination} richiede la tua attenzione. Per leggerla, accedi al sito di SEND - Servizio Notifiche Digitali.
+</#if>

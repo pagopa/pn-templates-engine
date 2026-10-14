@@ -106,3 +106,34 @@ public Mono<ResponseEntity<String>> nomeTemplate(
             .map(result -> ResponseEntity.ok().body(result));
 }
 ```
+
+### 7. Registrare processor opzionali
+
+Se il template richiede parametri calcolati prima del rendering, aggiungere una chain in [`TemplateProcessorRegistryConfig.java`](../../src/main/java/it/pagopa/pn/templatesengine/config/TemplateProcessorRegistryConfig.java).
+
+I processor disponibili implementano `TemplateModelProcessor` e ricevono:
+
+- il template in elaborazione;
+- una porzione del model estratta tramite mapper;
+- un oggetto output popolato progressivamente dalla chain.
+
+Ad esempio, le comunicazioni bonarie usano `MarkdownToHtmlProcessor` per convertire il body Markdown in HTML e `SenderLogoProcessor` per costruire il valore del logo del mittente usando il resolver configurato per il template:
+
+```java
+registry.registerChain(TemplatesEnum.NOME_TEMPLATE, NomeTemplate.class, NomeTemplateGeneratedParams::new)
+        .add(markdownToHtmlProcessor, NomeTemplate::getBody)
+        .add(senderLogoProcessor, model -> model.getSender().getId());
+```
+
+La classe `NomeTemplateGeneratedParams` deve esporre i campi valorizzati dai processor, implementando le interfacce di output richieste dai processor usati. I parametri prodotti dalla chain vengono resi disponibili nel template FreeMarker sotto la variabile `GENERATED`.
+
+Esempio di utilizzo nel template:
+
+```ftl
+${GENERATED.primaryContentHtml}
+${GENERATED.secondaryContentHtml}
+${GENERATED.senderLogoBase64}
+```
+
+Se il template non richiede elaborazioni preliminari, non è necessario registrare alcuna chain: `TemplateService` procederà direttamente con il rendering del payload originale.
+

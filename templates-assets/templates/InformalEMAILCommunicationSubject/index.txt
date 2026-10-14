@@ -1,0 +1,1 @@
+Hai ricevuto una comunicazione da ${senderDenomination} con oggetto: ${subject}

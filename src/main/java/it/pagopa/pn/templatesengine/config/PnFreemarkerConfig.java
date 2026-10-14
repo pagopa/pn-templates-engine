@@ -39,6 +39,7 @@ public class PnFreemarkerConfig {
             configuration.setDefaultEncoding("UTF-8");
             configuration.setLogTemplateExceptions(false);
             configuration.setWrapUncheckedExceptions(true);
+            configuration.setLocalizedLookup(false);
 
             // Carica i template come string dal file system
             StringTemplateLoader stringLoader = new StringTemplateLoader();

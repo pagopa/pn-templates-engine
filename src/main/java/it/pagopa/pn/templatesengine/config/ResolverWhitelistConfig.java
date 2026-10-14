@@ -53,6 +53,17 @@ public class ResolverWhitelistConfig {
     }
 
     /**
+     * Verifica se la whitelist è abilitata per un dato template e parametro.
+     *
+     * @param template Il template di riferimento.
+     * @param param    Il parametro del template.
+     * @return {@code true} se la whitelist è abilitata, altrimenti {@code false}.
+     */
+    public boolean isWhitelistEnabled(TemplatesEnum template, TemplatesParamsEnum param) {
+        return whitelistParametersStoresMap.containsKey(Tuples.of(template, param));
+    }
+
+    /**
      * Inizializza la mappa dei parametri dello store che devono essere utilizzati per la whitelist.
      * Questa mappa viene costruita sulla base della configurazione dei template.
      */

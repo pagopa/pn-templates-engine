@@ -36,7 +36,7 @@ class ResolverWhitelistConfigTest {
     void testInitializeWhitelist() {
         // Arrange
         TemplatesEnum template = TemplatesEnum.NOTIFICATION_AAR_RADDALT;
-        TemplatesParamsEnum param = TemplatesParamsEnum.SENDER_LOGO_BASE64;
+        TemplatesParamsEnum param = TemplatesParamsEnum.SENDER_LOGO;
         String[] expectedValues = {"value1", "value2"};
 
         var templateC = new TemplateConfig.Template();
@@ -64,7 +64,7 @@ class ResolverWhitelistConfigTest {
     @Test
     void testIsInWhitelistWhenEmpty() {
         TemplatesEnum template = TemplatesEnum.NOTIFICATION_AAR;
-        TemplatesParamsEnum param = TemplatesParamsEnum.SENDER_LOGO_BASE64;
+        TemplatesParamsEnum param = TemplatesParamsEnum.SENDER_LOGO;
 
         assertFalse(resolverWhitelistConfig.isInWhitelist(template, param, "randomValue"));
     }

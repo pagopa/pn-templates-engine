@@ -1,0 +1,482 @@
+{
+  "info": {
+    "name": "Templates Engine - Informal Communications",
+    "description": "Collezione Postman per testare le API di generazione template per comunicazioni bonarie informali. Base URL: localhost:8099, lingua: IT.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Informal Communications",
+      "description": "Endpoint PUT per i template delle comunicazioni bonarie informali.",
+      "item": [
+        {
+          "name": "Informal Analog Communication - PDF",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "x-language",
+                "value": "{{language}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"iun\": \"AAAA-AAAA-AAAA-000000-A-0\",\n  \"subject\": \"Oggetto comunicazione bonaria\",\n  \"body\": {\n    \"primaryContent\": \"Corpo della comunicazione in lingua principale.\",\n    \"secondaryContent\": \"Body della comunicazione in lingua alternativa.\"\n  },\n  \"sender\": {\n    \"denomination\": \"Ente_Mittente\",\n    \"id\": \"Ente_Mittente_Id\",\n    \"service\": \"Service\"\n  },\n  \"recipient\": {\n    \"denomination\": \"Nome Cognome\",\n    \"taxId\": \"AAAAAA00A00A000A\",\n    \"recipientType\": \"PF\"\n  },\n  \"hasAttachment\": false,\n  \"hasPayment\": true,\n  \"checkoutUrl\": \"https://test.url\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/templates-engine-private/v1/templates/informal/analog-communication",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "templates-engine-private",
+                "v1",
+                "templates",
+                "informal",
+                "analog-communication"
+              ]
+            },
+            "description": "Genera un documento PDF per il canale analogico delle comunicazioni bonarie."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response body is not empty\", function () {",
+                  "    pm.expect(pm.response.text()).to.not.be.empty;",
+                  "});",
+                  "",
+                  "// Expected response: PDF"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Informal Email Communication Body - HTML",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "x-language",
+                "value": "{{language}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"iun\": \"AAAA-AAAA-AAAA-000000-A-0\",\n  \"subject\": \"Oggetto comunicazione bonaria\",\n  \"body\": {\n    \"primaryContent\": \"Corpo della comunicazione in lingua principale.\",\n    \"secondaryContent\": \"Body della comunicazione in lingua alternativa.\"\n  },\n  \"sender\": {\n    \"denomination\": \"Ente_Mittente\",\n    \"id\": \"Ente_Mittente_Id\",\n    \"service\": \"Service\"\n  },\n  \"recipient\": {\n    \"denomination\": \"Nome Cognome\",\n    \"taxId\": \"AAAAAA00A00A000A\",\n    \"recipientType\": \"PF\"\n  },\n  \"hasAttachment\": false,\n  \"hasPayment\": true,\n  \"checkoutUrl\": \"https://test.url\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/templates-engine-private/v1/templates/informal/email-communication-body",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "templates-engine-private",
+                "v1",
+                "templates",
+                "informal",
+                "email-communication-body"
+              ]
+            },
+            "description": "Genera un documento HTML per il canale Email delle comunicazioni bonarie."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response body is not empty\", function () {",
+                  "    pm.expect(pm.response.text()).to.not.be.empty;",
+                  "});",
+                  "",
+                  "// Expected response: HTML"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Informal Email Communication Subject - Text",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "x-language",
+                "value": "{{language}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"senderDenomination\": \"Ente_Mittente\",\n  \"recipientDenomination\": \"Nome Cognome\",\n  \"subject\": \"Oggetto comunicazione bonaria\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/templates-engine-private/v1/templates/informal/email-communication-subject",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "templates-engine-private",
+                "v1",
+                "templates",
+                "informal",
+                "email-communication-subject"
+              ]
+            },
+            "description": "Genera l'oggetto per il canale Email delle comunicazioni bonarie."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response body is not empty\", function () {",
+                  "    pm.expect(pm.response.text()).to.not.be.empty;",
+                  "});",
+                  "",
+                  "// Expected response: Text"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Informal PEC Communication Body - HTML",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "x-language",
+                "value": "{{language}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"iun\": \"AAAA-AAAA-AAAA-000000-A-0\",\n  \"subject\": \"Oggetto comunicazione bonaria\",\n  \"body\": {\n    \"primaryContent\": \"Corpo della comunicazione in lingua principale.\",\n    \"secondaryContent\": \"Body della comunicazione in lingua alternativa.\"\n  },\n  \"sender\": {\n    \"denomination\": \"Ente_Mittente\",\n    \"id\": \"Ente_Mittente_Id\",\n    \"service\": \"Service\"\n  },\n  \"recipient\": {\n    \"denomination\": \"Nome Cognome\",\n    \"taxId\": \"AAAAAA00A00A000A\",\n    \"recipientType\": \"PF\"\n  },\n  \"hasAttachment\": false,\n  \"hasPayment\": true,\n  \"checkoutUrl\": \"https://test.url\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/templates-engine-private/v1/templates/informal/pec-communication-body",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "templates-engine-private",
+                "v1",
+                "templates",
+                "informal",
+                "pec-communication-body"
+              ]
+            },
+            "description": "Genera un documento HTML per il canale PEC delle comunicazioni bonarie."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response body is not empty\", function () {",
+                  "    pm.expect(pm.response.text()).to.not.be.empty;",
+                  "});",
+                  "",
+                  "// Expected response: HTML"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Informal PEC Communication Subject - Text",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "x-language",
+                "value": "{{language}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"senderDenomination\": \"Ente_Mittente\",\n  \"recipientDenomination\": \"Nome Cognome\",\n  \"subject\": \"Oggetto comunicazione bonaria\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/templates-engine-private/v1/templates/informal/pec-communication-subject",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "templates-engine-private",
+                "v1",
+                "templates",
+                "informal",
+                "pec-communication-subject"
+              ]
+            },
+            "description": "Genera l'oggetto per il canale PEC delle comunicazioni bonarie."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response body is not empty\", function () {",
+                  "    pm.expect(pm.response.text()).to.not.be.empty;",
+                  "});",
+                  "",
+                  "// Expected response: Text"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Informal IO Communication - Markdown",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "x-language",
+                "value": "{{language}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"iun\": \"AAAA-AAAA-AAAA-000000-A-0\",\n  \"subject\": \"Oggetto comunicazione bonaria\",\n  \"body\": {\n    \"primaryContent\": \"Corpo della comunicazione in lingua principale.\",\n    \"secondaryContent\": \"Body della comunicazione in lingua alternativa.\"\n  },\n  \"sender\": {\n    \"denomination\": \"Ente_Mittente\",\n    \"id\": \"Ente_Mittente_Id\",\n    \"service\": \"Service\"\n  },\n  \"recipient\": {\n    \"denomination\": \"Nome Cognome\",\n    \"taxId\": \"AAAAAA00A00A000A\",\n    \"recipientType\": \"PF\"\n  },\n  \"hasAttachment\": false,\n  \"hasPayment\": true,\n  \"checkoutUrl\": \"https://test.url\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/templates-engine-private/v1/templates/informal/io-communication",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "templates-engine-private",
+                "v1",
+                "templates",
+                "informal",
+                "io-communication"
+              ]
+            },
+            "description": "Genera un documento Markdown per il canale IO delle comunicazioni bonarie."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response body is not empty\", function () {",
+                  "    pm.expect(pm.response.text()).to.not.be.empty;",
+                  "});",
+                  "",
+                  "// Expected response: Markdown/Text"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Informal SMS Communication - Text",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "x-language",
+                "value": "{{language}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"senderPaDenomination\": \"Ente_Mittente\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/templates-engine-private/v1/templates/informal/sms-communication",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "templates-engine-private",
+                "v1",
+                "templates",
+                "informal",
+                "sms-communication"
+              ]
+            },
+            "description": "Genera un messaggio di testo per il canale SMS delle comunicazioni bonarie."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response body is not empty\", function () {",
+                  "    pm.expect(pm.response.text()).to.not.be.empty;",
+                  "});",
+                  "",
+                  "// Expected response: Text"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8099",
+      "type": "string"
+    },
+    {
+      "key": "language",
+      "value": "IT",
+      "type": "string"
+    }
+  ]
+}

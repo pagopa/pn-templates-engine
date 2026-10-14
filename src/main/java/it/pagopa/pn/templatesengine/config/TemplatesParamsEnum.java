@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum TemplatesParamsEnum {
 
-    SENDER_LOGO_BASE64("senderLogoBase64");
+    SENDER_LOGO("senderLogo");
 
     private final String value;
 

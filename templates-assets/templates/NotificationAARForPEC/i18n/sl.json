@@ -2,14 +2,14 @@
   "language": "sl",
   "subject": "SEND - Novo obvestilo od ${notification.sender.paDenomination} - ${notification.iun}",
   "hello": "Pozdravljeni",
-  "body1": "<#if recipientType=='PF'>prejeli ste<#else>Va&#353;e podjetje je prejelo</#if> obvestilo prek storitve SEND - Servizio Notifiche Digitali.",
+  "body1": "<#if recipientType=='PF'>Prejeli ste<#else>Va&#353;e podjetje je prejelo</#if> obvestilo na platformi SEND - Servizio Notifiche Digitali.",
   "sender_label": "Po&#353;iljatelj",
   "subject_label": "Zadeva",
-  "iun_label": "IUN (Edinstvena identifikacijska oznaka obvestila)",
-  "body2": "Obvestilo je <strong>pravno veljavna komunikacija</strong> sestavljena iz potrdila o prejemu in enega ali ve&#269; dokumentov.",
-  "body3": "Za <strong>dostop do dokumentov</strong> <#if recipientType=='PF'>imate<#else>ima podjetje</#if> na voljo do 120 dni od datuma <a style=\"color: #0073e6; text-decoration: underline\" href=\"${ENV.perfezionamentoUrl}\" title=\"vro&#269;itve obvestila\">vro&#269;itve obvestila</a> &#268;e je predvideno, je rok za pla&#269;ilo in morebitne prito&#382;be naveden v dokumentih.",
-  "read_more": "To obvestilo prejemate kot <#if recipientType=='PF'>fizi&#269;na oseba<#else>pravna oseba</#if> z dav&#269;no &#353;tevilko ${recipient.taxId}. SEND je orodje, ki omogo&#269;a varnej&#353;e, bolj u&#269;inkovito in gospodarno po&#353;iljanje obvestil javne uprave. <a href=\"${ENV.faqSendUrl}\" title=\"Izvedite ve&#269;\">Izvedite ve&#269;</a>",
+  "iun_label": "Oznaka IUN",
+  "body2": "Obvestilo je <strong>uradno sporo&#269;ilo</strong>, ki ga sestavljata obvestilo o prejemu in eden ali ve&#269; dokumentov.",
+  "body3": "<#if recipientType=='PF'>Na voljo imate<#else>Podjetje ima na voljo</#if> do 120 dni od <a style=\"color: #0073e6; text-decoration: underline\" href=\"${ENV.perfezionamentoUrl}\" title=\"datum zaklju&#269;ka obvestila\">datuma zaklju&#269;ka obvestila</a> za <strong>dostop do dokumentov</strong>. Rok za pla&#269;ilo, &#269;e je predvideno, in rok za morebitne prito&#382;be sta navedena v dokumentih.",
+  "read_more": "To obvestilo o prejemu prejemate kot <#if recipientType=='PF'>fizi&#269;na oseba<#else>pravna oseba</#if> z dav&#269;no &#353;tevilko ${recipient.taxId}. SEND je orodje, s katerim je po&#353;iljanje obvestil s strani javne uprave varnej&#353;e, u&#269;inkovitej&#353;e in var&#269;nej&#353;e. <a href=\"${ENV.faqSendUrl}\" title=\"Izvedite ve&#269;\">Izvedite ve&#269;</a>",
   "button": "Dostop do dokumentov na SEND",
   "greetings": "Lep pozdrav",
-  "footer": "Organizacija po&#353;iljateljica pozna ta naslov PEC, ker <#if recipientType=='PF'>ga je podjetje vneslo<#else>ste ga vnesli</#if> v svoje kontaktne podatke SEND, ker je del enega od registrov, ki jih dolo&#269;a Kodeks o digitalni upravi, ali ker <#if recipientType=='PF'>ga je<#else>ste jim ga</#if> v preteklosti sporo&#269;ili. &#268;e &#382;elite spremeniti svoje kontaktne podatke ali dodati nove, <a title=\"Nadaljujte na platformo za obvestila\" class=\"link\" href=\"${ENV[(recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">pojdite na svoje kontaktne podatke</a>."
+  "footer": "Organ po&#353;iljatelj pozna ta naslov PEC, ker <#if recipientType=='PF'>ste ga vnesli med svoje<#else>ga je podjetje vneslo med svoje</#if> kontaktne podatke platforme SEND, ker je del enega od registrov, predvidenih z Zakonikom o digitalni upravi, ali ker mu je bil <#if recipientType=='PF'>posredovan z va&#353;e strani<#else>posredovan</#if> v preteklosti. Za spremembo kontaktnih podatkov ali dodajanje drugih, <a title=\"Nadaljujte na platformo za obve&#353;&#269;anje\" class=\"link\" href=\"${ENV[(recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">pojdite na svoje kontaktne podatke</a>."
 }

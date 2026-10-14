@@ -9,6 +9,10 @@ pn:
   templates-engine:
     parameterStoreCacheTTL: 10m
     urlResolverTimeout: 5s
+    senderLogoUrlTemplate: "https://uat.selfcare.pagopa.it/institutions/<PA_ID>/logo.png"
+    # To test templates with Ipazia logo, uncomment the following line and comment the previous one
+    # senderLogoUrlTemplate: "https://raw.githubusercontent.com/pagopa/pn-templates-engine/refs/heads/develop/templates-assets/images/ipazia-logo.png"
+
 
 # AWS specific configurations
 aws:
@@ -29,6 +33,7 @@ templatesStaticParams:
   landingSendLabel: "notifichedigitali.it"
   raddPhoneNumber: "06.9318.95.55"
   faqSendUrl: "https://www.notifichedigitali.it/faq#send-cosa-e"
+  ioAppUrl: "https://ioapp.it"
 templates:
   notificationReceivedLegalFact:
     input:
@@ -73,14 +78,13 @@ templates:
       FR: "NotificationAAR/NotificationAAR_fr.html"
       EN: "NotificationAAR/NotificationAAR_en.html"
     resolvers:
-      senderLogoBase64:
+      senderLogo:
         enabled: true
         bypassAllWithNull: false
         returnNullOnError: true
         whitelistEnabled: false
 #        whitelistParameterStores:
 #          - /pn-templates-engine/Whitelist1
-#          - /pn-templates-engine/Whitelist2
   notificationAarRaddAlt:
     input:
       IT: "NotificationAAR_RADDalt/NotificationAAR_RADDalt.html"
@@ -89,7 +93,7 @@ templates:
       FR: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_fr.html"
       EN: "NotificationAAR_RADDalt/NotificationAAR_RADDalt_en.html"
     resolvers:
-      senderLogoBase64:
+      senderLogo:
         enabled: true
         bypassAllWithNull: false
         returnNullOnError: true
@@ -218,3 +222,42 @@ templates:
   analogFeedbackAvailabilityStatement:
     input:
       IT: "AnalogFeedbackAvailabilityStatement/AnalogFeedbackAvailabilityStatement.html"
+  informalAnalogCommunication:
+    input:
+      IT: "InformalAnalogCommunication/InformalAnalogCommunication.html"
+    resolvers:
+      senderLogo:
+        enabled: true
+        bypassAllWithNull: false
+        returnNullOnError: true
+        whitelistEnabled: false
+  informalEmailCommunicationBody:
+    input:
+      IT: "InformalEMAILCommunicationBody/InformalEMAILCommunicationBody.html"
+    resolvers:
+      senderLogo:
+        enabled: true
+        bypassAllWithNull: false
+        returnNullOnError: true
+        whitelistEnabled: false
+  informalEmailCommunicationSubject:
+    input:
+      IT: "InformalEMAILCommunicationSubject/InformalEMAILCommunicationSubject.txt"
+  informalIoCommunication:
+    input:
+      IT: "InformalIoCommunication/InformalIoCommunication.md"
+  informalPecCommunicationBody:
+    input:
+      IT: "InformalPECCommunicationBody/InformalPECCommunicationBody.html"
+    resolvers:
+      senderLogo:
+        enabled: true
+        bypassAllWithNull: false
+        returnNullOnError: true
+        whitelistEnabled: false
+  informalPecCommunicationSubject:
+    input:
+      IT: "InformalPECCommunicationSubject/InformalPECCommunicationSubject.txt"
+  informalSmsCommunication:
+    input:
+      IT: "InformalSMSCommunication/InformalSMSCommunication.txt"

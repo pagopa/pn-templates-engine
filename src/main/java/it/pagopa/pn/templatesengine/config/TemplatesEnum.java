@@ -32,12 +32,22 @@ public enum TemplatesEnum {
     NOTIFICATION_CCE_FOR_EMAIL("notificationCceForEmail"),
     NOTIFICATION_CCE_FOR_SUBJECT("notificationCceForSubject"),
     ANALOG_FEEDBACK_AVAILABILITY_STATEMENT("analogFeedbackAvailabilityStatement"),
+    INFORMAL_ANALOG_COMMUNICATION("informalAnalogCommunication"),
+    INFORMAL_EMAIL_COMMUNICATION_BODY("informalEmailCommunicationBody"),
+    INFORMAL_EMAIL_COMMUNICATION_SUBJECT("informalEmailCommunicationSubject"),
+    INFORMAL_IO_COMMUNICATION("informalIoCommunication"),
+    INFORMAL_PEC_COMMUNICATION_BODY("informalPecCommunicationBody"),
+    INFORMAL_PEC_COMMUNICATION_SUBJECT("informalPecCommunicationSubject"),
+    INFORMAL_SMS_COMMUNICATION("informalSmsCommunication"),
+    INFORMAL_COURTESY_SMS_COMMUNICATION("informalCourtesySmsCommunication"),
+    INFORMAL_COURTESY_EMAIL_COMMUNICATION_BODY("informalCourtesyEmailCommunicationBody"),
+    INFORMAL_COURTESY_EMAIL_COMMUNICATION_SUBJECT("informalCourtesyEmailCommunicationSubject"),
     INDEX_FACSIMILE("indexFacsimile");
+
 
     private final String template;
 
     TemplatesEnum(String template) {
         this.template = template;
     }
-
 }

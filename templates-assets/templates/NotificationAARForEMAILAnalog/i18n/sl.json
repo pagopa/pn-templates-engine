@@ -1,13 +1,13 @@
 {
   "language": "sl",
-  "subject":"SEND - Novo obvestilo od ${notification.sender.paDenomination} - ${notification.iun}",
-  "hello":"Pozdravljeni",
-  "body1":"prek storitve SEND - Servizio Notifiche Digitali ste prejeli obvestilo od <strong>${notification.sender.paDenomination}</strong> s kodo IUN ${notification.iun}. Obvestilo je <strong>pravno veljavna komunikacija</strong> sestavljena iz potrdila o prejemu in enega ali ve&#269; dokumentov.",
-  "body2": "<#if recipient.recipientType=='PF'>Ima&#353;<#else>Tvoje podjetje ima</#if> na voljo do 120 dni od <a href=\"${ENV.perfezionamentoUrl}\" title=\"datuma dokon&#269;anja\">datuma dokon&#269;anja</a> obvestila za <strong>dostop do dokumentov</strong>. Rok za pla&#269;ilo, &#269;e je predviden, in za morebitne prito&#382;be je naveden v dokumentih.",
-  "body3":"Obvestilo je <strong> pravno veljavno sporo&#269;ilo </strong>, ki ga sestavlja potrdilo o prejemu in en ali ve&#269; dokumentov.",
-  "perfection":"&#268;e nimate certificiranega elektronskega naslova PEC in si dokumente ogledate v roku 5 dni (120 ur) od po&#353;iljanja sporo&#269;ila, ne boste prejeli obvestila po priporo&#269;eni po&#353;ti.",
-  "read_more":"SEND je orodje, ki omogo&#269;a varnej&#353;e, bolj u&#269;inkovito in gospodarno po&#353;iljanje obvestil javne uprave. <a href=\"${ENV.faqSendUrl}\" title=\"Izvedite ve&#269;\">Izvedite ve&#269;</a>",
-  "button":"Dostop do dokumentov",
-  "greetings":"Lep pozdrav",
-  "footer": "To sporo&#269;ilo prejema&#353;, ker si <#if recipient.recipientType=='PF'>svoj e-po&#353;tni naslov<#else>e-po&#353;tni naslov podjetja</#if> vnesel/a med vljudnostne kontaktne podatke SEND. &#268;e &#382;eli&#353; spremeniti ali dodati druge kontaktne podatke, <a title=\"Nadaljuj na platformi za obve&#353;&#269;anje\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">pojdi na svoje kontaktne podatke</a>."
+  "subject": "SEND - Novo obvestilo od ${notification.sender.paDenomination} - ${notification.iun}",
+  "hello": "Pozdravljeni",
+  "body1": "<#if recipient.recipientType=='PF'>Prejeli ste<#else>Va&#353;e podjetje je prejelo</#if> na platformi SEND - Servizio Notifiche Digitali obvestilo s strani <strong>${notification.sender.paDenomination}</strong> z oznako IUN ${notification.iun}.",
+  "body2": "<#if recipient.recipientType=='PF'>Na voljo imate<#else>Podjetje ima na voljo</#if> do 120 dni od <a href=\"${ENV.perfezionamentoUrl}\" title=\"datum zaklju&#269;ka obvestila\">datuma zaklju&#269;ka obvestila</a> za <strong>dostop do dokumentov</strong>. Rok za pla&#269;ilo, &#269;e je predvideno, in rok za morebitne prito&#382;be sta navedena v dokumentih.",
+  "body3": "Obvestilo je <strong>uradno sporo&#269;ilo</strong>, ki ga sestavljata obvestilo o prejemu in eden ali ve&#269; dokumentov.",
+  "perfection": "&#268;e do sporo&#269;ila dostopate v 5 dneh od po&#353;iljanja tega e-po&#353;tnega sporo&#269;ila, se boste izognili priporo&#269;eni po&#353;ti v papirni obliki in morebitnim stro&#353;kom.",
+  "read_more": "SEND je orodje, s katerim je po&#353;iljanje obvestil s strani javne uprave varnej&#353;e, u&#269;inkovitej&#353;e in var&#269;nej&#353;e. <a href=\"${ENV.faqSendUrl}\" title=\"Izvedite ve&#269;\">Izvedite ve&#269;</a>",
+  "button": "Dostop do dokumentov na SEND",
+  "greetings": "Lep pozdrav",
+  "footer": "To sporo&#269;ilo prejemate, ker ste <#if recipient.recipientType=='PF'>svoj e-po&#353;tni naslov<#else>e-po&#353;tni naslov podjetja</#if> navedli med kontaktnimi podatki za obve&#353;&#269;anje platforme SEND. &#268;e &#382;elite spremeniti kontaktne podatke ali dodati druge, <a title=\"Nadaljujte na platformo za obve&#353;&#269;anje\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">pojdite na svoje kontaktne podatke</a>."
 }

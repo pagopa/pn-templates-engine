@@ -1,15 +1,15 @@
 {
   "language": "en",
   "subject": "SEND - New notification from ${notification.sender.paDenomination} - ${notification.iun}",
-  "hello": "Hi",
-  "body1": "<#if recipientType=='PF'>You have<#else>Your company has</#if> received a notification on SEND - Servizio Notifiche Digitali.",
+  "hello": "Hello",
+  "body1": "<#if recipientType=='PF'>You have<#else>Your business has</#if> received a notification on SEND - Servizio Notifiche Digitali.",
   "sender_label": "Sender",
   "subject_label": "Subject",
   "iun_label": "IUN Code",
-  "body2": "A notification is a <strong>legally-binding communication</strong> consisting of a notice of receipt and one or more documents.",
-  "body3": "<#if recipientType=='PF'>You have<#else>The company has</#if> up to 120 days from the notification <a style=\"color: #0073e6; text-decoration: underline\" href=\"${ENV.perfezionamentoUrl}\" title=\"completion date\">completion date</a> to <strong>access the documents</strong>. The deadline for payment, if required, and for any appeals is indicated in the documents.",
-  "read_more": "You are receiving this notice of receipt as a <#if recipientType=='PF'>natural person<#else>legal person</#if> with Fiscal Code ${recipient.taxId}. SEND is a tool that makes the sending of notifications by the Public Administration safer, more efficient and cheaper. <a href=\"${ENV.faqSendUrl}\" title=\"Find out more\">Find out more</a>",
+  "body2": "A notification is a <strong>legally binding communication</strong> consisting of a notification of receipt and one or more documents.",
+  "body3": "<#if recipientType=='PF'>You have<#else>The business has</#if> up to 120 days from the <a style=\"color: #0073e6; text-decoration: underline\" href=\"${ENV.perfezionamentoUrl}\" title=\"date of finalization\">date of finalization</a> of the notification to <strong>access the documents</strong>. The deadline for payment, if applicable, and for any appeals is indicated in the documents.",
+  "read_more": "You are receiving this notification of receipt as a <#if recipientType=='PF'>natural person<#else>legal entity</#if> with Fiscal Code ${recipient.taxId}. SEND is a tool that makes sending notifications by the Public Administration safer, more efficient and cheaper. <a href=\"${ENV.faqSendUrl}\" title=\"Find out more\">Find out more</a>",
   "button": "Access documents on SEND",
   "greetings": "See you soon",
-  "footer": "The sending institution knows this PEC address because <#if recipientType=='PF'>you<#else>the company</#if> entered it in <#if recipientType=='PF'>your<#else>its</#if> SEND contact details, because it is part of one of the registries provided for by the Digital Administration Code, or because it was communicated to <#if recipientType=='PF'>them</#if> in the past. To change your contact details or add new ones, <a title=\"Continue to Piattaforma Notifiche\" class=\"link\" href=\"${ENV[(recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">go to your contact details</a>."
+  "footer": "The sending institution knows this PEC address because <#if recipientType=='PF'>you entered it in your<#else>the business entered it in its</#if> SEND contact details, because it is part of one of the registers provided for by the Digital Administration Code or because <#if recipientType=='PF'>you communicated it to them<#else>it was communicated to them</#if> in the past. To modify your contact details or add others, <a title=\"Continue to the Notification Platform\" class=\"link\" href=\"${ENV[(recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">go to your contact details</a>."
 }

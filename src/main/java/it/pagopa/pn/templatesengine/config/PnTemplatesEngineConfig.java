@@ -22,6 +22,7 @@ import java.time.Duration;
 public class PnTemplatesEngineConfig {
     private Duration parameterStoreCacheTTL;
     private Duration urlResolverTimeout;
+    private String senderLogoUrlTemplate;
 
     @PostConstruct
     public void printConfig() {

@@ -1,14 +1,14 @@
 {
   "language": "en",
   "subject": "SEND - New notification from ${notification.sender.paDenomination} - ${notification.iun}",
-  "hello": "Hi",
-  "body1": "<#if recipient.recipientType=='PF'>You have<#else>Your company has</#if> received a legally-binding communication from <strong>${notification.sender.paDenomination}</strong> at <#if recipient.recipientType=='PF'>your<#else>its</#if> digital domicile with IUN Code ${notification.iun}; access SEND to view it.",
-  "body2": "This communication will be considered legally delivered <#if recipient.recipientType=='PF'>to you</#if> 7 days* after receipt at <#if recipient.recipientType=='PF'>your</#if> digital domicile, even if you do not open or read it.",
+  "hello": "Hello",
+  "body1": "<#if recipient.recipientType=='PF'>You have<#else>Your business has</#if> received a legally binding communication from <strong>${notification.sender.paDenomination}</strong> with IUN Code ${notification.iun} on <#if recipient.recipientType=='PF'>your<#else>its</#if> digital domicile, access SEND to consult it.",
+  "body2": "This communication will be considered legally delivered <#if recipient.recipientType=='PF'>to you</#if> 7 days&#42; after receipt on <#if recipient.recipientType=='PF'>your</#if> digital domicile, even if you do not open or read it.",
   "button": "Access documents on SEND",
-  "perfection": "<#if recipient.recipientType=='PF'>You have<#else>The company has</#if> 120 days from the moment the communication is delivered to view the documents online. Afterwards, they will no longer be available on SEND and <#if recipient.recipientType=='PF'>you will have to contact<#else>the company must contact</#if> the institution that sent them.",
-  "payment": "The deadline for payment, if any, and for any appeals is indicated in the documents.",
-  "banner": "With a digital domicile, <#if recipient.recipientType=='PF'>you will not receive paper notices and you will no longer have to<#else>your company will not receive paper notices and will no longer have to</#if> pay registered mail shipping costs.",
+  "perfection": "<#if recipient.recipientType=='PF'>You have<#else>The business has</#if> 120 days from the moment the communication is delivered to consult the documents online. Afterward, they will no longer be available on SEND and <#if recipient.recipientType=='PF'>you will have to contact<#else>it will have to contact</#if> the institution that sent them <#if recipient.recipientType=='PF'>to you</#if>.",
+  "payment": "The deadline for payment, if applicable, and for any appeals is indicated in the documents.",
+  "banner": "With the digital domicile, <#if recipient.recipientType=='PF'>you will not receive paper notices and you will no longer have to<#else>your business will not receive paper notices and will no longer have to</#if> bear the shipping costs for registered mail.",
   "greetings": "See you soon",
-  "footnote": "*If <#if recipient.recipientType=='PF'>you<#else>the company</#if> received the communication after 9 PM, the 7 days run from the following day.",
-  "footer": "You are receiving this communication because you entered <#if recipient.recipientType=='PF'>your email address<#else>the company email address</#if> among the courtesy contact details of SEND. To change your contact details or add new ones, <a title=\"Continue to Piattaforma Notifiche\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">go to your contact details</a>."
+  "footnote": "&#42;If <#if recipient.recipientType=='PF'>you received<#else>the business received</#if> the communication after 9 PM, the 7 days start from the following day.",
+  "footer": "You are receiving this communication because you have entered <#if recipient.recipientType=='PF'>your email address<#else>the company email address</#if> among the courtesy contact details of SEND. To modify your contact details or add others, <a title=\"Continue to the Notification Platform\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">go to your contact details</a>."
 }

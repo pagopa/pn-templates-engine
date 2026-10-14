@@ -21,7 +21,7 @@ import static it.pagopa.pn.templatesengine.resolver.ResolverEnum.TO_BASE64_RESOL
 @Slf4j
 @Component
 public class TemplateValueResolver {
-    private static final String DIVIDER = ":";
+    public static final String DIVIDER = ":";
 
     private final TemplateConfig templateConfig;
     private final ResolverWhitelistConfig whitelistConfig;
