@@ -170,6 +170,22 @@ public class TemplateApiController implements TemplateApi {
     }
 
     @Override
+    public Mono<ResponseEntity<String>> notificationAarForWhatsappAnalog(
+            LanguageEnum xLanguage,
+            Mono<NotificationAarForSmsAnalog> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_WHATSAPP_ANALOG, xLanguage, request);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> notificationAarForWhatsappDigital(
+            LanguageEnum xLanguage,
+            Mono<NotificationAarForSmsDigital> request,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.NOTIFICATION_AAR_FOR_WHATSAPP_DIGITAL, xLanguage, request);
+    }
+
+    @Override
     public Mono<ResponseEntity<String>> mailVerificationCodeBody(
             LanguageEnum xLanguage,
             Mono<MailVerificationCodeBody> request,
@@ -242,6 +258,13 @@ public class TemplateApiController implements TemplateApi {
             LanguageEnum xLanguage,
             final ServerWebExchange exchange) {
         return processTextTemplate(TemplatesEnum.SMS_VERIFICATION_CODE_BODY, xLanguage);
+    }
+
+    @Override
+    public Mono<ResponseEntity<String>> whatsappVerificationCodeBody(
+            LanguageEnum xLanguage,
+            final ServerWebExchange exchange) {
+        return processTextTemplate(TemplatesEnum.WHATSAPP_VERIFICATION_CODE_BODY, xLanguage);
     }
 
     @Override
