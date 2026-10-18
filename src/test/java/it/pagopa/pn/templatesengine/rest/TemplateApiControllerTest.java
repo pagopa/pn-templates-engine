@@ -51,6 +51,8 @@ public class TemplateApiControllerTest {
     public static final String MALFUNCTION_LEGAL_FACT = "/templates-engine-private/v1/templates/malfunction-legal-fact";
     public static final String NOTIFICATION_AAR_FOR_SMS_ANALOG = "/templates-engine-private/v1/templates/notification-aar-for-sms";
     public static final String NOTIFICATION_AAR_FOR_SMS_DIGITAL = "/templates-engine-private/v1/templates/notification-aar-for-sms-digital";
+    public static final String NOTIFICATION_AAR_FOR_WHATSAPP_ANALOG = "/templates-engine-private/v1/templates/notification-aar-for-whatsapp-analog";
+    public static final String NOTIFICATION_AAR_FOR_WHATSAPP_DIGITAL = "/templates-engine-private/v1/templates/notification-aar-for-whatsapp-digital";
     public static final String SMS_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/sms-verification-code-body";
     public static final String NOTIFICATION_CCE_FOR_EMAIL = "/templates-engine-private/v1/templates/notification-cce-for-email";
     public static final String ANALOG_FEEDBACK_AVAILABILITY_STATEMENT = "/templates-engine-private/v1/templates/analog-feedback-availability-statement";
@@ -245,6 +247,24 @@ public class TemplateApiControllerTest {
                 Arguments.of(
                         NOTIFICATION_AAR_FOR_SMS_DIGITAL,
                         TemplatesEnum.NOTIFICATION_AAR_FOR_SMS_DIGITAL,
+                        new NotificationAarForSmsDigital(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        NOTIFICATION_AAR_FOR_WHATSAPP_ANALOG,
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_WHATSAPP_ANALOG,
+                        new NotificationAarForSmsAnalog(),
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK,
+                        EXPECTED_RESULT
+                ),
+                Arguments.of(
+                        NOTIFICATION_AAR_FOR_WHATSAPP_DIGITAL,
+                        TemplatesEnum.NOTIFICATION_AAR_FOR_WHATSAPP_DIGITAL,
                         new NotificationAarForSmsDigital(),
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,

@@ -1,0 +1,1 @@
+{"templateName":"send_codice_verifica","language":"en","bodyParameters":["%s"],"buttonParameters":["%s"],"previewText":"Your SEND verification code is %s. For your security, do not share it."}
