@@ -9,5 +9,5 @@
   "it_read_more": "SEND &egrave; uno strumento che rende l&#39;invio di notifiche a valore legale da parte della Pubblica Amministrazione pi&ugrave; sicuro, efficiente ed economico. <a href=\"${ENV.faqSendUrl}\" title=\"Scopri di pi&ugrave;\">Scopri di pi&ugrave;</a>",
   "it_button": "Accedi ai documenti su SEND",
   "it_greetings": "A presto",
-  "it_footer": "Ricevi questa email perch&eacute; hai inserito <#if recipient.recipientType=='PF'>il tuo indirizzo email<#else>l&#39;indirizzo email aziendale</#if> tra i recapiti di cortesia di SEND. Per modificare i recapiti o aggiungerne altri, <a title=\"Continua su Piattaforma Notifiche\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">vai ai tuoi recapiti</a>."
+  "it_footer": "Ricevi questa email perch&eacute; hai inserito <#if recipient.recipientType=='PF'>il tuo indirizzo<#else>l&#39;indirizzo email aziendale</#if> come recapito su SEND. Per modificare i recapiti o aggiungerne altri, <a title=\"Continua su Piattaforma Notifiche\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">vai ai tuoi recapiti</a>."
 }
