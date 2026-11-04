@@ -1,6 +1,6 @@
 {
   "it_language": "it",
-  "it_subject": "SEND - Nuova notifica da ${notification.sender.paDenomination} - ${notification.iun}",
+  "it_subject": "SEND - Nuova notifica a valore legale da ${notification.sender.paDenomination} - ${notification.iun}",
   "it_hello": "Ciao",
   "it_body1": "<#if recipient.recipientType=='PF'>Hai<#else>La tua impresa ha</#if> ricevuto su SEND - Servizio Notifiche Digitali una notifica a valore legale da parte di <strong>${notification.sender.paDenomination}</strong> con Codice IUN ${notification.iun}.",
   "it_body2": "<#if recipient.recipientType=='PF'>Hai<#else>L&#39;impresa ha</#if> fino a 120 giorni dalla <a href=\"${ENV.perfezionamentoUrl}\" title=\"data di perfezionamento\">data di perfezionamento</a> della notifica SEND per <strong>accedere ai documenti</strong>. Il termine per il pagamento, se previsto, e per eventuali impugnazioni &egrave; indicato nei documenti.",

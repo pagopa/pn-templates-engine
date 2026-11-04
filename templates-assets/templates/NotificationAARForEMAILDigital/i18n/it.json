@@ -1,6 +1,6 @@
 {
   "it_language": "it",
-  "it_subject": "SEND - Nuova notifica da ${notification.sender.paDenomination} - ${notification.iun}",
+  "it_subject": "SEND - Nuova notifica a valore legale da ${notification.sender.paDenomination} - ${notification.iun}",
   "it_hello": "Ciao",
   "it_body1": "<#if recipient.recipientType=='PF'>Hai<#else>La tua impresa ha</#if> ricevuto sul <#if recipient.recipientType=='PF'>tuo<#else>suo</#if> domicilio digitale una notifica a valore legale da parte di <strong>${notification.sender.paDenomination}</strong> con Codice IUN ${notification.iun}, accedi a SEND per consultarla.",
   "it_body2": "Questa notifica SEND risulter&#xE0; legalmente consegnata <#if recipient.recipientType=='PF'>a te</#if> 7 giorni&#42; dopo la ricezione sul <#if recipient.recipientType=='PF'>tuo</#if> domicilio digitale, anche se non la apri o non la leggi.",
