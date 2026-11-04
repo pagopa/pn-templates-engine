@@ -1,13 +1,13 @@
 {
   "language": "fr",
-  "subject": "SEND - Nouvelle notification de ${notification.sender.paDenomination} - ${notification.iun}",
+  "subject": "SEND - Nouvelle notification à valeur juridique de ${notification.sender.paDenomination} - ${notification.iun}",
   "hello": "Bonjour",
-  "body1": "<#if recipient.recipientType=='PF'>Vous avez<#else>Votre entreprise a</#if> re&#xE7;u sur SEND - Servizio Notifiche Digitali une notification de la part de <strong>${notification.sender.paDenomination}</strong> avec le Code IUN ${notification.iun}.",
-  "body2": "<#if recipient.recipientType=='PF'>Vous avez<#else>L&#39;entreprise a</#if> jusqu&#39;&#xE0; 120 jours &#xE0; compter de la <a href=\"${ENV.perfezionamentoUrl}\" title=\"date de finalisation\">date de finalisation</a> de la notification pour <strong>acc&#xE9;der aux documents</strong>. Le d&#xE9;lai de paiement, le cas &#xE9;ch&#xE9;ant, et pour d&#39;&#xE9;ventuels recours est indiqu&#xE9; dans les documents.",
-  "body3": "Une notification est une <strong>communication &#xE0; valeur juridique</strong> compos&#xE9;e d&#39;un avis de r&#xE9;ception et d&#39;un ou plusieurs documents.",
-  "perfection": "Si vous acc&#xE9;dez &#xE0; la communication dans les 5 jours suivant l&#39;envoi de cet e-mail, vous &#xE9;viterez une lettre recommand&#xE9;e papier et les frais &#xE9;ventuels.",
-  "read_more": "SEND est un outil qui rend l&#39;envoi de notifications par l&#39;Administration Publique plus s&#xFB;r, plus efficace et plus &#xE9;conomique. <a href=\"${ENV.faqSendUrl}\" title=\"En savoir plus\">En savoir plus</a>",
+  "body1": "<#if recipient.recipientType=='PF'>Tu as<#else>Ton entreprise a</#if> reçu sur SEND - Servizio Notifiche Digitali une notification à valeur juridique de la part de <strong>${notification.sender.paDenomination}</strong> avec le Code IUN ${notification.iun}.",
+  "body2": "<#if recipient.recipientType=='PF'>Tu as<#else>L'entreprise a</#if> jusqu'à 120 jours à compter de la <a href=\"${ENV.perfezionamentoUrl}\" title=\"date de finalisation\">date de finalisation</a> de la notification SEND pour <strong>accéder aux documents</strong>. Le délai de paiement, le cas échéant, et pour tout recours éventuel est indiqué dans les documents.",
+  "body3": "Une notification à valeur juridique se compose d'un avis de réception et d'un ou plusieurs documents.",
+  "perfection": "Si tu accèdes à la notification SEND dans les 5 jours suivant l'envoi de cet e-mail, tu éviteras une lettre recommandée papier et les éventuels frais.",
+  "read_more": "SEND est un outil qui rend l'envoi de notifications à valeur juridique par l'Administration Publique plus sûr, plus efficace et plus économique. <a href=\"${ENV.faqSendUrl}\" title=\"En savoir plus\">En savoir plus</a>",
   "button": "Acc&#xE9;der aux documents sur SEND",
   "greetings": "&#xC0; bient&#xF4;t",
-  "footer": "Vous recevez cette communication car vous avez renseign&#xE9; <#if recipient.recipientType=='PF'>votre adresse e-mail<#else>l&#39;adresse e-mail de l&#39;entreprise</#if> parmi les coordonn&#xE9;es de courtoisie de SEND. Pour modifier vos coordonn&#xE9;es ou en ajouter d&#39;autres, <a title=\"Continuer sur la Plateforme de Notification\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">acc&#xE9;dez &#xE0; vos coordonn&#xE9;es</a>."
+  "footer": "Tu reçois cet e-mail car tu as renseigné <#if recipient.recipientType=='PF'>ton adresse<#else>l'adresse e-mail de l'entreprise</#if> comme coordonnées sur SEND. Pour modifier tes coordonnées ou en ajouter d'autres, <a title=\"Continuer sur Piattaforma Notifiche\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">accède à tes coordonnées</a>."
 }
