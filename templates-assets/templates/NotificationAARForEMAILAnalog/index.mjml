@@ -1,26 +1,16 @@
 <mjml lang="it">
   <mj-head>
-    <mj-title
-      >SEND - Nuova notifica a valore legale da
-      ${notification.sender.paDenomination} - ${notification.iun}</mj-title
-    >
+    <mj-title>SEND - Nuova notifica a valore legale da ${notification.sender.paDenomination} - ${notification.iun}</mj-title>
     <mj-attributes>
       <mj-all font-family="system-ui, sans-serif" />
     </mj-attributes>
     <mj-raw>
-      <meta name="color-scheme" content="light dark" /> <meta
-      name="supported-color-schemes" content="light dark" />
+      <meta name="color-scheme" content="light dark" />
+      <meta name="supported-color-schemes" content="light dark" />
     </mj-raw>
     <mj-style>
-      @media screen and (max-width: 600px) {
-        .column-logo {
-          min-width: 116px;
-          width: auto !important;
-        }
-        .column-text {
-          width: auto !important;
-        }
-      }
+      @media screen and (max-width: 600px) { .column-logo { min-width: 116px;
+      width: auto !important; } .column-text { width: auto !important; } }
     </mj-style>
   </mj-head>
 
@@ -54,11 +44,9 @@
             color="#17324D"
           >
             <!-- H4 Desktop (from MUI Italia)-->
-            <% if (noIta) { %>
-            <h1 style="font-size: 32px; line-height: 40px; margin: 0">
+            <% if (noIta) { %><h1 style="font-size: 32px; line-height: 40px; margin: 0">
               <%-subject%>
-            </h1>
-            <% } %>
+            </h1><% } %>
             <h1 style="font-size: 32px; line-height: 40px; margin: 0">
               <%-it_subject%>
             </h1>
@@ -75,10 +63,7 @@
             padding-bottom="0px"
             color="#17324D"
           >
-            <p style="margin-top: 0px">
-              <% if (noIta) { %><span><%-hello%> &bull; </span><% }
-              %><%-it_hello%>,
-            </p>
+            <p style="margin-top: 0px"><% if (noIta) { %><span><%-hello%> &bull; </span><% } %><%-it_hello%>,</p>
           </mj-text>
           <mj-text
             css-class="text"
@@ -89,21 +74,33 @@
             padding-top="0px"
             color="#17324D"
           >
-            <% if (noIta) { %>
-            <p style="margin-top: 10px"><%-body1%></p>
-            <% } %> <% if (noIta) { %>
-            <p style="margin-top: 10px"><%-body3%></p>
-            <% } %> <% if (noIta) { %>
-            <p style="margin-top: 20px"><%-perfection%></p>
-            <% } %> <% if (noIta) { %>
-            <p style="margin-top: 20px"><%-body2%></p>
-            <% } %>
+            <% if (noIta) { %><p style="margin-top: 10px">
+              <%-body1%>
+            </p><% } %>
 
-            <p style="margin-top: 10px"><%-it_body1%></p>
-            <p style="margin-top: 10px"><%-it_body3%></p>
+            <% if (noIta) { %><p style="margin-top: 10px">
+              <%-body3%>
+            </p><% } %>
+             <% if (noIta) { %><p style="margin-top: 20px">
+              <%-perfection%>
+            </p><% } %>
+            <% if (noIta) { %><p style="margin-top: 20px">
+              <%-body2%>
+            </p><% } %>
 
-            <p style="margin-top: 20px"><%-it_perfection%></p>
-            <p style="margin-top: 20px"><%-it_body2%></p>
+            <p style="margin-top: 10px">
+              <%-it_body1%>
+            </p>
+            <p style="margin-top: 10px">
+              <%-it_body3%>
+            </p>
+
+            <p style="margin-top: 20px">
+              <%-it_perfection%>
+            </p>
+            <p style="margin-top: 20px">
+              <%-it_body2%>
+            </p>
             <!-- Don't include https:// in the URL label -->
             <p style="margin: 40px 0px; font-size: 14px">
               <a
@@ -118,18 +115,17 @@
                 title="Accedi ai documenti"
                 class="button"
                 href="${quickAccessLink}<#if quickAccessLink?contains('?')>&amp;<#else>?</#if>utm_campaign=nuovo_messaggio&amp;utm_source=email_notifica&amp;utm_medium=email"
-                ><strong
-                  ><% if (noIta) { %><span><%-button%> &bull; </span><% }
-                  %><%-it_button%></strong
-                >
+                ><strong><% if (noIta) { %><span><%-button%> &bull; </span><% } %><%-it_button%></strong>
               </a>
             </p>
 
             <!-- Perfezionamento Notifica -->
-            <% if (noIta) { %>
-            <p><%-read_more%></p>
-            <% } %>
-            <p><%-it_read_more%></p>
+            <% if (noIta) { %><p>
+              <%-read_more%>
+            </p><% } %>
+            <p>
+              <%-it_read_more%>
+            </p>
           </mj-text>
           <mj-text
             css-class="text"
@@ -139,10 +135,8 @@
             color="#17324D"
           >
             <p style="margin-top: 0px; margin-bottom: 10px">
-              <% if (noIta) { %><span><%-greetings%> &bull; </span><% } %>
-              <%-it_greetings%>,
-            </p>
-
+            <% if (noIta) { %><span><%-greetings%> &bull; </span><% } %> <%-it_greetings%>,</p>
+            
             <p style="margin: 0px">SEND - Servizio Notifiche Digitali</p>
           </mj-text>
         </mj-column>
@@ -159,10 +153,12 @@
             line-height="20px"
             color="#5C6F82"
           >
-            <% if (noIta) { %>
-            <p style="margin-top: 0px; font-size: 14px"><%-footer%></p>
-            <% } %>
-            <p style="margin-top: 0px; font-size: 14px"><%-it_footer%></p>
+            <% if (noIta) { %><p style="margin-top: 0px; font-size: 14px">
+              <%-footer%>
+            </p><% } %>
+            <p style="margin-top: 0px; font-size: 14px">
+              <%-it_footer%>
+            </p>
           </mj-text>
         </mj-column>
       </mj-section>
