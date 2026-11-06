@@ -3,7 +3,7 @@
   "subject": "PEC digital domicile confirmed",
   "hello": "Hi",
   "body1": "The PEC address you specified on SEND as the platform digital domicile <strong>is confirmed</strong>.",
-  "body2": "From now on, we will use it as the <strong>main address</strong> to <#if recipientType == \"PF\">send you legally binding notifications<#else>send your business's notifications</#if>. <br />For more information, <a style=\"color: #0073e6; text-decoration: underline\" href=\"https://notifichedigitali.pagopa.it/faq\">read the FAQs</a>.",
+  "body2": "From now on, we will use it as the <strong>main address</strong> to <#if recipientType == \"PF\">send you legally binding notifications<#else>send your business&#39;s notifications</#if>. <br />For more information, <a style=\"color: #0073e6; text-decoration: underline\" href=\"https://notifichedigitali.pagopa.it/faq\">read the FAQs</a>.",
   "signature": "See you soon",
   "footer": "You are receiving this PEC because you entered your address as a contact detail on SEND. To change your contact details or add others, <a title=\"Continue to SEND\" class=\"link\"<#if recipientType == \"PF\">href=\"${ENV.sendLoginUrlPF}recapiti\"<#else>href=\"${ENV.sendLoginUrlPG}recapiti\"</#if>style=\"color: #0073e6; text-decoration: underline\">go to your contact details</a>."
 }
