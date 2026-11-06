@@ -2,7 +2,7 @@
   "language": "de",
   "subject": "Best&#228;tige deine PEC",
   "hello": "Hallo",
-  "body1": "Um diese PEC-Adresse als digitales Plattform-Domizil zu best&#228;tigen, das SEND als Hauptadresse f&#252;r den Versand von Zustellungen verwenden wird, gib den Code auf SEND - Servizio Notifiche Digitali ein",
+  "body1": "Um diese PEC-Adresse als digitales Plattform-Domizil zu best&#228;tigen, die SEND als Hauptadresse f&#252;r den Versand rechtsg&#252;ltiger Zustellungen verwenden wird, gib auf SEND - Servizio Notifiche Digitali den Code ein",
   "signature": "Bis bald",
-  "footer": "Du erh&#228;ltst diese Mitteilung, weil du deine PEC-Adresse als rechtsg&#252;ltige Adresse f&#252;r SEND eingegeben hast. Um die Adressen zu &#228;ndern oder weitere hinzuzuf&#252;gen, <a title=\"Weiter zur Plattform f&#252;r digitale Zustellungen\" class=\"link\" <#if recipientType == \"PF\">href=\"${ENV.sendLoginUrlPF}recapiti\"<#else>href=\"${ENV.sendLoginUrlPG}recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">gehe zu deinen Adressen</a>."
+  "footer": "Du erh&#228;ltst diese PEC, weil du deine Adresse als rechtsg&#252;ltige Adresse auf SEND angegeben hast. Um deine Kontaktdaten zu bearbeiten oder weitere hinzuzuf&#252;gen, <a title=\"Weiter auf SEND\" class=\"link\" <#if recipientType == \"PF\">href=\"${ENV.sendLoginUrlPF}recapiti\"<#else>href=\"${ENV.sendLoginUrlPG}recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">gehe zu deinen Kontaktdaten</a>."
 }

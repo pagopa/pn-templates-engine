@@ -1,13 +1,13 @@
 {
   "language": "de",
-  "subject": "SEND - Neue Benachrichtigung von ${notification.sender.paDenomination} - ${notification.iun}",
+  "subject": "SEND - Neue rechtsg&#252;ltige Zustellung von ${notification.sender.paDenomination} - ${notification.iun}",
   "hello": "Hallo",
-  "body1": "<#if recipient.recipientType=='PF'>Sie haben<#else>Ihr Unternehmen hat</#if> auf SEND - Servizio Notifiche Digitali eine Benachrichtigung von <strong>${notification.sender.paDenomination}</strong> mit dem IUN-Code ${notification.iun} erhalten.",
-  "body2": "<#if recipient.recipientType=='PF'>Sie haben<#else>Das Unternehmen hat</#if> bis zu 120 Tage ab dem <a href=\"${ENV.perfezionamentoUrl}\" title=\"Datum der Finalisierung\">Datum der Finalisierung</a> der Benachrichtigung Zeit, um <strong>auf die Dokumente zuzugreifen</strong>. Die Frist f&#252;r die Zahlung, falls vorgesehen, und f&#252;r eventuelle Anfechtungen ist in den Dokumenten angegeben.",
-  "body3": "Eine Benachrichtigung ist eine <strong>rechtliche Mitteilung</strong>, die aus einer Empfangsbest&#228;tigung und einem oder mehreren Dokumenten besteht.",
-  "perfection": "Wenn Sie innerhalb von 5 Tagen nach dem Versand dieser E-Mail auf die Mitteilung zugreifen, vermeiden Sie ein Papier-Einschreiben und die entsprechenden Kosten.",
-  "read_more": "SEND ist ein Tool, das den Versand von Benachrichtigungen durch die &#246;ffentliche Verwaltung sicherer, effizienter und kosteng&#252;nstiger macht. <a href=\"${ENV.faqSendUrl}\" title=\"Mehr erfahren\">Mehr erfahren</a>",
+  "body1": "<#if recipient.recipientType=='PF'>Du hast<#else>Dein Unternehmen hat</#if> auf SEND - Servizio Notifiche Digitali eine rechtsg&#252;ltige Zustellung von <strong>${notification.sender.paDenomination}</strong> mit dem IUN-Code ${notification.iun} erhalten.",
+  "body2": "<#if recipient.recipientType=='PF'>Du hast<#else>Das Unternehmen hat</#if> bis zu 120 Tage ab dem <a href=\"${ENV.perfezionamentoUrl}\" title=\"Finalisierungsdatum\">Finalisierungsdatum</a> der SEND-Zustellung Zeit, um <strong>auf die Dokumente zuzugreifen</strong>. Die Frist f&#252;r die Zahlung, falls vorgesehen, und f&#252;r eventuelle Einspr&#252;che ist in den Dokumenten angegeben.",
+  "body3": "Eine rechtsg&#252;ltige Zustellung besteht aus einer Empfangsbest&#228;tigung und einem oder mehreren Dokumenten.",
+  "perfection": "Wenn du innerhalb von 5 Tagen nach dem Versand dieser E-Mail auf die SEND-Zustellung zugreifst, vermeidest du ein Papier-Einschreiben und etwaige Kosten.",
+  "read_more": "SEND ist ein Instrument, das den Versand rechtsg&#252;ltiger Zustellungen durch die &#246;ffentliche Verwaltung sicherer, effizienter und wirtschaftlicher macht. <a href=\"${ENV.faqSendUrl}\" title=\"Mehr erfahren\">Mehr erfahren</a>",
   "button": "Auf Dokumente &#252;ber SEND zugreifen",
   "greetings": "Bis bald",
-  "footer": "Sie erhalten diese Mitteilung, weil Sie <#if recipient.recipientType=='PF'>Ihre E-Mail-Adresse<#else>die E-Mail-Adresse des Unternehmens</#if> unter den Kontaktdaten f&#252;r H&#246;flichkeitsmitteilungen von SEND hinterlegt haben. Um die Kontaktdaten zu &#228;ndern oder andere hinzuzuf&#252;gen, <a title=\"Weiter auf der Benachrichtigungsplattform\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">gehen Sie zu Ihren Kontaktdaten</a>."
+  "footer": "Du erh&#228;ltst diese E-Mail, weil du <#if recipient.recipientType=='PF'>deine Adresse<#else>die gesch&#228;ftliche E-Mail-Adresse</#if> als Kontaktadresse auf SEND angegeben hast. Um deine Kontaktdaten zu bearbeiten oder weitere hinzuzuf&#252;gen, <a title=\"Weiter auf SEND\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">gehe zu deinen Kontaktdaten</a>."
 }
