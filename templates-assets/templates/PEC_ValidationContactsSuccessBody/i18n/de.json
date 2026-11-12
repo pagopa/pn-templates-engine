@@ -3,7 +3,7 @@
   "subject": "Digitales PEC-Domizil best&#228;tigt",
   "hello": "Hallo",
   "body1": "Die PEC-Adresse, die du auf SEND als digitales Plattform-Domizil angegeben hast, <strong>ist best&#228;tigt</strong>.",
-  "body2": "Ab sofort verwenden wir diese als <strong>Hauptadresse</strong>, um <#if recipientType == \"PF\">dir die rechtsg&#252;ltigen Zustellungen zu senden<#else>die Zustellungen deines Unternehmens zu senden</#if>. <br />F&#252;r weitere Informationen <a style=\"color: #0073e6; text-decoration: underline\" href=\"https://notifichedigitali.pagopa.it/faq\">lies die FAQ</a>.",
+  "body2": "Ab sofort verwenden wir sie als <strong>Hauptadresse</strong>, um <#if recipientType == \"PF\">dir rechtsg&#252;ltige Zustellungen zu senden<#else>rechtsg&#252;ltige Zustellungen deines Unternehmens zu senden</#if>. <br />F&#252;r weitere Informationen <a style=\"color: #0073e6; text-decoration: underline\" href=\"https://notifichedigitali.pagopa.it/faq\">lies die FAQ</a>.",
   "signature": "Bis bald",
   "footer": "Du erh&#228;ltst diese PEC, weil du deine Adresse als Kontaktadresse auf SEND angegeben hast. Um die Kontaktdaten zu &#228;ndern oder weitere hinzuzuf&#252;gen, <a title=\"Weiter auf SEND\" class=\"link\"<#if recipientType == \"PF\">href=\"${ENV.sendLoginUrlPF}recapiti\"<#else>href=\"${ENV.sendLoginUrlPG}recapiti\"</#if>style=\"color: #0073e6; text-decoration: underline\">gehe zu deinen Kontaktdaten</a>."
 }
