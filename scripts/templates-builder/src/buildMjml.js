@@ -23,7 +23,7 @@ async function processMJMLFiles(dir) {
 
         log.debug(`Processing ${fullPath}`);
         const mjml = await fs.readFile(fullPath, "utf8");
-        const { html } = mjmlToHtml(mjml, { filePath: path.dirname(fullPath) });
+        const { html } = await mjmlToHtml(mjml, { filePath: path.dirname(fullPath) });
         await fs.writeFile(outputFile, html);
       }
     }
