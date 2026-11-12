@@ -51,9 +51,15 @@
 
 #header img {
     margin-top: 15mm;
-    width: 119px;
     height: 35px;
-    /* 85x25 */
+}
+
+#header .pagopa-logo-header {
+    width: 119px;
+}
+
+#header .send-logo-header {
+    width: 110px;
 }
 
 #footer {
@@ -203,16 +209,6 @@ a.faq-link-perfezionamento {
 
 .left-footer-col {
     vertical-align: top;
-}
-
-.pagopa-logo-header {
-    width:126px; 
-    height:35px
-}
-
-.send-logo-header {
-    width:81px;
-    height:26.24px;
 }
 
 .avoid-page-break {
