@@ -1,0 +1,1 @@
+{"templateName":"send_codice_verifica","language":"it","bodyParameters":["%s"],"buttonParameters":["%s"],"previewText":"%s è il tuo codice di verifica. Per motivi di sicurezza, non condividere questo codice."}

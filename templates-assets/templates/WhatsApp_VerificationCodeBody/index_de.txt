@@ -1,0 +1,1 @@
+{"templateName":"send_codice_verifica","language":"de","bodyParameters":["%s"],"buttonParameters":["%s"],"previewText":"Ihr SEND-Bestätigungscode lautet %s. Geben Sie ihn zu Ihrer Sicherheit nicht weiter."}
