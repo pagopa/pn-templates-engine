@@ -1,8 +1,8 @@
 {
   "language": "de",
-  "subject": "SEND - Neue Benachrichtigung von ${notification.sender.paDenomination} - ${notification.iun}",
+  "subject": "SEND - Neue rechtliche Zustellung von ${notification.sender.paDenomination} - ${notification.iun}",
   "hello": "Hallo",
-  "body1": "<#if recipientType=='PF'>Sie haben<#else>Ihr Unternehmen hat</#if> eine Benachrichtigung auf SEND - Servizio Notifiche Digitali erhalten.",
+  "body1": "<#if recipientType=='PF'>Du hast<#else>Dein Unternehmen hat</#if> eine rechtsg&#252;ltige Zustellung auf SEND - Servizio Notifiche Digitali erhalten.",
   "sender_label": "Absender",
   "subject_label": "Betreff",
   "iun_label": "IUN-Code",

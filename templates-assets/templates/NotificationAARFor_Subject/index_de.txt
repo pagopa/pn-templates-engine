@@ -1,1 +1,1 @@
-SEND - Neue rechtsg&#252;ltige Zustellung von • Nuova notifica a valore legale da ${notification.sender.paDenomination} - ${notification.iun}
+SEND - Neue rechtsgültige Zustellung von • Nuova notifica a valore legale da ${notification.sender.paDenomination} - ${notification.iun}

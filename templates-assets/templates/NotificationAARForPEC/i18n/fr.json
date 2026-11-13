@@ -1,8 +1,8 @@
 {
   "language": "fr",
-  "subject": "SEND - Nouvelle notification de ${notification.sender.paDenomination} - ${notification.iun}",
+  "subject": "SEND - Nouvelle notification &#xE0; valeur juridique de ${notification.sender.paDenomination} - ${notification.iun}",
   "hello": "Bonjour",
-  "body1": "<#if recipientType=='PF'>Vous avez<#else>Votre entreprise a</#if> re&#xE7;u une notification sur SEND - Servizio Notifiche Digitali.",
+  "body1": "<#if recipientType=='PF'>Vous avez<#else>Votre entreprise a</#if> re&#xE7;u une notification &#xE0; valeur juridique sur SEND - Servizio Notifiche Digitali.",
   "sender_label": "&#200;metteur",
   "subject_label": "Objet",
   "iun_label": "Code IUN",
