@@ -1,13 +1,13 @@
 {
   "language": "sl",
-  "subject": "SEND - Novo obvestilo od ${notification.sender.paDenomination} - ${notification.iun}",
+  "subject": "SEND - Novo pravno veljavno obvestilo od ${notification.sender.paDenomination} - ${notification.iun}",
   "hello": "Pozdravljeni",
-  "body1": "<#if recipient.recipientType=='PF'>Prejeli ste<#else>Va&#353;e podjetje je prejelo</#if> na platformi SEND - Servizio Notifiche Digitali obvestilo s strani <strong>${notification.sender.paDenomination}</strong> z oznako IUN ${notification.iun}.",
-  "body2": "<#if recipient.recipientType=='PF'>Na voljo imate<#else>Podjetje ima na voljo</#if> do 120 dni od <a href=\"${ENV.perfezionamentoUrl}\" title=\"datum zaklju&#269;ka obvestila\">datuma zaklju&#269;ka obvestila</a> za <strong>dostop do dokumentov</strong>. Rok za pla&#269;ilo, &#269;e je predvideno, in rok za morebitne prito&#382;be sta navedena v dokumentih.",
-  "body3": "Obvestilo je <strong>uradno sporo&#269;ilo</strong>, ki ga sestavljata obvestilo o prejemu in eden ali ve&#269; dokumentov.",
-  "perfection": "&#268;e do sporo&#269;ila dostopate v 5 dneh od po&#353;iljanja tega e-po&#353;tnega sporo&#269;ila, se boste izognili priporo&#269;eni po&#353;ti v papirni obliki in morebitnim stro&#353;kom.",
-  "read_more": "SEND je orodje, s katerim je po&#353;iljanje obvestil s strani javne uprave varnej&#353;e, u&#269;inkovitej&#353;e in var&#269;nej&#353;e. <a href=\"${ENV.faqSendUrl}\" title=\"Izvedite ve&#269;\">Izvedite ve&#269;</a>",
+  "body1": "<#if recipient.recipientType=='PF'>Prejel/-a si<#else>Tvoje podjetje je prejelo</#if> na SEND - Servizio Notifiche Digitali pravno veljavno obvestilo od <strong>${notification.sender.paDenomination}</strong> s kodo IUN ${notification.iun}.",
+  "body2": "<#if recipient.recipientType=='PF'>Ima&#353;<#else>Podjetje ima</#if> do 120 dni od <a href=\"${ENV.perfezionamentoUrl}\" title=\"datuma zaklju&#269;ka\">datuma zaklju&#269;ka</a> obvestila SEND za <strong>dostop do dokumentov</strong>. Rok za pla&#269;ilo, &#269;e je predvideno, in morebitne prito&#382;be je naveden v dokumentih.",
+  "body3": "Pravno veljavno obvestilo je sestavljeno iz potrdila o prejemu in enega ali ve&#269; dokumentov.",
+  "perfection": "&#268;e do obvestila SEND dostopa&#353; v 5 dneh od po&#353;iljanja tega e-po&#353;tnega sporo&#269;ila, se izogne&#353; priporo&#269;enemu pismu v papirni obliki in morebitnim stro&#353;kom.",
+  "read_more": "SEND je orodje, s katerim je po&#353;iljanje pravno veljavnih obvestil s strani javne uprave varnej&#353;e, u&#269;inkovitej&#353;e in gospodarnej&#353;e. <a href=\"${ENV.faqSendUrl}\" title=\"Ve&#269; o tem\">Ve&#269; o tem</a>",
   "button": "Dostop do dokumentov na SEND",
   "greetings": "Lep pozdrav",
-  "footer": "To sporo&#269;ilo prejemate, ker ste <#if recipient.recipientType=='PF'>svoj e-po&#353;tni naslov<#else>e-po&#353;tni naslov podjetja</#if> navedli med kontaktnimi podatki za obve&#353;&#269;anje platforme SEND. &#268;e &#382;elite spremeniti kontaktne podatke ali dodati druge, <a title=\"Nadaljujte na platformo za obve&#353;&#269;anje\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">pojdite na svoje kontaktne podatke</a>."
+  "footer": "To e-po&#353;tno sporo&#269;ilo prejema&#353;, ker si <#if recipient.recipientType=='PF'>svoj naslov<#else>e-po&#353;tni naslov podjetja</#if> vnesel/-a kot kontaktni podatek na SEND. &#268;e &#382;eli&#353; spremeniti kontaktne podatke ali dodati nove, <a title=\"Nadaljuj na SEND\" class=\"link\" href=\"${ENV[(recipient.recipientType == 'PF')?then('sendLoginUrlPF', 'sendLoginUrlPG')]}recapiti\" style=\"color: #0073e6; text-decoration: underline\">pojdi na svoje kontaktne podatke</a>."
 }
