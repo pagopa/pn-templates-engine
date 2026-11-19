@@ -1,0 +1,4 @@
+<#assign isPF = recipient.recipientType == 'PF'>
+<#assign sender = notification.sender.paDenomination>
+<#assign iun = notification.iun>
+{"templateName":"<#if isPF>send_avviso_notifica_digitale<#else>send_avviso_notifica_digitale_pg</#if>","language":"it","bodyParameters":["${sender?json_string}","${iun?json_string}"],"previewText":"<#if isPF>Hai<#else>La tua impresa ha</#if> ricevuto una notifica SEND da ${sender?json_string} con Codice IUN ${iun?json_string}. Per leggerla, accedi a SEND - Servizio Notifiche Digitali. La notifica risulterà legalmente consegnata <#if isPF>a te </#if>dopo 7 giorni dalla ricezione."}

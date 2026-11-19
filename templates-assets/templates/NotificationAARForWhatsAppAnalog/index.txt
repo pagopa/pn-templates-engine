@@ -1,0 +1,4 @@
+<#assign isPF = recipient.recipientType == 'PF'>
+<#assign sender = notification.sender.paDenomination>
+<#assign iun = notification.iun>
+{"templateName":"<#if isPF>send_avviso_notifica_analogica<#else>send_avviso_notifica_analogica_pg</#if>","language":"it","bodyParameters":["${sender?json_string}","${iun?json_string}"],"previewText":"<#if isPF>Hai<#else>La tua impresa ha</#if> ricevuto una notifica da ${sender?json_string} con Codice IUN ${iun?json_string}. Per leggerla, accedi con SPID o CIE al sito di SEND - Servizio Notifiche Digitali."}

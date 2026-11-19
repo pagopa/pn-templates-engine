@@ -25,6 +25,7 @@ public class TemplateApiControllerTestIT {
 
     public static final String ANALOG_DELIVERY_WORKFLOW_FAILURE_LEGAL_FACT = "/templates-engine-private/v1/templates/analog-delivery-workflow-failure-legal-fact";
     public static final String SMS_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/sms-verification-code-body";
+    public static final String WHATSAPP_VERIFICATION_CODE_BODY = "/templates-engine-private/v1/templates/whatsapp-verification-code-body";
 
     @Autowired
     WebTestClient webTestClient;
@@ -91,6 +92,12 @@ public class TemplateApiControllerTestIT {
         return Stream.of(
                 Arguments.of(
                         SMS_VERIFICATION_CODE_BODY,
+                        LanguageEnum.IT,
+                        MediaType.APPLICATION_JSON,
+                        HttpStatus.OK
+                ),
+                Arguments.of(
+                        WHATSAPP_VERIFICATION_CODE_BODY,
                         LanguageEnum.IT,
                         MediaType.APPLICATION_JSON,
                         HttpStatus.OK
