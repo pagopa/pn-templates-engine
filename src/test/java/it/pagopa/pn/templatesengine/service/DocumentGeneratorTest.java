@@ -370,6 +370,67 @@ public class DocumentGeneratorTest {
         generateAndSaveDocument(template, langs, model, FileType.TXT);
     }
 
+    /** TXT (descrittore JSON del template WhatsApp) **/
+    @Test
+    void generate_notificationAarForWhatsappDigital() {
+        var template = TemplatesEnum.NOTIFICATION_AAR_FOR_WHATSAPP_DIGITAL;
+        for (String recipientType : new String[]{"PF", "PG"}) {
+            var model = new NotificationAarForSmsDigital()
+                    .notification(new AarForSmsNotificationDigital()
+                            .iun("TEST_iun")
+                            .sender(new AarForSmsSenderDigital().paDenomination("Comune di \"Sant'Angelo\"")))
+                    .recipient(new AarForSmsRecipientDigital().recipientType(recipientType));
+            String json = templateService.executeTextTemplate(template, LanguageEnum.IT, Mono.just(model)).block();
+            assertWhatsappDescriptor(json, "PF".equals(recipientType) ? "send_avviso_notifica_digitale" : "send_avviso_notifica_digitale_pg",
+                    "Comune di \"Sant'Angelo\"", "TEST_iun");
+        }
+    }
+
+    /** TXT (descrittore JSON del template WhatsApp) **/
+    @Test
+    void generate_notificationAarForWhatsappAnalog() {
+        var template = TemplatesEnum.NOTIFICATION_AAR_FOR_WHATSAPP_ANALOG;
+        for (String recipientType : new String[]{"PF", "PG"}) {
+            var model = new NotificationAarForSmsAnalog()
+                    .notification(new AarForSmsNotificationAnalog()
+                            .iun("TEST_iun")
+                            .sender(new AarForSmsSenderAnalog().paDenomination("TEST_PaDenomination")))
+                    .recipient(new AarForSmsRecipientAnalog().recipientType(recipientType));
+            String json = templateService.executeTextTemplate(template, LanguageEnum.IT, Mono.just(model)).block();
+            assertWhatsappDescriptor(json, "PF".equals(recipientType) ? "send_avviso_notifica_analogica" : "send_avviso_notifica_analogica_pg",
+                    "TEST_PaDenomination", "TEST_iun");
+        }
+    }
+
+    @Test
+    void generate_whatsappVerificationCodeBody() {
+        var template = TemplatesEnum.WHATSAPP_VERIFICATION_CODE_BODY;
+        LanguageEnum[] langs = { LanguageEnum.IT, LanguageEnum.EN, LanguageEnum.DE, LanguageEnum.FR, LanguageEnum.SL };
+        for (var lang : langs) {
+            String raw = templateService.executeTextTemplate(template, lang).block();
+            Assertions.assertNotNull(raw);
+            Assertions.assertTrue(raw.contains("%s"), "il segnaposto del codice deve essere presente");
+            Assertions.assertDoesNotThrow(() -> {
+                var node = new com.fasterxml.jackson.databind.ObjectMapper().readTree(String.format(raw.replace("%s", "%1$s"), "12345"));
+                Assertions.assertEquals("send_codice_verifica", node.get("templateName").asText());
+                Assertions.assertEquals("12345", node.get("bodyParameters").get(0).asText());
+                Assertions.assertEquals("12345", node.get("buttonParameters").get(0).asText());
+            });
+        }
+    }
+
+    private void assertWhatsappDescriptor(String json, String expectedTemplateName, String expectedSender, String expectedIun) {
+        Assertions.assertNotNull(json);
+        Assertions.assertDoesNotThrow(() -> {
+            var node = new com.fasterxml.jackson.databind.ObjectMapper().readTree(json);
+            Assertions.assertEquals(expectedTemplateName, node.get("templateName").asText());
+            Assertions.assertEquals("it", node.get("language").asText());
+            Assertions.assertEquals(expectedSender, node.get("bodyParameters").get(0).asText());
+            Assertions.assertEquals(expectedIun, node.get("bodyParameters").get(1).asText());
+            Assertions.assertTrue(node.get("previewText").asText().contains(expectedIun));
+        });
+    }
+
     @Test
     void generate_notificationAarForSubject() {
         var template = TemplatesEnum.NOTIFICATION_AAR_FOR_SUBJECT;

@@ -135,6 +135,12 @@ templates:
   notificationAarForSmsDigital:
     input:
       IT: "NotificationAARForSMSDigital/NotificationAARForSMSDigital.txt"
+  notificationAarForWhatsappAnalog:
+    input:
+      IT: "NotificationAARForWhatsAppAnalog/NotificationAARForWhatsAppAnalog.txt"
+  notificationAarForWhatsappDigital:
+    input:
+      IT: "NotificationAARForWhatsAppDigital/NotificationAARForWhatsAppDigital.txt"
   notificationAarForSubject:
     input:
       IT: "NotificationAARFor_Subject/NotificationAARFor_Subject.txt"
@@ -182,6 +188,14 @@ templates:
     loadAsString: true
     input:
       IT: "SMS_VerificationCodeBody/SMS_VerificationCodeBody.txt"
+  whatsappVerificationCodeBody:
+    loadAsString: true
+    input:
+      IT: "WhatsApp_VerificationCodeBody/WhatsApp_VerificationCodeBody.txt"
+      DE: "WhatsApp_VerificationCodeBody/WhatsApp_VerificationCodeBody_de.txt"
+      SL: "WhatsApp_VerificationCodeBody/WhatsApp_VerificationCodeBody_sl.txt"
+      FR: "WhatsApp_VerificationCodeBody/WhatsApp_VerificationCodeBody_fr.txt"
+      EN: "WhatsApp_VerificationCodeBody/WhatsApp_VerificationCodeBody_en.txt"
   mailVerificationCodeSubject:
     loadAsString: true
     input:

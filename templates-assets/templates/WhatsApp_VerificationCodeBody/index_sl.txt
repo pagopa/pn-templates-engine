@@ -1,0 +1,1 @@
+{"templateName":"send_codice_verifica","language":"sl","bodyParameters":["%s"],"buttonParameters":["%s"],"previewText":"Vaša koda za preverjanje SEND je %s. Zaradi vaše varnosti je ne delite."}

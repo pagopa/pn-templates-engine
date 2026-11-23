@@ -646,6 +646,89 @@ paths:
         '500':
           $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
 
+  /templates-engine-private/v1/templates/notification-aar-for-whatsapp-analog:
+    put:
+      summary: NotificationAarForWhatsappAnalog
+      description: Genera il descrittore JSON (templateName, language, bodyParameters, previewText) del template WhatsApp NotificationAarForWhatsappAnalog. Il testo è approvato su Meta (vedi templates-assets/templates/NotificationAARForWhatsAppAnalog/meta-template.md).
+      operationId: notificationAarForWhatsappAnalog
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: x-language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAarForSmsAnalog'
+
+      responses:
+        '200':
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/notification-aar-for-whatsapp-digital:
+    put:
+      summary: NotificationAarForWhatsappDigital
+      description: Genera il descrittore JSON (templateName, language, bodyParameters, previewText) del template WhatsApp NotificationAarForWhatsappDigital. Il testo è approvato su Meta (vedi templates-assets/templates/NotificationAARForWhatsAppDigital/meta-template.md).
+      operationId: notificationAarForWhatsappDigital
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: x-language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+      requestBody:
+        description: Parametri necessari per generare il documento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas-params.yaml#/components/schemas/NotificationAarForSmsDigital'
+
+      responses:
+        '200':
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
+  /templates-engine-private/v1/templates/whatsapp-verification-code-body:
+    put:
+      summary: WhatsappVerificationCodeBody
+      description: Genera il descrittore JSON del template WhatsApp di autenticazione (OTP). Il segnaposto %s va sostituito dal chiamante con il codice.
+      operationId: whatsappVerificationCodeBody
+      tags:
+        - Template
+      parameters:
+        - in: header
+          name: x-language
+          description: Lingua del documento
+          required: true
+          schema:
+            $ref: 'schemas-params.yaml#/components/schemas/LanguageEnum'
+
+      responses:
+        '200':
+          $ref: 'schemas-responses.yaml#/components/responses/SuccessResponseText'
+        '400':
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseBadRequest'
+        '500':
+          $ref: 'schemas-responses.yaml#/components/responses/FailResponseInternalServerError'
+
   /templates-engine-private/v1/templates/sms-verification-code-body:
     put:
       summary: SmsVerificationCodeBody
