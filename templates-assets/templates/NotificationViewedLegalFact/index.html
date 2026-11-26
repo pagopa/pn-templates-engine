@@ -14,15 +14,15 @@
     </bookmarks>
 </head>
 
-<body>
+<body id="notificationViewedLegalFact">
    <header id="header" class="table">
         <div class="row">
-        <div class="width-50 cell">
-        <img src="../../images/pn-logo-header.png" class="pagopa-logo-header" alt="Logo di PagoPA S.p.A."/>
-        </div>
-        <div class="width-50 cell right">
-        <img src="../../images/send-logo.png" class="send-logo-header" alt="Logo di SEND - Servizio Notifiche Digitali"/>
-        </div>
+            <div class="width-50 cell">
+                <img src="../../images/pn-logo-header.png" class="pagopa-logo-header" alt="Logo di PagoPA S.p.A."/>
+            </div>
+            <div class="width-50 cell right">
+                <img src="../../images/send-logo.png" class="send-logo-header" alt="Logo di SEND - Servizio Notifiche Digitali"/>
+            </div>
         </div>
     </header>
     <!-- Se il footer viene messo in fondo al documento compare solo nell'ultima pagina -->
@@ -42,10 +42,10 @@
     </footer>
 
     <main>
+        
         <h1 class="document-type subject mb-0" id="subject">
             <% if (noIta) { %><%-subject%><br><% } %>  <%-it_subject%>
         </h1>
-
         <% if (noIta) { %><p class="paragraph">
             <%-body1%>
         </p><% } %>
@@ -135,7 +135,6 @@
             <% if (noIta) { %><p class="caption my-8"><%-disclaimer%></p><% } %>
             <p class="caption <%= noIta ? 'mb-0' : 'my-8' %>"><%-it_disclaimer%></p>
         </div>
-
     </main>
 </body>
 

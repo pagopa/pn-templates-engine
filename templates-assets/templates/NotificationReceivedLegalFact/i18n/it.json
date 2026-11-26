@@ -1,5 +1,6 @@
 {
   "it_language": "it",
+  "it_watermark":"FACSIMILE",
   "it_subject":"Attestazione opponibile a terzi: notifica presa in carico",
   "it_body1":"Ai sensi dell’art. 26, comma 11, del decreto-legge 76/2020 s.m.i., la PagoPA S.p.A. nella sua qualità di gestore ex lege della Piattaforma Notifiche Digitali di cui allo stesso art. 26 (anche nota come SEND - Servizio Notifiche Digitali), con ogni valore legale per l'opponibilità a terzi, ATTESTA CHE:",
   "it_body2":"in data <b>${sendDate}</b> il soggetto mittente <b>${notification.sender.paDenomination}</b>, C.F. <b>${notification.sender.paTaxId}</b> ha messo a disposizione del gestore i documenti informatici di cui allo IUN <b>${notification.iun}</b> e identificati in modo univoco con i seguenti hash:",

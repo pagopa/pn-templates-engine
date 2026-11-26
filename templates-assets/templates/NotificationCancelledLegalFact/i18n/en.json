@@ -1,5 +1,6 @@
 {
   "language": "en",
+  "watermark":"SAMPLE",
   "subject": "Declaration of cancellation of notification on the SEND platform",
   "body1": "With this document, made available to the recipient exclusively on the SEND Platform, it is declared that the notification with IUN <b>${notification.iun}</b>, performed against:",
   "denomination": "Name and Surname / Company Name",
