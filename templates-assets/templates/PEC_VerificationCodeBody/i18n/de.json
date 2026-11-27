@@ -4,5 +4,5 @@
   "hello": "Hallo",
   "body1": "Um diese PEC-Adresse als digitales Plattform-Domizil zu best&#228;tigen, die SEND als Hauptadresse f&#252;r den Versand rechtsg&#252;ltiger Zustellungen verwenden wird, gib auf SEND - Servizio Notifiche Digitali den Code ein",
   "signature": "Bis bald",
-  "footer": "Du erh&#228;ltst diese PEC, weil du deine Adresse als rechtsg&#252;ltige Adresse auf SEND angegeben hast. Um deine Kontaktdaten zu bearbeiten oder weitere hinzuzuf&#252;gen, <a title=\"Weiter auf SEND\" class=\"link\" <#if recipientType == \"PF\">href=\"${ENV.sendLoginUrlPF}recapiti\"<#else>href=\"${ENV.sendLoginUrlPG}recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">gehe zu deinen Kontaktdaten</a>."
+  "footer": "Du erh&#228;ltst diese PEC, weil du deine Adresse als Kontaktadresse auf SEND angegeben hast. Um deine Kontaktdaten zu bearbeiten oder weitere hinzuzuf&#252;gen, <a title=\"Weiter auf SEND\" class=\"link\" <#if recipientType == \"PF\">href=\"${ENV.sendLoginUrlPF}recapiti\"<#else>href=\"${ENV.sendLoginUrlPG}recapiti\"</#if> style=\"color: #0073e6; text-decoration: underline\">gehe zu deinen Kontaktdaten</a>."
 }
